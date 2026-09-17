@@ -1,0 +1,533 @@
+{
+  "experiment": "C2: precompute and share prologue counter<count predicates",
+  "created_utc": "2026-09-17T10:18:18.540623+00:00",
+  "scope": "Isolated Crossbar screening, not full-CGRA PPA or Fmax",
+  "baseline_revision": "41cb0c0e94d9373dbb967cb69baa38990d0f402e",
+  "baseline_sha256": "1c65170346109cfb5cf32bb456724fe9551579ddc73ef987739f4843b39c2446",
+  "candidate_sha256": "40f5077b172e2c8f9917eb70012a0119c7df13c996e0314a926ef3d56080b5a4",
+  "single_item_change": "Original triple counter loop retained; select precomputed one-bit comparison instead of selecting both multi-bit operands before comparison",
+  "isolated_prototype": true,
+  "combined_exploration": "../C2-compare was based on C1 and has only initial differential/translation evidence; excluded from this single-item result",
+  "flow": "Same run_local.py, synth -noabc; dfflibmap; abc; clean; stat; read_liberty; check -mapped -assert. Reference mapping reused without rerun.",
+  "constraints": {
+    "driving_cell": "BUF_X1",
+    "load_ff": 5.0
+  },
+  "independent_review": {
+    "reviewer": "/root/area_report",
+    "status": "no actionable findings",
+    "candidate_sha256": "40f5077b172e2c8f9917eb70012a0119c7df13c996e0314a926ef3d56080b5a4",
+    "notes": "Same unsigned Bits3 comparison, cached as b1; original counter triple loop, increment, reset/clear, state and truncated selector aliases preserved. Invalid ctrl6 addresses remain undefined. Comparison reads current registers only, so no new readiness combinational loop."
+  },
+  "evidence": [
+    {
+      "path": "D:\\work\\VectorCGRA\\sys_lib\\build\\C2-compare-baseline\\CrossbarRTL.py",
+      "sha256": "40f5077b172e2c8f9917eb70012a0119c7df13c996e0314a926ef3d56080b5a4"
+    },
+    {
+      "path": "D:\\work\\VectorCGRA\\sys_lib\\build\\C1-factor\\local_mapping_ctrl6\\report.json",
+      "sha256": "f3da7a4c0b8f258216678d155bdac8a00baca33f97f7d4cd6dcbfea4624b6513"
+    },
+    {
+      "path": "D:\\work\\VectorCGRA\\sys_lib\\build\\C2-compare-baseline\\local_mapping_ctrl6\\report.json",
+      "sha256": "e478b2af6124d40aca62ba7b98fe7205439a59ed27c34929fa2cad0fdb7ce6e6"
+    },
+    {
+      "path": "D:\\work\\VectorCGRA\\sys_lib\\build\\C1-factor\\run_local.py",
+      "sha256": "0a247387fd9b37a4400bfd28a2af994f9660ebab85d8b42e4223aa2bb183db55"
+    },
+    {
+      "path": "D:\\work\\VectorCGRA\\sys_lib\\lib\\NangateOpenCellLibrary_typical.lib",
+      "sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1"
+    },
+    {
+      "path": "sys_lib/equivalence.py",
+      "sha256": "12e04cddfb225e743269cb669d0fe3281f24fef1188f45badd985bf6575a6445"
+    },
+    {
+      "path": "sys_lib/verify_crossbar.py",
+      "sha256": "a119189d47d10ccbc6d76dd500a8b5720cc13b4179b6daff21949dc7ed32c390"
+    },
+    {
+      "path": "sys_lib/build/C2-compare-baseline/translation_ctrl6/crossbar_translation.json",
+      "sha256": "027fd94dd2f859568f49ea3eb3a5feb7435f46867a461065f7a9a0b9a77a8eb7"
+    },
+    {
+      "path": "sys_lib/build/C2-compare-baseline/single_item.diff",
+      "sha256": "d7d9e286f1a42c8108df5c75b66b214df850b54ca228fa95e8187601722d6fca"
+    }
+  ],
+  "cases": [
+    {
+      "case": {
+        "name": "routing8x8_ctrl6",
+        "inputs": 8,
+        "outputs": 8,
+        "ctrl_size": 6,
+        "local_base": 4
+      },
+      "reference": {
+        "case": {
+          "name": "routing8x8_ctrl6",
+          "inputs": 8,
+          "outputs": 8,
+          "ctrl_size": 6,
+          "local_base": 4
+        },
+        "label": "reference",
+        "area_exact": "8130.024000",
+        "cells": 6525,
+        "sequential_area_exact": "687.344000",
+        "abc_partition_delays_ps": [
+          1041.86
+        ],
+        "elapsed_seconds": 63.46900000004098,
+        "script": "D:\\work\\VectorCGRA\\sys_lib\\build\\C1-factor\\local_mapping_ctrl6\\routing8x8_ctrl6\\reference\\run.ys"
+      },
+      "candidate": {
+        "case": {
+          "name": "routing8x8_ctrl6",
+          "inputs": 8,
+          "outputs": 8,
+          "ctrl_size": 6,
+          "local_base": 4
+        },
+        "label": "candidate",
+        "area_exact": "5064.906000",
+        "cells": 4031,
+        "sequential_area_exact": "687.344000",
+        "abc_partition_delays_ps": [
+          939.25
+        ],
+        "elapsed_seconds": 60.03099999995902,
+        "script": "D:\\work\\VectorCGRA\\sys_lib\\build\\C2-compare-baseline\\local_mapping_ctrl6\\routing8x8_ctrl6\\candidate\\run.ys"
+      },
+      "area_change_exact": "-3065.118000",
+      "area_change_percent": -37.70121711817825,
+      "local_delay_change_percent": -9.848732075326815,
+      "sequential_area_unchanged": true
+    },
+    {
+      "case": {
+        "name": "fu2x8_ctrl6",
+        "inputs": 2,
+        "outputs": 8,
+        "ctrl_size": 6,
+        "local_base": 4
+      },
+      "reference": {
+        "case": {
+          "name": "fu2x8_ctrl6",
+          "inputs": 2,
+          "outputs": 8,
+          "ctrl_size": 6,
+          "local_base": 4
+        },
+        "label": "reference",
+        "area_exact": "2560.516000",
+        "cells": 1931,
+        "sequential_area_exact": "198.968000",
+        "abc_partition_delays_ps": [
+          729.68
+        ],
+        "elapsed_seconds": 9.921999999904074,
+        "script": "D:\\work\\VectorCGRA\\sys_lib\\build\\C1-factor\\local_mapping_ctrl6\\fu2x8_ctrl6\\reference\\run.ys"
+      },
+      "candidate": {
+        "case": {
+          "name": "fu2x8_ctrl6",
+          "inputs": 2,
+          "outputs": 8,
+          "ctrl_size": 6,
+          "local_base": 4
+        },
+        "label": "candidate",
+        "area_exact": "1707.720000",
+        "cells": 1188,
+        "sequential_area_exact": "198.968000",
+        "abc_partition_delays_ps": [
+          685.08
+        ],
+        "elapsed_seconds": 7.765999999945052,
+        "script": "D:\\work\\VectorCGRA\\sys_lib\\build\\C2-compare-baseline\\local_mapping_ctrl6\\fu2x8_ctrl6\\candidate\\run.ys"
+      },
+      "area_change_exact": "-852.796000",
+      "area_change_percent": -33.305630583835445,
+      "local_delay_change_percent": -6.11226839162371,
+      "sequential_area_unchanged": true
+    }
+  ],
+  "status": "screening_passed; eligible for full-CGRA evaluation",
+  "simulation": [
+    {
+      "evidence": {
+        "path": "sys_lib/build/C2-compare-baseline/verification/crossbar_verification.json",
+        "sha256": "64068203dc0484a78fc7427d849521258909cc56b6ac2893e74338e90dd488c4"
+      },
+      "status": "passed",
+      "seed": 20260917,
+      "random_cycles_per_case": 1000,
+      "include_alias_selectors": true,
+      "comparison": "All output bits, including invalid messages, plus persistent state; before and after each edge",
+      "cases": [
+        {
+          "case": {
+            "name": "routing8x8",
+            "inputs": 8,
+            "outputs": 8,
+            "ctrl_size": 8,
+            "local_base": 4
+          },
+          "cycles": 1836,
+          "comparisons": 3673,
+          "prologue_levels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "ctrl_addresses": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "selector_values": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ]
+        },
+        {
+          "case": {
+            "name": "fu2x8",
+            "inputs": 2,
+            "outputs": 8,
+            "ctrl_size": 8,
+            "local_base": 4
+          },
+          "cycles": 1836,
+          "comparisons": 3673,
+          "prologue_levels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "ctrl_addresses": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "selector_values": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "evidence": {
+        "path": "sys_lib/build/C2-compare-baseline/verification_ctrl6/crossbar_verification.json",
+        "sha256": "744befc4799c7885ee57d312747d0f8169a8cb1728cf8594531475b5cacc07b7"
+      },
+      "status": "passed",
+      "seed": 20260917,
+      "random_cycles_per_case": 1000,
+      "include_alias_selectors": true,
+      "comparison": "All output bits, including invalid messages, plus persistent state; before and after each edge",
+      "cases": [
+        {
+          "case": {
+            "name": "routing8x8_ctrl6",
+            "inputs": 8,
+            "outputs": 8,
+            "ctrl_size": 6,
+            "local_base": 4
+          },
+          "cycles": 1636,
+          "comparisons": 3273,
+          "prologue_levels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "ctrl_addresses": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "selector_values": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ]
+        },
+        {
+          "case": {
+            "name": "fu2x8_ctrl6",
+            "inputs": 2,
+            "outputs": 8,
+            "ctrl_size": 6,
+            "local_base": 4
+          },
+          "cycles": 1636,
+          "comparisons": 3273,
+          "prologue_levels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "ctrl_addresses": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "selector_values": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    },
+    {
+      "evidence": {
+        "path": "sys_lib/build/C2-compare-baseline/verification_irregular/crossbar_verification.json",
+        "sha256": "29cbb070c63af5774af0e22800e8240816179f6b30fb88b71e9a187c2404c69c"
+      },
+      "status": "passed",
+      "seed": 20260917,
+      "random_cycles_per_case": 1000,
+      "include_alias_selectors": true,
+      "comparison": "All output bits, including invalid messages, plus persistent state; before and after each edge",
+      "cases": [
+        {
+          "case": {
+            "name": "irregular3x5",
+            "inputs": 3,
+            "outputs": 5,
+            "ctrl_size": 6,
+            "local_base": 2
+          },
+          "cycles": 1492,
+          "comparisons": 2985,
+          "prologue_levels": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "ctrl_addresses": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "selector_values": [
+            0,
+            1,
+            2,
+            3
+          ]
+        }
+      ]
+    }
+  ],
+  "formal": [
+    {
+      "evidence": {
+        "path": "sys_lib/build/C2-compare-baseline/equivalence_ctrl6/equivalence_report.json",
+        "sha256": "6b19bb4ea2ff0535817d838b7f463a8587dce4e080681cda11cf1d3a8d606595"
+      },
+      "status": "proved",
+      "cases": [
+        {
+          "case": {
+            "name": "routing8x8_ctrl6",
+            "inputs": 8,
+            "outputs": 8,
+            "ctrl_size": 6,
+            "local_base": 4
+          },
+          "status": "proved",
+          "elapsed_seconds": 125.58793529996183,
+          "induction_depth": 4,
+          "undef_modeling": true,
+          "input_assumptions": [],
+          "equiv_cells_before_proof": 1138,
+          "persistent_state_bits_matched": {
+            "prologue_counter": 144,
+            "send_accepted": 8
+          },
+          "output_bits_matched": {
+            "recv_data__rdy": 8,
+            "recv_opt__rdy": 1,
+            "send_data__msg": 280,
+            "send_data__val": 8
+          },
+          "matching_exclusions": [
+            "sv2v synthetic loop-block temporaries"
+          ]
+        },
+        {
+          "case": {
+            "name": "fu2x8_ctrl6",
+            "inputs": 2,
+            "outputs": 8,
+            "ctrl_size": 6,
+            "local_base": 4
+          },
+          "status": "proved",
+          "elapsed_seconds": 14.71990490006283,
+          "induction_depth": 4,
+          "undef_modeling": true,
+          "input_assumptions": [],
+          "equiv_cells_before_proof": 554,
+          "persistent_state_bits_matched": {
+            "prologue_counter": 36,
+            "send_accepted": 8
+          },
+          "output_bits_matched": {
+            "recv_data__rdy": 2,
+            "recv_opt__rdy": 1,
+            "send_data__msg": 280,
+            "send_data__val": 8
+          },
+          "matching_exclusions": [
+            "sv2v synthetic loop-block temporaries"
+          ]
+        }
+      ]
+    },
+    {
+      "evidence": {
+        "path": "sys_lib/build/C2-compare-baseline/equivalence_irregular/equivalence_report.json",
+        "sha256": "b5cd2fdec9d2393de6c6602d16faa4a4ce31a37ba3430014ff6bcdd2c833faca"
+      },
+      "status": "proved",
+      "cases": [
+        {
+          "case": {
+            "name": "irregular3x5",
+            "inputs": 3,
+            "outputs": 5,
+            "ctrl_size": 6,
+            "local_base": 2
+          },
+          "status": "proved",
+          "elapsed_seconds": 8.019828999997117,
+          "induction_depth": 4,
+          "undef_modeling": true,
+          "input_assumptions": [],
+          "equiv_cells_before_proof": 513,
+          "persistent_state_bits_matched": {
+            "prologue_counter": 54,
+            "send_accepted": 5
+          },
+          "output_bits_matched": {
+            "recv_data__rdy": 3,
+            "recv_opt__rdy": 1,
+            "send_data__msg": 175,
+            "send_data__val": 5
+          },
+          "matching_exclusions": [
+            "sv2v synthetic loop-block temporaries"
+          ]
+        }
+      ]
+    }
+  ],
+  "python": "3.12.13 (main, May  4 2026, 21:19:41) [MSC v.1944 64 bit (AMD64)]",
+  "pymtl3": "3.1.13",
+  "tools": {
+    "yosys": {
+      "path": "D:\\work\\VectorCGRA\\sys_lib\\tools\\oss-cad-suite\\bin\\yosys.exe",
+      "version": "Yosys 0.69+62 (git sha1 0edda7a3a-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)",
+      "sha256": "05cf22385a4fa334988c64fc08724b39c65c2c8092a1c817779fb729de89c170"
+    },
+    "sv2v": {
+      "path": "D:\\work\\VectorCGRA\\sys_lib\\tools\\sv2v-v0.0.13\\sv2v-Windows\\sv2v.exe",
+      "version": "sv2v v0.0.13",
+      "sha256": "1f3c2b96e212592e6f4a2ecff3209f211277834540d8a9309ecee50a45adc699"
+    },
+    "abc": {
+      "path": "sys_lib/tools/oss-cad-suite/bin/yosys-abc.exe",
+      "sha256": "8168052e89cbb3120acf8b7ef9846a1204f1eb320e25c135326ab089a8c32e12",
+      "version": "UC Berkeley, ABC 1.01 (compiled Sep 16 2026 05:51:50)"
+    }
+  },
+  "totals": {
+    "differential_cycles": 8436,
+    "complete_snapshots": 16877,
+    "proved_equiv_points": 2205
+  }
+}

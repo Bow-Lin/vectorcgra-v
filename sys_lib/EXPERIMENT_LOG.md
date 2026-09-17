@@ -161,3 +161,10 @@ sys_lib/.venv/Scripts/python.exe -m pytest noc/test/CrossbarRTL_test.py -q --tb=
 - boundary 与 boundary_prologue 各接受 16 个边界输入、产生 32 个边界输出，并收到全部 16 个 COMPLETE；prologue 场景还包含额外 64 条配置。边界反射多播和四方向穿越整个 Mesh 均检查了数据内容与顺序。
 - 普通 boundary 中的 35 个 stall 计数是“输出端口×阻塞周期”，同一全局周期多个端口分别计数；不误写为 35 个唯一全局周期。
 - 完整录制轨迹保留在 `build/stage_d_boundary_reference/`；B 重播报告归档为 `results/B1-cgra-boundary.json`。新增 `verify_cgra.py` 支持冻结源码、新进程、轨迹 hash、首次差异与已完成基线复用；报告明确有限测试范围。
+
+### C2 接入与最终测量
+
+- 第四笔提交 `0474ab8` 保存整机重播工具、B 的完整验证、C1/C3 独立候选与验证脚本修正。归档 patch 中的空白上下文行被 Git 空白检查提示；这是 unified diff 的必要前缀，后续为 `experiments/*.patch` 单独设置尾空白检查属性，不改 patch 内容与 hash。
+- C2 筛选完成：ctrl8 两种形状、ctrl6 两种形状及 irregular3x5 共 **8436 cycles / 16877 snapshots**；ctrl6 两形状和 irregular 三项形式证明共 2205 点、无未证。逐输出与状态覆盖审计全部通过；精简证据为 `results/C2-compare-screening.json`。
+- 主智能体按原样将已验证的单项候选复制到 `noc/CrossbarRTL.py`，SHA256 `40f5077b172e2c8f9917eb70012a0119c7df13c996e0314a926ef3d56080b5a4`。没有加入 C1 或 C3，原寄存器、复位、控制编码和接口保持不变。
+- 下一步在此明确版本上生成新的完整 CGRA 网表、执行相同综合/时序诊断，并复用完整基线轨迹验证最终 B+C2 集成版本。

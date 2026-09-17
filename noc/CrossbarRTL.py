@@ -93,6 +93,7 @@ class CrossbarRTL(Component):
     s.recv_valid_or_during_prologue_allowing_vector = Wire(num_outports)
     s.prologue_counter = [[Wire(PrologueCountType) for _ in range(num_inports)] for _ in range(ctrl_mem_size)]
     s.prologue_counter_next = [[Wire(PrologueCountType) for _ in range(num_inports)] for _ in range(ctrl_mem_size)]
+    s.prologue_needed = [[Wire(b1) for _ in range(num_inports)] for _ in range(ctrl_mem_size)]
     s.prologue_count_inport = [[InPort(PrologueCountType) for _ in range(num_inports)] for _ in range(ctrl_mem_size)]
     # Wiki of "Workaround for sv2v Flattening Multi-dimensional Arrays into One-dimensional Vectors"
     # https://github.com/tancheng/VectorCGRA/wiki/Workaround-for-sv2v-Flattening-Multi%E2%80%90dimensional-Arrays-into-One%E2%80%90dimensional-Vectors
@@ -173,6 +174,15 @@ class CrossbarRTL(Component):
         s.send_accepted <<= s.send_accepted_next
 
     @update
+    def update_prologue_needed():
+      # Compare each fixed counter/count pair once. Dynamic output selection
+      # then routes only this one-bit predicate; counter updates reuse it.
+      for addr in range(ctrl_mem_size):
+        for i in range(num_inports):
+          s.prologue_needed[addr][i] @= \
+              s.prologue_counter[addr][i] < s.prologue_count_wire[addr][i]
+
+    @update
     def update_prologue_counter_next():
       # Nested-loop to update the prologue counter, to avoid dynamic indexing to
       # work-around Yosys issue: https://github.com/tancheng/VectorCGRA/issues/148
@@ -184,7 +194,7 @@ class CrossbarRTL(Component):
               (s.in_dir[j] > 0) & \
               (s.in_dir_local[j] == i) & \
               (addr == s.ctrl_addr_inport) & \
-              (s.prologue_counter[addr][i] < s.prologue_count_wire[addr][i]):
+              s.prologue_needed[addr][i]:
               s.prologue_counter_next[addr][i] @= s.prologue_counter[addr][i] + 1
 
     @update
@@ -217,8 +227,7 @@ class CrossbarRTL(Component):
         if s.in_dir[i] > 0:
           # Records whether the prologue steps have already been satisfied.
           s.during_prologue_allowing_vector[i] @= \
-            (s.prologue_counter[s.ctrl_addr_inport][s.in_dir_local[i]] < \
-             s.prologue_count_wire[s.ctrl_addr_inport][s.in_dir_local[i]])
+            s.prologue_needed[s.ctrl_addr_inport][s.in_dir_local[i]]
         else:
           s.during_prologue_allowing_vector[i] @= 0
 
