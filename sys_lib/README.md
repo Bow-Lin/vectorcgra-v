@@ -70,3 +70,15 @@ retain source hashes, port shapes, seeds, state coverage and actual checks.
 Baseline-to-baseline smoke checks validate the workflow, not an optimization.
 Verilator import remains a separate check from RTLIR translation and Yosys
 equivalence; see the experiment log for local toolchain limitations.
+
+## Control-ring switch verification
+
+```powershell
+sys_lib/.venv/Scripts/python.exe -m pytest noc/test/StaticSwitchUnitRTL_test.py -q --tb=short
+sys_lib/.venv/Scripts/python.exe sys_lib/verify_switch.py --output sys_lib/build/switch-example --case control6x199 --synth
+```
+
+This compares the original PyOCN switch against `StaticSwitchUnitRTL`, including
+idle messages, backpressure and the continuously enabled round-robin arbiter.
+The formal report accounts for every output and all priority-state bits.
+Local switch area is separate from complete-CGRA area.

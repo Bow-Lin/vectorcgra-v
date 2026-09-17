@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "started_utc": "2026-09-17T09:54:48.443024+00:00",
+  "top": "VectorCGRA4x4",
+  "method": "ABC stime over logically flattened, unchanged mapped cells with FF cutpoints",
+  "input": "D:\\work\\VectorCGRA\\sys_lib\\build\\B1-static-switch\\hierarchical\\mapped.json",
+  "abc_driving_cell": "BUF_X1",
+  "abc_load_ff": 5.0,
+  "abc_delay_ps": null,
+  "frequency_proxy_mhz": null,
+  "mapped_json_sha256": "1a012309f53bd8589e3f5b715585b52e977c490ad61c7bcd91ed7ea4e91041c7",
+  "liberty_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+  "yosys_version": "Yosys 0.69+62 (git sha1 0edda7a3a-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)",
+  "abc_version": "======== ABC command line \"version\"\nUC Berkeley, ABC 1.01 (compiled Sep 16 2026 05:51:50)",
+  "timing_script_sha256": "3af720b171c04806e52dd88293260c3625814d6d0b71cba4b8322c1e81a066cd",
+  "manifest_sha256": "448980f615350fde669e81115921454c2f60238581337c1e1515aed14dcfb5e2",
+  "parameters": {
+    "width": 4,
+    "height": 4,
+    "topology": "Mesh",
+    "data_bitwidth": 32,
+    "data_type_nbits": 35,
+    "num_fu_inports": 4,
+    "num_fu_outports": 2,
+    "ctrl_mem_size": 6,
+    "data_mem_size_global": 128,
+    "data_mem_size_per_bank": 16,
+    "num_banks_per_cgra": 2,
+    "num_registers_per_reg_bank": 16,
+    "num_ctrl": 6,
+    "total_steps": 6,
+    "multi_cgra_rows": 1,
+    "multi_cgra_columns": 4,
+    "is_multi_cgra": false,
+    "has_ctrl_ring": true,
+    "has_im2col_engine": false,
+    "mem_access_is_combinational": true,
+    "functional_units": [
+      "AdderRTL",
+      "MulRTL",
+      "LogicRTL",
+      "ShifterRTL",
+      "PhiRTL",
+      "CompRTL",
+      "GrantRTL",
+      "MemUnitRTL",
+      "SelRTL",
+      "VectorMulComboRTL",
+      "VectorAdderComboRTL",
+      "NahRTL"
+    ]
+  },
+  "explicit_inactive_outputs": [
+    "recv_from_inter_cgra_noc__rdy",
+    "send_to_inter_cgra_noc__msg",
+    "send_to_inter_cgra_noc__val"
+  ],
+  "netlist_check_problems": 0,
+  "status": "blocked",
+  "recorded_utc": "2026-09-17T09:55:37.319208+00:00",
+  "reason": "8800 active sinks have undefined constants; see coverage.json",
+  "coverage": {
+    "mapped_cells": 1206277,
+    "combinational_cells": 1056908,
+    "sequential_cells": 149369,
+    "combinational_cell_types": {
+      "INV_X2": 1017,
+      "NAND3_X4": 65,
+      "MUX2_X1": 287044,
+      "BUF_X4": 15034,
+      "BUF_X2": 15274,
+      "OR2_X1": 17312,
+      "NOR2_X1": 57344,
+      "AND2_X1": 34986,
+      "BUF_X8": 1648,
+      "CLKBUF_X1": 74460,
+      "NOR4_X4": 474,
+      "BUF_X1": 42882,
+      "AND2_X2": 814,
+      "AND2_X4": 433,
+      "BUF_X32": 384,
+      "CLKBUF_X2": 337,
+      "INV_X1": 51572,
+      "NOR3_X2": 1311,
+      "NAND3_X1": 25640,
+      "NOR2_X4": 489,
+      "NAND4_X4": 1,
+      "OAI21_X1": 51186,
+      "NAND2_X4": 363,
+      "AND4_X1": 3301,
+      "NAND2_X1": 65793,
+      "NOR4_X2": 980,
+      "AOI222_X1": 10693,
+      "OAI33_X1": 3457,
+      "AOI21_X2": 2139,
+      "AOI21_X1": 63309,
+      "AND3_X1": 6703,
+      "NOR3_X1": 21888,
+      "OR2_X2": 2689,
+      "OAI221_X2": 231,
+      "INV_X8": 17,
+      "BUF_X16": 4434,
+      "NAND2_X2": 1781,
+      "XOR2_X1": 15473,
+      "NAND4_X1": 8769,
+      "NOR3_X4": 710,
+      "OR2_X4": 164,
+      "INV_X4": 440,
+      "OAI211_X1": 17481,
+      "OR4_X4": 278,
+      "AND3_X4": 295,
+      "AOI211_X1": 11965,
+      "NOR4_X1": 5237,
+      "OR4_X2": 273,
+      "OAI21_X2": 924,
+      "NOR2_X2": 1901,
+      "AOI211_X2": 1199,
+      "OR3_X4": 177,
+      "AOI22_X1": 40476,
+      "OAI22_X1": 8123,
+      "OAI221_X1": 7034,
+      "AOI222_X2": 233,
+      "AOI221_X1": 18964,
+      "OR3_X1": 4608,
+      "OAI222_X1": 722,
+      "OR4_X1": 1570,
+      "CLKBUF_X3": 47,
+      "MUX2_X2": 3093,
+      "XNOR2_X1": 27459,
+      "OR3_X2": 448,
+      "XOR2_X2": 2457,
+      "AND3_X2": 588,
+      "XNOR2_X2": 3596,
+      "AND4_X2": 180,
+      "AOI22_X2": 183,
+      "AOI21_X4": 768,
+      "OAI21_X4": 496,
+      "OAI211_X2": 438,
+      "NAND3_X2": 388,
+      "OAI22_X4": 150,
+      "AOI22_X4": 182,
+      "OAI22_X2": 150,
+      "AOI221_X2": 840,
+      "NAND4_X2": 192,
+      "AOI211_X4": 128,
+      "AND4_X4": 32,
+      "OAI211_X4": 128,
+      "AOI221_X4": 336,
+      "AOI222_X4": 128
+    },
+    "sequential_cell_types": {
+      "DFF_X1": 149369
+    },
+    "clock_domains": [
+      {
+        "net": "n22",
+        "edge": "positive"
+      }
+    ],
+    "unique_launch_nets": 299754,
+    "endpoint_pins": 150130,
+    "constant_sources": [
+      "0",
+      "1"
+    ],
+    "primary_inputs": 1016,
+    "primary_outputs": 761,
+    "inactive_primary_output_bits": 205,
+    "constant_endpoints": 32,
+    "sequential_input_pins": 149369,
+    "sequential_output_pins": 298738,
+    "hierarchical_module_instances": 2660,
+    "hierarchical_constant_connections": {
+      "x": 21707,
+      "0": 13071,
+      "1": 517
+    },
+    "active_undefined_constants": 8800,
+    "active_undriven_nets": 0,
+    "undefined_sink_kinds": {
+      "combinational_input_pins": 8800
+    },
+    "problems": [
+      "8800 active sinks have undefined constants; see coverage.json"
+    ],
+    "inactive_outputs": [
+      {
+        "port": "recv_from_inter_cgra_noc__rdy",
+        "bit_count": 1,
+        "verified_all_bits_x": true,
+        "reason": "is_multi_cgra=false: CgraRTL uses the internal bypass queue instead of this unimplemented inter-CGRA output"
+      },
+      {
+        "port": "send_to_inter_cgra_noc__msg",
+        "bit_count": 203,
+        "verified_all_bits_x": true,
+        "reason": "is_multi_cgra=false: CgraRTL uses the internal bypass queue instead of this unimplemented inter-CGRA output"
+      },
+      {
+        "port": "send_to_inter_cgra_noc__val",
+        "bit_count": 1,
+        "verified_all_bits_x": true,
+        "reason": "is_multi_cgra=false: CgraRTL uses the internal bypass queue instead of this unimplemented inter-CGRA output"
+      }
+    ],
+    "inactive_output_verification": "Each explicitly named port is entirely x; no x may reach any mapped gate input, FF input, or enabled top output",
+    "logical_flattening": "All module port aliases unified; every mapped leaf cell preserved once per instance"
+  },
+  "undefined_sink_groups": [
+    {
+      "module_type": "VectorMulRTL__1b1bb2eafb2c230f",
+      "pin_count": 4800
+    },
+    {
+      "module_type": "VectorAdderRTL__1b1bb2eafb2c230f",
+      "pin_count": 2752
+    },
+    {
+      "module_type": "FlexibleFuRTL__055f28a3efe98227",
+      "pin_count": 1232
+    },
+    {
+      "module_type": "ConstQueueDynamicRTL__8f4d11f2dd80f063",
+      "pin_count": 16
+    }
+  ],
+  "baseline_comparison": {
+    "baseline_status": "blocked",
+    "same_x_sink_count": true,
+    "same_group_counts": true,
+    "same_instance_celltype_pin_multiset": true,
+    "exact_sink_records_identical": false,
+    "same_inactive_outputs": true,
+    "same_active_undriven_count": true,
+    "ff_input_x_baseline": 0,
+    "ff_input_x_candidate": 0,
+    "whole_mapped_modules_identical": {
+      "ConstQueueDynamicRTL__8f4d11f2dd80f063": false,
+      "FlexibleFuRTL__055f28a3efe98227": false,
+      "VectorAdderRTL__1b1bb2eafb2c230f": false,
+      "VectorMulRTL__1b1bb2eafb2c230f": false
+    },
+    "cell_count_delta": {
+      "mapped_cells": -857448,
+      "combinational_cells": -857448,
+      "sequential_cells": 0
+    },
+    "same_exact_pins_after_normalizing_only_abc_run_ids": true,
+    "abc_run_id_normalization": "Replace only $abc$<digits>$blif$<digits>$ with $abc$RUN$blif$RUN$; retain hierarchy, gate index, library cell type, pin and constant value"
+  },
+  "commands": [
+    "sys_lib/.venv/Scripts/python.exe sys_lib/mapped_timing.py --input sys_lib/build/B1-static-switch/hierarchical/mapped.json --output sys_lib/build/B1-static-switch/hierarchical/timing --manifest sys_lib/build/B1-static-switch/manifest.json --inactive-output recv_from_inter_cgra_noc__rdy --inactive-output send_to_inter_cgra_noc__val --inactive-output send_to_inter_cgra_noc__msg"
+  ],
+  "diagnosis": "B1 retains the same pre-existing active-x timing blocker as A0. All 8800 undefined combinational input pins match by stable hierarchy instance, containing module, library cell type and pin. Zero FF-input x and zero active numbered undriven nets. Delay/frequency remain null; no gate remapping, x substitution, active-path exclusion or local-delay substitution was performed."
+}

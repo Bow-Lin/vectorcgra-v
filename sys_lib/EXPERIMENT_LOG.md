@@ -19,7 +19,7 @@
 |---|---|---|---|
 | `/root/noc_contract` | 互连/周期语义只读检查；crossbar 差分和形式验证流程 | 完整 CGRA 逐周期差分，集成/翻译验证 | 验证脚本，不修改 RTL |
 | `/root/synth_tools` | 安装官方 Yosys/ABC、sv2v；小网表时序试验 | 全 CGRA 网表诊断、统一 ABC 延迟估计 | 时序脚本及其产物 |
-| `/root/area_report` | 面积分解脚本和热点定位 | 独立审核基线与脚本；后续负责受控 Mux 候选实现 | 当前只读审核；实现时另行明确文件范围 |
+| `/root/area_report` | 面积分解脚本和热点定位 | 独立审核基线；实现 B 的 Switch；在隔离目录评估 C 候选 | B 的 Switch/Cgra 注入及测试；C 原型先限于 `build/` |
 | 主智能体 `/root` | 澄清、协调、建立基线 | 分支/提交、实验日志、独立复核、集成及最终报告 | 统一管理，共享文件不并发编辑 |
 
 子智能体使用继承的模型设置。没有向仓库外发送消息或创建 PR。
@@ -95,6 +95,7 @@ sys_lib/.venv/Scripts/python.exe -m pytest noc/test/CrossbarRTL_test.py -q --tb=
 - 因此本实验的整机 delay 和 frequency reference 均明确记为 **null/unavailable**。面积仍按统一映射流程记录；不以分模块 ABC 延迟代替整机数据。
 - 归档：`results/A0-timing-diagnostics.json`；完整 pin 清单与命令日志在 `build/baseline/hierarchical/timing/`。主智能体复核了端口例外必须匹配 manifest、所有有效消费者严格检查、失败不进入 ABC 计时的逻辑。
 - 阶段 A 的测量口径至此固定。后续候选使用相同库、综合脚本、层次展开和诊断规则。
+- 第二笔 Git 提交：`74eb4fc`，冻结完整时序覆盖诊断、基线限制与复现说明；仍无 RTL 修改。
 
 ## E02：控制环固定索引 Switch，阶段 B
 
@@ -108,3 +109,21 @@ sys_lib/.venv/Scripts/python.exe -m pytest noc/test/CrossbarRTL_test.py -q --tb=
 - 同一局部完整 switch 分层映射：基线 25,295.004 面积 / 18,484 cells，新实现 2,096.612 / 1,194 cells，局部面积下降 91.7114%。两边 `check -mapped -assert` 均通过。这不是整机节省比例。
 - 主智能体已生成 `build/B1-static-switch/` 独立 RTL 快照，完整 CGRA 综合正在运行；该快照保留源文件 hash，后续源码变动不影响本次测量。
 - `/root/noc_contract` 同时进行完整 CGRA fresh-process record/replay；`/root/synth_tools` 在阶段 A 完成后独立审查该 RTL。
+
+### B 的完整结果与归因复核
+
+- 完整 CGRA 映射完成，367.61 s；总面积 **2,104,402.342**、**1,206,277 cells**，相对 A0 减少 1,168,390.636（约 35.70%）。加载库后的 `check -mapped -assert` 为 0 个问题。
+- 控制环：1,799,792.176 → 632,451.442；controller：102,897.046 → 101,847.144；其余十类的面积及单元数均与 A0 精确相同。
+- 为解释 controller 的 1,049.902 差额，`/root/area_report` 对比了两份冻结 RTL。controller 可达的 27 个模块全文完全相同；98 个层次实例中，差异仅在 `controller/crossbar/switch_units__0/mux`，即未改动的 7×204-bit Mux。其面积 16,050.972 → 15,001.070，单元 12,381 → 10,968。ABC 前均为 9585 generic cells、2996 个 undef 替零。确认属于同一 RTL 的映射变化，具体 ABC 排序/启发式触发原因未证明，不能把这一小部分声称为源码优化的直接收益。
+- `/root/synth_tools` 对 B 进行独立源码审查，未发现问题。额外 3×32、8×32 Switch 形式验证分别证明 274、371 点，包含全部输出及 3/8 个仲裁状态位。
+- 新增 import 专用测试，普通运行通过。首次 `--test-verilog` 因系统临时目录权限失败；改用工作区 `--basetemp` 后 RTLIR 翻译成功，随后仍因 Windows 找不到 `verilator` 入口而无法导入构建。报告不将其记为通过。
+- 完整 CGRA INC 差分通过：113 cycles / 226 个时钟沿前后快照，54 个顶层输出端口的全部位（含无效消息）一致；64 次配置/启动握手、16 次完成握手、9 个 CPU 输出背压周期。证据：`build/stage_d_inc_smoke2/verification_report.json`。这是有限集成用例，不是所有程序的整机形式证明。
+- `/root/noc_contract` 继续四边数据路由、多播、prologue 的基线录制；`/root/synth_tools` 对 B 的冻结网表运行同口径时序覆盖检查。
+- 整机验证脚本首个 `stage_d_inc_smoke` 在提取源码时失败：纯 Verilog 子模块没有 `*.py`，`git archive` 返回 128。增加先检查文件列表、无 Python 时跳过提取并保留子模块 revision 的处理后，`stage_d_inc_smoke2` 完成。失败未进入 RTL 仿真。
+- B 的全网表时序检查同样发现 8800 个实际 x 输入，delay/frequency 继续为 unavailable。检查覆盖全部 1,206,277 cells（1,056,908 组合门、149,369 DFF），未减少寄存器；库感知网表检查为 0。精简测量、局部证明及 INC 报告归档到 `results/B1-*.json`。
+
+## E03：Crossbar 候选，阶段 C
+
+- 在 B 完整面积数据产生后，授权 `/root/area_report` 先在 `build/C1-factor/CrossbarRTL.py` 中仅提取每输入的选中条件。生产 `noc/CrossbarRTL.py` 暂不修改；不混入 comparator 前移等第二项变换。
+- 主智能体给 `verify_crossbar.py` 增加 `--candidate-source`，允许从指定的真实 Python 文件加载候选，继续以原始 Git 基线作比较。所有快照与生成物位于独立输出目录。
+- 候选先经过逐周期差分、RTLIR 翻译、Yosys 等价和局部映射；结果再决定是否接入完整 CGRA。失败和无收益的试验同样保留记录。

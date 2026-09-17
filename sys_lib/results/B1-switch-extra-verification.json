@@ -1,0 +1,126 @@
+{
+  "started_utc": "2026-09-17T09:44:47.555653+00:00",
+  "cases": [
+    {
+      "name": "bits3x32",
+      "packet_bits": 32,
+      "inputs": 3,
+      "differential": {
+        "cycles": 1827,
+        "num_inports": 3,
+        "packet_bits": 32,
+        "seed": 719,
+        "compared": [
+          "send.val",
+          "send.msg including invalid",
+          "all recv.rdy",
+          "encoder",
+          "grants",
+          "priority state"
+        ]
+      },
+      "translations": {
+        "reference": {
+          "module": "Switch_reference_3x32",
+          "file": "D:\\work\\VectorCGRA\\sys_lib\\build\\switch_b01_extra\\bits3x32\\reference\\Switch_reference_3x32__pickled.v",
+          "sha256": "0a7bd6bf37c16afbafd2f3121b64cb4f952398e5678376a43161f4a7e67585c4",
+          "verilog": "D:\\work\\VectorCGRA\\sys_lib\\build\\switch_b01_extra\\bits3x32\\reference\\design.v",
+          "verilog_sha256": "596b03af21fe8d5ae461b6cb2d05e69671ab6e073a50564860c2c0d08a300b38"
+        },
+        "candidate": {
+          "module": "Switch_candidate_3x32",
+          "file": "D:\\work\\VectorCGRA\\sys_lib\\build\\switch_b01_extra\\bits3x32\\candidate\\Switch_candidate_3x32__pickled.v",
+          "sha256": "023d9a166a7d0befb5d235a42fa8513ab514062dd150a3b284ed082bf51aafd3",
+          "verilog": "D:\\work\\VectorCGRA\\sys_lib\\build\\switch_b01_extra\\bits3x32\\candidate\\design.v",
+          "verilog_sha256": "e2080fb35765995179b4f380b5d08dfeed02b6599b9d6c53fe1731fbf2853b24"
+        }
+      },
+      "formal_seconds": 0.8440000000409782,
+      "formal": {
+        "equivalence_points": 274,
+        "matched_output_bits": {
+          "send__msg": 32,
+          "send__val": 1,
+          "recv__rdy": 3
+        },
+        "matched_priority_bits": 3,
+        "unproven": 0,
+        "status": "proved",
+        "input_assumptions": [],
+        "undef_modeling": true,
+        "induction_depth": 4,
+        "scope": "All output bits, including invalid messages, and matching priority register state. Induction assumes synchronized matching points; differential tests include reset."
+      }
+    },
+    {
+      "name": "bits8x32",
+      "packet_bits": 32,
+      "inputs": 8,
+      "differential": {
+        "cycles": 2338,
+        "num_inports": 8,
+        "packet_bits": 32,
+        "seed": 719,
+        "compared": [
+          "send.val",
+          "send.msg including invalid",
+          "all recv.rdy",
+          "encoder",
+          "grants",
+          "priority state"
+        ]
+      },
+      "translations": {
+        "reference": {
+          "module": "Switch_reference_8x32",
+          "file": "D:\\work\\VectorCGRA\\sys_lib\\build\\switch_b01_extra\\bits8x32\\reference\\Switch_reference_8x32__pickled.v",
+          "sha256": "d1528d2f231ef7228404c2ef349470d089c586e315f17a787533a5aa9b250cc5",
+          "verilog": "D:\\work\\VectorCGRA\\sys_lib\\build\\switch_b01_extra\\bits8x32\\reference\\design.v",
+          "verilog_sha256": "de54d55615996103e5cd61f03cd00b1ac303a6709a5b340838b2b53886f5c9a4"
+        },
+        "candidate": {
+          "module": "Switch_candidate_8x32",
+          "file": "D:\\work\\VectorCGRA\\sys_lib\\build\\switch_b01_extra\\bits8x32\\candidate\\Switch_candidate_8x32__pickled.v",
+          "sha256": "e649525578c7d387f8d82b38dd8ebd3e2c9b9a1254c55970bc82299d1d7caa00",
+          "verilog": "D:\\work\\VectorCGRA\\sys_lib\\build\\switch_b01_extra\\bits8x32\\candidate\\design.v",
+          "verilog_sha256": "e97755a1f76e7abf7140e00adaeb206dd320f3cf1b7d93faf755f14bc60f6f91"
+        }
+      },
+      "formal_seconds": 2.3130000000819564,
+      "formal": {
+        "equivalence_points": 371,
+        "matched_output_bits": {
+          "send__msg": 32,
+          "send__val": 1,
+          "recv__rdy": 8
+        },
+        "matched_priority_bits": 8,
+        "unproven": 0,
+        "status": "proved",
+        "input_assumptions": [],
+        "undef_modeling": true,
+        "induction_depth": 4,
+        "scope": "All output bits, including invalid messages, and matching priority register state. Induction assumes synchronized matching points; differential tests include reset."
+      }
+    }
+  ],
+  "baseline_tools_commit": "14ce5bc",
+  "source_hashes": {
+    "reference": "1ba6da67f945a003a6c50b779b2cd56550d58e81118fba5f648f99fcedc19edb",
+    "candidate": "8af211f56d23922d55cfeacca7d4edb33c0ecb8e848dc0e3303804a1f99cc42d",
+    "cgra": "e372a6a363063b69ff04bca3baf1f800295f0d02d55ed574ef76b694051af9ab",
+    "liberty": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1"
+  },
+  "tools": {
+    "yosys": {
+      "sha256": "05cf22385a4fa334988c64fc08724b39c65c2c8092a1c817779fb729de89c170",
+      "version": "Yosys 0.69+62 (git sha1 0edda7a3a-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)"
+    },
+    "sv2v": {
+      "sha256": "1f3c2b96e212592e6f4a2ecff3209f211277834540d8a9309ecee50a45adc699",
+      "version": "sv2v v0.0.13"
+    }
+  },
+  "status": "passed",
+  "finished_utc": "2026-09-17T09:45:10.425353+00:00"
+}

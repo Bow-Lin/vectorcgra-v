@@ -15,6 +15,7 @@ from ..lib.util.common import *
 from ..mem.data.DataMemControllerRTL import DataMemControllerRTL
 from ..noc.PyOCN.pymtl3_net.ocnlib.ifcs.positions import mk_ring_pos
 from ..noc.PyOCN.pymtl3_net.ringnet.RingNetworkRTL import RingNetworkRTL
+from ..noc.StaticSwitchUnitRTL import StaticSwitchUnitRTL
 from ..tile.TileRTL import TileRTL
 from ..lib.util.data_struct_attr import *
 from ..lib.messages import *
@@ -129,7 +130,9 @@ class CgraRTL(Component):
     # An additional router for controller to receive CMD_COMPLETE signal from Ring to CPU.
     # The last argument of 1 is for the latency per hop.
     if has_ctrl_ring:
-      s.ctrl_ring = RingNetworkRTL(CtrlPktType, CtrlRingPos, s.num_tiles + 1, 1)
+      ctrl_ring = RingNetworkRTL(CtrlPktType, CtrlRingPos, s.num_tiles + 1, 1)
+      ctrl_ring.set_param("top.routers*.construct", SwitchUnitType=StaticSwitchUnitRTL)
+      s.ctrl_ring = ctrl_ring
     s.cgra_id = InPort(CgraIdType)
 
     # Address lower and upper bound.
@@ -291,5 +294,4 @@ class CgraRTL(Component):
       res += "\n :: [" + s.ctrl_ring.line_trace() + "]    \n"
     res += "\n :: [" + s.data_mem.line_trace() + "]    \n"
     return res
-
 
