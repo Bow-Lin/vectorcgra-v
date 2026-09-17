@@ -85,3 +85,26 @@ sys_lib/.venv/Scripts/python.exe -m pytest noc/test/CrossbarRTL_test.py -q --tb=
 - `--test-verilog` 的 Tile ALU 在调用工具时失败：Windows shell 找不到 `verilator` 无扩展名入口；套件有 Perl 入口和 `verilator_bin.exe`，本地 PyMTL 导入构建未通过。两个旧 Crossbar tests 被插件 skip，不能声称它们完成了该项检查。
 - `/root/synth_tools` 的流式逻辑展平在小网表复现原方法的 418.62 ps；完整基线发现 205 个 x 顶层输出，恰为 `is_multi_cgra=False` 时未连接的 inter-CGRA 包接口（rdy 1 + val 1 + msg 203）。这些是该固定实例未启用的端点，不应赋 0 伪造时序。要求对精确端口显式记录排除原因，并进一步检查任何 x 是否进入实际逻辑。四边 Tile 数据端口必须全部保留。
 - 第一笔提交冻结已复核的面积流程、验证基础设施与基线摘要；完整时序脚本和 CGRA 差分脚本仍在各自子任务验证中，待稳定后独立纳入版本。
+
+### A 阶段时序诊断结论（17:42–17:46）
+
+- 首笔 Git 提交：`14ce5bc`，仅基线、工具与记录，无 RTL 改动。
+- `/root/synth_tools` 完成流式层次别名展开，逐个覆盖 2,063,725 个标准单元：1,914,356 组合门和 149,369 DFF，2711 个模块实例，一个正沿时钟域。避免了 1.5 GB 以上 flattened JSON 的中间表示。
+- 排除显式核实为全 x 的 205 个未启用端口位后，仍有 **8800 个组合门输入为 x**：VectorMulRTL 4800、VectorAdderRTL 2752、FlexibleFuRTL 1232、ConstQueueDynamicRTL 16。没有 x FF 输入，没有另外的无驱动整数网。早期把常量 x 编号 2 计作未驱动网的诊断 bug 已修正。
+- 例证包括 Tile 未连接的 ConstQueue.clear、VectorCombo 未赋的部分输入/消息字段。未修改这些 FU/常量队列问题，未将 x 绑 0 或当作新增外部输入。
+- 因此本实验的整机 delay 和 frequency reference 均明确记为 **null/unavailable**。面积仍按统一映射流程记录；不以分模块 ABC 延迟代替整机数据。
+- 归档：`results/A0-timing-diagnostics.json`；完整 pin 清单与命令日志在 `build/baseline/hierarchical/timing/`。主智能体复核了端口例外必须匹配 manifest、所有有效消费者严格检查、失败不进入 ABC 计时的逻辑。
+- 阶段 A 的测量口径至此固定。后续候选使用相同库、综合脚本、层次展开和诊断规则。
+
+## E02：控制环固定索引 Switch，阶段 B
+
+17:37 起，由 `/root/area_report` 实现，主智能体复核及集成：
+
+- 新增 `noc/StaticSwitchUnitRTL.py`，替换消息选择方式；保留 RoundRobinArbiterEn、Encoder、`en=1`、idle input0 消息、背压下仲裁推进和原 readiness 公式。
+- `cgra/CgraRTL.py` 通过 RingRouter 既有 `SwitchUnitType` 参数注入全部 51 个 switch；没有修改外部参数、接口或 PyOCN 子模块。
+- 新增 `noc/test/StaticSwitchUnitRTL_test.py`，以及独立翻译/等价/局部综合脚本 `sys_lib/verify_switch.py`。
+- 首轮测试辅助函数对 Bits 类型错误调用 `from_bits`：5 failed / 1 passed；仅修复测试类型转换后 6 passed / 19.18 s。覆盖 2/3/5/6/8 输入、32-bit 与真实 199-bit 控制包、所有请求位图和背压、无效消息、reset。
+- `python sys_lib/verify_switch.py --output sys_lib/build/switch_b01 --case control6x199 --synth`：1948 周期差分通过；Yosys 无输入假设等价证明 500 点、206 输出位与 6 仲裁状态位全部通过（8.70 s）。
+- 同一局部完整 switch 分层映射：基线 25,295.004 面积 / 18,484 cells，新实现 2,096.612 / 1,194 cells，局部面积下降 91.7114%。两边 `check -mapped -assert` 均通过。这不是整机节省比例。
+- 主智能体已生成 `build/B1-static-switch/` 独立 RTL 快照，完整 CGRA 综合正在运行；该快照保留源文件 hash，后续源码变动不影响本次测量。
+- `/root/noc_contract` 同时进行完整 CGRA fresh-process record/replay；`/root/synth_tools` 在阶段 A 完成后独立审查该 RTL。

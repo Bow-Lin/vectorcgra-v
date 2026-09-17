@@ -82,6 +82,9 @@ def main():
     "boundary": "All DUT ports remain ports; no test-harness constants/configuration are synthesized.",
     "memory_mapping": "Behavioral memories map to standard-cell registers/muxes; no SRAM blackboxes.",
   }
+  switch_source = ROOT / "noc/StaticSwitchUnitRTL.py"
+  manifest["static_switch_sha256"] = (hashlib.sha256(switch_source.read_bytes()).hexdigest()
+                                       if switch_source.exists() else None)
   (output / "manifest.json").write_text(json.dumps(manifest, indent=2) + "\n")
   print(f"Translated {rtl_path} ({rtl_path.stat().st_size:,} bytes)", flush=True)
 

@@ -29,7 +29,7 @@ Use a fresh output directory for each translation; existing RTL is not overwritt
 sys_lib/.venv/Scripts/python.exe sys_lib/generate.py --output sys_lib/build/example
 sys_lib/.venv/Scripts/python.exe sys_lib/synthesize.py --input sys_lib/build/example
 sys_lib/.venv/Scripts/python.exe sys_lib/area_report.py sys_lib/build/example/hierarchical/mapped.json --liberty sys_lib/lib/NangateOpenCellLibrary_typical.lib --top VectorCGRA4x4 --output sys_lib/build/example/hierarchical/area
-sys_lib/.venv/Scripts/python.exe sys_lib/mapped_timing.py --input sys_lib/build/example/hierarchical/mapped.json --output sys_lib/build/example/hierarchical/timing
+sys_lib/.venv/Scripts/python.exe sys_lib/mapped_timing.py --input sys_lib/build/example/hierarchical/mapped.json --output sys_lib/build/example/hierarchical/timing --manifest sys_lib/build/example/manifest.json --inactive-output recv_from_inter_cgra_noc__rdy --inactive-output send_to_inter_cgra_noc__val --inactive-output send_to_inter_cgra_noc__msg
 sys_lib/.venv/Scripts/python.exe sys_lib/collect_results.py --input sys_lib/build/example --name example
 ```
 
@@ -45,6 +45,13 @@ clock-to-Q, setup, clock-tree and routed timing. Per-module ABC mapping delays
 are diagnostics, not the complete CGRA's delay. Unsupported or invalid timing
 graphs must be reported; they cannot be silently repaired or replaced with
 local delay numbers.
+
+This fixed instance uses `is_multi_cgra=False`; the command above explicitly
+identifies its three unimplemented inter-CGRA output ports. The analyzer checks
+the manifest and requires every bit of those ports to be x. All four mesh data
+boundaries remain timed. The baseline also has undefined inputs inside mapped
+FU/constant-queue logic, so its complete-design delay is currently unavailable;
+the command intentionally returns an error with diagnostic `timing.json`.
 
 The optional mapping-before/after flatten modes are separate experimental
 flows. Do not mix their area denominators or compare one version mapped with
