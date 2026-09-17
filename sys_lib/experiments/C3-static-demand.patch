@@ -1,0 +1,30 @@
+--- a/noc/CrossbarRTL.py
++++ b/noc/CrossbarRTL.py
+@@ -286,21 +286,12 @@
+     def update_recv_required_vector():
+       for i in range(num_inports):
+         s.recv_required_vector[i] @= 0
+-
+-      for i in range(num_outports):
+-        # The master branch uses the assignment below. It can overwrite a
+-        # previous requirement when multiple outputs multicast the same input:
+-        # if s.in_dir[i] > 0:
+-        #   s.recv_required_vector[s.in_dir_local[i]] @= \
+-        #       ~s.during_prologue_allowing_vector[i]
+-        #
+-        # Keep OR-style accumulation: only set a shared input when at least
+-        # one mapped output actually requires it outside prologue.
+-        # An input is required only when it feeds an output that is not
+-        # being bypassed by prologue.  This matches the send_required
+-        # masking above so that prologued inputs are not consumed.
+-        if (s.in_dir[i] > 0) & ~s.during_prologue_allowing_vector[i]:
+-          s.recv_required_vector[s.in_dir_local[i]] @= 1
++        # Decode into a constant destination bit. Preserve positive selector
++        # aliases and OR accumulation when multiple outputs request one input.
++        for j in range(num_outports):
++          if (s.in_dir[j] > 0) & (s.in_dir_local[j] == i) & \
++             ~s.during_prologue_allowing_vector[j]:
++            s.recv_required_vector[i] @= 1
+ 
+     @update
+     def update_send_required_vector():

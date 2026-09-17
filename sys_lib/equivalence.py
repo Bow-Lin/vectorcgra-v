@@ -78,8 +78,26 @@ def state_matches(design, case):
               "send_accepted": case["outputs"]}
   if summary != expected:
     raise AssertionError(f"State coverage mismatch: {summary} != {expected}")
+  output_summary = {}
+  for name, port in module["ports"].items():
+    if port["direction"] != "output":
+      continue
+    gold = module["netnames"].get(name + "_gold")
+    gate = module["netnames"].get(name + "_gate")
+    if gold is None or gate is None or len(gold["bits"]) != len(port["bits"]) or \
+       len(gate["bits"]) != len(port["bits"]):
+      raise AssertionError(f"Output correspondence missing or width changed: {name}")
+    matching = sum(((a,), (b,)) in matched_pairs or ((b,), (a,)) in matched_pairs
+                   or a == b for a, b in zip(gold["bits"], gate["bits"]))
+    if matching != len(port["bits"]):
+      raise AssertionError(f"Output bits not individually matched: {name}")
+    output_summary[name] = matching
+  if set(output_summary) != {"recv_data__rdy", "recv_opt__rdy",
+                             "send_data__msg", "send_data__val"}:
+    raise AssertionError(f"Unexpected output interface: {output_summary}")
   return {"equiv_cells_before_proof": len(equivalent),
-          "persistent_state_bits_matched": summary}
+          "persistent_state_bits_matched": summary,
+          "output_bits_matched": output_summary}
 
 
 def check_case(entry, args, env):
@@ -119,6 +137,11 @@ def check_case(entry, args, env):
       f"prep -top {top} -flatten",
       "memory_map",
       "opt_clean",
+      # sv2v numbers synthetic for-loop blocks globally. Adding an unrelated
+      # update block can make the same public loop-variable name refer to two
+      # different loops. These are elaboration temporaries, not RTL state or
+      # observable ports; do not pair them as semantic equivalence points.
+      "rename -hide w:*sv2v_autoblock*.i w:*sv2v_autoblock*.j w:*sv2v_autoblock*.addr",
       f"rename {top} {design_name}",
       f"design -stash {design_name}",
     ])
@@ -150,6 +173,7 @@ def check_case(entry, args, env):
   result = {"case": case, "status": "proved", "elapsed_seconds": elapsed,
             "induction_depth": args.depth, "undef_modeling": True,
             "input_assumptions": [], "files": files,
+            "matching_exclusions": ["sv2v synthetic loop-block temporaries"],
             "yosys_script": str(script), "yosys_log": str(case_dir / "yosys.log"),
             **state}
   print(f"PROVED {case['name']}: {state['equiv_cells_before_proof']} points; "

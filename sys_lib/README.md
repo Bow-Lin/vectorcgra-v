@@ -82,3 +82,21 @@ This compares the original PyOCN switch against `StaticSwitchUnitRTL`, including
 idle messages, backpressure and the continuously enabled round-robin arbiter.
 The formal report accounts for every output and all priority-state bits.
 Local switch area is separate from complete-CGRA area.
+
+## Complete CGRA cycle comparisons
+
+```powershell
+sys_lib/.venv/Scripts/python.exe sys_lib/verify_cgra.py --record-only --output-dir sys_lib/build/reference-traces
+sys_lib/.venv/Scripts/python.exe sys_lib/verify_cgra.py --reference-run sys_lib/build/reference-traces --output-dir sys_lib/build/candidate-replay
+```
+
+Reference and candidate execute in fresh Python processes using frozen source
+snapshots. The reference records all top-level inputs and every output bit
+before and after each clock edge; the candidate replays the exact input stream.
+The scenarios cover INC/configuration/completion, traffic through all four mesh
+boundaries, multicast under output backpressure, and configured prologue steps.
+Expected output tokens and completion packets are also checked when recording
+the reference, so a stalled or ineffective stimulus cannot silently pass.
+These finite integration checks complement the component equivalence proofs.
+The default simulation is slow on this host; the saved baseline trace can be
+reused for later candidates after its baseline, seed and scenario checks pass.

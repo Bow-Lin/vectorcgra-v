@@ -121,9 +121,43 @@ sys_lib/.venv/Scripts/python.exe -m pytest noc/test/CrossbarRTL_test.py -q --tb=
 - `/root/noc_contract` 继续四边数据路由、多播、prologue 的基线录制；`/root/synth_tools` 对 B 的冻结网表运行同口径时序覆盖检查。
 - 整机验证脚本首个 `stage_d_inc_smoke` 在提取源码时失败：纯 Verilog 子模块没有 `*.py`，`git archive` 返回 128。增加先检查文件列表、无 Python 时跳过提取并保留子模块 revision 的处理后，`stage_d_inc_smoke2` 完成。失败未进入 RTL 仿真。
 - B 的全网表时序检查同样发现 8800 个实际 x 输入，delay/frequency 继续为 unavailable。检查覆盖全部 1,206,277 cells（1,056,908 组合门、149,369 DFF），未减少寄存器；库感知网表检查为 0。精简测量、局部证明及 INC 报告归档到 `results/B1-*.json`。
+- `/root/synth_tools` 将 ABC 全局运行编号归一化后，确认 A0 与 B 的 8800 条实际 x 引脚记录逐项完全相同，保留了层次、门编号、类型、pin 和 x 值，没有新增或消失的问题。
+- 第三笔 Git 提交：`972145e`，独立保存 B 的控制环实现、测试和测量结果。下一笔报告更新中将该 commit 与生成时保存的 RTL hash 关联；原始生成 manifest 仍保留测量当时 HEAD 和工作区差异，不改写历史。
 
 ## E03：Crossbar 候选，阶段 C
 
 - 在 B 完整面积数据产生后，授权 `/root/area_report` 先在 `build/C1-factor/CrossbarRTL.py` 中仅提取每输入的选中条件。生产 `noc/CrossbarRTL.py` 暂不修改；不混入 comparator 前移等第二项变换。
 - 主智能体给 `verify_crossbar.py` 增加 `--candidate-source`，允许从指定的真实 Python 文件加载候选，继续以原始 Git 基线作比较。所有快照与生成物位于独立输出目录。
 - 候选先经过逐周期差分、RTLIR 翻译、Yosys 等价和局部映射；结果再决定是否接入完整 CGRA。失败和无收益的试验同样保留记录。
+- C1 初轮差分通过：routing8x8、fu2x8 各 2836 cycles，irregular3x5 2492 cycles，共 8164 cycles；包括 prologue 0–7、selector 截断别名、无效消息和完整状态。三种形状 RTLIR 翻译成功，形式等价和局部面积运行中。这里 ctrl_size=8，与最终固定实例的 ctrl_size=6 区分记录。
+- `/root/synth_tools` 独立审查 C1：原循环多个输出命中时每次都写同一个 `old_counter + 1`，共享 OR 归约不改变每周期加一次的语义；没有增加状态、握手依赖或组合环。未发现可操作问题。
+- 复用 `/root/synth_tools` 负责 `build/C2-compare/` 的第二项隔离实验：基于 C1，仅将 prologue 比较前移并选择 1-bit 结果。生产文件继续保持基线，两个原型使用不同目录；主智能体独立管理日志和 Git。
+- C1 首轮 ctrl_size=8 的局部映射出现回退：routing 9170.084 → 9346.442、FU 2455.712 → 2591.904；对应局部 ABC 延迟也增加（1111.06 → 1153.43 ps、837.16 → 863.64 ps）。这些局部延迟不是整机频率。要求优先补测实际 ctrl_size=6；如果同样无收益，则不接入生产文件，不花整机综合成本重复确认一个已回退的局部候选。
+- 因上述证据调整 C2：改从原始 Crossbar 单独做比较前移，保留原 counter 三重循环。未测的 C1+C2 组合原型只留在忽略目录；不让第二项试验依赖可能回退的第一项。该调整在后续结果产生前作出。
+
+### C1 结论及验证工具修正
+
+- 实际 ctrl_size=6 的结果是混合的：routing 面积 8130.024 → 7839.286、局部延迟 1041.86 → 1114.73 ps；FU 面积 2560.516 → 2564.772、局部延迟 729.68 → 800.17 ps。状态单元面积完全不变。
+- C1 暂不采纳进最终实现：两个实例的局部延迟都增加，FU 面积也未改善。保留该候选供后续选择；没有运行 C1 整机综合，不能将局部变化声称为整机面积或频率变化。
+- 首轮 routing8x8 形式证明通过 1474 点（192 counter + 8 multicast 状态位）。FU 失败仅涉及四个 sv2v 自动生成的循环变量位：新增 block 改变全局编号，导致同名临时变量实际对应不同循环。真正输出和状态未出现未证位；原始失败仍保留。
+- 主智能体修改 `equivalence.py`：仅隐藏 `sv2v_autoblock*.i/.j/.addr` 的自动临时名字，不匹配这些非语义信号；所有输出和原始状态仍必须逐位匹配，新增覆盖审计防止误排除。修正后 FU 通过 590 点、56 状态位及 291 输出位（30.84 s）；irregular3x5 通过 513 点、59 状态位及 184 输出位（20.08 s）。已成功的 routing 网表只补读审计，确认 297 输出位覆盖，不重复运行证明。
+- 子智能体归档 `experiments/C1-factor.patch` 和 `results/C1-factor.json`，包括原始失败与修正后的成功证据。patch 首次因 CRLF 检查失败，规范为 LF 后 `git apply --check` 通过，未应用到生产文件。
+- 查询 Yosys 帮助时，一次未设置套件运行依赖 PATH 的直接调用未正常返回；中止后，用套件 `bin`/`lib` PATH 调用正常返回。一次只读进程查询被系统拒绝，随后通过原命令会话中止该帮助进程。Yosys 已安装并持续成功执行综合，不是缺少 Yosys。已向用户说明。
+
+### C2 与 C3 的独立筛选
+
+- C1+C2 的早期组合探索在调整指令到达前已开始，最终完成 3672 周期差分与翻译；保存于 `build/C2-compare/`，只视作组合探索。真正单项 C2 使用独立目录 `build/C2-compare-baseline/`，两者 hash 与报告不混用。
+- 单项 C2 的 ctrl6 局部面积/延迟改善：routing 8130.024 → 5064.906、1041.86 → 939.25 ps；FU 2560.516 → 1707.720、729.68 → 685.08 ps。仍待目标参数下的差分与形式证明，再决定接入完整 CGRA。
+- 主智能体另建 `build/C3-static-demand/CrossbarRTL.py`：从原始 Crossbar 开始，仅将输入需求的动态 bit set 改成 input×output 的固定索引 OR 归约。初次 patch 因注释上下文不匹配未应用，修正精确上下文后成功；没有部分修改生产文件。
+- C3 在实际 ctrl6 的 routing/FU 和 irregular3x5 上通过 5364 周期差分，覆盖 prologue 0–7、alias selector 与全部消息/状态，三种形状翻译成功。局部面积评估运行中。
+- 主智能体把子智能体已使用的局部映射流程整理为 `local_crossbar_synth.py`，仅增加产物/工具 hash 和禁止覆盖已有报告；综合命令、库与约束保持原流程。它支持复用相同参考实例的已有基线，不把局部数字乘实例数冒充整机结果。
+- C3 局部结果：routing 面积 8130.024 → 7745.920、延迟 1041.86 → 1073.32 ps；FU 面积 2560.516 → 2490.292、延迟 729.68 → 783.74 ps。两个局部延迟均增加，默认最终实现不纳入 C3；保留 patch 与 `results/C3-static-demand.json`，没有运行其形式证明或整机综合。
+- `/root/area_report` 分别独立审查单项 C2 与 C3，未发现可操作问题。C2 保留原 Bits3 无符号比较、动态索引和旧状态；C3 保留 OR 累积与 alias。ctrl6 的地址 6/7 属原始越界域，不扩张为合法配置。
+- 单项 C2 在 ctrl6 两种形状上完成 3272 周期差分及形式证明：routing 1138 点（144+8 状态位）、FU 554 点（36+8 状态位），全部输出位覆盖、无输入假设、0 未证（125.59 s / 14.72 s）。基于已通过的行为检查和局部结果，准备将单项 C2 接入最终版本；C1、C3 继续作为独立候选留档。
+
+## E04：整机逐周期集成验证，阶段 D
+
+- `/root/noc_contract` 的 B 版本全部通过：INC 113 cycles、boundary 184、boundary_prologue 260，共 **557 cycles / 1114 snapshots**。每个时钟沿前后比较 54 个顶层输出端口的全部位，包含无效消息；三种场景关键 RTL hash 完全一致。
+- boundary 与 boundary_prologue 各接受 16 个边界输入、产生 32 个边界输出，并收到全部 16 个 COMPLETE；prologue 场景还包含额外 64 条配置。边界反射多播和四方向穿越整个 Mesh 均检查了数据内容与顺序。
+- 普通 boundary 中的 35 个 stall 计数是“输出端口×阻塞周期”，同一全局周期多个端口分别计数；不误写为 35 个唯一全局周期。
+- 完整录制轨迹保留在 `build/stage_d_boundary_reference/`；B 重播报告归档为 `results/B1-cgra-boundary.json`。新增 `verify_cgra.py` 支持冻结源码、新进程、轨迹 hash、首次差异与已完成基线复用；报告明确有限测试范围。

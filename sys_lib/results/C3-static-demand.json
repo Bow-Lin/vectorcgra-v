@@ -1,0 +1,352 @@
+{
+  "experiment": "C3-static-demand",
+  "decision": "screened; retained as a separate candidate; not included in default final RTL",
+  "reason": "Both local delays increased, despite local area reductions. No numeric PPA acceptance threshold is imposed.",
+  "baseline_revision": "41cb0c0e94d9373dbb967cb69baa38990d0f402e",
+  "candidate_sha256": "2c72eb7ba0f1e315446dcb58b094a34169bd8656e3d3faaa2c6e5b5d6cfb5ea2",
+  "patch_sha256": "c4055970527b906494c8c8a451f352ba4aee27a9635dfe353ff2d74f4f52e3d2",
+  "verification": {
+    "baseline_revision": "41cb0c0e94d9373dbb967cb69baa38990d0f402e",
+    "baseline_sha256": "1c65170346109cfb5cf32bb456724fe9551579ddc73ef987739f4843b39c2446",
+    "candidate_sha256": "2c72eb7ba0f1e315446dcb58b094a34169bd8656e3d3faaa2c6e5b5d6cfb5ea2",
+    "candidate_source": "D:\\work\\VectorCGRA\\sys_lib\\build\\C3-static-demand\\verification\\reference\\CrossbarRTL_candidate.py",
+    "reference_source": "D:\\work\\VectorCGRA\\sys_lib\\build\\C3-static-demand\\verification\\reference\\CrossbarRTL_reference.py",
+    "seed": 20260917,
+    "python": "3.12.13 (main, May  4 2026, 21:19:41) [MSC v.1944 64 bit (AMD64)]",
+    "pymtl3": "3.1.13",
+    "payload_bits": 32,
+    "random_cycles_per_case": 1200,
+    "include_alias_selectors": true,
+    "comparison": "All output bits, including invalid messages, plus persistent state; before and after each edge",
+    "cases": [
+      {
+        "case": {
+          "name": "irregular3x5",
+          "inputs": 3,
+          "outputs": 5,
+          "ctrl_size": 6,
+          "local_base": 2
+        },
+        "cycles": 1692,
+        "comparisons": 3385,
+        "events": {
+          "clear": 68,
+          "compute_done": 617,
+          "counter_increments": 754,
+          "directed_clear": 53,
+          "directed_clear_during_partial": 1,
+          "directed_compute_done_local_blocked": 4,
+          "directed_missing_input": 4,
+          "directed_no_routes": 4,
+          "directed_opt_invalid_during_partial": 1,
+          "directed_opt_start_during_partial": 1,
+          "directed_partial_before_stop": 4,
+          "directed_prologue_blocked_outputs": 168,
+          "directed_reset_during_partial": 1,
+          "directed_runtime_prologue_reconfiguration": 11,
+          "directed_staggered_multicast": 240,
+          "invalid_message_checks": 6770,
+          "opt_handshake": 696,
+          "opt_invalid": 207,
+          "opt_start": 226,
+          "output_stall": 465,
+          "partial_multicast_state": 382,
+          "prologue_configuration_changes": 247,
+          "random_pin_stress": 1200,
+          "reset": 5
+        },
+        "prologue_levels": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "ctrl_addresses": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "selector_values": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "translations": [
+          {
+            "label": "reference",
+            "module": "Crossbar_reference_irregular3x5",
+            "file": "D:\\work\\VectorCGRA\\sys_lib\\build\\C3-static-demand\\verification\\Crossbar_reference_irregular3x5__pickled.v"
+          },
+          {
+            "label": "candidate",
+            "module": "Crossbar_candidate_irregular3x5",
+            "file": "D:\\work\\VectorCGRA\\sys_lib\\build\\C3-static-demand\\verification\\Crossbar_candidate_irregular3x5__pickled.v"
+          }
+        ]
+      },
+      {
+        "case": {
+          "name": "routing8x8_ctrl6",
+          "inputs": 8,
+          "outputs": 8,
+          "ctrl_size": 6,
+          "local_base": 4
+        },
+        "cycles": 1836,
+        "comparisons": 3673,
+        "events": {
+          "clear": 71,
+          "compute_done": 592,
+          "counter_increments": 1107,
+          "directed_clear": 53,
+          "directed_clear_during_partial": 1,
+          "directed_compute_done_local_blocked": 4,
+          "directed_missing_input": 4,
+          "directed_no_routes": 4,
+          "directed_opt_invalid_during_partial": 1,
+          "directed_opt_start_during_partial": 1,
+          "directed_partial_before_stop": 4,
+          "directed_prologue_blocked_outputs": 168,
+          "directed_reset_during_partial": 1,
+          "directed_runtime_prologue_reconfiguration": 11,
+          "directed_staggered_multicast": 384,
+          "invalid_message_checks": 11600,
+          "opt_handshake": 590,
+          "opt_invalid": 212,
+          "opt_start": 243,
+          "output_stall": 654,
+          "partial_multicast_state": 566,
+          "prologue_configuration_changes": 234,
+          "random_pin_stress": 1200,
+          "reset": 5
+        },
+        "prologue_levels": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "ctrl_addresses": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "selector_values": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "translations": [
+          {
+            "label": "reference",
+            "module": "Crossbar_reference_routing8x8_ctrl6",
+            "file": "D:\\work\\VectorCGRA\\sys_lib\\build\\C3-static-demand\\verification\\Crossbar_reference_routing8x8_ctrl6__pickled.v"
+          },
+          {
+            "label": "candidate",
+            "module": "Crossbar_candidate_routing8x8_ctrl6",
+            "file": "D:\\work\\VectorCGRA\\sys_lib\\build\\C3-static-demand\\verification\\Crossbar_candidate_routing8x8_ctrl6__pickled.v"
+          }
+        ]
+      },
+      {
+        "case": {
+          "name": "fu2x8_ctrl6",
+          "inputs": 2,
+          "outputs": 8,
+          "ctrl_size": 6,
+          "local_base": 4
+        },
+        "cycles": 1836,
+        "comparisons": 3673,
+        "events": {
+          "clear": 69,
+          "compute_done": 603,
+          "counter_increments": 715,
+          "directed_clear": 53,
+          "directed_clear_during_partial": 1,
+          "directed_compute_done_local_blocked": 4,
+          "directed_missing_input": 4,
+          "directed_no_routes": 4,
+          "directed_opt_invalid_during_partial": 1,
+          "directed_opt_start_during_partial": 1,
+          "directed_partial_before_stop": 4,
+          "directed_prologue_blocked_outputs": 168,
+          "directed_reset_during_partial": 1,
+          "directed_runtime_prologue_reconfiguration": 11,
+          "directed_staggered_multicast": 384,
+          "invalid_message_checks": 11479,
+          "opt_handshake": 672,
+          "opt_invalid": 207,
+          "opt_start": 251,
+          "output_stall": 622,
+          "partial_multicast_state": 603,
+          "prologue_configuration_changes": 233,
+          "random_pin_stress": 1200,
+          "reset": 5
+        },
+        "prologue_levels": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "ctrl_addresses": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "selector_values": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "translations": [
+          {
+            "label": "reference",
+            "module": "Crossbar_reference_fu2x8_ctrl6",
+            "file": "D:\\work\\VectorCGRA\\sys_lib\\build\\C3-static-demand\\verification\\Crossbar_reference_fu2x8_ctrl6__pickled.v"
+          },
+          {
+            "label": "candidate",
+            "module": "Crossbar_candidate_fu2x8_ctrl6",
+            "file": "D:\\work\\VectorCGRA\\sys_lib\\build\\C3-static-demand\\verification\\Crossbar_candidate_fu2x8_ctrl6__pickled.v"
+          }
+        ]
+      }
+    ],
+    "total_cycles": 5364,
+    "status": "passed"
+  },
+  "reference_local_mapping": [
+    {
+      "case": {
+        "name": "routing8x8_ctrl6",
+        "inputs": 8,
+        "outputs": 8,
+        "ctrl_size": 6,
+        "local_base": 4
+      },
+      "label": "reference",
+      "area_exact": "8130.024000",
+      "cells": 6525,
+      "sequential_area_exact": "687.344000",
+      "abc_partition_delays_ps": [
+        1041.86
+      ],
+      "elapsed_seconds": 63.46900000004098,
+      "script": "D:\\work\\VectorCGRA\\sys_lib\\build\\C1-factor\\local_mapping_ctrl6\\routing8x8_ctrl6\\reference\\run.ys"
+    },
+    {
+      "case": {
+        "name": "fu2x8_ctrl6",
+        "inputs": 2,
+        "outputs": 8,
+        "ctrl_size": 6,
+        "local_base": 4
+      },
+      "label": "reference",
+      "area_exact": "2560.516000",
+      "cells": 1931,
+      "sequential_area_exact": "198.968000",
+      "abc_partition_delays_ps": [
+        729.68
+      ],
+      "elapsed_seconds": 9.921999999904074,
+      "script": "D:\\work\\VectorCGRA\\sys_lib\\build\\C1-factor\\local_mapping_ctrl6\\fu2x8_ctrl6\\reference\\run.ys"
+    }
+  ],
+  "candidate_local_mapping": {
+    "scope": "Isolated crossbar; see each case for exact control-memory size",
+    "manifest": "D:\\work\\VectorCGRA\\sys_lib\\build\\C3-static-demand\\verification\\crossbar_verification.json",
+    "manifest_sha256": "6b43445507a7138e724baaf245dc259b8d4db9cabfd6d72949ae257f127c5141",
+    "liberty_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+    "tool_sha256": {
+      "yosys": "05cf22385a4fa334988c64fc08724b39c65c2c8092a1c817779fb729de89c170",
+      "sv2v": "1f3c2b96e212592e6f4a2ecff3209f211277834540d8a9309ecee50a45adc699"
+    },
+    "abc_driving_cell": "BUF_X1",
+    "abc_load_ff": 5.0,
+    "cases": [
+      {
+        "case": {
+          "name": "routing8x8_ctrl6",
+          "inputs": 8,
+          "outputs": 8,
+          "ctrl_size": 6,
+          "local_base": 4
+        },
+        "label": "candidate",
+        "system_verilog_sha256": "e874ed9320fcdfdad4d13f3973aa826024a819f32fb1eb0ccce165500256320c",
+        "verilog_sha256": "8ae5ee6d56463fe76da9c1ea541db5e83517084c7f4925521a629601c0c2c574",
+        "area_exact": "7745.920000",
+        "cells": 6247,
+        "sequential_area_exact": "687.344000",
+        "abc_partition_delays_ps": [
+          1073.32
+        ],
+        "elapsed_seconds": 44.65700000000652,
+        "script": "D:\\work\\VectorCGRA\\sys_lib\\build\\C3-static-demand\\local_mapping_ctrl6\\routing8x8_ctrl6\\candidate\\run.ys"
+      },
+      {
+        "case": {
+          "name": "fu2x8_ctrl6",
+          "inputs": 2,
+          "outputs": 8,
+          "ctrl_size": 6,
+          "local_base": 4
+        },
+        "label": "candidate",
+        "system_verilog_sha256": "dfd1b7e0dd44008c6c4faa6f177da9c19c8d8200bcd2a43d45ed82075b5f77df",
+        "verilog_sha256": "de82d5d180c2ea47dc071e80c487c2fbbead7526261ae2a315722652cd5b11f9",
+        "area_exact": "2490.292000",
+        "cells": 1947,
+        "sequential_area_exact": "198.968000",
+        "abc_partition_delays_ps": [
+          783.74
+        ],
+        "elapsed_seconds": 5.031000000075437,
+        "script": "D:\\work\\VectorCGRA\\sys_lib\\build\\C3-static-demand\\local_mapping_ctrl6\\fu2x8_ctrl6\\candidate\\run.ys"
+      }
+    ]
+  },
+  "formal_proof": "not run for this screened candidate",
+  "whole_cgra_synthesis": "not run for this screened candidate",
+  "independent_review": "area_report: no actionable findings; preserves selector aliases, OR accumulation, state and interfaces"
+}

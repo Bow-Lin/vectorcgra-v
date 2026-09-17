@@ -1,0 +1,526 @@
+{
+  "experiment": "C1 factor prologue counter enable",
+  "status": "screened_not_adopted_by_default",
+  "production_changed": false,
+  "transformation": "Factor per-input selected-output counter enable across control addresses; preserve all old state names and all other crossbar logic.",
+  "reference_revision": "41cb0c0e94d9373dbb967cb69baa38990d0f402e",
+  "source_hashes": {
+    "reference_sha256": "1c65170346109cfb5cf32bb456724fe9551579ddc73ef987739f4843b39c2446",
+    "candidate_sha256": "29eda701d6ebc9bfce116de670e72e6a7a92c2b909d25fdd5f823ddd7a78b414",
+    "candidate_normalized_lf_sha256": "f72de28e9f0b45f3b812a742b2cde02ec24a02addb89ec50d3ca4f3b131b6585",
+    "patch_sha256": "aaee0d83be834423e72b72fe7bbb650cc2601f030d1f77e690c1fb8de2a67689"
+  },
+  "patch": "sys_lib/experiments/C1-factor.patch",
+  "patch_validation": "git apply --check passed after converting generated patch line endings to LF; no patch applied.",
+  "differential": {
+    "status": "passed",
+    "seed": 20260917,
+    "random_cycles_per_case": 2000,
+    "include_alias_selectors": true,
+    "comparison": "All output bits, including invalid messages, plus persistent state; before and after each edge",
+    "total_cycles": 8164,
+    "cases": [
+      {
+        "case": {
+          "name": "routing8x8",
+          "inputs": 8,
+          "outputs": 8,
+          "ctrl_size": 8,
+          "local_base": 4
+        },
+        "cycles": 2836,
+        "comparisons": 5673,
+        "events": {
+          "clear": 103,
+          "compute_done": 1049,
+          "counter_increments": 2417,
+          "directed_clear": 69,
+          "directed_clear_during_partial": 1,
+          "directed_compute_done_local_blocked": 4,
+          "directed_missing_input": 4,
+          "directed_no_routes": 4,
+          "directed_opt_invalid_during_partial": 1,
+          "directed_opt_start_during_partial": 1,
+          "directed_partial_before_stop": 4,
+          "directed_prologue_blocked_outputs": 224,
+          "directed_reset_during_partial": 1,
+          "directed_runtime_prologue_reconfiguration": 11,
+          "directed_staggered_multicast": 512,
+          "invalid_message_checks": 18556,
+          "opt_handshake": 1028,
+          "opt_invalid": 293,
+          "opt_start": 385,
+          "output_stall": 883,
+          "partial_multicast_state": 799,
+          "prologue_configuration_changes": 380,
+          "random_pin_stress": 2000,
+          "reset": 8
+        },
+        "prologue_levels": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "ctrl_addresses": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "selector_values": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ]
+      },
+      {
+        "case": {
+          "name": "fu2x8",
+          "inputs": 2,
+          "outputs": 8,
+          "ctrl_size": 8,
+          "local_base": 4
+        },
+        "cycles": 2836,
+        "comparisons": 5673,
+        "events": {
+          "clear": 96,
+          "compute_done": 1015,
+          "counter_increments": 1314,
+          "directed_clear": 69,
+          "directed_clear_during_partial": 1,
+          "directed_compute_done_local_blocked": 4,
+          "directed_missing_input": 4,
+          "directed_no_routes": 4,
+          "directed_opt_invalid_during_partial": 1,
+          "directed_opt_start_during_partial": 1,
+          "directed_partial_before_stop": 4,
+          "directed_prologue_blocked_outputs": 224,
+          "directed_reset_during_partial": 1,
+          "directed_runtime_prologue_reconfiguration": 11,
+          "directed_staggered_multicast": 512,
+          "invalid_message_checks": 18238,
+          "opt_handshake": 1124,
+          "opt_invalid": 336,
+          "opt_start": 402,
+          "output_stall": 867,
+          "partial_multicast_state": 817,
+          "prologue_configuration_changes": 366,
+          "random_pin_stress": 2000,
+          "reset": 8
+        },
+        "prologue_levels": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "ctrl_addresses": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "selector_values": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "case": {
+          "name": "irregular3x5",
+          "inputs": 3,
+          "outputs": 5,
+          "ctrl_size": 6,
+          "local_base": 2
+        },
+        "cycles": 2492,
+        "comparisons": 4985,
+        "events": {
+          "clear": 77,
+          "compute_done": 997,
+          "counter_increments": 1216,
+          "directed_clear": 53,
+          "directed_clear_during_partial": 1,
+          "directed_compute_done_local_blocked": 4,
+          "directed_missing_input": 4,
+          "directed_no_routes": 4,
+          "directed_opt_invalid_during_partial": 1,
+          "directed_opt_start_during_partial": 1,
+          "directed_partial_before_stop": 4,
+          "directed_prologue_blocked_outputs": 168,
+          "directed_reset_during_partial": 1,
+          "directed_runtime_prologue_reconfiguration": 11,
+          "directed_staggered_multicast": 240,
+          "invalid_message_checks": 10293,
+          "opt_handshake": 1029,
+          "opt_invalid": 308,
+          "opt_start": 397,
+          "output_stall": 623,
+          "partial_multicast_state": 469,
+          "prologue_configuration_changes": 344,
+          "random_pin_stress": 2000,
+          "reset": 8
+        },
+        "prologue_levels": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "ctrl_addresses": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "selector_values": [
+          0,
+          1,
+          2,
+          3
+        ]
+      }
+    ]
+  },
+  "formal": {
+    "original_run_status": "failed",
+    "original_passed_cases": [
+      {
+        "case": {
+          "name": "routing8x8",
+          "inputs": 8,
+          "outputs": 8,
+          "ctrl_size": 8,
+          "local_base": 4
+        },
+        "status": "proved",
+        "elapsed_seconds": 205.15293810004368,
+        "induction_depth": 4,
+        "undef_modeling": true,
+        "input_assumptions": [],
+        "equiv_cells_before_proof": 1474,
+        "persistent_state_bits_matched": {
+          "prologue_counter": 192,
+          "send_accepted": 8
+        },
+        "output_bits_matched": {
+          "recv_data__rdy": 8,
+          "recv_opt__rdy": 1,
+          "send_data__msg": 280,
+          "send_data__val": 8
+        }
+      }
+    ],
+    "original_failure": {
+      "case": "fu2x8",
+      "proved_points": 778,
+      "unproved_points": 4,
+      "unproved_names": [
+        "update_recv_required_vector.sv2v_autoblock_10.i[1,3]",
+        "update_signal.sv2v_autoblock_15.i[1,3]"
+      ],
+      "diagnosis": "New update block shifts sv2v autogenerated block numbering. Equal temporary names were paired across different loops; output/state bits had no reported unproved points."
+    },
+    "fixed_run_status": "proved",
+    "matching_policy": "Hide only synthetic sv2v_autoblock loop i/j/addr temporaries before equiv_make; retain and audit every interface output and old persistent state bit.",
+    "fixed_cases": [
+      {
+        "case": {
+          "name": "fu2x8",
+          "inputs": 2,
+          "outputs": 8,
+          "ctrl_size": 8,
+          "local_base": 4
+        },
+        "status": "proved",
+        "elapsed_seconds": 30.841242800001055,
+        "induction_depth": 4,
+        "undef_modeling": true,
+        "input_assumptions": [],
+        "matching_exclusions": [
+          "sv2v synthetic loop-block temporaries"
+        ],
+        "equiv_cells_before_proof": 590,
+        "persistent_state_bits_matched": {
+          "prologue_counter": 48,
+          "send_accepted": 8
+        },
+        "output_bits_matched": {
+          "recv_data__rdy": 2,
+          "recv_opt__rdy": 1,
+          "send_data__msg": 280,
+          "send_data__val": 8
+        }
+      },
+      {
+        "case": {
+          "name": "irregular3x5",
+          "inputs": 3,
+          "outputs": 5,
+          "ctrl_size": 6,
+          "local_base": 2
+        },
+        "status": "proved",
+        "elapsed_seconds": 20.08403799997177,
+        "induction_depth": 4,
+        "undef_modeling": true,
+        "input_assumptions": [],
+        "matching_exclusions": [
+          "sv2v synthetic loop-block temporaries"
+        ],
+        "equiv_cells_before_proof": 513,
+        "persistent_state_bits_matched": {
+          "prologue_counter": 54,
+          "send_accepted": 5
+        },
+        "output_bits_matched": {
+          "recv_data__rdy": 3,
+          "recv_opt__rdy": 1,
+          "send_data__msg": 175,
+          "send_data__val": 5
+        }
+      }
+    ],
+    "combined_result": "routing8x8, fu2x8 and irregular3x5 proved; routing reused successful original proof and audited output coverage without re-running Yosys.",
+    "ctrl6_exact_shapes": "Not proved because screening did not justify a complete-CGRA candidate."
+  },
+  "local_mapping_ctrl8": {
+    "scope": "Isolated crossbars; ctrl_size=8 for both measured cases, not the fixed CGRA ctrl_size=6",
+    "cases": [
+      {
+        "case": {
+          "name": "routing8x8",
+          "inputs": 8,
+          "outputs": 8,
+          "ctrl_size": 8,
+          "local_base": 4
+        },
+        "label": "reference",
+        "area_exact": "9170.084000",
+        "cells": 7304,
+        "sequential_area_exact": "904.400000",
+        "abc_partition_delays_ps": [
+          1111.06
+        ],
+        "elapsed_seconds": 69.60900000005495,
+        "script": "D:\\work\\VectorCGRA\\sys_lib\\build\\C1-factor\\local_mapping\\routing8x8\\reference\\run.ys"
+      },
+      {
+        "case": {
+          "name": "routing8x8",
+          "inputs": 8,
+          "outputs": 8,
+          "ctrl_size": 8,
+          "local_base": 4
+        },
+        "label": "candidate",
+        "area_exact": "9346.442000",
+        "cells": 7659,
+        "sequential_area_exact": "904.400000",
+        "abc_partition_delays_ps": [
+          1153.43
+        ],
+        "elapsed_seconds": 26.125,
+        "script": "D:\\work\\VectorCGRA\\sys_lib\\build\\C1-factor\\local_mapping\\routing8x8\\candidate\\run.ys"
+      },
+      {
+        "case": {
+          "name": "fu2x8",
+          "inputs": 2,
+          "outputs": 8,
+          "ctrl_size": 8,
+          "local_base": 4
+        },
+        "label": "reference",
+        "area_exact": "2455.712000",
+        "cells": 1826,
+        "sequential_area_exact": "253.232000",
+        "abc_partition_delays_ps": [
+          837.16
+        ],
+        "elapsed_seconds": 9.687999999965541,
+        "script": "D:\\work\\VectorCGRA\\sys_lib\\build\\C1-factor\\local_mapping\\fu2x8\\reference\\run.ys"
+      },
+      {
+        "case": {
+          "name": "fu2x8",
+          "inputs": 2,
+          "outputs": 8,
+          "ctrl_size": 8,
+          "local_base": 4
+        },
+        "label": "candidate",
+        "area_exact": "2591.904000",
+        "cells": 1932,
+        "sequential_area_exact": "253.232000",
+        "abc_partition_delays_ps": [
+          863.64
+        ],
+        "elapsed_seconds": 4.702999999979511,
+        "script": "D:\\work\\VectorCGRA\\sys_lib\\build\\C1-factor\\local_mapping\\fu2x8\\candidate\\run.ys"
+      }
+    ]
+  },
+  "local_mapping_ctrl6": {
+    "scope": "Isolated crossbars with exact fixed-CGRA ctrl_size=6; full-CGRA metrics require separate run",
+    "cases": [
+      {
+        "case": {
+          "name": "routing8x8_ctrl6",
+          "inputs": 8,
+          "outputs": 8,
+          "ctrl_size": 6,
+          "local_base": 4
+        },
+        "label": "reference",
+        "area_exact": "8130.024000",
+        "cells": 6525,
+        "sequential_area_exact": "687.344000",
+        "abc_partition_delays_ps": [
+          1041.86
+        ],
+        "elapsed_seconds": 63.46900000004098,
+        "script": "D:\\work\\VectorCGRA\\sys_lib\\build\\C1-factor\\local_mapping_ctrl6\\routing8x8_ctrl6\\reference\\run.ys"
+      },
+      {
+        "case": {
+          "name": "routing8x8_ctrl6",
+          "inputs": 8,
+          "outputs": 8,
+          "ctrl_size": 6,
+          "local_base": 4
+        },
+        "label": "candidate",
+        "area_exact": "7839.286000",
+        "cells": 6292,
+        "sequential_area_exact": "687.344000",
+        "abc_partition_delays_ps": [
+          1114.73
+        ],
+        "elapsed_seconds": 24.406000000075437,
+        "script": "D:\\work\\VectorCGRA\\sys_lib\\build\\C1-factor\\local_mapping_ctrl6\\routing8x8_ctrl6\\candidate\\run.ys"
+      },
+      {
+        "case": {
+          "name": "fu2x8_ctrl6",
+          "inputs": 2,
+          "outputs": 8,
+          "ctrl_size": 6,
+          "local_base": 4
+        },
+        "label": "reference",
+        "area_exact": "2560.516000",
+        "cells": 1931,
+        "sequential_area_exact": "198.968000",
+        "abc_partition_delays_ps": [
+          729.68
+        ],
+        "elapsed_seconds": 9.921999999904074,
+        "script": "D:\\work\\VectorCGRA\\sys_lib\\build\\C1-factor\\local_mapping_ctrl6\\fu2x8_ctrl6\\reference\\run.ys"
+      },
+      {
+        "case": {
+          "name": "fu2x8_ctrl6",
+          "inputs": 2,
+          "outputs": 8,
+          "ctrl_size": 6,
+          "local_base": 4
+        },
+        "label": "candidate",
+        "area_exact": "2564.772000",
+        "cells": 1949,
+        "sequential_area_exact": "198.968000",
+        "abc_partition_delays_ps": [
+          800.17
+        ],
+        "elapsed_seconds": 5.907000000006519,
+        "script": "D:\\work\\VectorCGRA\\sys_lib\\build\\C1-factor\\local_mapping_ctrl6\\fu2x8_ctrl6\\candidate\\run.ys"
+      }
+    ]
+  },
+  "tools": {
+    "yosys": {
+      "path": "D:\\work\\VectorCGRA\\sys_lib\\tools\\oss-cad-suite\\bin\\yosys.exe",
+      "version": "Yosys 0.69+62 (git sha1 0edda7a3a-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)",
+      "sha256": "05cf22385a4fa334988c64fc08724b39c65c2c8092a1c817779fb729de89c170"
+    },
+    "sv2v": {
+      "path": "D:\\work\\VectorCGRA\\sys_lib\\tools\\sv2v-v0.0.13\\sv2v-Windows\\sv2v.exe",
+      "version": "sv2v v0.0.13",
+      "sha256": "1f3c2b96e212592e6f4a2ecff3209f211277834540d8a9309ecee50a45adc699"
+    }
+  },
+  "conclusion": "ctrl8 worsens area and local combinational delay for both shapes. ctrl6 routing saves a little area but increases local delay; FU increases both. No complete-CGRA C1 synthesis and no production application.",
+  "artifacts": [
+    {
+      "path": "sys_lib\\build\\C1-factor\\verification\\crossbar_verification.json",
+      "sha256": "1dab331247b8af36dae5ff1e75f23f47819a30d4cdad5f7ada1da280f32502fd"
+    },
+    {
+      "path": "sys_lib\\build\\C1-factor\\equivalence\\equivalence_report.json",
+      "sha256": "936ad3c40239b3cec02afb9b4c3427adbbc986a7b67dcb363a276890ac41ac60"
+    },
+    {
+      "path": "sys_lib\\build\\C1-factor\\equivalence\\fu2x8\\yosys.log",
+      "sha256": "2809514d3ddacabddeb661c3f5932e6a75276dff30f5a79a78a9cb22662e2c15"
+    },
+    {
+      "path": "sys_lib\\build\\C1-factor\\equivalence_fixed\\equivalence_report.json",
+      "sha256": "aad403159e4600eaa721f9debff80ec0e9275dc15743e05ce20d81c3b69a525b"
+    },
+    {
+      "path": "sys_lib\\build\\C1-factor\\local_mapping\\report.json",
+      "sha256": "c1d2dab2f3454761ed85f279c49358ae10f76c5f8af2c63176cbbcf39f0464db"
+    },
+    {
+      "path": "sys_lib\\build\\C1-factor\\local_mapping_ctrl6\\report.json",
+      "sha256": "f3da7a4c0b8f258216678d155bdac8a00baca33f97f7d4cd6dcbfea4624b6513"
+    }
+  ],
+  "commands": [
+    "python sys_lib/verify_crossbar.py --candidate-source sys_lib/build/C1-factor/CrossbarRTL.py --case routing8x8 --case fu2x8 --case irregular3x5 --cycles 2000 --include-alias-selectors --translate --output-dir sys_lib/build/C1-factor/verification",
+    "python sys_lib/equivalence.py --manifest sys_lib/build/C1-factor/translation/crossbar_translation.json --output-dir sys_lib/build/C1-factor/equivalence --timeout 300",
+    "python sys_lib/equivalence.py --manifest sys_lib/build/C1-factor/translation/crossbar_translation.json --case fu2x8 --case irregular3x5 --output-dir sys_lib/build/C1-factor/equivalence_fixed --timeout 300",
+    "python sys_lib/verify_crossbar.py --candidate-source sys_lib/build/C1-factor/CrossbarRTL.py --case routing8x8_ctrl6 --case fu2x8_ctrl6 --translate-only --output-dir sys_lib/build/C1-factor/translation_ctrl6"
+  ],
+  "local_mapping_replay": "Each local mapping record links the exact run.ys actually run; sys_lib/build/C1-factor/run_local.py reproduces the same pipeline from a translation manifest."
+}

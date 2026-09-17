@@ -1,6 +1,6 @@
 {
   "experiment": "B1-static-switch",
-  "source_commit": null,
+  "source_commit": "972145e",
   "manifest": {
     "baseline_test": "cgra/test/CgraRTL_test.py::test_vector_mesh_4x4",
     "git_commit": "14ce5bccebf984265653b1ed0388ef2c877da889",

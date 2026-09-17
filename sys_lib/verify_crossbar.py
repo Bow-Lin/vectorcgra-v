@@ -53,6 +53,8 @@ CASES = (
   Case("irregular3x5", 3, 5, 6, 2),
   Case("narrow4x3", 4, 3, 4, 3),
   Case("wide9x10", 9, 10, 5, 4),
+  Case("routing8x8_ctrl6", 8, 8, 6, 4),
+  Case("fu2x8_ctrl6", 2, 8, 6, 4),
 )
 
 
@@ -72,10 +74,10 @@ def load_reference(revision, output_dir):
   return module.CrossbarRTL, hashlib.sha256(source).hexdigest(), path
 
 
-def load_candidate(output_dir):
+def load_candidate(output_dir, source_path=None):
   # Freeze the working source for the entire run. Another task may edit the
   # worktree while we are simulating; inspect must see the code we imported.
-  source = (ROOT / "noc" / "CrossbarRTL.py").read_bytes()
+  source = (source_path or ROOT / "noc" / "CrossbarRTL.py").read_bytes()
   path = output_dir / "reference" / "CrossbarRTL_candidate.py"
   path.write_bytes(source)
   name = "VectorCGRA.noc._crossbar_verification_candidate"
@@ -357,6 +359,8 @@ def translate(reference_cls, candidate_cls, case, args, output_dir):
 def main():
   parser = argparse.ArgumentParser(description=__doc__)
   parser.add_argument("--baseline", default=BASELINE)
+  parser.add_argument("--candidate-source", type=Path,
+                      help="Optional isolated candidate prototype; defaults to working-tree RTL")
   parser.add_argument("--seed", type=int, default=20260917)
   parser.add_argument("--cycles", type=int, default=3000,
                       help="Random stress cycles per case, in addition to directed tests")
@@ -375,7 +379,7 @@ def main():
   output_dir = args.output_dir.resolve()
   output_dir.mkdir(parents=True, exist_ok=True)
   reference_cls, baseline_hash, reference_path = load_reference(args.baseline, output_dir)
-  candidate_cls, candidate_hash, candidate_path = load_candidate(output_dir)
+  candidate_cls, candidate_hash, candidate_path = load_candidate(output_dir, args.candidate_source)
   report = {
     "baseline_revision": args.baseline, "baseline_sha256": baseline_hash,
     "candidate_sha256": candidate_hash,
