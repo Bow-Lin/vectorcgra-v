@@ -1,0 +1,65 @@
+# 4×4 CGRA NoC experiments
+
+The approved scope is in `OPTIMIZATION_PLAN.md`. The complete experiment history,
+agent assignments, failures, validation and commits are recorded in
+`EXPERIMENT_LOG.md`. Compact reports are tracked in `results/`.
+
+## Environment
+
+Use Python 3.12 and the custom PyMTL3 fork pinned in `requirements-lock.txt`:
+
+```powershell
+uv venv --python 3.12 sys_lib/.venv
+uv pip install --python sys_lib/.venv/Scripts/python.exe -r sys_lib/requirements-lock.txt
+git submodule update --init --recursive
+```
+
+See `LIBRARY.md` for the public NanGate45 library and tool versions. Keep the
+matching library at `sys_lib/lib/NangateOpenCellLibrary_typical.lib`. Install
+Yosys/ABC and sv2v on PATH or under `sys_lib/tools/`. The scripts also accept
+explicit executable paths. On Windows the OSS CAD Suite `bin` and `lib` paths
+are added automatically when the tools are called.
+
+## Reproduce a stage
+
+Run from the repository root, at the source commit associated with that stage.
+Use a fresh output directory for each translation; existing RTL is not overwritten.
+
+```powershell
+sys_lib/.venv/Scripts/python.exe sys_lib/generate.py --output sys_lib/build/example
+sys_lib/.venv/Scripts/python.exe sys_lib/synthesize.py --input sys_lib/build/example
+sys_lib/.venv/Scripts/python.exe sys_lib/area_report.py sys_lib/build/example/hierarchical/mapped.json --liberty sys_lib/lib/NangateOpenCellLibrary_typical.lib --top VectorCGRA4x4 --output sys_lib/build/example/hierarchical/area
+sys_lib/.venv/Scripts/python.exe sys_lib/mapped_timing.py --input sys_lib/build/example/hierarchical/mapped.json --output sys_lib/build/example/hierarchical/timing
+sys_lib/.venv/Scripts/python.exe sys_lib/collect_results.py --input sys_lib/build/example --name example
+```
+
+The area flow maps the **complete CGRA**, preserving hierarchy for exact additive
+ownership of every standard cell. Memories map to standard-cell registers and
+logic. The real CGRA boundary ports remain exposed; test harness constants are
+not synthesized. No workload configuration is used for constant propagation.
+
+Timing is a separate analysis of the same mapped logic across hierarchy
+boundaries with Yosys's ABC, using BUF_X1 drive and 5 fF endpoint loads. It is a
+**combinational delay estimate** and reciprocal frequency reference, excluding
+clock-to-Q, setup, clock-tree and routed timing. Per-module ABC mapping delays
+are diagnostics, not the complete CGRA's delay. Unsupported or invalid timing
+graphs must be reported; they cannot be silently repaired or replaced with
+local delay numbers.
+
+The optional mapping-before/after flatten modes are separate experimental
+flows. Do not mix their area denominators or compare one version mapped with
+hierarchy against another version flattened before mapping.
+
+## Crossbar verification
+
+```powershell
+sys_lib/.venv/Scripts/python.exe sys_lib/verify_crossbar.py --case routing8x8 --case fu2x8 --cycles 200
+sys_lib/.venv/Scripts/python.exe sys_lib/verify_crossbar.py --translate-only
+sys_lib/.venv/Scripts/python.exe sys_lib/equivalence.py
+```
+
+The verifier loads reference source from the fixed baseline commit. Reports
+retain source hashes, port shapes, seeds, state coverage and actual checks.
+Baseline-to-baseline smoke checks validate the workflow, not an optimization.
+Verilator import remains a separate check from RTLIR translation and Yosys
+equivalence; see the experiment log for local toolchain limitations.
