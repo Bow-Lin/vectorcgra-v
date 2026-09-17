@@ -25,6 +25,16 @@ are added automatically when the tools are called.
 Run from the repository root, at the source commit associated with that stage.
 Use a fresh output directory for each translation; existing RTL is not overwritten.
 
+| Stage | Reproducible source/tool checkout | Hardware |
+|---|---|---|
+| A0 | `74eb4fc` | Original RTL from `41cb0c0`; only experiment tooling was added |
+| B1 | `972145e` | Static control-ring switch |
+| C2 final | `e91686f` | B1 plus shared Crossbar prologue comparisons |
+
+Later report-only commits retain the C2 hardware. The original baseline commit
+does not contain these newly added scripts; use the A0 tooling commit above to
+reproduce it. Keep the local ignored tools/environment/library directories.
+
 ```powershell
 sys_lib/.venv/Scripts/python.exe sys_lib/generate.py --output sys_lib/build/example
 sys_lib/.venv/Scripts/python.exe sys_lib/synthesize.py --input sys_lib/build/example
@@ -64,6 +74,13 @@ sys_lib/.venv/Scripts/python.exe sys_lib/verify_crossbar.py --case routing8x8 --
 sys_lib/.venv/Scripts/python.exe sys_lib/verify_crossbar.py --translate-only
 sys_lib/.venv/Scripts/python.exe sys_lib/equivalence.py
 ```
+
+For the exact fixed-instance crossbars, select `routing8x8_ctrl6` and
+`fu2x8_ctrl6`. `--candidate-source` accepts an isolated prototype file. With a
+translated manifest, `local_crossbar_synth.py --manifest <manifest> --output
+<fresh-directory>` reproduces the local mapping flow. C1/C3 patch artifacts
+apply to the original Crossbar, not to the final C2 implementation; their
+reports explicitly distinguish screening results from complete-CGRA results.
 
 The verifier loads reference source from the fixed baseline commit. Reports
 retain source hashes, port shapes, seeds, state coverage and actual checks.

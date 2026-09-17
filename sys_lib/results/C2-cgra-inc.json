@@ -1,0 +1,86 @@
+{
+  "baseline_revision": "41cb0c0e94d9373dbb967cb69baa38990d0f402e",
+  "seed": 20260917,
+  "scenarios": [
+    "inc"
+  ],
+  "comparison": "all top-level output bits before/after each edge, including invalid messages",
+  "reference_source_sha256": "c00d4f3f58bfcdfec2b1ecbf6b2a3e6cfac26a714b9faa6fe911c48792aeba1a",
+  "candidate_source_sha256": "138eb047985783ae509701edb10e3d575e5d18893900f3ab51128b407c1cd920",
+  "event_units": {
+    "boundary_output_stall_cycles": "port-cycles",
+    "cpu_output_stall_cycles": "cycles"
+  },
+  "rtl_source_sha256": {
+    "reference": {
+      "cgra/CgraRTL.py": "249bf00fb1d96fe2717ae9e8af70e091386e74430320ca3bf2abb25deb33e150",
+      "noc/CrossbarRTL.py": "1c65170346109cfb5cf32bb456724fe9551579ddc73ef987739f4843b39c2446",
+      "noc/StaticSwitchUnitRTL.py": null
+    },
+    "candidate": {
+      "cgra/CgraRTL.py": "e372a6a363063b69ff04bca3baf1f800295f0d02d55ed574ef76b694051af9ab",
+      "noc/CrossbarRTL.py": "40f5077b172e2c8f9917eb70012a0119c7df13c996e0314a926ef3d56080b5a4",
+      "noc/StaticSwitchUnitRTL.py": "8af211f56d23922d55cfeacca7d4edb33c0ecb8e848dc0e3303804a1f99cc42d"
+    }
+  },
+  "workers": {
+    "reference": {
+      "source": "D:\\work\\VectorCGRA\\sys_lib\\build\\stage_d_inc_smoke2\\sources\\reference\\VectorCGRA",
+      "mode": "record",
+      "setup_seconds": 11.618326400057413,
+      "status": "recorded",
+      "cycles": 113,
+      "snapshots": 226,
+      "trace_sha256": "53c6d05cf68dc87e4f90df7f90a7485ae168189d3bd770934bceec59c1d90669",
+      "scenarios": [
+        {
+          "scenario": "inc",
+          "cycles": 113,
+          "elapsed_seconds": 183.95000500010792,
+          "events": {
+            "cpu_input_handshakes": 64,
+            "cpu_output_stall_cycles": 9,
+            "complete_handshakes": 16
+          },
+          "complete_tiles": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "boundary_input_ports": [],
+          "boundary_output_counts": {}
+        }
+      ],
+      "elapsed_seconds": 196.07322719995864
+    },
+    "candidate": {
+      "source": "D:\\work\\VectorCGRA\\sys_lib\\build\\final_c2_inc_replay\\sources\\candidate\\VectorCGRA",
+      "mode": "replay",
+      "python": "3.12.13 (main, May  4 2026, 21:19:41) [MSC v.1944 64 bit (AMD64)]",
+      "pid": 21892,
+      "setup_seconds": 15.251730300020427,
+      "status": "passed",
+      "cycles": 113,
+      "snapshots": 226,
+      "trace_sha256": "53c6d05cf68dc87e4f90df7f90a7485ae168189d3bd770934bceec59c1d90669",
+      "elapsed_seconds": 276.5705462999176
+    }
+  },
+  "reference_run": "D:\\work\\VectorCGRA\\sys_lib\\build\\stage_d_inc_smoke2",
+  "status": "passed",
+  "candidate_revision": "e91686f7b6133f615bec76eb5bba6edbda1e5f1c",
+  "verification_report": "sys_lib/build/final_c2_inc_replay/verification_report.json"
+}

@@ -1,0 +1,13 @@
+category,label,area_exact,percent,cell_count
+tile_fu_compute,Tile FU compute,454655.712000,22.184098613299152,381840
+routing_crossbar,Tile routing crossbar,81681.152000,3.9854832634674504,64432
+fu_crossbar,Tile FU crossbar,26029.696000,1.270071677749423,18816
+tile_channels_linkor,Tile input channels / output LinkOr,39921.280000,1.947886255279527,15872
+register_cluster,Tile register cluster,372783.040000,18.189270479737075,182528
+ctrl_mem,Tile control memory,230419.840000,11.242917042732794,93376
+const_mem,Tile constant memory,30460.192000,1.486249672605072,11776
+tile_other,Tile other logic,11035.808000,0.5384721812302573,11792
+ctrl_ring,CGRA control ring,632451.442000,30.8593179127402,294168
+data_mem,CGRA data memory,65778.608000,3.209547549943788,36751
+controller,CGRA controller,102482.086000,5.000427008647379,48196
+top_other,CGRA top / other logic,1767.836000,0.08625834256788205,660

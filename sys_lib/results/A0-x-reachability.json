@@ -1,0 +1,539 @@
+{
+  "created_utc": "2026-09-17T10:24:58.911875+00:00",
+  "method": "Read-only BFS over mapped standard-cell input-to-output connectivity; no synthesis/remapping",
+  "netlist": "D:\\work\\VectorCGRA\\sys_lib\\build\\baseline\\hierarchical\\mapped.json",
+  "netlist_sha256": "009441f64f7bd5d7a74c1ac7e08a7ad0883aeabf782dce2cdcf1f456213c274e",
+  "liberty_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+  "hierarchy_path": "VectorCGRA4x4/tile__0/const_mem",
+  "tile_module": "TileRTL__16a8290d3dfb5b02",
+  "queue_module": "ConstQueueDynamicRTL__8f4d11f2dd80f063",
+  "parent_clear_connection": [
+    "x"
+  ],
+  "local_clear_net": 2,
+  "reachable_local_ff_endpoints": 7,
+  "paths": [
+    {
+      "endpoint": {
+        "cell": "$auto$ff.cc:337:slice$998504",
+        "type": "DFF_X1",
+        "pin": "D",
+        "connections": {
+          "CK": [
+            3
+          ],
+          "D": [
+            86
+          ],
+          "Q": [
+            80
+          ],
+          "QN": [
+            98
+          ]
+        },
+        "d_netnames": [
+          "$abc$1427191$auto$rtlil.cc:3480:MuxGate$1406988[0]"
+        ],
+        "q_netnames": [
+          "wr_cur[2]"
+        ]
+      },
+      "gates": [
+        {
+          "cell": "$abc$1427191$blif$1427191$6",
+          "type": "OR2_X1",
+          "input_pin": "A2",
+          "input_net": 2,
+          "output_pin": "ZN",
+          "output_net": 83,
+          "connections": {
+            "A1": [
+              5
+            ],
+            "A2": [
+              2
+            ],
+            "ZN": [
+              83
+            ]
+          },
+          "output_function": "(A1 | A2)"
+        },
+        {
+          "cell": "$abc$1427191$blif$1427191$10",
+          "type": "AOI21_X1",
+          "input_pin": "A",
+          "input_net": 83,
+          "output_pin": "ZN",
+          "output_net": 86,
+          "connections": {
+            "A": [
+              83
+            ],
+            "B1": [
+              84
+            ],
+            "B2": [
+              85
+            ],
+            "ZN": [
+              86
+            ]
+          },
+          "output_function": "!(A | (B1 & B2))"
+        }
+      ]
+    },
+    {
+      "endpoint": {
+        "cell": "$auto$ff.cc:337:slice$998498",
+        "type": "DFF_X1",
+        "pin": "D",
+        "connections": {
+          "CK": [
+            3
+          ],
+          "D": [
+            103
+          ],
+          "Q": [
+            101
+          ],
+          "QN": [
+            171
+          ]
+        },
+        "d_netnames": [
+          "$abc$1427191$auto$rtlil.cc:3480:MuxGate$1406984[0]"
+        ],
+        "q_netnames": [
+          "consume_pending[0]"
+        ]
+      },
+      "gates": [
+        {
+          "cell": "$abc$1427191$blif$1427191$6",
+          "type": "OR2_X1",
+          "input_pin": "A2",
+          "input_net": 2,
+          "output_pin": "ZN",
+          "output_net": 83,
+          "connections": {
+            "A1": [
+              5
+            ],
+            "A2": [
+              2
+            ],
+            "ZN": [
+              83
+            ]
+          },
+          "output_function": "(A1 | A2)"
+        },
+        {
+          "cell": "$abc$1427191$blif$1427191$19",
+          "type": "NOR3_X1",
+          "input_pin": "A2",
+          "input_net": 83,
+          "output_pin": "ZN",
+          "output_net": 103,
+          "connections": {
+            "A1": [
+              4
+            ],
+            "A2": [
+              83
+            ],
+            "A3": [
+              102
+            ],
+            "ZN": [
+              103
+            ]
+          },
+          "output_function": "!((A1 | A2) | A3)"
+        }
+      ]
+    },
+    {
+      "endpoint": {
+        "cell": "$auto$ff.cc:337:slice$998501",
+        "type": "DFF_X1",
+        "pin": "D",
+        "connections": {
+          "CK": [
+            3
+          ],
+          "D": [
+            118
+          ],
+          "Q": [
+            96
+          ],
+          "QN": [
+            173
+          ]
+        },
+        "d_netnames": [
+          "$abc$1427191$auto$rtlil.cc:3480:MuxGate$1406982[0]"
+        ],
+        "q_netnames": [
+          "$auto$alumacc.cc:548:replace_alu$341087.P[2]",
+          "rd_cur[2]",
+          "reg_file__raddr[2]"
+        ]
+      },
+      "gates": [
+        {
+          "cell": "$abc$1427191$blif$1427191$6",
+          "type": "OR2_X1",
+          "input_pin": "A2",
+          "input_net": 2,
+          "output_pin": "ZN",
+          "output_net": 83,
+          "connections": {
+            "A1": [
+              5
+            ],
+            "A2": [
+              2
+            ],
+            "ZN": [
+              83
+            ]
+          },
+          "output_function": "(A1 | A2)"
+        },
+        {
+          "cell": "$abc$1427191$blif$1427191$33",
+          "type": "AOI211_X2",
+          "input_pin": "A",
+          "input_net": 83,
+          "output_pin": "ZN",
+          "output_net": 118,
+          "connections": {
+            "A": [
+              83
+            ],
+            "B": [
+              107
+            ],
+            "C1": [
+              117
+            ],
+            "C2": [
+              105
+            ],
+            "ZN": [
+              118
+            ]
+          },
+          "output_function": "!(((C1 & C2) | B) | A)"
+        }
+      ]
+    },
+    {
+      "endpoint": {
+        "cell": "$auto$ff.cc:337:slice$998499",
+        "type": "DFF_X1",
+        "pin": "D",
+        "connections": {
+          "CK": [
+            3
+          ],
+          "D": [
+            123
+          ],
+          "Q": [
+            91
+          ],
+          "QN": [
+            120
+          ]
+        },
+        "d_netnames": [
+          "$abc$1427191$auto$rtlil.cc:3480:MuxGate$1406978[0]"
+        ],
+        "q_netnames": [
+          "rd_cur[0]",
+          "reg_file__raddr[0]"
+        ]
+      },
+      "gates": [
+        {
+          "cell": "$abc$1427191$blif$1427191$6",
+          "type": "OR2_X1",
+          "input_pin": "A2",
+          "input_net": 2,
+          "output_pin": "ZN",
+          "output_net": 83,
+          "connections": {
+            "A1": [
+              5
+            ],
+            "A2": [
+              2
+            ],
+            "ZN": [
+              83
+            ]
+          },
+          "output_function": "(A1 | A2)"
+        },
+        {
+          "cell": "$abc$1427191$blif$1427191$37",
+          "type": "AOI211_X2",
+          "input_pin": "A",
+          "input_net": 83,
+          "output_pin": "ZN",
+          "output_net": 123,
+          "connections": {
+            "A": [
+              83
+            ],
+            "B": [
+              122
+            ],
+            "C1": [
+              117
+            ],
+            "C2": [
+              105
+            ],
+            "ZN": [
+              123
+            ]
+          },
+          "output_function": "!(((C1 & C2) | B) | A)"
+        }
+      ]
+    },
+    {
+      "endpoint": {
+        "cell": "$auto$ff.cc:337:slice$998500",
+        "type": "DFF_X1",
+        "pin": "D",
+        "connections": {
+          "CK": [
+            3
+          ],
+          "D": [
+            127
+          ],
+          "Q": [
+            94
+          ],
+          "QN": [
+            172
+          ]
+        },
+        "d_netnames": [
+          "$abc$1427191$auto$rtlil.cc:3480:MuxGate$1406974[0]"
+        ],
+        "q_netnames": [
+          "$auto$alumacc.cc:548:replace_alu$341087.P[1]",
+          "rd_cur[1]",
+          "reg_file__raddr[1]"
+        ]
+      },
+      "gates": [
+        {
+          "cell": "$abc$1427191$blif$1427191$6",
+          "type": "OR2_X1",
+          "input_pin": "A2",
+          "input_net": 2,
+          "output_pin": "ZN",
+          "output_net": 83,
+          "connections": {
+            "A1": [
+              5
+            ],
+            "A2": [
+              2
+            ],
+            "ZN": [
+              83
+            ]
+          },
+          "output_function": "(A1 | A2)"
+        },
+        {
+          "cell": "$abc$1427191$blif$1427191$40",
+          "type": "AOI211_X2",
+          "input_pin": "A",
+          "input_net": 83,
+          "output_pin": "ZN",
+          "output_net": 127,
+          "connections": {
+            "A": [
+              83
+            ],
+            "B": [
+              125
+            ],
+            "C1": [
+              117
+            ],
+            "C2": [
+              105
+            ],
+            "ZN": [
+              127
+            ]
+          },
+          "output_function": "!(((C1 & C2) | B) | A)"
+        }
+      ]
+    },
+    {
+      "endpoint": {
+        "cell": "$auto$ff.cc:337:slice$998502",
+        "type": "DFF_X1",
+        "pin": "D",
+        "connections": {
+          "CK": [
+            3
+          ],
+          "D": [
+            130
+          ],
+          "Q": [
+            158
+          ],
+          "QN": [
+            92
+          ]
+        },
+        "d_netnames": [
+          "$abc$1427191$auto$rtlil.cc:3480:MuxGate$1406970[0]"
+        ],
+        "q_netnames": [
+          "wr_cur[0]"
+        ]
+      },
+      "gates": [
+        {
+          "cell": "$abc$1427191$blif$1427191$6",
+          "type": "OR2_X1",
+          "input_pin": "A2",
+          "input_net": 2,
+          "output_pin": "ZN",
+          "output_net": 83,
+          "connections": {
+            "A1": [
+              5
+            ],
+            "A2": [
+              2
+            ],
+            "ZN": [
+              83
+            ]
+          },
+          "output_function": "(A1 | A2)"
+        },
+        {
+          "cell": "$abc$1427191$blif$1427191$43",
+          "type": "AOI211_X1",
+          "input_pin": "A",
+          "input_net": 83,
+          "output_pin": "ZN",
+          "output_net": 130,
+          "connections": {
+            "A": [
+              83
+            ],
+            "B": [
+              128
+            ],
+            "C1": [
+              129
+            ],
+            "C2": [
+              114
+            ],
+            "ZN": [
+              130
+            ]
+          },
+          "output_function": "!(((C1 & C2) | B) | A)"
+        }
+      ]
+    },
+    {
+      "endpoint": {
+        "cell": "$auto$ff.cc:337:slice$998503",
+        "type": "DFF_X1",
+        "pin": "D",
+        "connections": {
+          "CK": [
+            3
+          ],
+          "D": [
+            133
+          ],
+          "Q": [
+            81
+          ],
+          "QN": [
+            93
+          ]
+        },
+        "d_netnames": [
+          "$abc$1427191$auto$rtlil.cc:3480:MuxGate$1406966[0]"
+        ],
+        "q_netnames": [
+          "wr_cur[1]"
+        ]
+      },
+      "gates": [
+        {
+          "cell": "$abc$1427191$blif$1427191$6",
+          "type": "OR2_X1",
+          "input_pin": "A2",
+          "input_net": 2,
+          "output_pin": "ZN",
+          "output_net": 83,
+          "connections": {
+            "A1": [
+              5
+            ],
+            "A2": [
+              2
+            ],
+            "ZN": [
+              83
+            ]
+          },
+          "output_function": "(A1 | A2)"
+        },
+        {
+          "cell": "$abc$1427191$blif$1427191$46",
+          "type": "NOR3_X1",
+          "input_pin": "A1",
+          "input_net": 83,
+          "output_pin": "ZN",
+          "output_net": 133,
+          "connections": {
+            "A1": [
+              83
+            ],
+            "A2": [
+              131
+            ],
+            "A3": [
+              132
+            ],
+            "ZN": [
+              133
+            ]
+          },
+          "output_function": "!((A1 | A2) | A3)"
+        }
+      ]
+    }
+  ],
+  "scope_limit": "Proves an existing x source reaches real FF input pins, not that every one of the 8800 x sinks is endpoint-reachable or every path is sensitizable under all control settings."
+}

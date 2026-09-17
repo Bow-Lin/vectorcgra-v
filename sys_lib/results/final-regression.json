@@ -1,0 +1,76 @@
+{
+  "source_commit": "e91686f7b6133f615bec76eb5bba6edbda1e5f1c",
+  "started_utc": "2026-09-17T10:21:54.175587+00:00",
+  "scope": "Requested limited native regression and Tile prologue Verilog import attempt; no RTL changes",
+  "python": "3.12.13 (main, May  4 2026, 21:19:41) [MSC v.1944 64 bit (AMD64)]",
+  "runs": [
+    {
+      "label": "native",
+      "command": [
+        "D:\\work\\VectorCGRA\\sys_lib\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "noc/test/CrossbarRTL_test.py",
+        "tile/test/TileRTL_test.py::test_tile_alu",
+        "tile/test/TileRTL_test.py::test_prologue_nah",
+        "tile/test/TileWithContextSwitchRTL_test.py::test_tile_alu",
+        "noc/test/StaticSwitchUnitRTL_test.py",
+        "-q",
+        "--tb=short",
+        "--basetemp=D:\\work\\VectorCGRA\\sys_lib\\build\\final_regression\\native_tmp"
+      ],
+      "cwd": "D:\\work\\VectorCGRA",
+      "log": "D:\\work\\VectorCGRA\\sys_lib\\build\\final_regression\\native.log",
+      "started_utc": "2026-09-17T10:21:54.177580+00:00",
+      "exit_code": 0,
+      "elapsed_seconds": 51.43799999996554,
+      "log_sha256": "d39dedb9155087908c4e5bc5a7ffcdb674e3191a56b1f2577920377e121dee21",
+      "pytest_summary": [
+        "12 passed, 5216 warnings in 49.60s"
+      ],
+      "status": "passed"
+    },
+    {
+      "label": "verilog_import",
+      "command": [
+        "D:\\work\\VectorCGRA\\sys_lib\\.venv\\Scripts\\python.exe",
+        "-m",
+        "pytest",
+        "tile/test/TileRTL_test.py::test_prologue_nah",
+        "-q",
+        "--tb=short",
+        "--test-verilog",
+        "--basetemp=D:\\work\\VectorCGRA\\sys_lib\\build\\final_regression\\verilog_tmp"
+      ],
+      "cwd": "D:\\work\\VectorCGRA",
+      "log": "D:\\work\\VectorCGRA\\sys_lib\\build\\final_regression\\verilog_import.log",
+      "started_utc": "2026-09-17T10:22:45.622240+00:00",
+      "exit_code": 1,
+      "elapsed_seconds": 5.344000000040978,
+      "log_sha256": "9a2f00c75468939878cfb26b6f0c1ccd103509f1f8f2667ea46febe6a06b93ca",
+      "pytest_summary": [
+        "1 failed, 1966 warnings in 3.34s"
+      ],
+      "status": "blocked_toolchain",
+      "reason": "Windows cmd cannot launch the extensionless Verilator Perl entrypoint; RTLIR translation is reached, import is not a pass."
+    }
+  ],
+  "source_hashes": {
+    "noc\\CrossbarRTL.py": "40f5077b172e2c8f9917eb70012a0119c7df13c996e0314a926ef3d56080b5a4",
+    "noc\\StaticSwitchUnitRTL.py": "8af211f56d23922d55cfeacca7d4edb33c0ecb8e848dc0e3303804a1f99cc42d",
+    "tile\\TileRTL.py": "8e7839c7ce6e83e43e47c57684b9597738eb6d1591fa3367f201e1bf01ec2177",
+    "tile\\TileWithContextSwitchRTL.py": "967b7110bb8bc8b3bc57ed564d00a6645582dbc4365ff34fb4fc93e41d88a453"
+  },
+  "finished_utc": "2026-09-17T10:22:50.995849+00:00",
+  "status": "native_passed_verilog_import_blocked_by_toolchain",
+  "native_test_count": 12,
+  "generated_rtl": {
+    "path": "D:\\work\\VectorCGRA\\sys_lib\\build\\final_regression\\TileRTL__3c7b44415aba540e__pickled.v",
+    "sha256": "a1947d25faa0586ca3995d298108672ece6557095579a7ecd3864eb533ac785d",
+    "bytes": 327588,
+    "note": "Preserved RTLIR translation from the failed Verilator launch; moved out of the repository root after the run."
+  },
+  "verilog_import_classification": "Toolchain launch failure, not a simulated RTL mismatch. No baseline RTL replay required to reproduce that Windows cannot invoke an extensionless Perl script through cmd.",
+  "warnings": "Native warnings are PyMTL/Python DeprecationWarning entries; no functional test failed.",
+  "modified_rtl_files": []
+}

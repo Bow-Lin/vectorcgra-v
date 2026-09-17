@@ -2,6 +2,43 @@
 
 本文件是实验全过程的统一记录。方案见 `OPTIMIZATION_PLAN.md`；精简测量数据放在 `results/`，原始大文件和工具日志留在忽略的 `build/`、`tools/` 中。未运行、失败、停止与通过分别记录。
 
+## 本轮结果
+
+本轮计划内的实现、筛选、完整综合、时序诊断及最终整机重播已完成。最终 RTL 版本为 `e91686f`（B+C2）。
+
+| 版本 | 完整 CGRA 面积（Liberty 单位） | 映射单元数 | 相对 A0 面积变化 | 可信整机频率 |
+|---|---:|---:|---:|---|
+| A0 原始实现 | 3,272,792.978 | 2,063,725 | — | 不可用 |
+| B1 控制环静态选择 | 2,104,402.342 | 1,206,277 | −35.7001% | 不可用 |
+| C2 最终 B+C2 | **2,049,466.692** | **1,160,207** | **−37.3787%** | 不可用 |
+
+最终比 B1 再减少 54,935.650 面积（2.6105%）；相对 A0 减少 43.7809% 映射单元。三版均有 149,369 个 DFF，存储容量、流水边界与接口没有因优化削减。
+
+**面积下降已得到统一流程的整机数据支持；尚不能确认“面积下降且最高频率上升”的双目标。** 三版全网表都存在相同的 8800 个未知组合门输入，至少常量队列 clear 的未知输入可达真实 FF 终点。整机延迟/频率因此留空，不用局部 ABC 延迟替代。库、工具、BUF_X1 驱动、5 fF 负载和层次映射口径一致；这里也不声称物理布局布线后的面积或签核 Fmax。
+
+最终实现采用 B 的控制环静态消息选择和单项 C2 的 prologue 比较共享。C1 条件共享、C3 输入需求译码保留补丁与局部数据供后续选择，没有默认纳入最终版本；未设数值提升门槛。
+
+最终验证：12 项限定回归通过；组件等价证明通过；完整 CGRA 的 INC、四边通信、多播和 prologue 三场景共 **557 cycles / 1114 snapshots** 逐位一致。RTLIR 翻译与 Yosys 检查通过，但本机 `--test-verilog` 在 Verilator 启动阶段失败，不能称为导入构建通过。没有运行耗时数小时的完整 CI；有限整机测试也不等同于所有程序的整机形式证明。
+
+### 完整 CGRA 面积来源
+
+| 部分 | A0 面积 | 最终面积 | 最终占比 |
+|---|---:|---:|---:|
+| 配置控制环 | 1,799,792.176 | 632,451.442 | 30.86% |
+| Tile FU 计算 | 454,655.712 | 454,655.712 | 22.18% |
+| Tile 寄存器簇 | 372,783.040 | 372,783.040 | 18.19% |
+| Tile 控制存储 | 230,419.840 | 230,419.840 | 11.24% |
+| CGRA controller | 102,897.046 | 102,482.086 | 5.00% |
+| Tile routing crossbar | 125,747.776 | 81,681.152 | 3.99% |
+| 数据存储 | 65,778.608 | 65,778.608 | 3.21% |
+| Tile 通道与 LinkOr | 39,921.280 | 39,921.280 | 1.95% |
+| Tile 常量存储 | 30,460.192 | 30,460.192 | 1.49% |
+| Tile FU crossbar | 37,533.664 | 26,029.696 | 1.27% |
+| Tile 其他逻辑 | 11,035.808 | 11,035.808 | 0.54% |
+| 顶层其他逻辑 | 1,767.836 | 1,767.836 | 0.09% |
+
+分类由同一完整网表逐实例归属，精确相加等于总面积；占比显示值有舍入。controller 的小幅变化在后文单独审计，不将同一 RTL 的映射波动归因为源码优化。
+
 ## 实验约束与版本
 
 - 用户于 2026-09-17 确认计划，并要求使用 Git 分阶段管理、记录子智能体和所有修改。
@@ -168,3 +205,53 @@ sys_lib/.venv/Scripts/python.exe -m pytest noc/test/CrossbarRTL_test.py -q --tb=
 - C2 筛选完成：ctrl8 两种形状、ctrl6 两种形状及 irregular3x5 共 **8436 cycles / 16877 snapshots**；ctrl6 两形状和 irregular 三项形式证明共 2205 点、无未证。逐输出与状态覆盖审计全部通过；精简证据为 `results/C2-compare-screening.json`。
 - 主智能体按原样将已验证的单项候选复制到 `noc/CrossbarRTL.py`，SHA256 `40f5077b172e2c8f9917eb70012a0119c7df13c996e0314a926ef3d56080b5a4`。没有加入 C1 或 C3，原寄存器、复位、控制编码和接口保持不变。
 - 下一步在此明确版本上生成新的完整 CGRA 网表、执行相同综合/时序诊断，并复用完整基线轨迹验证最终 B+C2 集成版本。
+- 第五笔提交 `e91686f` 固定单项 C2 与筛选结果。最终整机生成时工作区 diff 为空，manifest 精确记录此完整 commit；生成 RTL 为 1,044,261 bytes，SHA256 `caa087be49e7130099add7b7ce23da646aab3817c5189df4a440bf738236d19c`。
+- `/root/area_report` 完成最终限定回归：旧 Crossbar 两测、Tile ALU/prologue、ContextSwitch ALU、StaticSwitch 七测，共 **12 passed / 49.60 s**。现有弃用警告保留日志。Tile prologue 的 `--test-verilog` 已生成 327,588-byte RTL，导入阶段仍受 Windows `verilator` 入口限制而失败；未计作通过。生成文件移入本次 build 目录，未修改 RTL。归档 `results/final-regression.json`。
+- `/root/noc_contract` 从原始基线分别并行重播最终 INC 与两个边界场景，快照 hash 核实为 C2；源码与基线轨迹都不随运行中的工作区变化。
+
+### 时序缺失原因的进一步核实
+
+- 等待最终综合时，`/root/synth_tools` 对 A0 做了独立只读路径追踪，核实 x 告警并非全是没有时序终点的死逻辑。
+- `tile__0/const_mem.clear=x` 经 OR2_X1、NOR3_X1 两级组合门到达 `consume_pending` 的 DFF.D；结构上还可到达读/写指针，共 7 个局部 FF 输入。另一组输入分别来自 reset 和 ctrl_proceed。完整实例/门名、引脚链及库函数归档于 `results/A0-x-reachability.json`。
+- 这是具体结构可达证据；没有声称已检查全部 8800 项的可达性或逻辑可敏化，也没有修改统一时序口径、绑定 x 或重映射。至少存在真实 FF 终点，因此不能简单将所有这些输入作为无关端口排除。
+
+### 最终完整综合及覆盖结果
+
+- C2 完整映射 317.796 s，面积 **2,049,466.692**、**1,160,207 cells**，加载库后的 `check -mapped -assert` 为 0。最终网表 SHA256 `7c058d9ec2357d96e442ac69b581383807ec33b2295d1d6b4bbbf23fa13b1739`。
+- `/root/synth_tools` 用冻结的同一时序脚本检查全部网表：1,010,838 个组合单元、149,369 个 DFF，相比 B1 仅组合单元减少 46,070。时钟域、FF 数量和端点数量相同。
+- 仍有 8800 个未知组合输入（VectorMul 4800 / VectorAdder 2752 / FlexibleFu 1232 / ConstQueue 16）。FF 直接输入 x=0、真实未驱动整数网络=0，三项停用端口共 205 bits；组合门上的 x 可经逻辑影响 FF，不能用“FF 直接输入 x=0”否认该问题。
+- 对 A0/B1/C2 仅归一化 ABC 运行编号后，8800 条逐引脚记录完全相同，双向集合差均为 0；delay/frequency 均保持 null。未改变 flow、库、驱动或负载。
+- 最终完整测量归档 `results/C2-final.json`、`results/C2-final-area.csv/.md`，时序归档 `results/C2-timing-diagnostics.json`。生成 provenance 对应完整 commit `e91686f7b6133f615bec76eb5bba6edbda1e5f1c`。
+- `/root/area_report` 独立遍历最终 write_json 中全部叶单元并查 Liberty，得到同样的 2,049,466.692 面积和 1,160,207 单元，与 Yosys stat、12 类归属及另一套父层级分组总和精确一致。三个 manifest 参数相同，源 RTL 与记录 hash 匹配，库实际 hash 一致，Yosys/sv2v 二进制 hash 与历史证明记录一致。
+- C2 相对 B 的 controller 面积 +634.942，精确分为同一 7×204 Mux 的 +628.292，以及 `global_reduce_unit/queue/ctrl` 的 +6.650（75 单元数不变、门型/尺寸变化）。可达的 27 个转换后模块文本完全相同。均属于映射变化，具体 ABC 内部启发式原因未证明。
+- 归档 `results/controller-mapping-audit.json`。原始综合 summary 未逐次记录 ABC 可执行文件 hash，因此报告只记录当前配套 ABC hash 与已有版本信息，不补造历史 hash。
+
+## Git 与产物索引
+
+工作分支：`codex/noc-4x4-opt`。功能版本及过程按下表拆分；最终收尾提交只归档数据和文档。
+
+| 提交 | 内容 |
+|---|---|
+| `41cb0c0` | 原始 RTL 基线 |
+| `14ce5bc` | 基线面积流程、参数、验证基础设施与实验日志 |
+| `74eb4fc` | 全网表时序覆盖诊断与基线限制；可复现 A0 的工具版本 |
+| `972145e` | B 控制环静态选择及对应局部/整机结果 |
+| `0474ab8` | 整机重播、B 全部周期验证、C1/C3 筛选与验证脚本修正 |
+| `e91686f` | 单项 C2 比较共享；最终 B+C2 RTL 与局部证明 |
+
+查看全部更新：`git log --oneline 41cb0c0..HEAD`；只看功能改动：`git diff 41cb0c0 e91686f -- cgra/CgraRTL.py noc/CrossbarRTL.py noc/StaticSwitchUnitRTL.py`。最终数据归档版本可由本日志的 Git 历史定位，测量对应的 RTL 版本始终明确为 `e91686f`。
+
+- 统一复现入口：`README.md`；原始约束与阶段：`OPTIMIZATION_PLAN.md`。
+- 完整面积数据：`results/A0-baseline.json`、`B1-static-switch.json`、`C2-final.json` 及各自 CSV/Markdown。
+- 证明与差分：`results/B1-switch-*.json`、`C2-compare-screening.json`、`B1-cgra-*.json`、`C2-cgra-*.json`、`final-regression.json`。
+- 未默认采纳的实验：`experiments/C1-factor.patch`、`C3-static-demand.patch` 及同名结果 JSON。
+- 时序限制与归因：三个 `*-timing-diagnostics.json`、`A0-x-reachability.json`、`controller-mapping-audit.json`。
+- 原始日志、压缩轨迹和网表保留在 `build/`；本地工具、Python 环境、工艺库按既定规则忽略，没有删除本轮证据或改动用户原有库。
+
+## E05：收尾
+
+- `/root/noc_contract` 完成最终 B+C2 的全部重播：INC 113 cycles / 226 snapshots；四边通信与 prologue 444 cycles / 888 snapshots。合计 **557 / 1114**，54 个顶层输出在每个时钟沿前后全部位一致，包含无效消息；轨迹 hash 与各自原始基线一致。
+- `results/C2-cgra-inc.json` 与 `C2-cgra-boundary.json` 记录完整 `e91686f…` 版本。归档前再次核对三个关键 RTL 快照的 hash 与该提交的 Git blob 完全一致，原始基线与轨迹未改写。
+- 全部子智能体作业已结束。主智能体复核结果与日志、更新计划状态和复现说明，将最终数据作为报告提交保存；没有推送、创建 PR 或合并。
+- 一次只读 Git 状态查询尝试使用 Windows `NUL` 作为临时 exclude 文件，被 Git 拒绝；改用仓库普通 exclude 文件继续查询。没有修改 Git 全局配置，该错误与综合/仿真无关。
+- 后续决策所需数据和未解决限制已经完整保留。若要确认原始双目标中的频率提升，仍需先明确处理基线未定义信号，再按统一条件重新测量基线和候选；本轮未擅自改变这些 FU/队列语义。

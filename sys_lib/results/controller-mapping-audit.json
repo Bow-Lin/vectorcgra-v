@@ -1,0 +1,323 @@
+{
+  "audited_utc": "2026-09-17T10:31:12.502143+00:00",
+  "method": "Read-only comparison of frozen converted module text and disjoint per-instance local mapped areas; no synthesis rerun. Final cell totals independently traversed from write_json and Liberty, without category classification.",
+  "controller": {
+    "instance_count": 98,
+    "reachable_module_type_count": 27,
+    "module_text_differences_from_A0": {
+      "A0": [],
+      "B": [],
+      "C2_final": []
+    },
+    "controller_module": "ControllerRTL__371b3262b4aec63d",
+    "controller_module_text_sha256": "36789c5b53c8ca0cfb5e15d8d5848c1725e5d62feadf8975ff7a49118a887a08",
+    "mux_module": "Mux__72f9c663845ff271",
+    "mux_shape": "7 inputs x 204 bits; dynamic packed slice in_[(6 - sel) * 204+:204]",
+    "mux_module_text_sha256": "63044aa06a9c78e256f6a8630be1b24ddfe6c35a16fa3c84b801a15d2362a24d",
+    "comparisons": [
+      {
+        "before": "A0",
+        "after": "B",
+        "controller_before_area_exact": "102897.046000",
+        "controller_after_area_exact": "101847.144000",
+        "controller_delta_area_exact": "-1049.902000",
+        "changed_local_instances": [
+          {
+            "path": "VectorCGRA4x4/controller/crossbar/switch_units__0/mux",
+            "module_type": "Mux__72f9c663845ff271",
+            "before_area_exact": "16050.972000",
+            "after_area_exact": "15001.070000",
+            "delta_area_exact": "-1049.902000",
+            "before_cells": 12381,
+            "after_cells": 10968
+          }
+        ]
+      },
+      {
+        "before": "B",
+        "after": "C2_final",
+        "controller_before_area_exact": "101847.144000",
+        "controller_after_area_exact": "102482.086000",
+        "controller_delta_area_exact": "634.942000",
+        "changed_local_instances": [
+          {
+            "path": "VectorCGRA4x4/controller/crossbar/switch_units__0/mux",
+            "module_type": "Mux__72f9c663845ff271",
+            "before_area_exact": "15001.070000",
+            "after_area_exact": "15629.362000",
+            "delta_area_exact": "628.292000",
+            "before_cells": 10968,
+            "after_cells": 12098
+          },
+          {
+            "path": "VectorCGRA4x4/controller/global_reduce_unit/queue/ctrl",
+            "module_type": "NormalQueueCtrlRTL__num_entries_16",
+            "before_area_exact": "133.266000",
+            "after_area_exact": "139.916000",
+            "delta_area_exact": "6.650000",
+            "before_cells": 75,
+            "after_cells": 75
+          }
+        ]
+      }
+    ],
+    "conclusion": "A0-to-B changes only the unchanged 7x204 Mux instance. B-to-C2_final changes that same Mux (+628.292 area) plus controller/global_reduce_unit/queue/ctrl (+6.650 area, same 75-cell count), totaling +634.942. All 27 reachable source modules are text-identical across all runs. These are technology-mapping variations, not controller RTL changes. The exact internal ABC ordering/heuristic cause is not established.",
+    "queue_ctrl_cell_type_changes": {
+      "AND2_X1": {
+        "B": 3,
+        "C2_final": 2
+      },
+      "AND2_X2": {
+        "B": 0,
+        "C2_final": 2
+      },
+      "AND3_X4": {
+        "B": 0,
+        "C2_final": 1
+      },
+      "AOI211_X1": {
+        "B": 3,
+        "C2_final": 2
+      },
+      "AOI211_X2": {
+        "B": 1,
+        "C2_final": 0
+      },
+      "AOI21_X1": {
+        "B": 8,
+        "C2_final": 5
+      },
+      "AOI21_X4": {
+        "B": 0,
+        "C2_final": 1
+      },
+      "AOI221_X1": {
+        "B": 1,
+        "C2_final": 0
+      },
+      "BUF_X1": {
+        "B": 2,
+        "C2_final": 1
+      },
+      "INV_X1": {
+        "B": 6,
+        "C2_final": 5
+      },
+      "MUX2_X1": {
+        "B": 1,
+        "C2_final": 0
+      },
+      "MUX2_X2": {
+        "B": 0,
+        "C2_final": 1
+      },
+      "NAND2_X1": {
+        "B": 2,
+        "C2_final": 3
+      },
+      "NAND2_X2": {
+        "B": 3,
+        "C2_final": 1
+      },
+      "NAND3_X1": {
+        "B": 2,
+        "C2_final": 1
+      },
+      "NAND3_X2": {
+        "B": 1,
+        "C2_final": 0
+      },
+      "NOR2_X4": {
+        "B": 0,
+        "C2_final": 1
+      },
+      "NOR3_X1": {
+        "B": 2,
+        "C2_final": 3
+      },
+      "NOR3_X2": {
+        "B": 0,
+        "C2_final": 1
+      },
+      "NOR3_X4": {
+        "B": 0,
+        "C2_final": 1
+      },
+      "NOR4_X2": {
+        "B": 1,
+        "C2_final": 0
+      },
+      "OAI211_X2": {
+        "B": 0,
+        "C2_final": 1
+      },
+      "OAI21_X1": {
+        "B": 7,
+        "C2_final": 10
+      },
+      "OAI21_X2": {
+        "B": 0,
+        "C2_final": 2
+      },
+      "OAI21_X4": {
+        "B": 1,
+        "C2_final": 0
+      },
+      "OR2_X1": {
+        "B": 1,
+        "C2_final": 0
+      },
+      "OR3_X4": {
+        "B": 1,
+        "C2_final": 0
+      },
+      "XNOR2_X1": {
+        "B": 3,
+        "C2_final": 5
+      },
+      "XNOR2_X2": {
+        "B": 0,
+        "C2_final": 1
+      },
+      "XOR2_X1": {
+        "B": 1,
+        "C2_final": 0
+      }
+    }
+  },
+  "full_design_checks": {
+    "A0": {
+      "top": "VectorCGRA4x4",
+      "source_commit": "41cb0c0e94d9373dbb967cb69baa38990d0f402e",
+      "total_area_exact": "3272792.978000",
+      "stat_area_exact": "3272792.978000",
+      "category_sum_exact": "3272792.978000",
+      "parent_group_sum_exact": "3272792.978000",
+      "mapped_cells": 2063725,
+      "rtl_sha256": "f6563fc5518fb2a42c39778529cf28c92ed3477c52a830a76486fd3ae80710d3",
+      "liberty_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+      "abc_driving_cell": "BUF_X1",
+      "abc_load_ff": 5.0,
+      "all_checks_passed": true
+    },
+    "B": {
+      "top": "VectorCGRA4x4",
+      "source_commit": "14ce5bccebf984265653b1ed0388ef2c877da889",
+      "total_area_exact": "2104402.342000",
+      "stat_area_exact": "2104402.342000",
+      "category_sum_exact": "2104402.342000",
+      "parent_group_sum_exact": "2104402.342000",
+      "mapped_cells": 1206277,
+      "rtl_sha256": "a224a6c79d3a1c39649bf9dc1fc684fe20b7476ab571cd5e06a0591b7eb7cbdf",
+      "liberty_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+      "abc_driving_cell": "BUF_X1",
+      "abc_load_ff": 5.0,
+      "all_checks_passed": true
+    },
+    "C2_final": {
+      "top": "VectorCGRA4x4",
+      "source_commit": "e91686f7b6133f615bec76eb5bba6edbda1e5f1c",
+      "total_area_exact": "2049466.692000",
+      "stat_area_exact": "2049466.692000",
+      "category_sum_exact": "2049466.692000",
+      "parent_group_sum_exact": "2049466.692000",
+      "mapped_cells": 1160207,
+      "rtl_sha256": "caa087be49e7130099add7b7ce23da646aab3817c5189df4a440bf738236d19c",
+      "liberty_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+      "abc_driving_cell": "BUF_X1",
+      "abc_load_ff": 5.0,
+      "all_checks_passed": true
+    }
+  },
+  "final_independent_leaf_count": {
+    "area_exact": "2049466.692000",
+    "cells": 1160207,
+    "standard_cell_types": 85,
+    "matches_area_report_and_stat": true
+  },
+  "final_vs_B_category_differences": [
+    {
+      "category": "routing_crossbar",
+      "before_area_exact": "125747.776000",
+      "after_area_exact": "81681.152000",
+      "delta_area_exact": "-44066.624000"
+    },
+    {
+      "category": "fu_crossbar",
+      "before_area_exact": "37533.664000",
+      "after_area_exact": "26029.696000",
+      "delta_area_exact": "-11503.968000"
+    },
+    {
+      "category": "controller",
+      "before_area_exact": "101847.144000",
+      "after_area_exact": "102482.086000",
+      "delta_area_exact": "634.942000"
+    }
+  ],
+  "fixed_parameters_identical": true,
+  "fixed_parameters": {
+    "width": 4,
+    "height": 4,
+    "topology": "Mesh",
+    "data_bitwidth": 32,
+    "data_type_nbits": 35,
+    "num_fu_inports": 4,
+    "num_fu_outports": 2,
+    "ctrl_mem_size": 6,
+    "data_mem_size_global": 128,
+    "data_mem_size_per_bank": 16,
+    "num_banks_per_cgra": 2,
+    "num_registers_per_reg_bank": 16,
+    "num_ctrl": 6,
+    "total_steps": 6,
+    "multi_cgra_rows": 1,
+    "multi_cgra_columns": 4,
+    "is_multi_cgra": false,
+    "has_ctrl_ring": true,
+    "has_im2col_engine": false,
+    "mem_access_is_combinational": true,
+    "functional_units": [
+      "AdderRTL",
+      "MulRTL",
+      "LogicRTL",
+      "ShifterRTL",
+      "PhiRTL",
+      "CompRTL",
+      "GrantRTL",
+      "MemUnitRTL",
+      "SelRTL",
+      "VectorMulComboRTL",
+      "VectorAdderComboRTL",
+      "NahRTL"
+    ]
+  },
+  "liberty_actual_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+  "tool_checks": {
+    "yosys": {
+      "sha256": "05cf22385a4fa334988c64fc08724b39c65c2c8092a1c817779fb729de89c170",
+      "version": "Yosys 0.69+62 (git sha1 0edda7a3a-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)",
+      "matches_preoptimization_and_final_proof_records": true
+    },
+    "sv2v": {
+      "sha256": "1f3c2b96e212592e6f4a2ecff3209f211277834540d8a9309ecee50a45adc699",
+      "version": "sv2v v0.0.13",
+      "matches_preoptimization_and_final_proof_records": true
+    },
+    "yosys_abc": {
+      "sha256": "8168052e89cbb3120acf8b7ef9846a1204f1eb320e25c135326ab089a8c32e12",
+      "path": "D:\\work\\VectorCGRA\\sys_lib\\tools\\oss-cad-suite\\bin\\yosys-abc.exe",
+      "historic_binary_hash_available_in_compared_synthesis_summaries": false
+    }
+  },
+  "versions_identical": true,
+  "versions": {
+    "yosys": "Yosys 0.69+62 (git sha1 0edda7a3a-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)",
+    "sv2v": "sv2v v0.0.13"
+  },
+  "limitations": [
+    "Area is the complete hierarchy-preserving mapped design. Percentages use that denominator.",
+    "Module partition ABC delays are not full-design sequential STA or Fmax.",
+    "Per-run synthesis summaries retain tool version and Liberty hash but not an individual ABC executable hash; the installed companion hash is recorded here without inventing a historical digest."
+  ]
+}
