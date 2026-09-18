@@ -1,0 +1,738 @@
+{
+  "schema_version": 1,
+  "date": "2026-09-18",
+  "status": "structural_frequency_proxy_measured; signoff_fmax_unavailable",
+  "hardware_changes_in_this_stage": [],
+  "primary_measurement": "stock Yosys companion ABC, FF-to-FF, K=100 ns, 2K de-embedded",
+  "frequency_proxy_mhz": {
+    "A0": 168.21338877646664,
+    "C2": 170.50647242569315,
+    "change_percent": 1.363199247043112
+  },
+  "rr_delay_change_percent": -1.3448660432675563,
+  "area_change_percent": -37.37866385754632,
+  "conditions": {
+    "library": "NangateOpenCellLibrary_typical",
+    "voltage_v": 1.1,
+    "temperature_c": 25,
+    "driver": "absolute BUF_X1 cell delay with ideal zero-slew input",
+    "per_real_endpoint_load_ff": 5,
+    "wire_load": false,
+    "undefined_input_model": "8800 independent per-sink virtual inputs; gates and arcs retained",
+    "inactive_inter_cgra_output_bits": 205,
+    "ff_count_each_version": 149369,
+    "clock_to_q_setup_clock_tree_and_wires_included": false,
+    "marker_time_is_hardware_latency": false,
+    "original_timing_flow_driver": "incremental BUF_X1 delay(load)-delay(0); no old complete-design number mixed into comparison"
+  },
+  "limitations": [
+    "Proxy only, not signoff maximum clock frequency or proof of RTL correctness",
+    "Existing undefined RTL inputs remain unresolved; production RTL unchanged",
+    "Q/QN independent, path sensitization and real sequential/I/O timing not modeled",
+    "Conditional Liberty arcs use stock ABC merging/sense rules and table extrapolation",
+    "Large reset fanout and floating-point extrapolation reduce meaningful decimal precision",
+    "Representative longest structural path contains mutually exclusive opcode branches; no false-path constraint added"
+  ],
+  "scripts_sha256": {
+    "mapped_timing.py": "3af720b171c04806e52dd88293260c3625814d6d0b71cba4b8322c1e81a066cd",
+    "structural_cutpoints.py": "7953cb00efffeeead2fdc366800689c19e7d693dd0dc6ad983ddb3a756438030",
+    "abc_path_groups.py": "520583e644f7643702e9b9f1a3c61cace98f103d3aa3015c3cf12eccfc679230",
+    "class_nldm.py": "c494c1b7d8ff92adb6c6555e47b2206de4e2a2bc81656c9b7efaef45bab59888",
+    "validate_nldm.py": "218c0ea758496ab490335eb095a13c5c19df2b09338b1ff7806887207faae1f5"
+  },
+  "stages": {
+    "A0": {
+      "rtl_commit": "41cb0c0e94d9373dbb967cb69baa38990d0f402e",
+      "mapped_json": "sys_lib/build/baseline/hierarchical/mapped.json",
+      "mapped_json_sha256": "009441f64f7bd5d7a74c1ac7e08a7ad0883aeabf782dce2cdcf1f456213c274e",
+      "existing_full_design_area": 3272792.978,
+      "measurements_stock_abc": {
+        "RR-100": {
+          "physical_gate_statements": 1914358,
+          "dummy_endpoint_count": 5876,
+          "launch_markers": 308554,
+          "endpoint_markers": 150130,
+          "selected_launches": 298738,
+          "selected_endpoints": 149369,
+          "unused_launch_anchors": 146058,
+          "source_kind": "sequential_output_pins",
+          "endpoint_kind": "sequential_input_pins",
+          "abc_total_ps": 205944.83,
+          "offset_ns": 100,
+          "delay_ps": 5944.829999999987,
+          "critical_startpoint": {
+            "net": "n1902362",
+            "label": "VectorCGRA4x4/tile__0/ctrl_mem/$auto$ff.cc:337:slice$1001165.Q",
+            "kind": "sequential_output_pins"
+          },
+          "critical_endpoint": {
+            "net": "n3083011",
+            "label": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__0/reg_file/$auto$ff.cc:337:slice$960561.D",
+            "kind": "sequential_input_pins"
+          },
+          "abc_gate_count": 2373042,
+          "abc_readback_types_verified": true,
+          "frequency_proxy_mhz": 168.21338877646664,
+          "wall_seconds": 134.89099999994505,
+          "source_sha256": "8a850325f6647e1d393b1e61e3ca6f86aabb058d94ec6ba3d072e34ddae9d19f",
+          "cutpoints_sha256": "3af0e7f064d68d62f89347b08a304e2b507a14624239b30bd12643767e517713",
+          "liberty_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+          "measurement_liberty_sha256": "8af57c5f0042aff8ade1ea1cd35236596f61939fd0e2e26f37d1a768414fea32",
+          "measurement_blif_sha256": "60f91b14a7467ab00c84539160ba00c363cb33b84850969fa506f23d25d0e422",
+          "abc_sha256": "8168052e89cbb3120acf8b7ef9846a1204f1eb320e25c135326ab089a8c32e12",
+          "critical_trace_lines": 116,
+          "raw_report": "sys_lib/build/timing-method-v2/A0-RR-100/result.json",
+          "raw_report_sha256": "f5867408800ef05cc299d430d3bc91b981aead4226062336dea3e8fdd67c4a7d",
+          "abc_log_sha256": "b5f0b9c4ddbbc79e18044c4c78468125f0d866e8be43c0a332f7bb56f7a776f3",
+          "abc_readback_sha256": "fd56fee823409952da108578c12fd7f61b89feaccd2c120ce39f2b19a7209dd0",
+          "command_file_sha256": "5fa7fd67e30e9d441ac3fdf46fc8fd451f18e319c9c67a2e7cb65381e66ceed7"
+        },
+        "RR-200": {
+          "physical_gate_statements": 1914358,
+          "dummy_endpoint_count": 5876,
+          "launch_markers": 308554,
+          "endpoint_markers": 150130,
+          "selected_launches": 298738,
+          "selected_endpoints": 149369,
+          "unused_launch_anchors": 146058,
+          "source_kind": "sequential_output_pins",
+          "endpoint_kind": "sequential_input_pins",
+          "abc_total_ps": 405944.91,
+          "offset_ns": 200.0,
+          "delay_ps": 5944.909999999974,
+          "critical_startpoint": {
+            "net": "n1902362",
+            "label": "VectorCGRA4x4/tile__0/ctrl_mem/$auto$ff.cc:337:slice$1001165.Q",
+            "kind": "sequential_output_pins"
+          },
+          "critical_endpoint": {
+            "net": "n3083011",
+            "label": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__0/reg_file/$auto$ff.cc:337:slice$960561.D",
+            "kind": "sequential_input_pins"
+          },
+          "abc_gate_count": 2373042,
+          "abc_readback_types_verified": true,
+          "frequency_proxy_mhz": 168.21112514739573,
+          "wall_seconds": 112.60999999998603,
+          "source_sha256": "8a850325f6647e1d393b1e61e3ca6f86aabb058d94ec6ba3d072e34ddae9d19f",
+          "cutpoints_sha256": "3af0e7f064d68d62f89347b08a304e2b507a14624239b30bd12643767e517713",
+          "liberty_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+          "measurement_liberty_sha256": "68f99077403629b901a8188b909a67e6e6f6de70ad8928c5bff8cf33b7c5fe7c",
+          "measurement_blif_sha256": "60f91b14a7467ab00c84539160ba00c363cb33b84850969fa506f23d25d0e422",
+          "abc_sha256": "8168052e89cbb3120acf8b7ef9846a1204f1eb320e25c135326ab089a8c32e12",
+          "analysis_script_sha256": "6b055b867545cc699669e5bbaecbf6284dcfc68c980b41fdc21850be5dc3d76d",
+          "method": "Stock ABC stime, absolute BUF_X1 source driver, 5 fF per real endpoint; time markers de-embedded",
+          "limitations": [
+            "Structural combinational frequency proxy, not signoff Fmax",
+            "No clock-to-Q, setup, clock-tree or wire delay",
+            "Undefined pins are independent diagnostic sources; functional behavior is unresolved",
+            "Q and QN are independent launch points; path sensitization is not checked",
+            "ABC Liberty conditional arc handling and extrapolation are retained"
+          ],
+          "critical_trace_lines": 116,
+          "raw_report": "sys_lib/build/timing-method-v2/A0-RR-200/result.json",
+          "raw_report_sha256": "c11565117b1f457b910d6a9691d23fb7c45a0fa4d251bc6311a60257ceb8bffc",
+          "abc_log_sha256": "778cda4abb6946ff9b75e3fb6f48c60b8752b1916ff8b033d215c0e9b5bd272a",
+          "abc_readback_sha256": "bdaf0e365cf1879f68a34fc0bbfb7f2f05ba6d7fc26238e687e39c44eb880ec5",
+          "command_file_sha256": "a12d817c6e1f4256c1d646b2c3de163919c1dfaba76381004605dd1f955ec756"
+        },
+        "ALL-100": {
+          "physical_gate_statements": 1914358,
+          "dummy_endpoint_count": 5876,
+          "launch_markers": 308554,
+          "endpoint_markers": 150130,
+          "selected_launches": 308554,
+          "selected_endpoints": 150130,
+          "unused_launch_anchors": 146058,
+          "source_kind": "all",
+          "endpoint_kind": "all",
+          "abc_total_ps": 213131.25,
+          "offset_ns": 100,
+          "delay_ps": 13131.25,
+          "critical_startpoint": {
+            "net": "n23",
+            "label": "reset[0]",
+            "kind": "primary_inputs"
+          },
+          "critical_endpoint": {
+            "net": "n3083011",
+            "label": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__0/reg_file/$auto$ff.cc:337:slice$960561.D",
+            "kind": "sequential_input_pins"
+          },
+          "abc_gate_count": 2373042,
+          "abc_readback_types_verified": true,
+          "frequency_proxy_mhz": 76.15421227986673,
+          "wall_seconds": 91.92099999997299,
+          "source_sha256": "8a850325f6647e1d393b1e61e3ca6f86aabb058d94ec6ba3d072e34ddae9d19f",
+          "cutpoints_sha256": "3af0e7f064d68d62f89347b08a304e2b507a14624239b30bd12643767e517713",
+          "liberty_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+          "measurement_liberty_sha256": "8af57c5f0042aff8ade1ea1cd35236596f61939fd0e2e26f37d1a768414fea32",
+          "measurement_blif_sha256": "4f4d3681d8e6621f458a7b1ec596ef483749c280eba01548a2373d31c24eb8ae",
+          "abc_sha256": "8168052e89cbb3120acf8b7ef9846a1204f1eb320e25c135326ab089a8c32e12",
+          "analysis_script_sha256": "6b055b867545cc699669e5bbaecbf6284dcfc68c980b41fdc21850be5dc3d76d",
+          "method": "Stock ABC stime, absolute BUF_X1 source driver, 5 fF per real endpoint; time markers de-embedded",
+          "limitations": [
+            "Structural combinational frequency proxy, not signoff Fmax",
+            "No clock-to-Q, setup, clock-tree or wire delay",
+            "Undefined pins are independent diagnostic sources; functional behavior is unresolved",
+            "Q and QN are independent launch points; path sensitization is not checked",
+            "ABC Liberty conditional arc handling and extrapolation are retained"
+          ],
+          "critical_trace_lines": 116,
+          "raw_report": "sys_lib/build/timing-method-v2/A0-ALL-100/result.json",
+          "raw_report_sha256": "d38424e8a6867fbdaab8974735f1acacd036572058783a251b687f3161c0d4d9",
+          "abc_log_sha256": "14a4d7df377c40463b7ee65c2b4fccecb1b71881cc2c9aacaa72708d884f089b",
+          "abc_readback_sha256": "4f43d065b0977187943f9d7ab531ae13173933f689c13d65cb875fca553ae5a0",
+          "command_file_sha256": "af9adbcce13cc79b3fac6c96fca78e405e6e166c1448cdb8dbc6ab8c4a3f14e8"
+        }
+      },
+      "independent_path_classes_ps": {
+        "PI_to_FF": 13131.691895233513,
+        "PI_to_PO": 11479.551811972207,
+        "FF_to_FF": 5944.841607957479,
+        "FF_to_PO": 4292.701524696187,
+        "VIRTUAL_to_FF": 2474.6669786454686,
+        "VIRTUAL_to_PO": 2202.68765113697
+      },
+      "independent_all_sources_ps": 13131.691895233513,
+      "independent_full_report": "A0-frequency-independent.json",
+      "independent_full_report_sha256": "36b234d4848bcc66fe8a05f5498472a619db1f3049c70adb6057a311b8bb0a7c",
+      "rr_offset_difference_ps": 0.07999999998719431,
+      "rr_abc_independent_difference_ps": 0.011607957491833076,
+      "all_abc_independent_difference_ps": 0.441895233512696,
+      "ordering": {
+        "input": "D:\\work\\VectorCGRA\\sys_lib\\build\\timing-method-v2\\A0\\full.blif",
+        "input_sha256": "6de92f638dd67dffd49621c6dd27bdb95d8f9a7fd18f6756b89489aadb1edc54",
+        "gate_statements": 1914358,
+        "intergate_edges": 4747220,
+        "ordered_gate_statements": 1914358,
+        "unprocessed_cyclic_or_cycle_fanout_nodes": 0,
+        "elapsed_seconds": 17.96799999999348,
+        "change": "Permutation only; all original gate lines and primary ports preserved byte-for-byte",
+        "output_sha256": "8a850325f6647e1d393b1e61e3ca6f86aabb058d94ec6ba3d072e34ddae9d19f"
+      }
+    },
+    "C2": {
+      "rtl_commit": "e91686f7b6133f615bec76eb5bba6edbda1e5f1c",
+      "mapped_json": "sys_lib/build/C2-final/hierarchical/mapped.json",
+      "mapped_json_sha256": "7c058d9ec2357d96e442ac69b581383807ec33b2295d1d6b4bbbf23fa13b1739",
+      "existing_full_design_area": 2049466.692,
+      "measurements_stock_abc": {
+        "RR-100": {
+          "physical_gate_statements": 1010840,
+          "dummy_endpoint_count": 5876,
+          "launch_markers": 308554,
+          "endpoint_markers": 150130,
+          "selected_launches": 298738,
+          "selected_endpoints": 149369,
+          "unused_launch_anchors": 146058,
+          "source_kind": "sequential_output_pins",
+          "endpoint_kind": "sequential_input_pins",
+          "abc_total_ps": 205864.88,
+          "offset_ns": 100,
+          "delay_ps": 5864.880000000005,
+          "critical_startpoint": {
+            "net": "n974644",
+            "label": "VectorCGRA4x4/tile__0/ctrl_mem/$auto$ff.cc:337:slice$930890.Q",
+            "kind": "sequential_output_pins"
+          },
+          "critical_endpoint": {
+            "net": "n2113333",
+            "label": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__0/reg_file/$auto$ff.cc:337:slice$890286.D",
+            "kind": "sequential_input_pins"
+          },
+          "abc_gate_count": 1469524,
+          "abc_readback_types_verified": true,
+          "frequency_proxy_mhz": 170.50647242569315,
+          "wall_seconds": 70.625,
+          "source_sha256": "3b7c7d6a29b376e83a3023e04a1c939ef6756389d366888d7d8c521eb1c0ffd5",
+          "cutpoints_sha256": "15a786e317fd17e26eb0938c0e156c8d356144da3c778be5351d8e83b1a07476",
+          "liberty_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+          "measurement_liberty_sha256": "8af57c5f0042aff8ade1ea1cd35236596f61939fd0e2e26f37d1a768414fea32",
+          "measurement_blif_sha256": "eea7b3f74f6e31d35b3253196b67895dcf508b0abb36c618966524360f022bf7",
+          "abc_sha256": "8168052e89cbb3120acf8b7ef9846a1204f1eb320e25c135326ab089a8c32e12",
+          "critical_trace_lines": 126,
+          "raw_report": "sys_lib/build/timing-method-v2/C2-RR-100/result.json",
+          "raw_report_sha256": "a0d475ba56c319ce63e94432de6be620a8897f76b9b29fc4189b2e44c1abdfbe",
+          "abc_log_sha256": "c9f5047e579a7a3ba83a520208726439bb436e0e3753637c0298390c5fbdf236",
+          "abc_readback_sha256": "12901d85a7f99825ce5b85037ebfc9202056343e3b45f914bbdfd38685bc464f",
+          "command_file_sha256": "feb26bec817e86864516283d7159f4ad4d5d254f751fb13ecba42a2e4cd44920"
+        },
+        "RR-200": {
+          "physical_gate_statements": 1010840,
+          "dummy_endpoint_count": 5876,
+          "launch_markers": 308554,
+          "endpoint_markers": 150130,
+          "selected_launches": 298738,
+          "selected_endpoints": 149369,
+          "unused_launch_anchors": 146058,
+          "source_kind": "sequential_output_pins",
+          "endpoint_kind": "sequential_input_pins",
+          "abc_total_ps": 405865.0,
+          "offset_ns": 200.0,
+          "delay_ps": 5865.0,
+          "critical_startpoint": {
+            "net": "n974644",
+            "label": "VectorCGRA4x4/tile__0/ctrl_mem/$auto$ff.cc:337:slice$930890.Q",
+            "kind": "sequential_output_pins"
+          },
+          "critical_endpoint": {
+            "net": "n2113333",
+            "label": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__0/reg_file/$auto$ff.cc:337:slice$890286.D",
+            "kind": "sequential_input_pins"
+          },
+          "abc_gate_count": 1469524,
+          "abc_readback_types_verified": true,
+          "frequency_proxy_mhz": 170.50298380221653,
+          "wall_seconds": 70.78099999995902,
+          "source_sha256": "3b7c7d6a29b376e83a3023e04a1c939ef6756389d366888d7d8c521eb1c0ffd5",
+          "cutpoints_sha256": "15a786e317fd17e26eb0938c0e156c8d356144da3c778be5351d8e83b1a07476",
+          "liberty_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+          "measurement_liberty_sha256": "68f99077403629b901a8188b909a67e6e6f6de70ad8928c5bff8cf33b7c5fe7c",
+          "measurement_blif_sha256": "eea7b3f74f6e31d35b3253196b67895dcf508b0abb36c618966524360f022bf7",
+          "abc_sha256": "8168052e89cbb3120acf8b7ef9846a1204f1eb320e25c135326ab089a8c32e12",
+          "critical_trace_lines": 126,
+          "raw_report": "sys_lib/build/timing-method-v2/C2-RR-200/result.json",
+          "raw_report_sha256": "c56e8434338b7d3ebb69b993e05f28c2da5246f48c75a5a9c40dbe42bdaea374",
+          "abc_log_sha256": "75bef49e4cc8e0c6d54b47a995e602e59a9f1fe92a9a1f66a53f6b9146f6daf8",
+          "abc_readback_sha256": "e967b84ad97d044c5c46fac2c99081c1bdaea6f38d91109dc1d072342a1b68f7",
+          "command_file_sha256": "62bb917257a3a9a63516e8b42fe6b2b4f3f5d949c1fca5488865219eab07e68a"
+        },
+        "ALL-100": {
+          "physical_gate_statements": 1010840,
+          "dummy_endpoint_count": 5876,
+          "launch_markers": 308554,
+          "endpoint_markers": 150130,
+          "selected_launches": 308554,
+          "selected_endpoints": 150130,
+          "unused_launch_anchors": 146058,
+          "source_kind": "all",
+          "endpoint_kind": "all",
+          "abc_total_ps": 213052.45,
+          "offset_ns": 100,
+          "delay_ps": 13052.450000000012,
+          "critical_startpoint": {
+            "net": "n23",
+            "label": "reset[0]",
+            "kind": "primary_inputs"
+          },
+          "critical_endpoint": {
+            "net": "n2113333",
+            "label": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__0/reg_file/$auto$ff.cc:337:slice$890286.D",
+            "kind": "sequential_input_pins"
+          },
+          "abc_gate_count": 1469524,
+          "abc_readback_types_verified": true,
+          "frequency_proxy_mhz": 76.61396902497225,
+          "wall_seconds": 66.32799999997951,
+          "source_sha256": "3b7c7d6a29b376e83a3023e04a1c939ef6756389d366888d7d8c521eb1c0ffd5",
+          "cutpoints_sha256": "15a786e317fd17e26eb0938c0e156c8d356144da3c778be5351d8e83b1a07476",
+          "liberty_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+          "measurement_liberty_sha256": "8af57c5f0042aff8ade1ea1cd35236596f61939fd0e2e26f37d1a768414fea32",
+          "measurement_blif_sha256": "d12b4de397abb6b0fc4418f5cab1ff09de30dd0421c7e21eb48fe7383eb47e51",
+          "abc_sha256": "8168052e89cbb3120acf8b7ef9846a1204f1eb320e25c135326ab089a8c32e12",
+          "analysis_script_sha256": "6b055b867545cc699669e5bbaecbf6284dcfc68c980b41fdc21850be5dc3d76d",
+          "method": "Stock ABC stime, absolute BUF_X1 source driver, 5 fF per real endpoint; time markers de-embedded",
+          "limitations": [
+            "Structural combinational frequency proxy, not signoff Fmax",
+            "No clock-to-Q, setup, clock-tree or wire delay",
+            "Undefined pins are independent diagnostic sources; functional behavior is unresolved",
+            "Q and QN are independent launch points; path sensitization is not checked",
+            "ABC Liberty conditional arc handling and extrapolation are retained"
+          ],
+          "critical_trace_lines": 119,
+          "raw_report": "sys_lib/build/timing-method-v2/C2-ALL-100/result.json",
+          "raw_report_sha256": "656f611f48b6f247b4cf24452810ce8c9d1e6355f5021d7b8b164e79a167050c",
+          "abc_log_sha256": "86e6b1452163401fad689f36f611f8108631c3b6c8d4f3c0bd4c0a6b38007d6a",
+          "abc_readback_sha256": "f0b51bebaeb130133c264c61c3ab97dcb8cc61e0b578afe04f3d68ae35205f68",
+          "command_file_sha256": "12685c59cae5dc344d037feb9cca1d92d28f328a4e3db481752abdd50d686bf5"
+        }
+      },
+      "independent_path_classes_ps": {
+        "PI_to_FF": 13052.897311250723,
+        "PI_to_PO": 11422.768473839316,
+        "FF_to_FF": 5864.907586836498,
+        "FF_to_PO": 4234.7787494251,
+        "VIRTUAL_to_FF": 2476.8970346331057,
+        "VIRTUAL_to_PO": 2222.64998042208
+      },
+      "independent_all_sources_ps": 13052.897311250723,
+      "independent_full_report": "C2-frequency-independent.json",
+      "independent_full_report_sha256": "6c6f15aa4e1b19e267afe6000acd6e68b3d6e9ebc0a8f72bd1a510f1ccf205d6",
+      "rr_offset_difference_ps": 0.11999999999534339,
+      "rr_abc_independent_difference_ps": 0.027586836493355804,
+      "all_abc_independent_difference_ps": 0.44731125071120914,
+      "ordering": {
+        "input": "D:\\work\\VectorCGRA\\sys_lib\\build\\timing-method-v2\\C2\\full.blif",
+        "input_sha256": "41774cc258d7d21c9ba827c66665f7b22245b1225e7660e4e6b4872467d7b0ab",
+        "gate_statements": 1010840,
+        "intergate_edges": 2257968,
+        "ordered_gate_statements": 1010840,
+        "unprocessed_cyclic_or_cycle_fanout_nodes": 0,
+        "elapsed_seconds": 10.562999999965541,
+        "change": "Permutation only; all original gate lines and primary ports preserved byte-for-byte",
+        "output_sha256": "3b7c7d6a29b376e83a3023e04a1c939ef6756389d366888d7d8c521eb1c0ffd5"
+      }
+    }
+  },
+  "validation": {
+    "small_nldm_vs_stock_abc": {
+      "status": "passed",
+      "tolerance_ps": 0.03,
+      "cases": [
+        {
+          "case": "buffer",
+          "abc_delay_ps": 32.27,
+          "independent_delay_ps": 32.26852146250492,
+          "absolute_error_ps": 0.0014785374950818664,
+          "absolute_driver_delay_ps": 51.14404467096727,
+          "path_class_delays_ps": {
+            "PI_to_PO": 32.26852146250492,
+            "FF_to_PO": null,
+            "VIRTUAL_to_PO": null
+          }
+        },
+        {
+          "case": "duplicate_endpoints",
+          "abc_delay_ps": 43.7,
+          "independent_delay_ps": 43.69524828365848,
+          "absolute_error_ps": 0.004751716341523604,
+          "absolute_driver_delay_ps": 58.194596250569674,
+          "path_class_delays_ps": {
+            "PI_to_FF": null,
+            "FF_to_FF": 43.69524828365848,
+            "VIRTUAL_to_FF": null
+          }
+        },
+        {
+          "case": "negative_arc",
+          "abc_delay_ps": 32.6,
+          "independent_delay_ps": 32.60174654574125,
+          "absolute_error_ps": 0.0017465457412484398,
+          "absolute_driver_delay_ps": 51.4772697542036,
+          "path_class_delays_ps": {
+            "PI_to_FF": null,
+            "FF_to_FF": 32.60174654574125,
+            "VIRTUAL_to_FF": 26.29842512766455
+          }
+        },
+        {
+          "case": "nonunate",
+          "abc_delay_ps": 112.72,
+          "independent_delay_ps": 112.72269654086142,
+          "absolute_error_ps": 0.0026965408614216813,
+          "absolute_driver_delay_ps": 126.28743156797232,
+          "path_class_delays_ps": {
+            "PI_to_FF": null,
+            "PI_to_PO": 41.82193358693417,
+            "FF_to_FF": 90.58063181608684,
+            "FF_to_PO": 112.72269654086142,
+            "VIRTUAL_to_FF": 89.55087683779597,
+            "VIRTUAL_to_PO": 110.92429374581695
+          }
+        },
+        {
+          "case": "reconvergent",
+          "abc_delay_ps": 92.47,
+          "independent_delay_ps": 92.4730231380119,
+          "absolute_error_ps": 0.003023138011897686,
+          "absolute_driver_delay_ps": 111.34854634647425,
+          "path_class_delays_ps": {
+            "PI_to_FF": 68.68936910837151,
+            "FF_to_FF": 92.4730231380119,
+            "VIRTUAL_to_FF": null
+          }
+        }
+      ]
+    },
+    "structural_cutpoints_microcases": {
+      "status": "pass",
+      "unchanged_export_function_ast": true,
+      "acyclic_counts_verified": true,
+      "independent_virtual_inputs": 2,
+      "repeated_endpoint_pins": 2,
+      "nonempty_output_rejected": true,
+      "combinational_cycle_rejected": true
+    },
+    "packaged_C2_exports_byte_identical": {
+      "status": "pass",
+      "script_sha256": "c88525ba94ae1a51dbde42c3be602684a25837b5373277211974c36587f140d0",
+      "files": {
+        "full.blif": {
+          "prototype_sha256": "41774cc258d7d21c9ba827c66665f7b22245b1225e7660e4e6b4872467d7b0ab",
+          "packaged_sha256": "41774cc258d7d21c9ba827c66665f7b22245b1225e7660e4e6b4872467d7b0ab",
+          "identical": true
+        },
+        "full.gates": {
+          "prototype_sha256": "d4bad7b917b0c4e6bd0e420d982da078ea530d58b3b557838deba87f8ff794be",
+          "packaged_sha256": "d4bad7b917b0c4e6bd0e420d982da078ea530d58b3b557838deba87f8ff794be",
+          "identical": true
+        },
+        "coverage.json": {
+          "prototype_sha256": "50d639cc114fb31728750cccffdfd245b9c9953c74bd360b69bebe8e7ebefbee",
+          "packaged_sha256": "50d639cc114fb31728750cccffdfd245b9c9953c74bd360b69bebe8e7ebefbee",
+          "identical": true
+        },
+        "cutpoints.json": {
+          "prototype_sha256": "15a786e317fd17e26eb0938c0e156c8d356144da3c778be5351d8e83b1a07476",
+          "packaged_sha256": "15a786e317fd17e26eb0938c0e156c8d356144da3c778be5351d8e83b1a07476",
+          "identical": true
+        },
+        "all_ordered.blif": {
+          "prototype_sha256": "3b7c7d6a29b376e83a3023e04a1c939ef6756389d366888d7d8c521eb1c0ffd5",
+          "packaged_sha256": "3b7c7d6a29b376e83a3023e04a1c939ef6756389d366888d7d8c521eb1c0ffd5",
+          "identical": true
+        }
+      }
+    },
+    "marker_microcases": [
+      {
+        "physical_gate_statements": 3,
+        "type_counts": {
+          "INV_X1": 1,
+          "NAND2_X1": 1,
+          "BUF_X1": 1
+        },
+        "dummy_endpoint_count": 1,
+        "launch_markers": 3,
+        "endpoint_markers": 2,
+        "selected_launches": 2,
+        "selected_endpoints": 1,
+        "unused_launch_anchors": 1,
+        "source_kind": "sequential_output_pins",
+        "endpoint_kind": "sequential_input_pins",
+        "abc_total_ps": 200064.19,
+        "offset_ns": 100,
+        "delay_ps": 64.19000000000233,
+        "critical_startpoint": {
+          "net": "ff",
+          "kind": "sequential_output_pins",
+          "label": "ff.Q"
+        },
+        "critical_endpoint": {
+          "net": "end",
+          "kind": "sequential_input_pins",
+          "label": "ff.D"
+        },
+        "abc_gate_count": 8,
+        "abc_readback_types_verified": true,
+        "critical_path": [
+          "Path  0 --       1 : 0    1 pi                        A =   0.00  Df =   0.0   -0.0 ps  S =   0.0 ps  Cin =  0.0 ff  Cout =   1.0 ff  Cmax =   0.0 ff  G =    0  ",
+          "Path  1 --       8 : 1    3 MEASURE_SELECTED_LAUNCH   A =   0.80  Df =100033.1   -1.2 ps  S =  20.3 ps  Cin =  0.9 ff  Cout =   7.7 ff  Cmax =  60.7 ff  G =  816  ",
+          "Path  2 --      11 : 1    1 INV_X1                    A =   0.53  Df =100045.2   -3.4 ps  S =   7.4 ps  Cin =  1.6 ff  Cout =   1.6 ff  Cmax =  60.7 ff  G =   96  ",
+          "Path  3 --      12 : 2    1 NAND2_X1                  A =   0.80  Df =100064.2   -1.0 ps  S =  16.7 ps  Cin =  1.6 ff  Cout =   5.0 ff  Cmax =  59.4 ff  G =  317  ",
+          "Path  4 --      14 : 1    1 MEASURE_SELECTED_ENDPOINT A =   0.00  Df =200064.2   -1.0 ps  S =   0.0 ps  Cin =  5.0 ff  Cout =   5.0 ff  Cmax =   0.0 ff  G =  100  "
+        ],
+        "frequency_proxy_mhz": 15578.750584202582,
+        "wall_seconds": 10.640999999945052,
+        "source_sha256": "dea5c667eee211b1275ee2a034965cd564860e4deacc30153eb72677793ec3da",
+        "cutpoints_sha256": "e424772638c8e69fd4d01a8d94b6cd6ec264e0697ef0f07e0e8cad70d66acf04",
+        "liberty_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+        "measurement_liberty_sha256": "8af57c5f0042aff8ade1ea1cd35236596f61939fd0e2e26f37d1a768414fea32",
+        "measurement_blif_sha256": "135f0d37db072c1cb12b9e22857fb92f555fe30a4eecf4a890ec3514c9e75c9f",
+        "abc_sha256": "8168052e89cbb3120acf8b7ef9846a1204f1eb320e25c135326ab089a8c32e12"
+      },
+      {
+        "physical_gate_statements": 3,
+        "type_counts": {
+          "INV_X1": 1,
+          "NAND2_X1": 1,
+          "BUF_X1": 1
+        },
+        "dummy_endpoint_count": 1,
+        "launch_markers": 3,
+        "endpoint_markers": 2,
+        "selected_launches": 2,
+        "selected_endpoints": 1,
+        "unused_launch_anchors": 1,
+        "source_kind": "sequential_output_pins",
+        "endpoint_kind": "sequential_input_pins",
+        "abc_total_ps": 400064.19,
+        "offset_ns": 200,
+        "delay_ps": 64.19000000000233,
+        "critical_startpoint": {
+          "net": "ff",
+          "kind": "sequential_output_pins",
+          "label": "ff.Q"
+        },
+        "critical_endpoint": {
+          "net": "end",
+          "kind": "sequential_input_pins",
+          "label": "ff.D"
+        },
+        "abc_gate_count": 8,
+        "abc_readback_types_verified": true,
+        "critical_path": [
+          "Path  0 --       1 : 0    1 pi                        A =   0.00  Df =   0.0   -0.0 ps  S =   0.0 ps  Cin =  0.0 ff  Cout =   1.0 ff  Cmax =   0.0 ff  G =    0  ",
+          "Path  1 --       8 : 1    3 MEASURE_SELECTED_LAUNCH   A =   0.80  Df =200033.1   -1.2 ps  S =  20.3 ps  Cin =  0.9 ff  Cout =   7.7 ff  Cmax =  60.7 ff  G =  816  ",
+          "Path  2 --      11 : 1    1 INV_X1                    A =   0.53  Df =200045.2   -3.4 ps  S =   7.4 ps  Cin =  1.6 ff  Cout =   1.6 ff  Cmax =  60.7 ff  G =   96  ",
+          "Path  3 --      12 : 2    1 NAND2_X1                  A =   0.80  Df =200064.2   -1.0 ps  S =  16.7 ps  Cin =  1.6 ff  Cout =   5.0 ff  Cmax =  59.4 ff  G =  317  ",
+          "Path  4 --      14 : 1    1 MEASURE_SELECTED_ENDPOINT A =   0.00  Df =400064.2   -1.1 ps  S =   0.0 ps  Cin =  5.0 ff  Cout =   5.0 ff  Cmax =   0.0 ff  G =  100  "
+        ],
+        "frequency_proxy_mhz": 15578.750584202582,
+        "wall_seconds": 6.094000000040978,
+        "source_sha256": "dea5c667eee211b1275ee2a034965cd564860e4deacc30153eb72677793ec3da",
+        "cutpoints_sha256": "e424772638c8e69fd4d01a8d94b6cd6ec264e0697ef0f07e0e8cad70d66acf04",
+        "liberty_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+        "measurement_liberty_sha256": "7a050f18f32472f74f4fe0666aa17beb72095e2553df752ea5c3dfeb95558109",
+        "measurement_blif_sha256": "135f0d37db072c1cb12b9e22857fb92f555fe30a4eecf4a890ec3514c9e75c9f",
+        "abc_sha256": "8168052e89cbb3120acf8b7ef9846a1204f1eb320e25c135326ab089a8c32e12"
+      },
+      {
+        "physical_gate_statements": 3,
+        "type_counts": {
+          "INV_X1": 1,
+          "NAND2_X1": 1,
+          "BUF_X1": 1
+        },
+        "dummy_endpoint_count": 1,
+        "launch_markers": 3,
+        "endpoint_markers": 2,
+        "selected_launches": 1,
+        "selected_endpoints": 1,
+        "unused_launch_anchors": 1,
+        "source_kind": "primary_inputs",
+        "endpoint_kind": "sequential_input_pins",
+        "abc_total_ps": 200045.19,
+        "offset_ns": 100,
+        "delay_ps": 45.19000000000233,
+        "critical_startpoint": {
+          "net": "pi",
+          "kind": "primary_inputs",
+          "label": "reset"
+        },
+        "critical_endpoint": {
+          "net": "end",
+          "kind": "sequential_input_pins",
+          "label": "ff.D"
+        },
+        "abc_gate_count": 8,
+        "abc_readback_types_verified": true,
+        "critical_path": [
+          "Path  0 --       2 : 0    1 pi                        A =   0.00  Df =   0.0   -0.0 ps  S =   0.0 ps  Cin =  0.0 ff  Cout =   1.0 ff  Cmax =   0.0 ff  G =    0  ",
+          "Path  1 --       9 : 1    1 MEASURE_SELECTED_LAUNCH   A =   0.80  Df =100022.2   -4.1 ps  S =   7.0 ps  Cin =  0.9 ff  Cout =   1.7 ff  Cmax =  60.7 ff  G =  171  ",
+          "Path  2 --      12 : 2    1 NAND2_X1                  A =   0.80  Df =100045.2   -7.1 ps  S =  16.7 ps  Cin =  1.6 ff  Cout =   5.0 ff  Cmax =  59.4 ff  G =  317  ",
+          "Path  3 --      14 : 1    1 MEASURE_SELECTED_ENDPOINT A =   0.00  Df =200045.2   -7.1 ps  S =   0.0 ps  Cin =  5.0 ff  Cout =   5.0 ff  Cmax =   0.0 ff  G =  100  "
+        ],
+        "frequency_proxy_mhz": 22128.78955521019,
+        "wall_seconds": 3.344000000040978,
+        "source_sha256": "dea5c667eee211b1275ee2a034965cd564860e4deacc30153eb72677793ec3da",
+        "cutpoints_sha256": "e424772638c8e69fd4d01a8d94b6cd6ec264e0697ef0f07e0e8cad70d66acf04",
+        "liberty_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+        "measurement_liberty_sha256": "8af57c5f0042aff8ade1ea1cd35236596f61939fd0e2e26f37d1a768414fea32",
+        "measurement_blif_sha256": "51acadce9d674f9a8b274afdd58c5d3ae658b2c07df72cc0a50ea294e4d57ea0",
+        "abc_sha256": "8168052e89cbb3120acf8b7ef9846a1204f1eb320e25c135326ab089a8c32e12"
+      },
+      {
+        "physical_gate_statements": 3,
+        "type_counts": {
+          "INV_X1": 1,
+          "NAND2_X1": 1,
+          "BUF_X1": 1
+        },
+        "dummy_endpoint_count": 1,
+        "launch_markers": 3,
+        "endpoint_markers": 2,
+        "selected_launches": 1,
+        "selected_endpoints": 1,
+        "unused_launch_anchors": 1,
+        "source_kind": "primary_inputs",
+        "endpoint_kind": "sequential_input_pins",
+        "abc_total_ps": 400045.19,
+        "offset_ns": 200,
+        "delay_ps": 45.19000000000233,
+        "critical_startpoint": {
+          "net": "pi",
+          "kind": "primary_inputs",
+          "label": "reset"
+        },
+        "critical_endpoint": {
+          "net": "end",
+          "kind": "sequential_input_pins",
+          "label": "ff.D"
+        },
+        "abc_gate_count": 8,
+        "abc_readback_types_verified": true,
+        "critical_path": [
+          "Path  0 --       2 : 0    1 pi                        A =   0.00  Df =   0.0   -0.0 ps  S =   0.0 ps  Cin =  0.0 ff  Cout =   1.0 ff  Cmax =   0.0 ff  G =    0  ",
+          "Path  1 --       9 : 1    1 MEASURE_SELECTED_LAUNCH   A =   0.80  Df =200022.2   -4.1 ps  S =   7.0 ps  Cin =  0.9 ff  Cout =   1.7 ff  Cmax =  60.7 ff  G =  171  ",
+          "Path  2 --      12 : 2    1 NAND2_X1                  A =   0.80  Df =200045.2   -7.1 ps  S =  16.7 ps  Cin =  1.6 ff  Cout =   5.0 ff  Cmax =  59.4 ff  G =  317  ",
+          "Path  3 --      14 : 1    1 MEASURE_SELECTED_ENDPOINT A =   0.00  Df =400045.2   -7.1 ps  S =   0.0 ps  Cin =  5.0 ff  Cout =   5.0 ff  Cmax =   0.0 ff  G =  100  "
+        ],
+        "frequency_proxy_mhz": 22128.78955521019,
+        "wall_seconds": 4.780999999959022,
+        "source_sha256": "dea5c667eee211b1275ee2a034965cd564860e4deacc30153eb72677793ec3da",
+        "cutpoints_sha256": "e424772638c8e69fd4d01a8d94b6cd6ec264e0697ef0f07e0e8cad70d66acf04",
+        "liberty_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+        "measurement_liberty_sha256": "7a050f18f32472f74f4fe0666aa17beb72095e2553df752ea5c3dfeb95558109",
+        "measurement_blif_sha256": "51acadce9d674f9a8b274afdd58c5d3ae658b2c07df72cc0a50ea294e4d57ea0",
+        "abc_sha256": "8168052e89cbb3120acf8b7ef9846a1204f1eb320e25c135326ab089a8c32e12"
+      }
+    ],
+    "installed_marker_smoke": {
+      "physical_gate_statements": 3,
+      "type_counts": {
+        "INV_X1": 1,
+        "NAND2_X1": 1,
+        "BUF_X1": 1
+      },
+      "dummy_endpoint_count": 1,
+      "launch_markers": 3,
+      "endpoint_markers": 2,
+      "selected_launches": 2,
+      "selected_endpoints": 1,
+      "unused_launch_anchors": 1,
+      "source_kind": "sequential_output_pins",
+      "endpoint_kind": "sequential_input_pins",
+      "abc_total_ps": 200064.19,
+      "offset_ns": 100,
+      "delay_ps": 64.19000000000233,
+      "critical_startpoint": {
+        "net": "ff",
+        "kind": "sequential_output_pins",
+        "label": "ff.Q"
+      },
+      "critical_endpoint": {
+        "net": "end",
+        "kind": "sequential_input_pins",
+        "label": "ff.D"
+      },
+      "abc_gate_count": 8,
+      "abc_readback_types_verified": true,
+      "critical_path": [
+        "Path  0 --       1 : 0    1 pi                        A =   0.00  Df =   0.0   -0.0 ps  S =   0.0 ps  Cin =  0.0 ff  Cout =   1.0 ff  Cmax =   0.0 ff  G =    0  ",
+        "Path  1 --       8 : 1    3 MEASURE_SELECTED_LAUNCH   A =   0.80  Df =100033.1   -1.2 ps  S =  20.3 ps  Cin =  0.9 ff  Cout =   7.7 ff  Cmax =  60.7 ff  G =  816  ",
+        "Path  2 --      11 : 1    1 INV_X1                    A =   0.53  Df =100045.2   -3.4 ps  S =   7.4 ps  Cin =  1.6 ff  Cout =   1.6 ff  Cmax =  60.7 ff  G =   96  ",
+        "Path  3 --      12 : 2    1 NAND2_X1                  A =   0.80  Df =100064.2   -1.0 ps  S =  16.7 ps  Cin =  1.6 ff  Cout =   5.0 ff  Cmax =  59.4 ff  G =  317  ",
+        "Path  4 --      14 : 1    1 MEASURE_SELECTED_ENDPOINT A =   0.00  Df =200064.2   -1.0 ps  S =   0.0 ps  Cin =  5.0 ff  Cout =   5.0 ff  Cmax =   0.0 ff  G =  100  "
+      ],
+      "frequency_proxy_mhz": 15578.750584202582,
+      "wall_seconds": 7.657000000006519,
+      "source_sha256": "dea5c667eee211b1275ee2a034965cd564860e4deacc30153eb72677793ec3da",
+      "cutpoints_sha256": "e424772638c8e69fd4d01a8d94b6cd6ec264e0697ef0f07e0e8cad70d66acf04",
+      "liberty_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+      "measurement_liberty_sha256": "8af57c5f0042aff8ade1ea1cd35236596f61939fd0e2e26f37d1a768414fea32",
+      "measurement_blif_sha256": "135f0d37db072c1cb12b9e22857fb92f555fe30a4eecf4a890ec3514c9e75c9f",
+      "abc_sha256": "8168052e89cbb3120acf8b7ef9846a1204f1eb320e25c135326ab089a8c32e12",
+      "analysis_script_sha256": "520583e644f7643702e9b9f1a3c61cace98f103d3aa3015c3cf12eccfc679230",
+      "method": "Stock ABC stime, absolute BUF_X1 source driver, 5 fF per real endpoint; time markers de-embedded",
+      "limitations": [
+        "Structural combinational frequency proxy, not signoff Fmax",
+        "No clock-to-Q, setup, clock-tree or wire delay",
+        "Undefined pins are independent diagnostic sources; functional behavior is unresolved",
+        "Q and QN are independent launch points; path sensitization is not checked",
+        "ABC Liberty conditional arc handling and extrapolation are retained"
+      ]
+    },
+    "nldm_packaged_math": {
+      "prototype_script_sha256": "a947b19d363e90a3fc7fbeef77152cfc1cc5a83a98aa66ceb1b5ef9bbeff2737",
+      "engine_math_sha256": "858d1ddc3c9f4d7adc2807df7561991db115b49a37614b22f8d5d9f8824db781",
+      "algorithm_text_unchanged": true,
+      "changes": "Root discovery; optional Liberty CLI; output directory creation; default validation outputs under sys_lib/build; provenance metadata only",
+      "packaged_files": {
+        "class_nldm.py": "50dc24c3af0b32948f3310d2631b8be7dbd13e7325d6239e6043c508da69cdb7",
+        "validate_nldm.py": "54518dd47c8c9e212d5d5d1e88adccad94ee5ef5f5c5c0004970b16329d16b14"
+      }
+    }
+  }
+}

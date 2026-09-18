@@ -1,0 +1,6841 @@
+{
+  "created_utc": "2026-09-18T00:46:45.462745+00:00",
+  "method": "Independent Python class-aware NLDM propagation on unchanged logically flattened mapped gates; class-independent worst-rise/fall slew, per-class arrival times",
+  "absolute_driver": true,
+  "reference_only_pruned_to_endpoint_cones": false,
+  "mapped_combinational_cells": 1010838,
+  "timed_combinational_cells": 1010838,
+  "constant_pseudocells": 2,
+  "cutpoint_inputs": 308554,
+  "cutpoint_outputs": 150130,
+  "node_count": 1319394,
+  "elapsed_seconds": 104.96899999992456,
+  "graph_sha256": "3b7c7d6a29b376e83a3023e04a1c939ef6756389d366888d7d8c521eb1c0ffd5",
+  "liberty_sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1",
+  "script_sha256": "a947b19d363e90a3fc7fbeef77152cfc1cc5a83a98aa66ceb1b5ef9bbeff2737",
+  "out_of_table_queries": {
+    "arc_delay_slew_outside_table": 116070,
+    "arc_delay_load_outside_table": 28206
+  },
+  "abc_conditional_sense_policy": [
+    {
+      "cell": "XNOR2_X1",
+      "pin": "A",
+      "senses": [
+        "negative_unate",
+        "positive_unate"
+      ],
+      "selected_first": "negative_unate"
+    },
+    {
+      "cell": "XNOR2_X1",
+      "pin": "B",
+      "senses": [
+        "negative_unate",
+        "positive_unate"
+      ],
+      "selected_first": "negative_unate"
+    },
+    {
+      "cell": "XOR2_X1",
+      "pin": "A",
+      "senses": [
+        "negative_unate",
+        "positive_unate"
+      ],
+      "selected_first": "positive_unate"
+    },
+    {
+      "cell": "XOR2_X1",
+      "pin": "B",
+      "senses": [
+        "negative_unate",
+        "positive_unate"
+      ],
+      "selected_first": "positive_unate"
+    },
+    {
+      "cell": "MUX2_X1",
+      "pin": "S",
+      "senses": [
+        "negative_unate",
+        "positive_unate"
+      ],
+      "selected_first": "positive_unate"
+    },
+    {
+      "cell": "MUX2_X2",
+      "pin": "S",
+      "senses": [
+        "negative_unate",
+        "positive_unate"
+      ],
+      "selected_first": "positive_unate"
+    },
+    {
+      "cell": "XNOR2_X2",
+      "pin": "A",
+      "senses": [
+        "negative_unate",
+        "positive_unate"
+      ],
+      "selected_first": "negative_unate"
+    },
+    {
+      "cell": "XNOR2_X2",
+      "pin": "B",
+      "senses": [
+        "negative_unate",
+        "positive_unate"
+      ],
+      "selected_first": "negative_unate"
+    },
+    {
+      "cell": "XOR2_X2",
+      "pin": "A",
+      "senses": [
+        "negative_unate",
+        "positive_unate"
+      ],
+      "selected_first": "positive_unate"
+    },
+    {
+      "cell": "XOR2_X2",
+      "pin": "B",
+      "senses": [
+        "negative_unate",
+        "positive_unate"
+      ],
+      "selected_first": "positive_unate"
+    }
+  ],
+  "limitations": [
+    "Diagnostic structural timing model, not functional sensitization proof or signoff Fmax",
+    "No wire delay, FF clock-to-Q/setup, clock uncertainty or IO constraints",
+    "Independent per-x-sink virtual inputs; whole mapped gate graph and every endpoint pin load retained",
+    "Python binary64 arithmetic versus ABC binary32; must compare numerical tolerances",
+    "Arrival path classes share the unconditional worst-case slew at every net; conservative path correlation assumptions"
+  ],
+  "all_sources": {
+    "delay_ps": 13052.897311250723,
+    "endpoint": {
+      "net": "n2125569",
+      "label": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/reg_file/$auto$ff.cc:337:slice$890320.D",
+      "kind": "sequential_input_pins"
+    },
+    "startpoint": {
+      "net": "n23",
+      "label": "reset[0]",
+      "kind": "primary_inputs"
+    },
+    "gate_count": 122,
+    "gates_source_to_sink": [
+      {
+        "output_net": "n1035850",
+        "type": "BUF_X1",
+        "output_polarity": "rise",
+        "input_net": "n23",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n976690",
+        "type": "NOR3_X1",
+        "output_polarity": "fall",
+        "input_net": "n1035850",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A1"
+        ]
+      },
+      {
+        "output_net": "n1043821",
+        "type": "BUF_X1",
+        "output_polarity": "fall",
+        "input_net": "n976690",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n1044144",
+        "type": "AOI22_X1",
+        "output_polarity": "rise",
+        "input_net": "n1043821",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "B2"
+        ]
+      },
+      {
+        "output_net": "n1044146",
+        "type": "NAND2_X1",
+        "output_polarity": "fall",
+        "input_net": "n1044144",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A1"
+        ]
+      },
+      {
+        "output_net": "n1044147",
+        "type": "AOI221_X1",
+        "output_polarity": "rise",
+        "input_net": "n1044146",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n1044149",
+        "type": "NAND2_X1",
+        "output_polarity": "fall",
+        "input_net": "n1044147",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A1"
+        ]
+      },
+      {
+        "output_net": "n1044151",
+        "type": "OAI222_X2",
+        "output_polarity": "rise",
+        "input_net": "n1044149",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "C2"
+        ]
+      },
+      {
+        "output_net": "n1044154",
+        "type": "NOR3_X4",
+        "output_polarity": "fall",
+        "input_net": "n1044151",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A3"
+        ]
+      },
+      {
+        "output_net": "n1044157",
+        "type": "BUF_X4",
+        "output_polarity": "fall",
+        "input_net": "n1044154",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n1044471",
+        "type": "AND2_X1",
+        "output_polarity": "fall",
+        "input_net": "n1044157",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A1"
+        ]
+      },
+      {
+        "output_net": "n1044472",
+        "type": "BUF_X1",
+        "output_polarity": "fall",
+        "input_net": "n1044471",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n1044490",
+        "type": "NAND3_X1",
+        "output_polarity": "rise",
+        "input_net": "n1044472",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A3"
+        ]
+      },
+      {
+        "output_net": "n976542",
+        "type": "INV_X1",
+        "output_polarity": "fall",
+        "input_net": "n1044490",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n1027946",
+        "type": "INV_X1",
+        "output_polarity": "rise",
+        "input_net": "n976542",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n1027874",
+        "type": "NOR2_X2",
+        "output_polarity": "fall",
+        "input_net": "n1027946",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A2"
+        ]
+      },
+      {
+        "output_net": "n1027875",
+        "type": "BUF_X2",
+        "output_polarity": "fall",
+        "input_net": "n1027874",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n1027885",
+        "type": "AOI22_X1",
+        "output_polarity": "rise",
+        "input_net": "n1027875",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "B1"
+        ]
+      },
+      {
+        "output_net": "n975340",
+        "type": "INV_X1",
+        "output_polarity": "fall",
+        "input_net": "n1027885",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n1016941",
+        "type": "MUX2_X1",
+        "output_polarity": "fall",
+        "input_net": "n975340",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "B"
+        ]
+      },
+      {
+        "output_net": "n1016942",
+        "type": "AOI22_X1",
+        "output_polarity": "rise",
+        "input_net": "n1016941",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "B1"
+        ]
+      },
+      {
+        "output_net": "n1016945",
+        "type": "OAI21_X1",
+        "output_polarity": "fall",
+        "input_net": "n1016942",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n1016946",
+        "type": "NAND2_X1",
+        "output_polarity": "rise",
+        "input_net": "n1016945",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A2"
+        ]
+      },
+      {
+        "output_net": "n1016948",
+        "type": "OAI21_X4",
+        "output_polarity": "fall",
+        "input_net": "n1016946",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "B1"
+        ]
+      },
+      {
+        "output_net": "n1017661",
+        "type": "AOI21_X1",
+        "output_polarity": "rise",
+        "input_net": "n1016948",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "B1"
+        ]
+      },
+      {
+        "output_net": "n1017663",
+        "type": "XNOR2_X1",
+        "output_polarity": "fall",
+        "input_net": "n1017661",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n1017664",
+        "type": "AOI222_X1",
+        "output_polarity": "rise",
+        "input_net": "n1017663",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "C1"
+        ]
+      },
+      {
+        "output_net": "n10817",
+        "type": "NOR2_X1",
+        "output_polarity": "fall",
+        "input_net": "n1017664",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A2"
+        ]
+      },
+      {
+        "output_net": "n899592",
+        "type": "INV_X1",
+        "output_polarity": "rise",
+        "input_net": "n10817",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n899598",
+        "type": "OAI22_X1",
+        "output_polarity": "fall",
+        "input_net": "n899592",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "B1"
+        ]
+      },
+      {
+        "output_net": "n899601",
+        "type": "AOI211_X1",
+        "output_polarity": "rise",
+        "input_net": "n899598",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "B"
+        ]
+      },
+      {
+        "output_net": "n899602",
+        "type": "OAI21_X1",
+        "output_polarity": "fall",
+        "input_net": "n899601",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "B2"
+        ]
+      },
+      {
+        "output_net": "n899603",
+        "type": "AOI22_X1",
+        "output_polarity": "rise",
+        "input_net": "n899602",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "B2"
+        ]
+      },
+      {
+        "output_net": "n899606",
+        "type": "OAI221_X1",
+        "output_polarity": "fall",
+        "input_net": "n899603",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "C1"
+        ]
+      },
+      {
+        "output_net": "n899611",
+        "type": "OR2_X1",
+        "output_polarity": "fall",
+        "input_net": "n899606",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A1"
+        ]
+      },
+      {
+        "output_net": "n907775",
+        "type": "MUX2_X1",
+        "output_polarity": "fall",
+        "input_net": "n899611",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "B"
+        ]
+      },
+      {
+        "output_net": "n919141",
+        "type": "NOR2_X1",
+        "output_polarity": "rise",
+        "input_net": "n907775",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A1"
+        ]
+      },
+      {
+        "output_net": "n908547",
+        "type": "AND2_X1",
+        "output_polarity": "rise",
+        "input_net": "n919141",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A2"
+        ]
+      },
+      {
+        "output_net": "n920240",
+        "type": "INV_X1",
+        "output_polarity": "fall",
+        "input_net": "n908547",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n920253",
+        "type": "AOI21_X2",
+        "output_polarity": "rise",
+        "input_net": "n920240",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "B2"
+        ]
+      },
+      {
+        "output_net": "n920257",
+        "type": "OAI21_X2",
+        "output_polarity": "fall",
+        "input_net": "n920253",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "B2"
+        ]
+      },
+      {
+        "output_net": "n920262",
+        "type": "AOI21_X4",
+        "output_polarity": "rise",
+        "input_net": "n920257",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "B1"
+        ]
+      },
+      {
+        "output_net": "n920245",
+        "type": "OAI21_X4",
+        "output_polarity": "fall",
+        "input_net": "n920262",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "B2"
+        ]
+      },
+      {
+        "output_net": "n920246",
+        "type": "AOI21_X4",
+        "output_polarity": "rise",
+        "input_net": "n920245",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "B1"
+        ]
+      },
+      {
+        "output_net": "n920248",
+        "type": "OAI21_X4",
+        "output_polarity": "fall",
+        "input_net": "n920246",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "B1"
+        ]
+      },
+      {
+        "output_net": "n920251",
+        "type": "AOI21_X4",
+        "output_polarity": "rise",
+        "input_net": "n920248",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "B1"
+        ]
+      },
+      {
+        "output_net": "n920255",
+        "type": "NOR4_X4",
+        "output_polarity": "fall",
+        "input_net": "n920251",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A4"
+        ]
+      },
+      {
+        "output_net": "n920270",
+        "type": "AND3_X2",
+        "output_polarity": "fall",
+        "input_net": "n920255",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A3"
+        ]
+      },
+      {
+        "output_net": "n920271",
+        "type": "OAI21_X1",
+        "output_polarity": "rise",
+        "input_net": "n920270",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "B2"
+        ]
+      },
+      {
+        "output_net": "n920272",
+        "type": "AOI21_X1",
+        "output_polarity": "fall",
+        "input_net": "n920271",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "B2"
+        ]
+      },
+      {
+        "output_net": "n920273",
+        "type": "OAI21_X1",
+        "output_polarity": "rise",
+        "input_net": "n920272",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "B2"
+        ]
+      },
+      {
+        "output_net": "n920211",
+        "type": "INV_X1",
+        "output_polarity": "fall",
+        "input_net": "n920273",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n920202",
+        "type": "OR4_X1",
+        "output_polarity": "fall",
+        "input_net": "n920211",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A2"
+        ]
+      },
+      {
+        "output_net": "n920882",
+        "type": "BUF_X2",
+        "output_polarity": "fall",
+        "input_net": "n920202",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n921870",
+        "type": "INV_X1",
+        "output_polarity": "rise",
+        "input_net": "n920882",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n921871",
+        "type": "BUF_X1",
+        "output_polarity": "rise",
+        "input_net": "n921870",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n922004",
+        "type": "BUF_X1",
+        "output_polarity": "rise",
+        "input_net": "n921871",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n922139",
+        "type": "BUF_X1",
+        "output_polarity": "rise",
+        "input_net": "n922004",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n922557",
+        "type": "MUX2_X1",
+        "output_polarity": "rise",
+        "input_net": "n922139",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "S"
+        ]
+      },
+      {
+        "output_net": "n922558",
+        "type": "AOI21_X1",
+        "output_polarity": "fall",
+        "input_net": "n922557",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "B1"
+        ]
+      },
+      {
+        "output_net": "n924372",
+        "type": "AOI211_X1",
+        "output_polarity": "rise",
+        "input_net": "n922558",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "C1"
+        ]
+      },
+      {
+        "output_net": "n924373",
+        "type": "AOI211_X1",
+        "output_polarity": "fall",
+        "input_net": "n924372",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "B"
+        ]
+      },
+      {
+        "output_net": "n924376",
+        "type": "AOI21_X1",
+        "output_polarity": "rise",
+        "input_net": "n924373",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n924377",
+        "type": "AOI21_X1",
+        "output_polarity": "fall",
+        "input_net": "n924376",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "B2"
+        ]
+      },
+      {
+        "output_net": "n900190",
+        "type": "AOI21_X1",
+        "output_polarity": "rise",
+        "input_net": "n924377",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "B2"
+        ]
+      },
+      {
+        "output_net": "n900306",
+        "type": "AND2_X4",
+        "output_polarity": "rise",
+        "input_net": "n900190",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A2"
+        ]
+      },
+      {
+        "output_net": "n934668",
+        "type": "MUX2_X1",
+        "output_polarity": "rise",
+        "input_net": "n900306",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "B"
+        ]
+      },
+      {
+        "output_net": "n940675",
+        "type": "BUF_X4",
+        "output_polarity": "rise",
+        "input_net": "n934668",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n940676",
+        "type": "INV_X4",
+        "output_polarity": "fall",
+        "input_net": "n940675",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n940677",
+        "type": "NAND2_X1",
+        "output_polarity": "rise",
+        "input_net": "n940676",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A2"
+        ]
+      },
+      {
+        "output_net": "n935730",
+        "type": "NOR2_X1",
+        "output_polarity": "fall",
+        "input_net": "n940677",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A2"
+        ]
+      },
+      {
+        "output_net": "n944444",
+        "type": "INV_X1",
+        "output_polarity": "rise",
+        "input_net": "n935730",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n944454",
+        "type": "AOI21_X1",
+        "output_polarity": "fall",
+        "input_net": "n944444",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "B1"
+        ]
+      },
+      {
+        "output_net": "n944446",
+        "type": "OAI21_X1",
+        "output_polarity": "rise",
+        "input_net": "n944454",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "B1"
+        ]
+      },
+      {
+        "output_net": "n944428",
+        "type": "AND2_X1",
+        "output_polarity": "rise",
+        "input_net": "n944446",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A2"
+        ]
+      },
+      {
+        "output_net": "n11410",
+        "type": "OR3_X4",
+        "output_polarity": "rise",
+        "input_net": "n944428",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A1"
+        ]
+      },
+      {
+        "output_net": "n2101141",
+        "type": "OAI21_X1",
+        "output_polarity": "fall",
+        "input_net": "n11410",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n2101142",
+        "type": "NAND2_X1",
+        "output_polarity": "rise",
+        "input_net": "n2101141",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A2"
+        ]
+      },
+      {
+        "output_net": "n2100431",
+        "type": "NAND2_X1",
+        "output_polarity": "fall",
+        "input_net": "n2101142",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A2"
+        ]
+      },
+      {
+        "output_net": "n2076232",
+        "type": "INV_X1",
+        "output_polarity": "rise",
+        "input_net": "n2100431",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n2076234",
+        "type": "NOR2_X2",
+        "output_polarity": "fall",
+        "input_net": "n2076232",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A1"
+        ]
+      },
+      {
+        "output_net": "n2076252",
+        "type": "NAND2_X1",
+        "output_polarity": "rise",
+        "input_net": "n2076234",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A2"
+        ]
+      },
+      {
+        "output_net": "n2076270",
+        "type": "BUF_X1",
+        "output_polarity": "rise",
+        "input_net": "n2076252",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n2076290",
+        "type": "NOR4_X1",
+        "output_polarity": "fall",
+        "input_net": "n2076270",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A4"
+        ]
+      },
+      {
+        "output_net": "n2058984",
+        "type": "NAND3_X1",
+        "output_polarity": "rise",
+        "input_net": "n2076290",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A3"
+        ]
+      },
+      {
+        "output_net": "n2109739",
+        "type": "OAI22_X4",
+        "output_polarity": "fall",
+        "input_net": "n2058984",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A1"
+        ]
+      },
+      {
+        "output_net": "n2109740",
+        "type": "BUF_X8",
+        "output_polarity": "fall",
+        "input_net": "n2109739",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n2058982",
+        "type": "NOR3_X1",
+        "output_polarity": "rise",
+        "input_net": "n2109740",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A2"
+        ]
+      },
+      {
+        "output_net": "n2082548",
+        "type": "AND2_X1",
+        "output_polarity": "rise",
+        "input_net": "n2058982",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A1"
+        ]
+      },
+      {
+        "output_net": "n2082138",
+        "type": "AOI22_X1",
+        "output_polarity": "fall",
+        "input_net": "n2082548",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "B2"
+        ]
+      },
+      {
+        "output_net": "n2082134",
+        "type": "INV_X1",
+        "output_polarity": "rise",
+        "input_net": "n2082138",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n2082136",
+        "type": "AOI221_X1",
+        "output_polarity": "fall",
+        "input_net": "n2082134",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n2082561",
+        "type": "OR2_X1",
+        "output_polarity": "fall",
+        "input_net": "n2082136",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A2"
+        ]
+      },
+      {
+        "output_net": "n2074509",
+        "type": "OAI21_X1",
+        "output_polarity": "rise",
+        "input_net": "n2082561",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "B1"
+        ]
+      },
+      {
+        "output_net": "n2074513",
+        "type": "NOR4_X1",
+        "output_polarity": "fall",
+        "input_net": "n2074509",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A1"
+        ]
+      },
+      {
+        "output_net": "n2058905",
+        "type": "NAND3_X1",
+        "output_polarity": "rise",
+        "input_net": "n2074513",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A3"
+        ]
+      },
+      {
+        "output_net": "n2111244",
+        "type": "INV_X1",
+        "output_polarity": "fall",
+        "input_net": "n2058905",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n2111245",
+        "type": "OAI21_X1",
+        "output_polarity": "rise",
+        "input_net": "n2111244",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n2060000",
+        "type": "MUX2_X1",
+        "output_polarity": "rise",
+        "input_net": "n2111245",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "B"
+        ]
+      },
+      {
+        "output_net": "n2127634",
+        "type": "NOR2_X1",
+        "output_polarity": "fall",
+        "input_net": "n2060000",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A1"
+        ]
+      },
+      {
+        "output_net": "n2127637",
+        "type": "NAND4_X1",
+        "output_polarity": "rise",
+        "input_net": "n2127634",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A4"
+        ]
+      },
+      {
+        "output_net": "n2127642",
+        "type": "OAI211_X1",
+        "output_polarity": "fall",
+        "input_net": "n2127637",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "B"
+        ]
+      },
+      {
+        "output_net": "n2127658",
+        "type": "AOI211_X2",
+        "output_polarity": "rise",
+        "input_net": "n2127642",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "B"
+        ]
+      },
+      {
+        "output_net": "n2127659",
+        "type": "BUF_X4",
+        "output_polarity": "rise",
+        "input_net": "n2127658",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n2127666",
+        "type": "NAND2_X2",
+        "output_polarity": "fall",
+        "input_net": "n2127659",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A2"
+        ]
+      },
+      {
+        "output_net": "n2127667",
+        "type": "BUF_X2",
+        "output_polarity": "fall",
+        "input_net": "n2127666",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n2057414",
+        "type": "INV_X1",
+        "output_polarity": "rise",
+        "input_net": "n2127667",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n2057415",
+        "type": "NOR2_X1",
+        "output_polarity": "fall",
+        "input_net": "n2057414",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A2"
+        ]
+      },
+      {
+        "output_net": "n2057458",
+        "type": "NOR3_X1",
+        "output_polarity": "rise",
+        "input_net": "n2057415",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A1"
+        ]
+      },
+      {
+        "output_net": "n2057495",
+        "type": "AND2_X1",
+        "output_polarity": "rise",
+        "input_net": "n2057458",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A2"
+        ]
+      },
+      {
+        "output_net": "n2122939",
+        "type": "INV_X1",
+        "output_polarity": "fall",
+        "input_net": "n2057495",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n2123014",
+        "type": "OAI21_X1",
+        "output_polarity": "rise",
+        "input_net": "n2122939",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "B2"
+        ]
+      },
+      {
+        "output_net": "n2123037",
+        "type": "NAND2_X1",
+        "output_polarity": "fall",
+        "input_net": "n2123014",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A2"
+        ]
+      },
+      {
+        "output_net": "n2123038",
+        "type": "NOR2_X1",
+        "output_polarity": "rise",
+        "input_net": "n2123037",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A2"
+        ]
+      },
+      {
+        "output_net": "n2123117",
+        "type": "BUF_X1",
+        "output_polarity": "rise",
+        "input_net": "n2123038",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n2123148",
+        "type": "AOI21_X1",
+        "output_polarity": "fall",
+        "input_net": "n2123117",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "B1"
+        ]
+      },
+      {
+        "output_net": "n2123150",
+        "type": "AOI21_X2",
+        "output_polarity": "rise",
+        "input_net": "n2123148",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n2124866",
+        "type": "BUF_X4",
+        "output_polarity": "rise",
+        "input_net": "n2123150",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n2125400",
+        "type": "NAND2_X4",
+        "output_polarity": "fall",
+        "input_net": "n2124866",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A2"
+        ]
+      },
+      {
+        "output_net": "n2124792",
+        "type": "NOR4_X4",
+        "output_polarity": "rise",
+        "input_net": "n2125400",
+        "input_polarity": "fall",
+        "candidate_input_pins": [
+          "A4"
+        ]
+      },
+      {
+        "output_net": "n2124453",
+        "type": "BUF_X4",
+        "output_polarity": "rise",
+        "input_net": "n2124792",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "A"
+        ]
+      },
+      {
+        "output_net": "n2125569",
+        "type": "MUX2_X1",
+        "output_polarity": "rise",
+        "input_net": "n2124453",
+        "input_polarity": "rise",
+        "candidate_input_pins": [
+          "S"
+        ]
+      }
+    ]
+  },
+  "path_classes": {
+    "PI_to_FF": {
+      "delay_ps": 13052.897311250723,
+      "comb_reciprocal_mhz": 76.61134353198864,
+      "endpoint": {
+        "net": "n2125569",
+        "label": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/reg_file/$auto$ff.cc:337:slice$890320.D",
+        "kind": "sequential_input_pins"
+      },
+      "startpoint": {
+        "net": "n23",
+        "label": "reset[0]",
+        "kind": "primary_inputs"
+      },
+      "gate_count": 122,
+      "gates_source_to_sink": [
+        {
+          "output_net": "n1035850",
+          "type": "BUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n23",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n976690",
+          "type": "NOR3_X1",
+          "output_polarity": "fall",
+          "input_net": "n1035850",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1043821",
+          "type": "BUF_X1",
+          "output_polarity": "fall",
+          "input_net": "n976690",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1044144",
+          "type": "AOI22_X1",
+          "output_polarity": "rise",
+          "input_net": "n1043821",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n1044146",
+          "type": "NAND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1044144",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1044147",
+          "type": "AOI221_X1",
+          "output_polarity": "rise",
+          "input_net": "n1044146",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1044149",
+          "type": "NAND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1044147",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1044151",
+          "type": "OAI222_X2",
+          "output_polarity": "rise",
+          "input_net": "n1044149",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "C2"
+          ]
+        },
+        {
+          "output_net": "n1044154",
+          "type": "NOR3_X4",
+          "output_polarity": "fall",
+          "input_net": "n1044151",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n1044157",
+          "type": "BUF_X4",
+          "output_polarity": "fall",
+          "input_net": "n1044154",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1044471",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1044157",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1044472",
+          "type": "BUF_X1",
+          "output_polarity": "fall",
+          "input_net": "n1044471",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1044490",
+          "type": "NAND3_X1",
+          "output_polarity": "rise",
+          "input_net": "n1044472",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n976542",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n1044490",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1027946",
+          "type": "INV_X1",
+          "output_polarity": "rise",
+          "input_net": "n976542",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1027874",
+          "type": "NOR2_X2",
+          "output_polarity": "fall",
+          "input_net": "n1027946",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1027875",
+          "type": "BUF_X2",
+          "output_polarity": "fall",
+          "input_net": "n1027874",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1027885",
+          "type": "AOI22_X1",
+          "output_polarity": "rise",
+          "input_net": "n1027875",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n975340",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n1027885",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1016941",
+          "type": "MUX2_X1",
+          "output_polarity": "fall",
+          "input_net": "n975340",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n1016942",
+          "type": "AOI22_X1",
+          "output_polarity": "rise",
+          "input_net": "n1016941",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n1016945",
+          "type": "OAI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n1016942",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1016946",
+          "type": "NAND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1016945",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1016948",
+          "type": "OAI21_X4",
+          "output_polarity": "fall",
+          "input_net": "n1016946",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n1017661",
+          "type": "AOI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n1016948",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n1017663",
+          "type": "XNOR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1017661",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1017664",
+          "type": "AOI222_X1",
+          "output_polarity": "rise",
+          "input_net": "n1017663",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "C1"
+          ]
+        },
+        {
+          "output_net": "n10817",
+          "type": "NOR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1017664",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n899592",
+          "type": "INV_X1",
+          "output_polarity": "rise",
+          "input_net": "n10817",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n899598",
+          "type": "OAI22_X1",
+          "output_polarity": "fall",
+          "input_net": "n899592",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n899601",
+          "type": "AOI211_X1",
+          "output_polarity": "rise",
+          "input_net": "n899598",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n899602",
+          "type": "OAI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n899601",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n899603",
+          "type": "AOI22_X1",
+          "output_polarity": "rise",
+          "input_net": "n899602",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n899606",
+          "type": "OAI221_X1",
+          "output_polarity": "fall",
+          "input_net": "n899603",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "C1"
+          ]
+        },
+        {
+          "output_net": "n899611",
+          "type": "OR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n899606",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n907775",
+          "type": "MUX2_X1",
+          "output_polarity": "fall",
+          "input_net": "n899611",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n919141",
+          "type": "NOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n907775",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n908547",
+          "type": "AND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n919141",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n920240",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n908547",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n920253",
+          "type": "AOI21_X2",
+          "output_polarity": "rise",
+          "input_net": "n920240",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920257",
+          "type": "OAI21_X2",
+          "output_polarity": "fall",
+          "input_net": "n920253",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920262",
+          "type": "AOI21_X4",
+          "output_polarity": "rise",
+          "input_net": "n920257",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n920245",
+          "type": "OAI21_X4",
+          "output_polarity": "fall",
+          "input_net": "n920262",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920246",
+          "type": "AOI21_X4",
+          "output_polarity": "rise",
+          "input_net": "n920245",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n920248",
+          "type": "OAI21_X4",
+          "output_polarity": "fall",
+          "input_net": "n920246",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n920251",
+          "type": "AOI21_X4",
+          "output_polarity": "rise",
+          "input_net": "n920248",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n920255",
+          "type": "NOR4_X4",
+          "output_polarity": "fall",
+          "input_net": "n920251",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n920270",
+          "type": "AND3_X2",
+          "output_polarity": "fall",
+          "input_net": "n920255",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n920271",
+          "type": "OAI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n920270",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920272",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n920271",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920273",
+          "type": "OAI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n920272",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920211",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n920273",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n920202",
+          "type": "OR4_X1",
+          "output_polarity": "fall",
+          "input_net": "n920211",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n920882",
+          "type": "BUF_X2",
+          "output_polarity": "fall",
+          "input_net": "n920202",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n921870",
+          "type": "INV_X1",
+          "output_polarity": "rise",
+          "input_net": "n920882",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n921871",
+          "type": "BUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n921870",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n922004",
+          "type": "BUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n921871",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n922139",
+          "type": "BUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n922004",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n922557",
+          "type": "MUX2_X1",
+          "output_polarity": "rise",
+          "input_net": "n922139",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "S"
+          ]
+        },
+        {
+          "output_net": "n922558",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n922557",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n924372",
+          "type": "AOI211_X1",
+          "output_polarity": "rise",
+          "input_net": "n922558",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "C1"
+          ]
+        },
+        {
+          "output_net": "n924373",
+          "type": "AOI211_X1",
+          "output_polarity": "fall",
+          "input_net": "n924372",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n924376",
+          "type": "AOI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n924373",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n924377",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n924376",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n900190",
+          "type": "AOI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n924377",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n900306",
+          "type": "AND2_X4",
+          "output_polarity": "rise",
+          "input_net": "n900190",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n934668",
+          "type": "MUX2_X1",
+          "output_polarity": "rise",
+          "input_net": "n900306",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n940675",
+          "type": "BUF_X4",
+          "output_polarity": "rise",
+          "input_net": "n934668",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n940676",
+          "type": "INV_X4",
+          "output_polarity": "fall",
+          "input_net": "n940675",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n940677",
+          "type": "NAND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n940676",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n935730",
+          "type": "NOR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n940677",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n944444",
+          "type": "INV_X1",
+          "output_polarity": "rise",
+          "input_net": "n935730",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n944454",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n944444",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n944446",
+          "type": "OAI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n944454",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n944428",
+          "type": "AND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n944446",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n11410",
+          "type": "OR3_X4",
+          "output_polarity": "rise",
+          "input_net": "n944428",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n2101141",
+          "type": "OAI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n11410",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2101142",
+          "type": "NAND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2101141",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2100431",
+          "type": "NAND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2101142",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2076232",
+          "type": "INV_X1",
+          "output_polarity": "rise",
+          "input_net": "n2100431",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2076234",
+          "type": "NOR2_X2",
+          "output_polarity": "fall",
+          "input_net": "n2076232",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n2076252",
+          "type": "NAND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2076234",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2076270",
+          "type": "BUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n2076252",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2076290",
+          "type": "NOR4_X1",
+          "output_polarity": "fall",
+          "input_net": "n2076270",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n2058984",
+          "type": "NAND3_X1",
+          "output_polarity": "rise",
+          "input_net": "n2076290",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n2109739",
+          "type": "OAI22_X4",
+          "output_polarity": "fall",
+          "input_net": "n2058984",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n2109740",
+          "type": "BUF_X8",
+          "output_polarity": "fall",
+          "input_net": "n2109739",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2058982",
+          "type": "NOR3_X1",
+          "output_polarity": "rise",
+          "input_net": "n2109740",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2082548",
+          "type": "AND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2058982",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n2082138",
+          "type": "AOI22_X1",
+          "output_polarity": "fall",
+          "input_net": "n2082548",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n2082134",
+          "type": "INV_X1",
+          "output_polarity": "rise",
+          "input_net": "n2082138",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2082136",
+          "type": "AOI221_X1",
+          "output_polarity": "fall",
+          "input_net": "n2082134",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2082561",
+          "type": "OR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2082136",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2074509",
+          "type": "OAI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n2082561",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n2074513",
+          "type": "NOR4_X1",
+          "output_polarity": "fall",
+          "input_net": "n2074509",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n2058905",
+          "type": "NAND3_X1",
+          "output_polarity": "rise",
+          "input_net": "n2074513",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n2111244",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n2058905",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2111245",
+          "type": "OAI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n2111244",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2060000",
+          "type": "MUX2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2111245",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n2127634",
+          "type": "NOR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2060000",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n2127637",
+          "type": "NAND4_X1",
+          "output_polarity": "rise",
+          "input_net": "n2127634",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n2127642",
+          "type": "OAI211_X1",
+          "output_polarity": "fall",
+          "input_net": "n2127637",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n2127658",
+          "type": "AOI211_X2",
+          "output_polarity": "rise",
+          "input_net": "n2127642",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n2127659",
+          "type": "BUF_X4",
+          "output_polarity": "rise",
+          "input_net": "n2127658",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2127666",
+          "type": "NAND2_X2",
+          "output_polarity": "fall",
+          "input_net": "n2127659",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2127667",
+          "type": "BUF_X2",
+          "output_polarity": "fall",
+          "input_net": "n2127666",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2057414",
+          "type": "INV_X1",
+          "output_polarity": "rise",
+          "input_net": "n2127667",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2057415",
+          "type": "NOR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2057414",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2057458",
+          "type": "NOR3_X1",
+          "output_polarity": "rise",
+          "input_net": "n2057415",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n2057495",
+          "type": "AND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2057458",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2122939",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n2057495",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2123014",
+          "type": "OAI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n2122939",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n2123037",
+          "type": "NAND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2123014",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2123038",
+          "type": "NOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2123037",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2123117",
+          "type": "BUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n2123038",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2123148",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n2123117",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n2123150",
+          "type": "AOI21_X2",
+          "output_polarity": "rise",
+          "input_net": "n2123148",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2124866",
+          "type": "BUF_X4",
+          "output_polarity": "rise",
+          "input_net": "n2123150",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2125400",
+          "type": "NAND2_X4",
+          "output_polarity": "fall",
+          "input_net": "n2124866",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2124792",
+          "type": "NOR4_X4",
+          "output_polarity": "rise",
+          "input_net": "n2125400",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n2124453",
+          "type": "BUF_X4",
+          "output_polarity": "rise",
+          "input_net": "n2124792",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2125569",
+          "type": "MUX2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2124453",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "S"
+          ]
+        }
+      ]
+    },
+    "PI_to_PO": {
+      "delay_ps": 11422.768473839316,
+      "comb_reciprocal_mhz": 87.54445144276738,
+      "endpoint": {
+        "net": "n1604",
+        "label": "send_data_on_boundary_west__msg[139]",
+        "kind": "primary_outputs"
+      },
+      "startpoint": {
+        "net": "n23",
+        "label": "reset[0]",
+        "kind": "primary_inputs"
+      },
+      "gate_count": 90,
+      "gates_source_to_sink": [
+        {
+          "output_net": "n1035850",
+          "type": "BUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n23",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n976690",
+          "type": "NOR3_X1",
+          "output_polarity": "fall",
+          "input_net": "n1035850",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1043821",
+          "type": "BUF_X1",
+          "output_polarity": "fall",
+          "input_net": "n976690",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1044144",
+          "type": "AOI22_X1",
+          "output_polarity": "rise",
+          "input_net": "n1043821",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n1044146",
+          "type": "NAND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1044144",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1044147",
+          "type": "AOI221_X1",
+          "output_polarity": "rise",
+          "input_net": "n1044146",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1044149",
+          "type": "NAND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1044147",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1044151",
+          "type": "OAI222_X2",
+          "output_polarity": "rise",
+          "input_net": "n1044149",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "C2"
+          ]
+        },
+        {
+          "output_net": "n1044154",
+          "type": "NOR3_X4",
+          "output_polarity": "fall",
+          "input_net": "n1044151",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n1044157",
+          "type": "BUF_X4",
+          "output_polarity": "fall",
+          "input_net": "n1044154",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1044471",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1044157",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1044472",
+          "type": "BUF_X1",
+          "output_polarity": "fall",
+          "input_net": "n1044471",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1044490",
+          "type": "NAND3_X1",
+          "output_polarity": "rise",
+          "input_net": "n1044472",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n976542",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n1044490",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1027946",
+          "type": "INV_X1",
+          "output_polarity": "rise",
+          "input_net": "n976542",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1027874",
+          "type": "NOR2_X2",
+          "output_polarity": "fall",
+          "input_net": "n1027946",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1027875",
+          "type": "BUF_X2",
+          "output_polarity": "fall",
+          "input_net": "n1027874",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1027885",
+          "type": "AOI22_X1",
+          "output_polarity": "rise",
+          "input_net": "n1027875",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n975340",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n1027885",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1016941",
+          "type": "MUX2_X1",
+          "output_polarity": "fall",
+          "input_net": "n975340",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n1016942",
+          "type": "AOI22_X1",
+          "output_polarity": "rise",
+          "input_net": "n1016941",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n1016945",
+          "type": "OAI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n1016942",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1016946",
+          "type": "NAND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1016945",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1016948",
+          "type": "OAI21_X4",
+          "output_polarity": "fall",
+          "input_net": "n1016946",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n1017661",
+          "type": "AOI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n1016948",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n1017663",
+          "type": "XNOR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1017661",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1017664",
+          "type": "AOI222_X1",
+          "output_polarity": "rise",
+          "input_net": "n1017663",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "C1"
+          ]
+        },
+        {
+          "output_net": "n10817",
+          "type": "NOR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1017664",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n899592",
+          "type": "INV_X1",
+          "output_polarity": "rise",
+          "input_net": "n10817",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n899598",
+          "type": "OAI22_X1",
+          "output_polarity": "fall",
+          "input_net": "n899592",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n899601",
+          "type": "AOI211_X1",
+          "output_polarity": "rise",
+          "input_net": "n899598",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n899602",
+          "type": "OAI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n899601",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n899603",
+          "type": "AOI22_X1",
+          "output_polarity": "rise",
+          "input_net": "n899602",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n899606",
+          "type": "OAI221_X1",
+          "output_polarity": "fall",
+          "input_net": "n899603",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "C1"
+          ]
+        },
+        {
+          "output_net": "n899611",
+          "type": "OR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n899606",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n907775",
+          "type": "MUX2_X1",
+          "output_polarity": "fall",
+          "input_net": "n899611",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n919141",
+          "type": "NOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n907775",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n908547",
+          "type": "AND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n919141",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n920240",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n908547",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n920253",
+          "type": "AOI21_X2",
+          "output_polarity": "rise",
+          "input_net": "n920240",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920257",
+          "type": "OAI21_X2",
+          "output_polarity": "fall",
+          "input_net": "n920253",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920262",
+          "type": "AOI21_X4",
+          "output_polarity": "rise",
+          "input_net": "n920257",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n920245",
+          "type": "OAI21_X4",
+          "output_polarity": "fall",
+          "input_net": "n920262",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920246",
+          "type": "AOI21_X4",
+          "output_polarity": "rise",
+          "input_net": "n920245",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n920248",
+          "type": "OAI21_X4",
+          "output_polarity": "fall",
+          "input_net": "n920246",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n920251",
+          "type": "AOI21_X4",
+          "output_polarity": "rise",
+          "input_net": "n920248",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n920255",
+          "type": "NOR4_X4",
+          "output_polarity": "fall",
+          "input_net": "n920251",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n920270",
+          "type": "AND3_X2",
+          "output_polarity": "fall",
+          "input_net": "n920255",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n920271",
+          "type": "OAI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n920270",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920272",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n920271",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920273",
+          "type": "OAI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n920272",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920211",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n920273",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n920202",
+          "type": "OR4_X1",
+          "output_polarity": "fall",
+          "input_net": "n920211",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n920882",
+          "type": "BUF_X2",
+          "output_polarity": "fall",
+          "input_net": "n920202",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n921197",
+          "type": "BUF_X1",
+          "output_polarity": "fall",
+          "input_net": "n920882",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n921373",
+          "type": "BUF_X1",
+          "output_polarity": "fall",
+          "input_net": "n921197",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n921882",
+          "type": "BUF_X1",
+          "output_polarity": "fall",
+          "input_net": "n921373",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n922646",
+          "type": "MUX2_X1",
+          "output_polarity": "fall",
+          "input_net": "n921882",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "S"
+          ]
+        },
+        {
+          "output_net": "n922647",
+          "type": "MUX2_X1",
+          "output_polarity": "fall",
+          "input_net": "n922646",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n924378",
+          "type": "OR3_X1",
+          "output_polarity": "fall",
+          "input_net": "n922647",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n924379",
+          "type": "OAI211_X1",
+          "output_polarity": "rise",
+          "input_net": "n924378",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n924382",
+          "type": "OAI211_X1",
+          "output_polarity": "fall",
+          "input_net": "n924379",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n924388",
+          "type": "AOI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n924382",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n900191",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n924388",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n900307",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n900191",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n934669",
+          "type": "MUX2_X1",
+          "output_polarity": "fall",
+          "input_net": "n900307",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n940686",
+          "type": "INV_X1",
+          "output_polarity": "rise",
+          "input_net": "n934669",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n940690",
+          "type": "NAND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n940686",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n935735",
+          "type": "NOR3_X1",
+          "output_polarity": "rise",
+          "input_net": "n940690",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n941144",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n935735",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n941154",
+          "type": "AOI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n941144",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n941146",
+          "type": "OAI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n941154",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n941155",
+          "type": "AOI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n941146",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n941157",
+          "type": "OAI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n941155",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n941132",
+          "type": "AND2_X2",
+          "output_polarity": "fall",
+          "input_net": "n941157",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n11415",
+          "type": "OR3_X4",
+          "output_polarity": "fall",
+          "input_net": "n941132",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n1017681",
+          "type": "OAI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n11415",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1017682",
+          "type": "NAND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1017681",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1016971",
+          "type": "NAND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1017682",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n992772",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n1016971",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n992774",
+          "type": "NOR2_X2",
+          "output_polarity": "rise",
+          "input_net": "n992772",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n992792",
+          "type": "NAND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n992774",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n992810",
+          "type": "BUF_X1",
+          "output_polarity": "fall",
+          "input_net": "n992792",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n992830",
+          "type": "NOR4_X1",
+          "output_polarity": "rise",
+          "input_net": "n992810",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n975524",
+          "type": "NAND3_X1",
+          "output_polarity": "fall",
+          "input_net": "n992830",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n1026279",
+          "type": "OAI22_X4",
+          "output_polarity": "rise",
+          "input_net": "n975524",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1026344",
+          "type": "NOR4_X4",
+          "output_polarity": "fall",
+          "input_net": "n1026279",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n976390",
+          "type": "BUF_X1",
+          "output_polarity": "fall",
+          "input_net": "n1026344",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n976306",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n976390",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1604",
+          "type": "OR2_X2",
+          "output_polarity": "fall",
+          "input_net": "n976306",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        }
+      ]
+    },
+    "FF_to_FF": {
+      "delay_ps": 5864.907586836498,
+      "comb_reciprocal_mhz": 170.50567041234405,
+      "endpoint": {
+        "net": "n2125569",
+        "label": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/reg_file/$auto$ff.cc:337:slice$890320.D",
+        "kind": "sequential_input_pins"
+      },
+      "startpoint": {
+        "net": "n974644",
+        "label": "VectorCGRA4x4/tile__0/ctrl_mem/$auto$ff.cc:337:slice$930890.Q",
+        "kind": "sequential_output_pins"
+      },
+      "gate_count": 129,
+      "gates_source_to_sink": [
+        {
+          "output_net": "n987109",
+          "type": "BUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n974644",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n986660",
+          "type": "BUF_X2",
+          "output_polarity": "rise",
+          "input_net": "n987109",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n987137",
+          "type": "CLKBUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n986660",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n975002",
+          "type": "MUX2_X2",
+          "output_polarity": "rise",
+          "input_net": "n987137",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "S"
+          ]
+        },
+        {
+          "output_net": "n1028400",
+          "type": "BUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n975002",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1028393",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n1028400",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1028476",
+          "type": "OR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1028393",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1028510",
+          "type": "NOR3_X1",
+          "output_polarity": "rise",
+          "input_net": "n1028476",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n1028532",
+          "type": "AOI22_X1",
+          "output_polarity": "fall",
+          "input_net": "n1028510",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n1028533",
+          "type": "NAND4_X1",
+          "output_polarity": "rise",
+          "input_net": "n1028532",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n1028534",
+          "type": "NOR3_X1",
+          "output_polarity": "fall",
+          "input_net": "n1028533",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n976692",
+          "type": "NOR3_X1",
+          "output_polarity": "rise",
+          "input_net": "n1028534",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n1043818",
+          "type": "BUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n976692",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1044026",
+          "type": "AOI22_X1",
+          "output_polarity": "fall",
+          "input_net": "n1043818",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n1044028",
+          "type": "NAND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1044026",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1044029",
+          "type": "AOI221_X1",
+          "output_polarity": "fall",
+          "input_net": "n1044028",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1044031",
+          "type": "NAND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1044029",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1044151",
+          "type": "OAI222_X2",
+          "output_polarity": "fall",
+          "input_net": "n1044031",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n1044154",
+          "type": "NOR3_X4",
+          "output_polarity": "rise",
+          "input_net": "n1044151",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n1044157",
+          "type": "BUF_X4",
+          "output_polarity": "rise",
+          "input_net": "n1044154",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1044471",
+          "type": "AND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1044157",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1044472",
+          "type": "BUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n1044471",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1044490",
+          "type": "NAND3_X1",
+          "output_polarity": "fall",
+          "input_net": "n1044472",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n976542",
+          "type": "INV_X1",
+          "output_polarity": "rise",
+          "input_net": "n1044490",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1027946",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n976542",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1027874",
+          "type": "NOR2_X2",
+          "output_polarity": "rise",
+          "input_net": "n1027946",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1027875",
+          "type": "BUF_X2",
+          "output_polarity": "rise",
+          "input_net": "n1027874",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1027889",
+          "type": "AOI22_X1",
+          "output_polarity": "fall",
+          "input_net": "n1027875",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n975342",
+          "type": "INV_X1",
+          "output_polarity": "rise",
+          "input_net": "n1027889",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1016931",
+          "type": "OAI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n975342",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n1016934",
+          "type": "OAI21_X2",
+          "output_polarity": "rise",
+          "input_net": "n1016931",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n1016949",
+          "type": "XOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1016934",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n1017661",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n1016949",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n1017663",
+          "type": "XNOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1017661",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1017664",
+          "type": "AOI222_X1",
+          "output_polarity": "fall",
+          "input_net": "n1017663",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "C1"
+          ]
+        },
+        {
+          "output_net": "n10817",
+          "type": "NOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1017664",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n899594",
+          "type": "OAI22_X1",
+          "output_polarity": "fall",
+          "input_net": "n10817",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n899601",
+          "type": "AOI211_X1",
+          "output_polarity": "rise",
+          "input_net": "n899594",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n899602",
+          "type": "OAI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n899601",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n899603",
+          "type": "AOI22_X1",
+          "output_polarity": "rise",
+          "input_net": "n899602",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n899606",
+          "type": "OAI221_X1",
+          "output_polarity": "fall",
+          "input_net": "n899603",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "C1"
+          ]
+        },
+        {
+          "output_net": "n899611",
+          "type": "OR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n899606",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n907775",
+          "type": "MUX2_X1",
+          "output_polarity": "fall",
+          "input_net": "n899611",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n919141",
+          "type": "NOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n907775",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n908547",
+          "type": "AND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n919141",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n920240",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n908547",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n920253",
+          "type": "AOI21_X2",
+          "output_polarity": "rise",
+          "input_net": "n920240",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920257",
+          "type": "OAI21_X2",
+          "output_polarity": "fall",
+          "input_net": "n920253",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920262",
+          "type": "AOI21_X4",
+          "output_polarity": "rise",
+          "input_net": "n920257",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n920245",
+          "type": "OAI21_X4",
+          "output_polarity": "fall",
+          "input_net": "n920262",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920246",
+          "type": "AOI21_X4",
+          "output_polarity": "rise",
+          "input_net": "n920245",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n920248",
+          "type": "OAI21_X4",
+          "output_polarity": "fall",
+          "input_net": "n920246",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n920251",
+          "type": "AOI21_X4",
+          "output_polarity": "rise",
+          "input_net": "n920248",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n920255",
+          "type": "NOR4_X4",
+          "output_polarity": "fall",
+          "input_net": "n920251",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n920270",
+          "type": "AND3_X2",
+          "output_polarity": "fall",
+          "input_net": "n920255",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n920271",
+          "type": "OAI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n920270",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920272",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n920271",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920273",
+          "type": "OAI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n920272",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920211",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n920273",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n920202",
+          "type": "OR4_X1",
+          "output_polarity": "fall",
+          "input_net": "n920211",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n920882",
+          "type": "BUF_X2",
+          "output_polarity": "fall",
+          "input_net": "n920202",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n921870",
+          "type": "INV_X1",
+          "output_polarity": "rise",
+          "input_net": "n920882",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n921871",
+          "type": "BUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n921870",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n922004",
+          "type": "BUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n921871",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n922139",
+          "type": "BUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n922004",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n922557",
+          "type": "MUX2_X1",
+          "output_polarity": "rise",
+          "input_net": "n922139",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "S"
+          ]
+        },
+        {
+          "output_net": "n922558",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n922557",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n924372",
+          "type": "AOI211_X1",
+          "output_polarity": "rise",
+          "input_net": "n922558",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "C1"
+          ]
+        },
+        {
+          "output_net": "n924373",
+          "type": "AOI211_X1",
+          "output_polarity": "fall",
+          "input_net": "n924372",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n924376",
+          "type": "AOI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n924373",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n924377",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n924376",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n900190",
+          "type": "AOI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n924377",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n900306",
+          "type": "AND2_X4",
+          "output_polarity": "rise",
+          "input_net": "n900190",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n934668",
+          "type": "MUX2_X1",
+          "output_polarity": "rise",
+          "input_net": "n900306",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n940675",
+          "type": "BUF_X4",
+          "output_polarity": "rise",
+          "input_net": "n934668",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n940676",
+          "type": "INV_X4",
+          "output_polarity": "fall",
+          "input_net": "n940675",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n940677",
+          "type": "NAND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n940676",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n935730",
+          "type": "NOR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n940677",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n944444",
+          "type": "INV_X1",
+          "output_polarity": "rise",
+          "input_net": "n935730",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n944454",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n944444",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n944446",
+          "type": "OAI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n944454",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n944428",
+          "type": "AND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n944446",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n11410",
+          "type": "OR3_X4",
+          "output_polarity": "rise",
+          "input_net": "n944428",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n2101141",
+          "type": "OAI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n11410",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2101142",
+          "type": "NAND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2101141",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2100431",
+          "type": "NAND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2101142",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2076232",
+          "type": "INV_X1",
+          "output_polarity": "rise",
+          "input_net": "n2100431",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2076234",
+          "type": "NOR2_X2",
+          "output_polarity": "fall",
+          "input_net": "n2076232",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n2076252",
+          "type": "NAND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2076234",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2076270",
+          "type": "BUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n2076252",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2076290",
+          "type": "NOR4_X1",
+          "output_polarity": "fall",
+          "input_net": "n2076270",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n2058984",
+          "type": "NAND3_X1",
+          "output_polarity": "rise",
+          "input_net": "n2076290",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n2109739",
+          "type": "OAI22_X4",
+          "output_polarity": "fall",
+          "input_net": "n2058984",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n2109740",
+          "type": "BUF_X8",
+          "output_polarity": "fall",
+          "input_net": "n2109739",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2058982",
+          "type": "NOR3_X1",
+          "output_polarity": "rise",
+          "input_net": "n2109740",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2082548",
+          "type": "AND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2058982",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n2082138",
+          "type": "AOI22_X1",
+          "output_polarity": "fall",
+          "input_net": "n2082548",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n2082134",
+          "type": "INV_X1",
+          "output_polarity": "rise",
+          "input_net": "n2082138",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2082136",
+          "type": "AOI221_X1",
+          "output_polarity": "fall",
+          "input_net": "n2082134",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2082561",
+          "type": "OR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2082136",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2074509",
+          "type": "OAI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n2082561",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n2074513",
+          "type": "NOR4_X1",
+          "output_polarity": "fall",
+          "input_net": "n2074509",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n2058905",
+          "type": "NAND3_X1",
+          "output_polarity": "rise",
+          "input_net": "n2074513",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n2111244",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n2058905",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2111245",
+          "type": "OAI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n2111244",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2060000",
+          "type": "MUX2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2111245",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n2127634",
+          "type": "NOR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2060000",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n2127637",
+          "type": "NAND4_X1",
+          "output_polarity": "rise",
+          "input_net": "n2127634",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n2127642",
+          "type": "OAI211_X1",
+          "output_polarity": "fall",
+          "input_net": "n2127637",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n2127658",
+          "type": "AOI211_X2",
+          "output_polarity": "rise",
+          "input_net": "n2127642",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n2127659",
+          "type": "BUF_X4",
+          "output_polarity": "rise",
+          "input_net": "n2127658",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2127666",
+          "type": "NAND2_X2",
+          "output_polarity": "fall",
+          "input_net": "n2127659",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2127667",
+          "type": "BUF_X2",
+          "output_polarity": "fall",
+          "input_net": "n2127666",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2057414",
+          "type": "INV_X1",
+          "output_polarity": "rise",
+          "input_net": "n2127667",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2057415",
+          "type": "NOR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2057414",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2057458",
+          "type": "NOR3_X1",
+          "output_polarity": "rise",
+          "input_net": "n2057415",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n2057495",
+          "type": "AND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2057458",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2122939",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n2057495",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2123014",
+          "type": "OAI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n2122939",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n2123037",
+          "type": "NAND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2123014",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2123038",
+          "type": "NOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2123037",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2123117",
+          "type": "BUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n2123038",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2123148",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n2123117",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n2123150",
+          "type": "AOI21_X2",
+          "output_polarity": "rise",
+          "input_net": "n2123148",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2124866",
+          "type": "BUF_X4",
+          "output_polarity": "rise",
+          "input_net": "n2123150",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2125400",
+          "type": "NAND2_X4",
+          "output_polarity": "fall",
+          "input_net": "n2124866",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2124792",
+          "type": "NOR4_X4",
+          "output_polarity": "rise",
+          "input_net": "n2125400",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n2124453",
+          "type": "BUF_X4",
+          "output_polarity": "rise",
+          "input_net": "n2124792",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2125569",
+          "type": "MUX2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2124453",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "S"
+          ]
+        }
+      ]
+    },
+    "FF_to_PO": {
+      "delay_ps": 4234.7787494251,
+      "comb_reciprocal_mhz": 236.1398455906951,
+      "endpoint": {
+        "net": "n1604",
+        "label": "send_data_on_boundary_west__msg[139]",
+        "kind": "primary_outputs"
+      },
+      "startpoint": {
+        "net": "n974644",
+        "label": "VectorCGRA4x4/tile__0/ctrl_mem/$auto$ff.cc:337:slice$930890.Q",
+        "kind": "sequential_output_pins"
+      },
+      "gate_count": 97,
+      "gates_source_to_sink": [
+        {
+          "output_net": "n987109",
+          "type": "BUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n974644",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n986660",
+          "type": "BUF_X2",
+          "output_polarity": "rise",
+          "input_net": "n987109",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n987137",
+          "type": "CLKBUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n986660",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n975002",
+          "type": "MUX2_X2",
+          "output_polarity": "rise",
+          "input_net": "n987137",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "S"
+          ]
+        },
+        {
+          "output_net": "n1028400",
+          "type": "BUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n975002",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1028393",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n1028400",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1028476",
+          "type": "OR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1028393",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1028510",
+          "type": "NOR3_X1",
+          "output_polarity": "rise",
+          "input_net": "n1028476",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n1028532",
+          "type": "AOI22_X1",
+          "output_polarity": "fall",
+          "input_net": "n1028510",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n1028533",
+          "type": "NAND4_X1",
+          "output_polarity": "rise",
+          "input_net": "n1028532",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n1028534",
+          "type": "NOR3_X1",
+          "output_polarity": "fall",
+          "input_net": "n1028533",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n976692",
+          "type": "NOR3_X1",
+          "output_polarity": "rise",
+          "input_net": "n1028534",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n1043818",
+          "type": "BUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n976692",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1044026",
+          "type": "AOI22_X1",
+          "output_polarity": "fall",
+          "input_net": "n1043818",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n1044028",
+          "type": "NAND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1044026",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1044029",
+          "type": "AOI221_X1",
+          "output_polarity": "fall",
+          "input_net": "n1044028",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1044031",
+          "type": "NAND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1044029",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1044151",
+          "type": "OAI222_X2",
+          "output_polarity": "fall",
+          "input_net": "n1044031",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n1044154",
+          "type": "NOR3_X4",
+          "output_polarity": "rise",
+          "input_net": "n1044151",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n1044157",
+          "type": "BUF_X4",
+          "output_polarity": "rise",
+          "input_net": "n1044154",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1044471",
+          "type": "AND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1044157",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1044472",
+          "type": "BUF_X1",
+          "output_polarity": "rise",
+          "input_net": "n1044471",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1044490",
+          "type": "NAND3_X1",
+          "output_polarity": "fall",
+          "input_net": "n1044472",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n976542",
+          "type": "INV_X1",
+          "output_polarity": "rise",
+          "input_net": "n1044490",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1027946",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n976542",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1027874",
+          "type": "NOR2_X2",
+          "output_polarity": "rise",
+          "input_net": "n1027946",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1027875",
+          "type": "BUF_X2",
+          "output_polarity": "rise",
+          "input_net": "n1027874",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1027889",
+          "type": "AOI22_X1",
+          "output_polarity": "fall",
+          "input_net": "n1027875",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n975342",
+          "type": "INV_X1",
+          "output_polarity": "rise",
+          "input_net": "n1027889",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1016931",
+          "type": "OAI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n975342",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n1016934",
+          "type": "OAI21_X2",
+          "output_polarity": "rise",
+          "input_net": "n1016931",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n1016949",
+          "type": "XOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1016934",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n1017661",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n1016949",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n1017663",
+          "type": "XNOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1017661",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1017664",
+          "type": "AOI222_X1",
+          "output_polarity": "fall",
+          "input_net": "n1017663",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "C1"
+          ]
+        },
+        {
+          "output_net": "n10817",
+          "type": "NOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1017664",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n899594",
+          "type": "OAI22_X1",
+          "output_polarity": "fall",
+          "input_net": "n10817",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n899601",
+          "type": "AOI211_X1",
+          "output_polarity": "rise",
+          "input_net": "n899594",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n899602",
+          "type": "OAI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n899601",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n899603",
+          "type": "AOI22_X1",
+          "output_polarity": "rise",
+          "input_net": "n899602",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n899606",
+          "type": "OAI221_X1",
+          "output_polarity": "fall",
+          "input_net": "n899603",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "C1"
+          ]
+        },
+        {
+          "output_net": "n899611",
+          "type": "OR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n899606",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n907775",
+          "type": "MUX2_X1",
+          "output_polarity": "fall",
+          "input_net": "n899611",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n919141",
+          "type": "NOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n907775",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n908547",
+          "type": "AND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n919141",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n920240",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n908547",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n920253",
+          "type": "AOI21_X2",
+          "output_polarity": "rise",
+          "input_net": "n920240",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920257",
+          "type": "OAI21_X2",
+          "output_polarity": "fall",
+          "input_net": "n920253",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920262",
+          "type": "AOI21_X4",
+          "output_polarity": "rise",
+          "input_net": "n920257",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n920245",
+          "type": "OAI21_X4",
+          "output_polarity": "fall",
+          "input_net": "n920262",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920246",
+          "type": "AOI21_X4",
+          "output_polarity": "rise",
+          "input_net": "n920245",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n920248",
+          "type": "OAI21_X4",
+          "output_polarity": "fall",
+          "input_net": "n920246",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n920251",
+          "type": "AOI21_X4",
+          "output_polarity": "rise",
+          "input_net": "n920248",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n920255",
+          "type": "NOR4_X4",
+          "output_polarity": "fall",
+          "input_net": "n920251",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n920270",
+          "type": "AND3_X2",
+          "output_polarity": "fall",
+          "input_net": "n920255",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n920271",
+          "type": "OAI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n920270",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920272",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n920271",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920273",
+          "type": "OAI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n920272",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n920211",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n920273",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n920202",
+          "type": "OR4_X1",
+          "output_polarity": "fall",
+          "input_net": "n920211",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n920882",
+          "type": "BUF_X2",
+          "output_polarity": "fall",
+          "input_net": "n920202",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n921197",
+          "type": "BUF_X1",
+          "output_polarity": "fall",
+          "input_net": "n920882",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n921373",
+          "type": "BUF_X1",
+          "output_polarity": "fall",
+          "input_net": "n921197",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n921882",
+          "type": "BUF_X1",
+          "output_polarity": "fall",
+          "input_net": "n921373",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n922646",
+          "type": "MUX2_X1",
+          "output_polarity": "fall",
+          "input_net": "n921882",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "S"
+          ]
+        },
+        {
+          "output_net": "n922647",
+          "type": "MUX2_X1",
+          "output_polarity": "fall",
+          "input_net": "n922646",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n924378",
+          "type": "OR3_X1",
+          "output_polarity": "fall",
+          "input_net": "n922647",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n924379",
+          "type": "OAI211_X1",
+          "output_polarity": "rise",
+          "input_net": "n924378",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n924382",
+          "type": "OAI211_X1",
+          "output_polarity": "fall",
+          "input_net": "n924379",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n924388",
+          "type": "AOI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n924382",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n900191",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n924388",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n900307",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n900191",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n934669",
+          "type": "MUX2_X1",
+          "output_polarity": "fall",
+          "input_net": "n900307",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n940686",
+          "type": "INV_X1",
+          "output_polarity": "rise",
+          "input_net": "n934669",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n940690",
+          "type": "NAND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n940686",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n935735",
+          "type": "NOR3_X1",
+          "output_polarity": "rise",
+          "input_net": "n940690",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n941144",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n935735",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n941154",
+          "type": "AOI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n941144",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n941146",
+          "type": "OAI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n941154",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n941155",
+          "type": "AOI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n941146",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n941157",
+          "type": "OAI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n941155",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n941132",
+          "type": "AND2_X2",
+          "output_polarity": "fall",
+          "input_net": "n941157",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n11415",
+          "type": "OR3_X4",
+          "output_polarity": "fall",
+          "input_net": "n941132",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n1017681",
+          "type": "OAI21_X1",
+          "output_polarity": "rise",
+          "input_net": "n11415",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1017682",
+          "type": "NAND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1017681",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1016971",
+          "type": "NAND2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1017682",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n992772",
+          "type": "INV_X1",
+          "output_polarity": "fall",
+          "input_net": "n1016971",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n992774",
+          "type": "NOR2_X2",
+          "output_polarity": "rise",
+          "input_net": "n992772",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n992792",
+          "type": "NAND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n992774",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n992810",
+          "type": "BUF_X1",
+          "output_polarity": "fall",
+          "input_net": "n992792",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n992830",
+          "type": "NOR4_X1",
+          "output_polarity": "rise",
+          "input_net": "n992810",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n975524",
+          "type": "NAND3_X1",
+          "output_polarity": "fall",
+          "input_net": "n992830",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n1026279",
+          "type": "OAI22_X4",
+          "output_polarity": "rise",
+          "input_net": "n975524",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1026344",
+          "type": "NOR4_X4",
+          "output_polarity": "fall",
+          "input_net": "n1026279",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n976390",
+          "type": "BUF_X1",
+          "output_polarity": "fall",
+          "input_net": "n1026344",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n976306",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n976390",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1604",
+          "type": "OR2_X2",
+          "output_polarity": "fall",
+          "input_net": "n976306",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        }
+      ]
+    },
+    "VIRTUAL_to_FF": {
+      "delay_ps": 2476.8970346331057,
+      "comb_reciprocal_mhz": 403.7309528888537,
+      "endpoint": {
+        "net": "n2191889",
+        "label": "VectorCGRA4x4/tile__9/register_cluster/reg_bank__0/reg_file/$auto$ff.cc:337:slice$890844.D",
+        "kind": "sequential_input_pins"
+      },
+      "startpoint": {
+        "net": "virtual_x_8337",
+        "label": "VectorCGRA4x4/tile__9/element/fu__10/Fu__0/$abc$1348467$blif$1348467$124.A1",
+        "kind": "virtual_undefined_inputs",
+        "original_constant": "x"
+      },
+      "gate_count": 52,
+      "gates_source_to_sink": [
+        {
+          "output_net": "n2168001",
+          "type": "NAND2_X1",
+          "output_polarity": "fall",
+          "input_net": "virtual_x_8337",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n2168004",
+          "type": "AOI221_X4",
+          "output_polarity": "rise",
+          "input_net": "n2168001",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n2168005",
+          "type": "XNOR2_X2",
+          "output_polarity": "fall",
+          "input_net": "n2168004",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n2168007",
+          "type": "OAI33_X1",
+          "output_polarity": "rise",
+          "input_net": "n2168005",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B3"
+          ]
+        },
+        {
+          "output_net": "n2168011",
+          "type": "AND4_X2",
+          "output_polarity": "rise",
+          "input_net": "n2168007",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n2168015",
+          "type": "NAND3_X2",
+          "output_polarity": "fall",
+          "input_net": "n2168011",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n2168043",
+          "type": "AOI221_X2",
+          "output_polarity": "rise",
+          "input_net": "n2168015",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n2168045",
+          "type": "OR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2168043",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2167685",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n2168045",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n2168461",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2167685",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n2168520",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2168461",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2168521",
+          "type": "NOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2168520",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2168522",
+          "type": "OAI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n2168521",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2168579",
+          "type": "AOI211_X2",
+          "output_polarity": "rise",
+          "input_net": "n2168522",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "C2"
+          ]
+        },
+        {
+          "output_net": "n2168580",
+          "type": "AND3_X2",
+          "output_polarity": "rise",
+          "input_net": "n2168579",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n2168581",
+          "type": "NAND4_X1",
+          "output_polarity": "fall",
+          "input_net": "n2168580",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n2168582",
+          "type": "XNOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2168581",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n2168584",
+          "type": "OAI22_X1",
+          "output_polarity": "fall",
+          "input_net": "n2168582",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n2168603",
+          "type": "AOI221_X1",
+          "output_polarity": "rise",
+          "input_net": "n2168584",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2167699",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n2168603",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n2168951",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2167699",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n2169010",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2168951",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2169011",
+          "type": "NOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2169010",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2169012",
+          "type": "OAI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n2169011",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2169069",
+          "type": "AOI211_X2",
+          "output_polarity": "rise",
+          "input_net": "n2169012",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "C2"
+          ]
+        },
+        {
+          "output_net": "n2169070",
+          "type": "AND3_X2",
+          "output_polarity": "rise",
+          "input_net": "n2169069",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n2169071",
+          "type": "NAND4_X1",
+          "output_polarity": "fall",
+          "input_net": "n2169070",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n2169072",
+          "type": "XNOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2169071",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n2169074",
+          "type": "OAI22_X1",
+          "output_polarity": "fall",
+          "input_net": "n2169072",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n2169093",
+          "type": "AOI221_X1",
+          "output_polarity": "rise",
+          "input_net": "n2169074",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2167718",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n2169093",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n2169441",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2167718",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n2169500",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2169441",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2169501",
+          "type": "NOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2169500",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2169502",
+          "type": "OAI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n2169501",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2169559",
+          "type": "AOI211_X2",
+          "output_polarity": "rise",
+          "input_net": "n2169502",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "C2"
+          ]
+        },
+        {
+          "output_net": "n2169673",
+          "type": "NAND4_X1",
+          "output_polarity": "fall",
+          "input_net": "n2169559",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n2169675",
+          "type": "NOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n2169673",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2169676",
+          "type": "NOR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2169675",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2169680",
+          "type": "AOI221_X1",
+          "output_polarity": "rise",
+          "input_net": "n2169676",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n2169683",
+          "type": "OAI211_X1",
+          "output_polarity": "fall",
+          "input_net": "n2169680",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n2157106",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2169683",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2157108",
+          "type": "AOI221_X1",
+          "output_polarity": "rise",
+          "input_net": "n2157106",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n2136369",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n2157108",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n2186861",
+          "type": "BUF_X1",
+          "output_polarity": "fall",
+          "input_net": "n2136369",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2187593",
+          "type": "MUX2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2186861",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2137085",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2187593",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2189700",
+          "type": "AOI222_X1",
+          "output_polarity": "rise",
+          "input_net": "n2137085",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "C1"
+          ]
+        },
+        {
+          "output_net": "n2189831",
+          "type": "NOR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2189700",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n2189832",
+          "type": "MUX2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2189831",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2191145",
+          "type": "CLKBUF_X1",
+          "output_polarity": "fall",
+          "input_net": "n2189832",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n2191889",
+          "type": "MUX2_X1",
+          "output_polarity": "fall",
+          "input_net": "n2191145",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        }
+      ]
+    },
+    "VIRTUAL_to_PO": {
+      "delay_ps": 2222.64998042208,
+      "comb_reciprocal_mhz": 449.91339563510616,
+      "endpoint": {
+        "net": "n1159",
+        "label": "send_data_on_boundary_east__msg[138]",
+        "kind": "primary_outputs"
+      },
+      "startpoint": {
+        "net": "virtual_x_5037",
+        "label": "VectorCGRA4x4/tile__3/element/fu__10/Fu__0/$abc$1348467$blif$1348467$124.A1",
+        "kind": "virtual_undefined_inputs",
+        "original_constant": "x"
+      },
+      "gate_count": 48,
+      "gates_source_to_sink": [
+        {
+          "output_net": "n1703661",
+          "type": "NAND2_X1",
+          "output_polarity": "fall",
+          "input_net": "virtual_x_5037",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1703664",
+          "type": "AOI221_X4",
+          "output_polarity": "rise",
+          "input_net": "n1703661",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n1703665",
+          "type": "XNOR2_X2",
+          "output_polarity": "fall",
+          "input_net": "n1703664",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n1703667",
+          "type": "OAI33_X1",
+          "output_polarity": "rise",
+          "input_net": "n1703665",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B3"
+          ]
+        },
+        {
+          "output_net": "n1703671",
+          "type": "AND4_X2",
+          "output_polarity": "rise",
+          "input_net": "n1703667",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n1703675",
+          "type": "NAND3_X2",
+          "output_polarity": "fall",
+          "input_net": "n1703671",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n1703703",
+          "type": "AOI221_X2",
+          "output_polarity": "rise",
+          "input_net": "n1703675",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n1703705",
+          "type": "OR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1703703",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1703345",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n1703705",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n1704121",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1703345",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1704180",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1704121",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1704181",
+          "type": "NOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1704180",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1704182",
+          "type": "OAI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n1704181",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1704239",
+          "type": "AOI211_X2",
+          "output_polarity": "rise",
+          "input_net": "n1704182",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "C2"
+          ]
+        },
+        {
+          "output_net": "n1704240",
+          "type": "AND3_X2",
+          "output_polarity": "rise",
+          "input_net": "n1704239",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n1704241",
+          "type": "NAND4_X1",
+          "output_polarity": "fall",
+          "input_net": "n1704240",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n1704242",
+          "type": "XNOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1704241",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n1704244",
+          "type": "OAI22_X1",
+          "output_polarity": "fall",
+          "input_net": "n1704242",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n1704263",
+          "type": "AOI221_X1",
+          "output_polarity": "rise",
+          "input_net": "n1704244",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1703359",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n1704263",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n1704611",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1703359",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1704670",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1704611",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1704671",
+          "type": "NOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1704670",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1704672",
+          "type": "OAI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n1704671",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1704729",
+          "type": "AOI211_X2",
+          "output_polarity": "rise",
+          "input_net": "n1704672",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "C2"
+          ]
+        },
+        {
+          "output_net": "n1704730",
+          "type": "AND3_X2",
+          "output_polarity": "rise",
+          "input_net": "n1704729",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A3"
+          ]
+        },
+        {
+          "output_net": "n1704731",
+          "type": "NAND4_X1",
+          "output_polarity": "fall",
+          "input_net": "n1704730",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n1704732",
+          "type": "XNOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1704731",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n1704734",
+          "type": "OAI22_X1",
+          "output_polarity": "fall",
+          "input_net": "n1704732",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B1"
+          ]
+        },
+        {
+          "output_net": "n1704753",
+          "type": "AOI221_X1",
+          "output_polarity": "rise",
+          "input_net": "n1704734",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1703378",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n1704753",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n1705101",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1703378",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A1"
+          ]
+        },
+        {
+          "output_net": "n1705160",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1705101",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1705161",
+          "type": "NOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1705160",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1705162",
+          "type": "OAI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n1705161",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1705219",
+          "type": "AOI211_X2",
+          "output_polarity": "rise",
+          "input_net": "n1705162",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "C2"
+          ]
+        },
+        {
+          "output_net": "n1705333",
+          "type": "NAND4_X1",
+          "output_polarity": "fall",
+          "input_net": "n1705219",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A4"
+          ]
+        },
+        {
+          "output_net": "n1705335",
+          "type": "NOR2_X1",
+          "output_polarity": "rise",
+          "input_net": "n1705333",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1705336",
+          "type": "NOR2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1705335",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1705340",
+          "type": "AOI221_X1",
+          "output_polarity": "rise",
+          "input_net": "n1705336",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n1705343",
+          "type": "OAI211_X1",
+          "output_polarity": "fall",
+          "input_net": "n1705340",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B"
+          ]
+        },
+        {
+          "output_net": "n1692766",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1705343",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1692768",
+          "type": "AOI221_X1",
+          "output_polarity": "rise",
+          "input_net": "n1692766",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n1672029",
+          "type": "AOI21_X1",
+          "output_polarity": "fall",
+          "input_net": "n1692768",
+          "input_polarity": "rise",
+          "candidate_input_pins": [
+            "B2"
+          ]
+        },
+        {
+          "output_net": "n1722521",
+          "type": "BUF_X1",
+          "output_polarity": "fall",
+          "input_net": "n1672029",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1723292",
+          "type": "MUX2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1722521",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A"
+          ]
+        },
+        {
+          "output_net": "n1672780",
+          "type": "AND2_X1",
+          "output_polarity": "fall",
+          "input_net": "n1723292",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        },
+        {
+          "output_net": "n1159",
+          "type": "OR2_X2",
+          "output_polarity": "fall",
+          "input_net": "n1672780",
+          "input_polarity": "fall",
+          "candidate_input_pins": [
+            "A2"
+          ]
+        }
+      ]
+    }
+  }
+}

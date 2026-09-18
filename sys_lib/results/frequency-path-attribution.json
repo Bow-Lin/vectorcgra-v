@@ -1,0 +1,2976 @@
+{
+  "method": "Resolve each independent NLDM path net through original unchanged Yosys hierarchy union/find; no remapping or timing recomputation",
+  "nldm_source": "sys_lib\\build\\timing-method-v2\\C2\\nldm_full_absolute.json",
+  "nldm_sha256": "f57b17e6dc86da923b46d95a4bb7fab635c0b275665fc7c33b03aae7c2e6d59b",
+  "mapped_json": "sys_lib\\build\\C2-final\\hierarchical\\mapped.json",
+  "mapped_json_sha256": "7c058d9ec2357d96e442ac69b581383807ec33b2295d1d6b4bbbf23fa13b1739",
+  "delay_ps": 5864.907586836498,
+  "startpoint": {
+    "net": "n974644",
+    "label": "VectorCGRA4x4/tile__0/ctrl_mem/$auto$ff.cc:337:slice$930890.Q",
+    "kind": "sequential_output_pins"
+  },
+  "endpoint": {
+    "net": "n2125569",
+    "label": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/reg_file/$auto$ff.cc:337:slice$890320.D",
+    "kind": "sequential_input_pins"
+  },
+  "start_aliases": [
+    "VectorCGRA4x4/tile__0/ctrl_mem__ctrl_addr_outport[2]",
+    "VectorCGRA4x4/tile__0/element__ctrl_addr_inport[2]",
+    "VectorCGRA4x4/tile__0/fu_crossbar__ctrl_addr_inport[2]",
+    "VectorCGRA4x4/tile__0/routing_crossbar__ctrl_addr_inport[2]",
+    "VectorCGRA4x4/tile__0/ctrl_mem/ctrl_addr_outport[2]",
+    "VectorCGRA4x4/tile__0/ctrl_mem/reg_file__raddr[2]",
+    "VectorCGRA4x4/tile__0/ctrl_mem/reg_file/raddr[2]",
+    "VectorCGRA4x4/tile__0/element/ctrl_addr_inport[2]",
+    "VectorCGRA4x4/tile__0/element/fu__ctrl_addr_inport[0][2]",
+    "VectorCGRA4x4/tile__0/element/fu__ctrl_addr_inport[10][2]",
+    "VectorCGRA4x4/tile__0/element/fu__ctrl_addr_inport[11][2]",
+    "VectorCGRA4x4/tile__0/element/fu__ctrl_addr_inport[1][2]",
+    "VectorCGRA4x4/tile__0/element/fu__ctrl_addr_inport[2][2]",
+    "VectorCGRA4x4/tile__0/element/fu__ctrl_addr_inport[3][2]",
+    "VectorCGRA4x4/tile__0/element/fu__ctrl_addr_inport[4][2]",
+    "VectorCGRA4x4/tile__0/element/fu__ctrl_addr_inport[5][2]",
+    "VectorCGRA4x4/tile__0/element/fu__ctrl_addr_inport[6][2]",
+    "VectorCGRA4x4/tile__0/element/fu__ctrl_addr_inport[7][2]",
+    "VectorCGRA4x4/tile__0/element/fu__ctrl_addr_inport[8][2]",
+    "VectorCGRA4x4/tile__0/element/fu__ctrl_addr_inport[9][2]",
+    "VectorCGRA4x4/tile__0/element/fu__0/ctrl_addr_inport[2]",
+    "VectorCGRA4x4/tile__0/element/fu__1/ctrl_addr_inport[2]",
+    "VectorCGRA4x4/tile__0/element/fu__10/ctrl_addr_inport[2]",
+    "VectorCGRA4x4/tile__0/element/fu__11/ctrl_addr_inport[2]",
+    "VectorCGRA4x4/tile__0/element/fu__2/ctrl_addr_inport[2]",
+    "VectorCGRA4x4/tile__0/element/fu__3/ctrl_addr_inport[2]",
+    "VectorCGRA4x4/tile__0/element/fu__4/ctrl_addr_inport[2]",
+    "VectorCGRA4x4/tile__0/element/fu__5/ctrl_addr_inport[2]",
+    "VectorCGRA4x4/tile__0/element/fu__6/ctrl_addr_inport[2]",
+    "VectorCGRA4x4/tile__0/element/fu__7/ctrl_addr_inport[2]",
+    "VectorCGRA4x4/tile__0/element/fu__8/ctrl_addr_inport[2]",
+    "VectorCGRA4x4/tile__0/element/fu__9/ctrl_addr_inport[2]",
+    "VectorCGRA4x4/tile__0/fu_crossbar/ctrl_addr_inport[2]",
+    "VectorCGRA4x4/tile__0/routing_crossbar/ctrl_addr_inport[2]"
+  ],
+  "segments": [
+    {
+      "first_step": 0,
+      "last_step": 3,
+      "module": "VectorCGRA4x4/tile__0/ctrl_mem/reg_file",
+      "module_type": "RegisterFile__2e3f1a493f3a75b5",
+      "first_net": "n987109",
+      "last_net": "n975002"
+    },
+    {
+      "first_step": 4,
+      "last_step": 11,
+      "module": "VectorCGRA4x4/tile__0/register_cluster/reg_bank__0",
+      "module_type": "RegisterBankRTL__1b0a8fe9594262ad",
+      "first_net": "n1028400",
+      "last_net": "n976692"
+    },
+    {
+      "first_step": 12,
+      "last_step": 23,
+      "module": "VectorCGRA4x4/tile__0/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "first_net": "n1043818",
+      "last_net": "n976542"
+    },
+    {
+      "first_step": 24,
+      "last_step": 28,
+      "module": "VectorCGRA4x4/tile__0/register_cluster",
+      "module_type": "RegisterClusterRTL__56b19f471f8ad63e",
+      "first_net": "n1027946",
+      "last_net": "n975342"
+    },
+    {
+      "first_step": 29,
+      "last_step": 35,
+      "module": "VectorCGRA4x4/tile__0/element/fu__7",
+      "module_type": "MemUnitRTL__cc038315557d7e7d",
+      "first_net": "n1016931",
+      "last_net": "n10817"
+    },
+    {
+      "first_step": 36,
+      "last_step": 41,
+      "module": "VectorCGRA4x4/data_mem",
+      "module_type": "DataMemControllerRTL__7aba0fc4c5877c52",
+      "first_net": "n899594",
+      "last_net": "n899611"
+    },
+    {
+      "first_step": 42,
+      "last_step": 42,
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/dpath/mux",
+      "module_type": "Mux__Type_MemAccessPacket_8_3_128__50b29b2dbc59831b__ninputs_2",
+      "first_net": "n907775",
+      "last_net": "n907775"
+    },
+    {
+      "first_step": 43,
+      "last_step": 44,
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/route_units__0",
+      "module_type": "XbarRouteUnitRTL__e8e1b5e563e2f891",
+      "first_net": "n919141",
+      "last_net": "n908547"
+    },
+    {
+      "first_step": 45,
+      "last_step": 58,
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter",
+      "module_type": "RoundRobinArbiterEn__nreqs_8",
+      "first_net": "n920240",
+      "last_net": "n920211"
+    },
+    {
+      "first_step": 59,
+      "last_step": 59,
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/encoder",
+      "module_type": "Encoder__in_nbits_8__out_nbits_3",
+      "first_net": "n920202",
+      "last_net": "n920202"
+    },
+    {
+      "first_step": 60,
+      "last_step": 71,
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux",
+      "module_type": "Mux__Type_MemAccessPacket_8_3_128__50b29b2dbc59831b__ninputs_8",
+      "first_net": "n920882",
+      "last_net": "n900190"
+    },
+    {
+      "first_step": 72,
+      "last_step": 72,
+      "module": "VectorCGRA4x4/data_mem/memory_wrapper__0",
+      "module_type": "DataMemWrapperRTL__4777c60d73176261",
+      "first_net": "n900306",
+      "last_net": "n900306"
+    },
+    {
+      "first_step": 73,
+      "last_step": 73,
+      "module": "VectorCGRA4x4/data_mem/response_crossbar/input_units__0/queue/dpath/mux",
+      "module_type": "Mux__Type_MemAccessPacket_3_8_128__fd2f0111edd219ae__ninputs_2",
+      "first_net": "n934668",
+      "last_net": "n934668"
+    },
+    {
+      "first_step": 74,
+      "last_step": 77,
+      "module": "VectorCGRA4x4/data_mem/response_crossbar/route_units__0",
+      "module_type": "XbarRouteUnitRTL__4d19669edfdc845b",
+      "first_net": "n940675",
+      "last_net": "n935730"
+    },
+    {
+      "first_step": 78,
+      "last_step": 81,
+      "module": "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/arbiter",
+      "module_type": "RoundRobinArbiterEn__nreqs_3",
+      "first_net": "n944444",
+      "last_net": "n944428"
+    },
+    {
+      "first_step": 82,
+      "last_step": 82,
+      "module": "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5",
+      "module_type": "SwitchUnitRTL__0f275c3caadc86ab",
+      "first_net": "n11410",
+      "last_net": "n11410"
+    },
+    {
+      "first_step": 83,
+      "last_step": 86,
+      "module": "VectorCGRA4x4/tile__8/element/fu__7",
+      "module_type": "MemUnitRTL__cc038315557d7e7d",
+      "first_net": "n2101141",
+      "last_net": "n2076232"
+    },
+    {
+      "first_step": 87,
+      "last_step": 91,
+      "module": "VectorCGRA4x4/tile__8/element",
+      "module_type": "FlexibleFuRTL__055f28a3efe98227",
+      "first_net": "n2076234",
+      "last_net": "n2058984"
+    },
+    {
+      "first_step": 92,
+      "last_step": 94,
+      "module": "VectorCGRA4x4/tile__8/fu_crossbar",
+      "module_type": "CrossbarRTL__26256b587c2a5ec9",
+      "first_net": "n2109739",
+      "last_net": "n2058982"
+    },
+    {
+      "first_step": 95,
+      "last_step": 100,
+      "module": "VectorCGRA4x4/tile__8/element/fu__0",
+      "module_type": "AdderRTL__cc038315557d7e7d",
+      "first_net": "n2082548",
+      "last_net": "n2074509"
+    },
+    {
+      "first_step": 101,
+      "last_step": 102,
+      "module": "VectorCGRA4x4/tile__8/element",
+      "module_type": "FlexibleFuRTL__055f28a3efe98227",
+      "first_net": "n2074513",
+      "last_net": "n2058905"
+    },
+    {
+      "first_step": 103,
+      "last_step": 105,
+      "module": "VectorCGRA4x4/tile__8/register_cluster",
+      "module_type": "RegisterClusterRTL__56b19f471f8ad63e",
+      "first_net": "n2111244",
+      "last_net": "n2060000"
+    },
+    {
+      "first_step": 106,
+      "last_step": 113,
+      "module": "VectorCGRA4x4/tile__8/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "first_net": "n2127634",
+      "last_net": "n2057414"
+    },
+    {
+      "first_step": 114,
+      "last_step": 116,
+      "module": "VectorCGRA4x4/tile__8",
+      "module_type": "TileRTL__16a8290d3dfb5b02",
+      "first_net": "n2057415",
+      "last_net": "n2057495"
+    },
+    {
+      "first_step": 117,
+      "last_step": 123,
+      "module": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3",
+      "module_type": "RegisterBankRTL__90e9b2d424e56325",
+      "first_net": "n2122939",
+      "last_net": "n2123150"
+    },
+    {
+      "first_step": 124,
+      "last_step": 128,
+      "module": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/reg_file",
+      "module_type": "RegisterFile__84f0703fd9bfd535",
+      "first_net": "n2124866",
+      "last_net": "n2125569"
+    }
+  ],
+  "steps": [
+    {
+      "step": 0,
+      "output_net": "n987109",
+      "type": "BUF_X1",
+      "output_polarity": "rise",
+      "input_net": "n974644",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/ctrl_mem/reg_file/$abc$1348448$blif$1348448$42",
+      "module": "VectorCGRA4x4/tile__0/ctrl_mem/reg_file",
+      "module_type": "RegisterFile__2e3f1a493f3a75b5",
+      "cell_type": "BUF_X1",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 1,
+      "output_net": "n986660",
+      "type": "BUF_X2",
+      "output_polarity": "rise",
+      "input_net": "n987109",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/ctrl_mem/reg_file/$abc$1348448$blif$1348448$43",
+      "module": "VectorCGRA4x4/tile__0/ctrl_mem/reg_file",
+      "module_type": "RegisterFile__2e3f1a493f3a75b5",
+      "cell_type": "BUF_X2",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 2,
+      "output_net": "n987137",
+      "type": "CLKBUF_X1",
+      "output_polarity": "rise",
+      "input_net": "n986660",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/ctrl_mem/reg_file/$abc$1348448$blif$1348448$44",
+      "module": "VectorCGRA4x4/tile__0/ctrl_mem/reg_file",
+      "module_type": "RegisterFile__2e3f1a493f3a75b5",
+      "cell_type": "CLKBUF_X1",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 3,
+      "output_net": "n975002",
+      "type": "MUX2_X2",
+      "output_polarity": "rise",
+      "input_net": "n987137",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "S"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/ctrl_mem/reg_file/$abc$1348448$blif$1348448$835",
+      "module": "VectorCGRA4x4/tile__0/ctrl_mem/reg_file",
+      "module_type": "RegisterFile__2e3f1a493f3a75b5",
+      "cell_type": "MUX2_X2",
+      "output_pin": "Z",
+      "aliases": [
+        "VectorCGRA4x4/tile__0/ctrl_mem__send_ctrl__msg[2]",
+        "VectorCGRA4x4/tile__0/element__recv_opt__msg[2]",
+        "VectorCGRA4x4/tile__0/fu_crossbar__recv_opt__msg[2]",
+        "VectorCGRA4x4/tile__0/register_cluster__inport_opt[2]",
+        "VectorCGRA4x4/tile__0/routing_crossbar__recv_opt__msg[2]",
+        "VectorCGRA4x4/tile__0/ctrl_mem/reg_file__rdata[2]",
+        "VectorCGRA4x4/tile__0/ctrl_mem/send_ctrl__msg[2]",
+        "VectorCGRA4x4/tile__0/ctrl_mem/reg_file/rdata[2]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_opt__msg[0][2]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_opt__msg[10][2]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_opt__msg[11][2]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_opt__msg[1][2]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_opt__msg[2][2]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_opt__msg[3][2]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_opt__msg[4][2]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_opt__msg[5][2]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_opt__msg[6][2]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_opt__msg[7][2]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_opt__msg[8][2]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_opt__msg[9][2]",
+        "VectorCGRA4x4/tile__0/element/recv_opt__msg[2]",
+        "VectorCGRA4x4/tile__0/element/fu__0/recv_opt__msg[2]",
+        "VectorCGRA4x4/tile__0/element/fu__1/recv_opt__msg[2]",
+        "VectorCGRA4x4/tile__0/element/fu__10/recv_opt__msg[2]",
+        "VectorCGRA4x4/tile__0/element/fu__11/recv_opt__msg[2]",
+        "VectorCGRA4x4/tile__0/element/fu__2/recv_opt__msg[2]",
+        "VectorCGRA4x4/tile__0/element/fu__3/recv_opt__msg[2]",
+        "VectorCGRA4x4/tile__0/element/fu__4/recv_opt__msg[2]",
+        "VectorCGRA4x4/tile__0/element/fu__5/recv_opt__msg[2]",
+        "VectorCGRA4x4/tile__0/element/fu__6/recv_opt__msg[2]",
+        "VectorCGRA4x4/tile__0/element/fu__7/recv_opt__msg[2]",
+        "VectorCGRA4x4/tile__0/element/fu__8/recv_opt__msg[2]",
+        "VectorCGRA4x4/tile__0/element/fu__9/recv_opt__msg[2]",
+        "VectorCGRA4x4/tile__0/fu_crossbar/prologue_counter_next[1][2]",
+        "VectorCGRA4x4/tile__0/fu_crossbar/recv_opt__msg[2]",
+        "VectorCGRA4x4/tile__0/register_cluster/inport_opt[2]",
+        "VectorCGRA4x4/tile__0/register_cluster/reg_bank__inport_opt[0][2]",
+        "VectorCGRA4x4/tile__0/register_cluster/reg_bank__inport_opt[1][2]",
+        "VectorCGRA4x4/tile__0/register_cluster/reg_bank__inport_opt[2][2]",
+        "VectorCGRA4x4/tile__0/register_cluster/reg_bank__inport_opt[3][2]",
+        "VectorCGRA4x4/tile__0/register_cluster/reg_bank__0/inport_opt[2]",
+        "VectorCGRA4x4/tile__0/register_cluster/reg_bank__1/inport_opt[2]",
+        "VectorCGRA4x4/tile__0/register_cluster/reg_bank__2/inport_opt[2]",
+        "VectorCGRA4x4/tile__0/register_cluster/reg_bank__3/inport_opt[2]",
+        "VectorCGRA4x4/tile__0/routing_crossbar/recv_opt__msg[2]"
+      ]
+    },
+    {
+      "step": 4,
+      "output_net": "n1028400",
+      "type": "BUF_X1",
+      "output_polarity": "rise",
+      "input_net": "n975002",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/register_cluster/reg_bank__0/$abc$1348457$blif$1348457$3",
+      "module": "VectorCGRA4x4/tile__0/register_cluster/reg_bank__0",
+      "module_type": "RegisterBankRTL__1b0a8fe9594262ad",
+      "cell_type": "BUF_X1",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 5,
+      "output_net": "n1028393",
+      "type": "INV_X1",
+      "output_polarity": "fall",
+      "input_net": "n1028400",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/register_cluster/reg_bank__0/$abc$1348457$blif$1348457$8",
+      "module": "VectorCGRA4x4/tile__0/register_cluster/reg_bank__0",
+      "module_type": "RegisterBankRTL__1b0a8fe9594262ad",
+      "cell_type": "INV_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 6,
+      "output_net": "n1028476",
+      "type": "OR2_X1",
+      "output_polarity": "fall",
+      "input_net": "n1028393",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A2"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/register_cluster/reg_bank__0/$abc$1348457$blif$1348457$169",
+      "module": "VectorCGRA4x4/tile__0/register_cluster/reg_bank__0",
+      "module_type": "RegisterBankRTL__1b0a8fe9594262ad",
+      "cell_type": "OR2_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 7,
+      "output_net": "n1028510",
+      "type": "NOR3_X1",
+      "output_polarity": "rise",
+      "input_net": "n1028476",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A3"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/register_cluster/reg_bank__0/$abc$1348457$blif$1348457$188",
+      "module": "VectorCGRA4x4/tile__0/register_cluster/reg_bank__0",
+      "module_type": "RegisterBankRTL__1b0a8fe9594262ad",
+      "cell_type": "NOR3_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 8,
+      "output_net": "n1028532",
+      "type": "AOI22_X1",
+      "output_polarity": "fall",
+      "input_net": "n1028510",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B1"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/register_cluster/reg_bank__0/$abc$1348457$blif$1348457$201",
+      "module": "VectorCGRA4x4/tile__0/register_cluster/reg_bank__0",
+      "module_type": "RegisterBankRTL__1b0a8fe9594262ad",
+      "cell_type": "AOI22_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 9,
+      "output_net": "n1028533",
+      "type": "NAND4_X1",
+      "output_polarity": "rise",
+      "input_net": "n1028532",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A4"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/register_cluster/reg_bank__0/$abc$1348457$blif$1348457$202",
+      "module": "VectorCGRA4x4/tile__0/register_cluster/reg_bank__0",
+      "module_type": "RegisterBankRTL__1b0a8fe9594262ad",
+      "cell_type": "NAND4_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 10,
+      "output_net": "n1028534",
+      "type": "NOR3_X1",
+      "output_polarity": "fall",
+      "input_net": "n1028533",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A3"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/register_cluster/reg_bank__0/$abc$1348457$blif$1348457$203",
+      "module": "VectorCGRA4x4/tile__0/register_cluster/reg_bank__0",
+      "module_type": "RegisterBankRTL__1b0a8fe9594262ad",
+      "cell_type": "NOR3_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 11,
+      "output_net": "n976692",
+      "type": "NOR3_X1",
+      "output_polarity": "rise",
+      "input_net": "n1028534",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A3"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/register_cluster/reg_bank__0/$abc$1348457$blif$1348457$206",
+      "module": "VectorCGRA4x4/tile__0/register_cluster/reg_bank__0",
+      "module_type": "RegisterBankRTL__1b0a8fe9594262ad",
+      "cell_type": "NOR3_X1",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/tile__0/register_cluster__send_data_to_routing_crossbar__val[3]",
+        "VectorCGRA4x4/tile__0/routing_crossbar__recv_data__val[3]",
+        "VectorCGRA4x4/tile__0/register_cluster/reg_bank__send_data_to_xbar__val[0]",
+        "VectorCGRA4x4/tile__0/register_cluster/send_data_to_routing_crossbar__val[3]",
+        "VectorCGRA4x4/tile__0/register_cluster/reg_bank__0/send_data_to_xbar__val",
+        "VectorCGRA4x4/tile__0/routing_crossbar/recv_data__val[3]",
+        "VectorCGRA4x4/tile__0/routing_crossbar/recv_data_val[4]"
+      ]
+    },
+    {
+      "step": 12,
+      "output_net": "n1043818",
+      "type": "BUF_X1",
+      "output_polarity": "rise",
+      "input_net": "n976692",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/routing_crossbar/$abc$1348431$blif$1348431$487",
+      "module": "VectorCGRA4x4/tile__0/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "cell_type": "BUF_X1",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 13,
+      "output_net": "n1044026",
+      "type": "AOI22_X1",
+      "output_polarity": "fall",
+      "input_net": "n1043818",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B2"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/routing_crossbar/$abc$1348431$blif$1348431$1092",
+      "module": "VectorCGRA4x4/tile__0/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "cell_type": "AOI22_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 14,
+      "output_net": "n1044028",
+      "type": "NAND2_X1",
+      "output_polarity": "rise",
+      "input_net": "n1044026",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A1"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/routing_crossbar/$abc$1348431$blif$1348431$1094",
+      "module": "VectorCGRA4x4/tile__0/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "cell_type": "NAND2_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 15,
+      "output_net": "n1044029",
+      "type": "AOI221_X1",
+      "output_polarity": "fall",
+      "input_net": "n1044028",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/routing_crossbar/$abc$1348431$blif$1348431$1095",
+      "module": "VectorCGRA4x4/tile__0/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "cell_type": "AOI221_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 16,
+      "output_net": "n1044031",
+      "type": "NAND2_X1",
+      "output_polarity": "rise",
+      "input_net": "n1044029",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A1"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/routing_crossbar/$abc$1348431$blif$1348431$1097",
+      "module": "VectorCGRA4x4/tile__0/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "cell_type": "NAND2_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 17,
+      "output_net": "n1044151",
+      "type": "OAI222_X2",
+      "output_polarity": "fall",
+      "input_net": "n1044031",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B2"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/routing_crossbar/$abc$1348431$blif$1348431$1188",
+      "module": "VectorCGRA4x4/tile__0/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "cell_type": "OAI222_X2",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 18,
+      "output_net": "n1044154",
+      "type": "NOR3_X4",
+      "output_polarity": "rise",
+      "input_net": "n1044151",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A3"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/routing_crossbar/$abc$1348431$blif$1348431$1189",
+      "module": "VectorCGRA4x4/tile__0/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "cell_type": "NOR3_X4",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 19,
+      "output_net": "n1044157",
+      "type": "BUF_X4",
+      "output_polarity": "rise",
+      "input_net": "n1044154",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/routing_crossbar/$abc$1348431$blif$1348431$1190",
+      "module": "VectorCGRA4x4/tile__0/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "cell_type": "BUF_X4",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 20,
+      "output_net": "n1044471",
+      "type": "AND2_X1",
+      "output_polarity": "rise",
+      "input_net": "n1044157",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A1"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/routing_crossbar/$abc$1348431$blif$1348431$1352",
+      "module": "VectorCGRA4x4/tile__0/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "cell_type": "AND2_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 21,
+      "output_net": "n1044472",
+      "type": "BUF_X1",
+      "output_polarity": "rise",
+      "input_net": "n1044471",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/routing_crossbar/$abc$1348431$blif$1348431$1353",
+      "module": "VectorCGRA4x4/tile__0/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "cell_type": "BUF_X1",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 22,
+      "output_net": "n1044490",
+      "type": "NAND3_X1",
+      "output_polarity": "fall",
+      "input_net": "n1044472",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A3"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/routing_crossbar/$abc$1348431$blif$1348431$1372",
+      "module": "VectorCGRA4x4/tile__0/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "cell_type": "NAND3_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 23,
+      "output_net": "n976542",
+      "type": "INV_X1",
+      "output_polarity": "rise",
+      "input_net": "n1044490",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/routing_crossbar/$abc$1348431$blif$1348431$1373",
+      "module": "VectorCGRA4x4/tile__0/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "cell_type": "INV_X1",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/tile__0/register_cluster__recv_data_from_routing_crossbar__val[1]",
+        "VectorCGRA4x4/tile__0/routing_crossbar__send_data__val[1]",
+        "VectorCGRA4x4/tile__0/register_cluster/recv_data_from_routing_crossbar__val[1]",
+        "VectorCGRA4x4/tile__0/register_cluster/reg_bank__inport_valid[2][2]",
+        "VectorCGRA4x4/tile__0/register_cluster/reg_bank__2/inport_valid[2]",
+        "VectorCGRA4x4/tile__0/routing_crossbar/send_data__val[1]"
+      ]
+    },
+    {
+      "step": 24,
+      "output_net": "n1027946",
+      "type": "INV_X1",
+      "output_polarity": "fall",
+      "input_net": "n976542",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/register_cluster/$abc$1348468$blif$1348468$3",
+      "module": "VectorCGRA4x4/tile__0/register_cluster",
+      "module_type": "RegisterClusterRTL__56b19f471f8ad63e",
+      "cell_type": "INV_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 25,
+      "output_net": "n1027874",
+      "type": "NOR2_X2",
+      "output_polarity": "rise",
+      "input_net": "n1027946",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A2"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/register_cluster/$abc$1348468$blif$1348468$4",
+      "module": "VectorCGRA4x4/tile__0/register_cluster",
+      "module_type": "RegisterClusterRTL__56b19f471f8ad63e",
+      "cell_type": "NOR2_X2",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 26,
+      "output_net": "n1027875",
+      "type": "BUF_X2",
+      "output_polarity": "rise",
+      "input_net": "n1027874",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/register_cluster/$abc$1348468$blif$1348468$235",
+      "module": "VectorCGRA4x4/tile__0/register_cluster",
+      "module_type": "RegisterClusterRTL__56b19f471f8ad63e",
+      "cell_type": "BUF_X2",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 27,
+      "output_net": "n1027889",
+      "type": "AOI22_X1",
+      "output_polarity": "fall",
+      "input_net": "n1027875",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B1"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/register_cluster/$abc$1348468$blif$1348468$246",
+      "module": "VectorCGRA4x4/tile__0/register_cluster",
+      "module_type": "RegisterClusterRTL__56b19f471f8ad63e",
+      "cell_type": "AOI22_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 28,
+      "output_net": "n975342",
+      "type": "INV_X1",
+      "output_polarity": "rise",
+      "input_net": "n1027889",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/register_cluster/$abc$1348468$blif$1348468$247",
+      "module": "VectorCGRA4x4/tile__0/register_cluster",
+      "module_type": "RegisterClusterRTL__56b19f471f8ad63e",
+      "cell_type": "INV_X1",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/tile__0/element__recv_in__msg[40]",
+        "VectorCGRA4x4/tile__0/register_cluster__send_data_to_fu__msg[40]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_in__msg[0][40]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_in__msg[10][40]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_in__msg[11][40]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_in__msg[1][40]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_in__msg[2][40]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_in__msg[3][40]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_in__msg[4][40]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_in__msg[5][40]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_in__msg[6][40]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_in__msg[7][40]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_in__msg[8][40]",
+        "VectorCGRA4x4/tile__0/element/fu__recv_in__msg[9][40]",
+        "VectorCGRA4x4/tile__0/element/recv_in__msg[40]",
+        "VectorCGRA4x4/tile__0/element/fu__0/recv_in__msg[40]",
+        "VectorCGRA4x4/tile__0/element/fu__1/recv_in__msg[40]",
+        "VectorCGRA4x4/tile__0/element/fu__10/recv_in__msg[40]",
+        "VectorCGRA4x4/tile__0/element/fu__11/recv_in__msg[40]",
+        "VectorCGRA4x4/tile__0/element/fu__2/recv_in__msg[40]",
+        "VectorCGRA4x4/tile__0/element/fu__3/recv_in__msg[40]",
+        "VectorCGRA4x4/tile__0/element/fu__4/recv_in__msg[40]",
+        "VectorCGRA4x4/tile__0/element/fu__5/recv_in__msg[40]",
+        "VectorCGRA4x4/tile__0/element/fu__6/recv_in__msg[40]",
+        "VectorCGRA4x4/tile__0/element/fu__7/recv_in__msg[40]",
+        "VectorCGRA4x4/tile__0/element/fu__8/recv_in__msg[40]",
+        "VectorCGRA4x4/tile__0/element/fu__9/recv_in__msg[40]",
+        "VectorCGRA4x4/tile__0/register_cluster/send_data_to_fu__msg[40]"
+      ]
+    },
+    {
+      "step": 29,
+      "output_net": "n1016931",
+      "type": "OAI21_X1",
+      "output_polarity": "fall",
+      "input_net": "n975342",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B2"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/element/fu__7/$abc$1348440$blif$1348440$138",
+      "module": "VectorCGRA4x4/tile__0/element/fu__7",
+      "module_type": "MemUnitRTL__cc038315557d7e7d",
+      "cell_type": "OAI21_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 30,
+      "output_net": "n1016934",
+      "type": "OAI21_X2",
+      "output_polarity": "rise",
+      "input_net": "n1016931",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "B1"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/element/fu__7/$abc$1348440$blif$1348440$140",
+      "module": "VectorCGRA4x4/tile__0/element/fu__7",
+      "module_type": "MemUnitRTL__cc038315557d7e7d",
+      "cell_type": "OAI21_X2",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 31,
+      "output_net": "n1016949",
+      "type": "XOR2_X1",
+      "output_polarity": "rise",
+      "input_net": "n1016934",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/element/fu__7/$abc$1348440$blif$1348440$154",
+      "module": "VectorCGRA4x4/tile__0/element/fu__7",
+      "module_type": "MemUnitRTL__cc038315557d7e7d",
+      "cell_type": "XOR2_X1",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 32,
+      "output_net": "n1017661",
+      "type": "AOI21_X1",
+      "output_polarity": "fall",
+      "input_net": "n1016949",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B2"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/element/fu__7/$abc$1348440$blif$1348440$837",
+      "module": "VectorCGRA4x4/tile__0/element/fu__7",
+      "module_type": "MemUnitRTL__cc038315557d7e7d",
+      "cell_type": "AOI21_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 33,
+      "output_net": "n1017663",
+      "type": "XNOR2_X1",
+      "output_polarity": "rise",
+      "input_net": "n1017661",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/element/fu__7/$abc$1348440$blif$1348440$839",
+      "module": "VectorCGRA4x4/tile__0/element/fu__7",
+      "module_type": "MemUnitRTL__cc038315557d7e7d",
+      "cell_type": "XNOR2_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 34,
+      "output_net": "n1017664",
+      "type": "AOI222_X1",
+      "output_polarity": "fall",
+      "input_net": "n1017663",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "C1"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/element/fu__7/$abc$1348440$blif$1348440$840",
+      "module": "VectorCGRA4x4/tile__0/element/fu__7",
+      "module_type": "MemUnitRTL__cc038315557d7e7d",
+      "cell_type": "AOI222_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 35,
+      "output_net": "n10817",
+      "type": "NOR2_X1",
+      "output_polarity": "rise",
+      "input_net": "n1017664",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A2"
+      ],
+      "cell": "VectorCGRA4x4/tile__0/element/fu__7/$abc$1348440$blif$1348440$841",
+      "module": "VectorCGRA4x4/tile__0/element/fu__7",
+      "module_type": "MemUnitRTL__cc038315557d7e7d",
+      "cell_type": "NOR2_X1",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/data_mem__recv_raddr__msg[45]",
+        "VectorCGRA4x4/tile__to_mem_raddr__msg[0][3]",
+        "VectorCGRA4x4/data_mem/rd_pkt[0][48]",
+        "VectorCGRA4x4/data_mem/read_crossbar__recv__msg[447]",
+        "VectorCGRA4x4/data_mem/recv_raddr__msg[45]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__recv__msg[0][48]",
+        "VectorCGRA4x4/data_mem/read_crossbar/recv__msg[447]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue__recv__msg[48]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/recv__msg[48]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/dpath__recv_msg[48]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/recv__msg[48]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/dpath/mux__in_[48]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/dpath/recv_msg[48]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/dpath/rf__wdata[48]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/dpath/mux/in_[48]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/dpath/rf/wdata[48]",
+        "VectorCGRA4x4/tile__0/element__to_mem_raddr__msg[31]",
+        "VectorCGRA4x4/tile__0/to_mem_raddr__msg[3]",
+        "VectorCGRA4x4/tile__0/element/fu__to_mem_raddr__msg[7][3]",
+        "VectorCGRA4x4/tile__0/element/to_mem_raddr__msg[31]",
+        "VectorCGRA4x4/tile__0/element/fu__7/to_mem_raddr__msg[3]"
+      ]
+    },
+    {
+      "step": 36,
+      "output_net": "n899594",
+      "type": "OAI22_X1",
+      "output_polarity": "fall",
+      "input_net": "n10817",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B1"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/$abc$1348453$blif$1348453$138",
+      "module": "VectorCGRA4x4/data_mem",
+      "module_type": "DataMemControllerRTL__7aba0fc4c5877c52",
+      "cell_type": "OAI22_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 37,
+      "output_net": "n899601",
+      "type": "AOI211_X1",
+      "output_polarity": "rise",
+      "input_net": "n899594",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/$abc$1348453$blif$1348453$143",
+      "module": "VectorCGRA4x4/data_mem",
+      "module_type": "DataMemControllerRTL__7aba0fc4c5877c52",
+      "cell_type": "AOI211_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 38,
+      "output_net": "n899602",
+      "type": "OAI21_X1",
+      "output_polarity": "fall",
+      "input_net": "n899601",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B2"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/$abc$1348453$blif$1348453$144",
+      "module": "VectorCGRA4x4/data_mem",
+      "module_type": "DataMemControllerRTL__7aba0fc4c5877c52",
+      "cell_type": "OAI21_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 39,
+      "output_net": "n899603",
+      "type": "AOI22_X1",
+      "output_polarity": "rise",
+      "input_net": "n899602",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "B2"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/$abc$1348453$blif$1348453$145",
+      "module": "VectorCGRA4x4/data_mem",
+      "module_type": "DataMemControllerRTL__7aba0fc4c5877c52",
+      "cell_type": "AOI22_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 40,
+      "output_net": "n899606",
+      "type": "OAI221_X1",
+      "output_polarity": "fall",
+      "input_net": "n899603",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "C1"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/$abc$1348453$blif$1348453$148",
+      "module": "VectorCGRA4x4/data_mem",
+      "module_type": "DataMemControllerRTL__7aba0fc4c5877c52",
+      "cell_type": "OAI221_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 41,
+      "output_net": "n899611",
+      "type": "OR2_X1",
+      "output_polarity": "fall",
+      "input_net": "n899606",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A1"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/$abc$1348453$blif$1348453$152",
+      "module": "VectorCGRA4x4/data_mem",
+      "module_type": "DataMemControllerRTL__7aba0fc4c5877c52",
+      "cell_type": "OR2_X1",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/data_mem/rd_pkt[0][53]",
+        "VectorCGRA4x4/data_mem/read_crossbar__recv__msg[452]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__recv__msg[0][53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/recv__msg[452]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue__recv__msg[53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/recv__msg[53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/dpath__recv_msg[53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/recv__msg[53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/dpath/mux__in_[53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/dpath/recv_msg[53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/dpath/rf__wdata[53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/dpath/mux/in_[53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/dpath/rf/wdata[53]"
+      ]
+    },
+    {
+      "step": 42,
+      "output_net": "n907775",
+      "type": "MUX2_X1",
+      "output_polarity": "fall",
+      "input_net": "n899611",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "B"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/dpath/mux/$abc$1348471$blif$1348471$15",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/dpath/mux",
+      "module_type": "Mux__Type_MemAccessPacket_8_3_128__50b29b2dbc59831b__ninputs_2",
+      "cell_type": "MUX2_X1",
+      "output_pin": "Z",
+      "aliases": [
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__send__msg[0][53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/route_units__recv__msg[0][53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/route_units__send__msg[0][53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/route_units__send__msg[0][110]",
+        "VectorCGRA4x4/data_mem/read_crossbar/route_units__send__msg[0][167]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__recv__msg[0][452]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__recv__msg[1][452]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__recv__msg[2][452]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue__send__msg[53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/send__msg[53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/dpath__send_msg[53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/send__msg[53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/dpath/mux__out[53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/dpath/send_msg[53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/input_units__0/queue/dpath/mux/out[53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/route_units__0/out_dir[1]",
+        "VectorCGRA4x4/data_mem/read_crossbar/route_units__0/recv__msg[53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/route_units__0/send__msg[53]",
+        "VectorCGRA4x4/data_mem/read_crossbar/route_units__0/send__msg[110]",
+        "VectorCGRA4x4/data_mem/read_crossbar/route_units__0/send__msg[167]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux__in_[452]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/recv__msg[452]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux/in_[452]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__1/mux__in_[452]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__1/recv__msg[452]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__1/mux/in_[452]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__2/mux__in_[452]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__2/recv__msg[452]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__2/mux/in_[452]"
+      ]
+    },
+    {
+      "step": 43,
+      "output_net": "n919141",
+      "type": "NOR2_X1",
+      "output_polarity": "rise",
+      "input_net": "n907775",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A1"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/route_units__0/$abc$1348489$blif$1348489$0",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/route_units__0",
+      "module_type": "XbarRouteUnitRTL__e8e1b5e563e2f891",
+      "cell_type": "NOR2_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 44,
+      "output_net": "n908547",
+      "type": "AND2_X1",
+      "output_polarity": "rise",
+      "input_net": "n919141",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A2"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/route_units__0/$abc$1348489$blif$1348489$1",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/route_units__0",
+      "module_type": "XbarRouteUnitRTL__e8e1b5e563e2f891",
+      "cell_type": "AND2_X1",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/data_mem/read_crossbar/route_units__send__val[0][2]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__recv__val[0][7]",
+        "VectorCGRA4x4/data_mem/read_crossbar/route_units__0/send__val[2]",
+        "VectorCGRA4x4/data_mem/read_crossbar/route_units__0/send_val[0]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter__reqs[0]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/recv__val[7]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/reqs[0]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/reqs_int[0]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/reqs_int[8]"
+      ]
+    },
+    {
+      "step": 45,
+      "output_net": "n920240",
+      "type": "INV_X1",
+      "output_polarity": "fall",
+      "input_net": "n908547",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/$abc$1348479$blif$1348479$0",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter",
+      "module_type": "RoundRobinArbiterEn__nreqs_8",
+      "cell_type": "INV_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 46,
+      "output_net": "n920253",
+      "type": "AOI21_X2",
+      "output_polarity": "rise",
+      "input_net": "n920240",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "B2"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/$abc$1348479$blif$1348479$5",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter",
+      "module_type": "RoundRobinArbiterEn__nreqs_8",
+      "cell_type": "AOI21_X2",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 47,
+      "output_net": "n920257",
+      "type": "OAI21_X2",
+      "output_polarity": "fall",
+      "input_net": "n920253",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B2"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/$abc$1348479$blif$1348479$6",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter",
+      "module_type": "RoundRobinArbiterEn__nreqs_8",
+      "cell_type": "OAI21_X2",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 48,
+      "output_net": "n920262",
+      "type": "AOI21_X4",
+      "output_polarity": "rise",
+      "input_net": "n920257",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "B1"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/$abc$1348479$blif$1348479$8",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter",
+      "module_type": "RoundRobinArbiterEn__nreqs_8",
+      "cell_type": "AOI21_X4",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 49,
+      "output_net": "n920245",
+      "type": "OAI21_X4",
+      "output_polarity": "fall",
+      "input_net": "n920262",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B2"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/$abc$1348479$blif$1348479$9",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter",
+      "module_type": "RoundRobinArbiterEn__nreqs_8",
+      "cell_type": "OAI21_X4",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 50,
+      "output_net": "n920246",
+      "type": "AOI21_X4",
+      "output_polarity": "rise",
+      "input_net": "n920245",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "B1"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/$abc$1348479$blif$1348479$11",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter",
+      "module_type": "RoundRobinArbiterEn__nreqs_8",
+      "cell_type": "AOI21_X4",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 51,
+      "output_net": "n920248",
+      "type": "OAI21_X4",
+      "output_polarity": "fall",
+      "input_net": "n920246",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B1"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/$abc$1348479$blif$1348479$12",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter",
+      "module_type": "RoundRobinArbiterEn__nreqs_8",
+      "cell_type": "OAI21_X4",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 52,
+      "output_net": "n920251",
+      "type": "AOI21_X4",
+      "output_polarity": "rise",
+      "input_net": "n920248",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "B1"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/$abc$1348479$blif$1348479$14",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter",
+      "module_type": "RoundRobinArbiterEn__nreqs_8",
+      "cell_type": "AOI21_X4",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 53,
+      "output_net": "n920255",
+      "type": "NOR4_X4",
+      "output_polarity": "fall",
+      "input_net": "n920251",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A4"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/$abc$1348479$blif$1348479$19",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter",
+      "module_type": "RoundRobinArbiterEn__nreqs_8",
+      "cell_type": "NOR4_X4",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 54,
+      "output_net": "n920270",
+      "type": "AND3_X2",
+      "output_polarity": "fall",
+      "input_net": "n920255",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A3"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/$abc$1348479$blif$1348479$31",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter",
+      "module_type": "RoundRobinArbiterEn__nreqs_8",
+      "cell_type": "AND3_X2",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 55,
+      "output_net": "n920271",
+      "type": "OAI21_X1",
+      "output_polarity": "rise",
+      "input_net": "n920270",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "B2"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/$abc$1348479$blif$1348479$32",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter",
+      "module_type": "RoundRobinArbiterEn__nreqs_8",
+      "cell_type": "OAI21_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 56,
+      "output_net": "n920272",
+      "type": "AOI21_X1",
+      "output_polarity": "fall",
+      "input_net": "n920271",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B2"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/$abc$1348479$blif$1348479$34",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter",
+      "module_type": "RoundRobinArbiterEn__nreqs_8",
+      "cell_type": "AOI21_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 57,
+      "output_net": "n920273",
+      "type": "OAI21_X1",
+      "output_polarity": "rise",
+      "input_net": "n920272",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "B2"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/$abc$1348479$blif$1348479$35",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter",
+      "module_type": "RoundRobinArbiterEn__nreqs_8",
+      "cell_type": "OAI21_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 58,
+      "output_net": "n920211",
+      "type": "INV_X1",
+      "output_polarity": "fall",
+      "input_net": "n920273",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/$abc$1348479$blif$1348479$36",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter",
+      "module_type": "RoundRobinArbiterEn__nreqs_8",
+      "cell_type": "INV_X1",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter__grants[6]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/encoder__in_[6]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/grants[6]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/kills[12]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/priority_reg__in_[7]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/arbiter/priority_reg/in_[7]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/encoder/in_[6]"
+      ]
+    },
+    {
+      "step": 59,
+      "output_net": "n920202",
+      "type": "OR4_X1",
+      "output_polarity": "fall",
+      "input_net": "n920211",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A2"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/encoder/$abc$1348505$blif$1348505$0",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/encoder",
+      "module_type": "Encoder__in_nbits_8__out_nbits_3",
+      "cell_type": "OR4_X1",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/encoder__out[2]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux__sel[2]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/encoder/out[2]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux/sel[2]"
+      ]
+    },
+    {
+      "step": 60,
+      "output_net": "n920882",
+      "type": "BUF_X2",
+      "output_polarity": "fall",
+      "input_net": "n920202",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux/$abc$1348437$blif$1348437$0",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux",
+      "module_type": "Mux__Type_MemAccessPacket_8_3_128__50b29b2dbc59831b__ninputs_8",
+      "cell_type": "BUF_X2",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 61,
+      "output_net": "n921870",
+      "type": "INV_X1",
+      "output_polarity": "rise",
+      "input_net": "n920882",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux/$abc$1348437$blif$1348437$37",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux",
+      "module_type": "Mux__Type_MemAccessPacket_8_3_128__50b29b2dbc59831b__ninputs_8",
+      "cell_type": "INV_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 62,
+      "output_net": "n921871",
+      "type": "BUF_X1",
+      "output_polarity": "rise",
+      "input_net": "n921870",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux/$abc$1348437$blif$1348437$1487",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux",
+      "module_type": "Mux__Type_MemAccessPacket_8_3_128__50b29b2dbc59831b__ninputs_8",
+      "cell_type": "BUF_X1",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 63,
+      "output_net": "n922004",
+      "type": "BUF_X1",
+      "output_polarity": "rise",
+      "input_net": "n921871",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux/$abc$1348437$blif$1348437$1559",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux",
+      "module_type": "Mux__Type_MemAccessPacket_8_3_128__50b29b2dbc59831b__ninputs_8",
+      "cell_type": "BUF_X1",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 64,
+      "output_net": "n922139",
+      "type": "BUF_X1",
+      "output_polarity": "rise",
+      "input_net": "n922004",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux/$abc$1348437$blif$1348437$1645",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux",
+      "module_type": "Mux__Type_MemAccessPacket_8_3_128__50b29b2dbc59831b__ninputs_8",
+      "cell_type": "BUF_X1",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 65,
+      "output_net": "n922557",
+      "type": "MUX2_X1",
+      "output_polarity": "rise",
+      "input_net": "n922139",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "S"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux/$abc$1348437$blif$1348437$1934",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux",
+      "module_type": "Mux__Type_MemAccessPacket_8_3_128__50b29b2dbc59831b__ninputs_8",
+      "cell_type": "MUX2_X1",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 66,
+      "output_net": "n922558",
+      "type": "AOI21_X1",
+      "output_polarity": "fall",
+      "input_net": "n922557",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B1"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux/$abc$1348437$blif$1348437$1935",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux",
+      "module_type": "Mux__Type_MemAccessPacket_8_3_128__50b29b2dbc59831b__ninputs_8",
+      "cell_type": "AOI21_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 67,
+      "output_net": "n924372",
+      "type": "AOI211_X1",
+      "output_polarity": "rise",
+      "input_net": "n922558",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "C1"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux/$abc$1348437$blif$1348437$3580",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux",
+      "module_type": "Mux__Type_MemAccessPacket_8_3_128__50b29b2dbc59831b__ninputs_8",
+      "cell_type": "AOI211_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 68,
+      "output_net": "n924373",
+      "type": "AOI211_X1",
+      "output_polarity": "fall",
+      "input_net": "n924372",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux/$abc$1348437$blif$1348437$3581",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux",
+      "module_type": "Mux__Type_MemAccessPacket_8_3_128__50b29b2dbc59831b__ninputs_8",
+      "cell_type": "AOI211_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 69,
+      "output_net": "n924376",
+      "type": "AOI21_X1",
+      "output_polarity": "rise",
+      "input_net": "n924373",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux/$abc$1348437$blif$1348437$3584",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux",
+      "module_type": "Mux__Type_MemAccessPacket_8_3_128__50b29b2dbc59831b__ninputs_8",
+      "cell_type": "AOI21_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 70,
+      "output_net": "n924377",
+      "type": "AOI21_X1",
+      "output_polarity": "fall",
+      "input_net": "n924376",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B2"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux/$abc$1348437$blif$1348437$3585",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux",
+      "module_type": "Mux__Type_MemAccessPacket_8_3_128__50b29b2dbc59831b__ninputs_8",
+      "cell_type": "AOI21_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 71,
+      "output_net": "n900190",
+      "type": "AOI21_X1",
+      "output_polarity": "rise",
+      "input_net": "n924377",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "B2"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux/$abc$1348437$blif$1348437$3586",
+      "module": "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux",
+      "module_type": "Mux__Type_MemAccessPacket_8_3_128__50b29b2dbc59831b__ninputs_8",
+      "cell_type": "AOI21_X1",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/data_mem/memory_wrapper__recv_rd__msg[0][55]",
+        "VectorCGRA4x4/data_mem/read_crossbar__send__msg[169]",
+        "VectorCGRA4x4/data_mem/memory_wrapper__0/channel_rd__recv__msg[55]",
+        "VectorCGRA4x4/data_mem/memory_wrapper__0/channel_rd__send__msg[55]",
+        "VectorCGRA4x4/data_mem/memory_wrapper__0/recv_rd__msg[55]",
+        "VectorCGRA4x4/data_mem/memory_wrapper__0/channel_rd/recv__msg[55]",
+        "VectorCGRA4x4/data_mem/memory_wrapper__0/channel_rd/send__msg[55]",
+        "VectorCGRA4x4/data_mem/read_crossbar/output_units__recv__msg[0][55]",
+        "VectorCGRA4x4/data_mem/read_crossbar/output_units__send__msg[0][55]",
+        "VectorCGRA4x4/data_mem/read_crossbar/send__msg[169]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__send__msg[0][55]",
+        "VectorCGRA4x4/data_mem/read_crossbar/output_units__0/recv__msg[55]",
+        "VectorCGRA4x4/data_mem/read_crossbar/output_units__0/send__msg[55]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux__out[55]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/send__msg[55]",
+        "VectorCGRA4x4/data_mem/read_crossbar/switch_units__0/mux/out[55]"
+      ]
+    },
+    {
+      "step": 72,
+      "output_net": "n900306",
+      "type": "AND2_X4",
+      "output_polarity": "rise",
+      "input_net": "n900190",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A2"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/memory_wrapper__0/$abc$1348478$blif$1348478$56",
+      "module": "VectorCGRA4x4/data_mem/memory_wrapper__0",
+      "module_type": "DataMemWrapperRTL__4777c60d73176261",
+      "cell_type": "AND2_X4",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/data_mem/memory_wrapper__send__msg[0][53]",
+        "VectorCGRA4x4/data_mem/response_crossbar__recv__msg[167]",
+        "VectorCGRA4x4/data_mem/sv2v_tmp_8FB6B[53]",
+        "VectorCGRA4x4/data_mem/memory_wrapper__0/send__msg[53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/input_units__recv__msg[0][53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/recv__msg[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/input_units__0/queue__recv__msg[53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/input_units__0/recv__msg[53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/input_units__0/queue/dpath__recv_msg[53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/input_units__0/queue/recv__msg[53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/input_units__0/queue/dpath/mux__in_[53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/input_units__0/queue/dpath/recv_msg[53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/input_units__0/queue/dpath/rf__wdata[53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/input_units__0/queue/dpath/mux/in_[53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/input_units__0/queue/dpath/rf/wdata[53]"
+      ]
+    },
+    {
+      "step": 73,
+      "output_net": "n934668",
+      "type": "MUX2_X1",
+      "output_polarity": "rise",
+      "input_net": "n900306",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/response_crossbar/input_units__0/queue/dpath/mux/$abc$1348470$blif$1348470$15",
+      "module": "VectorCGRA4x4/data_mem/response_crossbar/input_units__0/queue/dpath/mux",
+      "module_type": "Mux__Type_MemAccessPacket_3_8_128__fd2f0111edd219ae__ninputs_2",
+      "cell_type": "MUX2_X1",
+      "output_pin": "Z",
+      "aliases": [
+        "VectorCGRA4x4/data_mem/response_crossbar/input_units__send__msg[0][53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__recv__msg[0][53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__send__msg[0][53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__send__msg[0][110]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__send__msg[0][167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__send__msg[0][224]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__send__msg[0][281]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__send__msg[0][338]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__send__msg[0][395]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__send__msg[0][452]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__recv__msg[0][167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__recv__msg[1][167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__recv__msg[2][167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__recv__msg[3][167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__recv__msg[4][167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__recv__msg[5][167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__recv__msg[6][167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__recv__msg[7][167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/input_units__0/queue__send__msg[53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/input_units__0/send__msg[53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/input_units__0/queue/dpath__send_msg[53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/input_units__0/queue/send__msg[53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/input_units__0/queue/dpath/mux__out[53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/input_units__0/queue/dpath/send_msg[53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/input_units__0/queue/dpath/mux/out[53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__0/out_dir[1]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__0/recv__msg[53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__0/send__msg[53]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__0/send__msg[110]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__0/send__msg[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__0/send__msg[224]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__0/send__msg[281]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__0/send__msg[338]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__0/send__msg[395]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__0/send__msg[452]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__0/mux__in_[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__0/recv__msg[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__0/mux/in_[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__1/mux__in_[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__1/recv__msg[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__1/mux/in_[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__2/mux__in_[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__2/recv__msg[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__2/mux/in_[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__3/mux__in_[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__3/recv__msg[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__3/mux/in_[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__4/mux__in_[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__4/recv__msg[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__4/mux/in_[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/mux__in_[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/recv__msg[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/mux/in_[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__6/mux__in_[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__6/recv__msg[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__6/mux/in_[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__7/mux__in_[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__7/recv__msg[167]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__7/mux/in_[167]"
+      ]
+    },
+    {
+      "step": 74,
+      "output_net": "n940675",
+      "type": "BUF_X4",
+      "output_polarity": "rise",
+      "input_net": "n934668",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/response_crossbar/route_units__0/$abc$1348490$blif$1348490$1",
+      "module": "VectorCGRA4x4/data_mem/response_crossbar/route_units__0",
+      "module_type": "XbarRouteUnitRTL__4d19669edfdc845b",
+      "cell_type": "BUF_X4",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 75,
+      "output_net": "n940676",
+      "type": "INV_X4",
+      "output_polarity": "fall",
+      "input_net": "n940675",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/response_crossbar/route_units__0/$abc$1348490$blif$1348490$10",
+      "module": "VectorCGRA4x4/data_mem/response_crossbar/route_units__0",
+      "module_type": "XbarRouteUnitRTL__4d19669edfdc845b",
+      "cell_type": "INV_X4",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 76,
+      "output_net": "n940677",
+      "type": "NAND2_X1",
+      "output_polarity": "rise",
+      "input_net": "n940676",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A2"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/response_crossbar/route_units__0/$abc$1348490$blif$1348490$11",
+      "module": "VectorCGRA4x4/data_mem/response_crossbar/route_units__0",
+      "module_type": "XbarRouteUnitRTL__4d19669edfdc845b",
+      "cell_type": "NAND2_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 77,
+      "output_net": "n935730",
+      "type": "NOR2_X1",
+      "output_polarity": "fall",
+      "input_net": "n940677",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A2"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/response_crossbar/route_units__0/$abc$1348490$blif$1348490$12",
+      "module": "VectorCGRA4x4/data_mem/response_crossbar/route_units__0",
+      "module_type": "XbarRouteUnitRTL__4d19669edfdc845b",
+      "cell_type": "NOR2_X1",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__send__val[0][2]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__recv__val[5][2]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__0/send__val[2]",
+        "VectorCGRA4x4/data_mem/response_crossbar/route_units__0/send_val[5]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/arbiter__reqs[0]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/recv__val[2]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/arbiter/reqs[0]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/arbiter/reqs_int[0]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/arbiter/reqs_int[3]"
+      ]
+    },
+    {
+      "step": 78,
+      "output_net": "n944444",
+      "type": "INV_X1",
+      "output_polarity": "rise",
+      "input_net": "n935730",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/arbiter/$abc$1348491$blif$1348491$0",
+      "module": "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/arbiter",
+      "module_type": "RoundRobinArbiterEn__nreqs_3",
+      "cell_type": "INV_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 79,
+      "output_net": "n944454",
+      "type": "AOI21_X1",
+      "output_polarity": "fall",
+      "input_net": "n944444",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B1"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/arbiter/$abc$1348491$blif$1348491$3",
+      "module": "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/arbiter",
+      "module_type": "RoundRobinArbiterEn__nreqs_3",
+      "cell_type": "AOI21_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 80,
+      "output_net": "n944446",
+      "type": "OAI21_X1",
+      "output_polarity": "rise",
+      "input_net": "n944454",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "B1"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/arbiter/$abc$1348491$blif$1348491$4",
+      "module": "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/arbiter",
+      "module_type": "RoundRobinArbiterEn__nreqs_3",
+      "cell_type": "OAI21_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 81,
+      "output_net": "n944428",
+      "type": "AND2_X1",
+      "output_polarity": "rise",
+      "input_net": "n944446",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A2"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/arbiter/$abc$1348491$blif$1348491$10",
+      "module": "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/arbiter",
+      "module_type": "RoundRobinArbiterEn__nreqs_3",
+      "cell_type": "AND2_X1",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/arbiter__grants[2]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/encoder__in_[2]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/encoder__out[1]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/mux__sel[1]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/arbiter/grants[2]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/arbiter/kills[5]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/arbiter/priority_reg__in_[0]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/arbiter/priority_reg/in_[0]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/encoder/in_[2]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/encoder/out[1]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/mux/sel[1]"
+      ]
+    },
+    {
+      "step": 82,
+      "output_net": "n11410",
+      "type": "OR3_X4",
+      "output_polarity": "rise",
+      "input_net": "n944428",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A1"
+      ],
+      "cell": "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/$abc$1348497$blif$1348497$5",
+      "module": "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5",
+      "module_type": "SwitchUnitRTL__0f275c3caadc86ab",
+      "cell_type": "OR3_X4",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/data_mem__send_rdata__val[1]",
+        "VectorCGRA4x4/tile__from_mem_rdata__val[8]",
+        "VectorCGRA4x4/data_mem/response_crossbar__send__val[2]",
+        "VectorCGRA4x4/data_mem/send_rdata__val[1]",
+        "VectorCGRA4x4/data_mem/response_crossbar/output_units__recv__val[5]",
+        "VectorCGRA4x4/data_mem/response_crossbar/output_units__send__val[5]",
+        "VectorCGRA4x4/data_mem/response_crossbar/send__val[2]",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__send__val[5]",
+        "VectorCGRA4x4/data_mem/response_crossbar/output_units__5/recv__val",
+        "VectorCGRA4x4/data_mem/response_crossbar/output_units__5/send__val",
+        "VectorCGRA4x4/data_mem/response_crossbar/switch_units__5/send__val",
+        "VectorCGRA4x4/tile__8/element__from_mem_rdata__val[4]",
+        "VectorCGRA4x4/tile__8/from_mem_rdata__val",
+        "VectorCGRA4x4/tile__8/element/from_mem_rdata__val[4]",
+        "VectorCGRA4x4/tile__8/element/fu__from_mem_rdata__val[7]",
+        "VectorCGRA4x4/tile__8/element/fu__7/from_mem_rdata__val"
+      ]
+    },
+    {
+      "step": 83,
+      "output_net": "n2101141",
+      "type": "OAI21_X1",
+      "output_polarity": "fall",
+      "input_net": "n11410",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/element/fu__7/$abc$1348440$blif$1348440$94",
+      "module": "VectorCGRA4x4/tile__8/element/fu__7",
+      "module_type": "MemUnitRTL__cc038315557d7e7d",
+      "cell_type": "OAI21_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 84,
+      "output_net": "n2101142",
+      "type": "NAND2_X1",
+      "output_polarity": "rise",
+      "input_net": "n2101141",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A2"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/element/fu__7/$abc$1348440$blif$1348440$95",
+      "module": "VectorCGRA4x4/tile__8/element/fu__7",
+      "module_type": "MemUnitRTL__cc038315557d7e7d",
+      "cell_type": "NAND2_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 85,
+      "output_net": "n2100431",
+      "type": "NAND2_X1",
+      "output_polarity": "fall",
+      "input_net": "n2101142",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A2"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/element/fu__7/$abc$1348440$blif$1348440$96",
+      "module": "VectorCGRA4x4/tile__8/element/fu__7",
+      "module_type": "MemUnitRTL__cc038315557d7e7d",
+      "cell_type": "NAND2_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 86,
+      "output_net": "n2076232",
+      "type": "INV_X1",
+      "output_polarity": "rise",
+      "input_net": "n2100431",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/element/fu__7/$abc$1348440$blif$1348440$170",
+      "module": "VectorCGRA4x4/tile__8/element/fu__7",
+      "module_type": "MemUnitRTL__cc038315557d7e7d",
+      "cell_type": "INV_X1",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/tile__8/element/fu__send_out__val[7][1]",
+        "VectorCGRA4x4/tile__8/element/fu__7/send_out__val[1]"
+      ]
+    },
+    {
+      "step": 87,
+      "output_net": "n2076234",
+      "type": "NOR2_X2",
+      "output_polarity": "fall",
+      "input_net": "n2076232",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A1"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/element/$abc$1348438$blif$1348438$204",
+      "module": "VectorCGRA4x4/tile__8/element",
+      "module_type": "FlexibleFuRTL__055f28a3efe98227",
+      "cell_type": "NOR2_X2",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 88,
+      "output_net": "n2076252",
+      "type": "NAND2_X1",
+      "output_polarity": "rise",
+      "input_net": "n2076234",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A2"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/element/$abc$1348438$blif$1348438$205",
+      "module": "VectorCGRA4x4/tile__8/element",
+      "module_type": "FlexibleFuRTL__055f28a3efe98227",
+      "cell_type": "NAND2_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 89,
+      "output_net": "n2076270",
+      "type": "BUF_X1",
+      "output_polarity": "rise",
+      "input_net": "n2076252",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/element/$abc$1348438$blif$1348438$206",
+      "module": "VectorCGRA4x4/tile__8/element",
+      "module_type": "FlexibleFuRTL__055f28a3efe98227",
+      "cell_type": "BUF_X1",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 90,
+      "output_net": "n2076290",
+      "type": "NOR4_X1",
+      "output_polarity": "fall",
+      "input_net": "n2076270",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A4"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/element/$abc$1348438$blif$1348438$207",
+      "module": "VectorCGRA4x4/tile__8/element",
+      "module_type": "FlexibleFuRTL__055f28a3efe98227",
+      "cell_type": "NOR4_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 91,
+      "output_net": "n2058984",
+      "type": "NAND3_X1",
+      "output_polarity": "rise",
+      "input_net": "n2076290",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A3"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/element/$abc$1348438$blif$1348438$208",
+      "module": "VectorCGRA4x4/tile__8/element",
+      "module_type": "FlexibleFuRTL__055f28a3efe98227",
+      "cell_type": "NAND3_X1",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/tile__8/element__send_out__val[1]",
+        "VectorCGRA4x4/tile__8/fu_crossbar__recv_data__val[1]",
+        "VectorCGRA4x4/tile__8/element/send_out__val[1]",
+        "VectorCGRA4x4/tile__8/fu_crossbar/recv_data__val[1]",
+        "VectorCGRA4x4/tile__8/fu_crossbar/recv_data_val[0]"
+      ]
+    },
+    {
+      "step": 92,
+      "output_net": "n2109739",
+      "type": "OAI22_X4",
+      "output_polarity": "fall",
+      "input_net": "n2058984",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A1"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/fu_crossbar/$abc$1348445$blif$1348445$267",
+      "module": "VectorCGRA4x4/tile__8/fu_crossbar",
+      "module_type": "CrossbarRTL__26256b587c2a5ec9",
+      "cell_type": "OAI22_X4",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 93,
+      "output_net": "n2109740",
+      "type": "BUF_X8",
+      "output_polarity": "fall",
+      "input_net": "n2109739",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/fu_crossbar/$abc$1348445$blif$1348445$268",
+      "module": "VectorCGRA4x4/tile__8/fu_crossbar",
+      "module_type": "CrossbarRTL__26256b587c2a5ec9",
+      "cell_type": "BUF_X8",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 94,
+      "output_net": "n2058982",
+      "type": "NOR3_X1",
+      "output_polarity": "rise",
+      "input_net": "n2109740",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A2"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/fu_crossbar/$abc$1348445$blif$1348445$291",
+      "module": "VectorCGRA4x4/tile__8/fu_crossbar",
+      "module_type": "CrossbarRTL__26256b587c2a5ec9",
+      "cell_type": "NOR3_X1",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/tile__8/element__send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/fu_crossbar__recv_data__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__recv_opt__rdy[9]",
+        "VectorCGRA4x4/tile__8/element/fu__send_out__rdy[0][1]",
+        "VectorCGRA4x4/tile__8/element/fu__send_out__rdy[10][1]",
+        "VectorCGRA4x4/tile__8/element/fu__send_out__rdy[11][1]",
+        "VectorCGRA4x4/tile__8/element/fu__send_out__rdy[1][1]",
+        "VectorCGRA4x4/tile__8/element/fu__send_out__rdy[2][1]",
+        "VectorCGRA4x4/tile__8/element/fu__send_out__rdy[3][1]",
+        "VectorCGRA4x4/tile__8/element/fu__send_out__rdy[4][1]",
+        "VectorCGRA4x4/tile__8/element/fu__send_out__rdy[5][1]",
+        "VectorCGRA4x4/tile__8/element/fu__send_out__rdy[6][1]",
+        "VectorCGRA4x4/tile__8/element/fu__send_out__rdy[7][1]",
+        "VectorCGRA4x4/tile__8/element/fu__send_out__rdy[8][1]",
+        "VectorCGRA4x4/tile__8/element/fu__send_out__rdy[9][1]",
+        "VectorCGRA4x4/tile__8/element/fu_recv_opt_rdy_vector[9]",
+        "VectorCGRA4x4/tile__8/element/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__0/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__1/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__10/Fu__send_out__rdy[0][1]",
+        "VectorCGRA4x4/tile__8/element/fu__10/Fu__send_out__rdy[1][1]",
+        "VectorCGRA4x4/tile__8/element/fu__10/Fu__send_out__rdy[2][1]",
+        "VectorCGRA4x4/tile__8/element/fu__10/Fu__send_out__rdy[3][1]",
+        "VectorCGRA4x4/tile__8/element/fu__10/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__10/Fu__0/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__10/Fu__1/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__10/Fu__2/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__10/Fu__3/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__11/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__2/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__3/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__4/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__5/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__6/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__7/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__8/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__9/Fu__send_out__rdy[0][1]",
+        "VectorCGRA4x4/tile__8/element/fu__9/Fu__send_out__rdy[1][1]",
+        "VectorCGRA4x4/tile__8/element/fu__9/Fu__send_out__rdy[2][1]",
+        "VectorCGRA4x4/tile__8/element/fu__9/Fu__send_out__rdy[3][1]",
+        "VectorCGRA4x4/tile__8/element/fu__9/recv_opt__rdy",
+        "VectorCGRA4x4/tile__8/element/fu__9/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__9/Fu__0/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__9/Fu__1/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__9/Fu__2/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/element/fu__9/Fu__3/send_out__rdy[1]",
+        "VectorCGRA4x4/tile__8/fu_crossbar/recv_data__rdy[1]"
+      ]
+    },
+    {
+      "step": 95,
+      "output_net": "n2082548",
+      "type": "AND2_X1",
+      "output_polarity": "rise",
+      "input_net": "n2058982",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A1"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/element/fu__0/$abc$1348436$blif$1348436$77",
+      "module": "VectorCGRA4x4/tile__8/element/fu__0",
+      "module_type": "AdderRTL__cc038315557d7e7d",
+      "cell_type": "AND2_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 96,
+      "output_net": "n2082138",
+      "type": "AOI22_X1",
+      "output_polarity": "fall",
+      "input_net": "n2082548",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B2"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/element/fu__0/$abc$1348436$blif$1348436$80",
+      "module": "VectorCGRA4x4/tile__8/element/fu__0",
+      "module_type": "AdderRTL__cc038315557d7e7d",
+      "cell_type": "AOI22_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 97,
+      "output_net": "n2082134",
+      "type": "INV_X1",
+      "output_polarity": "rise",
+      "input_net": "n2082138",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/element/fu__0/$abc$1348436$blif$1348436$81",
+      "module": "VectorCGRA4x4/tile__8/element/fu__0",
+      "module_type": "AdderRTL__cc038315557d7e7d",
+      "cell_type": "INV_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 98,
+      "output_net": "n2082136",
+      "type": "AOI221_X1",
+      "output_polarity": "fall",
+      "input_net": "n2082134",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/element/fu__0/$abc$1348436$blif$1348436$82",
+      "module": "VectorCGRA4x4/tile__8/element/fu__0",
+      "module_type": "AdderRTL__cc038315557d7e7d",
+      "cell_type": "AOI221_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 99,
+      "output_net": "n2082561",
+      "type": "OR2_X1",
+      "output_polarity": "fall",
+      "input_net": "n2082136",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A2"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/element/fu__0/$abc$1348436$blif$1348436$83",
+      "module": "VectorCGRA4x4/tile__8/element/fu__0",
+      "module_type": "AdderRTL__cc038315557d7e7d",
+      "cell_type": "OR2_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 100,
+      "output_net": "n2074509",
+      "type": "OAI21_X1",
+      "output_polarity": "rise",
+      "input_net": "n2082561",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "B1"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/element/fu__0/$abc$1348436$blif$1348436$917",
+      "module": "VectorCGRA4x4/tile__8/element/fu__0",
+      "module_type": "AdderRTL__cc038315557d7e7d",
+      "cell_type": "OAI21_X1",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/tile__8/element/fu__recv_in__rdy[0][3]",
+        "VectorCGRA4x4/tile__8/element/fu_recv_in_rdy_vector[0][0]",
+        "VectorCGRA4x4/tile__8/element/fu__0/recv_in__rdy[3]"
+      ]
+    },
+    {
+      "step": 101,
+      "output_net": "n2074513",
+      "type": "NOR4_X1",
+      "output_polarity": "fall",
+      "input_net": "n2074509",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A1"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/element/$abc$1348438$blif$1348438$12",
+      "module": "VectorCGRA4x4/tile__8/element",
+      "module_type": "FlexibleFuRTL__055f28a3efe98227",
+      "cell_type": "NOR4_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 102,
+      "output_net": "n2058905",
+      "type": "NAND3_X1",
+      "output_polarity": "rise",
+      "input_net": "n2074513",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A3"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/element/$abc$1348438$blif$1348438$13",
+      "module": "VectorCGRA4x4/tile__8/element",
+      "module_type": "FlexibleFuRTL__055f28a3efe98227",
+      "cell_type": "NAND3_X1",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/tile__8/element__recv_in__rdy[3]",
+        "VectorCGRA4x4/tile__8/register_cluster__send_data_to_fu__rdy[3]",
+        "VectorCGRA4x4/tile__8/element/recv_in__rdy[3]",
+        "VectorCGRA4x4/tile__8/register_cluster/reg_bank__send_data_to_fu__rdy[0]",
+        "VectorCGRA4x4/tile__8/register_cluster/send_data_to_fu__rdy[3]",
+        "VectorCGRA4x4/tile__8/register_cluster/reg_bank__0/send_data_to_fu__rdy"
+      ]
+    },
+    {
+      "step": 103,
+      "output_net": "n2111244",
+      "type": "INV_X1",
+      "output_polarity": "fall",
+      "input_net": "n2058905",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/register_cluster/$abc$1348468$blif$1348468$9",
+      "module": "VectorCGRA4x4/tile__8/register_cluster",
+      "module_type": "RegisterClusterRTL__56b19f471f8ad63e",
+      "cell_type": "INV_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 104,
+      "output_net": "n2111245",
+      "type": "OAI21_X1",
+      "output_polarity": "rise",
+      "input_net": "n2111244",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/register_cluster/$abc$1348468$blif$1348468$16",
+      "module": "VectorCGRA4x4/tile__8/register_cluster",
+      "module_type": "RegisterClusterRTL__56b19f471f8ad63e",
+      "cell_type": "OAI21_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 105,
+      "output_net": "n2060000",
+      "type": "MUX2_X1",
+      "output_polarity": "rise",
+      "input_net": "n2111245",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/register_cluster/$abc$1348468$blif$1348468$22",
+      "module": "VectorCGRA4x4/tile__8/register_cluster",
+      "module_type": "RegisterClusterRTL__56b19f471f8ad63e",
+      "cell_type": "MUX2_X1",
+      "output_pin": "Z",
+      "aliases": [
+        "VectorCGRA4x4/tile__8/register_cluster__recv_data_from_routing_crossbar__rdy[3]",
+        "VectorCGRA4x4/tile__8/routing_crossbar__send_data__rdy[3]",
+        "VectorCGRA4x4/tile__8/register_cluster/recv_data_from_routing_crossbar__rdy[3]",
+        "VectorCGRA4x4/tile__8/routing_crossbar/send_data__rdy[3]"
+      ]
+    },
+    {
+      "step": 106,
+      "output_net": "n2127634",
+      "type": "NOR2_X1",
+      "output_polarity": "fall",
+      "input_net": "n2060000",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A1"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/routing_crossbar/$abc$1348431$blif$1348431$1199",
+      "module": "VectorCGRA4x4/tile__8/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "cell_type": "NOR2_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 107,
+      "output_net": "n2127637",
+      "type": "NAND4_X1",
+      "output_polarity": "rise",
+      "input_net": "n2127634",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A4"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/routing_crossbar/$abc$1348431$blif$1348431$1200",
+      "module": "VectorCGRA4x4/tile__8/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "cell_type": "NAND4_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 108,
+      "output_net": "n2127642",
+      "type": "OAI211_X1",
+      "output_polarity": "fall",
+      "input_net": "n2127637",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/routing_crossbar/$abc$1348431$blif$1348431$1202",
+      "module": "VectorCGRA4x4/tile__8/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "cell_type": "OAI211_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 109,
+      "output_net": "n2127658",
+      "type": "AOI211_X2",
+      "output_polarity": "rise",
+      "input_net": "n2127642",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "B"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/routing_crossbar/$abc$1348431$blif$1348431$1208",
+      "module": "VectorCGRA4x4/tile__8/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "cell_type": "AOI211_X2",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 110,
+      "output_net": "n2127659",
+      "type": "BUF_X4",
+      "output_polarity": "rise",
+      "input_net": "n2127658",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/routing_crossbar/$abc$1348431$blif$1348431$1209",
+      "module": "VectorCGRA4x4/tile__8/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "cell_type": "BUF_X4",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 111,
+      "output_net": "n2127666",
+      "type": "NAND2_X2",
+      "output_polarity": "fall",
+      "input_net": "n2127659",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A2"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/routing_crossbar/$abc$1348431$blif$1348431$1212",
+      "module": "VectorCGRA4x4/tile__8/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "cell_type": "NAND2_X2",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 112,
+      "output_net": "n2127667",
+      "type": "BUF_X2",
+      "output_polarity": "fall",
+      "input_net": "n2127666",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/routing_crossbar/$abc$1348431$blif$1348431$1213",
+      "module": "VectorCGRA4x4/tile__8/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "cell_type": "BUF_X2",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 113,
+      "output_net": "n2057414",
+      "type": "INV_X1",
+      "output_polarity": "rise",
+      "input_net": "n2127667",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/routing_crossbar/$abc$1348431$blif$1348431$1335",
+      "module": "VectorCGRA4x4/tile__8/routing_crossbar",
+      "module_type": "CrossbarRTL__ccb90b99de2d06c9",
+      "cell_type": "INV_X1",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/tile__8/routing_crossbar__recv_opt__rdy",
+        "VectorCGRA4x4/tile__8/routing_crossbar/recv_opt__rdy"
+      ]
+    },
+    {
+      "step": 114,
+      "output_net": "n2057415",
+      "type": "NOR2_X1",
+      "output_polarity": "fall",
+      "input_net": "n2057414",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A2"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/$abc$1348466$blif$1348466$17",
+      "module": "VectorCGRA4x4/tile__8",
+      "module_type": "TileRTL__16a8290d3dfb5b02",
+      "cell_type": "NOR2_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 115,
+      "output_net": "n2057458",
+      "type": "NOR3_X1",
+      "output_polarity": "rise",
+      "input_net": "n2057415",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A1"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/$abc$1348466$blif$1348466$20",
+      "module": "VectorCGRA4x4/tile__8",
+      "module_type": "TileRTL__16a8290d3dfb5b02",
+      "cell_type": "NOR3_X1",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/tile__8/ctrl_mem__send_ctrl__rdy",
+        "VectorCGRA4x4/tile__8/ctrl_mem/send_ctrl__rdy"
+      ]
+    },
+    {
+      "step": 116,
+      "output_net": "n2057495",
+      "type": "AND2_X1",
+      "output_polarity": "rise",
+      "input_net": "n2057458",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A2"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/$abc$1348466$blif$1348466$23",
+      "module": "VectorCGRA4x4/tile__8",
+      "module_type": "TileRTL__16a8290d3dfb5b02",
+      "cell_type": "AND2_X1",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/tile__8/const_mem__ctrl_proceed",
+        "VectorCGRA4x4/tile__8/register_cluster__inport_ctrl_proceed",
+        "VectorCGRA4x4/tile__8/const_mem/ctrl_proceed",
+        "VectorCGRA4x4/tile__8/fu_crossbar/prologue_counter_next[11][1]",
+        "VectorCGRA4x4/tile__8/register_cluster/inport_ctrl_proceed",
+        "VectorCGRA4x4/tile__8/register_cluster/reg_bank__inport_ctrl_proceed[0]",
+        "VectorCGRA4x4/tile__8/register_cluster/reg_bank__inport_ctrl_proceed[1]",
+        "VectorCGRA4x4/tile__8/register_cluster/reg_bank__inport_ctrl_proceed[2]",
+        "VectorCGRA4x4/tile__8/register_cluster/reg_bank__inport_ctrl_proceed[3]",
+        "VectorCGRA4x4/tile__8/register_cluster/reg_bank__0/inport_ctrl_proceed",
+        "VectorCGRA4x4/tile__8/register_cluster/reg_bank__1/inport_ctrl_proceed",
+        "VectorCGRA4x4/tile__8/register_cluster/reg_bank__2/inport_ctrl_proceed",
+        "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/inport_ctrl_proceed"
+      ]
+    },
+    {
+      "step": 117,
+      "output_net": "n2122939",
+      "type": "INV_X1",
+      "output_polarity": "fall",
+      "input_net": "n2057495",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/$abc$1348454$blif$1348454$0",
+      "module": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3",
+      "module_type": "RegisterBankRTL__90e9b2d424e56325",
+      "cell_type": "INV_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 118,
+      "output_net": "n2123014",
+      "type": "OAI21_X1",
+      "output_polarity": "rise",
+      "input_net": "n2122939",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "B2"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/$abc$1348454$blif$1348454$139",
+      "module": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3",
+      "module_type": "RegisterBankRTL__90e9b2d424e56325",
+      "cell_type": "OAI21_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 119,
+      "output_net": "n2123037",
+      "type": "NAND2_X1",
+      "output_polarity": "fall",
+      "input_net": "n2123014",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A2"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/$abc$1348454$blif$1348454$156",
+      "module": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3",
+      "module_type": "RegisterBankRTL__90e9b2d424e56325",
+      "cell_type": "NAND2_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 120,
+      "output_net": "n2123038",
+      "type": "NOR2_X1",
+      "output_polarity": "rise",
+      "input_net": "n2123037",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A2"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/$abc$1348454$blif$1348454$157",
+      "module": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3",
+      "module_type": "RegisterBankRTL__90e9b2d424e56325",
+      "cell_type": "NOR2_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 121,
+      "output_net": "n2123117",
+      "type": "BUF_X1",
+      "output_polarity": "rise",
+      "input_net": "n2123038",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/$abc$1348454$blif$1348454$207",
+      "module": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3",
+      "module_type": "RegisterBankRTL__90e9b2d424e56325",
+      "cell_type": "BUF_X1",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 122,
+      "output_net": "n2123148",
+      "type": "AOI21_X1",
+      "output_polarity": "fall",
+      "input_net": "n2123117",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "B1"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/$abc$1348454$blif$1348454$233",
+      "module": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3",
+      "module_type": "RegisterBankRTL__90e9b2d424e56325",
+      "cell_type": "AOI21_X1",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 123,
+      "output_net": "n2123150",
+      "type": "AOI21_X2",
+      "output_polarity": "rise",
+      "input_net": "n2123148",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/$abc$1348454$blif$1348454$235",
+      "module": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3",
+      "module_type": "RegisterBankRTL__90e9b2d424e56325",
+      "cell_type": "AOI21_X2",
+      "output_pin": "ZN",
+      "aliases": [
+        "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/reg_file__waddr[3]",
+        "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/reg_file/waddr[3]"
+      ]
+    },
+    {
+      "step": 124,
+      "output_net": "n2124866",
+      "type": "BUF_X4",
+      "output_polarity": "rise",
+      "input_net": "n2123150",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/reg_file/$abc$1348452$blif$1348452$2",
+      "module": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/reg_file",
+      "module_type": "RegisterFile__84f0703fd9bfd535",
+      "cell_type": "BUF_X4",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 125,
+      "output_net": "n2125400",
+      "type": "NAND2_X4",
+      "output_polarity": "fall",
+      "input_net": "n2124866",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A2"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/reg_file/$abc$1348452$blif$1348452$57",
+      "module": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/reg_file",
+      "module_type": "RegisterFile__84f0703fd9bfd535",
+      "cell_type": "NAND2_X4",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 126,
+      "output_net": "n2124792",
+      "type": "NOR4_X4",
+      "output_polarity": "rise",
+      "input_net": "n2125400",
+      "input_polarity": "fall",
+      "candidate_input_pins": [
+        "A4"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/reg_file/$abc$1348452$blif$1348452$68",
+      "module": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/reg_file",
+      "module_type": "RegisterFile__84f0703fd9bfd535",
+      "cell_type": "NOR4_X4",
+      "output_pin": "ZN",
+      "aliases": []
+    },
+    {
+      "step": 127,
+      "output_net": "n2124453",
+      "type": "BUF_X4",
+      "output_polarity": "rise",
+      "input_net": "n2124792",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "A"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/reg_file/$abc$1348452$blif$1348452$69",
+      "module": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/reg_file",
+      "module_type": "RegisterFile__84f0703fd9bfd535",
+      "cell_type": "BUF_X4",
+      "output_pin": "Z",
+      "aliases": []
+    },
+    {
+      "step": 128,
+      "output_net": "n2125569",
+      "type": "MUX2_X1",
+      "output_polarity": "rise",
+      "input_net": "n2124453",
+      "input_polarity": "rise",
+      "candidate_input_pins": [
+        "S"
+      ],
+      "cell": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/reg_file/$abc$1348452$blif$1348452$70",
+      "module": "VectorCGRA4x4/tile__8/register_cluster/reg_bank__3/reg_file",
+      "module_type": "RegisterFile__84f0703fd9bfd535",
+      "cell_type": "MUX2_X1",
+      "output_pin": "Z",
+      "aliases": []
+    }
+  ],
+  "interpretation": {
+    "phase_gate_counts": {
+      "tile0_control_read_and_request_address": 36,
+      "shared_memory_request_response_control": 47,
+      "tile8_result_ready_step_retire_register_write": 46
+    },
+    "verified_named_boundaries": [
+      {
+        "net": "n974644",
+        "meaning": "tile0 ctrl_mem ctrl_addr_outport bit 2; registered control address"
+      },
+      {
+        "net": "n975002",
+        "meaning": "tile0 ctrl_mem send_ctrl.msg packed bit 2; read_reg_idx[0] bit 2"
+      },
+      {
+        "net": "n976692",
+        "meaning": "tile0 reg_bank0 send_data_to_xbar.val"
+      },
+      {
+        "net": "n10817",
+        "meaning": "tile0 to_mem_raddr.msg bit 3"
+      },
+      {
+        "net": "n899611",
+        "meaning": "read request packet dst bit 1; selected bank destination"
+      },
+      {
+        "net": "n907775",
+        "meaning": "read input0 bypass queue output dst bit 1"
+      },
+      {
+        "net": "n908547",
+        "meaning": "read route0 valid to switch0 request"
+      },
+      {
+        "net": "n920211",
+        "meaning": "read switch0 round-robin grants bit 6"
+      },
+      {
+        "net": "n920202",
+        "meaning": "read switch0 mux select bit 2"
+      },
+      {
+        "net": "n900190",
+        "meaning": "memory_wrapper0 recv_rd.msg src bit 1 after request arbitration/mux"
+      },
+      {
+        "net": "n900306",
+        "meaning": "memory_wrapper0 send.msg dst bit 1; copied from request src"
+      },
+      {
+        "net": "n934668",
+        "meaning": "response input0 bypass output dst bit 1"
+      },
+      {
+        "net": "n935730",
+        "meaning": "response route0 valid to switch5 request"
+      },
+      {
+        "net": "n11410",
+        "meaning": "tile8 from_mem_rdata.val"
+      },
+      {
+        "net": "n2058984",
+        "meaning": "tile8 FlexibleFu output valid to fu_crossbar"
+      },
+      {
+        "net": "n2058982",
+        "meaning": "tile8 fu_crossbar input ready to FUs"
+      },
+      {
+        "net": "n2074509",
+        "meaning": "tile8 Adder FU input ready"
+      },
+      {
+        "net": "n2057414",
+        "meaning": "tile8 routing_crossbar recv_opt.rdy"
+      },
+      {
+        "net": "n2057495",
+        "meaning": "tile8 ctrl_proceed"
+      },
+      {
+        "net": "n2123150",
+        "meaning": "tile8 reg_bank3 reg_file.waddr bit 3"
+      }
+    ],
+    "observations": [
+      "No tile mesh channel, LinkOr, ctrl-ring router, or memory data-array gate occurs on these 129 gates.",
+      "Cross-tile dependence passes through shared read request arbitration, request source metadata, response destination decode and response valid arbitration. It does not describe a tile0 data token being delivered to tile8.",
+      "Read and response crossbars use bypass input queues. DataMemWrapper is configured combinational, so this request-to-response metadata/control path contains no mandatory register edge.",
+      "The stock ABC path ends at tile8 reg_bank0, whereas this nearly tied independent NLDM path ends at reg_bank3; do not label this file as the exact ABC endpoint-bit path."
+    ],
+    "sensitization_limit": "Structural timing only. The tile8 suffix passes MemUnit result-valid and Adder input-ready under a shared opcode; their supported opcode sets are disjoint. This is a concrete functional false-path candidate, not a validated exclusion or path-sensitization proof. No timing exceptions were applied.",
+    "source_evidence": [
+      "mem/ctrl/CtrlMemDynamicRTL.py:175,213-230,263-287",
+      "mem/register_cluster/RegisterBankRTL.py:176-183,276-285",
+      "mem/register_cluster/RegisterClusterRTL.py:75-88,120-126",
+      "fu/single/MemUnitRTL.py:114-194",
+      "mem/data/DataMemControllerRTL.py:66,165-175,196-198,211-222,429-431",
+      "mem/data/DataMemWrapperRTL.py:49-52,62-72,100-105",
+      "noc/PyOCN/pymtl3_net/xbar/XbarBypassQueueRTL.py:44-54,58-68",
+      "noc/PyOCN/pymtl3_net/router/SwitchUnitRTL.py:35-58",
+      "tile/TileRTL.py:119,297-305",
+      "noc/CrossbarRTL.py:135-160",
+      "fu/flexible/FlexibleFuRTL.py:129-150",
+      "fu/single/AdderRTL.py:67-159"
+    ]
+  }
+}

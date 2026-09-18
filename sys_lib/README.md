@@ -56,12 +56,24 @@ are diagnostics, not the complete CGRA's delay. Unsupported or invalid timing
 graphs must be reported; they cannot be silently repaired or replaced with
 local delay numbers.
 
-This fixed instance uses `is_multi_cgra=False`; the command above explicitly
+This fixed instance uses `is_multi_cgra=False`; the strict command above explicitly
 identifies its three unimplemented inter-CGRA output ports. The analyzer checks
 the manifest and requires every bit of those ports to be x. All four mesh data
 boundaries remain timed. The baseline also has undefined inputs inside mapped
-FU/constant-queue logic, so its complete-design delay is currently unavailable;
-the command intentionally returns an error with diagnostic `timing.json`.
+FU/constant-queue logic, so this strict command intentionally returns an error
+with diagnostic `timing.json`.
+
+A separate, explicitly hypothetical structural timing model now provides a
+comparison: A0 **5.94483 ns / about 168.2 MHz**, C2 **5.86488 ns / about
+170.5 MHz** for FF-to-FF combinational paths, a **1.36%** reciprocal-frequency
+improvement. See [TIMING_COMPARISON.md](TIMING_COMPARISON.md) for reproducible
+commands, exact conditions, complete gate coverage, independent validation,
+and unresolved X/functional-path limitations. This is not signoff Fmax.
+`structural_cutpoints.py` exports every original gate and an explicit virtual
+source per undefined sink; `abc_path_groups.py` uses unmodified stock ABC with
+analysis-only markers to isolate path classes. `class_nldm.py` and
+`validate_nldm.py` provide an independent numerical cross-check. These tools do
+not change or remap the hardware, and historical area results remain valid.
 
 The optional mapping-before/after flatten modes are separate experimental
 flows. Do not mix their area denominators or compare one version mapped with
