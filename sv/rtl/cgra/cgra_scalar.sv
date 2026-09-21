@@ -76,6 +76,7 @@ module cgra_scalar #(`CGRA_PROFILE_PARAMETERS) (
   logic [67:0] mem_dma_wr_msg;
 
   initial begin
+    if (TILE_PORTS != 4) $fatal(1, "cgra_scalar retains the four-port phase-2 interface");
     if (!(COLS >= 2 && ROWS >= 2)) $fatal(1, "scalar mesh requires COLS,ROWS >= 2");
     if (!(DATA_W >= 11 && DATA_W >= GLOBAL_ADDR_W && GLOBAL_ADDR_W >= 1 && GLOBAL_ADDR_W <= 32))
       $fatal(1, "unsupported scalar payload/address width");

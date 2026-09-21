@@ -1,0 +1,13 @@
++incdir+rtl/common
++incdir+rtl/vendor/hardfloat
+rtl/vendor/hardfloat/HardFloat_primitives.v
+rtl/vendor/hardfloat/isSigNaNRecFN.v
+rtl/vendor/hardfloat/HardFloat_rawFN.v
+rtl/vendor/hardfloat/fNToRecFN.v
+rtl/vendor/hardfloat/recFNToFN.v
+rtl/vendor/hardfloat/addRecFN.v
+rtl/vendor/hardfloat/mulRecFN.v
+rtl/fu/float/cgra_hardfloat_fn.sv
+rtl/fu/float/tile_fp_fu.sv
+rtl/fu/float/tile_fp_add.sv
+rtl/fu/float/tile_fp_mul.sv

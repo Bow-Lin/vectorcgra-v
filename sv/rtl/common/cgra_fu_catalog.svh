@@ -1,0 +1,45 @@
+// Elaboration-time FU kinds. These are NOT runtime operation encodings.
+// FU_KINDS[8*i +: 8] names slot i; order preserves ac96 last-valid priority.
+`ifndef CGRA_FU_CATALOG_SVH
+`define CGRA_FU_CATALOG_SVH
+`define CGRA_FU_ADDER 8'd0
+`define CGRA_FU_MUL 8'd1
+`define CGRA_FU_MEM 8'd2
+`define CGRA_FU_NAH 8'd3
+`define CGRA_FU_CONST 8'd4
+`define CGRA_FU_COMP 8'd5
+`define CGRA_FU_LOGIC 8'd6
+`define CGRA_FU_SHIFTER 8'd7
+`define CGRA_FU_SEL 8'd8
+`define CGRA_FU_PHI 8'd9
+`define CGRA_FU_GRANT 8'd10
+`define CGRA_FU_GEP 8'd11
+`define CGRA_FU_EXTRACT_PREDICATE 8'd12
+`define CGRA_FU_RET 8'd13
+`define CGRA_FU_LOOP_COUNTER 8'd14
+`define CGRA_FU_LOOP_CONTROL 8'd15
+`define CGRA_FU_DIV 8'd16
+`define CGRA_FU_INCLUSIVE_DIV 8'd17
+`define CGRA_FU_EXCLUSIVE_DIV 8'd18
+`define CGRA_FU_VECTOR_ADDER 8'd19
+`define CGRA_FU_VECTOR_MUL 8'd20
+`define CGRA_FU_VECTOR_REDUCE 8'd21
+`define CGRA_FU_SEQ_MUL_ADDER 8'd22
+`define CGRA_FU_SEQ_MUL_SHIFTER 8'd23
+`define CGRA_FU_PRL_MUL_ADDER 8'd24
+`define CGRA_FU_THREE_MUL_ADDER_SHIFTER 8'd25
+`define CGRA_FU_FOUR_INC_CMP_NOT_GRANT 8'd26
+`define CGRA_FU_ALU_GEN_MAC 8'd27
+`define CGRA_FU_FP_ADD 8'd28
+`define CGRA_FU_FP_MUL 8'd29
+`define CGRA_FU_STREAMING_MEM 8'd32
+`define CGRA_FU_PARAMETERS \
+  parameter int FU_COUNT = 4, \
+  parameter logic [FU_COUNT*8-1:0] FU_KINDS = {`CGRA_FU_NAH, `CGRA_FU_MEM, `CGRA_FU_MUL, `CGRA_FU_ADDER}, \
+  parameter int VECTOR_LANES = 4, VECTOR_FACTOR_POWER = 0, \
+  parameter int FP_EXP_W = 8, FP_SIG_W = 23
+`define CGRA_FU_BIND \
+  .FU_COUNT(FU_COUNT), .FU_KINDS(FU_KINDS), \
+  .VECTOR_LANES(VECTOR_LANES), .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER), \
+  .FP_EXP_W(FP_EXP_W), .FP_SIG_W(FP_SIG_W)
+`endif

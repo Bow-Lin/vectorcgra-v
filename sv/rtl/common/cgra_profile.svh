@@ -7,8 +7,8 @@ typedef struct packed {
 typedef struct packed {
   logic [6:0] operation;
   logic [3:0][2:0] fu_in;
-  logic [7:0][3:0] routing_xbar_outport;
-  logic [7:0][1:0] fu_xbar_outport;
+  logic [ROUTING_OUTPUTS-1:0][ROUTING_SEL_W-1:0] routing_xbar_outport;
+  logic [ROUTING_OUTPUTS-1:0][1:0] fu_xbar_outport;
   logic [2:0] vector_factor_power;
   logic is_last_ctrl;
   logic [3:0][1:0] write_reg_from;

@@ -1,0 +1,19 @@
+{
+  "source": "fu/pymtl3_hardfloat/HardFloat/source",
+  "submodule_commit": "aea69e416e079178df4bb5697795ef653f55df58",
+  "byte_exact": true,
+  "files_sha256": {
+    "HardFloat_primitives.v": "3273444d956fe82b01ba074ed6c22441d957dc7be02990133dd7a83efb07845d",
+    "isSigNaNRecFN.v": "dfec25b11b197b767d15b0e28d56b4742c7329668239cdf14d324ddac0950439",
+    "HardFloat_rawFN.v": "f219b1594ce25df5790af748bf2bcfdb6ff8a2ad4806c447b1dbeffcdecc071a",
+    "fNToRecFN.v": "146e50014d986df605ed59a69425cd6dc19750df3acdd083f61bff7cf51ac6a3",
+    "recFNToFN.v": "9a1cb98579a715965aebf9faab6cb5851154e8284d6af7ace594a0d6cc87adf8",
+    "addRecFN.v": "8e299e624d7f20c752bb3f59b6ae1ae94685244df20fe2ac274b86f93d87e488",
+    "mulRecFN.v": "bff24e22929c49d0f50f70511a93388c784faae9a578cfc79e8fe322cf60cf5a",
+    "HardFloat_consts.vi": "ff7168d2e1bcce237ee6ac0789d58588705063a3d14c9137ee4abba839822b40",
+    "HardFloat_localFuncs.vi": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50",
+    "HardFloat_specialize.vi": "c231a6ec6c62a9c01c3c2962cf43ea9ec92a7c1c115a8102959d89425803c890",
+    "RISCV/HardFloat_specialize.vi": "9c12592b78732e7331f4f506c50e84ad15c120507d73e1f9e511fd95ed30448e"
+  },
+  "license": "COPYING.txt; Berkeley HardFloat BSD-style license"
+}
