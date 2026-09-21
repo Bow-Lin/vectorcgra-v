@@ -1,6 +1,6 @@
 [CmdletBinding()]
 param(
-  [ValidateSet('all', 'probe', 'types', 'sim', 'negative', 'timeout-negative', 'synth', 'synth-generic', 'synth-mapped', 'versions')]
+  [ValidateSet('all', 'probe', 'types', 'sim', 'negative', 'timeout-negative', 'synth', 'synth-generic', 'synth-mapped', 'versions', 'phase2', 'phase2-2x2', 'phase2-3x2', 'phase2-4x4', 'phase2-2x2-w64-c16-r8', 'phase2-negative')]
   [string]$Task = 'all',
   [string]$MsysRoot = 'C:/msys64',
   [string]$OssCadSuite = $env:OSS_CAD_SUITE,

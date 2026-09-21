@@ -369,18 +369,18 @@ module tb_cgra_2x2_scalar;
     if (!reset) begin
       check_transactions();
       // Fixed-profile coverage of all four directional internal links.
-      check_mesh_link(0, dut.core.tile__send_data__val[0][3],
-                      dut.core.tile__send_data__rdy[0][3],
-                      dut.core.tile__send_data__msg[0][3], scenario_input);
-      check_mesh_link(1, dut.core.tile__send_data__val[1][0],
-                      dut.core.tile__send_data__rdy[1][0],
-                      dut.core.tile__send_data__msg[1][0], scenario_input + 32'd5);
-      check_mesh_link(2, dut.core.tile__send_data__val[3][2],
-                      dut.core.tile__send_data__rdy[3][2],
-                      dut.core.tile__send_data__msg[3][2], (scenario_input + 32'd5) * 32'd3);
-      check_mesh_link(3, dut.core.tile__send_data__val[2][1],
-                      dut.core.tile__send_data__rdy[2][1],
-                      dut.core.tile__send_data__msg[2][1], result_for(scenario_input));
+      check_mesh_link(0, dut.core.tile_send_val[0][3],
+                      dut.core.tile_send_rdy[0][3],
+                      dut.core.tile_send_msg[0][3], scenario_input);
+      check_mesh_link(1, dut.core.tile_send_val[1][0],
+                      dut.core.tile_send_rdy[1][0],
+                      dut.core.tile_send_msg[1][0], scenario_input + 32'd5);
+      check_mesh_link(2, dut.core.tile_send_val[3][2],
+                      dut.core.tile_send_rdy[3][2],
+                      dut.core.tile_send_msg[3][2], (scenario_input + 32'd5) * 32'd3);
+      check_mesh_link(3, dut.core.tile_send_val[2][1],
+                      dut.core.tile_send_rdy[2][1],
+                      dut.core.tile_send_msg[2][1], result_for(scenario_input));
       if (cycle_count >= max_cycles)
         $fatal(1, "TIMEOUT scenario=%0d cycles=%0d inputs=%0d completions=%0d reads=%0d west=%0d",
                scenario_id, cycle_count, input_packets, completion_count, read_response_count, west_count);

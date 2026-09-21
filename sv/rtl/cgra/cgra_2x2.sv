@@ -1,5 +1,5 @@
-// Fixed, single-CGRA 2x2 public top. No extra state or handshake gates.
-// Phase 1 uses a frozen ac96 core; see MIGRATION_PLAN.md for parameterization.
+// Backward-compatible 2x2 public top, using the native parameterized scalar core.
+// No extra state or handshake gates are introduced by this wrapper.
 module cgra_2x2 (
   input logic [6:0] address_lower,
   input logic [6:0] address_upper,
@@ -47,5 +47,5 @@ module cgra_2x2 (
   input logic send_to_inter_cgra_noc__rdy,
   output logic send_to_inter_cgra_noc__val
 );
-  cgra_2x2_fixed core (.*);
+  cgra_scalar core (.*);
 endmodule

@@ -15,12 +15,45 @@ LIBERTY ?=
 MODEL_MAKE_FLAGS ?=
 VERILATOR_WARN_FLAGS ?= -Wno-TIMESCALEMOD
 CGRA_WARN_FLAGS ?= -Wno-fatal
-RTL_FILES := $(shell cat filelists/rtl.f)
+PHASE2_GEOMETRIES := 2x2 3x2 4x4 2x2-w64-c16-r8
+PHASE2_REF_2x2 := Phase2Reference2x2
+PHASE2_REF_3x2 := Phase2Reference3x2
+PHASE2_REF_4x4 := Phase2Reference4x4
+PHASE2_REF_2x2-w64-c16-r8 := Phase2Reference2x2W64C16R8
+PHASE2_ARGS_2x2 := -GCOLS=2 -GROWS=2
+PHASE2_ARGS_3x2 := -GCOLS=3 -GROWS=2
+PHASE2_ARGS_4x4 := -GCOLS=4 -GROWS=4
+PHASE2_ARGS_2x2-w64-c16-r8 := -GCOLS=2 -GROWS=2 -GDATA_W=64 -GCTRL_DEPTH=16 -GREG_DEPTH=8
+RTL_FILES := $(filter-out +incdir+%,$(shell cat filelists/rtl.f))
+RTL_HEADERS := $(wildcard rtl/common/*.svh)
 SIM_FILES := $(RTL_FILES) reference/VectorCGRA2x2Reference.v tests/scalar_workload_pkg.sv tests/tb_cgra_2x2_scalar.sv
 PROBE_FILES := scripts/probes/tool_probe.sv scripts/probes/tb_tool_probe.sv
 
 .PHONY: all probe types sim negative timeout-negative synth synth-generic synth-mapped versions
 all: types sim negative timeout-negative synth
+
+.PHONY: phase2 phase2-negative $(addprefix phase2-,$(PHASE2_GEOMETRIES))
+phase2: $(addprefix phase2-,$(PHASE2_GEOMETRIES)) phase2-negative
+
+# Each geometry has its own frozen ac96 module namespace and executable.
+define PHASE2_RULE
+$(BUILD_DIR)/phase2/$(1)/cgra_sim$(EXEEXT): $(RTL_FILES) $(RTL_HEADERS) tests/phase2_tb_cgra_scalar.sv reference/phase2/$(1)/$(PHASE2_REF_$(1)).v filelists/rtl.f Makefile
+	@mkdir -p $(BUILD_DIR)/phase2/$(1)
+	@echo "Compiling native scalar $(1) and its frozen ac96 reference"
+	@$(VERILATOR) --cc --main --exe --timing --compiler $(COMPILER) --top-module phase2_tb_cgra_scalar --prefix Vphase2 --Mdir $(BUILD_DIR)/phase2/$(1) -o cgra_sim -CFLAGS -std=c++20 $(VERILATOR_WARN_FLAGS) $(CGRA_WARN_FLAGS) $(PHASE2_ARGS_$(1)) +define+PHASE2_REFERENCE_MODULE=$(PHASE2_REF_$(1)) -f filelists/rtl.f reference/phase2/$(1)/$(PHASE2_REF_$(1)).v tests/phase2_tb_cgra_scalar.sv > $(BUILD_DIR)/phase2/$(1)/verilate.log 2>&1 || { tail -n 60 $(BUILD_DIR)/phase2/$(1)/verilate.log; exit 1; }
+	@$(MAKE) -C $(BUILD_DIR)/phase2/$(1) -f Vphase2.mk -j $(JOBS) "CXX=$(CXX)" "LINK=env -u LINK $(CXX)" $(MODEL_MAKE_FLAGS) > $(BUILD_DIR)/phase2/$(1)/compile.log 2>&1 || { tail -n 40 $(BUILD_DIR)/phase2/$(1)/compile.log; exit 1; }
+
+phase2-$(1): $(BUILD_DIR)/phase2/$(1)/cgra_sim$(EXEEXT)
+	@./$(BUILD_DIR)/phase2/$(1)/cgra_sim$(EXEEXT) +VECTORS=$(CURDIR)/vectors/phase2/$(1) > $(BUILD_DIR)/phase2/$(1)/run.log 2>&1 || { tail -n 60 $(BUILD_DIR)/phase2/$(1)/run.log; exit 1; }
+	@grep -q 'PHASE2_CGRA_PASS' $(BUILD_DIR)/phase2/$(1)/run.log
+	@cat $(BUILD_DIR)/phase2/$(1)/run.log
+endef
+$(foreach geometry,$(PHASE2_GEOMETRIES),$(eval $(call PHASE2_RULE,$(geometry))))
+
+phase2-negative: $(BUILD_DIR)/phase2/3x2/cgra_sim$(EXEEXT)
+	@set +e; ./$(BUILD_DIR)/phase2/3x2/cgra_sim$(EXEEXT) +VECTORS=$(CURDIR)/vectors/phase2/3x2 +EXPECT_FAILURE > $(BUILD_DIR)/phase2/3x2/negative.log 2>&1; result=$$?; set -e; test $$result -ne 0; grep -q 'intentional negative control' $(BUILD_DIR)/phase2/3x2/negative.log
+	@set +e; ./$(BUILD_DIR)/phase2/3x2/cgra_sim$(EXEEXT) +VECTORS=$(CURDIR)/vectors/phase2/3x2 +STALL_FOREVER +MAX_CYCLES=300 > $(BUILD_DIR)/phase2/3x2/timeout-negative.log 2>&1; result=$$?; set -e; test $$result -ne 0; grep -q 'TIMEOUT scenario=' $(BUILD_DIR)/phase2/3x2/timeout-negative.log
+	@echo 'PHASE2_NEGATIVE_PASS: incorrect result and permanent backpressure failed as expected'
 
 versions:
 	@$(VERILATOR) --version
@@ -42,7 +75,7 @@ probe: $(BUILD_DIR)/probe/tool_probe$(EXEEXT)
 	@$(YOSYS) -Q -T -p 'read_verilog $(BUILD_DIR)/probe/design.v; hierarchy -check -top tool_probe; synth -top tool_probe; check -assert; stat' > $(BUILD_DIR)/probe/synth.log 2>&1 || { tail -n 40 $(BUILD_DIR)/probe/synth.log; exit 1; }
 	@echo 'TOOL_PROBE_PASS: simulation, negative exit, sv2v, synthesis/check'
 
-$(BUILD_DIR)/sim/cgra_sim$(EXEEXT): $(SIM_FILES) filelists/rtl.f filelists/sim.f Makefile
+$(BUILD_DIR)/sim/cgra_sim$(EXEEXT): $(SIM_FILES) $(RTL_HEADERS) filelists/rtl.f filelists/sim.f Makefile
 	@mkdir -p $(BUILD_DIR)/sim
 	@echo "Compiling native 2x2 and frozen reference"
 	@$(VERILATOR) --cc --main --exe --timing --compiler $(COMPILER) --top-module tb_cgra_2x2_scalar --prefix Vcgra2x2 --Mdir $(BUILD_DIR)/sim -o cgra_sim -CFLAGS -std=c++20 $(VERILATOR_WARN_FLAGS) $(CGRA_WARN_FLAGS) -f filelists/sim.f > $(BUILD_DIR)/sim/verilate.log 2>&1 || { tail -n 60 $(BUILD_DIR)/sim/verilate.log; exit 1; }
@@ -71,9 +104,9 @@ types: $(BUILD_DIR)/types/types_test$(EXEEXT)
 	@grep -q 'CGRA_TYPES_PASS' $(BUILD_DIR)/types/run.log
 	@cat $(BUILD_DIR)/types/run.log
 
-$(BUILD_DIR)/synth/design.v: $(RTL_FILES) filelists/rtl.f
+$(BUILD_DIR)/synth/design.v: $(RTL_FILES) $(RTL_HEADERS) filelists/rtl.f
 	@mkdir -p $(BUILD_DIR)/synth
-	@$(SV2V) $(RTL_FILES) --top=cgra_2x2 --write=$@
+	@$(SV2V) -Irtl/common $(RTL_FILES) --top=cgra_2x2 --write=$@
 
 synth: synth-generic $(if $(strip $(LIBERTY)),synth-mapped,)
 
