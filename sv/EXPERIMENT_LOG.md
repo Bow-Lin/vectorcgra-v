@@ -108,3 +108,10 @@
 - 原生实现提交为 **`614dc8bd0806c8ae9f99734c7535e2d602f96eaa`**，共 51 个文件；提交前逐一核对 44 项已测源码/入口的原始 Git blob 与暂存 blob 一致。此次没有创建新子智能体；仍为 M06 中三位代理，主智能体负责集成和提交。
 - 新增 `results/phase2-summary.json`，记录基线/实现版本、工具、命令、四点结果、组件检查、完整综合范围和源码 SHA。归档 67 项运行、编译、综合日志/统计及摘要到 `results/phase2-evidence.zip`，大小 2,643,517 字节，SHA256 为 `975357845a1eb673df99fea14b461d9ea43c7375d65399741471d633633318b1`。每个条目的 SHA 在 `phase2-evidence-manifest.json`；从压缩包逐条读取核验，避免只记录工作目录文件哈希。
 - 第二阶段完成。`PHASE2_REPORT.md` 明确有限程序、二态比较及参数覆盖边界；向量/浮点、其他 Tile、多 CGRA 与 DMA/im2col 留待后续阶段。原 ac96 Python 源码、第一阶段参考/证据、原工作树的 NoC 优化分支和 master 未修改；没有推送或合并。
+
+## M09：启动第三阶段完整 FU 与 Tile 变体迁移
+
+- 用户授权继续第三阶段。起点为第二阶段收尾 `786b732`，仍在独立工作树 `D:/work/VectorCGRA/.worktrees/VectorCGRA`、`codex/sv-migration`；基线保持 ac96，原工作树与 master 不改。
+- 复用三个既有子智能体，未新建用户任务或代理：`area_report`（Boyle）负责其余 15 个标量 FU；`noc_contract`（Bernoulli）负责向量、组合运算和既有定点 MAC IP；`synth_tools`（Socrates）负责 StreamingMem、上下文切换/流式 Tile 及局部状态机。主智能体负责浮点 IP、可配置 FU 组合、单 CGRA 集成、阶段回归、证据归档和 Git。
+- 文件按各子任务隔离到 `rtl/fu/{scalar,vector,combo,float,streaming}`、`rtl/tile/variants`、`reference/phase3/` 和 `tests/phase3/`。测试入口和长期用例留在 tests；迁移取证 Python 放在 migration_tools；日常工具链直接消费 HDL。新增维护源统一 LF，外部 IP 和冻结参考保留原字节及许可证。
+- 当前仅开始盘点和实施，不据模块数量宣称完成。后续逐项记录基线限制、接口选择、真实执行结果及阶段完成边界。
