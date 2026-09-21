@@ -1,0 +1,7 @@
+input logic reset,
+  input logic clk,
+  output logic [16-1:0] lhs_0 ,
+  input logic [16-1:0] rhs_0 ,
+  input logic [16-1:0] rhs_1 ,
+  input logic [16-1:0] rhs_1b ,
+  input logic [6-1:0] rhs_2

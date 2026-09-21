@@ -1,0 +1,11 @@
+{
+  "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+  "kind": "unmodified Python simulation",
+  "cycles": 360,
+  "input_bits": 58,
+  "output_bits": 36,
+  "seed": 31415926,
+  "source_sha256": "d97a6c23849dbda09aea147ab7dc3c6168dedd6746ea65010d0e70f60d465153",
+  "trace_sha256": "0f3f4dbe39000014272ffbef732b6bdef5a89fc960171c49c9003209b7ffbd42",
+  "note": "No translation workaround. PyMTL zero initialization and Verilator default two-state initialization are the compared startup contract."
+}

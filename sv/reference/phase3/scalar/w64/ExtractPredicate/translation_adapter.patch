@@ -1,0 +1,19 @@
+--- D:\work\VectorCGRA\.worktrees\VectorCGRA\fu\single\ExtractPredicateRTL.py
++++ translation_adapter.py
+@@ -21,6 +21,7 @@
+   def construct(s, CtrlPktType, num_inports, num_outports, vector_factor_power = 0):
+ 
+     super(ExtractPredicateRTL, s).construct(CtrlPktType, num_inports, num_outports, 1, vector_factor_power)
++    PayloadType = s.DataType.get_field_type(kAttrPayload)
+ 
+     num_entries = 2
+     FuInType = mk_bits(clog2(num_inports + 1))
+@@ -60,7 +61,7 @@
+           # When loop is running (predicate=1) -> payload=1
+           # When loop terminates (predicate=0) -> payload=0
+           # Downstream NOT will invert: running->0 (no RET), done->1 (trigger RET)
+-          s.send_out[0].msg.payload @= zext(s.recv_in[s.in0_idx].msg.predicate, s.DataType.get_field_type(kAttrPayload))
++          s.send_out[0].msg.payload @= zext(s.recv_in[s.in0_idx].msg.predicate, PayloadType)
+           s.send_out[0].msg.predicate @= 1
+           
+           s.send_out[0].val @= s.recv_in[s.in0_idx].val

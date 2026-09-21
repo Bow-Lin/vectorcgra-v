@@ -1,0 +1,289 @@
+{
+  "baseline_commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+  "reference": "unmodified PyMTL simulation (translation failure separately retained)",
+  "kind": "context",
+  "cycles": 190,
+  "parameters": {
+    "TILE_PORTS": 4,
+    "DATA_W": 32,
+    "CTRL_DEPTH": 8,
+    "REG_DEPTH": 16,
+    "NUM_CTRL": 1,
+    "TOTAL_STEPS": 6
+  },
+  "fu_list": [
+    "PhiRTL",
+    "AdderRTL",
+    "MulRTL",
+    "MemUnitRTL",
+    "NahRTL"
+  ],
+  "inputs": [
+    [
+      "reset",
+      1
+    ],
+    [
+      "cgra_id",
+      1
+    ],
+    [
+      "tile_id",
+      3
+    ],
+    [
+      "from_mem_rdata__msg",
+      35
+    ],
+    [
+      "from_mem_rdata__val",
+      1
+    ],
+    [
+      "recv_from_controller_pkt__msg",
+      191
+    ],
+    [
+      "recv_from_controller_pkt__val",
+      1
+    ],
+    [
+      "send_to_controller_pkt__rdy",
+      1
+    ],
+    [
+      "to_mem_raddr__rdy",
+      1
+    ],
+    [
+      "to_mem_waddr__rdy",
+      1
+    ],
+    [
+      "to_mem_wdata__rdy",
+      1
+    ],
+    [
+      "recv_data__msg[0]",
+      35
+    ],
+    [
+      "recv_data__val[0]",
+      1
+    ],
+    [
+      "send_data__rdy[0]",
+      1
+    ],
+    [
+      "recv_data__msg[1]",
+      35
+    ],
+    [
+      "recv_data__val[1]",
+      1
+    ],
+    [
+      "send_data__rdy[1]",
+      1
+    ],
+    [
+      "recv_data__msg[2]",
+      35
+    ],
+    [
+      "recv_data__val[2]",
+      1
+    ],
+    [
+      "send_data__rdy[2]",
+      1
+    ],
+    [
+      "recv_data__msg[3]",
+      35
+    ],
+    [
+      "recv_data__val[3]",
+      1
+    ],
+    [
+      "send_data__rdy[3]",
+      1
+    ]
+  ],
+  "outputs": [
+    [
+      "from_mem_rdata__rdy",
+      1
+    ],
+    [
+      "recv_from_controller_pkt__rdy",
+      1
+    ],
+    [
+      "send_to_controller_pkt__msg",
+      191
+    ],
+    [
+      "send_to_controller_pkt__val",
+      1
+    ],
+    [
+      "to_mem_raddr__msg",
+      7
+    ],
+    [
+      "to_mem_raddr__val",
+      1
+    ],
+    [
+      "to_mem_waddr__msg",
+      7
+    ],
+    [
+      "to_mem_waddr__val",
+      1
+    ],
+    [
+      "to_mem_wdata__msg",
+      35
+    ],
+    [
+      "to_mem_wdata__val",
+      1
+    ],
+    [
+      "recv_data__rdy[0]",
+      1
+    ],
+    [
+      "send_data__msg[0]",
+      35
+    ],
+    [
+      "send_data__val[0]",
+      1
+    ],
+    [
+      "recv_data__rdy[1]",
+      1
+    ],
+    [
+      "send_data__msg[1]",
+      35
+    ],
+    [
+      "send_data__val[1]",
+      1
+    ],
+    [
+      "recv_data__rdy[2]",
+      1
+    ],
+    [
+      "send_data__msg[2]",
+      35
+    ],
+    [
+      "send_data__val[2]",
+      1
+    ],
+    [
+      "recv_data__rdy[3]",
+      1
+    ],
+    [
+      "send_data__msg[3]",
+      35
+    ],
+    [
+      "send_data__val[3]",
+      1
+    ]
+  ],
+  "events": [
+    {
+      "cycle": 8,
+      "event": "output",
+      "bits": 4,
+      "port": 0
+    },
+    {
+      "cycle": 9,
+      "event": "output",
+      "bits": 12,
+      "port": 0
+    },
+    {
+      "cycle": 10,
+      "event": "output",
+      "bits": 0,
+      "port": 0
+    },
+    {
+      "cycle": 11,
+      "event": "output",
+      "bits": 0,
+      "port": 0
+    },
+    {
+      "cycle": 12,
+      "event": "output",
+      "bits": 20,
+      "port": 0
+    },
+    {
+      "cycle": 13,
+      "event": "output",
+      "bits": 28,
+      "port": 0
+    },
+    {
+      "cycle": 14,
+      "event": "complete"
+    },
+    {
+      "cycle": 103,
+      "event": "output",
+      "bits": 4,
+      "port": 0
+    },
+    {
+      "cycle": 104,
+      "event": "output",
+      "bits": 12,
+      "port": 0
+    },
+    {
+      "cycle": 105,
+      "event": "output",
+      "bits": 0,
+      "port": 0
+    },
+    {
+      "cycle": 108,
+      "event": "output",
+      "bits": 28,
+      "port": 0
+    },
+    {
+      "cycle": 109,
+      "event": "output",
+      "bits": 36,
+      "port": 0
+    },
+    {
+      "cycle": 110,
+      "event": "output",
+      "bits": 28,
+      "port": 0
+    },
+    {
+      "cycle": 112,
+      "event": "complete"
+    }
+  ],
+  "trace_sha256": "0004a4825da3b9e86a7b7cd34472218c5b0626ae8447b9ac38afd316467dc630",
+  "exporter_sha256": "d6dbb842969c981ce8d6c7d19491d8ee37ad462c27dd547071ad199d2182f533"
+}

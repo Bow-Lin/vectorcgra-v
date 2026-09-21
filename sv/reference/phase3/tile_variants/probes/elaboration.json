@@ -1,0 +1,16 @@
+[
+  {
+    "tile_ports": 4,
+    "control_bits": 119,
+    "host_bits": 191,
+    "elaboration": "failed",
+    "exception_type": "InvalidConnectionError",
+    "exception": "Bitwidth mismatch Bits3 != Bits4\n- In class <class 'VectorCGRA.tile.TileWithStreamingLoadRTL.TileWithStreamingLoadRTL'>\n- When connecting s.routing_crossbar.crossbar_outport[0] <-> s.ctrl_mem.send_ctrl.msg.routing_xbar_outport[0]\nSuggestion: make sure both sides of connection have matching bitwidth"
+  },
+  {
+    "tile_ports": 8,
+    "control_bits": 143,
+    "host_bits": 215,
+    "elaboration": "passed"
+  }
+]

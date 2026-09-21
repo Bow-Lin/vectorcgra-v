@@ -1,0 +1,92 @@
+[
+  {
+    "module": "Const",
+    "native": "scalar_const",
+    "path": "sv/rtl/fu/scalar/scalar_const.sv",
+    "sha256": "d151ada440b47625f00f2b6d5310bfba2011a8be2934faee4828eedfd84b4054"
+  },
+  {
+    "module": "Comp",
+    "native": "scalar_comp",
+    "path": "sv/rtl/fu/scalar/scalar_comp.sv",
+    "sha256": "ce6caa6ee931fb8f5d7fe82cf1fc377ecf9a20740a36597f42d420cc2ecb12a7"
+  },
+  {
+    "module": "Logic",
+    "native": "scalar_logic",
+    "path": "sv/rtl/fu/scalar/scalar_logic.sv",
+    "sha256": "d58273045045603c47e0fc1745ec9606c5fcd53f474f9121b9592df41849ae7e"
+  },
+  {
+    "module": "Shifter",
+    "native": "scalar_shifter",
+    "path": "sv/rtl/fu/scalar/scalar_shifter.sv",
+    "sha256": "19f554b946c1851d9ed88dbbc0e76c431178704226d36d98e56bf66390e46aab"
+  },
+  {
+    "module": "Sel",
+    "native": "scalar_sel",
+    "path": "sv/rtl/fu/scalar/scalar_sel.sv",
+    "sha256": "59e5f82c500a627072f41c5bd89a412ccec1054f281897226d93cf93a81fa33f"
+  },
+  {
+    "module": "Phi",
+    "native": "scalar_phi",
+    "path": "sv/rtl/fu/scalar/scalar_phi.sv",
+    "sha256": "d3446f6e233f584496a18c33efeca19136615254ba12555ff69dcc908abf1faf"
+  },
+  {
+    "module": "Grant",
+    "native": "scalar_grant",
+    "path": "sv/rtl/fu/scalar/scalar_grant.sv",
+    "sha256": "bc4de7ce423713077bede4294d4255a4e6c63cd891d2003615cf37ed75f39423"
+  },
+  {
+    "module": "Gep",
+    "native": "scalar_gep",
+    "path": "sv/rtl/fu/scalar/scalar_gep.sv",
+    "sha256": "d8bd708e75a5f0c88f12342351a42b10d102fcf73e57c5a89a6fb5b3763cfcc2"
+  },
+  {
+    "module": "ExtractPredicate",
+    "native": "scalar_extract_predicate",
+    "path": "sv/rtl/fu/scalar/scalar_extract_predicate.sv",
+    "sha256": "be0552d837bdead6a73fea9c7926e3a99ad816a14098b95df6e78ff91cf90a98"
+  },
+  {
+    "module": "Ret",
+    "native": "scalar_ret",
+    "path": "sv/rtl/fu/scalar/scalar_ret.sv",
+    "sha256": "b73978c5e42c98f4734c55c5d45dcb6987d63a9d9b81aff3ece4b0be9462cf20"
+  },
+  {
+    "module": "LoopCounter",
+    "native": "scalar_loop_counter",
+    "path": "sv/rtl/fu/scalar/scalar_loop_counter.sv",
+    "sha256": "dd015b68bee380c6c16b73d49346fb0b7782132870e6decff88501dd95990fbb"
+  },
+  {
+    "module": "LoopControl",
+    "native": "scalar_loop_control",
+    "path": "sv/rtl/fu/scalar/scalar_loop_control.sv",
+    "sha256": "43c4e16ebf3b27b399761201a90b90f1bb2957df660353f982765343cb83fb0d"
+  },
+  {
+    "module": "Div",
+    "native": "scalar_div",
+    "path": "sv/rtl/fu/scalar/scalar_div.sv",
+    "sha256": "8324701c5569fa835964292e94f8c200d937f73d24f4f37330f00a96287b0dbe"
+  },
+  {
+    "module": "InclusiveDiv",
+    "native": "scalar_inclusive_div",
+    "path": "sv/rtl/fu/scalar/scalar_inclusive_div.sv",
+    "sha256": "b74862d23a7ee6e73a0bce636e4f93c3d338d7ff1c01ebd9d3f386d373e1bc92"
+  },
+  {
+    "module": "ExclusiveDiv",
+    "native": "scalar_exclusive_div",
+    "path": "sv/rtl/fu/scalar/scalar_exclusive_div.sv",
+    "sha256": "e537dd10e432f78d6541c3a3ec55cfbf9adfb2a28073a7ad3a9c5d9a177887fc"
+  }
+]

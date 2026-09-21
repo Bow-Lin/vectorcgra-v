@@ -1,0 +1,53 @@
+Traceback (most recent call last):
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\rtlir\structural\StructuralRTLIRSignalExpr.py", line 366, in gen_signal_expr
+    cur_node = f( cur_node, token )
+               ^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\rtlir\structural\StructuralRTLIRSignalExpr.py", line 293, in construct_attr
+    raise AssertionError(f"internal error: no available expression nodes for {attr_base}!")
+AssertionError: internal error: no available expression nodes for <pymtl3.passes.rtlir.structural.StructuralRTLIRSignalExpr.ComponentIndex object at 0x0000024306712120>!
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\work\VectorCGRA\.worktrees\VectorCGRA\sv\migration_tools\phase3_variants_export.py", line 65, in main
+    dut.apply(VerilogTranslationPass())
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\dsl\Component.py", line 530, in apply
+    pass_instance( s )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\backends\verilog\translation\VerilogTranslationPass.py", line 109, in __call__
+    s.traverse_hierarchy( top )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\backends\verilog\translation\VerilogTranslationPass.py", line 134, in traverse_hierarchy
+    s.translator.translate( m, m.get_metadata( c.translate_config ) )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\backends\generic\RTLIRTranslator.py", line 64, in translate
+    s.clear( tr_top, tr_cfgs )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\backends\generic\RTLIRTranslator.py", line 28, in clear
+    super().clear( tr_top )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\backends\generic\behavioral\BehavioralTranslatorL5.py", line 23, in clear
+    super().clear( tr_top )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\backends\generic\behavioral\BehavioralTranslatorL1.py", line 25, in clear
+    super().clear( tr_top )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\backends\generic\behavioral\BehavioralTranslatorL0.py", line 14, in clear
+    super().clear( tr_top )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\backends\generic\structural\StructuralTranslatorL2.py", line 23, in clear
+    super().clear( tr_top )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\backends\generic\structural\StructuralTranslatorL1.py", line 86, in clear
+    s.gen_structural_trans_metadata( tr_top )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\backends\generic\structural\StructuralTranslatorL1.py", line 100, in gen_structural_trans_metadata
+    tr_top.apply( s._get_structural_rtlir_gen_pass()( s.inst_conns ) )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\dsl\Component.py", line 530, in apply
+    pass_instance( s )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\rtlir\structural\StructuralRTLIRGenL1Pass.py", line 31, in __call__
+    s._gen_metadata( tr_top )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\rtlir\structural\StructuralRTLIRGenL4Pass.py", line 18, in _gen_metadata
+    s._gen_metadata( child )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\rtlir\structural\StructuralRTLIRGenL4Pass.py", line 16, in _gen_metadata
+    super()._gen_metadata( m )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\rtlir\structural\StructuralRTLIRGenL1Pass.py", line 72, in _gen_metadata
+    connections = [ (gen_signal_expr(m, x[0]), gen_signal_expr(m, x[1])) for x in ordered_conns ]
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\rtlir\structural\StructuralRTLIRSignalExpr.py", line 372, in gen_signal_expr
+    raise RTLIRConversionError( signal, msg )
+pymtl3.passes.rtlir.errors.RTLIRConversionError: 
+In file D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\rtlir\structural\StructuralRTLIRSignalExpr.py, Line 293, Method construct_attr:
+Error trying to convert s.element.fu[2].recv_from_controller_pkt.msg into RTLIR:
+- internal error: no available expression nodes for <pymtl3.passes.rtlir.structural.StructuralRTLIRSignalExpr.ComponentIndex object at 0x0000024306712120>!
+  raise AssertionError(f"internal error: no available expression nodes for {attr_base}!")

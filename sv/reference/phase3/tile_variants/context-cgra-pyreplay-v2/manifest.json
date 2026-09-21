@@ -1,0 +1,707 @@
+{
+  "baseline_commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+  "kind": "context",
+  "reference": "unmodified full Python CgraWith variant; no HDL translation claimed",
+  "cycles": 134,
+  "parameters": {
+    "COLS": 2,
+    "ROWS": 2,
+    "DATA_W": 32,
+    "TILE_PORTS": 4,
+    "CTRL_DEPTH": 8,
+    "REG_DEPTH": 16,
+    "NUM_CTRL": 8,
+    "TOTAL_STEPS": 8
+  },
+  "fu_list": [
+    "PhiRTL",
+    "AdderRTL",
+    "MulRTL",
+    "MemUnitRTL",
+    "NahRTL"
+  ],
+  "inputs": [
+    [
+      "reset",
+      1
+    ],
+    [
+      "cgra_id",
+      1
+    ],
+    [
+      "address_lower",
+      7
+    ],
+    [
+      "address_upper",
+      7
+    ],
+    [
+      "recv_from_cpu_pkt__msg",
+      191
+    ],
+    [
+      "recv_from_cpu_pkt__val",
+      1
+    ],
+    [
+      "send_to_cpu_pkt__rdy",
+      1
+    ],
+    [
+      "recv_from_inter_cgra_noc__msg",
+      194
+    ],
+    [
+      "recv_from_inter_cgra_noc__val",
+      1
+    ],
+    [
+      "send_to_inter_cgra_noc__rdy",
+      1
+    ],
+    [
+      "recv_data_on_boundary_north__msg[0]",
+      35
+    ],
+    [
+      "recv_data_on_boundary_north__val[0]",
+      1
+    ],
+    [
+      "send_data_on_boundary_north__rdy[0]",
+      1
+    ],
+    [
+      "recv_data_on_boundary_north__msg[1]",
+      35
+    ],
+    [
+      "recv_data_on_boundary_north__val[1]",
+      1
+    ],
+    [
+      "send_data_on_boundary_north__rdy[1]",
+      1
+    ],
+    [
+      "recv_data_on_boundary_south__msg[0]",
+      35
+    ],
+    [
+      "recv_data_on_boundary_south__val[0]",
+      1
+    ],
+    [
+      "send_data_on_boundary_south__rdy[0]",
+      1
+    ],
+    [
+      "recv_data_on_boundary_south__msg[1]",
+      35
+    ],
+    [
+      "recv_data_on_boundary_south__val[1]",
+      1
+    ],
+    [
+      "send_data_on_boundary_south__rdy[1]",
+      1
+    ],
+    [
+      "recv_data_on_boundary_west__msg[0]",
+      35
+    ],
+    [
+      "recv_data_on_boundary_west__val[0]",
+      1
+    ],
+    [
+      "send_data_on_boundary_west__rdy[0]",
+      1
+    ],
+    [
+      "recv_data_on_boundary_west__msg[1]",
+      35
+    ],
+    [
+      "recv_data_on_boundary_west__val[1]",
+      1
+    ],
+    [
+      "send_data_on_boundary_west__rdy[1]",
+      1
+    ],
+    [
+      "recv_data_on_boundary_east__msg[0]",
+      35
+    ],
+    [
+      "recv_data_on_boundary_east__val[0]",
+      1
+    ],
+    [
+      "send_data_on_boundary_east__rdy[0]",
+      1
+    ],
+    [
+      "recv_data_on_boundary_east__msg[1]",
+      35
+    ],
+    [
+      "recv_data_on_boundary_east__val[1]",
+      1
+    ],
+    [
+      "send_data_on_boundary_east__rdy[1]",
+      1
+    ]
+  ],
+  "outputs": [
+    [
+      "recv_from_cpu_pkt__rdy",
+      1
+    ],
+    [
+      "send_to_cpu_pkt__msg",
+      191
+    ],
+    [
+      "send_to_cpu_pkt__val",
+      1
+    ],
+    [
+      "send_data_on_boundary_north__msg[0]",
+      35
+    ],
+    [
+      "send_data_on_boundary_north__val[0]",
+      1
+    ],
+    [
+      "recv_data_on_boundary_north__rdy[0]",
+      1
+    ],
+    [
+      "send_data_on_boundary_north__msg[1]",
+      35
+    ],
+    [
+      "send_data_on_boundary_north__val[1]",
+      1
+    ],
+    [
+      "recv_data_on_boundary_north__rdy[1]",
+      1
+    ],
+    [
+      "send_data_on_boundary_south__msg[0]",
+      35
+    ],
+    [
+      "send_data_on_boundary_south__val[0]",
+      1
+    ],
+    [
+      "recv_data_on_boundary_south__rdy[0]",
+      1
+    ],
+    [
+      "send_data_on_boundary_south__msg[1]",
+      35
+    ],
+    [
+      "send_data_on_boundary_south__val[1]",
+      1
+    ],
+    [
+      "recv_data_on_boundary_south__rdy[1]",
+      1
+    ],
+    [
+      "send_data_on_boundary_west__msg[0]",
+      35
+    ],
+    [
+      "send_data_on_boundary_west__val[0]",
+      1
+    ],
+    [
+      "recv_data_on_boundary_west__rdy[0]",
+      1
+    ],
+    [
+      "send_data_on_boundary_west__msg[1]",
+      35
+    ],
+    [
+      "send_data_on_boundary_west__val[1]",
+      1
+    ],
+    [
+      "recv_data_on_boundary_west__rdy[1]",
+      1
+    ],
+    [
+      "send_data_on_boundary_east__msg[0]",
+      35
+    ],
+    [
+      "send_data_on_boundary_east__val[0]",
+      1
+    ],
+    [
+      "recv_data_on_boundary_east__rdy[0]",
+      1
+    ],
+    [
+      "send_data_on_boundary_east__msg[1]",
+      35
+    ],
+    [
+      "send_data_on_boundary_east__val[1]",
+      1
+    ],
+    [
+      "recv_data_on_boundary_east__rdy[1]",
+      1
+    ]
+  ],
+  "events": [
+    {
+      "event": "link",
+      "scenario": 0,
+      "src": 0,
+      "dst": 1,
+      "data": 7,
+      "cycle": 32
+    },
+    {
+      "event": "link",
+      "scenario": 0,
+      "src": 1,
+      "dst": 3,
+      "data": 12,
+      "cycle": 33
+    },
+    {
+      "event": "link",
+      "scenario": 0,
+      "src": 3,
+      "dst": 2,
+      "data": 36,
+      "cycle": 34
+    },
+    {
+      "event": "link",
+      "scenario": 0,
+      "src": 2,
+      "dst": 0,
+      "data": 28,
+      "cycle": 35
+    },
+    {
+      "cycle": 43,
+      "event": "west",
+      "data": 28,
+      "scenario": 0
+    },
+    {
+      "cycle": 47,
+      "event": "complete",
+      "tile": 3,
+      "scenario": 0
+    },
+    {
+      "cycle": 48,
+      "event": "complete",
+      "tile": 1,
+      "scenario": 0
+    },
+    {
+      "cycle": 49,
+      "event": "complete",
+      "tile": 0,
+      "scenario": 0
+    },
+    {
+      "cycle": 50,
+      "event": "complete",
+      "tile": 2,
+      "scenario": 0
+    },
+    {
+      "cycle": 57,
+      "event": "host-read",
+      "data": [
+        16,
+        28,
+        1
+      ],
+      "scenario": 0
+    },
+    {
+      "cycle": 58,
+      "event": "host-read",
+      "data": [
+        15,
+        7,
+        1
+      ],
+      "scenario": 0
+    },
+    {
+      "event": "link",
+      "scenario": 1,
+      "src": 0,
+      "dst": 1,
+      "data": 4294967290,
+      "cycle": 99
+    },
+    {
+      "event": "link",
+      "scenario": 1,
+      "src": 1,
+      "dst": 3,
+      "data": 4294967295,
+      "cycle": 100
+    },
+    {
+      "event": "link",
+      "scenario": 1,
+      "src": 3,
+      "dst": 2,
+      "data": 4294967293,
+      "cycle": 101
+    },
+    {
+      "event": "link",
+      "scenario": 1,
+      "src": 2,
+      "dst": 0,
+      "data": 4294967285,
+      "cycle": 102
+    },
+    {
+      "cycle": 110,
+      "event": "west",
+      "data": 4294967285,
+      "scenario": 1
+    },
+    {
+      "cycle": 114,
+      "event": "complete",
+      "tile": 3,
+      "scenario": 1
+    },
+    {
+      "cycle": 115,
+      "event": "complete",
+      "tile": 1,
+      "scenario": 1
+    },
+    {
+      "cycle": 116,
+      "event": "complete",
+      "tile": 0,
+      "scenario": 1
+    },
+    {
+      "cycle": 117,
+      "event": "complete",
+      "tile": 2,
+      "scenario": 1
+    },
+    {
+      "cycle": 124,
+      "event": "host-read",
+      "data": [
+        16,
+        4294967285,
+        1
+      ],
+      "scenario": 1
+    },
+    {
+      "cycle": 125,
+      "event": "host-read",
+      "data": [
+        15,
+        4294967290,
+        1
+      ],
+      "scenario": 1
+    }
+  ],
+  "scenarios": [
+    {
+      "scenario": 0,
+      "values": [
+        7
+      ],
+      "expected": [
+        28
+      ],
+      "cycles": 67,
+      "completed": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "responses": [
+        [
+          16,
+          28,
+          1
+        ],
+        [
+          15,
+          7,
+          1
+        ]
+      ],
+      "links": [
+        {
+          "src": 0,
+          "dst": 1,
+          "data": 7,
+          "cycle": 32
+        },
+        {
+          "src": 1,
+          "dst": 3,
+          "data": 12,
+          "cycle": 33
+        },
+        {
+          "src": 3,
+          "dst": 2,
+          "data": 36,
+          "cycle": 34
+        },
+        {
+          "src": 2,
+          "dst": 0,
+          "data": 28,
+          "cycle": 35
+        }
+      ]
+    },
+    {
+      "scenario": 1,
+      "values": [
+        -6
+      ],
+      "expected": [
+        4294967285
+      ],
+      "cycles": 67,
+      "completed": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "responses": [
+        [
+          16,
+          4294967285,
+          1
+        ],
+        [
+          15,
+          4294967290,
+          1
+        ]
+      ],
+      "links": [
+        {
+          "src": 0,
+          "dst": 1,
+          "data": 4294967290,
+          "cycle": 99
+        },
+        {
+          "src": 1,
+          "dst": 3,
+          "data": 4294967295,
+          "cycle": 100
+        },
+        {
+          "src": 3,
+          "dst": 2,
+          "data": 4294967293,
+          "cycle": 101
+        },
+        {
+          "src": 2,
+          "dst": 0,
+          "data": 4294967285,
+          "cycle": 102
+        }
+      ]
+    }
+  ],
+  "packets": [
+    [
+      280608314408446998005367198449505521089368054300672,
+      300948644173605504233955618147815284366000277946368,
+      303992340649217833982759184143903770731512485380096,
+      303992340654662351853494199559317764450420776763392,
+      187072209589244609271541689418512213953775948267520,
+      163688183391950162580282732095051685639281027579904,
+      70152078591884526036972421492682755042144797327360,
+      70152078591885772188218624593816207190788958846977,
+      49040161300049038240122380277839883639633194339446816768,
+      49040044379918027267558505675483896974019886777532153856,
+      49040020995891829973111814416526573513491572282611466240,
+      49039927459787035351868526717090778207932165533663756288,
+      98080041991783608223303856850406700594042814936454791168,
+      98079901687626470735025610544293790849819538687407423488,
+      98079878303600273440578919285336467389291224192486735872,
+      98079784767495478819335631586055414589327037121261731840,
+      147119875915465914286020848545428840563245060342614589440,
+      147119758995334914202492715413103684725619190597282693120,
+      147119735611308716908046024154146361265090876102362005504,
+      147119642075203922286968889954028937939274204656871407616,
+      98079714615416886934934209737619787751599303819750539264,
+      147119571923125330402401314606429681627398955729625808896,
+      49039857307708443467467104868809893875799651909875269632,
+      0,
+      233840261973029537504319807850471126796807148929024,
+      233840261973024220592336668186979511568566027550720
+    ],
+    [
+      303992340534962712377070955372584131058055187005440,
+      300948644173605504233955618147815284366000277946368,
+      303992340649217833982759184143903770731512485380096,
+      303992340654662351853494199559317764450420776763392,
+      187072209589244609271541689418512213953775948267520,
+      163688183391950162580282732095051685639281027579904,
+      70152078591884526036972421492682755042144797327360,
+      70152078591885772188218624593816207190788958846977,
+      49040161300049038240122380277839883639633194339446816768,
+      49040044379918027267558505675483896974019886777532153856,
+      49040020995891829973111814416526573513491572282611466240,
+      49039927459787035351868526717090778207932165533663756288,
+      98080041991783608223303856850406700594042814936454791168,
+      98079901687626470735025610544293790849819538687407423488,
+      98079878303600273440578919285336467389291224192486735872,
+      98079784767495478819335631586055414589327037121261731840,
+      147119875915465914286020848545428840563245060342614589440,
+      147119758995334914202492715413103684725619190597282693120,
+      147119735611308716908046024154146361265090876102362005504,
+      147119642075203922286968889954028937939274204656871407616,
+      98079714615416886934934209737619787751599303819750539264,
+      147119571923125330402401314606429681627398955729625808896,
+      49039857307708443467467104868809893875799651909875269632,
+      0,
+      233840261973029537504319807850471126796807148929024,
+      233840261973024220592336668186979511568566027550720
+    ]
+  ],
+  "excluded_outputs": [
+    "recv_from_inter_cgra_noc__rdy",
+    "send_to_inter_cgra_noc__val",
+    "send_to_inter_cgra_noc__msg"
+  ],
+  "exclusion_reason": "Single CGRA is_multi_cgra=False: original undriven external inter-CGRA endpoints; internal loopback is exercised by host memory commands.",
+  "source_sha256": {
+    "sv/migration_tools/phase3_variants_cgra_trace.py": "258ad467b87fc1e091ab08ad98788714208b1e63a0a36a70e85d02a5e95a54be",
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/cmd_type.py": "994de9ad9dc3b852bfdb52847474d0ab238f84a77063c58f1b7fabd1c788df90",
+    "lib/opt_type.py": "43c91384c04d6f88f9756d0166d355b5ca3fd8fbefd33e06a425e1db57160df8",
+    "lib/util/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/util/data_struct_attr.py": "196aed92486f1239aa4741ebfe387bbf7e09791af3fb3eac18cd644ce056da90",
+    "lib/messages.py": "c23e0bd3825c56ce23540775d49d84965cb0945b7b91013c97ff1a3945fe279e",
+    "mem/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mem/ctrl/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/basic/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/basic/val_rdy/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/basic/val_rdy/ifcs.py": "718fafefbe1d61ae1ad94ded66360686ca63c76789d8526f14e76a34f9bac148",
+    "lib/status_type.py": "52000c996eac52eeb1cdc8f85a04a8dd2162ef4e424c3769095a5b861d452c73",
+    "lib/util/common.py": "67c4bc09b7def9334be757cdb1db656ff2122cff7b4c3eddc9521beb3680b356",
+    "lib/basic/val_rdy/queues.py": "547ef3175064e52759037cac8e0dfb037450ad3c1d8d22cf1d207e1a5e1fa909",
+    "mem/ctrl/ContextSwitchRTL.py": "d97a6c23849dbda09aea147ab7dc3c6168dedd6746ea65010d0e70f60d465153",
+    "tile/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/flexible/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/single/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/basic/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/basic/Fu.py": "0c981a2ac2b0632b2c357e49db1cb90378d3ddad1875b712c9d94fa5f905d2f7",
+    "fu/single/MemUnitRTL.py": "493a4ce1f9a582b3f09b8db4f828546a532a7d473dbe41ffbab60d116f52dc19",
+    "fu/single/StreamingMemUnitRTL.py": "119cd4b98823ddf9ceaa552a46df03819805a5975b4990b7da61482b57205ba6",
+    "fu/single/AdderRTL.py": "4fa5962fb161d3afc2804088a2fd2aebdf9d9b84e83c269e1069ec69c70994e9",
+    "fu/single/RetRTL.py": "c02076c25cfe9a9453965f7294ed52155431b31e1ec2989e98b0a6c71f79a547",
+    "fu/single/NahRTL.py": "d68011369e13ab06c3d3202802bc30b43414e065bc050a22bb0c3f08d17af6f5",
+    "fu/flexible/FlexibleFuRTL.py": "9c7b355107464bc37a9914b51f49dffee4eb3a7d2c9c6cdbdc81601e5e96da4d",
+    "fu/single/GrantRTL.py": "080c1a11066a89b0c6f98b3a2006d407db32abb8ce825852a9210d543882c2b2",
+    "fu/single/CompRTL.py": "7b03efc744e3b6d852315c767c507bfa169ae600c96428e2cb0e9f7caf501a4a",
+    "fu/single/MulRTL.py": "a3aeb19aa4ae0aa1eee930c3f71dfd43b259faa0edc7f16cf906cca5ae3ebe90",
+    "fu/single/PhiRTL.py": "2432e71672c36ec844c9b78c5a0b0e5a6a200440adafc356faf8f4cd585f0b62",
+    "mem/const/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mem/const/ConstQueueDynamicRTL.py": "9cc15cc44c140e8e89f60c25870227e20987becdfd59147c4f06c742d0784742",
+    "lib/basic/en_rdy/ifcs.py": "9b7005a345639a29beecab811ff258eee817ece76400c16624278c1f4a8bd692",
+    "mem/ctrl/CtrlMemDynamicRTL.py": "12c64a9add62aadae927679af4a66178815bf4e9ba77c2e51f5f183d0edde100",
+    "mem/register_cluster/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mem/register_cluster/RegisterBankRTL.py": "09580b4f3ad6b861c4e47995738df964c74cd1ecacb436f92f257019caf26f90",
+    "mem/register_cluster/RegisterClusterRTL.py": "3e838a66cde203aaa4c9f4f0641c15ca9a2f3fbcc7e35cf65a81c3150522dbad",
+    "noc/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "noc/CrossbarRTL.py": "fb1a9009be673b26fd490a9d8628096fe36ab46255963a362d61fbfbc761a1c4",
+    "noc/LinkOrRTL.py": "61c57583057e8b8535d287feba332ca5cfaa49b6847bd3c588c323bfd6694c77",
+    "noc/PyOCN/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "noc/PyOCN/pymtl3_net/__init__.py": "46a93f7897f69ed4a0d179442aa4a13ef36bfc4dab437c1f754d97ca9f91e25b",
+    "noc/PyOCN/pymtl3_net/ocnlib/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "noc/PyOCN/pymtl3_net/ocnlib/ifcs/__init__.py": "37f2da4ddba90ed943c0172cfa2c4ad1a721103d95cf078374c8cab413e7e0c7",
+    "noc/PyOCN/pymtl3_net/ocnlib/ifcs/PhysicalDimension.py": "12dc7a33957c6b494ae3b56d8a467711f222191323e37353671a142cc8894de3",
+    "noc/ChannelWithClearRTL.py": "990151851b896d2ba7849ffc9b84eab82cd7b575ed69f5bbcd3df0cda486399f",
+    "rf/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rf/RegisterRTL.py": "f4af013a7a1b7ea8bc478d3b32352dc5c36c7ac5138ac0b1298c41ebde9b0abd",
+    "tile/TileWithContextSwitchRTL.py": "967b7110bb8bc8b3bc57ed564d00a6645582dbc4365ff34fb4fc93e41d88a453",
+    "noc/PyOCN/pymtl3_net/channel/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "noc/PyOCN/pymtl3_net/channel/ChannelRTL.py": "0fb9c394dead5dd5ee3c3e7d6c533a5bff5efed64039b1c5075a6afd3cd11711",
+    "tile/TileWithStreamingLoadRTL.py": "95de896798e8409ecfbe5d1c580989553b48f4a317d1f2ae546deec61b9bb37d",
+    "cgra/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "controller/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "noc/PyOCN/pymtl3_net/xbar/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "noc/PyOCN/pymtl3_net/router/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "noc/PyOCN/pymtl3_net/router/InputUnitRTL.py": "1e8c13370fa92c996d876d97c4d07e9c2e87a7bf2be50fd2bb9dbc9c68e08f6b",
+    "noc/PyOCN/pymtl3_net/router/OutputUnitRTL.py": "a6bfd3ccc307546fad3f8689eb0a653b54cb221faaaa8f0a1de6c99eb1e45e94",
+    "noc/PyOCN/pymtl3_net/router/SwitchUnitRTL.py": "1ba6da67f945a003a6c50b779b2cd56550d58e81118fba5f648f99fcedc19edb",
+    "noc/PyOCN/pymtl3_net/router/SwitchUnitNullRTL.py": "dc73fbf6b7ccec2fcd572d97c1242c72fbdb8635054690af9b7093d3a0a77b15",
+    "noc/PyOCN/pymtl3_net/xbar/XbarRouteUnitRTL.py": "ccd9913dbdacbedc1c05b4ef5191f0996fe54d3cfcc4822b19a57f8b8fbe15a9",
+    "noc/PyOCN/pymtl3_net/xbar/XbarRTL.py": "b29965c1cdd2c884e0f8133cd152ac1caa1d0d2478249652a602f3af1c38d531",
+    "controller/GlobalReduceUnitRTL.py": "c659fdff25d2d911b2bf7bd46827a049be4f90b37f5c655ff1dfa8b1839c3d67",
+    "controller/ControllerRTL.py": "25ddd2f32e8a51a37738a8ab339cf2df77921c25476033bb4a97a7820201b15d",
+    "mem/data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mem/data/DataMemWrapperRTL.py": "2d253f61870727bf1fb5368a7da67d52a9228a2918ebdfc18cdb927f33a6f61f",
+    "noc/PyOCN/pymtl3_net/xbar/XbarBypassQueueRTL.py": "77cb4e88738caed5a682e0d300b5788c9f1b488cef4e46bdcc5f5fa82ef0d7f1",
+    "mem/data/DataMemControllerRTL.py": "f36ee1e9799e02cf8da360306f61d55b7e2a3136850a4b74f9701937e0b18e93",
+    "noc/PyOCN/pymtl3_net/ocnlib/ifcs/positions.py": "4ec9a911d354b8624def326b2f2a24fc2201f5547d9a25b5a292ffa7ea495086",
+    "noc/PyOCN/pymtl3_net/ocnlib/rtl/Counter.py": "c8840334d63ef1389388da48b42057c05aefe6e2367f76c3a36e2e671537cd0e",
+    "noc/PyOCN/pymtl3_net/ocnlib/rtl/GrantHoldArbiter.py": "62f80976bb41b00c1525cdf379efa6a983fec8423e31e466c8cc08ec0bbbb391",
+    "noc/PyOCN/pymtl3_net/ocnlib/rtl/SerializerRTL.py": "77b9c3a7c548a683076058200142463e54399011173992d55d54604add1bfe53",
+    "noc/PyOCN/pymtl3_net/ocnlib/rtl/DeserializerRTL.py": "ce8b1293d32f16503d07d95c6f922b9e000ed001c49063ad74842bb379aae55a",
+    "noc/PyOCN/pymtl3_net/ocnlib/rtl/__init__.py": "b0138e940d27fd87cec3edcd0628bdabf399856339984e9eb4dc56732c016544",
+    "noc/PyOCN/pymtl3_net/ocnlib/ifcs/CreditIfc.py": "c41e1182ce7e74597acf52c03eafe7fd534403f735666031fe1458258506a4e1",
+    "noc/PyOCN/pymtl3_net/ringnet/directions.py": "92fd1b6abb069638ad24952deac7c090b8f7aa02c3a048cc1d933a4651e06228",
+    "noc/PyOCN/pymtl3_net/ringnet/RingRouteUnitRTL.py": "5f3930666874cd78c8a1480d8f132a3c682b072bca39eafacb1842ab7844a625",
+    "noc/PyOCN/pymtl3_net/router/InputUnitCreditRTL.py": "67f93273579bb13699a10c22213c328c6546fa4de8e5a8b799afdd161b3fb0d4",
+    "noc/PyOCN/pymtl3_net/router/OutputUnitCreditRTL.py": "41aa585db7b51620160d049b1d74d8bc21e1aef0d55c32b7d077e1a194a8c7b0",
+    "noc/PyOCN/pymtl3_net/router/Router.py": "7dfc41ab480de896cfe93f3a073ab7ca47f6487b1423c08830b8d662aeb1df29",
+    "noc/PyOCN/pymtl3_net/ringnet/RingRouterRTL.py": "ee07c522b465f86bd91f47254d9fc669c2daf9e735588bb93b9acd8943261a3c",
+    "noc/PyOCN/pymtl3_net/ringnet/RingNetworkRTL.py": "6546235072d4d5f9639d152a8d2f970562f7c4016be6e61d4a0519a565908bfe",
+    "noc/PyOCN/pymtl3_net/ringnet/__init__.py": "02b171f212f7e67aceca4e0af4d8b4d371a895bd8b53d366457ddca8a42de86b",
+    "tile/TileRTL.py": "e7aaad01e14c8c18cbef449429132d0a141118cf5a9e72b2f8c4b13469d0b9d8",
+    "cgra/CgraRTL.py": "3877788f77d355ed4bdaa29d7e08395c060a5f13a242f90016923c6e4588be2a",
+    "sv/migration_tools/reference_model.py": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+    "sv/migration_tools/phase3_variants_export.py": "f6ac925dbc60c984c0d7012b60f9216ce2dfe65f1ef25216fdce1662a04af0aa",
+    "cgra/CgraWithContextSwitchRTL.py": "203e2e48e5004e777d403d95ccbad20f910b330112ccb463c9a98cce3e74b752",
+    "cgra/CgraWithStreamingLoadRTL.py": "ca46771994463e97517a1aa3f8f645ba909dd18dc239c5cf6ab38e97d15c5958"
+  },
+  "trace_sha256": "618929ddaab12ed19d7ac21dcd6d882605e6db0cd99d8c8963f3f4d251e8306e",
+  "exporter_sha256": "258ad467b87fc1e091ab08ad98788714208b1e63a0a36a70e85d02a5e95a54be"
+}

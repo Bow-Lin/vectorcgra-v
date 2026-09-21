@@ -1,0 +1,589 @@
+{
+  "baseline_commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+  "checkout_commit": "a62e7862346a03ed0fe90812cbc6d26269a9e171",
+  "profile": "w32",
+  "parameters": {
+    "COLS": 2,
+    "ROWS": 2,
+    "DATA_W": 32,
+    "CTRL_DEPTH": 8,
+    "REG_DEPTH": 16,
+    "GLOBAL_ADDR_W": 7,
+    "NUM_INPUTS": 4,
+    "NUM_OUTPUTS": 2,
+    "VECTOR_FACTOR_POWER": 0
+  },
+  "source_sha256": {
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/cmd_type.py": "994de9ad9dc3b852bfdb52847474d0ab238f84a77063c58f1b7fabd1c788df90",
+    "lib/opt_type.py": "43c91384c04d6f88f9756d0166d355b5ca3fd8fbefd33e06a425e1db57160df8",
+    "lib/util/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/util/data_struct_attr.py": "196aed92486f1239aa4741ebfe387bbf7e09791af3fb3eac18cd644ce056da90",
+    "lib/messages.py": "c23e0bd3825c56ce23540775d49d84965cb0945b7b91013c97ff1a3945fe279e",
+    "fu/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/single/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/basic/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/basic/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/basic/val_rdy/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/basic/val_rdy/ifcs.py": "718fafefbe1d61ae1ad94ded66360686ca63c76789d8526f14e76a34f9bac148",
+    "fu/basic/Fu.py": "0c981a2ac2b0632b2c357e49db1cb90378d3ddad1875b712c9d94fa5f905d2f7",
+    "fu/single/ConstRTL.py": "095febaf6eab2474d67d8246a0e41ca07264efcd71f70188e6e6246058c04512",
+    "fu/single/CompRTL.py": "7b03efc744e3b6d852315c767c507bfa169ae600c96428e2cb0e9f7caf501a4a",
+    "fu/single/LogicRTL.py": "54b199a872c2b979fbb4b630304af3932188c22216f9b7964a8a282d7b0f4419",
+    "fu/single/ShifterRTL.py": "751c7a1a0c0560806a2a0fca37e54fa9656647aff3199e1f79cab1ba259a228b",
+    "fu/single/SelRTL.py": "9870ac5e1f02ab5fc7fe3f38be160121b5b33e7170fcc31e0a45ecc0b0d8b81e",
+    "fu/single/PhiRTL.py": "2432e71672c36ec844c9b78c5a0b0e5a6a200440adafc356faf8f4cd585f0b62",
+    "fu/single/GrantRTL.py": "080c1a11066a89b0c6f98b3a2006d407db32abb8ce825852a9210d543882c2b2",
+    "fu/single/GepRTL.py": "46f0d11b0f415808aace812149a6e1bd1a08673d8d2617b94672a2a510f145aa",
+    "sv/reference/phase3/scalar/w32/Gep/translation_adapter.py": "374c916363e45d2e81c2f92e0b4edf2de340c576f7fe78285a304d01a1667025",
+    "fu/single/ExtractPredicateRTL.py": "7e864856a968919dbd7256d308e3b43865248e14cccd34e9be789d128ef2dda5",
+    "sv/reference/phase3/scalar/w32/ExtractPredicate/translation_adapter.py": "61df736610561da23a1620bccb64cb8948952e64ab7839f146034db16d1e9150",
+    "fu/single/RetRTL.py": "c02076c25cfe9a9453965f7294ed52155431b31e1ec2989e98b0a6c71f79a547",
+    "fu/single/LoopCounterRTL.py": "7bb1222b79f628170c2a282ff56b5576ec1452b0fb73c18e34035aea390724d3",
+    "sv/reference/phase3/scalar/w32/LoopCounter/translation_adapter.py": "baaabbd5855807af62da1c61a53bc72ddf581f2f6499eca6fb46d061080fa484",
+    "fu/single/LoopControlRTL.py": "700e06fe0beddb22f9d846892b60a44a649eca24ec7466a6549140219b5b1918",
+    "fu/single/DivRTL.py": "3c0c4b3845163c4cd75fcbd3b52b0cbcefccec78be955ec2fbac1715bc32d95a",
+    "fu/single/InclusiveDivRTL.py": "2256946b5ea68a93727b62237f1173619f2ea8bb12b78bb29d2ab3ade4888d1a",
+    "fu/single/ExclusiveDivRTL.py": "0c79658e78c0bb09412bb31bee7ef41387b9ff63e572f892bce0c934e9e250fc"
+  },
+  "original_export_provenance_classification_script_sha256": "2cd2229fdb8597022eaa241b89b1d24ea782cc9a82f1a0784b5715ca58adf6bf",
+  "resume_transform": {
+    "script_snapshot": "sv/reference/phase3/scalar/w32/transform_snapshot_9ade4067a41b.py",
+    "script_sha256": "9ade4067a41bf3c1c74f744fcdb2f4b62d329c8c092e27945534c6b48d345015",
+    "raw_rtl_regenerated": false,
+    "raw_rtl_generated_modules": [],
+    "scope": "Namespace copies, diagnostic line-path normalization and manifest metadata only"
+  },
+  "pymtl3_version": "3.1.13",
+  "pymtl3_direct_url": "{\"url\":\"https://github.com/tancheng/pymtl3.1\",\"vcs_info\":{\"vcs\":\"git\",\"commit_id\":\"6db7736ec52e19cbcfc4adeb7868cae890316591\",\"requested_revision\":\"yo-struct-list-fix\"}}",
+  "python": "3.12.13 (main, May  4 2026, 21:19:41) [MSC v.1944 64 bit (AMD64)]",
+  "modules": [
+    {
+      "module": "Const",
+      "top": "ScalarRefConstw32",
+      "rtl": "Const/ScalarRefConstw32.v",
+      "rtl_sha256": "005326c1452f5169869fea22d28373f23292bb495acd1bd42e771b95e2d3ac03",
+      "original_export": {
+        "script_snapshot": "sv/reference/phase3/scalar/w32/exporter_snapshot.py",
+        "script_sha256": "3dd60cda1aeb3088d081e2f8afa34b84d5a137e474ad0a2a2b5b662b313952bc",
+        "rtl_sha256": "005326c1452f5169869fea22d28373f23292bb495acd1bd42e771b95e2d3ac03",
+        "raw_rtl_generated": true,
+        "provenance_note": "Initial w32 export before four translation failures and Windows placeholder hang."
+      },
+      "namespaced": "Const/namespaced.sv",
+      "namespaced_sha256": "cc69997a1d38af50abe9feb4209f4fac0360b5c0a1ffbc775f0f9db4ff6c4b68",
+      "namespace_map": {
+        "CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1": "GoldConst_CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1",
+        "CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f": "GoldConst_CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f",
+        "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58": "GoldConst_MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58"
+      },
+      "source": "fu/single/ConstRTL.py",
+      "source_sha256": "095febaf6eab2474d67d8246a0e41ca07264efcd71f70188e6e6246058c04512",
+      "namespaced_only_normalization": "Diagnostic `line paths use forward slashes; no logic changes.",
+      "operations": {
+        "OPT_CONST": 80
+      },
+      "adaptations": [],
+      "types": {
+        "data": "CgraData_32_1_1_1",
+        "ctrl": "CGRAConfig_7_4_2_4_4_3_4",
+        "payload": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr"
+      }
+    },
+    {
+      "module": "Comp",
+      "top": "ScalarRefCompw32",
+      "rtl": "Comp/ScalarRefCompw32.v",
+      "rtl_sha256": "4f2a16f6caf1d3c55b9163d96f8f5d954b653c52f417e91505c286478abb4ba6",
+      "original_export": {
+        "script_snapshot": "sv/reference/phase3/scalar/w32/exporter_snapshot.py",
+        "script_sha256": "3dd60cda1aeb3088d081e2f8afa34b84d5a137e474ad0a2a2b5b662b313952bc",
+        "rtl_sha256": "4f2a16f6caf1d3c55b9163d96f8f5d954b653c52f417e91505c286478abb4ba6",
+        "raw_rtl_generated": true,
+        "provenance_note": "Initial w32 export before four translation failures and Windows placeholder hang."
+      },
+      "namespaced": "Comp/namespaced.sv",
+      "namespaced_sha256": "f3187f26251806d90951fe43898e84dfcd2f3e0a598fc487ea6b366f8795b8d8",
+      "namespace_map": {
+        "CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1": "GoldComp_CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1",
+        "CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f": "GoldComp_CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f",
+        "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58": "GoldComp_MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58"
+      },
+      "source": "fu/single/CompRTL.py",
+      "source_sha256": "7b03efc744e3b6d852315c767c507bfa169ae600c96428e2cb0e9f7caf501a4a",
+      "namespaced_only_normalization": "Diagnostic `line paths use forward slashes; no logic changes.",
+      "operations": {
+        "OPT_EQ": 14,
+        "OPT_EQ_CONST": 33,
+        "OPT_GTE_CONST": 93,
+        "OPT_GT_CONST": 95,
+        "OPT_LT": 60,
+        "OPT_LT_CONST": 94,
+        "OPT_NE": 45,
+        "OPT_NE_CONST": 46
+      },
+      "adaptations": [],
+      "types": {
+        "data": "CgraData_32_1_1_1",
+        "ctrl": "CGRAConfig_7_4_2_4_4_3_4",
+        "payload": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr"
+      }
+    },
+    {
+      "module": "Logic",
+      "top": "ScalarRefLogicw32",
+      "rtl": "Logic/ScalarRefLogicw32.v",
+      "rtl_sha256": "c7abc7f92b451362b0b85b84e1f0525f6392d71f2d60dc668ab6fed01c9c2c44",
+      "original_export": {
+        "script_snapshot": "sv/reference/phase3/scalar/w32/exporter_snapshot.py",
+        "script_sha256": "3dd60cda1aeb3088d081e2f8afa34b84d5a137e474ad0a2a2b5b662b313952bc",
+        "rtl_sha256": "c7abc7f92b451362b0b85b84e1f0525f6392d71f2d60dc668ab6fed01c9c2c44",
+        "raw_rtl_generated": true,
+        "provenance_note": "Initial w32 export before four translation failures and Windows placeholder hang."
+      },
+      "namespaced": "Logic/namespaced.sv",
+      "namespaced_sha256": "8ab034cb946aa8f84b5584ee4ebf1e58ee08437e4124eed445be83097f62945d",
+      "namespace_map": {
+        "CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1": "GoldLogic_CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1",
+        "CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f": "GoldLogic_CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f",
+        "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58": "GoldLogic_MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58"
+      },
+      "source": "fu/single/LogicRTL.py",
+      "source_sha256": "54b199a872c2b979fbb4b630304af3932188c22216f9b7964a8a282d7b0f4419",
+      "namespaced_only_normalization": "Diagnostic `line paths use forward slashes; no logic changes.",
+      "operations": {
+        "OPT_AND": 10,
+        "OPT_BIT_NOT": 43,
+        "OPT_NOT": 11,
+        "OPT_OR": 8,
+        "OPT_XOR": 9
+      },
+      "adaptations": [],
+      "types": {
+        "data": "CgraData_32_1_1_1",
+        "ctrl": "CGRAConfig_7_4_2_4_4_3_4",
+        "payload": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr"
+      }
+    },
+    {
+      "module": "Shifter",
+      "top": "ScalarRefShifterw32",
+      "rtl": "Shifter/ScalarRefShifterw32.v",
+      "rtl_sha256": "df1092c2eaf5e9ebed3edb2f6e9e2b86cf6bb93647ca4c1bb75e215879fef6dd",
+      "original_export": {
+        "script_snapshot": "sv/reference/phase3/scalar/w32/exporter_snapshot.py",
+        "script_sha256": "3dd60cda1aeb3088d081e2f8afa34b84d5a137e474ad0a2a2b5b662b313952bc",
+        "rtl_sha256": "df1092c2eaf5e9ebed3edb2f6e9e2b86cf6bb93647ca4c1bb75e215879fef6dd",
+        "raw_rtl_generated": true,
+        "provenance_note": "Initial w32 export before four translation failures and Windows placeholder hang."
+      },
+      "namespaced": "Shifter/namespaced.sv",
+      "namespaced_sha256": "f0b370190edde08ac423f1d60fbb989bd76f904bd2e2b78e9ed8530b0d63e1df",
+      "namespace_map": {
+        "CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1": "GoldShifter_CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1",
+        "CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f": "GoldShifter_CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f",
+        "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58": "GoldShifter_MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58"
+      },
+      "source": "fu/single/ShifterRTL.py",
+      "source_sha256": "751c7a1a0c0560806a2a0fca37e54fa9656647aff3199e1f79cab1ba259a228b",
+      "namespaced_only_normalization": "Diagnostic `line paths use forward slashes; no logic changes.",
+      "operations": {
+        "OPT_LLS": 5,
+        "OPT_LRS": 6
+      },
+      "adaptations": [],
+      "types": {
+        "data": "CgraData_32_1_1_1",
+        "ctrl": "CGRAConfig_7_4_2_4_4_3_4",
+        "payload": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr"
+      }
+    },
+    {
+      "module": "Sel",
+      "top": "ScalarRefSelw32",
+      "rtl": "Sel/ScalarRefSelw32.v",
+      "rtl_sha256": "0234115f8cedede8fac866787c8d90ab89084eb538f6261b4d92af0dfe796de6",
+      "original_export": {
+        "script_snapshot": "sv/reference/phase3/scalar/w32/exporter_snapshot.py",
+        "script_sha256": "3dd60cda1aeb3088d081e2f8afa34b84d5a137e474ad0a2a2b5b662b313952bc",
+        "rtl_sha256": "0234115f8cedede8fac866787c8d90ab89084eb538f6261b4d92af0dfe796de6",
+        "raw_rtl_generated": true,
+        "provenance_note": "Initial w32 export before four translation failures and Windows placeholder hang."
+      },
+      "namespaced": "Sel/namespaced.sv",
+      "namespaced_sha256": "51dd1e10b0c49d014f45d9e4a3107650375c5715c018afbb6b880b68d1597bb6",
+      "namespace_map": {
+        "CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1": "GoldSel_CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1",
+        "CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f": "GoldSel_CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f",
+        "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58": "GoldSel_MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58"
+      },
+      "source": "fu/single/SelRTL.py",
+      "source_sha256": "9870ac5e1f02ab5fc7fe3f38be160121b5b33e7170fcc31e0a45ecc0b0d8b81e",
+      "namespaced_only_normalization": "Diagnostic `line paths use forward slashes; no logic changes.",
+      "operations": {
+        "OPT_SEL": 27
+      },
+      "adaptations": [],
+      "types": {
+        "data": "CgraData_32_1_1_1",
+        "ctrl": "CGRAConfig_7_4_2_4_4_3_4",
+        "payload": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr"
+      }
+    },
+    {
+      "module": "Phi",
+      "top": "ScalarRefPhiw32",
+      "rtl": "Phi/ScalarRefPhiw32.v",
+      "rtl_sha256": "b85883f259de0e8c18667d5e0f12c6684f156e8e6f11b784663b69c4315d9780",
+      "original_export": {
+        "script_snapshot": "sv/reference/phase3/scalar/w32/exporter_snapshot.py",
+        "script_sha256": "3dd60cda1aeb3088d081e2f8afa34b84d5a137e474ad0a2a2b5b662b313952bc",
+        "rtl_sha256": "b85883f259de0e8c18667d5e0f12c6684f156e8e6f11b784663b69c4315d9780",
+        "raw_rtl_generated": true,
+        "provenance_note": "Initial w32 export before four translation failures and Windows placeholder hang."
+      },
+      "namespaced": "Phi/namespaced.sv",
+      "namespaced_sha256": "6ba116caf463bdd59e8fb3a3daa5ec51aa23ea8cf086d9a93bad1263505e56a4",
+      "namespace_map": {
+        "CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1": "GoldPhi_CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1",
+        "CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f": "GoldPhi_CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f",
+        "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58": "GoldPhi_MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58"
+      },
+      "source": "fu/single/PhiRTL.py",
+      "source_sha256": "2432e71672c36ec844c9b78c5a0b0e5a6a200440adafc356faf8f4cd585f0b62",
+      "namespaced_only_normalization": "Diagnostic `line paths use forward slashes; no logic changes.",
+      "operations": {
+        "OPT_PHI": 17,
+        "OPT_PHI_CONST": 32,
+        "OPT_PHI_START": 84
+      },
+      "adaptations": [],
+      "types": {
+        "data": "CgraData_32_1_1_1",
+        "ctrl": "CGRAConfig_7_4_2_4_4_3_4",
+        "payload": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr"
+      }
+    },
+    {
+      "module": "Grant",
+      "top": "ScalarRefGrantw32",
+      "rtl": "Grant/ScalarRefGrantw32.v",
+      "rtl_sha256": "25c57f541429338bcffdca7fe1611b1d24bf76062cb219153a4ae1eabc4fbafa",
+      "original_export": {
+        "script_snapshot": "sv/reference/phase3/scalar/w32/exporter_snapshot.py",
+        "script_sha256": "3dd60cda1aeb3088d081e2f8afa34b84d5a137e474ad0a2a2b5b662b313952bc",
+        "rtl_sha256": "25c57f541429338bcffdca7fe1611b1d24bf76062cb219153a4ae1eabc4fbafa",
+        "raw_rtl_generated": true,
+        "provenance_note": "Initial w32 export before four translation failures and Windows placeholder hang."
+      },
+      "namespaced": "Grant/namespaced.sv",
+      "namespaced_sha256": "7118fd421973f76582033b721a60ab76aa80b6975eaba5ccbaa70721128cd1fa",
+      "namespace_map": {
+        "CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1": "GoldGrant_CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1",
+        "CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f": "GoldGrant_CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f",
+        "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58": "GoldGrant_MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58"
+      },
+      "source": "fu/single/GrantRTL.py",
+      "source_sha256": "080c1a11066a89b0c6f98b3a2006d407db32abb8ce825852a9210d543882c2b2",
+      "namespaced_only_normalization": "Diagnostic `line paths use forward slashes; no logic changes.",
+      "operations": {
+        "OPT_GRT_ALWAYS": 34,
+        "OPT_GRT_ONCE": 47,
+        "OPT_GRT_PRED": 16
+      },
+      "adaptations": [],
+      "types": {
+        "data": "CgraData_32_1_1_1",
+        "ctrl": "CGRAConfig_7_4_2_4_4_3_4",
+        "payload": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr"
+      }
+    },
+    {
+      "module": "Gep",
+      "top": "ScalarRefGepw32",
+      "rtl": "Gep/ScalarRefGepw32.v",
+      "rtl_sha256": "970ffecee885f02b95cd5302c31f8f874c3d2d026be7dac0e9958293983b234b",
+      "original_export": {
+        "script_snapshot": "sv/reference/phase3/scalar/w64/exporter_snapshot.py",
+        "script_sha256": "fbaa6ef329089ff55488b629e1fc8b7f2c6e7e9dbf02e37aed8421bae3ff5d0f",
+        "rtl_sha256": "970ffecee885f02b95cd5302c31f8f874c3d2d026be7dac0e9958293983b234b",
+        "raw_rtl_generated": true,
+        "provenance_note": "Isolated adapter/host-fix exporter. The identical fbaa6ef3 script snapshot is retained in the subsequent w64 export; this script also generated the six missing w32 RTL files."
+      },
+      "namespaced": "Gep/namespaced.sv",
+      "namespaced_sha256": "b4f69d045707b2b28217b1adcdf4e7b1b47d86f1bd44b36f808959962458c59a",
+      "namespace_map": {
+        "CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1": "GoldGep_CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1",
+        "CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f": "GoldGep_CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f",
+        "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58": "GoldGep_MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58"
+      },
+      "source": "fu/single/GepRTL.py",
+      "source_sha256": "46f0d11b0f415808aace812149a6e1bd1a08673d8d2617b94672a2a510f145aa",
+      "namespaced_only_normalization": "Diagnostic `line paths use forward slashes; no logic changes.",
+      "operations": {
+        "OPT_GEP": 88,
+        "OPT_GEP_2D": 90,
+        "OPT_GEP_2D_CONST": 91,
+        "OPT_GEP_CONST": 89
+      },
+      "adaptations": [
+        "Supply the two default-zero bitstruct arguments explicitly for RTLIR"
+      ],
+      "types": {
+        "data": "CgraData_32_1_1_1",
+        "ctrl": "CGRAConfig_7_4_2_4_4_3_4",
+        "payload": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr"
+      }
+    },
+    {
+      "module": "ExtractPredicate",
+      "top": "ScalarRefExtractPredicatew32",
+      "rtl": "ExtractPredicate/ScalarRefExtractPredicatew32.v",
+      "rtl_sha256": "678165dd8ebe82a99deeff133d7a89c33a0d7cd80ca8692247b87330883b6940",
+      "original_export": {
+        "script_snapshot": "sv/reference/phase3/scalar/w64/exporter_snapshot.py",
+        "script_sha256": "fbaa6ef329089ff55488b629e1fc8b7f2c6e7e9dbf02e37aed8421bae3ff5d0f",
+        "rtl_sha256": "678165dd8ebe82a99deeff133d7a89c33a0d7cd80ca8692247b87330883b6940",
+        "raw_rtl_generated": true,
+        "provenance_note": "Isolated adapter/host-fix exporter. The identical fbaa6ef3 script snapshot is retained in the subsequent w64 export; this script also generated the six missing w32 RTL files."
+      },
+      "namespaced": "ExtractPredicate/namespaced.sv",
+      "namespaced_sha256": "a326e02159cbfa8da5b4fd57177fc4152c5fa1a99796450557f43459bbcc935b",
+      "namespace_map": {
+        "CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1": "GoldExtractPredicate_CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1",
+        "CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f": "GoldExtractPredicate_CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f",
+        "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58": "GoldExtractPredicate_MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58"
+      },
+      "source": "fu/single/ExtractPredicateRTL.py",
+      "source_sha256": "7e864856a968919dbd7256d308e3b43865248e14cccd34e9be789d128ef2dda5",
+      "namespaced_only_normalization": "Diagnostic `line paths use forward slashes; no logic changes.",
+      "operations": {
+        "OPT_EXTRACT_PREDICATE": 87
+      },
+      "adaptations": [
+        "Move the static payload Bits type lookup to construction time"
+      ],
+      "types": {
+        "data": "CgraData_32_1_1_1",
+        "ctrl": "CGRAConfig_7_4_2_4_4_3_4",
+        "payload": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr"
+      }
+    },
+    {
+      "module": "Ret",
+      "top": "ScalarRefRetw32",
+      "rtl": "Ret/ScalarRefRetw32.v",
+      "rtl_sha256": "2e870387fb969d22aa232a2d29d1c1da755732d0b193c441c2d6faba0839e1ea",
+      "original_export": {
+        "script_snapshot": "sv/reference/phase3/scalar/w32/exporter_snapshot.py",
+        "script_sha256": "3dd60cda1aeb3088d081e2f8afa34b84d5a137e474ad0a2a2b5b662b313952bc",
+        "rtl_sha256": "2e870387fb969d22aa232a2d29d1c1da755732d0b193c441c2d6faba0839e1ea",
+        "raw_rtl_generated": true,
+        "provenance_note": "Initial w32 export before four translation failures and Windows placeholder hang."
+      },
+      "namespaced": "Ret/namespaced.sv",
+      "namespaced_sha256": "4989da7ff7cf180a7dab1b8f626002dd857a76e8754bf34318ca7f1adb184fc3",
+      "namespace_map": {
+        "CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1": "GoldRet_CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1",
+        "CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f": "GoldRet_CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f",
+        "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58": "GoldRet_MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58"
+      },
+      "source": "fu/single/RetRTL.py",
+      "source_sha256": "c02076c25cfe9a9453965f7294ed52155431b31e1ec2989e98b0a6c71f79a547",
+      "namespaced_only_normalization": "Diagnostic `line paths use forward slashes; no logic changes.",
+      "operations": {
+        "OPT_RET": 35,
+        "OPT_RET_VOID": 64
+      },
+      "adaptations": [],
+      "types": {
+        "data": "CgraData_32_1_1_1",
+        "ctrl": "CGRAConfig_7_4_2_4_4_3_4",
+        "payload": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr"
+      }
+    },
+    {
+      "module": "LoopCounter",
+      "top": "ScalarRefLoopCounterw32",
+      "rtl": "LoopCounter/ScalarRefLoopCounterw32.v",
+      "rtl_sha256": "a70dfc041f9aea07dd322416fbf9bad1df36e350d25ad1a39d979ca8a311418c",
+      "original_export": {
+        "script_snapshot": "sv/reference/phase3/scalar/w64/exporter_snapshot.py",
+        "script_sha256": "fbaa6ef329089ff55488b629e1fc8b7f2c6e7e9dbf02e37aed8421bae3ff5d0f",
+        "rtl_sha256": "a70dfc041f9aea07dd322416fbf9bad1df36e350d25ad1a39d979ca8a311418c",
+        "raw_rtl_generated": true,
+        "provenance_note": "Isolated adapter/host-fix exporter. The identical fbaa6ef3 script snapshot is retained in the subsequent w64 export; this script also generated the six missing w32 RTL files."
+      },
+      "namespaced": "LoopCounter/namespaced.sv",
+      "namespaced_sha256": "d06316f450fbf179bb938225144d71b04b84295733c12c23201d0ce6ea92f9b6",
+      "namespace_map": {
+        "CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1": "GoldLoopCounter_CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1",
+        "CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f": "GoldLoopCounter_CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f",
+        "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58": "GoldLoopCounter_MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58"
+      },
+      "source": "fu/single/LoopCounterRTL.py",
+      "source_sha256": "7bb1222b79f628170c2a282ff56b5576ec1452b0fb73c18e34035aea390724d3",
+      "namespaced_only_normalization": "Diagnostic `line paths use forward slashes; no logic changes.",
+      "operations": {
+        "OPT_LOOP_COUNT": 85,
+        "OPT_LOOP_DELIVERY": 86
+      },
+      "adaptations": [
+        "Supply the two default-zero bitstruct arguments explicitly for RTLIR"
+      ],
+      "types": {
+        "data": "CgraData_32_1_1_1",
+        "ctrl": "CGRAConfig_7_4_2_4_4_3_4",
+        "payload": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr"
+      }
+    },
+    {
+      "module": "LoopControl",
+      "top": "ScalarRefLoopControlw32",
+      "rtl": "LoopControl/ScalarRefLoopControlw32.v",
+      "rtl_sha256": "65696608c9804a628b67a842164789da1c98b012253cdf0553f90abd7fda63cc",
+      "original_export": {
+        "script_snapshot": "sv/reference/phase3/scalar/w32/exporter_snapshot.py",
+        "script_sha256": "3dd60cda1aeb3088d081e2f8afa34b84d5a137e474ad0a2a2b5b662b313952bc",
+        "rtl_sha256": "65696608c9804a628b67a842164789da1c98b012253cdf0553f90abd7fda63cc",
+        "raw_rtl_generated": true,
+        "provenance_note": "Initial w32 export before four translation failures and Windows placeholder hang."
+      },
+      "namespaced": "LoopControl/namespaced.sv",
+      "namespaced_sha256": "4a000b5326773b842b7eb5f78e5859901180a115b014a8da8a164e0129619d62",
+      "namespace_map": {
+        "CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1": "GoldLoopControl_CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1",
+        "CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f": "GoldLoopControl_CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f",
+        "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58": "GoldLoopControl_MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58"
+      },
+      "source": "fu/single/LoopControlRTL.py",
+      "source_sha256": "700e06fe0beddb22f9d846892b60a44a649eca24ec7466a6549140219b5b1918",
+      "namespaced_only_normalization": "Diagnostic `line paths use forward slashes; no logic changes.",
+      "operations": {
+        "OPT_LOOP_CONTROL": 83
+      },
+      "adaptations": [],
+      "types": {
+        "data": "CgraData_32_1_1_1",
+        "ctrl": "CGRAConfig_7_4_2_4_4_3_4",
+        "payload": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr"
+      }
+    },
+    {
+      "module": "Div",
+      "top": "ScalarRefDivw32",
+      "rtl": "Div/ScalarRefDivw32.v",
+      "rtl_sha256": "d605d36c7f43792244d6b2101b9530bb1c0fa2b0059a2c705eb7b4e06409e9df",
+      "original_export": {
+        "script_snapshot": "sv/reference/phase3/scalar/w64/exporter_snapshot.py",
+        "script_sha256": "fbaa6ef329089ff55488b629e1fc8b7f2c6e7e9dbf02e37aed8421bae3ff5d0f",
+        "rtl_sha256": "d605d36c7f43792244d6b2101b9530bb1c0fa2b0059a2c705eb7b4e06409e9df",
+        "raw_rtl_generated": true,
+        "provenance_note": "Isolated adapter/host-fix exporter. The identical fbaa6ef3 script snapshot is retained in the subsequent w64 export; this script also generated the six missing w32 RTL files."
+      },
+      "namespaced": "Div/namespaced.sv",
+      "namespaced_sha256": "eeade584453d93e6a23c7e3b5bde8b8fa232382b08a0d9eddbf93c8b0b99bdc2",
+      "namespace_map": {
+        "CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1": "GoldDiv_CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1",
+        "CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f": "GoldDiv_CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f",
+        "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58": "GoldDiv_MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58"
+      },
+      "source": "fu/single/DivRTL.py",
+      "source_sha256": "3c0c4b3845163c4cd75fcbd3b52b0cbcefccec78be955ec2fbac1715bc32d95a",
+      "namespaced_only_normalization": "Diagnostic `line paths use forward slashes; no logic changes.",
+      "operations": {
+        "OPT_DIV": 26,
+        "OPT_DIV_CONST": 65
+      },
+      "adaptations": [
+        "Process-local RTLIR lowering ast.FloorDiv -> bir.Div -> unsigned Verilog /; original Python model unchanged"
+      ],
+      "types": {
+        "data": "CgraData_32_1_1_1",
+        "ctrl": "CGRAConfig_7_4_2_4_4_3_4",
+        "payload": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr"
+      }
+    },
+    {
+      "module": "InclusiveDiv",
+      "top": "ScalarRefInclusiveDivw32",
+      "rtl": "InclusiveDiv/ScalarRefInclusiveDivw32.v",
+      "rtl_sha256": "85d74748d8c8ab62e048ff9af1b5f7f84bf1a03426df5dd8ff4dee84f66d2e01",
+      "original_export": {
+        "script_snapshot": "sv/reference/phase3/scalar/w64/exporter_snapshot.py",
+        "script_sha256": "fbaa6ef329089ff55488b629e1fc8b7f2c6e7e9dbf02e37aed8421bae3ff5d0f",
+        "rtl_sha256": "85d74748d8c8ab62e048ff9af1b5f7f84bf1a03426df5dd8ff4dee84f66d2e01",
+        "raw_rtl_generated": true,
+        "provenance_note": "Isolated adapter/host-fix exporter. The identical fbaa6ef3 script snapshot is retained in the subsequent w64 export; this script also generated the six missing w32 RTL files."
+      },
+      "namespaced": "InclusiveDiv/namespaced.sv",
+      "namespaced_sha256": "3723104cb783e4a38ae59da77f2215bc65e53eed2770fdb9caa8ce3e12e40eef",
+      "namespace_map": {
+        "division": "GoldInclusiveDiv_division",
+        "pipeline_division": "GoldInclusiveDiv_pipeline_division",
+        "Div__WIDTH_32__CYCLE_2": "GoldInclusiveDiv_Div__WIDTH_32__CYCLE_2",
+        "CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1": "GoldInclusiveDiv_CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1",
+        "CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f": "GoldInclusiveDiv_CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f",
+        "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58": "GoldInclusiveDiv_MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58"
+      },
+      "source": "fu/single/InclusiveDivRTL.py",
+      "source_sha256": "2256946b5ea68a93727b62237f1173619f2ea8bb12b78bb29d2ab3ade4888d1a",
+      "namespaced_only_normalization": "Diagnostic `line paths use forward slashes; no logic changes.",
+      "operations": {
+        "OPT_DIV_INCLUSIVE_END": 49,
+        "OPT_DIV_INCLUSIVE_START": 48,
+        "OPT_REM_INCLUSIVE_END": 15,
+        "OPT_REM_INCLUSIVE_START": 59
+      },
+      "adaptations": [],
+      "types": {
+        "data": "CgraData_32_1_1_1",
+        "ctrl": "CGRAConfig_7_4_2_4_4_3_4",
+        "payload": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr"
+      }
+    },
+    {
+      "module": "ExclusiveDiv",
+      "top": "ScalarRefExclusiveDivw32",
+      "rtl": "ExclusiveDiv/ScalarRefExclusiveDivw32.v",
+      "rtl_sha256": "7b347cf72d405bf9d2f899887221f208fbdf590c429cd2a4b2181bec57c86ce3",
+      "original_export": {
+        "script_snapshot": "sv/reference/phase3/scalar/w64/exporter_snapshot.py",
+        "script_sha256": "fbaa6ef329089ff55488b629e1fc8b7f2c6e7e9dbf02e37aed8421bae3ff5d0f",
+        "rtl_sha256": "7b347cf72d405bf9d2f899887221f208fbdf590c429cd2a4b2181bec57c86ce3",
+        "raw_rtl_generated": true,
+        "provenance_note": "Isolated adapter/host-fix exporter. The identical fbaa6ef3 script snapshot is retained in the subsequent w64 export; this script also generated the six missing w32 RTL files."
+      },
+      "namespaced": "ExclusiveDiv/namespaced.sv",
+      "namespaced_sha256": "38aaaeac6fc18c63ec1db54e2a5bdb08a987f66090ec64435a00b3bd17ddf31b",
+      "namespace_map": {
+        "division": "GoldExclusiveDiv_division",
+        "pipeline_division": "GoldExclusiveDiv_pipeline_division",
+        "Div__WIDTH_32__CYCLE_4": "GoldExclusiveDiv_Div__WIDTH_32__CYCLE_4",
+        "CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1": "GoldExclusiveDiv_CgraData_32_1_1_1__payload_32__predicate_1__bypass_1__delay_1",
+        "CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f": "GoldExclusiveDiv_CGRAConfig_7_4_2_4_4_3_4__82dac31a2769224f",
+        "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58": "GoldExclusiveDiv_MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr__41fa074ecb33fe58"
+      },
+      "source": "fu/single/ExclusiveDivRTL.py",
+      "source_sha256": "0c79658e78c0bb09412bb31bee7ef41387b9ff63e572f892bce0c934e9e250fc",
+      "namespaced_only_normalization": "Diagnostic `line paths use forward slashes; no logic changes.",
+      "operations": {
+        "OPT_DIV": 26,
+        "OPT_REM": 44
+      },
+      "adaptations": [],
+      "types": {
+        "data": "CgraData_32_1_1_1",
+        "ctrl": "CGRAConfig_7_4_2_4_4_3_4",
+        "payload": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr"
+      }
+    }
+  ],
+  "failures": [],
+  "notes": [
+    "Each module.original_export identifies its historical raw RTL generator; resume_transform is not the raw RTL generator.",
+    "Namespace copies rename module/typedef identifiers and normalize diagnostic paths; original LF translation retained.",
+    "No Python simulation claimed for VerilogPlaceholder pipeline dividers."
+  ]
+}

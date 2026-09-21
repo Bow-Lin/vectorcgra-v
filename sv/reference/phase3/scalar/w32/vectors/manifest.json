@@ -1,0 +1,301 @@
+{
+  "baseline_commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+  "profile": "w32",
+  "seed": 93481,
+  "cycles": 2881,
+  "input_bits": 518,
+  "output_bits": 303,
+  "input_layout": [
+    [
+      "clear",
+      1
+    ],
+    [
+      "reset",
+      1
+    ],
+    [
+      "ctrl_addr_inport",
+      3
+    ],
+    [
+      "from_mem_rdata__msg",
+      35
+    ],
+    [
+      "from_mem_rdata__val",
+      1
+    ],
+    [
+      "recv_const__msg",
+      35
+    ],
+    [
+      "recv_const__val",
+      1
+    ],
+    [
+      "recv_from_ctrl_mem__msg",
+      170
+    ],
+    [
+      "recv_from_ctrl_mem__val",
+      1
+    ],
+    [
+      "recv_in__msg[0]",
+      35
+    ],
+    [
+      "recv_in__msg[1]",
+      35
+    ],
+    [
+      "recv_in__msg[2]",
+      35
+    ],
+    [
+      "recv_in__msg[3]",
+      35
+    ],
+    [
+      "recv_in__val[0]",
+      1
+    ],
+    [
+      "recv_in__val[1]",
+      1
+    ],
+    [
+      "recv_in__val[2]",
+      1
+    ],
+    [
+      "recv_in__val[3]",
+      1
+    ],
+    [
+      "recv_opt__msg",
+      119
+    ],
+    [
+      "recv_opt__val",
+      1
+    ],
+    [
+      "send_out__rdy[0]",
+      1
+    ],
+    [
+      "send_out__rdy[1]",
+      1
+    ],
+    [
+      "send_to_ctrl_mem__rdy",
+      1
+    ],
+    [
+      "to_mem_raddr__rdy",
+      1
+    ],
+    [
+      "to_mem_waddr__rdy",
+      1
+    ],
+    [
+      "to_mem_wdata__rdy",
+      1
+    ]
+  ],
+  "output_layout": [
+    [
+      "from_mem_rdata__rdy",
+      1
+    ],
+    [
+      "recv_const__rdy",
+      1
+    ],
+    [
+      "recv_from_ctrl_mem__rdy",
+      1
+    ],
+    [
+      "recv_in__rdy[0]",
+      1
+    ],
+    [
+      "recv_in__rdy[1]",
+      1
+    ],
+    [
+      "recv_in__rdy[2]",
+      1
+    ],
+    [
+      "recv_in__rdy[3]",
+      1
+    ],
+    [
+      "recv_opt__rdy",
+      1
+    ],
+    [
+      "send_out__msg[0]",
+      35
+    ],
+    [
+      "send_out__msg[1]",
+      35
+    ],
+    [
+      "send_out__val[0]",
+      1
+    ],
+    [
+      "send_out__val[1]",
+      1
+    ],
+    [
+      "send_to_ctrl_mem__msg",
+      170
+    ],
+    [
+      "send_to_ctrl_mem__val",
+      1
+    ],
+    [
+      "to_mem_raddr__msg",
+      7
+    ],
+    [
+      "to_mem_raddr__val",
+      1
+    ],
+    [
+      "to_mem_waddr__msg",
+      7
+    ],
+    [
+      "to_mem_waddr__val",
+      1
+    ],
+    [
+      "to_mem_wdata__msg",
+      35
+    ],
+    [
+      "to_mem_wdata__val",
+      1
+    ]
+  ],
+  "coverage": {
+    "op_0": 62,
+    "initial_reset": 3,
+    "reset": 7,
+    "clear": 40,
+    "invalid_ctrl": 328,
+    "backpressure": 688,
+    "operations": 1344,
+    "op_5": 58,
+    "op_6": 57,
+    "op_8": 56,
+    "op_9": 53,
+    "op_10": 62,
+    "op_11": 56,
+    "op_14": 56,
+    "op_15": 82,
+    "op_16": 46,
+    "op_17": 62,
+    "op_26": 68,
+    "op_27": 64,
+    "op_32": 156,
+    "op_33": 55,
+    "op_34": 57,
+    "op_35": 160,
+    "op_43": 51,
+    "op_44": 74,
+    "op_45": 56,
+    "op_46": 59,
+    "op_47": 160,
+    "op_48": 66,
+    "op_49": 73,
+    "op_59": 75,
+    "op_60": 56,
+    "op_64": 157,
+    "op_65": 62,
+    "op_80": 57,
+    "op_83": 56,
+    "op_84": 53,
+    "op_85": 75,
+    "op_86": 67,
+    "op_87": 56,
+    "op_88": 54,
+    "op_89": 55,
+    "op_90": 50,
+    "op_91": 58,
+    "op_93": 45,
+    "op_94": 53,
+    "op_95": 52,
+    "op_127": 51,
+    "stateful": 384,
+    "division": 96,
+    "counter_config": 10,
+    "counter_count": 16,
+    "counter_shadow": 2,
+    "counter_reset": 2,
+    "random": 1024
+  },
+  "independent_checks": {
+    "Gep_adapter_cycles": 2881,
+    "ExtractPredicate_adapter_cycles": 2881,
+    "LoopCounter_adapter_cycles": 2881,
+    "division_unsigned_math": 44,
+    "counter_sequence_math": 16,
+    "counter_shadow_math": 2,
+    "counter_reset_math": 2
+  },
+  "source_sha256": {
+    "fu/single/ConstRTL.py": "095febaf6eab2474d67d8246a0e41ca07264efcd71f70188e6e6246058c04512",
+    "fu/single/CompRTL.py": "7b03efc744e3b6d852315c767c507bfa169ae600c96428e2cb0e9f7caf501a4a",
+    "fu/single/LogicRTL.py": "54b199a872c2b979fbb4b630304af3932188c22216f9b7964a8a282d7b0f4419",
+    "fu/single/ShifterRTL.py": "751c7a1a0c0560806a2a0fca37e54fa9656647aff3199e1f79cab1ba259a228b",
+    "fu/single/SelRTL.py": "9870ac5e1f02ab5fc7fe3f38be160121b5b33e7170fcc31e0a45ecc0b0d8b81e",
+    "fu/single/PhiRTL.py": "2432e71672c36ec844c9b78c5a0b0e5a6a200440adafc356faf8f4cd585f0b62",
+    "fu/single/GrantRTL.py": "080c1a11066a89b0c6f98b3a2006d407db32abb8ce825852a9210d543882c2b2",
+    "fu/single/GepRTL.py": "46f0d11b0f415808aace812149a6e1bd1a08673d8d2617b94672a2a510f145aa",
+    "sv/reference/phase3/scalar/w32/Gep/translation_adapter.py": "374c916363e45d2e81c2f92e0b4edf2de340c576f7fe78285a304d01a1667025",
+    "fu/single/ExtractPredicateRTL.py": "7e864856a968919dbd7256d308e3b43865248e14cccd34e9be789d128ef2dda5",
+    "sv/reference/phase3/scalar/w32/ExtractPredicate/translation_adapter.py": "61df736610561da23a1620bccb64cb8948952e64ab7839f146034db16d1e9150",
+    "fu/single/RetRTL.py": "c02076c25cfe9a9453965f7294ed52155431b31e1ec2989e98b0a6c71f79a547",
+    "fu/single/LoopCounterRTL.py": "7bb1222b79f628170c2a282ff56b5576ec1452b0fb73c18e34035aea390724d3",
+    "sv/reference/phase3/scalar/w32/LoopCounter/translation_adapter.py": "baaabbd5855807af62da1c61a53bc72ddf581f2f6499eca6fb46d061080fa484",
+    "fu/single/LoopControlRTL.py": "700e06fe0beddb22f9d846892b60a44a649eca24ec7466a6549140219b5b1918",
+    "fu/single/DivRTL.py": "3c0c4b3845163c4cd75fcbd3b52b0cbcefccec78be955ec2fbac1715bc32d95a",
+    "sv/migration_tools/phase3_scalar_vectors.py": "067eda66b1fe6a8a59976ce86a12f4cfa46587fd099ec438f930f07a1aa75b5e"
+  },
+  "files_sha256": {
+    "cases.json": "101eb6ee44315f2048fdb32ba9107e09bbc3c4f36a147f7377c85db59984ea31",
+    "Comp.hex": "df09febb344ca76ad2534f825723bf6c0247c95a283ded9d03c872d21df8fef3",
+    "Const.hex": "7ab18eb6a6613aa677f792cac77e448545c1e7f51047c9ce8121a75531b2eaa0",
+    "Div.hex": "97a9ace95c6ebb5ab344a35292fccd46135b1774162046f5dc7d00681e2f3c1e",
+    "ExtractPredicate.hex": "934be90118d5c0ee12d47d87b1bea6b7a7bbd4112a84f0bfdde79e8117a91ade",
+    "generator_snapshot.py": "067eda66b1fe6a8a59976ce86a12f4cfa46587fd099ec438f930f07a1aa75b5e",
+    "Gep.hex": "31b26cf33b7644ed7873bffb64afa13e28e7fcb9c8bc308bd4ebccd93eb49b23",
+    "Grant.hex": "4a596c0118de9772c40ff141999fdb466498687f77af0a8dcd36933b4c5787aa",
+    "inputs.hex": "5817ef3d2f5cf190f5842656a730137138dda1d916708e83e89932340e926e8d",
+    "Logic.hex": "4afd10ef775e0e22aed82c5e3c33e5f2449c2f41e3aed75a9eec20e61d3b2863",
+    "LoopControl.hex": "6161bb0dd04d83407ceb54be02ce69143448c26f611742965b50e093a5642d01",
+    "LoopCounter.hex": "628a48db7059f48cc8a96befeca086d84f60d6de499807fd609c94ce70455429",
+    "Phi.hex": "d6b99326c96127cf4e74c63542c7a4508a4b7f1d19123a0394e013340354f7bf",
+    "Ret.hex": "9675fef6b071f626de1c6df45a3512ca2bf6ed2edebba42c235b40008b0e651e",
+    "Sel.hex": "f0d167ed6f520d96cc7cb7a543bf5bbff036b1d820dfed19951fb3765500dbd8",
+    "Shifter.hex": "ef8324e88db28fb27711256b4cc4bbdac611a4764385f3b7a3d67407e15cbf18"
+  },
+  "compare": "All raw output bits before each rising edge, including invalid messages; original Python vs isolated adapter Python checked in same run.",
+  "undefined_domains": [
+    "Combinational Div division by zero excluded: original Python raises ZeroDivisionError.",
+    "Pipeline dividers require external Verilog placeholder and are checked HDL-vs-HDL with separate mathematical tests, not claimed Python simulated.",
+    "Two-state simulation only; original incompletely assigned/latch signals retained."
+  ]
+}

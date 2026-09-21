@@ -1,0 +1,65 @@
+Traceback (most recent call last):
+  File "D:\work\VectorCGRA\.worktrees\VectorCGRA\sv\migration_tools\phase3_variants_export.py", line 65, in main
+    dut.apply(VerilogTranslationPass())
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\dsl\Component.py", line 530, in apply
+    pass_instance( s )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\backends\verilog\translation\VerilogTranslationPass.py", line 109, in __call__
+    s.traverse_hierarchy( top )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\backends\verilog\translation\VerilogTranslationPass.py", line 134, in traverse_hierarchy
+    s.translator.translate( m, m.get_metadata( c.translate_config ) )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\backends\generic\RTLIRTranslator.py", line 64, in translate
+    s.clear( tr_top, tr_cfgs )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\backends\generic\RTLIRTranslator.py", line 28, in clear
+    super().clear( tr_top )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\backends\generic\behavioral\BehavioralTranslatorL5.py", line 23, in clear
+    super().clear( tr_top )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\backends\generic\behavioral\BehavioralTranslatorL1.py", line 26, in clear
+    s.gen_behavioral_trans_metadata( tr_top )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\backends\generic\behavioral\BehavioralTranslatorL2.py", line 29, in gen_behavioral_trans_metadata
+    super().gen_behavioral_trans_metadata( tr_top )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\backends\generic\behavioral\BehavioralTranslatorL1.py", line 40, in gen_behavioral_trans_metadata
+    s._gen_behavioral_trans_metadata( tr_top )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\backends\generic\behavioral\BehavioralTranslatorL5.py", line 31, in _gen_behavioral_trans_metadata
+    m.apply( BehavioralRTLIRGenL5Pass( s.tr_top ) )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\dsl\Component.py", line 530, in apply
+    pass_instance( s )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\rtlir\behavioral\BehavioralRTLIRGenL1Pass.py", line 70, in __call__
+    upblk = visitor.enter( blk, upblk_info[-1] )
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\rtlir\behavioral\BehavioralRTLIRGenL1Pass.py", line 108, in enter
+    ret = s.visit( ast )
+          ^^^^^^^^^^^^^^
+  File "C:\Users\86521\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\rtlir\behavioral\BehavioralRTLIRGenL1Pass.py", line 140, in visit_Module
+    ret = s.visit( node.body[0] )
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86521\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\rtlir\behavioral\BehavioralRTLIRGenL1Pass.py", line 163, in visit_FunctionDef
+    ret.body.append( s.visit( stmt ) )
+                     ^^^^^^^^^^^^^^^
+  File "C:\Users\86521\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\rtlir\behavioral\BehavioralRTLIRGenL1Pass.py", line 192, in visit_AugAssign
+    value = s.visit( node.value )
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86521\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\rtlir\behavioral\BehavioralRTLIRGenL2Pass.py", line 232, in visit_Compare
+    right = s.visit( node.comparators[0] )
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86521\AppData\Roaming\uv\python\cpython-3.12-windows-x86_64-none\Lib\ast.py", line 407, in visit
+    return visitor(node)
+           ^^^^^^^^^^^^^
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\passes\rtlir\behavioral\BehavioralRTLIRGenL3Pass.py", line 43, in visit_Call
+    raise PyMTLSyntaxError( s.blk, node,
+pymtl3.passes.rtlir.errors.PyMTLSyntaxError: 
+In file D:\work\VectorCGRA\.worktrees\VectorCGRA\mem\ctrl\ContextSwitchRTL.py, Line 73, Col 50:
+  s.progress_reg_is_null @= (s.progress_reg == DataType(0, 0))
+                                              ^
+- BitStruct CgraData_32_1_1_1 has 4 fields but 2 arguments are given!

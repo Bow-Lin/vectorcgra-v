@@ -1,0 +1,23 @@
+Traceback (most recent call last):
+  File "D:\work\VectorCGRA\.worktrees\VectorCGRA\sv\migration_tools\phase3_variants_probe.py", line 30, in <module>
+    dut.elaborate()
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\dsl\Component.py", line 448, in elaborate
+    super().elaborate()
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\dsl\ComponentLevel2.py", line 617, in elaborate
+    s._elaborate_construct()
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\dsl\NamedObject.py", line 384, in _elaborate_construct
+    s._construct()
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\dsl\Component.py", line 69, in _construct
+    s.construct( *s._dsl.args, **kwargs )
+  File "D:\work\VectorCGRA\.worktrees\VectorCGRA\tile\TileWithStreamingLoadRTL.py", line 185, in construct
+    s.routing_crossbar.crossbar_outport[i] //= \
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\dsl\Connectable.py", line 55, in __ifloordiv__
+    host._connect_dispatch( s, other, s_connectable, o_connectable )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\dsl\ComponentLevel5.py", line 76, in _connect_dispatch
+    s._connect_signal_signal( o1, o2 )
+  File "D:\work\VectorCGRA\sys_lib\.venv\Lib\site-packages\pymtl3\dsl\ComponentLevel3.py", line 258, in _connect_signal_signal
+    raise InvalidConnectionError( f"Bitwidth mismatch {o1._dsl.Type.__name__} != {o2._dsl.Type.__name__}\n"
+pymtl3.dsl.errors.InvalidConnectionError: Bitwidth mismatch Bits3 != Bits4
+- In class <class 'VectorCGRA.tile.TileWithStreamingLoadRTL.TileWithStreamingLoadRTL'>
+- When connecting s.routing_crossbar.crossbar_outport[0] <-> s.ctrl_mem.send_ctrl.msg.routing_xbar_outport[0]
+Suggestion: make sure both sides of connection have matching bitwidth
