@@ -17,6 +17,12 @@ Use `-Task types` for independent type packing checks, `-Task sim` for the
 native/reference test, `-Task negative` for its deliberately incorrect expectation,
 `-Task timeout-negative` for permanently blocked output, and `-Task synth` for
 synthesis/check. `-Task all` runs all five design targets.
+`-Task phase2` runs the parameterized 2x2, 3x2, 4x4 and 64-bit/depth-variant
+system tests plus failure controls. Individual targets include `phase2-4x4`
+and `phase2-2x2-w64-c16-r8`. The frozen references are selected per profile;
+normal builds do not export or regenerate them. Component regressions and
+additional synthesis entries are documented in `tests/*README.md` and
+`PHASE2_REPORT.md`.
 Optional `-Liberty <NangateOpenCellLibrary_typical.lib>` also
 runs standard-cell mapping and area reporting. `-Jobs` limits C++ compilation
 parallelism (default 2). `OSS_CAD_SUITE` and `SV2V` environment variables can replace
@@ -61,7 +67,7 @@ Yosys, including `hierarchy -check` and `check -assert`. A separate initial
 the Verilog frontend. Icarus 14.0 rejected the named assignment patterns in the
 probe TB; it is not the selected simulation path.
 
-The fixed generated core/reference emit width and UNOPTFLAT warnings in Verilator.
+The native hierarchy and frozen references emit width and UNOPTFLAT warnings in Verilator.
 The full-design simulation adds `-Wno-fatal`, retaining these warnings in
 `build/sim/verilate.log`. It does not suppress the warning text, remove logic, or
 relax testbench comparisons. Syntax errors, runtime convergence errors, checker
@@ -74,3 +80,11 @@ constraints are BUF_X1 driving cells and 5.0 fF output loads. Final mapped check
 loads the Liberty cell models before `check -mapped -assert`. This stage reports
 area and structural validity, not a timing/frequency qualification. Unknowns are
 not replaced by constants by this build script.
+
+The additional full-DUT parameter checks are available from the worktree root
+as `./sv/tests/check_phase2_synthesis.ps1`: 4x4, the 64-bit/control-depth-16/
+register-depth-8 variant, and an illegal-parameter negative control. They run
+generic synthesis and strict structural checking without standard-cell mapping
+or timing estimation. The 12 configurations in
+`./sv/tests/check_native_noc_synthesis.ps1` instead check only the common/NoC
+frontend and structure. Recorded stage-2 results are in `../PHASE2_REPORT.md`.

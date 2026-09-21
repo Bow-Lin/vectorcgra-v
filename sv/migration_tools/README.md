@@ -88,3 +88,18 @@ No source RTL fixes or the later B/C2 optimizations are included. The first
 vector-export attempt failed while packing Python `int` list elements in
 the migration script; explicit Bits3/Bits4/Bits2 construction fixed that
 script-only error before the successful run. No baseline RTL was changed.
+
+## Phase 2 migration tools
+
+`phase2_export.py` freezes separate unmodified ac96 profiles for 2x2, 3x2,
+4x4 and the 64-bit/control-depth-16/register-depth-8 variant. Each profile
+retains its exact exporter snapshot, source hashes, packed fields and replay
+data. `phase2_testbench.py` was the one-time scaffold for the checked-in
+`tests/phase2_tb_cgra_scalar.sv`; the maintained test is compiled directly.
+
+`phase2_port_support.py` helped extract baseline controller/memory blocks,
+replace type and module names, and restore parameter expressions during the
+port. It is not a hardware generator used by Make, and is not the source of
+truth for subsequent edits to `rtl/`. Later corrections and integration are
+maintained in the checked-in SystemVerilog. Final phase-2 coverage and evidence
+are described in `../PHASE2_REPORT.md`.

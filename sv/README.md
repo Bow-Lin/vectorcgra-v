@@ -1,17 +1,20 @@
 # VectorCGRA SystemVerilog 工程
 
-第一阶段目标是单个 CGRA、2×2 Tiles 的独立运行。后续阶段见 [MIGRATION_PLAN.md](MIGRATION_PLAN.md)，实施记录见 [EXPERIMENT_LOG.md](EXPERIMENT_LOG.md)。
+当前已完成第二阶段原生参数化单 CGRA，保留第一阶段 2×2 运行入口。分阶段范围见 [MIGRATION_PLAN.md](MIGRATION_PLAN.md)，实施记录见 [EXPERIMENT_LOG.md](EXPERIMENT_LOG.md)。
 
 ## 当前实现
 
-- 顶层：`cgra_2x2`，源码 `rtl/cgra/cgra_2x2.sv`。
-- 核心：`rtl/fixed/cgra_2x2_core.sv`，来自 `ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b` 的固定展开 RTL。106 个模块、13 个结构体仅重命名以隔离命名空间，没有修改组合逻辑、状态机、接口或寄存器边界。
-- 公共类型和编码：`rtl/common/cgra_types_pkg.sv`，用于原生 SV 配置开发。
+- 参数化顶层：[`cgra_scalar`](rtl/cgra/cgra_scalar.sv)，通过 `COLS`、`ROWS`、`DATA_W`、存储深度等参数构造硬件；Tile、bank 和控制环由 SV 的 generate 生成。
+- 兼容入口：`cgra_2x2`，端口不变，内部调用 `cgra_scalar` 的默认 2×2 配置。
+- 直接维护的模块按 `rtl/common/`、`fu/`、`mem/`、`noc/`、`tile/`、`controller/`、`cgra/` 分类。正常 DUT 文件列表不再包含 `rtl/fixed/cgra_2x2_core.sv`；该文件只保留作第一阶段历史和组件测试参照。
+- 参数类型规则：`rtl/common/cgra_profile_defs.svh` 与 `cgra_profile.svh`；旧 `cgra_types_pkg.sv` 继续保存 2×2 的公共编码兼容接口。
 - 测试：独立 SV 测试平台及已归档的配置、参照数据。正常仿真和综合直接编译 HDL，不运行 PyMTL 或项目 Python 生成器；允许 EDA 工具内部使用 Python。
 
-这是固定实例的第一阶段工程。所有核心源码已经以 HDL 形式保存，可直接阅读和修改；尚未逐模块手工整理、恢复通用参数化。请勿将其等同于全项目迁移完成。`reference/` 是冻结参照；后续开发修改 `rtl/`，不要同步修改参照以掩盖差异。
+当前范围仍是单 CGRA 标量配置：Adder/Mul/Mem/Nah、四邻接 mesh、控制环及组合访问数据 bank。向量、浮点、其他 Tile 变体、DMA 和多 CGRA 尚按后续阶段推进。`reference/` 是冻结参照；后续开发修改 `rtl/`，不要同步修改参照以掩盖差异。
 
-## 固定配置与端口
+第二阶段参数点、实际验证结果及合法范围见 [PHASE2_REPORT.md](PHASE2_REPORT.md)。3×2 用于验证原 `CgraRTL(width, height)` 已有的非方形支持；未修改 Python 架构以增加该能力。
+
+## 默认 2×2 配置与端口
 
 | 配置 | 数值 |
 |---|---|
@@ -31,7 +34,7 @@
 
 单 CGRA 配置使用内部 NoC 回环。原接口中 `recv_from_inter_cgra_noc__rdy`、`send_to_inter_cgra_noc__val/msg` 未被基线驱动，不能据这些端口观察系统状态。它们仍保留在顶层；测试只对此三个输出作固定排除，不按 val 屏蔽其他输出消息。
 
-## 第一阶段运行用例
+## 兼容 2×2 运行用例
 
 测试通过 CPU 接口写配置和数据，执行以下程序：
 
@@ -55,7 +58,7 @@
 | `migration_tools/` | 迁移取证脚本，正常构建不调用 |
 | `build/` | 中间产物和完整日志，不入 Git |
 
-`tests/` 中，`tb_cgra_2x2_scalar.sv` 是 2×2 系统自检测试，`tb_cgra_types.sv` 检查类型与编码，`scalar_workload_pkg.sv` 构造测试配置。输入向量仍放在 `vectors/`，工具安装自检放在 `scripts/probes/`。
+`tests/` 中，`tb_cgra_2x2_scalar.sv` 是原 2×2 系统自检，`phase2_tb_cgra_scalar.sv` 是参数化全阵列自检，另有类型编码、Tile/FU、寄存器、交叉开关及控制环测试。输入向量仍放在 `vectors/`，工具安装自检放在 `scripts/probes/`。
 
 ## 运行
 
@@ -69,6 +72,8 @@
 
 这会运行类型编码检查、两轮系统仿真、错误预期负测、永久反压超时负测及 Yosys 通用综合检查。工具路径只表示本机安装位置，不依赖该路径下的 Python 项目。`-Task sim` 只运行系统仿真；`-Task probe` 验证工具语言支持。
 
+将 `-Task all` 换成 **`-Task phase2`**，会运行 2×2、3×2、4×4 以及 2×2/64 位/控制深度 16/寄存器深度 8 四个参数点，并检查故意错误和永久反压失败。单独运行 4×4 使用 `-Task phase2-4x4`。每个参数点都经过全部 Tile，独立检查算术与访存结果，并与其自己的 ac96 参考逐周期对照；详细用例见 [tests/phase2_README.md](tests/phase2_README.md)。
+
 若需标准单元面积，在同一命令中使用 `-Task synth-mapped`，并增加：
 
 ```powershell
@@ -77,7 +82,7 @@
 
 Windows 已验证组合为 MSYS2 Verilator 5.050、Clang++ 22.1.8、GNU Make 4.4.1、sv2v 0.0.13、Yosys 0.69+62。Unix 入口为 `make -C sv all`，本轮未在 Unix 实测。更详细的参数和本机编译适配见 [scripts/README.md](scripts/README.md)。
 
-## 已完成的验证
+## 第一阶段历史验证
 
 | 检查 | 结果 |
 |---|---|
@@ -89,7 +94,7 @@ Windows 已验证组合为 MSYS2 Verilator 5.050、Clang++ 22.1.8、GNU Make 4.4
 | 失败测试 | 错误预期触发失败；永久 West 反压在第 200 周期超时；均验证非零退出 |
 | Yosys 综合 | 层级检查、通用网表检查及标准单元映射后检查通过 |
 
-Nangate45 typical 条件下，当前固定设计的标准单元总面积为 **773,152.408 µm²**，标准单元数 **474,566**，其中 DFF_X1 为 **49,228**。该计数已按映射网表递归到标准单元叶节点独立核验，不包含层次实例。本阶段没有测量最高频率，也不与此前不同配置的 4×4 优化结果比较。
+Nangate45 typical 条件下，第一阶段固定设计的标准单元总面积为 **773,152.408 µm²**，标准单元数 **474,566**，其中 DFF_X1 为 **49,228**。这是 `ff09971` 的历史测量，不作为当前参数化设计的新面积结果。该计数已按映射网表递归到标准单元叶节点独立核验，不包含层次实例。第一阶段没有测量最高频率，也不与此前不同配置的 4×4 优化结果比较。
 
 本轮是所选 Verilator 二态语义下的有限程序验证，不是四态 X 语义或所有合法程序的证明。源 RTL 的位宽、组合依赖和未驱动警告保留在日志中，脚本没有用 `setundef` 或补零改写硬件。完整日志在 `build/`，可追溯摘要在 `results/`；26 份关键日志与统计已保存到 `results/phase1-evidence.zip`，逐文件哈希见 `results/evidence-manifest.json`，后续重跑不会覆盖该归档。
 

@@ -86,3 +86,25 @@
 - 几何验收为 2×2、4×4、3×2；测试闭环经过所有 Tile，Tile 0 跨 bank load/store，中间执行加法/乘法并由末 Tile 多播。另增加 2×2/64 位/控制深度 16/寄存器深度 8 的组合，验证不能仅按阵列尺寸机械替换常量。
 - 明确保留 ac96 的未驱动 const clear、禁用 DMA 和单 CGRA 外部 NoC 端口限制，不用补零改变语义；ring 的 VC/credit 参数在原 Python 构造中并未完整传播，本阶段明确约束为 2/2。
 - 实施和集成验证进行中；后续 M07 记录实际通过项、失败修正、覆盖边界及最终结果，当前不据源码存在宣称验收通过。
+
+## M07：模块替换、参数恢复与集成修正
+
+- 计划提交 `c2a05a0`；独立参考提交 `a2162a5` 冻结四个参数点的 ac96 HDL、完整来源 manifest、逐字段位号、配置包及 Python 周期轨迹。参考导出器快照随各参数点保存；生成资产保留原始 CRLF/空白以维护 SHA，空白检查不改写这些取证文件，迁移脚本另外检查。
+- 维护的 DUT 现由 30 个原生 SV 模块组成。普通/bypass 队列、RF、Channel、仲裁、分组交换与控制环恢复消息位宽/节点数/深度参数；FU、本地存储、静态 crossbar 和 Tile 恢复数据宽度、控制深度、寄存器深度及 ID 字段。主智能体以共享 profile 类型连接 Controller、数据存储和原生 mesh generate，`cgra_2x2` 改调 `cgra_scalar`；旧测试只更新内部链观测路径，原测试数据/判据保持。
+- 用户补充“非方形仅在原架构支持时验证”。确认原 `CgraRTL(width,height)` 支持，且未修改的 ac96 3×2 已真实执行全部六 Tile 的闭环，因此保留该兼容性点，不扩展原架构范围。
+- 首轮系统运行：2×2 为 134×489 位、3×2 为 158×563 位、4×4 为 286×789 位、64 位参数变体为 134×770 位，原生 HDL/独立 ac96 HDL/Python 轨迹全部一致。每轮所有 Tile 完成，所有闭环链路各接受一次，结果分别为 28/−11、12/−27、−68/−107、28/−11。原 2×2 的阶段 1 测试也通过。
+- 独立测试：Tile 2000 次全输出采样；FU/RegisterCluster/两个静态 crossbar 各 1999 次；基础组件/5 节点环 500 周期；7/17 节点环各 800 周期。测试源码和复现入口均在 `tests/`，没有留在忽略的 build 中作为唯一副本。Tile 摘要在 `results/phase2-native-tile.json`；NoC 来源和有限覆盖说明在 `tests/native_noc_README.md`。
+- 第一次完整综合在 xbar 报 `route_val[9] already driven`：多个过程动态写全局二维数组，sv2v 展平后形成重叠驱动。`noc_contract` 改为每个静态数组元素单独赋值，保留原 if 条件的未知值语义，重新运行 500 周期组件差分通过；之后完整 2×2 Yosys synth/check 通过。初次失败日志保留为 `build/phase2-failures/synth-route-val-initial.log`；没有关闭检查、删去功能或补零。
+- NoC 独立综合入口还遇到本机 Yosys `hierarchy -chparam` 的内部 duplicate-module assertion，改用独立 `chparam` 后 `hierarchy` 的参数展开顺序；12 组 queue/channel/RF/xbar/ring 前端与结构检查均通过，全部 0 problems。
+- `area_report` 只读核对阵列/Controller/数据存储/GlobalReduce，发现容量检查使用 32 位 `2**GLOBAL_ADDR_W` 会错误拒绝 31/32 位地址宽。已改为 64 位容量运算；同时对参数错误使用 `initial if ... $fatal`，避免依赖 Verilator 可选的 `--assert` 开关。代理复核该 P2 已消除，无其他未处理 P1/P2。
+- 最终 RTL 冻结后，保存 `build/phase2-final-inputs.json`，失效五个生成的仿真可执行文件并重新执行 `-Task all` 与 `-Task phase2`，保证归档对应最终源码。只失效当前工作树 build 下指定的可执行文件，不改历史参考/源码/外部工具。最终结果、综合参数点及证据归档在 M08 收尾时记录。
+
+## M08：最终回归、综合与证据提交（2026-09-21）
+
+- 最终 `-Task all` 和 `-Task phase2` 均退出 0。重新编译后的四个参数点仍分别通过 134×489、158×563、286×789、134×770 位周期对照；每点两轮，独立算术结果和每个 Tile 的完成/内部链路检查通过。旧 2×2 回归为 134×489，类型样本通过。旧 2×2 与新增 3×2 各做故意错误和永久反压负测，均验证非零退出及指定文本；超时上限分别 200 和 300 周期。
+- `synth_tools` 追加完整原生 DUT 的 4×4、64 位/CTRL=16/REG=8 综合入口 `tests/check_phase2_synthesis.ps1`。`sv2v → Yosys synth -noabc → check -assert` 两项分别用时 253.69 和 126.88 秒，全部 41 个外部端口保留，最终均为 0 problems；默认 2×2 的同类完整综合也通过。原有未驱动警告仍存在，最终结构检查不能解释为源 RTL 全部已定义。12 项 common/NoC 检查只包含前端及结构处理，与上述完整综合分开统计。
+- 非法 `TOTAL_STEPS=2048` 负控由 Yosys 以 exit 1 拒绝，工具输出 `$finish executed`；入口核对报错文件/行号及紧邻的指定 TOTAL_STEPS fatal 文本，确认拒绝原因正确。结果保存为 `results/phase2-profile-synthesis.json`。本阶段没有执行标准单元映射或 Fmax 测量，generic cell 统计不作为面积结果。
+- `area_report` 再次只读审查最终参数、构建依赖、测试和综合证据，发现取证 P2：部分已测 CRLF 文件若按原 Git 属性转成 LF，会与记录 SHA 不一致。主智能体仅调整 `.gitattributes`，对 12 个原生 Tile/FU/存储文件、3 个已测 TB 及 phase2 结果 JSON 保留原始字节；未修改已测 RTL/TB 内容。代理复核来源 SHA、综合日志/统计、负测位置和日常入口；没有其他待处理 P1/P2。已测文件中的普通行尾空格保持，空白检查允许这些非功能空格及 CRLF，不为格式修改已测字节。
+- 原生实现提交为 **`614dc8bd0806c8ae9f99734c7535e2d602f96eaa`**，共 51 个文件；提交前逐一核对 44 项已测源码/入口的原始 Git blob 与暂存 blob 一致。此次没有创建新子智能体；仍为 M06 中三位代理，主智能体负责集成和提交。
+- 新增 `results/phase2-summary.json`，记录基线/实现版本、工具、命令、四点结果、组件检查、完整综合范围和源码 SHA。归档 67 项运行、编译、综合日志/统计及摘要到 `results/phase2-evidence.zip`，大小 2,643,517 字节，SHA256 为 `975357845a1eb673df99fea14b461d9ea43c7375d65399741471d633633318b1`。每个条目的 SHA 在 `phase2-evidence-manifest.json`；从压缩包逐条读取核验，避免只记录工作目录文件哈希。
+- 第二阶段完成。`PHASE2_REPORT.md` 明确有限程序、二态比较及参数覆盖边界；向量/浮点、其他 Tile、多 CGRA 与 DMA/im2col 留待后续阶段。原 ac96 Python 源码、第一阶段参考/证据、原工作树的 NoC 优化分支和 master 未修改；没有推送或合并。
