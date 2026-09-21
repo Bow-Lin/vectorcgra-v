@@ -115,3 +115,34 @@
 - 复用三个既有子智能体，未新建用户任务或代理：`area_report`（Boyle）负责其余 15 个标量 FU；`noc_contract`（Bernoulli）负责向量、组合运算和既有定点 MAC IP；`synth_tools`（Socrates）负责 StreamingMem、上下文切换/流式 Tile 及局部状态机。主智能体负责浮点 IP、可配置 FU 组合、单 CGRA 集成、阶段回归、证据归档和 Git。
 - 文件按各子任务隔离到 `rtl/fu/{scalar,vector,combo,float,streaming}`、`rtl/tile/variants`、`reference/phase3/` 和 `tests/phase3/`。测试入口和长期用例留在 tests；迁移取证 Python 放在 migration_tools；日常工具链直接消费 HDL。新增维护源统一 LF，外部 IP 和冻结参考保留原字节及许可证。
 - 当前仅开始盘点和实施，不据模块数量宣称完成。后续逐项记录基线限制、接口选择、真实执行结果及阶段完成边界。
+
+## M10：FU、浮点 IP 和 Tile 变体实现与参考取证
+
+- 三位既有代理继续 M09 分工，未创建新代理。主智能体新增 `cgra_fu_catalog.svh`、`tile_flexible_fu_configurable`、`tile_programmable` 和 `cgra_programmable`；FU 顺序在构建时确定，数据、控制和内存端口保留原接口。聚合器保留原先 ready 按位 OR、最后一个有效 FU 输出优先的规则，没有引入仲裁或寄存器。共享 profile 增加 TILE_PORTS，四端口控制字仍为 119 位；原八端口 KingMesh 配置为 143 位。
+- `area_report` 完成 15 个剩余标量 FU 及流水除法辅助模块。默认 32 位对照 15 项原参考 HDL，其中 13 项另与原 Python 轨迹比较；64 位对照 13 项。Gep/LoopCounter 的两参数数据构造、ExtractPredicate 的动态类型表达式及 Div 的 FloorDiv 翻译不受本机 RTLIR 支持。代理保存失败输出，使用隔离的迁移适配器；三份适配 Python 逐周期与原 Python 全输出核对，Div 保留原 Python `//` 作为数值参照。原项目 Python 不改，适配后的 HDL 不冒称直接来自未改源码。
+- 标量最终运行：32 位 2,881 周期、每模块 303 位、929 项独立数学检查与 32 项流水结果检查；64 位 3,105 周期、每模块 424 位、950 项数学检查。故意扰动 oracle 和 watchdog 负控均被正常检查器拒绝。28 个参数/模块组合的 sv2v、Yosys proc/opt/check 通过；这类结构检查与完整 synth -noabc 区别记录。流水除法保留原固定 32 位和默认 2/4 周期。初期遗漏比较器常量、Ret 地址/数据位宽等原生移植错误在对照测试中修复，详见 phase3-scalar.json。
+- 主智能体迁移 FP 加/减/常量加/增量与乘/常量乘封装，复用 ac96 指定 HardFloat 子模块的原始 HDL，保存许可证、revision 和文件 SHA。参考导出在 Windows 盘符根目录遇到 PyMTL PlaceholderPass 的两处无限向上查找，先后中止本次启动的挂起进程，然后只在迁移脚本内使用根目录感知的 pass 子类；未修改安装工具。参考联合编译只做可逆命名空间隔离和诊断 `line` 文件名分隔符转换。
+- FP 取证确认 ac96 的 `exp_nbits+1, sig_nbits` 映射：8/23 参数实际使用 9 位指数、22 位小数，不是 IEEE binary32；4/11 参数使用 5 位指数、10 位小数。两组 FINC 常量都表示 0.5。保留 FMUL_CONST 不检查常量 val、FINC 的 ready-gated val。首轮原生连接误用 `.in`，按库原接口修为 `.in_`；独立数学 oracle 首次把负数乘零的预期写成正零，原生和参考均给负零，修正的是该预期而非 DUT。四组最终各 1,170 次全输出对照、168 项独立数值检查，四组完整 synth -noabc/check 及错误预期负控通过。
+- `synth_tools` 完成 StreamingMem、ContextSwitch 状态机、两个完整 Tile 及其控制存储/crossbar/常量队列变体。Context Tile 为四端口；原 Streaming Tile 的四端口构造本身类型不匹配，按原测试采用八端口 KingMesh。ContextSwitch 和完整 Tile 的原 RTLIR 翻译有限制，采用未改 Python 的顶层原始输入/输出轨迹加独立结果检查，没有捏造 HDL 参考。Context Tile 的 210 周期覆盖 12 次输出、两次完成和 TERMINATE 清空已满通道；Streaming Tile 190 周期覆盖十次请求/响应、两次完成及中途复位；两个完整 Tile 的 synth -noabc/check 通过。
+- `noc_contract` 迁移五个向量层级模块、五个组合 FU 和定点 MAC。原 PrlMulAdder 的标准 Ctrl4→子 Ctrl2 翻译不合法，用原架构合法的 Ctrl2 参照并记录显式字段映射，保留标准构造失败证据。原 DW02 乘法模型全部在 translate_off 区域，不能作为可综合 DUT；代理新增 `cgra_multp` 与 native MAC core，保留 Booth 部分积和压缩顺序，原 vendor 不改且仅作参考。九组位宽共 18,432 次对照原模型两路部分积，并独立核对 signed/unsigned 乘积，通过七组前端/结构检查。
+- 向量乘法发现原 Python 仿真和翻译后 HDL 的实质差异：8 位子乘积拼接时 HDL 将位移表达式压到 4 位，16/24 变为 0/8。本阶段以冻结 HDL 的硬件行为为兼容默认，明确不声称该项与原 Python 数学结果等价。差异最小示例、失败日志、原位宽表达式和最终原生处理单独归档，不以修改参照消除差异。
+
+## M11：可配置单 CGRA 集成与阶段回归
+
+- 主智能体把基准四 FU、增加 Logic 的五 FU 组合及 FP 组合接入 2×2。三种完整 CGRA 都已通过 134 周期 × 489 位原 HDL 对照，基准和 Logic 同时通过未改 Python 重播；FP 使用真实原 HardFloat HDL，不声称纯 Python 仿真。基准/FP 两轮结果 28、−11，Logic 两轮为 −32、7；每轮四个 Tile、四条链路、跨 bank 读写、主机及西边界反压均实际执行。三种完整系统的错误结果和永久反压负控均按指定错误非零退出。
+- 第一版系统负控 shell 在裸 MSYS bash 缺少 `/usr/bin` 而找不到 dirname；补全与其余入口相同的 PATH 后通过，不是 DUT 故障。浮点系统独立按实际基线格式编码整数计算，未借 DUT 输出构造预期。
+- 复用 `area_report` 增补完整 2×2 向量程序并审查 FU/profile；复用 `synth_tools` 增补两个 Tile 变体的完整 2×2 程序与 KingMesh 对角链路；复用 `noc_contract` 只读审查 FP 源码和证据。原分工之外的补充任务均在本阶段内，没有创建新代理。
+- `area_report` 审查发现组合顶层公开 VECTOR_FACTOR_POWER，但原 FlexibleFuRTL 不把该构造参数传给各子 FU，旧四 FU 也固定使用 0。主智能体增加明确的非零参数拒绝，不让不同 FU 悄悄使用不同因子；独立 FU 的参数保留。已通知其余代理冻结后的测试/哈希要求。为避免把旧输入的综合结果当成最终源码结果，中止正在执行的完整 CGRA 综合，待向量乘法位宽及参数 guard 固定后从头运行。
+
+## M12：最终检查、Git 提交与证据收尾
+
+- 最终原生源冻结后，主智能体重跑 Base/Logic/FP 三种系统及其错误结果/永久反压负控；`area_report` 完成向量系统和两项负控，`synth_tools` 完成 Context/Streaming 系统与周期 20 扰动负控。六种完整系统均实际通过：前五种各 134 周期 × 489 位，Streaming 160 周期 × 513 位。向量两个结果为 `84ff0004`、`04080a7e`；Streaming 两轮五个结果分别为 10/13/16/19/22 与 −8/−5/−2/1/4，两条对角链路都实际传输。Context Tile 的独立手算序列检查覆盖首轮六输出，第二轮使用完整原 Python 轨迹与事务计数，没有将全部 12 个都表述为额外手算验证。
+- 修改共享 profile 后，`-Task phase2` 完整重编并通过 2×2、3×2、4×4、64 位/CTRL16/REG8 四组参数回归，分别为 134×489、158×563、286×789、134×770 位；每点全部 Tile/闭环链路完成，3×2 两项负控也再次通过。历史 phase2 的 JSON、证据 zip 与原源码提交不改写，本次结果收入 phase3-summary。
+- 最终完整 CGRA 的六个参数/FU 配置全部通过 sv2v、Yosys `synth -noabc` 和最终 `check -assert=0`。各保留 41 个原端口，四端口输入/输出 702/685 位，八端口 750/733 位。六组用时分别为 Base 334.48、Logic 232.56、FP 148.08、Vector 116.73、Context 95.00、Streaming 112.91 秒；并发编译影响墙钟时间，这些数值不是性能指标。`check_guard.ps1` 另实际验证 VECTOR_FACTOR_POWER=1 非零退出，Yosys 报错行的前一行匹配指定 guard，不能用任意工具失败替代。
+- `noc_contract` 的 30 组向量/组合配置各 640 周期，共 19,200 次全输出比较及独立算术检查全部通过；部分积九形状共 18,432 样本通过。补充综合时，28 个非 MAC 参数点的早期层级 proc/opt/check 有 25 个因原未驱动子端口/字段失败，三种 VectorMul 叶模块通过。保存这些失败，再走普通 proc/flatten/opt/synth -noabc/check，28 点最终均为 0，综合前后端口名称/方向/位宽全部一致且无黑盒。未使用 setundef 或补零；最终 0 不代表原未知值获得定义。七个 MAC/乘法器参数点的前端/结构检查与上述完整综合分别登记。
+- `area_report` 复核组合器参数、最后有效输出优先、ready 聚合、访存绑定；参数 guard 的 P2 已关闭。`synth_tools` 复核 CGRA 与 KingMesh 连线、最终综合位宽算法及来源；49 个 manifest 的 3,352 条原始源 SHA 和 100 个明确产物 SHA 均一致。`noc_contract` 只读审查 FP 原封装、格式与独立预期、四项综合来源，无待处理 P1/P2。标量原始导出与后来 namespace/resume 转换明确分开；向量 30 个成功参照的历史 exporter 快照与各自 manifest SHA 全部一致，不用当前演进脚本改写历史来源。复用原三位代理，没有新建代理或用户任务。
+- 参照提交 **`9daf3ec`** 保存 356 个参考/向量/取证项，逐一核对暂存 blob 与原始工作文件字节一致。实现提交 **`d71a2bb69b8f0fe22fc1d1bd29562ea4ed9df9c1`** 保存原生模块、IP 来源、profile 与文件列表；同时移除四个与 `original.v` SHA 完全相同的 `__pickled.v` 临时副本，并局部忽略此类重复导出物，冻结原参考内容保留。
+- 验证提交 **`17aaefab8bfceb245874dfd28aaa28b4f0c08808`** 保存所有 tests/phase3 用例、日常 Make/PowerShell 入口与组件结果。提交前发现两个 PowerShell 生成的综合 JSON 会被 Git 从 CRLF 转成 LF，给 `tests/phase3/**/*.json` 设置 `-text` 并重新暂存，112 项暂存文件与原字节逐一核对通过。没有改动已测 RTL。Make 目标展开和所有 shell 语法检查通过；各实际运行命令分别完成，不把 Make dry-run 记作仿真通过。
+- 主智能体生成 `results/phase3-summary.json` 与证据归档，记录 baseline、实现/验证提交、三位代理分工、六系统、四参数回归、源码哈希及限制。`phase3-evidence.zip` 含 503 个条目，10,893,363 字节，SHA256 为 `cb8d254ccd58609e0eed0a284246c690e80f82755d2f06b31b1643d171bfe5c0`；逐条从 zip 读回核验，清单独立保存。未测标准单元面积/Fmax，未修改原 Python，未推送或合并 master。第四阶段的多 CGRA、跨 CGRA 迁移、DMA/im2col 仍待执行。
+
+- 最后复用 `area_report` 独立审查整体汇总、源码与归档。503 个条目、六系统、四参数回归和对应源码 SHA 均匹配，89 条 RTL SHA 同时匹配实现提交。代理发现机器 JSON 顶层 flow 标签可能把七项 MAC 结构检查混同为完整综合的 P2；提交 `930c178` 将其拆为 extended_profiles_flow 与 mac_flow，并同步生成脚本。逐字段核对仅标签变化，脚本实际运行命令与 `17aaefa` 完全相同，因此不重复硬件测试；随后重新收集汇总和 zip，以上尺寸/SHA 已更新为最终版本。主智能体另核对七份结果中 421 条运行源码 SHA，与当前工作树全部一致；参数负控和六系统综合使用相同转换输入。

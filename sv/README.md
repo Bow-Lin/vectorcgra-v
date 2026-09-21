@@ -1,16 +1,17 @@
 # VectorCGRA SystemVerilog 工程
 
-当前已完成第二阶段原生参数化单 CGRA，保留第一阶段 2×2 运行入口。分阶段范围见 [MIGRATION_PLAN.md](MIGRATION_PLAN.md)，实施记录见 [EXPERIMENT_LOG.md](EXPERIMENT_LOG.md)。
+当前已完成第三阶段：在原生参数化单 CGRA 上增加完整 FU 目录、浮点与向量运算，以及上下文切换/流式加载 Tile。保留第一阶段 2×2 和第二阶段标量入口。阶段结果见 [PHASE3_REPORT.md](PHASE3_REPORT.md)，分阶段范围见 [MIGRATION_PLAN.md](MIGRATION_PLAN.md)，实施记录见 [EXPERIMENT_LOG.md](EXPERIMENT_LOG.md)。
 
 ## 当前实现
 
 - 参数化顶层：[`cgra_scalar`](rtl/cgra/cgra_scalar.sv)，通过 `COLS`、`ROWS`、`DATA_W`、存储深度等参数构造硬件；Tile、bank 和控制环由 SV 的 generate 生成。
+- 可配置顶层：[`cgra_programmable`](rtl/cgra/cgra_programmable.sv)，通过 `FU_COUNT`、`FU_KINDS` 选择 FU 列表，通过 `TILE_VARIANT` 选择 Base/Context/Streaming Tile；DUT 文件列表为 `filelists/phase3.f`。
 - 兼容入口：`cgra_2x2`，端口不变，内部调用 `cgra_scalar` 的默认 2×2 配置。
 - 直接维护的模块按 `rtl/common/`、`fu/`、`mem/`、`noc/`、`tile/`、`controller/`、`cgra/` 分类。正常 DUT 文件列表不再包含 `rtl/fixed/cgra_2x2_core.sv`；该文件只保留作第一阶段历史和组件测试参照。
 - 参数类型规则：`rtl/common/cgra_profile_defs.svh` 与 `cgra_profile.svh`；旧 `cgra_types_pkg.sv` 继续保存 2×2 的公共编码兼容接口。
 - 测试：独立 SV 测试平台及已归档的配置、参照数据。正常仿真和综合直接编译 HDL，不运行 PyMTL 或项目 Python 生成器；允许 EDA 工具内部使用 Python。
 
-当前范围仍是单 CGRA 标量配置：Adder/Mul/Mem/Nah、四邻接 mesh、控制环及组合访问数据 bank。向量、浮点、其他 Tile 变体、DMA 和多 CGRA 尚按后续阶段推进。`reference/` 是冻结参照；后续开发修改 `rtl/`，不要同步修改参照以掩盖差异。
+当前范围为单 CGRA；包含标量、向量、归约、组合、定点 MAC、浮点和流式访存 FU，及原架构的 Context/Streaming Tile。多 CGRA、跨 CGRA 任务迁移与 DMA/im2col 留待第四阶段。`reference/` 是冻结参照；后续开发修改 `rtl/`，不要同步修改参照以掩盖差异。原 FP 格式及向量乘法的 Python/HDL 差异保留并单独登记，使用前请查第三阶段报告的兼容边界。
 
 第二阶段参数点、实际验证结果及合法范围见 [PHASE2_REPORT.md](PHASE2_REPORT.md)。3×2 用于验证原 `CgraRTL(width, height)` 已有的非方形支持；未修改 Python 架构以增加该能力。
 
@@ -73,6 +74,8 @@
 这会运行类型编码检查、两轮系统仿真、错误预期负测、永久反压超时负测及 Yosys 通用综合检查。工具路径只表示本机安装位置，不依赖该路径下的 Python 项目。`-Task sim` 只运行系统仿真；`-Task probe` 验证工具语言支持。
 
 将 `-Task all` 换成 **`-Task phase2`**，会运行 2×2、3×2、4×4 以及 2×2/64 位/控制深度 16/寄存器深度 8 四个参数点，并检查故意错误和永久反压失败。单独运行 4×4 使用 `-Task phase2-4x4`。每个参数点都经过全部 Tile，独立检查算术与访存结果，并与其自己的 ac96 参考逐周期对照；详细用例见 [tests/phase2_README.md](tests/phase2_README.md)。
+
+使用 **`-Task phase3`** 运行第三阶段全部组件和系统仿真；只运行六种完整 CGRA 用例使用 **`-Task phase3-system`**。完整阵列的通用综合另执行 `sv/tests/phase3/system/check_synthesis.ps1`。第三阶段用例、操作命令和原有行为限制见 [tests/phase3/system/README.md](tests/phase3/system/README.md) 与 [PHASE3_REPORT.md](PHASE3_REPORT.md)。
 
 若需标准单元面积，在同一命令中使用 `-Task synth-mapped`，并增加：
 

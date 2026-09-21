@@ -1,0 +1,54 @@
+{
+  "timestamp_utc": "2026-09-21T11:26:03.1139731Z",
+  "flow": "sv2v -> Yosys synth -noabc -> check -assert",
+  "profiles": [
+    {
+      "log_sha256": "e49457778c89422c5cd9331d5e4ae34d72a335ccf38c477bd0f3e66ff6bc98dc",
+      "profile": "add-e8-s23",
+      "status": "passed",
+      "final_problems": 0,
+      "stat_sha256": "67a9f3d045938128e58bf84ac885bb666555f6888a4b76d12b7a9616e13c39ec"
+    },
+    {
+      "log_sha256": "d5bbf1cd9641bf93311a63bbe603f32072c198de8693667816a00901c36c5bb4",
+      "profile": "mul-e8-s23",
+      "status": "passed",
+      "final_problems": 0,
+      "stat_sha256": "e1582c822713653b87ba231cccce6e80eae19b674d9716c1a4325caf77e9291b"
+    },
+    {
+      "log_sha256": "11be71166b133bf495edc86ce570c2f8aeb80ee6689f96bf6c93923f8c298fb2",
+      "profile": "add-e4-s11",
+      "status": "passed",
+      "final_problems": 0,
+      "stat_sha256": "5f5568c60d1d627945cc20fe34595926e870abae295415d21d26304d63b1e9b7"
+    },
+    {
+      "log_sha256": "85b7ee2eaf0687ecb3319f2715e7ac96f4b159d6c4b0542e5e07fa600ecfe6a8",
+      "profile": "mul-e4-s11",
+      "status": "passed",
+      "final_problems": 0,
+      "stat_sha256": "f9d0b24bb725cf72067a669588473d3d2211f8dc046d80235c615dad291889f7"
+    }
+  ],
+  "schema": 1,
+  "source_sha256": {
+    "rtl/vendor/hardfloat/HardFloat_primitives.v": "3273444d956fe82b01ba074ed6c22441d957dc7be02990133dd7a83efb07845d",
+    "rtl/vendor/hardfloat/isSigNaNRecFN.v": "dfec25b11b197b767d15b0e28d56b4742c7329668239cdf14d324ddac0950439",
+    "rtl/vendor/hardfloat/HardFloat_rawFN.v": "f219b1594ce25df5790af748bf2bcfdb6ff8a2ad4806c447b1dbeffcdecc071a",
+    "rtl/vendor/hardfloat/fNToRecFN.v": "146e50014d986df605ed59a69425cd6dc19750df3acdd083f61bff7cf51ac6a3",
+    "rtl/vendor/hardfloat/recFNToFN.v": "9a1cb98579a715965aebf9faab6cb5851154e8284d6af7ace594a0d6cc87adf8",
+    "rtl/vendor/hardfloat/addRecFN.v": "8e299e624d7f20c752bb3f59b6ae1ae94685244df20fe2ac274b86f93d87e488",
+    "rtl/vendor/hardfloat/mulRecFN.v": "bff24e22929c49d0f50f70511a93388c784faae9a578cfc79e8fe322cf60cf5a",
+    "rtl/fu/float/cgra_hardfloat_fn.sv": "fc52932df3a81ecfc90edd1d2c51c991e344213db5165d910700ab1205392d4d",
+    "rtl/fu/float/tile_fp_fu.sv": "1a9752cc821d167b5f315806d957695cb62d31fe1b6cf4177923d5cb45751c9b",
+    "rtl/fu/float/tile_fp_add.sv": "f48e19915e51ac4174f79ddb13b3dd54d58c9aacb2043ce34fd34a842922f476",
+    "rtl/fu/float/tile_fp_mul.sv": "7a11946a3f26dfc5771b4b81e073c73b63634827bd73a311b03ca7d1a743506e",
+    "filelists/phase3_float.f": "3a1b67882cfd42d3a4a30ef26e8c1f9ea2e280a57097fe8cd8e2d56f70d73631",
+    "rtl/common/cgra_profile.svh": "abe6d5dc397a3fbdf56801ef5db185e9575734fe0d6c8eaed97ff6da97656e92",
+    "rtl/common/cgra_profile_defs.svh": "e084a0a74d52bf8c32ca4d846dcf666d0ccc4bd5c2f2d1e7ce669b5d6b6c44ee"
+  },
+  "frequency_measured": false,
+  "area_measured": false,
+  "status": "passed"
+}
