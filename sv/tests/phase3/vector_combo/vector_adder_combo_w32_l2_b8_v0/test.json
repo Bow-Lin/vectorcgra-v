@@ -1,0 +1,25 @@
+{
+  "label": "vector_adder_combo_w32_l2_b8_v0",
+  "case": "vector_adder_combo",
+  "reference": "reference/phase3/vector_combo/vector_adder_combo_w32_l2_b8_v0",
+  "native_module": "tile_vector_adder_combo",
+  "parameters": {
+    "DATA_W": 32,
+    "LANES": 2,
+    "LANE_W": 8,
+    "VECTOR_FACTOR_POWER": 0
+  },
+  "opcodes": [
+    51,
+    71,
+    53,
+    73,
+    52,
+    72,
+    54,
+    74
+  ],
+  "legacy_ctrl_adapter": false,
+  "cycles": 640,
+  "seed": "3b123456"
+}

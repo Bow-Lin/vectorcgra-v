@@ -35,5 +35,6 @@ tests/tb_native_tile.sv -text
 tests/tb_native_tile_units.sv -text
 results/phase2*.json -text
 results/phase3*.json -text
+tests/phase3/**/*.json -text
 rtl/vendor/** -text
 rtl/fu/combo/vendor/** -text

@@ -1,0 +1,21 @@
+{
+  "label": "vector_mul_combo_w32_l8_b8_v0",
+  "case": "vector_mul_combo",
+  "reference": "reference/phase3/vector_combo/vector_mul_combo_w32_l8_b8_v0",
+  "native_module": "tile_vector_mul_combo",
+  "parameters": {
+    "DATA_W": 32,
+    "LANES": 8,
+    "LANE_W": 8,
+    "VECTOR_FACTOR_POWER": 0
+  },
+  "opcodes": [
+    55,
+    75
+  ],
+  "legacy_ctrl_adapter": false,
+  "cycles": 640,
+  "seed": "3b123456",
+  "oracle": "translated_hdl",
+  "python_equivalence": false
+}

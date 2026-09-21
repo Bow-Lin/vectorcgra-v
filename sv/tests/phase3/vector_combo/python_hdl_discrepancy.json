@@ -1,0 +1,31 @@
+{
+  "baseline_commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+  "source": "fu\\vector\\VectorMulComboRTL.py",
+  "source_sha256": "552dc3c48395ad64088594f86220edc972aa8573e08f723df48bcaf3776e33c4",
+  "records": [
+    {
+      "operation": 75,
+      "a": "00000100",
+      "b": "00000100",
+      "python_payload": "00010000",
+      "python_val": 1
+    },
+    {
+      "operation": 75,
+      "a": "ffffffff",
+      "b": "ffffffff",
+      "python_payload": "fffe0001",
+      "python_val": 1
+    },
+    {
+      "operation": 55,
+      "a": "ffffffff",
+      "b": "ffffffff",
+      "python_payload": "ffffff01",
+      "python_val": 1
+    }
+  ],
+  "oracle": "translated_hdl",
+  "python_equivalence": false,
+  "reason": "RTLIR gives shift-count multiplication the literal operand width; Python uses full integer multiplication."
+}

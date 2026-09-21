@@ -1,0 +1,18 @@
+{
+  "label": "four_inc_cmp_not_grant_w64_l4_b8_v0",
+  "case": "four_inc_cmp_not_grant",
+  "reference": "reference/phase3/vector_combo/four_inc_cmp_not_grant_w64_l4_b8_v0",
+  "native_module": "tile_four_inc_cmp_not_grant",
+  "parameters": {
+    "DATA_W": 64,
+    "LANES": 4,
+    "LANE_W": 8,
+    "VECTOR_FACTOR_POWER": 0
+  },
+  "opcodes": [
+    82
+  ],
+  "legacy_ctrl_adapter": false,
+  "cycles": 640,
+  "seed": "3b123456"
+}

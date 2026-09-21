@@ -1,4 +1,12 @@
-# Fixed 2x2 acceptance test
+# Native SystemVerilog tests
+
+Stage 3 tests are under [`phase3/`](phase3/system/README.md): scalar,
+vector/composite, floating-point, Tile variants and six complete single-CGRA
+profiles. Run `sv/scripts/run.ps1 -Task phase3` with the documented tool paths,
+or `-Task phase3-system` for the complete arrays. Stage 2 parameterized array
+tests remain documented in [phase2_README.md](phase2_README.md).
+
+## Fixed 2x2 acceptance test
 
 `tb_cgra_2x2_scalar.sv` tests the frozen `ac96a7` scalar profile, with
 `cgra_2x2` and `VectorCGRA2x2Reference` driven together. The profile has four

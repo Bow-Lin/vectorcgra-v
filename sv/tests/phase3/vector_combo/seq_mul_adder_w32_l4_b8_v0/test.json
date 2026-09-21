@@ -1,0 +1,21 @@
+{
+  "label": "seq_mul_adder_w32_l4_b8_v0",
+  "case": "seq_mul_adder",
+  "reference": "reference/phase3/vector_combo/seq_mul_adder_w32_l4_b8_v0",
+  "native_module": "tile_seq_mul_adder",
+  "parameters": {
+    "DATA_W": 32,
+    "LANES": 4,
+    "LANE_W": 8,
+    "VECTOR_FACTOR_POWER": 0
+  },
+  "opcodes": [
+    18,
+    30,
+    29,
+    19
+  ],
+  "legacy_ctrl_adapter": false,
+  "cycles": 640,
+  "seed": "3b123456"
+}

@@ -35,6 +35,30 @@ all: types sim negative timeout-negative synth
 .PHONY: phase2 phase2-negative $(addprefix phase2-,$(PHASE2_GEOMETRIES))
 phase2: $(addprefix phase2-,$(PHASE2_GEOMETRIES)) phase2-negative
 
+# Phase 3 runners consume maintained HDL and frozen text assets only.
+# They currently target the verified MSYS2 UCRT/Clang installation.
+.PHONY: phase3 phase3-system phase3-scalar phase3-vector-combo phase3-float phase3-tiles
+phase3: phase3-scalar phase3-vector-combo phase3-float phase3-tiles phase3-system
+phase3-scalar:
+	bash tests/phase3/scalar/run.sh w32
+	bash tests/phase3/scalar/run.sh w64
+phase3-vector-combo:
+	bash tests/phase3/vector_combo/run.sh
+	bash tests/phase3/vector_combo/run_multp.sh
+	bash tests/phase3/vector_combo/run_negative.sh
+phase3-float:
+	bash tests/phase3/float/run.sh
+phase3-tiles:
+	bash tests/phase3/tile_variants/run_components.sh
+	bash tests/phase3/tile_variants/run_tiles.sh
+phase3-system:
+	bash tests/phase3/system/run_base.sh
+	bash tests/phase3/system/run_logic.sh
+	bash tests/phase3/system/run_float.sh
+	bash tests/phase3/system/run_vector.sh
+	bash tests/phase3/system/run_negative.sh
+	bash tests/phase3/tile_variants/run_cgra.sh
+
 # Each geometry has its own frozen ac96 module namespace and executable.
 define PHASE2_RULE
 $(BUILD_DIR)/phase2/$(1)/cgra_sim$(EXEEXT): $(RTL_FILES) $(RTL_HEADERS) tests/phase2_tb_cgra_scalar.sv reference/phase2/$(1)/$(PHASE2_REF_$(1)).v filelists/rtl.f Makefile
