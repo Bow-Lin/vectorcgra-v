@@ -1,0 +1,231 @@
+{
+  "purpose": "Encoding-only nonzero field samples, not legal executable configuration. Every array index is nonzero and index 0 differs from the highest index; one-bit fields necessarily use 1.",
+  "oracle": "Actual custom PyMTL3 bitstruct.to_bits() from the frozen ac96 type factories",
+  "samples": [
+    {
+      "type": "data",
+      "nbits": 35,
+      "fields": {
+        "payload": 2309737967,
+        "predicate": 1,
+        "bypass": 1,
+        "delay": 1
+      },
+      "expected_hex": "44d5e6f7f"
+    },
+    {
+      "type": "control",
+      "nbits": 119,
+      "fields": {
+        "operation": 85,
+        "fu_in": [
+          1,
+          2,
+          3,
+          4
+        ],
+        "routing_xbar_outport": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        "fu_xbar_outport": [
+          1,
+          2,
+          3,
+          1,
+          2,
+          3,
+          1,
+          2
+        ],
+        "vector_factor_power": 3,
+        "is_last_ctrl": 1,
+        "write_reg_from": [
+          1,
+          2,
+          3,
+          2
+        ],
+        "write_reg_idx": [
+          1,
+          3,
+          7,
+          15
+        ],
+        "read_reg_towards": [
+          3,
+          2,
+          1,
+          2
+        ],
+        "read_reg_idx": [
+          2,
+          4,
+          8,
+          14
+        ]
+      },
+      "expected_hex": "558d1876543219e797b9f7319be842"
+    },
+    {
+      "type": "payload",
+      "nbits": 170,
+      "fields": {
+        "cmd": 45,
+        "data": {
+          "payload": 2309737967,
+          "predicate": 1,
+          "bypass": 1,
+          "delay": 1
+        },
+        "data_addr": 101,
+        "ctrl": {
+          "operation": 85,
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "routing_xbar_outport": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ],
+          "fu_xbar_outport": [
+            1,
+            2,
+            3,
+            1,
+            2,
+            3,
+            1,
+            2
+          ],
+          "vector_factor_power": 3,
+          "is_last_ctrl": 1,
+          "write_reg_from": [
+            1,
+            2,
+            3,
+            2
+          ],
+          "write_reg_idx": [
+            1,
+            3,
+            7,
+            15
+          ],
+          "read_reg_towards": [
+            3,
+            2,
+            1,
+            2
+          ],
+          "read_reg_idx": [
+            2,
+            4,
+            8,
+            14
+          ]
+        },
+        "ctrl_addr": 5
+      },
+      "expected_hex": "2d89abcdeff96ac68c3b2a190cf3cbdcfb98cdf4215"
+    },
+    {
+      "type": "host_packet",
+      "nbits": 191,
+      "fields": {
+        "src": 3,
+        "dst": 4,
+        "src_cgra_id": 1,
+        "dst_cgra_id": 1,
+        "src_cgra_x": 1,
+        "src_cgra_y": 1,
+        "dst_cgra_x": 1,
+        "dst_cgra_y": 1,
+        "opaque": 165,
+        "vc_id": 1,
+        "payload": {
+          "cmd": 45,
+          "data": {
+            "payload": 2309737967,
+            "predicate": 1,
+            "bypass": 1,
+            "delay": 1
+          },
+          "data_addr": 101,
+          "ctrl": {
+            "operation": 85,
+            "fu_in": [
+              1,
+              2,
+              3,
+              4
+            ],
+            "routing_xbar_outport": [
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8
+            ],
+            "fu_xbar_outport": [
+              1,
+              2,
+              3,
+              1,
+              2,
+              3,
+              1,
+              2
+            ],
+            "vector_factor_power": 3,
+            "is_last_ctrl": 1,
+            "write_reg_from": [
+              1,
+              2,
+              3,
+              2
+            ],
+            "write_reg_idx": [
+              1,
+              3,
+              7,
+              15
+            ],
+            "read_reg_towards": [
+              3,
+              2,
+              1,
+              2
+            ],
+            "read_reg_idx": [
+              2,
+              4,
+              8,
+              14
+            ]
+          },
+          "ctrl_addr": 5
+        }
+      },
+      "expected_hex": "39fd2ed89abcdeff96ac68c3b2a190cf3cbdcfb98cdf4215"
+    }
+  ]
+}

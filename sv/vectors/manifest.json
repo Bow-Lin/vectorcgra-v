@@ -1,0 +1,157 @@
+{
+  "baseline_commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+  "top": "VectorCGRA2x2Reference",
+  "trace_file": "baseline_trace.jsonl",
+  "trace_sha256": "763b141c8ac10963d7a84a8f7657a6e03acc58d3297baa10d38f2c9988ceaec0",
+  "sample_phase": "After driving inputs and evaluating combinational logic, immediately before rising edge",
+  "reset": "Three explicit rising edges per scenario; second scenario reuses same model and resets/reconfigures it",
+  "comparison_contract": "These are Python-reference observations, not evidence that HDL replay has passed. All active output bits including idle msg are recorded for full replay. Inactive inter-CGRA ports are excluded because baseline leaves them undriven. Any narrower cross-language valid-only check is limited functional evidence, not a replacement for the migration's full active-output cycle contract. PyMTL is two-state; HDL X/uninitialized-memory behavior is not established by this trace.",
+  "input_policy": "No boundary inputs; other seven boundary sinks ready=1; west[1] stalls first eight valid cycles; CPU stalls first six valid cycles then ready=(cycle%7>=2). Host request is held until accepted. Queries start after all four completions.",
+  "trace_rows": 134,
+  "scenarios": [
+    {
+      "name": "positive",
+      "input": 7,
+      "expected": 28,
+      "cycles_after_reset": 64,
+      "completion_order": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "responses": [
+        {
+          "cycle": 54,
+          "address": 16,
+          "data": 28,
+          "predicate": 1,
+          "hex": "080000b0000001c840000000000000000000000000000000"
+        },
+        {
+          "cycle": 55,
+          "address": 15,
+          "data": 7,
+          "predicate": 1,
+          "hex": "080000b0000000783c000000000000000000000000000000"
+        }
+      ],
+      "west_events": [
+        {
+          "cycle": 40,
+          "data": 28
+        }
+      ],
+      "link_events": [
+        {
+          "cycle": 29,
+          "src": 0,
+          "dst": 1,
+          "direction": "east",
+          "data": 7,
+          "predicate": 1
+        },
+        {
+          "cycle": 30,
+          "src": 1,
+          "dst": 3,
+          "direction": "north",
+          "data": 12,
+          "predicate": 1
+        },
+        {
+          "cycle": 31,
+          "src": 3,
+          "dst": 2,
+          "direction": "west",
+          "data": 36,
+          "predicate": 1
+        },
+        {
+          "cycle": 32,
+          "src": 2,
+          "dst": 0,
+          "direction": "south",
+          "data": 28,
+          "predicate": 1
+        }
+      ],
+      "host_initial_backpressure_valid_cycles": 6,
+      "west_initial_backpressure_valid_cycles": 8
+    },
+    {
+      "name": "negative_after_reset",
+      "input": 4294967290,
+      "expected": 4294967285,
+      "cycles_after_reset": 64,
+      "completion_order": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "responses": [
+        {
+          "cycle": 54,
+          "address": 16,
+          "data": 4294967285,
+          "predicate": 1,
+          "hex": "080000bfffffff5840000000000000000000000000000000"
+        },
+        {
+          "cycle": 55,
+          "address": 15,
+          "data": 4294967290,
+          "predicate": 1,
+          "hex": "080000bfffffffa83c000000000000000000000000000000"
+        }
+      ],
+      "west_events": [
+        {
+          "cycle": 40,
+          "data": 4294967285
+        }
+      ],
+      "link_events": [
+        {
+          "cycle": 29,
+          "src": 0,
+          "dst": 1,
+          "direction": "east",
+          "data": 4294967290,
+          "predicate": 1
+        },
+        {
+          "cycle": 30,
+          "src": 1,
+          "dst": 3,
+          "direction": "north",
+          "data": 4294967295,
+          "predicate": 1
+        },
+        {
+          "cycle": 31,
+          "src": 3,
+          "dst": 2,
+          "direction": "west",
+          "data": 4294967293,
+          "predicate": 1
+        },
+        {
+          "cycle": 32,
+          "src": 2,
+          "dst": 0,
+          "direction": "south",
+          "data": 4294967285,
+          "predicate": 1
+        }
+      ],
+      "host_initial_backpressure_valid_cycles": 6,
+      "west_initial_backpressure_valid_cycles": 8
+    }
+  ],
+  "script_sha256": "16b828d4415eec9cff575f79df84a6f0a0060ee81bcdbd032cdea846f8b4f893",
+  "reference_rtl_sha256": "f7d4479abe7b2305f21875a4ba82d685cb20d61275abbf4114786c57185487aa",
+  "python_executable": "D:\\work\\VectorCGRA\\sys_lib\\.venv\\Scripts\\python.exe",
+  "metadata_maintenance": "Clarified comparison scope only; original Python simulation and trace bytes unchanged."
+}

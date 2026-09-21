@@ -1,0 +1,12 @@
+# Preserve byte-level provenance across Windows/Linux checkouts.
+reference/** -text
+vectors/** -text
+rtl/fixed/** -text
+migration_tools/** -text
+
+# Native entry points must retain Unix newlines for portable Make/Shell use.
+Makefile text eol=lf
+scripts/** text eol=lf
+tb/** text eol=lf
+rtl/common/** text eol=lf
+rtl/cgra/** text eol=lf
