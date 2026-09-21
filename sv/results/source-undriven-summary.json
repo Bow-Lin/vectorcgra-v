@@ -1,0 +1,136 @@
+{
+  "schema": 1,
+  "flow_stage": "before Yosys optimization",
+  "unique_undriven_wire_warning_count": 642,
+  "groups": [
+    {
+      "source": "cgra_2x2_fixed, controller__dma_cmd__rdy",
+      "count": 1,
+      "example": "Warning: Wire cgra_2x2_fixed.\\controller__dma_cmd__rdy is used but has no driver."
+    },
+    {
+      "source": "cgra_2x2_fixed, controller__dma_done__msg",
+      "count": 8,
+      "example": "Warning: Wire cgra_2x2_fixed.\\controller__dma_done__msg [0] is used but has no driver."
+    },
+    {
+      "source": "cgra_2x2_fixed, controller__dma_done__val",
+      "count": 1,
+      "example": "Warning: Wire cgra_2x2_fixed.\\controller__dma_done__val is used but has no driver."
+    },
+    {
+      "source": "cgra_2x2_fixed, controller__recv_from_dma_spm_rd_req__msg",
+      "count": 32,
+      "example": "Warning: Wire cgra_2x2_fixed.\\controller__recv_from_dma_spm_rd_req__msg [0] is used but has no driver."
+    },
+    {
+      "source": "cgra_2x2_fixed, controller__recv_from_dma_spm_rd_req__val",
+      "count": 1,
+      "example": "Warning: Wire cgra_2x2_fixed.\\controller__recv_from_dma_spm_rd_req__val is used but has no driver."
+    },
+    {
+      "source": "cgra_2x2_fixed, controller__recv_from_dma_spm_wr_req__msg",
+      "count": 68,
+      "example": "Warning: Wire cgra_2x2_fixed.\\controller__recv_from_dma_spm_wr_req__msg [0] is used but has no driver."
+    },
+    {
+      "source": "cgra_2x2_fixed, controller__recv_from_dma_spm_wr_req__val",
+      "count": 1,
+      "example": "Warning: Wire cgra_2x2_fixed.\\controller__recv_from_dma_spm_wr_req__val is used but has no driver."
+    },
+    {
+      "source": "cgra_2x2_fixed, controller__recv_from_sram_load_response__msg",
+      "count": 32,
+      "example": "Warning: Wire cgra_2x2_fixed.\\controller__recv_from_sram_load_response__msg [0] is used but has no driver."
+    },
+    {
+      "source": "cgra_2x2_fixed, controller__recv_from_sram_load_response__val",
+      "count": 1,
+      "example": "Warning: Wire cgra_2x2_fixed.\\controller__recv_from_sram_load_response__val is used but has no driver."
+    },
+    {
+      "source": "cgra_2x2_fixed, controller__send_to_dma_spm_rd_resp__rdy",
+      "count": 1,
+      "example": "Warning: Wire cgra_2x2_fixed.\\controller__send_to_dma_spm_rd_resp__rdy is used but has no driver."
+    },
+    {
+      "source": "cgra_2x2_fixed, controller__send_to_sram_load_request_from_dma__rdy",
+      "count": 1,
+      "example": "Warning: Wire cgra_2x2_fixed.\\controller__send_to_sram_load_request_from_dma__rdy is used but has no driver."
+    },
+    {
+      "source": "cgra_2x2_fixed, controller__send_to_sram_store_request_from_dma__rdy",
+      "count": 1,
+      "example": "Warning: Wire cgra_2x2_fixed.\\controller__send_to_sram_store_request_from_dma__rdy is used but has no driver."
+    },
+    {
+      "source": "cgra_2x2_fixed, data_mem__recv_from_controller_spm_rd_req__msg",
+      "count": 32,
+      "example": "Warning: Wire cgra_2x2_fixed.\\data_mem__recv_from_controller_spm_rd_req__msg [0] is used but has no driver."
+    },
+    {
+      "source": "cgra_2x2_fixed, data_mem__recv_from_controller_spm_rd_req__val",
+      "count": 1,
+      "example": "Warning: Wire cgra_2x2_fixed.\\data_mem__recv_from_controller_spm_rd_req__val is used but has no driver."
+    },
+    {
+      "source": "cgra_2x2_fixed, data_mem__recv_from_controller_spm_wr_req__msg",
+      "count": 68,
+      "example": "Warning: Wire cgra_2x2_fixed.\\data_mem__recv_from_controller_spm_wr_req__msg [0] is used but has no driver."
+    },
+    {
+      "source": "cgra_2x2_fixed, data_mem__recv_from_controller_spm_wr_req__val",
+      "count": 1,
+      "example": "Warning: Wire cgra_2x2_fixed.\\data_mem__recv_from_controller_spm_wr_req__val is used but has no driver."
+    },
+    {
+      "source": "cgra_2x2_fixed, data_mem__send_to_controller_spm_rd_resp__rdy",
+      "count": 1,
+      "example": "Warning: Wire cgra_2x2_fixed.\\data_mem__send_to_controller_spm_rd_resp__rdy is used but has no driver."
+    },
+    {
+      "source": "cgra_2x2_fixed, recv_from_inter_cgra_noc__rdy",
+      "count": 1,
+      "example": "Warning: Wire cgra_2x2_fixed.\\recv_from_inter_cgra_noc__rdy is used but has no driver."
+    },
+    {
+      "source": "cgra_2x2_fixed, send_to_inter_cgra_noc__msg",
+      "count": 194,
+      "example": "Warning: Wire cgra_2x2_fixed.\\send_to_inter_cgra_noc__msg [0] is used but has no driver."
+    },
+    {
+      "source": "cgra_2x2_fixed, send_to_inter_cgra_noc__val",
+      "count": 1,
+      "example": "Warning: Wire cgra_2x2_fixed.\\send_to_inter_cgra_noc__val is used but has no driver."
+    },
+    {
+      "source": "Fixed2x2_ControllerRTL__d64e0dbf9e7d2441, recv_from_im2col_pkt__rdy",
+      "count": 1,
+      "example": "Warning: Wire Fixed2x2_ControllerRTL__d64e0dbf9e7d2441.\\recv_from_im2col_pkt__rdy is used but has no driver."
+    },
+    {
+      "source": "Fixed2x2_FlexibleFuRTL__6b922149d55f8d70, recv_pkt_from_controller__rdy",
+      "count": 1,
+      "example": "Warning: Wire Fixed2x2_FlexibleFuRTL__6b922149d55f8d70.\\recv_pkt_from_controller__rdy is used but has no driver."
+    },
+    {
+      "source": "Fixed2x2_TileRTL__0ef778cc16b69f0e, const_mem__clear",
+      "count": 1,
+      "example": "Warning: Wire Fixed2x2_TileRTL__0ef778cc16b69f0e.\\const_mem__clear is used but has no driver."
+    },
+    {
+      "source": "Fixed2x2_TileRTL__0ef778cc16b69f0e, element__recv_pkt_from_controller__msg",
+      "count": 191,
+      "example": "Warning: Wire Fixed2x2_TileRTL__0ef778cc16b69f0e.\\element__recv_pkt_from_controller__msg [0] is used but has no driver."
+    },
+    {
+      "source": "Fixed2x2_TileRTL__0ef778cc16b69f0e, element__recv_pkt_from_controller__val",
+      "count": 1,
+      "example": "Warning: Wire Fixed2x2_TileRTL__0ef778cc16b69f0e.\\element__recv_pkt_from_controller__val is used but has no driver."
+    }
+  ],
+  "generic_final_check_problems": 0,
+  "mapped_final_check_problems": 0,
+  "note": "These are source diagnostics, not post-optimization drivers. No setundef or explicit constant substitution is present in the flow.",
+  "log": "build/synth/generic.log"
+}

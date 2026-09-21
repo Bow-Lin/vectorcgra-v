@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "checks": {
+    "yosys_synthesis_check": "passed",
+    "sv2v_conversion": "passed",
+    "negative_nonzero_exit": "passed",
+    "simulation": "passed",
+    "read_slang_separate_probe": "passed"
+  },
+  "tools": {
+    "verilator": {
+      "version": "5.050",
+      "path": "C:/msys64/ucrt64/bin/verilator"
+    },
+    "cxx": {
+      "version": "clang 22.1.8",
+      "path": "C:/msys64/clang64/bin/clang++.exe"
+    },
+    "make": {
+      "version": "4.4.1",
+      "path": "C:/msys64/usr/bin/make.exe"
+    },
+    "sv2v": {
+      "version": "0.0.13",
+      "path": "D:/work/VectorCGRA/sys_lib/tools/sv2v-v0.0.13/sv2v-Windows/sv2v.exe"
+    },
+    "yosys": {
+      "path": "D:/work/VectorCGRA/sys_lib/tools/oss-cad-suite/bin/yosys.exe",
+      "git": "0edda7a3a-dirty",
+      "version": "0.69+62"
+    }
+  },
+  "project_python_invoked": false,
+  "tool_internal_python_allowed": true,
+  "parameters": {
+    "model_link_libraries": "-pthread",
+    "jobs": 2,
+    "yosys_runtime": "OSS suite bin/lib ahead of MSYS runtime",
+    "simulation_end_ns": 70,
+    "cxx_standard": "c++20",
+    "link_environment": "env -u LINK clang++"
+  },
+  "source_sha256": {
+    "scripts/probes/tb_tool_probe.sv": "ae3cc054d6f581fce70bfd5a13df41e23374622cfdf95a0494e77fe85bc3541e",
+    "scripts/probes/tool_probe.sv": "4dc1630138bfff774de3dfc492308430cf6a0e7c0b7c91febf1f1f376f6df32c"
+  },
+  "logs": [
+    "build/probe/run.log",
+    "build/probe/negative.log",
+    "build/probe/verilate.log",
+    "build/probe/compile.log",
+    "build/probe/synth.log"
+  ],
+  "observed_unsuccessful_alternatives": [
+    "GCC 16.1.0: basic_string move-constructor undefined references at link",
+    "Icarus 14.0: named assignment-pattern syntax errors in testbench",
+    "Clang64 Verilator binary: unsuccessful before model compilation; not selected"
+  ],
+  "command": "scripts/run.ps1 -Task probe -OssCadSuite D:/work/VectorCGRA/sys_lib/tools/oss-cad-suite -Sv2v D:/work/VectorCGRA/sys_lib/tools/sv2v-v0.0.13/sv2v-Windows/sv2v.exe -Jobs 2"
+}
