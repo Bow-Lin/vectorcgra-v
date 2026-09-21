@@ -1,5 +1,6 @@
 {
   "mac_profiles_passed": 7,
+  "mac_flow": "sv2v -> Yosys proc; opt; check -assert; stat (front-end/structural checks only)",
   "frequency_measured": false,
   "status": "pass",
   "area_measured": false,
@@ -27,7 +28,7 @@
     "rtl/common/cgra_profile.svh": "abe6d5dc397a3fbdf56801ef5db185e9575734fe0d6c8eaed97ff6da97656e92",
     "rtl/common/cgra_profile_defs.svh": "e084a0a74d52bf8c32ca4d846dcf666d0ccc4bd5c2f2d1e7ce669b5d6b6c44ee"
   },
-  "flow": "sv2v -> hierarchy -check -> proc -> flatten -> opt -> check -> synth -noabc -> check -assert -> stat",
+  "extended_profiles_flow": "sv2v -> hierarchy -check -> proc -> flatten -> opt -> check -> synth -noabc -> check -assert -> stat",
   "failed_profiles": 0,
   "schema": 1,
   "extended_profiles": [

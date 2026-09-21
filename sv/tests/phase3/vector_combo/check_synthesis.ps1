@@ -111,8 +111,9 @@ try{
 }finally{$env:PATH=$saved}
 $failed=@($results | Where-Object exit_code -ne 0)
 $summary=@{schema=1;status=$(if($failed.Count){'failed'}else{'pass'});mac_profiles_passed=7;
+  mac_flow='sv2v -> Yosys proc; opt; check -assert; stat (front-end/structural checks only)';
   extended_profiles=$results;source_sha256=$sourceHashes;
-  flow=$(if($HierarchicalOnly){'sv2v -> hierarchy -check -> proc -> opt -> check -assert -> stat'}else{'sv2v -> hierarchy -check -> proc -> flatten -> opt -> check -> synth -noabc -> check -assert -> stat'});
+  extended_profiles_flow=$(if($HierarchicalOnly){'sv2v -> hierarchy -check -> proc -> opt -> check -assert -> stat'}else{'sv2v -> hierarchy -check -> proc -> flatten -> opt -> check -> synth -noabc -> check -assert -> stat'});
   failed_profiles=$failed.Count;area_measured=$false;frequency_measured=$false}
 $jsonPath=Join-Path $PSScriptRoot $(if($HierarchicalOnly){'synthesis_hierarchical_results.json'}else{'synthesis_results.json'})
 [IO.File]::WriteAllText($jsonPath,($summary | ConvertTo-Json -Depth 12)+"`n",[Text.UTF8Encoding]::new($false))
