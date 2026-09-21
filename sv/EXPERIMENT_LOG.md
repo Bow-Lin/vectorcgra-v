@@ -77,3 +77,12 @@
 - M03 的旧独立构建副本、第一阶段摘要和 `phase1-evidence.zip` 保留 `tb/` 路径及原始哈希，作为 `ff09971` 的历史证据；不改写旧验证记录。
 - 从新路径执行 `scripts/run.ps1 -Task all`（工具路径和 Jobs=2 同 M03），进程退出码 0。Makefile 更新触发类型和系统测试重新编译；类型检查通过，两轮结果为 28 和 −11，HDL 对照及冻结 Python 数据重播均为 134 周期 × 489 位，错误预期和永久反压超时两项负测均按要求非零退出。RTL 和 RTL 文件列表未变，通用综合使用已有目标，没有重新综合或映射。
 - 当前路径、运行源码与日志 SHA256、执行命令和结果保存在 `results/tests-layout-summary.json`，与第一阶段历史摘要分开记录。
+
+## M06：启动参数化单 CGRA 迁移（2026-09-21）
+
+- 用户确认继续下一阶段 migration，而非新一轮面积优化。沿用 `codex/sv-migration`，起点为测试目录调整提交 `741dc5d`；原 NoC 优化分支和 master 不变。
+- 主智能体负责参数/类型规则、Controller/GlobalReduce、全局数据存储与 bank、原生阵列 generate、构建集成和 Git。复用 `/root/noc_contract`（Bernoulli）负责基础队列/RF/仲裁和 credit NoC，`/root/synth_tools`（Socrates）负责 FU/Tile/本地存储及静态交叉开关，`/root/area_report`（Boyle）负责独立 ac96 多参数参考和原生系统测试。没有新建子智能体或用户任务。
+- 采用逐模块保留原状态更新与组合语义、重新表达类型/位宽/实例数及连接规则的路线；去除固定哈希模块名和重复生成源注释。迁移期提取工具与参考导出工具保存在 `migration_tools/`，日常构建只读维护的 HDL。
+- 几何验收为 2×2、4×4、3×2；测试闭环经过所有 Tile，Tile 0 跨 bank load/store，中间执行加法/乘法并由末 Tile 多播。另增加 2×2/64 位/控制深度 16/寄存器深度 8 的组合，验证不能仅按阵列尺寸机械替换常量。
+- 明确保留 ac96 的未驱动 const clear、禁用 DMA 和单 CGRA 外部 NoC 端口限制，不用补零改变语义；ring 的 VC/credit 参数在原 Python 构造中并未完整传播，本阶段明确约束为 2/2。
+- 实施和集成验证进行中；后续 M07 记录实际通过项、失败修正、覆盖边界及最终结果，当前不据源码存在宣称验收通过。
