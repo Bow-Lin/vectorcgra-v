@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "experiment": "M05",
+  "status": "passed",
+  "verified_at": "2026-09-21T16:32:30.2975844+08:00",
+  "previous_commit": "ff099718a7bd5f77f7ceaebf27aed2146f7b43ba",
+  "command": "./sv/scripts/run.ps1 -Task all -OssCadSuite D:/work/VectorCGRA/sys_lib/tools/oss-cad-suite -Sv2v D:/work/VectorCGRA/sys_lib/tools/sv2v-v0.0.13/sv2v-Windows/sv2v.exe -Jobs 2",
+  "exit_code": 0,
+  "moved_files": [
+    {
+      "from": "tb/README.md",
+      "to": "tests/README.md",
+      "sha256": "087af4dc98285e78fd559f9180e031e4fdf6e9da48ef442dada6b44da197fe73",
+      "contents_unchanged": true
+    },
+    {
+      "from": "tb/scalar_workload_pkg.sv",
+      "to": "tests/scalar_workload_pkg.sv",
+      "sha256": "104408422389b57683ea59e22e3ea02a82cc9d2c3d45748bafd5829430ca334a",
+      "contents_unchanged": true
+    },
+    {
+      "from": "tb/tb_cgra_2x2_scalar.sv",
+      "to": "tests/tb_cgra_2x2_scalar.sv",
+      "sha256": "94eb0712d5010e02ac567d1430a9027a756203bc17828d8adadbeaad69d73766",
+      "contents_unchanged": true
+    },
+    {
+      "from": "tb/tb_cgra_types.sv",
+      "to": "tests/tb_cgra_types.sv",
+      "sha256": "4b6cd107e9f97f0e7fa2bdb64e6138a46ec24b4e5a411ab2c9c63b3573197c5b",
+      "contents_unchanged": true
+    }
+  ],
+  "source_sha256": {
+    "Makefile": "93e3fd641ea7ddd0a9f636f1764389cbbd9ec263dbaae8d4539e7fd4176d4c8d",
+    "scripts/run.ps1": "233add2f958f8e21993f7c0678edf6efa6a45dcd828c85db0bc73fe5d9a631c8",
+    "filelists/rtl.f": "243b28facc122bc7feb15c7fc513a292d87c51cedc912a819d7780a1847bae8b",
+    "filelists/sim.f": "5a38683f86100f5d985456c5a70740fdc9b5118f4744faaccd7fc50f5ee9c0f8",
+    "tests/tb_cgra_types.sv": "4b6cd107e9f97f0e7fa2bdb64e6138a46ec24b4e5a411ab2c9c63b3573197c5b",
+    "tests/scalar_workload_pkg.sv": "104408422389b57683ea59e22e3ea02a82cc9d2c3d45748bafd5829430ca334a",
+    "tests/tb_cgra_2x2_scalar.sv": "94eb0712d5010e02ac567d1430a9027a756203bc17828d8adadbeaad69d73766",
+    "reference/VectorCGRA2x2Reference.v": "f7d4479abe7b2305f21875a4ba82d685cb20d61275abbf4114786c57185487aa",
+    "rtl/common/cgra_types_pkg.sv": "9a8068f1f4a81062fbd405fdf1615c6a347a65e35ae3e66cfaf077501e565caa",
+    "rtl/fixed/cgra_2x2_core.sv": "6be4c3471c14ea66bf14dea87c15c11fe7d5c327bcb741a4ca949e23ab1bf780",
+    "rtl/cgra/cgra_2x2.sv": "e72be6457914b8c4052259e1199e426bb853ac2128d117ddcbcef55074a01e8e",
+    "vectors/negative_after_reset_packets.hex": "bbf39112e38a767fa0abcbb32862ee0a27cd92d47d97ff868a425bd235388eea",
+    "vectors/positive_packets.hex": "46f30c6a1d259f5144fc93c2d2fd415513ebaaafdb73d773cc628b220108c13a",
+    "vectors/replay_inputs.hex": "520e746c88fdb38c2245e2de0baf0a45d5588c92146adb7e5ad6ed66cbade0a8",
+    "vectors/replay_outputs.hex": "4b8d5ff184425b666c43b0e4eaf36884c6845484f76469dd7f20c2a346f44dcc"
+  },
+  "checks": {
+    "types": "passed",
+    "scalar_scenarios": 2,
+    "hdl_compared_cycles": 134,
+    "frozen_pymtl_compared_cycles": 134,
+    "compared_bits_per_cycle": 489,
+    "expected_results": [
+      28,
+      -11
+    ],
+    "intentional_wrong_result_nonzero_exit": "passed via Makefile negative target",
+    "permanent_backpressure_nonzero_exit": "passed via Makefile timeout-negative target",
+    "synthesis": "Existing generic synthesis target reused; no synthesis rerun because RTL and its filelist were unchanged."
+  },
+  "log_sha256": {
+    "build/types/verilate.log": "dd334de69571283c26fdec1d84423c1331c4a1d8952859409c481c582176ee11",
+    "build/types/compile.log": "6631f619e1e065114dc7ef279614a5aa0666ca59523ad72a1691c0c2db548a60",
+    "build/types/run.log": "bd5b201b6326f2a4c00e5b8645148b75d5f2206b003efe82d1e0ef0f3d00b41c",
+    "build/sim/verilate.log": "d601e8cfd08b194345f34171d69db67beadd06a69d760f18c343213f3fcd6c9f",
+    "build/sim/compile.log": "3834975e66403fd877ce022614723a8fa165df06d777bdb43ef16bf06eeafea8",
+    "build/sim/run.log": "1103981c1b3eb44d97df09d1b1636e3ce2d0215caf80de6327b8e114d1ba17e4",
+    "build/sim/negative.log": "3b3e6b01142faac5ce30fdf9ca0cb0d7869ecb9fdc840fabd3f4a3510cf650d5",
+    "build/sim/timeout-negative.log": "b1a52e80c58f1a15caefc16c0fd2074992e1046d1831b2b83c7ce05cf343edb1"
+  },
+  "historical_evidence": "Phase-1 results and archive retain their original tb/ paths and hashes."
+}

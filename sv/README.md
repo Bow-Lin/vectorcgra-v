@@ -48,12 +48,14 @@
 | 目录 | 用途 |
 |---|---|
 | `rtl/` | 直接维护和编译的 HDL |
-| `tb/` | 原生 SV 测试与独立配置构造 |
+| [`tests/`](tests/README.md) | 原生 SV 测试与独立配置构造；后续测试用例放在此处 |
 | `vectors/` | 已归档的配置包、类型黄金样本和 Python 参考轨迹 |
 | `reference/` | 固定参考 RTL、来源及重命名校验 manifest |
 | `scripts/`、`filelists/` | 正常编译、仿真、综合入口 |
 | `migration_tools/` | 迁移取证脚本，正常构建不调用 |
 | `build/` | 中间产物和完整日志，不入 Git |
+
+`tests/` 中，`tb_cgra_2x2_scalar.sv` 是 2×2 系统自检测试，`tb_cgra_types.sv` 检查类型与编码，`scalar_workload_pkg.sv` 构造测试配置。输入向量仍放在 `vectors/`，工具安装自检放在 `scripts/probes/`。
 
 ## 运行
 
@@ -92,5 +94,7 @@ Nangate45 typical 条件下，当前固定设计的标准单元总面积为 **77
 本轮是所选 Verilator 二态语义下的有限程序验证，不是四态 X 语义或所有合法程序的证明。源 RTL 的位宽、组合依赖和未驱动警告保留在日志中，脚本没有用 `setundef` 或补零改写硬件。完整日志在 `build/`，可追溯摘要在 `results/`；26 份关键日志与统计已保存到 `results/phase1-evidence.zip`，逐文件哈希见 `results/evidence-manifest.json`，后续重跑不会覆盖该归档。
 
 已将运行所需目录复制到 `build/standalone-phase1`，不包含原 Python 源码、`migration_tools/` 或预编译产物；该目录从头运行 `all` 通过，含类型、系统仿真、两项失败测试及通用综合。运行文件哈希与主工程一致，目录内 Python 文件数为 0。结果和日志哈希见 `results/standalone-summary.json`。EDA 工具内部 Python 仍按用户要求允许。
+
+上述第一阶段归档对应提交 `ff09971`，保留当时的 `tb/` 路径；当前测试目录已迁至 `tests/`。目录调整的验证记录见 `EXPERIMENT_LOG.md` 的 M05。
 
 许可证与来源声明随 `LICENSE` 和 `licenses/` 保留。

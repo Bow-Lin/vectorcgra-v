@@ -68,3 +68,12 @@
 - `area_report` 对最终源码、运行日志和综合统计做只读复核。发现一项 P2：摘要将 `stat.design.num_cells` 再减 1，误报为 474,565。该 Yosys 版本的总数已排除层次，而类型分项仍有 1 个层次标记；代理按 `mapped.json` 的实际实例递归到 Liberty 叶单元，得到 **474,566**，DFF_X1 **49,228**，按 Liberty 精确面积加总 **773,152.408000**。已修摘要与文档；原始 stat、网表和测量不变。
 - 全部已记录的源码 SHA 与当前文件相符；最终日志确认 134/134/489、类型通过、指定错误非零、200 周期超时和最终综合 0 problems。除统计修正外未发现待处理 P1/P2。
 - 补充统一原始日志哈希和压缩证据归档，防止后续重跑覆盖 `build/` 日志而丢失本阶段证据。运行源码和当前测试结果未因此变化。
+
+## M05：将测试用例统一放到 sv/tests（2026-09-21）
+
+- 根据用户要求，在迁移工作树 `D:/work/VectorCGRA/.worktrees/VectorCGRA`、分支 `codex/sv-migration` 上，将 `sv/tb/` 整体移到 `sv/tests/`。移动前提交为 `ff09971`；四个文件为 README、`scalar_workload_pkg.sv`、`tb_cgra_2x2_scalar.sv` 和 `tb_cgra_types.sv`，移动前后 SHA256 全部一致。
+- 主智能体更新 Makefile 的测试依赖和类型测试编译参数、`filelists/sim.f`、`.gitattributes` 及工程目录说明。模块名称、测试逻辑、RTL、参考 HDL 和向量内容均未修改；后续功能测试放入 `tests/`，向量继续保存在 `vectors/`，工具小样仍在 `scripts/probes/`。
+- 复用 `/root/area_report`（Boyle）完成只读审查，没有新建子智能体或用户任务。代理用 Git blob 独立确认四个移动文件与 HEAD 旧路径完全一致，并检查全部活动引用，无待处理 P1/P2。
+- M03 的旧独立构建副本、第一阶段摘要和 `phase1-evidence.zip` 保留 `tb/` 路径及原始哈希，作为 `ff09971` 的历史证据；不改写旧验证记录。
+- 从新路径执行 `scripts/run.ps1 -Task all`（工具路径和 Jobs=2 同 M03），进程退出码 0。Makefile 更新触发类型和系统测试重新编译；类型检查通过，两轮结果为 28 和 −11，HDL 对照及冻结 Python 数据重播均为 134 周期 × 489 位，错误预期和永久反压超时两项负测均按要求非零退出。RTL 和 RTL 文件列表未变，通用综合使用已有目标，没有重新综合或映射。
+- 当前路径、运行源码与日志 SHA256、执行命令和结果保存在 `results/tests-layout-summary.json`，与第一阶段历史摘要分开记录。

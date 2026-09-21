@@ -16,7 +16,7 @@ MODEL_MAKE_FLAGS ?=
 VERILATOR_WARN_FLAGS ?= -Wno-TIMESCALEMOD
 CGRA_WARN_FLAGS ?= -Wno-fatal
 RTL_FILES := $(shell cat filelists/rtl.f)
-SIM_FILES := $(RTL_FILES) reference/VectorCGRA2x2Reference.v tb/scalar_workload_pkg.sv tb/tb_cgra_2x2_scalar.sv
+SIM_FILES := $(RTL_FILES) reference/VectorCGRA2x2Reference.v tests/scalar_workload_pkg.sv tests/tb_cgra_2x2_scalar.sv
 PROBE_FILES := scripts/probes/tool_probe.sv scripts/probes/tb_tool_probe.sv
 
 .PHONY: all probe types sim negative timeout-negative synth synth-generic synth-mapped versions
@@ -61,9 +61,9 @@ timeout-negative: $(BUILD_DIR)/sim/cgra_sim$(EXEEXT)
 	@set +e; ./$(BUILD_DIR)/sim/cgra_sim$(EXEEXT) +VECTORS=$(CURDIR)/vectors +STALL_FOREVER +MAX_CYCLES=200 > $(BUILD_DIR)/sim/timeout-negative.log 2>&1; result=$$?; set -e; test $$result -ne 0; grep -q 'TIMEOUT scenario=' $(BUILD_DIR)/sim/timeout-negative.log
 	@echo 'TIMEOUT_CONTROL_PASS: permanent backpressure failed with timeout'
 
-$(BUILD_DIR)/types/types_test$(EXEEXT): rtl/common/cgra_types_pkg.sv tb/tb_cgra_types.sv Makefile
+$(BUILD_DIR)/types/types_test$(EXEEXT): rtl/common/cgra_types_pkg.sv tests/tb_cgra_types.sv Makefile
 	@mkdir -p $(BUILD_DIR)/types
-	@$(VERILATOR) --cc --main --exe --timing --compiler $(COMPILER) --top-module tb_cgra_types --prefix Vtypes --Mdir $(BUILD_DIR)/types -o types_test -CFLAGS -std=c++20 $(VERILATOR_WARN_FLAGS) rtl/common/cgra_types_pkg.sv tb/tb_cgra_types.sv > $(BUILD_DIR)/types/verilate.log 2>&1 || { tail -n 40 $(BUILD_DIR)/types/verilate.log; exit 1; }
+	@$(VERILATOR) --cc --main --exe --timing --compiler $(COMPILER) --top-module tb_cgra_types --prefix Vtypes --Mdir $(BUILD_DIR)/types -o types_test -CFLAGS -std=c++20 $(VERILATOR_WARN_FLAGS) rtl/common/cgra_types_pkg.sv tests/tb_cgra_types.sv > $(BUILD_DIR)/types/verilate.log 2>&1 || { tail -n 40 $(BUILD_DIR)/types/verilate.log; exit 1; }
 	@$(MAKE) -C $(BUILD_DIR)/types -f Vtypes.mk -j $(JOBS) "CXX=$(CXX)" "LINK=env -u LINK $(CXX)" $(MODEL_MAKE_FLAGS) > $(BUILD_DIR)/types/compile.log 2>&1 || { tail -n 40 $(BUILD_DIR)/types/compile.log; exit 1; }
 
 types: $(BUILD_DIR)/types/types_test$(EXEEXT)
