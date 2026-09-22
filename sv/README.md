@@ -2,7 +2,7 @@
 
 当前已完成第四阶段：多 CGRA Mesh/Ring、异构结构、跨 CGRA 任务迁移，以及 DMA/im2col。第二、三阶段的单 CGRA 和 FU/Tile 入口继续保留。第四阶段交付分支为 `codex/sv-migration-phase4`；第五阶段等待用户指令，不在本分支交付范围内。
 
-阶段结果见 [PHASE4_REPORT.md](PHASE4_REPORT.md)，计划见 [MIGRATION_PLAN.md](MIGRATION_PLAN.md)，完整过程见 [EXPERIMENT_LOG.md](EXPERIMENT_LOG.md)。
+累计功能、文件及代码行数见 [迁移进度与成果汇总](MIGRATION_PROGRESS.md)。阶段结果见 [PHASE4_REPORT.md](PHASE4_REPORT.md)，计划见 [MIGRATION_PLAN.md](MIGRATION_PLAN.md)，完整过程见 [EXPERIMENT_LOG.md](EXPERIMENT_LOG.md)。
 
 ## 当前实现
 
