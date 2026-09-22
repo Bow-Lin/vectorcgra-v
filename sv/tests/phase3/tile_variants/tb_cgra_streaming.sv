@@ -2,6 +2,7 @@
 module tb_cgra_streaming;
   localparam COLS=2, ROWS=2, DATA_W=32, DATA_BITS=35, TILE_PORTS=8, GLOBAL_ADDR_W=7, CTRL_ADDR_W=3, REG_ADDR_W=4, TILE_ID_W=3;
   localparam ROUTING_OUTPUTS=12, ROUTING_SEL_W=4, CTRL_BITS=143, PAYLOAD_BITS=194, HOST_BITS=215, NOC_BITS=218, MEM_PORT_W=2, BANK_PORT_W=2;
+  localparam int CGRA_ID_W=1, CGRA_X_W=1, CGRA_Y_W=1, XBAR_MEM_PORT_W=2, XBAR_WR_MEM_PORT_W=2;
   `include "cgra_profile.svh"
   logic [GLOBAL_ADDR_W-1:0] address_lower;
   logic [GLOBAL_ADDR_W-1:0] address_upper;

@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "D:\work\VectorCGRA\.worktrees\VectorCGRA\sv\migration_tools\phase4_peripheral_pytrace.py", line 31, in main
+    val=rest&((1<<w)-1);rest>>=w;obj=port(name);T=obj._dsl.Type
+                                                  ^^^^^^^^
+AttributeError: 'Bits1' object has no attribute '_dsl'

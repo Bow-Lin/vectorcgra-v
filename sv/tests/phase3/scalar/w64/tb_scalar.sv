@@ -7,6 +7,7 @@ module tb_scalar;
   localparam int CTRL_ADDR_W=$clog2(CTRL_DEPTH), REG_ADDR_W=$clog2(REG_DEPTH), ROUTING_OUTPUTS=8, ROUTING_SEL_W=4;
   localparam int DATA_BITS=DATA_W+3, CTRL_BITS=87+8*REG_ADDR_W, PAYLOAD_BITS=6+DATA_BITS+7+CTRL_BITS+CTRL_ADDR_W;
   localparam int TILE_ID_W=3, MEM_PORT_W=2, BANK_PORT_W=2;
+  localparam int CGRA_ID_W=1, CGRA_X_W=1, CGRA_Y_W=1, XBAR_MEM_PORT_W=2, XBAR_WR_MEM_PORT_W=2;
   `include "cgra_profile.svh"
   localparam int CYCLES=3105, INPUT_BITS=728, OUTPUT_BITS=424;
   logic clk=0; integer cycle; integer math_checks=0; integer pipeline_checks=0;

@@ -1,0 +1,253 @@
+{
+  "label": "mesh4-tiles2-registered",
+  "samples": 374,
+  "input_bits": 196,
+  "output_bits": 195,
+  "scenarios": [
+    {
+      "scenario": 0,
+      "cycles": 184,
+      "packets": 96,
+      "queries": 8,
+      "completed": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "responses": [
+        {
+          "cycle": 156,
+          "address": 16,
+          "data": 28,
+          "owner": 0
+        },
+        {
+          "cycle": 158,
+          "address": 15,
+          "data": 7,
+          "owner": 0
+        },
+        {
+          "cycle": 163,
+          "address": 48,
+          "data": 49,
+          "owner": 1
+        },
+        {
+          "cycle": 164,
+          "address": 47,
+          "data": 14,
+          "owner": 1
+        },
+        {
+          "cycle": 165,
+          "address": 80,
+          "data": 70,
+          "owner": 2
+        },
+        {
+          "cycle": 166,
+          "address": 79,
+          "data": 21,
+          "owner": 2
+        },
+        {
+          "cycle": 172,
+          "address": 112,
+          "data": 91,
+          "owner": 3
+        },
+        {
+          "cycle": 173,
+          "address": 111,
+          "data": 28,
+          "owner": 3
+        }
+      ]
+    },
+    {
+      "scenario": 1,
+      "cycles": 184,
+      "packets": 96,
+      "queries": 8,
+      "completed": [
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          0,
+          0
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "responses": [
+        {
+          "cycle": 156,
+          "address": 16,
+          "data": 4294967285,
+          "owner": 0
+        },
+        {
+          "cycle": 158,
+          "address": 15,
+          "data": 4294967290,
+          "owner": 0
+        },
+        {
+          "cycle": 163,
+          "address": 48,
+          "data": 4294967276,
+          "owner": 1
+        },
+        {
+          "cycle": 164,
+          "address": 47,
+          "data": 4294967287,
+          "owner": 1
+        },
+        {
+          "cycle": 165,
+          "address": 80,
+          "data": 4294967267,
+          "owner": 2
+        },
+        {
+          "cycle": 166,
+          "address": 79,
+          "data": 4294967284,
+          "owner": 2
+        },
+        {
+          "cycle": 172,
+          "address": 112,
+          "data": 4294967258,
+          "owner": 3
+        },
+        {
+          "cycle": 173,
+          "address": 111,
+          "data": 4294967281,
+          "owner": 3
+        }
+      ]
+    }
+  ],
+  "oracle": "unmodified ac96 Python plus exported HDL"
+}

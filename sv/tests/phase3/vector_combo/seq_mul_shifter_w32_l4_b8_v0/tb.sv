@@ -3,6 +3,7 @@
 module tb_phase3_vector;
   localparam int DATA_W=32, LANES=4, LANE_W=8, DATA_BITS=DATA_W+3;
   localparam int REG_ADDR_W=4, GLOBAL_ADDR_W=7, CTRL_ADDR_W=3, TILE_ID_W=3, MEM_PORT_W=2, BANK_PORT_W=2, ROUTING_OUTPUTS=8, ROUTING_SEL_W=4;
+  localparam int CGRA_ID_W=1, CGRA_X_W=1, CGRA_Y_W=1, XBAR_MEM_PORT_W=2, XBAR_WR_MEM_PORT_W=2;
   `include "cgra_profile.svh"
   localparam int RESULT_W=32;
   logic clock=0;always #5 clock=~clock;

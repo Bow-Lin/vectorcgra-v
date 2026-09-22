@@ -1,0 +1,38 @@
+{
+  "status": "pass",
+  "profile": "r1w3",
+  "flow": "sv2v -> hierarchy/proc/flatten/opt -> check -assert",
+  "full_generic_synthesis": false,
+  "top_ports_preserved": true,
+  "blackbox_modules": 0,
+  "final_problems": 0,
+  "cells": 806,
+  "source_sha256": {
+    "rtl/common/cgra_queue.sv": "87e03f556141d8c2c0abe26168ef567ce4b5e456a9f090f9f797aed51a4c4761",
+    "rtl/common/cgra_channel.sv": "0f2d6a0be4202910ffa8ebf3fbed6ed2c08d947ffaf8a11e50e1c195ffa8bf34",
+    "rtl/common/cgra_round_robin.sv": "294d46b6394c205ea67577ef8f4f51b6cc220072051c6a42b3280c5b7ef4b93d",
+    "rtl/noc/cgra_switch.sv": "db3d1610cafc5c86736916a4cac1001e2ad225ba54df278e8b20414bb49866c5",
+    "rtl/noc/cgra_credit_send.sv": "a13e8dc3a08906c46c4dc3675beea17ec13e61c729ac665b7a2c4de6dab5f7bd",
+    "rtl/noc/cgra_credit_input.sv": "7d58169e0f7db7b484fa6fb9d3e926ba6de00a971b0cd4b513620a9b4fd8837b",
+    "rtl/noc/cgra_credit_recv.sv": "f6c728e6ea42849f013328018204def97b764662ebd102cadebd5402b1aae0de",
+    "rtl/noc/cgra_ring_route.sv": "d794ba9f657dd7384bb947bf8d5977681e0e7dc14181e9df3989eee04ac1b46b",
+    "rtl/noc/cgra_ring_router.sv": "b15e9d00833d968e97213ea144d75a55ba34e927c8c58e02ffd7f1d94c938e4b",
+    "rtl/noc/cgra_credit_ring.sv": "98213452e10b00072f872e0f81c869d744960d377cbd2735fe534beb7e1aaa70",
+    "rtl/noc/inter_cgra/cgra_inter_mesh_route.sv": "e1b31e0e6cae251fba0c910d835270c76dc9d39ac4de9ef1a96de056f9a02963",
+    "rtl/noc/inter_cgra/cgra_inter_mesh_router.sv": "c6f2688c07d875b1960f37f6986d7e4ab53fea445f6832dc8b01d3966999edaa",
+    "rtl/noc/inter_cgra/cgra_inter_mesh.sv": "99c6ab483bf52189c6d1bc086bf6632381096c6f71c808b858051860f4b51814",
+    "rtl/noc/inter_cgra/cgra_inter_ring.sv": "3d96672d77ef8574a0da06291a116aac3b655a1ef44f909d2368557cd6b884ea",
+    "rtl/noc/cgra_xbar.sv": "ac048fe5d423b3b7bbbe01f34cfbffadd8859ef31df96fb4a9bce2cda3d26b64",
+    "rtl/common/cgra_register_file.sv": "13856021bc1acb361a12a96870a501dea98856aec5c301dd503b41327323d41d",
+    "rtl/mem/cgra_data_bank.sv": "77c3214c4cf388fdeefc3145d91a0106404e36624c9fef009bd11a400fe60a1b",
+    "rtl/mem/cgra_data_memory.sv": "0b75da82f24a8ef77c4795ee39af899394901dd33a5d1a88230f23ae1ff35335"
+  },
+  "profile_header_sha256": {
+    "rtl/common/cgra_fu_catalog.svh": "3c416c1647e5763b6bfda6a041c19815f354ea0f7226663558bb81c82697fbc5",
+    "rtl/common/cgra_profile.svh": "8a360c5a38dc98087d9cbd89c9508bd6b2c6d428bc4cc90bba357e36de168eec",
+    "rtl/common/cgra_profile_defs.svh": "0dbcc2e9b43f80fffd5101f24742f3d1ccb0fa5af67ba5f788049df9c02042dd"
+  },
+  "log_sha256": "34ead9db26582b6f111aaf561b77a0e689da101e27f0ebdccd0ebd42c1b1a015",
+  "area_measured": false,
+  "frequency_measured": false
+}

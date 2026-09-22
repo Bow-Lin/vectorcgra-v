@@ -1,0 +1,32 @@
+{
+  "parameters": {
+    "DATA_W": 32,
+    "COLS": 2,
+    "ROWS": 2,
+    "MULTI_COLS": 2,
+    "MULTI_ROWS": 2,
+    "TILE_PORTS": 4,
+    "CTRL_DEPTH": 8,
+    "GLOBAL_ADDR_W": 7,
+    "BANK_DEPTH": 16,
+    "NUM_BANKS": 2,
+    "REG_DEPTH": 16,
+    "NUM_CTRL": 8,
+    "TOTAL_STEPS": 8,
+    "TILE_VARIANT": 0
+  },
+  "declared_fu_kinds": [
+    2,
+    21,
+    13,
+    3
+  ],
+  "effective_fu_kinds": [
+    2,
+    21,
+    13,
+    3
+  ],
+  "implicit_nah_appended": false,
+  "reason": "ac96 FlexibleFuRTL.py appends NahRTL at elaboration if absent from the caller FuList; SV lists it explicitly."
+}

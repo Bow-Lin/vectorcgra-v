@@ -1,0 +1,9 @@
+{
+  "scope": "Native profile expansion annotation; original manifest and generated HDL retained unchanged",
+  "original_configured_fu_kinds": [0, 2, 13],
+  "original_elaborated_fu_kinds": [0, 2, 13, 3],
+  "native_FU_COUNT": 4,
+  "native_FU_KINDS": "32'h030d0200",
+  "evidence": "fu/flexible/FlexibleFuRTL.py lines 35-36 automatically append NahRTL when absent",
+  "first_attempt": "Native bench incorrectly selected only three slots and stopped at time zero at the mandatory-Nah guard; preserved under build/phase4/peripheral/dma-system/failed-missing-nah. This was a native test profile extraction error, not an RTL correction."
+}

@@ -1,0 +1,223 @@
+{
+  "files": [
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "0eb4b1cc8bb38226e43dc0c7e58737371ffe487e78f091c1343bd8cd24823f8a",
+      "after_sha256": "7df711008dcae6eb66583b09fda8a2a51e8df8e8f739387522bdf48cf197d70c",
+      "path": "tests/phase3/scalar/w64/tb_scalar.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "37536f6988da0c5b16bb7a77244ba4a89f7ffc614715d7e8cf872530743404de",
+      "after_sha256": "6a368ac186710c20f081d26d5e8c097238d01a1b6d3b20bd216697044a5ed698",
+      "path": "tests/phase3/scalar/w32/tb_scalar.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "8986a218379868bb23467080c3333afedf031d340e2306bd4bdf387992bd7563",
+      "after_sha256": "2145a72cbf35250fbe824c8364a378cc425d16cc00a4541374b03f4befd5e68b",
+      "path": "tests/phase3/tile_variants/tb_streaming_memory.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "34127c6cc09d91d68f55a59e179f93241189a1a6902099074d98f812d7107b31",
+      "after_sha256": "97923e148f659f6ecc638a6b63ba34ce3a449f9078c5ac3730c28f89ddc9ebe2",
+      "path": "tests/phase3/tile_variants/tb_cgra_streaming.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "a83ec5bde0d703f836129373b47716ff52f6d850c09d808d4af881d3fd35a993",
+      "after_sha256": "3b18c9faa8b7d5a8a3fd87f9f45c3070674cf5ad319208279316aebb1bd29f3f",
+      "path": "tests/phase3/tile_variants/tb_cgra_context.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "f5348498ca8e49c2fcb953953c0b1975944bcea36816a07cf3d7f13f5abfe5e6",
+      "after_sha256": "92b3e218e31b65822ffeffff948a7e5e02feb34e65bd4e92d2cc4c81e4135560",
+      "path": "tests/phase3/vector_combo/seq_mul_adder_w32_l4_b8_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "6f2aa821b196e7de37978de6ef43e09d0312bca364c0eac7a895f4f6fdf96df0",
+      "after_sha256": "dcd3d168c12a987b314f50ce036930459a08af12687ca46eaae5ec5b5d742dc4",
+      "path": "tests/phase3/vector_combo/alu_gen_mac_w16_l4_b8_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "4a83f3129b533cdbee0fb250199600c38af92034ec42f8f94524710387046937",
+      "after_sha256": "5d20e6db57327be2c08e0a6c1114601f361c308fab8fb39eb170b19320f901ec",
+      "path": "tests/phase3/vector_combo/alu_gen_mac_wrapper_w16_l4_b8_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "2209f33ac7b2cec0d122f422cb5a44caf5df6a3c9d97c0a829b622163d7b0336",
+      "after_sha256": "2d562229092ec72c21c3fde9d21ee94e322ca08b866c90e6f39e1ede63a7814a",
+      "path": "tests/phase3/vector_combo/four_inc_cmp_not_grant_w32_l4_b8_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "fcb7e193e0d538f5a61a726fa324b1c54ecd97a998c53f44d19915b5a5ce0484",
+      "after_sha256": "40bf1aa890f0ed16f8277776a1bd167410978eb3bea8a42ba5da356004f503ae",
+      "path": "tests/phase3/vector_combo/prl_mul_adder_w32_l4_b8_v0_ctrl2/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "ad22f9bb0dbca6756b31f34de23627ad4a2c1a9471caa7dd68f7a139c5987fb5",
+      "after_sha256": "79b3c300412991e60ac79d916cd9fefe08df2f6c9bdf6014260b6d42054285a1",
+      "path": "tests/phase3/vector_combo/seq_mul_shifter_w64_l4_b8_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "fb49a8983e030b54479efc52fdbb55774f257f91943f331690167484b52ab189",
+      "after_sha256": "2c8958c5ea5e807e8b75da499b4fdcb9aee14f8071402368e4f9315070790891",
+      "path": "tests/phase3/vector_combo/four_inc_cmp_not_grant_w64_l4_b8_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "d8260171ebfb1cd6f7c5125ecb38cc67091f9b8f8d7226f4893466e368dffa5e",
+      "after_sha256": "63b74c12557cec4821903c1ba883c45c06e9679638bfe408ae41bbed3d662192",
+      "path": "tests/phase3/vector_combo/seq_mul_adder_w64_l4_b8_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "fdf4b8794c6c893d5df7779876c86835df03a5e9ee2c67036f8d1b4a8ecbc005",
+      "after_sha256": "b39391774093d908c6f21ee02a7f0ab724eb2d3c4347bf7cc3151a7b9eb62295",
+      "path": "tests/phase3/vector_combo/three_mul_adder_shifter_w64_l4_b8_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "7c05263974b0c5878ca180bc83f909b647a5a1b0d70c562e33e84da0053280c7",
+      "after_sha256": "05a8683e98836e97bf1569d72f44c6dcb8a9b806833bf668b00c1c2491b2b59e",
+      "path": "tests/phase3/vector_combo/seq_mul_shifter_w32_l4_b8_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "8bf305cd9c2ecae5d0f1e1cf99991c8dc2a44c1d43b863fc0be6f3b57997f023",
+      "after_sha256": "c517e2a22ee5a4a59e342b0a57ab3a1912c99546c3886807da70fb8653c62a72",
+      "path": "tests/phase3/vector_combo/prl_mul_adder_w64_l4_b8_v0_ctrl2/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "938a70289f526ebc5aa5c29704729bd1806dc2f50e31820e8537c81a1570a717",
+      "after_sha256": "50a0b06b7f7bbb0a71884cce5e6a9d5e7296f942d1013c99835fa3ed7d2635ad",
+      "path": "tests/phase3/vector_combo/vector_adder_combo_w64_l8_b8_v3/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "4253fa77d8100dd6bb0f8971379dc9c4349609555bf356c9db0c9a780c196d7e",
+      "after_sha256": "1ffda7ae3373808d4b38f68451a4fa73e6a967665540acc0c7e9b2306c86fcc9",
+      "path": "tests/phase3/vector_combo/vector_adder_combo_w32_l8_b8_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "2a9601f7fe4b4f21c84a4a4bf8ce6ed2299a159d127a863cfe03a17994e2bce5",
+      "after_sha256": "8a9f828019b8e95c5499bedbb5ef783814d840bbed2017b8f223f7a504280fb2",
+      "path": "tests/phase3/vector_combo/vector_adder_combo_w32_l1_b8_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "3811a2e06c6697159a0c87609d0b9f994452ffa067d0861846b2f334a41870ec",
+      "after_sha256": "257907794d7c9f1b5a8e8f3c1555c592f7c134fa50c0d6751d9dce63cb2a08b0",
+      "path": "tests/phase3/vector_combo/vector_adder_w32_l4_b16_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "4c91682ca683fc4cb2dc858a3ed33cc4228f44c4017020b6f22e8713cfbb477a",
+      "after_sha256": "59fb2c60b3e853c784d3eceaeccfcc5ce71ec055a44e23732e3e2bcd7df8d230",
+      "path": "tests/phase3/vector_combo/vector_adder_combo_w32_l4_b8_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "8b9556e6c06d9179f4dd78d4d8622307d14ffa9235266c769e52f34027db6368",
+      "after_sha256": "7fa4ad88590cb8b59ae8194d16ec16efed314364a467bcfbb1ee1d127f40ef4a",
+      "path": "tests/phase3/vector_combo/vector_adder_w32_l4_b1_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "1161665a701f73760c313b50e3d63265c3b2613aee0ca70b38c1a946bdfd0cec",
+      "after_sha256": "e323d4a009b9eeaa240035aac35c57e74d7c53757164461a0b875490183ea404",
+      "path": "tests/phase3/vector_combo/vector_adder_w32_l4_b8_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "872d4d4d0eb7a3de54cdf451fc8fab7a0db9d69b0c62f65fb7afb0111b0b2a52",
+      "after_sha256": "58f6faf4782e75db9b8e20b6bb1f2b240dae65994afc543337ba5c5a6c2dd5ac",
+      "path": "tests/phase3/vector_combo/vector_adder_combo_w32_l2_b8_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "76ff045dcff0b726af7a6626a006b94ea1d3f738c5833a4a3f56f3230ec38caf",
+      "after_sha256": "06566583b0d07c11134efb7cf181979b7d2ad439128d1f89ade6d9cde4cad7ee",
+      "path": "tests/phase3/vector_combo/vector_all_reduce_w32_l4_b8_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "ce7ca61bf10830791a9750ca5a20a45293af099865ab5991a5c2ba52f97c51c0",
+      "after_sha256": "aae97313dfb6e4f3f62737da2aac6dda231f12e30c8862d5bb92a022c899107f",
+      "path": "tests/phase3/vector_combo/three_mul_adder_shifter_w32_l4_b8_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "996dfd28ec44c205fe60b5d2c95bbf2f942dbb9aef704fcf6a016b0d0d983b27",
+      "after_sha256": "35c9fc7f4951b51f2030b902fa552c2f3b4e385a09bc438834c90ea4e41c8d66",
+      "path": "tests/phase3/vector_combo/vector_mul_combo_w32_l4_b8_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "f198ac29e26e80b184d0d42ef60cd38bd9fc74c72dadad6ff0145dab8804e75a",
+      "after_sha256": "694cd2cedda25a5a20b0c158a6a5a29bb79cdcf6ca7611b59fc7034f027a11ab",
+      "path": "tests/phase3/vector_combo/vector_mul_combo_w32_l8_b8_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "177f51b033113371e9c05cb91c177517ebefc70da7cb2d8c723cc82d42d230f4",
+      "after_sha256": "a48dce5b52ba320e54e64dc9a70577f2e0a88c8bc47a38143c34dfee033e89fe",
+      "path": "tests/phase3/vector_combo/vector_all_reduce_w32_l8_b8_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "43a4fc17a7a081ea98eb4e22f22ad979bdcc29cc377b3430e4d98695c9fea286",
+      "after_sha256": "5ed83a376915096b13f9e8eab473814397e2ceae46b7362cb30775c7959fcc30",
+      "path": "tests/phase3/vector_combo/vector_all_reduce_w64_l8_b8_v3/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "0026387a0c843cde6b6bc4fa7f601e8bcae51c065b02a7d2168a6a716ed1fc30",
+      "after_sha256": "84d909ad9f8dd859a8d9fea9ec8202457347b26078f1a6145b2e962f79bb8750",
+      "path": "tests/phase3/vector_combo/vector_mul_combo_w64_l4_b8_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "43d1da185c2d8eb434ca990969fed33eae5e4aa9d1fdd06e4c4144576b9a7f2b",
+      "after_sha256": "58e66fbb280ceeef7f877e1f08e8c3a2ed1987c5a3fe6c3ee8a1eea974ed2b45",
+      "path": "tests/phase3/vector_combo/vector_mul_combo_w64_l8_b8_v3/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "3577c0f7cd5dbe2f95de61409d161f5394405fb082ba2a14200aeeccfbacc655",
+      "after_sha256": "165706d674a85f90f68770d68f69938089e3670e8cead900f2eec85f76b84a54",
+      "path": "tests/phase3/vector_combo/vector_mul_w32_l4_b16_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "6ab5480ce14185f2709dd39931cc186856ad7fe0198a1df45ac383da1a792079",
+      "after_sha256": "33862980788600086dfdbb8b0bc40c8606ce81966660bf6302b180bf03196643",
+      "path": "tests/phase3/vector_combo/vector_mul_w32_l4_b1_v0/tb.sv"
+    },
+    {
+      "change": "Only declare old single-CGRA profile width aliases; no stimuli/checker/reference/DUT changes.",
+      "before_sha256": "cbb0b06936d3bdc9b3158e19b3fdc9eee59f09aefb6238aba6c6ea41989ac481",
+      "after_sha256": "b95d11e8f135aa70f97af589dd26e602cf2347534862018286942aae3369dc38",
+      "path": "tests/phase3/vector_combo/vector_mul_w32_l4_b8_v0/tb.sv"
+    }
+  ],
+  "reason": "Shared profile header now uses explicit CGRA coordinate/ID and separate memory-crossbar source widths. These old finite-profile benches used manual declarations.",
+  "expected_values": {
+    "CGRA_ID_W": 1,
+    "XBAR_MEM_PORT_W": 2,
+    "CGRA_Y_W": 1,
+    "CGRA_X_W": 1,
+    "XBAR_WR_MEM_PORT_W": 2
+  },
+  "schema": 1
+}

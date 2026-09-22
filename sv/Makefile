@@ -59,6 +59,25 @@ phase3-system:
 	bash tests/phase3/system/run_negative.sh
 	bash tests/phase3/tile_variants/run_cgra.sh
 
+# Stage 4 compiles maintained SV and frozen HDL/text assets directly.
+.PHONY: regression phase4 phase4-noc phase4-system phase4-template phase4-migration phase4-peripheral phase4-memory
+regression: all phase2 phase3 phase4
+phase4: phase4-noc phase4-system phase4-template phase4-migration phase4-peripheral phase4-memory
+phase4-noc:
+	bash tests/phase4/noc/run.sh
+	bash tests/phase4/noc/run_negative.sh
+phase4-system:
+	@for profile in mesh4-tiles2 ring4-tiles2 mesh4-tiles2-registered mesh4-tiles4; do JOBS=$(JOBS) bash tests/phase4/system/run.sh $$profile; bash tests/phase4/system/run_negative.sh $$profile; done
+phase4-template:
+	bash tests/phase4/template/run.sh
+phase4-migration:
+	bash tests/phase4/migration/run.sh global_add
+	bash tests/phase4/migration/run.sh dynamic_fir
+phase4-memory:
+	bash tests/phase4/memory/run.sh
+phase4-peripheral:
+	bash tests/phase4/peripheral/run_components.sh
+	bash tests/phase4/peripheral/run_systems.sh
 # Each geometry has its own frozen ac96 module namespace and executable.
 define PHASE2_RULE
 $(BUILD_DIR)/phase2/$(1)/cgra_sim$(EXEEXT): $(RTL_FILES) $(RTL_HEADERS) tests/phase2_tb_cgra_scalar.sv reference/phase2/$(1)/$(PHASE2_REF_$(1)).v filelists/rtl.f Makefile

@@ -1,0 +1,19 @@
+{
+  "source": "Unmodified ac96 generated Phase4Dma.v; preserved hardware default",
+  "input": {
+    "opcode": 0,
+    "dram_address": 64,
+    "spm_word_address": 20,
+    "nbytes": 12,
+    "beat_words_low_to_high": ["80011c07", "80001e04", "80031801", "80021a0e"]
+  },
+  "python_expected_spm_words": ["80011c07", "80001e04", "80031801"],
+  "frozen_hdl_spm_words": ["80011c07", "80001e04", "80011c07"],
+  "first_differing_spm_address": 22,
+  "first_differing_cycle_in_retained_component_workload": 39,
+  "cause": "Phase4Dma.v:175: beat_reg[7'd95:6'(32)*6'd2] has a six-bit lower-bound multiplication, so 64 wraps to zero. The 96-bit slice assigned to a 32-bit result retains lane zero.",
+  "related_lane3": "Phase4Dma.v:178 similarly narrows 32*3 to 32, retaining lane one.",
+  "related_mvout": "Phase4Dma.v:390 narrows the second-word slice lower bound to zero; a 192-bit concatenation truncates into 128 bits and temporarily copies word zero into unused lane two. The two-word mask remains 00ff.",
+  "migration_contract": "BASELINE_TRANSLATED_SLICES=1 is the default and preserves this hardware behavior; explicit 0 follows original Python and is not frozen-hardware equivalent.",
+  "reproduction": "run_components.sh dma dma-python compares default hardware to frozen HDL and explicit Python mode to the full unmodified-Python trace, including this cycle. dma-python/run.log records 249 cross-mode raw-output differences, not ignored migration-oracle differences."
+}

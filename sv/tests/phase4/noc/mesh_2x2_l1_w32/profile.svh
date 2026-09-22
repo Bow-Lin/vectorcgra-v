@@ -1,0 +1,22 @@
+// Measured via original PyMTL packet packer; source manifest: mesh_2x2_l1_w32
+`define PHASE4_NOC_GOLD Phase4_mesh_2x2_l1_w32
+localparam string PROFILE_LABEL="mesh_2x2_l1_w32";
+localparam bit IS_RING=0;
+localparam int WIDTH=196;
+localparam int COLS=2;
+localparam int ROWS=2;
+localparam int NODES=4;
+localparam int CHANNEL_LATENCY=1;
+localparam int DATA_W=32;
+localparam int DST_LSB=192;
+localparam int DST_WIDTH=2;
+localparam int DST_X_LSB=189;
+localparam int X_WIDTH=1;
+localparam int DST_Y_LSB=188;
+localparam int Y_WIDTH=1;
+localparam int VC_LSB=170;
+localparam int VC_WIDTH=2;
+localparam int SRC_LSB=194;
+localparam int SRC_X_LSB=191;
+localparam int SRC_Y_LSB=190;
+localparam int ID_LSB=132;
