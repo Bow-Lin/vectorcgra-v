@@ -4,6 +4,8 @@
 
 累计功能、文件及代码行数见 [迁移进度与成果汇总](MIGRATION_PROGRESS.md)。阶段结果见 [PHASE4_REPORT.md](PHASE4_REPORT.md)，计划见 [MIGRATION_PLAN.md](MIGRATION_PLAN.md)，完整过程见 [EXPERIMENT_LOG.md](EXPERIMENT_LOG.md)。
 
+当前结构见 [架构示意图（PNG）](diagrams/vectorcgra-architecture.png) / [可编辑 SVG](diagrams/vectorcgra-architecture.svg)，图示范围及重绘方法见 [diagrams/README.md](diagrams/README.md)。
+
 ## 当前实现
 
 - 参数化顶层：[`cgra_scalar`](rtl/cgra/cgra_scalar.sv)，通过 `COLS`、`ROWS`、`DATA_W`、存储深度等参数构造硬件；Tile、bank 和控制环由 SV 的 generate 生成。

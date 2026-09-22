@@ -229,3 +229,14 @@
 - 该快照sv目录共937个Git跟踪文件，包含409个reference资产和66个vectors资产；3个历史/参考专用RTL文件共17,029行没有计入现用实现。快照总数不包含本轮新增的汇总文档与统计JSON。
 - 复用原子智能体 `area_report` 独立读取Git原始blob，现用HDL、include头文件及测试源码数量/行数完全一致；没有创建新子智能体。特别纳入HardFloat的RISCV子目录头文件，未将只作参照的原MAC vendor源码重复计入DUT。
 - 新增 `MIGRATION_PROGRESS.md` 与 `results/migration-progress-stats.json`，按模块列出规模和功能，区分已完成的前四阶段、暂停的第五阶段，以及有限验证、基线已知问题和没有新的PPA测量等边界；README增加入口。
+
+## M20：阶段1–4架构示意图（2026-09-22）
+
+- 用户要求按参考图片制作当前迁移功能的结构示意图。本轮使用 fireworks-tech-graph 技能，采用浅色模块、系统→单CGRA→Tile三级展开，生成可编辑SVG与3600×2055 PNG；只修改图像、绘图脚本和文档，不修改RTL，不继续第五阶段。
+- 继续复用原子智能体 `noc_contract`（Bernoulli），没有创建新子智能体或用户任务。代理逐项只读复核多CGRA主机入口、报文NoC/物理边界直连、4×4的七个直达访存口、双Crossbar、LinkOr、常量队列、原有输入FIFO及单CGRA可选外设边界。
+- 主智能体基于 `ab26148` 的源码绘图。图示同构64 Tiles及异构21 Tiles验证实例；中心4×4是结构示例，并非固定唯一尺寸。右侧以Base Tile为例，注明Streaming没有Reg→Routing回读；底部DMA/im2col单列为独立可选集成入口。图不表示物理布局或完整网表。
+- 代理指出初稿将DMA直接连SPM会掩盖Controller转发。已修正为DRAM↔DMA↔Controller↔SPM，另从Controller连接im2col，明确配置与写回路径。自动字体测量发现局部标签过宽，缩短标签并适当减小字号，没有缩放挤压整个图。
+- 初次通过Playwright/Edge直接截取SVG在字体加载后超时；改用本机Sharp/librsvg导出成功。字体缓存目录不可写只产生工具告警，最终PNG中文显示已目视确认；没有安装额外依赖或终止用户浏览器。
+- 最终SVG的XML、marker、碰撞、几何、排版五类检查均通过；55项节点文本宽度检查通过，最终PNG目视检查通过（visual_review: passed）。`manifest.json` 固定十项RTL来源SHA与两项图像SHA，`validation.json`保留检查结果。绘图Python仅用于文档资产，不进入日常HDL构建。
+- `sv/README.md` 增加图像入口。本轮没有运行新的硬件仿真或综合，图像审查不计入迁移测试覆盖。
+- Git落盘复核发现文本会按仓库规则归一化LF；绘图脚本已显式输出UTF-8/LF，更新SVG SHA并再次通过五类检查，确保检出后的SVG与清单一致。PNG字节未变化。
