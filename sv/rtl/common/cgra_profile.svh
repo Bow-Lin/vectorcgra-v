@@ -25,13 +25,21 @@ typedef struct packed {
 } payload_t;
 typedef struct packed {
   logic [TILE_ID_W-1:0] src, dst;
-  logic src_cgra_id, dst_cgra_id, src_cgra_x, src_cgra_y, dst_cgra_x, dst_cgra_y;
+  logic [CGRA_ID_W-1:0] src_cgra_id, dst_cgra_id;
+  logic [CGRA_X_W-1:0] src_cgra_x;
+  logic [CGRA_Y_W-1:0] src_cgra_y;
+  logic [CGRA_X_W-1:0] dst_cgra_x;
+  logic [CGRA_Y_W-1:0] dst_cgra_y;
   logic [7:0] opaque;
   logic vc_id;
   payload_t payload;
 } host_packet_t;
 typedef struct packed {
-  logic src, dst, src_x, src_y, dst_x, dst_y;
+  logic [CGRA_ID_W-1:0] src, dst;
+  logic [CGRA_X_W-1:0] src_x;
+  logic [CGRA_Y_W-1:0] src_y;
+  logic [CGRA_X_W-1:0] dst_x;
+  logic [CGRA_Y_W-1:0] dst_y;
   logic [TILE_ID_W-1:0] src_tile_id, dst_tile_id;
   logic [MEM_PORT_W-1:0] remote_src_port;
   logic [7:0] opaque;
@@ -43,20 +51,29 @@ typedef struct packed {
   noc_packet_t inter_cgra_pkt;
 } controller_xbar_t;
 typedef struct packed {
-  logic [MEM_PORT_W-1:0] src;
+  logic [XBAR_MEM_PORT_W-1:0] src;
   logic [BANK_PORT_W-1:0] dst;
   logic [GLOBAL_ADDR_W-1:0] addr;
   data_t data;
-  logic src_cgra;
+  logic [CGRA_ID_W-1:0] src_cgra;
   logic [TILE_ID_W-1:0] src_tile;
   logic [MEM_PORT_W-1:0] remote_src_port;
 } mem_request_t;
 typedef struct packed {
-  logic [BANK_PORT_W-1:0] src;
-  logic [MEM_PORT_W-1:0] dst;
+  logic [XBAR_WR_MEM_PORT_W-1:0] src;
+  logic [BANK_PORT_W-1:0] dst;
   logic [GLOBAL_ADDR_W-1:0] addr;
   data_t data;
-  logic src_cgra;
+  logic [CGRA_ID_W-1:0] src_cgra;
+  logic [TILE_ID_W-1:0] src_tile;
+  logic [MEM_PORT_W-1:0] remote_src_port;
+} mem_write_request_t;
+typedef struct packed {
+  logic [BANK_PORT_W-1:0] src;
+  logic [XBAR_MEM_PORT_W-1:0] dst;
+  logic [GLOBAL_ADDR_W-1:0] addr;
+  data_t data;
+  logic [CGRA_ID_W-1:0] src_cgra;
   logic [TILE_ID_W-1:0] src_tile;
   logic [MEM_PORT_W-1:0] remote_src_port;
 } mem_response_t;

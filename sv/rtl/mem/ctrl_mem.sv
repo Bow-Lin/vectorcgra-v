@@ -4,12 +4,12 @@
 module ctrl_mem #(
   `CGRA_PROFILE_PARAMETERS
 ) (
-  input  logic [0:0] cgra_id ,
+  input  logic [CGRA_ID_W-1:0] cgra_id ,
   input  logic [0:0] clk ,
   output logic [CTRL_ADDR_W-1:0] ctrl_addr_outport ,
   output logic [2:0] prologue_count_outport_fu ,
   output logic [2:0] prologue_count_outport_fu_crossbar [0:CTRL_DEPTH-1][0:1],
-  output logic [2:0] prologue_count_outport_routing_crossbar [0:CTRL_DEPTH-1][0:7],
+  output logic [2:0] prologue_count_outport_routing_crossbar [0:CTRL_DEPTH-1][0:ROUTING_OUTPUTS-1],
   input  logic [0:0] reset ,
   input  logic [TILE_ID_W-1:0] tile_id ,
   input logic [PAYLOAD_BITS-1:0] recv_from_element__msg ,
@@ -42,7 +42,7 @@ module ctrl_mem #(
   host_packet_t send_pkt_to_controller__msg_typed ;
   assign send_pkt_to_controller__msg = send_pkt_to_controller__msg_typed;
   localparam logic [2:0] num_fu_inports_at_update_msg  = 3'd4;
-  localparam logic [3:0] num_routing_outports_at_update_msg  = 4'd8;
+  localparam int num_routing_outports_at_update_msg = ROUTING_OUTPUTS;
   localparam logic [1:0] CMD_CONFIG  = 2'd3;
   localparam logic [4:0] CMD_GLOBAL_REDUCE_ADD_RESPONSE  = 5'd20;
   localparam logic [4:0] CMD_GLOBAL_REDUCE_MUL_RESPONSE  = 5'd21;
@@ -69,18 +69,18 @@ module ctrl_mem #(
   localparam logic [3:0] CMD_COMPLETE  = 4'd14;
   localparam logic [6:0] OPT_START  = 7'd0;
   localparam logic [2:0] num_fu_inports_at_update_send_ctrl_msg  = 3'd4;
-  localparam logic [3:0] num_routing_outports_at_update_send_ctrl_msg  = 4'd8;
+  localparam int num_routing_outports_at_update_send_ctrl_msg = ROUTING_OUTPUTS;
   localparam logic [6:0] OPT_NAH  = 7'd1;
-  localparam logic [3:0] num_routing_xbar_inports_at_update_prologue_outport  = 4'd8;
+  localparam int num_routing_xbar_inports_at_update_prologue_outport = ROUTING_OUTPUTS;
   localparam logic [1:0] num_fu_outports_at_update_prologue_outport  = 2'd2;
-  localparam logic [3:0] num_routing_xbar_inports_at_update_prologue_reg  = 4'd8;
+  localparam int num_routing_xbar_inports_at_update_prologue_reg = ROUTING_OUTPUTS;
   localparam logic [1:0] num_fu_outports_at_update_prologue_reg  = 2'd2;
   logic [CTRL_ADDR_W-1:0] ctrl_count_lower_bound;
   logic [PC_W-1:0] ctrl_count_per_iter_val;
   logic [BOUND_W-1:0] ctrl_count_upper_bound;
   logic [2:0] prologue_count_reg_fu [0:CTRL_DEPTH-1];
   logic [2:0] prologue_count_reg_fu_crossbar [0:CTRL_DEPTH-1][0:1];
-  logic [2:0] prologue_count_reg_routing_crossbar [0:CTRL_DEPTH-1][0:7];
+  logic [2:0] prologue_count_reg_routing_crossbar [0:CTRL_DEPTH-1][0:ROUTING_OUTPUTS-1];
   logic [0:0] sent_complete;
   logic [0:0] start_iterate_ctrl;
   logic [10:0] times;
@@ -144,7 +144,7 @@ module ctrl_mem #(
     .wdata( reg_file__wdata ),
     .wen( reg_file__wen )
   );
-  logic [3:0] tmp_update_prologue_reg_temp_routing_crossbar_in;
+  logic [ROUTING_SEL_W-1:0] tmp_update_prologue_reg_temp_routing_crossbar_in;
   logic [1:0] tmp_update_prologue_reg_temp_fu_crossbar_in;
   always_comb begin : update_ctrl_addr_outport
     ctrl_addr_outport = reg_file__raddr[1'd0];
@@ -164,8 +164,8 @@ module ctrl_mem #(
       reg_file__wdata[1'd0].read_reg_idx[2'(i)] = recv_pkt_from_controller_queue__send__msg.payload.ctrl.read_reg_idx[2'(i)];
     end
     for ( int unsigned i = 0; i < 4'( num_routing_outports_at_update_msg ); i++ ) begin
-      reg_file__wdata[1'd0].routing_xbar_outport[3'(i)] = 4'd0;
-      reg_file__wdata[1'd0].fu_xbar_outport[3'(i)] = 2'd0;
+      reg_file__wdata[1'd0].routing_xbar_outport[i] = 4'd0;
+      reg_file__wdata[1'd0].fu_xbar_outport[i] = 2'd0;
     end
     reg_file__wdata[1'd0].vector_factor_power = recv_pkt_from_controller_queue__send__msg.payload.ctrl.vector_factor_power;
     reg_file__wdata[1'd0].is_last_ctrl = 1'd0;
@@ -181,8 +181,8 @@ module ctrl_mem #(
         reg_file__wdata[1'd0].read_reg_idx[2'(i)] = recv_pkt_from_controller_queue__send__msg.payload.ctrl.read_reg_idx[2'(i)];
       end
       for ( int unsigned i = 0; i < 4'( num_routing_outports_at_update_msg ); i++ ) begin
-        reg_file__wdata[1'd0].routing_xbar_outport[3'(i)] = recv_pkt_from_controller_queue__send__msg.payload.ctrl.routing_xbar_outport[3'(i)];
-        reg_file__wdata[1'd0].fu_xbar_outport[3'(i)] = recv_pkt_from_controller_queue__send__msg.payload.ctrl.fu_xbar_outport[3'(i)];
+        reg_file__wdata[1'd0].routing_xbar_outport[i] = recv_pkt_from_controller_queue__send__msg.payload.ctrl.routing_xbar_outport[i];
+        reg_file__wdata[1'd0].fu_xbar_outport[i] = recv_pkt_from_controller_queue__send__msg.payload.ctrl.fu_xbar_outport[i];
       end
       reg_file__wdata[1'd0].vector_factor_power = recv_pkt_from_controller_queue__send__msg.payload.ctrl.vector_factor_power;
       reg_file__wdata[1'd0].is_last_ctrl = recv_pkt_from_controller_queue__send__msg.payload.ctrl.is_last_ctrl;
@@ -199,7 +199,7 @@ module ctrl_mem #(
     prologue_count_outport_fu = prologue_count_reg_fu[reg_file__raddr[1'd0]];
     for ( int unsigned addr = 0; addr < CTRL_DEPTH; addr++ ) begin
       for ( int unsigned i = 0; i < 4'( num_routing_xbar_inports_at_update_prologue_outport ); i++ )
-        prologue_count_outport_routing_crossbar[CTRL_ADDR_W'(addr)][3'(i)] = prologue_count_reg_routing_crossbar[CTRL_ADDR_W'(addr)][3'(i)];
+        prologue_count_outport_routing_crossbar[CTRL_ADDR_W'(addr)][i] = prologue_count_reg_routing_crossbar[CTRL_ADDR_W'(addr)][i];
       for ( int unsigned i = 0; i < 2'( num_fu_outports_at_update_prologue_outport ); i++ )
         prologue_count_outport_fu_crossbar[CTRL_ADDR_W'(addr)][1'(i)] = prologue_count_reg_fu_crossbar[CTRL_ADDR_W'(addr)][1'(i)];
     end
@@ -213,8 +213,8 @@ module ctrl_mem #(
       send_ctrl__msg_typed.read_reg_idx[2'(i)] = reg_file__rdata[1'd0].read_reg_idx[2'(i)];
     end
     for ( int unsigned i = 0; i < 4'( num_routing_outports_at_update_send_ctrl_msg ); i++ ) begin
-      send_ctrl__msg_typed.routing_xbar_outport[3'(i)] = reg_file__rdata[1'd0].routing_xbar_outport[3'(i)];
-      send_ctrl__msg_typed.fu_xbar_outport[3'(i)] = reg_file__rdata[1'd0].fu_xbar_outport[3'(i)];
+      send_ctrl__msg_typed.routing_xbar_outport[i] = reg_file__rdata[1'd0].routing_xbar_outport[i];
+      send_ctrl__msg_typed.fu_xbar_outport[i] = reg_file__rdata[1'd0].fu_xbar_outport[i];
     end
     send_ctrl__msg_typed.vector_factor_power = reg_file__rdata[1'd0].vector_factor_power;
     send_ctrl__msg_typed.is_last_ctrl = reg_file__rdata[1'd0].is_last_ctrl;
@@ -242,17 +242,17 @@ module ctrl_mem #(
   end
   always_comb begin : update_send_pkt_to_controller
     send_pkt_to_controller__val = 1'd0;
-    send_pkt_to_controller__msg_typed = { TILE_ID_W'(0), TILE_ID_W'(NUM_TILES), 1'd0, 1'd0, 1'd0, 1'd0, 1'd0, 1'd0, 8'd0, 1'd0, { 6'( CMD_COMPLETE ), DATA_BITS'(0), GLOBAL_ADDR_W'(0), CTRL_BITS'(0), CTRL_ADDR_W'(0) } };
+    send_pkt_to_controller__msg_typed = { TILE_ID_W'(0), TILE_ID_W'(NUM_TILES), CGRA_ID_W'(0), CGRA_ID_W'(0), CGRA_X_W'(0), CGRA_Y_W'(0), CGRA_X_W'(0), CGRA_Y_W'(0), 8'd0, 1'd0, { 6'( CMD_COMPLETE ), DATA_BITS'(0), GLOBAL_ADDR_W'(0), CTRL_BITS'(0), CTRL_ADDR_W'(0) } };
     recv_from_element_queue__send__rdy = 1'd0;
     if ( start_iterate_ctrl == 1'd1 ) begin
       if ( recv_from_element_queue__send__val & ( ~sent_complete ) ) begin
-        send_pkt_to_controller__msg_typed = { tile_id, TILE_ID_W'(NUM_TILES), 1'd0, 1'd0, 1'd0, 1'd0, 1'd0, 1'd0, 8'd0, 1'd0, recv_from_element_queue__send__msg };
+        send_pkt_to_controller__msg_typed = { tile_id, TILE_ID_W'(NUM_TILES), CGRA_ID_W'(0), CGRA_ID_W'(0), CGRA_X_W'(0), CGRA_Y_W'(0), CGRA_X_W'(0), CGRA_Y_W'(0), 8'd0, 1'd0, recv_from_element_queue__send__msg };
         send_pkt_to_controller__val = 1'd1;
         recv_from_element_queue__send__rdy = send_pkt_to_controller__rdy;
       end
       else if ( ( ( total_ctrl_steps_val > 11'd0 ) & ( times == total_ctrl_steps_val ) ) | ( reg_file__rdata[1'd0].operation == 7'( OPT_START ) ) ) begin
         if ( ( ( ( ~sent_complete ) & ( total_ctrl_steps_val > 11'd0 ) ) & ( times == total_ctrl_steps_val ) ) & start_iterate_ctrl ) begin
-          send_pkt_to_controller__msg_typed = { tile_id, TILE_ID_W'(NUM_TILES), 1'd0, 1'd0, 1'd0, 1'd0, 1'd0, 1'd0, 8'd0, 1'd0, { 6'( CMD_COMPLETE ), DATA_BITS'(0), GLOBAL_ADDR_W'(0), CTRL_BITS'(0), CTRL_ADDR_W'(0) } };
+          send_pkt_to_controller__msg_typed = { tile_id, TILE_ID_W'(NUM_TILES), CGRA_ID_W'(0), CGRA_ID_W'(0), CGRA_X_W'(0), CGRA_Y_W'(0), CGRA_X_W'(0), CGRA_Y_W'(0), 8'd0, 1'd0, { 6'( CMD_COMPLETE ), DATA_BITS'(0), GLOBAL_ADDR_W'(0), CTRL_BITS'(0), CTRL_ADDR_W'(0) } };
           send_pkt_to_controller__val = 1'd1;
         end
       end
@@ -292,7 +292,7 @@ module ctrl_mem #(
     if ( reset ) begin
       for ( int unsigned addr = 0; addr < CTRL_DEPTH; addr++ ) begin
         for ( int unsigned i = 0; i < 4'( num_routing_xbar_inports_at_update_prologue_reg ); i++ )
-          prologue_count_reg_routing_crossbar[CTRL_ADDR_W'(addr)][3'(i)] <= 3'd0;
+          prologue_count_reg_routing_crossbar[CTRL_ADDR_W'(addr)][i] <= 3'd0;
         for ( int unsigned i = 0; i < 2'( num_fu_outports_at_update_prologue_reg ); i++ )
           prologue_count_reg_fu_crossbar[CTRL_ADDR_W'(addr)][1'(i)] <= 3'd0;
       end
@@ -300,7 +300,7 @@ module ctrl_mem #(
     else if ( recv_pkt_from_controller_queue__send__val & ( recv_pkt_from_controller_queue__send__msg.payload.cmd == 6'( CMD_CONFIG_PROLOGUE_ROUTING_CROSSBAR ) ) ) begin
       tmp_update_prologue_reg_temp_routing_crossbar_in = recv_pkt_from_controller_queue__send__msg.payload.ctrl.routing_xbar_outport[3'd0];
       if ( tmp_update_prologue_reg_temp_routing_crossbar_in > 4'd0 ) begin
-        prologue_count_reg_routing_crossbar[recv_pkt_from_controller_queue__send__msg.payload.ctrl_addr][3'(tmp_update_prologue_reg_temp_routing_crossbar_in - 4'd1)] <= 3'(recv_pkt_from_controller_queue__send__msg.payload.data.payload);
+        prologue_count_reg_routing_crossbar[recv_pkt_from_controller_queue__send__msg.payload.ctrl_addr][ROUTING_SEL_W'(tmp_update_prologue_reg_temp_routing_crossbar_in - ROUTING_SEL_W'(1))] <= 3'(recv_pkt_from_controller_queue__send__msg.payload.data.payload);
       end
     end
     else if ( recv_pkt_from_controller_queue__send__val & ( recv_pkt_from_controller_queue__send__msg.payload.cmd == 6'( CMD_CONFIG_PROLOGUE_FU_CROSSBAR ) ) ) begin

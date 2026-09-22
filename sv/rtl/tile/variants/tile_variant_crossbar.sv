@@ -7,7 +7,7 @@ module tile_variant_crossbar #(
   localparam int SELECT_W=$clog2(INPUTS+1),
   localparam int INPUT_W=$clog2(INPUTS)
 ) (
-  input  logic [0:0] cgra_id ,
+  input  logic [CGRA_ID_W-1:0] cgra_id ,
   input  logic [0:0] clear ,
   input  logic [0:0] clk ,
   input  logic [0:0] compute_done ,

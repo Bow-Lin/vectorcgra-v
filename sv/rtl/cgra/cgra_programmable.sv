@@ -82,6 +82,9 @@ module cgra_programmable #(
   logic [67:0] mem_dma_wr_msg;
 
   initial begin
+    if(MEM_WRITE_PORTS!=MEM_PORTS) $fatal(1,"Use cgra_system for independent memory port counts");
+    if(NUM_CGRAS!=1 || HAS_DMA || HAS_IM2COL)
+      $fatal(1,"Use cgra_system for multi-CGRA or peripheral integration");
     if(TILE_VARIANT<0 || TILE_VARIANT>2) $fatal(1,"Unknown Tile variant");
     if((TILE_VARIANT==2 && TILE_PORTS!=8) || (TILE_VARIANT!=2 && TILE_PORTS!=4))
       $fatal(1,"Supported profiles: base/context four ports; original streaming KingMesh eight ports");

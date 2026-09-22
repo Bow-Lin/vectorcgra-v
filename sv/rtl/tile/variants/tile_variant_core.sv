@@ -3,7 +3,7 @@
 `include "cgra_profile_defs.svh"
 `include "cgra_fu_catalog.svh"
 module tile_variant_core #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS, parameter bit STREAMING=0) (
-  input  logic [0:0] cgra_id ,
+  input  logic [CGRA_ID_W-1:0] cgra_id ,
   input  logic [0:0] clk ,
   input  logic [0:0] reset ,
   input  logic [TILE_ID_W-1:0] tile_id ,
@@ -38,8 +38,8 @@ module tile_variant_core #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS, parame
   logic clear, element_done, routing_crossbar_done, fu_crossbar_done;
   assign packet=recv_from_controller_pkt__msg;
   initial begin
-    if ((!STREAMING && TILE_PORTS!=4) || (STREAMING && TILE_PORTS!=8))
-      $fatal(1,"ac96 validated Tile variants require context4 / streaming8 physical ports");
+    if ((!STREAMING && TILE_PORTS!=4 && TILE_PORTS!=8) || (STREAMING && TILE_PORTS!=8))
+      $fatal(1,"ac96 Tile variants require context4/context8 or streaming8 physical ports");
   end
   logic [0:0] const_mem__clear ;
   logic [0:0] const_mem__ctrl_proceed ;
@@ -61,7 +61,7 @@ module tile_variant_core #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS, parame
     .send_const__rdy(const_mem__send_const__rdy),
     .send_const__val(const_mem__send_const__val)
   );
-  logic [0:0] ctrl_mem__cgra_id ;
+  logic [CGRA_ID_W-1:0] ctrl_mem__cgra_id ;
   logic [CTRL_ADDR_W-1:0] ctrl_mem__ctrl_addr_outport ;
   logic [2:0] ctrl_mem__prologue_count_outport_fu ;
   logic [2:0] ctrl_mem__prologue_count_outport_fu_crossbar [0:CTRL_DEPTH-1][0:1];
@@ -225,7 +225,7 @@ module tile_variant_core #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS, parame
     .send_data_to_routing_crossbar__rdy(register_cluster__send_data_to_routing_crossbar__rdy),
     .send_data_to_routing_crossbar__val(register_cluster__send_data_to_routing_crossbar__val)
   );
-  logic [0:0] routing_crossbar__cgra_id ;
+  logic [CGRA_ID_W-1:0] routing_crossbar__cgra_id ;
   logic [0:0] routing_crossbar__clear ;
   logic [0:0] routing_crossbar__compute_done ;
   logic [0:0] routing_crossbar__crossbar_id ;
@@ -263,7 +263,7 @@ module tile_variant_core #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS, parame
     .send_data__rdy(routing_crossbar__send_data__rdy),
     .send_data__val(routing_crossbar__send_data__val)
   );
-  logic [0:0] fu_crossbar__cgra_id ;
+  logic [CGRA_ID_W-1:0] fu_crossbar__cgra_id ;
   logic [0:0] fu_crossbar__clear ;
   logic [0:0] fu_crossbar__compute_done ;
   logic [0:0] fu_crossbar__crossbar_id ;

@@ -4,7 +4,7 @@
 module tile_core #(
   `CGRA_PROFILE_PARAMETERS
 ) (
-  input  logic [0:0] cgra_id ,
+  input  logic [CGRA_ID_W-1:0] cgra_id ,
   input  logic [0:0] clk ,
   input  logic [0:0] reset ,
   input  logic [TILE_ID_W-1:0] tile_id ,
@@ -91,7 +91,7 @@ module tile_core #(
     .send_const__rdy( const_mem__send_const__rdy ),
     .send_const__val( const_mem__send_const__val )
   );
-  logic [0:0] ctrl_mem__cgra_id;
+  logic [CGRA_ID_W-1:0] ctrl_mem__cgra_id;
   logic [0:0] ctrl_mem__clk;
   logic [CTRL_ADDR_W-1:0] ctrl_mem__ctrl_addr_outport;
   logic [2:0] ctrl_mem__prologue_count_outport_fu;
@@ -221,7 +221,7 @@ module tile_core #(
     .to_mem_wdata__rdy( element__to_mem_wdata__rdy ),
     .to_mem_wdata__val( element__to_mem_wdata__val )
   );
-  logic [0:0] fu_crossbar__cgra_id;
+  logic [CGRA_ID_W-1:0] fu_crossbar__cgra_id;
   logic [0:0] fu_crossbar__clear;
   logic [0:0] fu_crossbar__clk;
   logic [0:0] fu_crossbar__compute_done;
@@ -305,7 +305,7 @@ module tile_core #(
     .send_data_to_routing_crossbar__rdy( register_cluster__send_data_to_routing_crossbar__rdy ),
     .send_data_to_routing_crossbar__val( register_cluster__send_data_to_routing_crossbar__val )
   );
-  logic [0:0] routing_crossbar__cgra_id;
+  logic [CGRA_ID_W-1:0] routing_crossbar__cgra_id;
   logic [0:0] routing_crossbar__clear;
   logic [0:0] routing_crossbar__clk;
   logic [0:0] routing_crossbar__compute_done;

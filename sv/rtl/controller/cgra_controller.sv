@@ -4,7 +4,7 @@
 module cgra_controller #(
   `CGRA_PROFILE_PARAMETERS
 ) (
-  input  logic [0:0] cgra_id ,
+  input  logic [CGRA_ID_W-1:0] cgra_id ,
   input  logic [0:0] clk ,
   input  logic [0:0] reset ,
   output logic [139-1:0] dma_cmd__msg  ,
@@ -120,13 +120,13 @@ module cgra_controller #(
   noc_packet_t p_send_to_tile_load_response__msg ;
   assign send_to_tile_load_response__msg = p_send_to_tile_load_response__msg;
 
-  localparam logic [0:0] has_dma_ports_at_update_dma_cmd_regs  = 1'd0;
+  localparam logic [0:0] has_dma_ports_at_update_dma_cmd_regs  = HAS_DMA;
   localparam logic [5:0] CMD_DMA_CONFIG_DRAM_ADDR_LO  = 6'd44;
   localparam logic [5:0] CMD_DMA_CONFIG_DRAM_ADDR_HI  = 6'd45;
   localparam logic [5:0] CMD_DMA_CONFIG_SPM_ADDR  = 6'd46;
   localparam logic [5:0] CMD_DMA_CONFIG_BYTES  = 6'd47;
   localparam logic [5:0] CMD_DMA_CONFIG_TAG  = 6'd48;
-  localparam logic [0:0] has_dma_ports_at_update_dma_spm_forwarding  = 1'd0;
+  localparam logic [0:0] has_dma_ports_at_update_dma_spm_forwarding  = HAS_DMA;
   localparam logic [0:0] DMA_MVIN  = 1'd0;
   localparam logic [2:0] CONTROLLER_CROSSBAR_INPORTS  = 3'd7;
   localparam logic [2:0] kFromInterTileRingIdx  = 3'd4;
@@ -135,12 +135,12 @@ module cgra_controller #(
   localparam logic [0:0] kLoadResponseInportIdx  = 1'd1;
   localparam logic [2:0] kFromReduceUnitIdx  = 3'd5;
   localparam logic [2:0] kFromIm2colIdx  = 3'd6;
-  localparam int num_tiles_at_update_received_msg = NUM_TILES;
-  localparam logic [0:0] has_dma_ports_at_update_received_msg  = 1'd0;
+  localparam int num_tiles_at_update_received_msg = MAX_TILES;
+  localparam logic [0:0] has_dma_ports_at_update_received_msg  = HAS_DMA;
   localparam logic [5:0] CMD_DMA_MVIN  = 6'd49;
   localparam logic [5:0] CMD_DMA_MVOUT  = 6'd50;
   localparam logic [0:0] DMA_MVOUT  = 1'd1;
-  localparam logic [0:0] has_im2col_engine_at_update_received_msg  = 1'd0;
+  localparam logic [0:0] has_im2col_engine_at_update_received_msg  = HAS_IM2COL;
   localparam logic [5:0] CMD_IM2COL_LAUNCH  = 6'd52;
   localparam logic [5:0] CMD_IM2COL_H  = 6'd53;
   localparam logic [5:0] CMD_IM2COL_W  = 6'd54;
@@ -180,15 +180,15 @@ module cgra_controller #(
   localparam logic [4:0] CMD_CONFIG_LOOP_STEP  = 5'd30;
   localparam logic [5:0] CMD_DMA_DONE  = 6'd51;
   localparam int addr_offset_nbits_at_capture_addr_dst_id = $clog2(NUM_BANKS*BANK_DEPTH);
-  logic [0:0] addr2controller_lut [0:0];
-  logic [0:0] addr_dst_id;
+  logic [CGRA_ID_W-1:0] addr2controller_lut [0:NUM_CGRAS-1];
+  logic [CGRA_ID_W-1:0] addr_dst_id;
   logic [31:0] dma_bytes;
   logic [31:0] dma_dram_addr_hi;
   logic [31:0] dma_dram_addr_lo;
   logic [31:0] dma_spm_addr;
   logic [7:0] dma_tag;
-  logic [0:0] idTo2d_x_lut [0:0];
-  logic [0:0] idTo2d_y_lut [0:0];
+  logic [CGRA_X_W-1:0] idTo2d_x_lut [0:NUM_CGRAS-1];
+  logic [CGRA_Y_W-1:0] idTo2d_y_lut [0:NUM_CGRAS-1];
 
   logic [0:0] crossbar__clk;
   logic [0:0] crossbar__reset;
@@ -437,7 +437,7 @@ module cgra_controller #(
   noc_packet_t update_received_msg_received_pkt;
 
   always_comb begin : capture_addr_dst_id
-    addr_dst_id = addr2controller_lut[1'(crossbar__send__msg[1'd0].inter_cgra_pkt.payload.data_addr >> addr_offset_nbits_at_capture_addr_dst_id)];
+    addr_dst_id = addr2controller_lut[CGRA_ID_W'(crossbar__send__msg[1'd0].inter_cgra_pkt.payload.data_addr >> addr_offset_nbits_at_capture_addr_dst_id)];
   end
 
   always_comb begin : update_dma_spm_forwarding
@@ -496,7 +496,7 @@ module cgra_controller #(
     crossbar__recv__msg[3'( kFromReduceUnitIdx )] = global_reduce_unit__send__msg;
     crossbar__recv__val[3'( kFromIm2colIdx )] = recv_from_im2col_pkt_queue__send__val;
     recv_from_im2col_pkt_queue__send__rdy = crossbar__recv__rdy[3'( kFromIm2colIdx )];
-    crossbar__recv__msg[3'( kFromIm2colIdx )] = { 1'd0, { cgra_id, recv_from_im2col_pkt_queue__send__msg.dst_cgra_id, 1'd0, 1'd0, idTo2d_x_lut[recv_from_im2col_pkt_queue__send__msg.dst_cgra_id], idTo2d_y_lut[recv_from_im2col_pkt_queue__send__msg.dst_cgra_id], TILE_ID_W'( num_tiles_at_update_received_msg ), recv_from_im2col_pkt_queue__send__msg.dst, MEM_PORT_W'(0), 8'd0, 2'd0, recv_from_im2col_pkt_queue__send__msg.payload } };
+    crossbar__recv__msg[3'( kFromIm2colIdx )] = { 1'd0, { cgra_id, recv_from_im2col_pkt_queue__send__msg.dst_cgra_id, CGRA_X_W'(0), CGRA_Y_W'(0), idTo2d_x_lut[recv_from_im2col_pkt_queue__send__msg.dst_cgra_id], idTo2d_y_lut[recv_from_im2col_pkt_queue__send__msg.dst_cgra_id], TILE_ID_W'( num_tiles_at_update_received_msg ), recv_from_im2col_pkt_queue__send__msg.dst, MEM_PORT_W'(0), 8'd0, 2'd0, recv_from_im2col_pkt_queue__send__msg.payload } };
     update_received_msg_cpu_payload = recv_from_cpu_pkt_queue__send__msg.payload;
     update_received_msg_cpu_cmd = update_received_msg_cpu_payload.cmd;
     if ( 1'( has_dma_ports_at_update_received_msg ) & ( ( ( ( ( update_received_msg_cpu_cmd == 6'( CMD_DMA_CONFIG_DRAM_ADDR_LO ) ) | ( update_received_msg_cpu_cmd == 6'( CMD_DMA_CONFIG_DRAM_ADDR_HI ) ) ) | ( update_received_msg_cpu_cmd == 6'( CMD_DMA_CONFIG_SPM_ADDR ) ) ) | ( update_received_msg_cpu_cmd == 6'( CMD_DMA_CONFIG_BYTES ) ) ) | ( update_received_msg_cpu_cmd == 6'( CMD_DMA_CONFIG_TAG ) ) ) ) begin
@@ -519,7 +519,7 @@ module cgra_controller #(
     else begin
       crossbar__recv__val[3'( kFromCpuCtrlAndDataIdx )] = recv_from_cpu_pkt_queue__send__val;
       recv_from_cpu_pkt_queue__send__rdy = crossbar__recv__rdy[3'( kFromCpuCtrlAndDataIdx )];
-      crossbar__recv__msg[3'( kFromCpuCtrlAndDataIdx )] = { 1'd0, { cgra_id, recv_from_cpu_pkt_queue__send__msg.dst_cgra_id, 1'd0, 1'd0, idTo2d_x_lut[recv_from_cpu_pkt_queue__send__msg.dst_cgra_id], idTo2d_y_lut[recv_from_cpu_pkt_queue__send__msg.dst_cgra_id], TILE_ID_W'( num_tiles_at_update_received_msg ), recv_from_cpu_pkt_queue__send__msg.dst, MEM_PORT_W'(0), 8'd0, 2'd0, recv_from_cpu_pkt_queue__send__msg.payload } };
+      crossbar__recv__msg[3'( kFromCpuCtrlAndDataIdx )] = { 1'd0, { cgra_id, recv_from_cpu_pkt_queue__send__msg.dst_cgra_id, CGRA_X_W'(0), CGRA_Y_W'(0), idTo2d_x_lut[recv_from_cpu_pkt_queue__send__msg.dst_cgra_id], idTo2d_y_lut[recv_from_cpu_pkt_queue__send__msg.dst_cgra_id], TILE_ID_W'( num_tiles_at_update_received_msg ), recv_from_cpu_pkt_queue__send__msg.dst, MEM_PORT_W'(0), 8'd0, 2'd0, recv_from_cpu_pkt_queue__send__msg.payload } };
     end
     send_to_mem_load_request_queue__recv__val = 1'd0;
     send_to_mem_store_request_queue__recv__val = 1'd0;
@@ -658,9 +658,13 @@ module cgra_controller #(
   assign send_to_cpu_pkt_queue__reset = reset;
   assign global_reduce_unit__clk = clk;
   assign global_reduce_unit__reset = reset;
-  assign addr2controller_lut[0] = 1'd0;
-  assign idTo2d_x_lut[0] = 1'd0;
-  assign idTo2d_y_lut[0] = 1'd0;
+  for (genvar id=0; id<NUM_CGRAS; id++) begin : address_mapping
+    assign addr2controller_lut[id] = CUSTOM_ADDR_MAP ? ADDR_MAP[id*CGRA_ID_W+:CGRA_ID_W] : CGRA_ID_W'(id);
+  end
+  for (genvar id=0; id<NUM_CGRAS; id++) begin : coordinates
+    assign idTo2d_x_lut[id] = CUSTOM_COORD_MAP ? COORD_X_MAP[id*CGRA_X_W+:CGRA_X_W] : CGRA_X_W'(id%MULTI_COLS);
+    assign idTo2d_y_lut[id] = CUSTOM_COORD_MAP ? COORD_Y_MAP[id*CGRA_Y_W+:CGRA_Y_W] : CGRA_Y_W'(id/MULTI_COLS);
+  end
   assign recv_from_tile_load_request_pkt_queue__recv__msg = p_recv_from_tile_load_request_pkt__msg;
   assign recv_from_tile_load_request_pkt__rdy = recv_from_tile_load_request_pkt_queue__recv__rdy;
   assign recv_from_tile_load_request_pkt_queue__recv__val = recv_from_tile_load_request_pkt__val;
@@ -685,7 +689,8 @@ module cgra_controller #(
   assign p_send_to_cpu_pkt__msg = send_to_cpu_pkt_queue__send__msg;
   assign send_to_cpu_pkt_queue__send__rdy = send_to_cpu_pkt__rdy;
   assign send_to_cpu_pkt__val = send_to_cpu_pkt_queue__send__val;
-  assign recv_from_im2col_pkt_queue__recv__val = 1'd0;
-  assign recv_from_im2col_pkt_queue__recv__msg = '0;
+  assign recv_from_im2col_pkt_queue__recv__val = HAS_IM2COL ? recv_from_im2col_pkt__val : 1'b0;
+  assign recv_from_im2col_pkt_queue__recv__msg = HAS_IM2COL ? recv_from_im2col_pkt__msg : '0;
+  if (HAS_IM2COL) assign recv_from_im2col_pkt__rdy = recv_from_im2col_pkt_queue__recv__rdy;
 
 endmodule

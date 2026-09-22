@@ -38,3 +38,9 @@ results/phase3*.json -text
 tests/phase3/**/*.json -text
 rtl/vendor/** -text
 rtl/fu/combo/vendor/** -text
+
+# Stage 4 evidence and measured sources retain their exact tested bytes.
+# Newly authored shell/HDL files are written with LF before validation.
+tests/phase4/** -text
+results/phase4*.json -text
+rtl/peripheral/** -text

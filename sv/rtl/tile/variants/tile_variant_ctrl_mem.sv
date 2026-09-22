@@ -4,7 +4,7 @@
 module tile_variant_ctrl_mem #(
   `CGRA_PROFILE_PARAMETERS
 ) (
-  input  logic [0:0] cgra_id ,
+  input  logic [CGRA_ID_W-1:0] cgra_id ,
   input  logic [0:0] clk ,
   output logic [CTRL_ADDR_W-1:0] ctrl_addr_outport ,
   output logic [2:0] prologue_count_outport_fu ,
@@ -242,17 +242,17 @@ module tile_variant_ctrl_mem #(
   end
   always_comb begin : update_send_pkt_to_controller
     send_pkt_to_controller__val = 1'd0;
-    send_pkt_to_controller__msg_typed = { TILE_ID_W'(0), TILE_ID_W'(NUM_TILES), 1'd0, 1'd0, 1'd0, 1'd0, 1'd0, 1'd0, 8'd0, 1'd0, { 6'( CMD_COMPLETE ), DATA_BITS'(0), GLOBAL_ADDR_W'(0), CTRL_BITS'(0), CTRL_ADDR_W'(0) } };
+    send_pkt_to_controller__msg_typed = { TILE_ID_W'(0), TILE_ID_W'(NUM_TILES), CGRA_ID_W'(0), CGRA_ID_W'(0), CGRA_X_W'(0), CGRA_Y_W'(0), CGRA_X_W'(0), CGRA_Y_W'(0), 8'd0, 1'd0, { 6'( CMD_COMPLETE ), DATA_BITS'(0), GLOBAL_ADDR_W'(0), CTRL_BITS'(0), CTRL_ADDR_W'(0) } };
     recv_from_element_queue__send__rdy = 1'd0;
     if ( start_iterate_ctrl == 1'd1 ) begin
       if ( recv_from_element_queue__send__val & ( ~sent_complete ) ) begin
-        send_pkt_to_controller__msg_typed = { tile_id, TILE_ID_W'(NUM_TILES), 1'd0, 1'd0, 1'd0, 1'd0, 1'd0, 1'd0, 8'd0, 1'd0, recv_from_element_queue__send__msg };
+        send_pkt_to_controller__msg_typed = { tile_id, TILE_ID_W'(NUM_TILES), CGRA_ID_W'(0), CGRA_ID_W'(0), CGRA_X_W'(0), CGRA_Y_W'(0), CGRA_X_W'(0), CGRA_Y_W'(0), 8'd0, 1'd0, recv_from_element_queue__send__msg };
         send_pkt_to_controller__val = 1'd1;
         recv_from_element_queue__send__rdy = send_pkt_to_controller__rdy;
       end
       else if ( ( ( total_ctrl_steps_val > 11'd0 ) & ( times == total_ctrl_steps_val ) ) | ( reg_file__rdata[1'd0].operation == 7'( OPT_START ) ) ) begin
         if ( ( ( ( ~sent_complete ) & ( total_ctrl_steps_val > 11'd0 ) ) & ( times == total_ctrl_steps_val ) ) & start_iterate_ctrl ) begin
-          send_pkt_to_controller__msg_typed = { tile_id, TILE_ID_W'(NUM_TILES), 1'd0, 1'd0, 1'd0, 1'd0, 1'd0, 1'd0, 8'd0, 1'd0, { 6'( CMD_COMPLETE ), DATA_BITS'(0), GLOBAL_ADDR_W'(0), CTRL_BITS'(0), CTRL_ADDR_W'(0) } };
+          send_pkt_to_controller__msg_typed = { tile_id, TILE_ID_W'(NUM_TILES), CGRA_ID_W'(0), CGRA_ID_W'(0), CGRA_X_W'(0), CGRA_Y_W'(0), CGRA_X_W'(0), CGRA_Y_W'(0), 8'd0, 1'd0, { 6'( CMD_COMPLETE ), DATA_BITS'(0), GLOBAL_ADDR_W'(0), CTRL_BITS'(0), CTRL_ADDR_W'(0) } };
           send_pkt_to_controller__val = 1'd1;
         end
       end

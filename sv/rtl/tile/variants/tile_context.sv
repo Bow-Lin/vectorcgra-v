@@ -1,7 +1,7 @@
 `include "cgra_profile_defs.svh"
 `include "cgra_fu_catalog.svh"
 module tile_context #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS) (
-  input  logic [0:0] cgra_id ,
+  input  logic [CGRA_ID_W-1:0] cgra_id ,
   input  logic [0:0] clk ,
   input  logic [0:0] reset ,
   input  logic [TILE_ID_W-1:0] tile_id ,
