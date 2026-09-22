@@ -67,3 +67,7 @@ scripts under `migration_tools/` are provenance/export tools, not required
 to run this test. The test's independent packing types live in
 `scalar_workload_pkg.sv`; `tb_cgra_types.sv` separately checks the public
 RTL package against nonzero PyMTL packing samples.
+
+## 第四阶段
+
+[phase4/README.md](phase4/README.md) 是多 CGRA、异构结构、NoC、任务迁移、DMA/im2col 与非对称存储用例的入口。旧阶段默认配置兼容性重跑结果见 `phase4/compatibility/results.json`。第五阶段等待用户指令，本交付分支不包含第五阶段用例。

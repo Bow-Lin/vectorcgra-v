@@ -146,3 +146,77 @@
 - 主智能体生成 `results/phase3-summary.json` 与证据归档，记录 baseline、实现/验证提交、三位代理分工、六系统、四参数回归、源码哈希及限制。`phase3-evidence.zip` 含 503 个条目，10,893,363 字节，SHA256 为 `cb8d254ccd58609e0eed0a284246c690e80f82755d2f06b31b1643d171bfe5c0`；逐条从 zip 读回核验，清单独立保存。未测标准单元面积/Fmax，未修改原 Python，未推送或合并 master。第四阶段的多 CGRA、跨 CGRA 迁移、DMA/im2col 仍待执行。
 
 - 最后复用 `area_report` 独立审查整体汇总、源码与归档。503 个条目、六系统、四参数回归和对应源码 SHA 均匹配，89 条 RTL SHA 同时匹配实现提交。代理发现机器 JSON 顶层 flow 标签可能把七项 MAC 结构检查混同为完整综合的 P2；提交 `930c178` 将其拆为 extended_profiles_flow 与 mac_flow，并同步生成脚本。逐字段核对仅标签变化，脚本实际运行命令与 `17aaefa` 完全相同，因此不重复硬件测试；随后重新收集汇总和 zip，以上尺寸/SHA 已更新为最终版本。主智能体另核对七份结果中 421 条运行源码 SHA，与当前工作树全部一致；参数负控和六系统综合使用相同转换输入。
+
+## M13：第四、第五阶段启动（2026-09-22）
+
+- 用户授权继续完成后面的迁移任务。本轮同时推进阶段 4 系统扩展和阶段 5 独立交付；起点为 `1a5585a`，继续使用 `codex/sv-migration` 工作树，原 Python 基线、原工作树 NoC 优化和 master 不改。
+- 复用三位既有子智能体，没有创建新代理或新用户任务：`noc_contract`（Bernoulli）负责跨 CGRA Mesh/Ring NoC；`synth_tools`（Socrates）负责 DMA 与 im2col 引擎；`area_report`（Boyle）负责源码覆盖审计和非 Python 配置工具。主智能体负责公共字段参数、Controller/存储、CGRA 集成、系统验证和 Git。
+- 子任务分别隔离到 `rtl/noc/inter_cgra`、`rtl/peripheral`、`tools`，测试位于 `tests/phase4` 和 `tests/phase5`。各代理的 WORK_LOG 记录具体命令、失败及修正，本文件记录跨任务决策和最终结果。
+- 先以原生可配置 RTL 恢复多 CGRA ID/坐标/地址映射和 DMA 端口，默认单 CGRA 参数保持既有编码；再验证多阵列路由、远程访存、迁移/归约、外设和异构拓扑。配置工具必须能够构造新程序，不能仅依赖冻结参考向量。最终在仅包含 SV 工程的目录运行测试/综合；EDA 内部调用 Python 仍按用户澄清允许。
+
+## M14：公共类型、多 CGRA 与外设集成实施
+
+- 主智能体恢复多 CGRA ID/坐标位宽、地址 owner LUT 和坐标 LUT；增加 MAX_COLS/MAX_ROWS/MAX_MEM_PORTS 以共用异构消息布局。DMA 的本地 crossbar source/destination 宽与 NoC remote_src_port 宽分别推导，避免新增 master 后字段错位。Controller 中原有 DMA/im2col 分支改为可选择参数，补连原先禁用的 im2col queue 输入；默认参数保持阶段 1 字段布局。
+- 恢复 DataMemWrapper 的原有可选一周期读/写请求 channel，默认仍为组合模式；没有改动 RAM 的无 reset 语义。普通 Tile 的物理端口、routing crossbar 和 ctrl memory 原先仍有四端口展开常量，本轮改为可维护的 4/8 端口 generate，供 CgraTemplate 使用。Context/Streaming 的 CGRA ID 端口同步拓宽。
+- `cgra_system` 接入外部 NoC/local bypass、DMA 和 im2col，并提供每 Tile FU 列表及静态 LinkList/存储连接表；`cgra_multi` 接入原 host-at-CGRA0 的 Mesh/Ring 与物理边界；异构封装正在集成。这些新增系统尚在验证，不以 lint 通过声称完成。
+- 默认 2×2 `tests/phase3/system/run_base.sh` 在公共位宽扩展后、普通 Tile 改写后分别实际通过：134 个原 HDL/Python 周期样本，每样本 489 位；正负两轮结果 28/-11，四条 Tile 链路和背压检查通过。普通八端口系统、DMA+多 CGRA 参数均通过 Verilator elaboration；完整新系统回归与最终重新综合后续记录。
+- 未修改 ac96 参考导出得到 Mesh 四 CGRA、每个 2×2 Tiles 的远程访存程序：两轮各 189 周期（另加 3 reset 周期），每轮 16 个 Tile 完成、8 次主机查询，四个地址 owner 返回与独立算术值一致，冻结原始 HDL 和 Python trace。原生差分正在编译。
+- `synth_tools` 发现 DMA 原 Python 与导出 HDL 的切片宽度差异：128 位数据第三个 32 位 word 的下界表达式按 6 位截断，使 64 变为 0。沿用阶段 3 VectorMulCombo 的合同，要求默认保留导出硬件；Python 语义必须显式选择并分别取证，不能静默更换参考或隐藏非重复数据反例。
+- `area_report` 配置工具已通过默认/64 位/八端口三个配置及越界负控，继续补 LoopController 与确认可用的旧存储/选择器/寄存器组件。`noc_contract` 完成多种 Mesh/Ring 原参考和差分，随后负责跨阵列边界、全局归约与真实任务迁移程序。
+
+## M15：系统差分、源功能补漏与失败处理
+
+- 继续复用原三位代理，没有新增代理。`noc_contract` 扩展到动态 FIR 迁移、全局 ADD 归约与独立读写端口内存；`synth_tools` 扩展到 DMA/im2col 完整 CGRA 集成和模板只读审查；`area_report` 扩展到独立 LoopController、可用旧模块及源功能清单。具体组件证据在各 tests/phase4、tests/phase5 的 WORK_LOG 与 JSON。
+- 主智能体完成 `cgra_multi_template`：共享最大消息几何，局部 CGRA 为 2×2/3×3/2×2/2×2，逐 Tile 有序 FU 列表，静态定向 LinkList、停用对角链路、独立读写 Tile 连接表，以及相邻不同大小 CGRA 的重叠边界连接。原始异构参考首次因迁移 harness 漏调原 `configure_boundary_ports` 而报 NoWriter；保存失败目录和快照，补调用原 helper 后未改原 Python 即成功。原生/参考 HDL/原 Python 三方在 206 周期 × 221 位全部一致，21 完成、8 次回读、24 个 host 反压周期；后续公共参数追加需要在最终源码再验证。
+- 同构 Mesh4×Tiles2 初次三方对照通过 384 周期 × 195 位，32 完成、16 回读、40 远程请求与 20 远程响应。Ring 的原生和两个参考一致，但独立检查器错误要求不同 owner 的响应全局有序；原 Ring 允许跨目的响应交错。修正为每 owner 内顺序与唯一性，保留全原始位周期比较，四个参数点正在统一重跑。
+- 全局 ADD 未改 Python 参照与原生 SV 在 91 周期 × 1779 位通过，局部 10/26 归约为 36，最终独立结果 53/31、六个完成包和故意错误负控均通过。原动态 FIR 参照 165 周期得到 2215，包含 126 配置包、保存/恢复和跨 CGRA 物理链接；原生核对仍在执行。两个集成 bench 首次漏计原 FlexibleFuRTL 自动附加 Nah，正确被原生 FU guard 拒绝；修的是测试 profile 的有效 FU 顺序，未改原程序或参考。
+- DMA 六组组件 profile（两种宽度、两种语义和两个 im2col 配置）均完成差分、独立事务检查和负控。DMA 完整系统初次通过 86 周期与原 HDL 对照，2 done/tag、5 CPU 回读、2 DRAM 读和 2 写 beat；默认保留两个已知错误 MVIN word，不将其描述为正确搬运全部数据。im2col 系统正在编译。
+- NoC 九配置共 18,729 周期、4,736 个独立计分数据包通过；Mesh 四配置及 Ring2 完整综合通过。Ring2 的完整 JSON 约 466 MB，PowerShell对象化时占约 6.8 GB，拖慢主机；代理核对 PID 22172 确为自己启动的脚本后仅终止该解析，保留综合日志，改为 Yosys 紧凑统计。其余 Ring 改做前端结构检查，并明确区分验证级别，未把它们算成完整映射。
+- 源功能盘点发现 DataMemController 的读写端口数独立。主智能体增加 MEM_WRITE_PORTS、独立 write request 类型、write crossbar/source 位宽、bank 写通道和系统连接表；默认等于 MEM_PORTS，原有配置保持不变。r1w3 的原 HDL 可生成；r3w1 在原 RTLIR 中因将 1 位 write source 截断到 2 位 remote source 而失败，保存失败证据，不修原 Python 来伪造原支持范围。
+- 只读审查指出 host-only 多 CGRA 封装未暴露外设端口，新增 HAS_DMA/HAS_IM2COL 的明确拒绝，外设由 cgra_system/integrated wrappers 接入。旧标量/可配置单 CGRA 入口也拒绝误用多 CGRA/外设和非对称存储配置。
+- 运行环境中的两次裸 bash 调用分别遇到 login shell 改目录和缺少 /usr/bin，补显式 PATH 并使用非 login shell 后恢复。一次正在执行的 template run.sh 被更新，导致 bash 文件偏移错误；已编译可执行文件独立运行通过，最终从稳定脚本重跑。工具 apply_patch 对 worktree reparse point 曾返回错误但部分文件已落盘，主智能体逐文件确认实际修改后补齐，没有盲目重复应用。
+- 新增统一 phase4/phase5/regression 入口，以及不覆盖已有目标、逐文件 SHA 校验的 export_standalone.ps1。此时独立交付和最终综合尚未完成，后续记录实际结果；不把入口存在当成执行通过。
+
+## M16：最终实现冻结、独立程序和取证范围
+
+- 实现分为 `0277704`（共享字段、独立读写存储口、Mesh/Ring、系统与异构模板）及 `4927d87`（DMA/im2col、LoopController、旧模块、SV 配置工具和完整 DUT 清单）两次提交。继续复用三位既有代理，没有新建子智能体或用户任务。日常编译不调用 `migration_tools`；这些 Python 仅用于本轮参考导出、来源审计和结果收集。
+- `noc_contract` 完成九种 NoC、动态 FIR、全局 ADD 和 r1w3 非对称存储；原读 3/写 1 的 RTLIR 失败另存证据。FIR 最终为 165 周期 × 3844 位、126 配置输入、五次跨 CGRA 物理传输、Tile0/3 非零状态保存/恢复及清空，结果 2215。全局 ADD 为 91 周期 × 1779 位、局部 10/26 归约为 36 后得到 53/31。r1w3 为 464 周期 × 669 位、24 写/25 读、83 个反压采样，均实际通过错误预期负控。
+- `synth_tools` 完成六组件与两个集成系统的正测、负控和最终综合。DMA 集成为 86 周期，默认硬件语义保留两项已知错误 MVIN word；im2col 集成为 202 周期、16 次窗口像素写入/回读、45 个 CPU 门控周期。最终两个完整系统的 `synth -noabc/check -assert` 通过并保留原端口；generic 统计不当作标准单元面积。组件和系统各自 source SHA 复核未发生测后编辑。
+- `area_report` 完成 94 项源码映射、49 个原 kernel 入口盘点、16 个旧模块配置与两个 LoopController 配置。49 是原测试入口清单，不是 49 项已迁移/重跑的宣称。最终正测 5227 个逐周期样本，四种配置编码 profile 共 473 项检查，18 项破坏 oracle 和 12 项越界配置负控通过。18 项结构检查中 15 项无问题；旧 DataMem/ScalableDataMem/RingMultiCtrlMem 分别保留与原 HDL 一样的 46/46/4 个未驱动位告警，不冒称这三项严格零告警综合通过。
+- 主智能体新增 `tb_program_execute.sv` 与 `run_program.sh`，直接调用原生 SV CLI 构建此前参考中没有的程序：输入 11，依次加 9、乘 2、减 3，地址为 4/20。测试独立写出预期 37，运行 72 周期、26 配置包、4 个唯一完成、2 次回读及西侧多播，host/West 各经历六个反压采样。错误预期与永久反压两项负控均按指定错误非零退出。`synth_tools` 独立只读核对数学预期独立性、源 val/msg 保持和负控，未发现待处理 P1/P2。
+- 64 Tile 的原 Python 仿真在成功导出原 HDL 后长期未结束首个场景。核对 PID 5900 及父进程命令确为本次 `phase4_multi_export.py --tiles 4` 后，仅停止这一仿真：已耗时 4178.015 秒，原 HDL/source manifest/exporter snapshot 不改，raw HDL SHA 为 `1ac181e58a771dcc6d77f04d1b5a17ffbe6615fb7549d23559d6054b71bcf32b`。`python-trace-status.json` 记录中止，不把部分 program0.hex 当完成轨迹。该配置保留原 HDL 的逐周期全 raw 输出比较、独立数学/事务检查和两项负控；其余三个同构 16 Tile 配置及异构系统继续三方比较。当前导出脚本增加显式 `--hdl-only`，历史快照不重写。
+- 为减少仿真器主机编译开销，最终后续测试允许 `MAKEFLAGS='OPT_FAST=-O0 OPT_SLOW=-O0'`；这是生成 C++ 模型的编译优化选项，不改变 RTL 周期、硬件或 oracle。源文件和 frozen asset 使用 SHA 校验；阶段2/3公共默认 profile 回归也记录相同主机编译选项。
+- 寄存器存储模式一次旧编译较慢，尝试停止已核实的本次 bash PID13912 被操作系统拒绝访问；这不是自动审批审查拒绝。随后 PowerShell 路径误重复为 sv/sv，且当时未启用 Stop-on-error，路径解析失败后仍启动第二次构建，短暂共用同一忽略目录。旧任务因 PCH 时间戳变化失败（mtime 1790040670→1790041634），未计作最终证据。源码/参考未受影响。新批离开该目录后交给 `synth_tools` 独占，保留重叠构建目录并在空目录重编；后续文件操作统一先用原生 PowerShell 解析并验证绝对路径边界，启用 `$ErrorActionPreference='Stop'`。
+- 独立工程首次导出 884 个文件，目录内 Python 文件数为 0；该验证快照在最终报告编写前生成。主智能体从空构建目录执行 all、phase5、phase4-noc、phase4-migration 四组入口。快照范围和完成结果另记最终收尾；不把仅存在导出目录或旧构建日志当作独立验证通过。
+
+## M17：独立复核与最终测试的证据绑定
+
+- 冻结参照以 `792ea50` 提交，共 216 个参考资产逐项比较暂存 blob 与工作文件，字节完全一致。`reference/phase5` 中保留的原始 `__pickled.v` 是 manifest 指定的未改翻译产物，属于有来源的参考资产，不进入 DUT 文件列表；它们不是日常编译输出。历史 exporter snapshot 随各参照保存。
+- `noc_contract` 独立完成来源审计：46 份 manifest 的 2966 条声明 SHA 全部匹配，unresolved/failures 均为 0；三次原导出失败及四份纯 Python trace 的 HDL 校验明确不适用。九个未声明 checksum 的附件单列，未计为校验通过。155 个原 Python 路径均与导出清单匹配，其中 115 个与基线 Git blob 原字节一致，40 个子模块文件仅因 Windows CRLF/LF 不同，逐项归一化一致且子模块 clean，保留两种原 SHA。两份 DMA pytrace 的刺激路径从历史调用/快照明确解析，并将实际刺激原字节新增归档，没有改写原 manifest。
+- 五种完整系统的最终通用综合全部通过，源码输入 100 条 SHA 与当前一致：Mesh16、Ring16、寄存器存储 Mesh16、Mesh64、21Tile 异构。均保留八个主机端口，输入/输出总位宽分别为 197/195、199/197、197/195、201/199、223/221；最终 `check -assert` 为零。墙钟时间约 714.05、647.65、373.05、519.83、1697.75 秒，仅用于记录本机执行，不当作硬件性能指标。
+- `synth_tools` 独占空目录完成寄存器存储配置，374 周期 ×195 位、32 完成、16 回读、40 远程请求和 20 响应；正测及两项负控全部通过。第一次外层 SHA 收尾因 bash 未继承内部 PATH 找不到 sha256sum，单独以绝对工具路径补校验；这不是 DUT 或差分失败。随后新的 hashed replay 完整退出成功，94 条显式源码 SHA、103 个 Verilator 输入和六个运行文件均校验通过，旧混合构建单独保留。详情见 clean-rebuild-result.json。
+- `noc_contract` 对最终收集器进行只读审查，指出初稿缺少 `$readmemh` 运行文件哈希、外设 288 条源码/日志哈希的二级检查，以及 phase5 结构检查的 `completed` 状态须与 `passed` 区分。主智能体增加 `system/replay.sh`：检查已编译源码，记录实际 `.hex/.txt/results.json` 的运行前后 SHA，再跑正测和指定负控；64Tile 显式注明这些部分 Python 文件未被使用。收集器分别核验各 schema、配置数量、18项结构告警的 46/46/4 白名单；不更改旧 JSON 状态迎合统一判断。
+- NoC 的负控范围修正为九种正测配置与 `mesh_2x2_l1_w32` 的错误包/永久反压两项负控，不声称九种各做两项负控。运行脚本要求指定失败标记和非零退出，随机崩溃不计为负控通过。异构样本已验证 101 个实际编译来源与五个运行文件；只读复查无剩余 P1/P2。
+- `synth_tools` 核对 `filelists/native.f`：102 个唯一 DUT 文件、三条 include 目录，全部存在且位于 rtl，无 reference/tests/fixed DUT；实际声明数 116 不当作功能数。`area_report` 复核第五阶段报告数字与范围，补齐示例的 EDA 路径参数。三位代理均为原有代理复用，没有新建用户任务。
+
+- 验证入口与迁移取证工具以 `eba17d8` 分批提交，168 项暂存 blob 与工作字节一致。公共旧系统回归在该次提交期间报告失败，失败 JSON 也如实以 failed 状态保存：阶段2四配置与阶段3 Base/Logic/Float/Vector 已过，Context 编译遇到手写测试 profile 缺少新增的五个位宽别名，不能用旧 run.log 代替本轮通过。
+- `synth_tools` 独立核对默认单 CGRA ABI：四端口 DATA/CTRL/PAYLOAD/HOST/NOC/MEM 为 35/119/170/191/194/52 位，八端口为 35/143/194/215/218/52 位，41 个端口的总输入/输出仍为 702/685 和 750/733。新增别名没有改变默认字段布局。`area_report` 扫描全部测试，发现 35 份手写 profile（两完整 Tile 变体系统、StreamingMem 组件、两标量配置、30 向量/组合配置），仅补 ID/X/Y=1 与读写 crossbar source=2 的别名，不修改刺激、预期、参考或 DUT，并重跑受影响入口。既已通过且源未改的八系统结果保留，失败记录和修正前后 SHA 单独记录。
+
+## M18：按用户要求将交付范围收至第四阶段
+
+- 用户明确要求“完成第四阶段即可，等我指令再开始第五阶段”。收到后停止新增第五阶段工作，只完成第四阶段共享参数影响的旧阶段兼容回归，以及第四阶段 Git/报告收尾。此前根据“继续后面的迁移任务”已经执行的第五阶段探索保留，不删除历史，也不将其作为本次正式交付。
+- 复用原三位代理，没有新建子智能体：`area_report` 完成必要的旧标量/向量/Tile 兼容回归；`synth_tools` 复核第四阶段证据和入口范围；`noc_contract` 审计阶段4/5文件依赖及来源。主智能体整理独立第四阶段分支与证据归档。
+- 文件审计确认第四阶段 RTL 与测试不依赖第五阶段独立 LoopController、七个 legacy 文件和配置工具。完整 DUT 列表从 102 项精确排除八项后为 94 项；第三阶段已有 scalar_loop_control/counter FU 保留。共享多 CGRA/独立写口/外设 profile 扩展及 35 个旧测试平台的一行别名适配属于第四阶段，须保留。
+- 为避免混合历史被当作第四阶段交付，将完整现场保存为 `codex/sv-phase5-draft`，从第三阶段完成点 `1a5585a` 创建 `codex/sv-migration-phase4`，只导入第四阶段实现/证据。Makefile、run.ps1 和 native.f 删除第五阶段入口；旧阶段与第四阶段命令不变。原 `codex/sv-migration` 历史、原工作树和 master 不重写。
+- 兼容性回归首次修复后，w32 已实际通过，但采集器将本地 DateTime 与 UTC 文件时间比较，误报 STALE_RUN_LOG。将比较双方显式转换为 UTC 后复用该次真实成功结果，继续 w64、30 个向量/组合与 Tile 组件。原始失败及恢复记录保存，不以旧 run.log 冒充本轮通过。
+- 分支拆分只改变交付文件范围与入口；已测 DUT、刺激、参考字节不变。原始宽范围采集报告保留在草稿分支并原字节复制到第四阶段 compatibility 历史记录，另派生限定索引，明确列出未使用的第五阶段文件和入口移除，不改写历史哈希或假称重新仿真。
+- 第五阶段完整现场已保存为 `codex/sv-phase5-draft@b31dea343eefd41fcb01b9286a0e121067ce024d`。第四阶段原生实现提交为 `c56d0c6`；32 项暂存文件逐一与实测工作字节比较一致。原 `codex/sv-migration` 保持在 `eba17d8`，没有重写已有提交。
+- 最终兼容回归实际通过 10 个完整系统与 34 个组件配置：阶段2四个参数点；阶段3 Base/Logic/Float/Vector/Context/Streaming；两标量 2881/3105 周期；30 个向量/组合各 640 周期；Context/StreamingMem 组件 360/358 周期。相关错误预期和超时负控通过。原始当前源码快照共 181 项；不将这些计数解释为全部原 kernel 已移植。
+- 第四阶段兼容索引复核 170 个保留源码、195 项实际日志、47 份编译输入元数据；11 项范围变化明确为八个未实例化的第五阶段 RTL，以及三个只移除第五阶段声明的入口文件。五份原始兼容报告原字节保留，源 sha 与 `b31dea3` 一致。完整编译记录确认没有实例化被排除的第五阶段模块。
+- 第四阶段验证提交为 `2fafbb9`，258 项参考/测试/取证文件的暂存 blob 与工作字节逐一一致。阶段4来源限定复核覆盖 28 份 manifest、2827 项声明 SHA，全部匹配；147 项原 Python 路径中 107 项与 Git 原字节一致，40 项仅换行差异，均单独登记。7 项不适用字段和9个未声明 checksum 的附件不算作通过项。
+- `area_report` 独立复核 compatibility 派生索引：10系统、34组件、170源码、195日志/产物、47编译元数据及5份历史报告全部匹配，11项范围排除理由成立，无剩余 P1/P2。`synth_tools` 检查94 DUT/3 include、100个保留HDL/头文件、41个runner；阶段1–4 Make dry-run的9333字节命令输出与草稿完全相同，27个Shell与14个PowerShell入口语法通过，736条RTL SHA断言一致。上述都是只读核验，不重复宣称新硬件仿真。
+- 第四阶段汇总 `results/phase4-summary.json` 实际校验 2275 条当前源码、运行文件及日志哈希。五系统共2254个逐周期样本、449354个原始输出位比较通过；五项完整系统通用综合最终 `check -assert` 为0。组件完整综合和前端检查分开记录；未测标准单元面积/Fmax，64Tile未完成的Python轨迹仍明确排除。
+- 第四阶段证据 ZIP 为 `results/phase4-evidence.zip`，共674条目、9,721,698字节，SHA256 `971a7a022b3b84e1200c9f0e14eb121dbd7412fed3d0e201679904d2dc7a1699`。生成器逐条读回核验，并归档兼容回归日志、实际编译输入记录、已保留的失败、Git暂存字节证明及范围审计。原始阶段1–3结果和旧证据ZIP没有覆盖。
+- 最终Git检查发现原工作树在2026-09-22 10:06:33已有从NoC优化分支到master的checkout记录，早于本次交付范围切分；如实记录原工作树当前为master@41cb0c0且tracked clean。master提交未变化，NoC优化分支仍为e3caf69，本轮仅操作迁移工作树的新分支，没有推送、合并或改写已有分支。
+- 第四阶段完成后停止。第五阶段的已有探索与未交付报告仅保留在 `codex/sv-phase5-draft@b31dea3`；等待用户再次指令后才继续。
+- 最后由 `noc_contract` 独立逐条读取ZIP验收：674项长度与SHA全部匹配，195份兼容日志/产物与47份编译记录无遗漏，2275条当前来源校验可独立重算；107个汇总源码SHA和组件报告指纹均匹配，没有第五阶段运行代码/入口混入，无剩余P1/P2。

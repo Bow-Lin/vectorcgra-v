@@ -1,6 +1,8 @@
 # VectorCGRA SystemVerilog 工程
 
-当前已完成第三阶段：在原生参数化单 CGRA 上增加完整 FU 目录、浮点与向量运算，以及上下文切换/流式加载 Tile。保留第一阶段 2×2 和第二阶段标量入口。阶段结果见 [PHASE3_REPORT.md](PHASE3_REPORT.md)，分阶段范围见 [MIGRATION_PLAN.md](MIGRATION_PLAN.md)，实施记录见 [EXPERIMENT_LOG.md](EXPERIMENT_LOG.md)。
+当前已完成第四阶段：多 CGRA Mesh/Ring、异构结构、跨 CGRA 任务迁移，以及 DMA/im2col。第二、三阶段的单 CGRA 和 FU/Tile 入口继续保留。第四阶段交付分支为 `codex/sv-migration-phase4`；第五阶段等待用户指令，不在本分支交付范围内。
+
+阶段结果见 [PHASE4_REPORT.md](PHASE4_REPORT.md)，计划见 [MIGRATION_PLAN.md](MIGRATION_PLAN.md)，完整过程见 [EXPERIMENT_LOG.md](EXPERIMENT_LOG.md)。
 
 ## 当前实现
 
@@ -11,9 +13,28 @@
 - 参数类型规则：`rtl/common/cgra_profile_defs.svh` 与 `cgra_profile.svh`；旧 `cgra_types_pkg.sv` 继续保存 2×2 的公共编码兼容接口。
 - 测试：独立 SV 测试平台及已归档的配置、参照数据。正常仿真和综合直接编译 HDL，不运行 PyMTL 或项目 Python 生成器；允许 EDA 工具内部使用 Python。
 
-当前范围为单 CGRA；包含标量、向量、归约、组合、定点 MAC、浮点和流式访存 FU，及原架构的 Context/Streaming Tile。多 CGRA、跨 CGRA 任务迁移与 DMA/im2col 留待第四阶段。`reference/` 是冻结参照；后续开发修改 `rtl/`，不要同步修改参照以掩盖差异。原 FP 格式及向量乘法的 Python/HDL 差异保留并单独登记，使用前请查第三阶段报告的兼容边界。
+当前范围包括单/多 CGRA；包含标量、向量、归约、组合、定点 MAC、浮点和流式访存 FU，及原架构的 Context/Streaming Tile。`reference/` 是冻结参照；后续开发修改 `rtl/`，不要同步修改参照以掩盖差异。原 FP 格式及向量乘法的 Python/HDL 差异保留并单独登记，使用前请查第三阶段报告的兼容边界。
 
 第二阶段参数点、实际验证结果及合法范围见 [PHASE2_REPORT.md](PHASE2_REPORT.md)。3×2 用于验证原 `CgraRTL(width, height)` 已有的非方形支持；未修改 Python 架构以增加该能力。
+
+## 第四阶段系统入口
+
+- [`cgra_system`](rtl/cgra/cgra_system.sv)：单 CGRA 系统，支持外部 NoC、4/8 端口 Tile、独立读写存储口和可选外设。
+- [`cgra_multi`](rtl/cgra/cgra_multi.sv)：同构多 CGRA Mesh/Ring；已验证四 CGRA、共 16 或 64 Tiles。
+- [`cgra_multi_template`](rtl/cgra/cgra_multi_template.sv)：不同大小 CGRA、逐 Tile FU 列表和静态定向链路；已验证 21 Tiles 的异构配置。
+- [`rtl/peripheral/`](rtl/peripheral/)：DMA、im2col 引擎及 CGRA 集成封装。DMA 默认保留原翻译 HDL 的已知切片行为，详情见第四阶段报告。
+
+`filelists/native.f` 包含本阶段 94 个 DUT 文件。所有新增测试位于 [tests/phase4/](tests/phase4/README.md)，不会调用第五阶段配置工具或旧模块补漏代码。
+
+```powershell
+& ./sv/scripts/run.ps1 -Task phase4 `
+  -OssCadSuite D:/work/VectorCGRA/sys_lib/tools/oss-cad-suite `
+  -Sv2v D:/work/VectorCGRA/sys_lib/tools/sv2v-v0.0.13/sv2v-Windows/sv2v.exe
+```
+
+可单独选择 `phase4-noc`、`phase4-system`、`phase4-template`、`phase4-migration`、`phase4-peripheral` 或 `phase4-memory`。系统综合另运行 `tests/phase4/system/check_synthesis.ps1`。`regression` 只包括阶段 1–4；整组测试耗时较长。
+
+第四阶段没有测量标准单元面积或最高频率，通用综合的零结构问题不等于原设计没有未定义值。第五阶段的配置工具、独立交付整理及遗留功能补齐已暂存到 `codex/sv-phase5-draft`，等待后续指令。
 
 ## 默认 2×2 配置与端口
 
