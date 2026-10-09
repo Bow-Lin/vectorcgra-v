@@ -1,0 +1,25 @@
+{
+  "label": "mesh_2x2_l2_w32",
+  "network": "mesh",
+  "parameters": {
+    "WIDTH": 196,
+    "COLS": 2,
+    "ROWS": 2,
+    "NODES": 4,
+    "CHANNEL_LATENCY": 2,
+    "DATA_W": 32,
+    "DST_LSB": 192,
+    "DST_WIDTH": 2,
+    "DST_X_LSB": 189,
+    "X_WIDTH": 1,
+    "DST_Y_LSB": 188,
+    "Y_WIDTH": 1,
+    "VC_LSB": 170,
+    "VC_WIDTH": 2,
+    "SRC_LSB": 194,
+    "SRC_X_LSB": 191,
+    "SRC_Y_LSB": 190,
+    "ID_LSB": 132
+  },
+  "rtl_sha256": "1f3c6b746d35cd5c5774b84648afa6eba6bb604657118e5cc2b03821f8bc3661"
+}

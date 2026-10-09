@@ -1,0 +1,58 @@
+{
+  "tool_versions": {
+    "sv2v": "0.0.13",
+    "yosys": "Yosys 0.69+62 (git sha1 0edda7a3a-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)"
+  },
+  "source_sha256": {
+    "rtl/common/cgra_register_file.sv": "13856021bc1acb361a12a96870a501dea98856aec5c301dd503b41327323d41d",
+    "rtl/common/cgra_queue.sv": "87e03f556141d8c2c0abe26168ef567ce4b5e456a9f090f9f797aed51a4c4761",
+    "rtl/common/cgra_channel.sv": "0f2d6a0be4202910ffa8ebf3fbed6ed2c08d947ffaf8a11e50e1c195ffa8bf34",
+    "rtl/mem/register_bank.sv": "18b60aa21e281939510a3c81bf2a0c115312a5736a38064529e12f38ea3670b2",
+    "rtl/mem/register_cluster.sv": "903854ddb0af820b110fdb05c0ebe0a1eb66112723542ab011222003fedef0d2",
+    "rtl/tile/tile_link_or.sv": "b86b2471c44d0e6522d20d4e228e5463721bad6225df4a0f0a315084cf2147bc",
+    "rtl/fu/tile_adder.sv": "d9fe057d504e107c6c265e2a7132f915baac90ff749f27ebe40e742bfd9f76f2",
+    "rtl/fu/tile_multiplier.sv": "d4141cf2c17a1b7cb114345a8dcb2ba1ab85dd7017573c5484dcf517ce3123cf",
+    "rtl/fu/tile_memory_fu.sv": "1c3ccd797aca8a4385ad06267afb829023655a8848bd5da516a520ca3de8c5f0",
+    "rtl/fu/tile_nah.sv": "60f96e3d868c67faac3e57d88d30e15f89df90b05fc2e9466984c89fdab257df",
+    "rtl/fu/scalar/scalar_phi.sv": "d3446f6e233f584496a18c33efeca19136615254ba12555ff69dcc908abf1faf",
+    "rtl/fu/streaming/tile_streaming_memory_fu.sv": "0327c496d4898da8c1f9f041b7b5649906aded5529d4071c20415e3e1cbf80be",
+    "rtl/fu/tile_flexible_fu_configurable.sv": "50938e7881dab96015c8327bb1daad62a5d767e79a49a642fadba075582ea397",
+    "rtl/tile/variants/tile_context_switch.sv": "0296f8460b31d8c4d319e7f5aaef7ee475d5e52330fe883c5b99926282126bcc",
+    "rtl/tile/variants/tile_context.sv": "bbd9c498486581d5d204cefc8d01b1cdd501f03c9511da4ba7501076c219aeb2",
+    "rtl/tile/variants/tile_streaming.sv": "d2ed8a40c5d3838c5ab47c66db1c87784d998d26fe74ac5bd6003f18c16e7357",
+    "rtl/tile/variants/tile_variant_const_queue.sv": "ca784856842d12300874d6ee3ede60863efba855f1ac57c6f7eba899ef2bc459",
+    "rtl/tile/variants/tile_variant_core.sv": "e88d76104081adc11f118036b8daf41ea3a8df8ae1604f843c25ade816a51d0f",
+    "rtl/tile/variants/tile_variant_crossbar.sv": "ba6cdbdc3e1c4c2bb0bc914b4bafcebf56bc26bdb700fd79ebfb39b4b509af24",
+    "rtl/tile/variants/tile_variant_ctrl_mem.sv": "1966a2154654ec6fafd1e312c980353fe9f92c0b48256eb008776d33cd22e1ab",
+    "rtl/common/cgra_profile.svh": "abe6d5dc397a3fbdf56801ef5db185e9575734fe0d6c8eaed97ff6da97656e92",
+    "rtl/common/cgra_profile_defs.svh": "e084a0a74d52bf8c32ca4d846dcf666d0ccc4bd5c2f2d1e7ce669b5d6b6c44ee",
+    "rtl/common/cgra_fu_catalog.svh": "3c416c1647e5763b6bfda6a041c19815f354ea0f7226663558bb81c82697fbc5"
+  },
+  "profiles": [
+    {
+      "kind": "context",
+      "exit_code": 0,
+      "seconds": 24.2395528,
+      "check_problem_counts": [],
+      "output": "build/phase3/tile_variants/final-elaboration/context",
+      "parameters": "-set FU_COUNT 5 -set FU_KINDS 40'h0302010009 -set NUM_CTRL 1 -set TOTAL_STEPS 6"
+    },
+    {
+      "kind": "streaming",
+      "exit_code": 0,
+      "seconds": 54.2395942,
+      "check_problem_counts": [],
+      "output": "build/phase3/tile_variants/final-elaboration/streaming",
+      "parameters": "-set TILE_PORTS 8 -set FU_COUNT 4 -set FU_KINDS 32'h03200100 -set NUM_CTRL 2 -set TOTAL_STEPS 2"
+    }
+  ],
+  "flow": "Final source sv2v; Yosys deferred read/chparam/hierarchy -check only. Not a repeated synthesis.",
+  "guard_delta_audit": {
+    "original_synthesis_sha": "6b5f7f0df953afe3641cdb28e032682bd1f0f18ca7ebafd07233f981db75f791",
+    "final_source_sha": "50938e7881dab96015c8327bb1daad62a5d767e79a49a642fadba075582ea397",
+    "remove_exact_guard_sha": "6b5f7f0df953afe3641cdb28e032682bd1f0f18ca7ebafd07233f981db75f791",
+    "matches_original": true,
+    "other_source_changes": [],
+    "change": "Two comments and an initial fatal for VECTOR_FACTOR_POWER!=0; both tested Tile profiles use 0. Original synthesis hashes remain unchanged in its report."
+  }
+}

@@ -1,0 +1,327 @@
+{
+  "status": "pass",
+  "baseline_commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+  "source_checkout_commit": "a62e7862346a03ed0fe90812cbc6d26269a9e171",
+  "collected_at_utc": "2026-09-21T11:56:29.125090+00:00",
+  "parameters": {
+    "COLS": 2,
+    "ROWS": 2,
+    "DATA_W": 32,
+    "CTRL_DEPTH": 8,
+    "REG_DEPTH": 16,
+    "BANK_DEPTH": 16,
+    "NUM_BANKS": 2,
+    "GLOBAL_ADDR_W": 7,
+    "NUM_CTRL": 8,
+    "TOTAL_STEPS": 8
+  },
+  "functional_units": [
+    "VectorAdderComboRTL",
+    "MulRTL",
+    "MemUnitRTL",
+    "NahRTL"
+  ],
+  "vector_lanes": 4,
+  "lane_width": 8,
+  "program": "load bank0[15]; independent 8-bit lane add 0x05040302; scalar multiply by3 modulo32; lane subtract 0x08070605; store bank1[16]; multicast west[1]",
+  "pass_banner": "PHASE3_PROGRAMMABLE_VECTOR_PASS geometry=2x2 cycles=134 pymtl_cycles=134 bits=489",
+  "input_bits": 505,
+  "output_bits": 489,
+  "samples": 134,
+  "scenarios": [
+    {
+      "name": "positive",
+      "input": 2147417857,
+      "expected": 2231304196,
+      "expected_chain": [
+        2147417857,
+        2214724099,
+        2349205001,
+        2231304196
+      ],
+      "cycles_after_reset": 64,
+      "completion_order": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "responses": [
+        {
+          "cycle": 54,
+          "address": 16,
+          "data": 2231304196,
+          "predicate": 1,
+          "hex": "080000b84ff0004840000000000000000000000000000000"
+        },
+        {
+          "cycle": 55,
+          "address": 15,
+          "data": 2147417857,
+          "predicate": 1,
+          "hex": "080000b7ffeff0183c000000000000000000000000000000"
+        }
+      ],
+      "west_cycles": [
+        40
+      ],
+      "links": [
+        {
+          "cycle": 29,
+          "src": 0,
+          "dst": 1,
+          "data": 2147417857
+        },
+        {
+          "cycle": 30,
+          "src": 1,
+          "dst": 3,
+          "data": 2214724099
+        },
+        {
+          "cycle": 31,
+          "src": 3,
+          "dst": 2,
+          "data": 2349205001
+        },
+        {
+          "cycle": 32,
+          "src": 2,
+          "dst": 0,
+          "data": 2231304196
+        }
+      ]
+    },
+    {
+      "name": "negative_after_reset",
+      "input": 4278256255,
+      "expected": 67635838,
+      "expected_chain": [
+        4278256255,
+        67437953,
+        202313859,
+        67635838
+      ],
+      "cycles_after_reset": 64,
+      "completion_order": [
+        3,
+        1,
+        0,
+        2
+      ],
+      "responses": [
+        {
+          "cycle": 54,
+          "address": 16,
+          "data": 67635838,
+          "predicate": 1,
+          "hex": "080000b04080a7e840000000000000000000000000000000"
+        },
+        {
+          "cycle": 55,
+          "address": 15,
+          "data": 4278256255,
+          "predicate": 1,
+          "hex": "080000bff01027f83c000000000000000000000000000000"
+        }
+      ],
+      "west_cycles": [
+        40
+      ],
+      "links": [
+        {
+          "cycle": 29,
+          "src": 0,
+          "dst": 1,
+          "data": 4278256255
+        },
+        {
+          "cycle": 30,
+          "src": 1,
+          "dst": 3,
+          "data": 67437953
+        },
+        {
+          "cycle": 31,
+          "src": 3,
+          "dst": 2,
+          "data": 202313859
+        },
+        {
+          "cycle": 32,
+          "src": 2,
+          "dst": 0,
+          "data": 67635838
+        }
+      ]
+    }
+  ],
+  "comparison_contract": "All 489 active raw output bits, including invalid messages, match original Python trace and separately frozen ac96 HDL at 134 pre-edge observations. All 505 recorded input bits also match. Two-state simulation.",
+  "excluded_outputs": [
+    "recv_from_inter_cgra_noc__rdy",
+    "send_to_inter_cgra_noc__val",
+    "send_to_inter_cgra_noc__msg"
+  ],
+  "independent_assertions": [
+    "Per-lane integer arithmetic before/after scalar multiply; exact expected value on every native/gold internal chain link.",
+    "Exactly four Tile completions, one west multicast, readback address16 result and unchanged address15 input in each reset-separated scenario.",
+    "26 independently packed configuration/query packets per scenario equal canonical ac96 packet words.",
+    "Host output stable under backpressure; west held for 8 valid cycles; host held for 6 then periodic stalls.",
+    "EXPECT_FAILURE perturbs only independent expected result and must fail; STALL_FOREVER/MAX_CYCLES=200 must fail with timeout."
+  ],
+  "commands": [
+    {
+      "command": "python sv/migration_tools/phase3_vector_system_scaffold.py",
+      "exit_code": 0
+    },
+    {
+      "command": "python sv/migration_tools/phase3_vector_system_export.py --cols 2 --rows 2",
+      "exit_code": 0
+    },
+    {
+      "command": "C:/msys64/usr/bin/bash.exe sv/tests/phase3/system/run_vector.sh",
+      "exit_code": 0
+    },
+    {
+      "command": "build/phase3/system/vector/system_test.exe +VECTORS=<absolute vector directory> +EXPECT_FAILURE",
+      "exit_code": 1,
+      "expected_failure": true
+    },
+    {
+      "command": "build/phase3/system/vector/system_test.exe +VECTORS=<absolute vector directory> +STALL_FOREVER +MAX_CYCLES=200",
+      "exit_code": 1,
+      "expected_failure": true
+    }
+  ],
+  "runtime_source_sha256": {
+    "sv/filelists/phase3.f": "b8c5154343b940ba044c437072974826ebf6d522124a74866ca31c9fb2aac9ad",
+    "sv/reference/phase3/system/vector/2x2/Phase3VectorReference2x2.v": "18985ea68a3205c48d634494052580ef34573d70861040b60b532e624fab75b8",
+    "sv/rtl/cgra/cgra_2x2.sv": "594608753066235c2f563460323109b82f685aabe763da40e005b7cb40975f9a",
+    "sv/rtl/cgra/cgra_programmable.sv": "d2f00d94ed84a352071011de9431b8cee6811a806681932d62fb0eb9ac3b7fd6",
+    "sv/rtl/cgra/cgra_scalar.sv": "6dfc6ca811b3a016848ffbbd8de2c2a8c4a7ee537a636d090a5552f2477aa23f",
+    "sv/rtl/common/cgra_channel.sv": "0f2d6a0be4202910ffa8ebf3fbed6ed2c08d947ffaf8a11e50e1c195ffa8bf34",
+    "sv/rtl/common/cgra_fu_catalog.svh": "3c416c1647e5763b6bfda6a041c19815f354ea0f7226663558bb81c82697fbc5",
+    "sv/rtl/common/cgra_profile.svh": "abe6d5dc397a3fbdf56801ef5db185e9575734fe0d6c8eaed97ff6da97656e92",
+    "sv/rtl/common/cgra_profile_defs.svh": "e084a0a74d52bf8c32ca4d846dcf666d0ccc4bd5c2f2d1e7ce669b5d6b6c44ee",
+    "sv/rtl/common/cgra_queue.sv": "87e03f556141d8c2c0abe26168ef567ce4b5e456a9f090f9f797aed51a4c4761",
+    "sv/rtl/common/cgra_register_file.sv": "13856021bc1acb361a12a96870a501dea98856aec5c301dd503b41327323d41d",
+    "sv/rtl/common/cgra_round_robin.sv": "294d46b6394c205ea67577ef8f4f51b6cc220072051c6a42b3280c5b7ef4b93d",
+    "sv/rtl/common/cgra_types_pkg.sv": "9a8068f1f4a81062fbd405fdf1615c6a347a65e35ae3e66cfaf077501e565caa",
+    "sv/rtl/controller/cgra_controller.sv": "ef0de953a81522f2ecc866d6922d92f386538738d40d8d004eb415a178570393",
+    "sv/rtl/controller/cgra_global_reduce.sv": "09cec6468cc53aff676cca857c06cb2593e7dcfe25f4f49b10bdfe2bbdf27d8f",
+    "sv/rtl/fu/combo/cgra_alu_gen_mac.sv": "8ffd2c8491a00989db2ec9a0c8d597f7afef8f20418de80bf8ce56b63cd0ebe2",
+    "sv/rtl/fu/combo/cgra_alu_gen_mac_core.sv": "8513f82ace7206cc8583c0043b139e7ef2d043eab66794b04d416905d677c28d",
+    "sv/rtl/fu/combo/cgra_multp.sv": "855e5c180f10e01be38d012d4c539fa8ef9e497e91a7be846d78f548a9be588b",
+    "sv/rtl/fu/combo/tile_alu_gen_mac.sv": "40f02f954b2bfac8e4fb9a512944c72e8b1100112fe084497fa229b9d81738ab",
+    "sv/rtl/fu/combo/tile_four_inc_cmp_not_grant.sv": "26064759ea4439dd8be395bea69e6d5f7e311ccc40d08711ed1a5716dca326a3",
+    "sv/rtl/fu/combo/tile_prl_mul_adder.sv": "c573244a086de762f1a4ab72942be5640e369ac51ebfbf48f859694aa2399b0a",
+    "sv/rtl/fu/combo/tile_seq_mul_adder.sv": "5bc2174fd32013ec395f354c88a47a189b6edfe6f4bbd9e2d2bc3ef538500680",
+    "sv/rtl/fu/combo/tile_seq_mul_shifter.sv": "444b094f7d8dabd02d73b447defe1098c285cf58ab9ffc8ea7be043825d7590e",
+    "sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv": "7e4ead2419931c63cae22a86fd06d3920ee74a7ea150e453fec0bcef82bdeb83",
+    "sv/rtl/fu/float/cgra_hardfloat_fn.sv": "fc52932df3a81ecfc90edd1d2c51c991e344213db5165d910700ab1205392d4d",
+    "sv/rtl/fu/float/tile_fp_add.sv": "f48e19915e51ac4174f79ddb13b3dd54d58c9aacb2043ce34fd34a842922f476",
+    "sv/rtl/fu/float/tile_fp_fu.sv": "1a9752cc821d167b5f315806d957695cb62d31fe1b6cf4177923d5cb45751c9b",
+    "sv/rtl/fu/float/tile_fp_mul.sv": "7a11946a3f26dfc5771b4b81e073c73b63634827bd73a311b03ca7d1a743506e",
+    "sv/rtl/fu/scalar/scalar_comp.sv": "ce6caa6ee931fb8f5d7fe82cf1fc377ecf9a20740a36597f42d420cc2ecb12a7",
+    "sv/rtl/fu/scalar/scalar_const.sv": "d151ada440b47625f00f2b6d5310bfba2011a8be2934faee4828eedfd84b4054",
+    "sv/rtl/fu/scalar/scalar_div.sv": "8324701c5569fa835964292e94f8c200d937f73d24f4f37330f00a96287b0dbe",
+    "sv/rtl/fu/scalar/scalar_div_pipeline.sv": "9381e8b4ff8dd31d14d69b62f29a82309d20e932103b493f31bc97f0bf39482b",
+    "sv/rtl/fu/scalar/scalar_exclusive_div.sv": "e537dd10e432f78d6541c3a3ec55cfbf9adfb2a28073a7ad3a9c5d9a177887fc",
+    "sv/rtl/fu/scalar/scalar_extract_predicate.sv": "be0552d837bdead6a73fea9c7926e3a99ad816a14098b95df6e78ff91cf90a98",
+    "sv/rtl/fu/scalar/scalar_gep.sv": "d8bd708e75a5f0c88f12342351a42b10d102fcf73e57c5a89a6fb5b3763cfcc2",
+    "sv/rtl/fu/scalar/scalar_grant.sv": "bc4de7ce423713077bede4294d4255a4e6c63cd891d2003615cf37ed75f39423",
+    "sv/rtl/fu/scalar/scalar_inclusive_div.sv": "b74862d23a7ee6e73a0bce636e4f93c3d338d7ff1c01ebd9d3f386d373e1bc92",
+    "sv/rtl/fu/scalar/scalar_logic.sv": "d58273045045603c47e0fc1745ec9606c5fcd53f474f9121b9592df41849ae7e",
+    "sv/rtl/fu/scalar/scalar_loop_control.sv": "43c4e16ebf3b27b399761201a90b90f1bb2957df660353f982765343cb83fb0d",
+    "sv/rtl/fu/scalar/scalar_loop_counter.sv": "dd015b68bee380c6c16b73d49346fb0b7782132870e6decff88501dd95990fbb",
+    "sv/rtl/fu/scalar/scalar_phi.sv": "d3446f6e233f584496a18c33efeca19136615254ba12555ff69dcc908abf1faf",
+    "sv/rtl/fu/scalar/scalar_ret.sv": "b73978c5e42c98f4734c55c5d45dcb6987d63a9d9b81aff3ece4b0be9462cf20",
+    "sv/rtl/fu/scalar/scalar_sel.sv": "59e5f82c500a627072f41c5bd89a412ccec1054f281897226d93cf93a81fa33f",
+    "sv/rtl/fu/scalar/scalar_shifter.sv": "19f554b946c1851d9ed88dbbc0e76c431178704226d36d98e56bf66390e46aab",
+    "sv/rtl/fu/streaming/tile_streaming_memory_fu.sv": "0327c496d4898da8c1f9f041b7b5649906aded5529d4071c20415e3e1cbf80be",
+    "sv/rtl/fu/vector/cgra_vector_adder.sv": "f2cf6e9f82754f8c4d47a5268ca841f5119397e865f11ba0612989acd16b23d8",
+    "sv/rtl/fu/vector/cgra_vector_mul.sv": "c6e739b8656cf11d191587ff6a2b9d74fa0a5ff55efa32182eabeeecc4e219ea",
+    "sv/rtl/fu/vector/tile_vector_adder_combo.sv": "d3c955af607638a28da21f245833a26be7f7b2e8f070b6d967ff94ca14bcf20a",
+    "sv/rtl/fu/vector/tile_vector_all_reduce.sv": "9132997c1eedb14297e66b2aa712e8f8f133a172c870c52e42d6873f8da1dd9a",
+    "sv/rtl/fu/vector/tile_vector_mul_combo.sv": "b761f333256777299ef2693cc823540c601cc66480f893ecd06c4884a06b3905",
+    "sv/rtl/fu/tile_adder.sv": "d9fe057d504e107c6c265e2a7132f915baac90ff749f27ebe40e742bfd9f76f2",
+    "sv/rtl/fu/tile_flexible_fu.sv": "90c718524c954a8b699aa620d73bdce42b1177353eb473c04eb72d200fb2fde0",
+    "sv/rtl/fu/tile_flexible_fu_configurable.sv": "50938e7881dab96015c8327bb1daad62a5d767e79a49a642fadba075582ea397",
+    "sv/rtl/fu/tile_memory_fu.sv": "1c3ccd797aca8a4385ad06267afb829023655a8848bd5da516a520ca3de8c5f0",
+    "sv/rtl/fu/tile_multiplier.sv": "d4141cf2c17a1b7cb114345a8dcb2ba1ab85dd7017573c5484dcf517ce3123cf",
+    "sv/rtl/fu/tile_nah.sv": "60f96e3d868c67faac3e57d88d30e15f89df90b05fc2e9466984c89fdab257df",
+    "sv/rtl/mem/cgra_data_bank.sv": "1a5b5aa4cec3ac9f428e80e3da72793a94759ca80aea3ca5cef2177f8152db19",
+    "sv/rtl/mem/cgra_data_memory.sv": "041f51550c9ec3429ed6cbe63f8300f15d10c7545cd53b82003041cfe47c4072",
+    "sv/rtl/mem/const_queue.sv": "5666b0ba18a21efd186002d5e9e394320d22926637bee4e8af8e93b2d7cd7f17",
+    "sv/rtl/mem/ctrl_mem.sv": "604514cf67ba2590bf6c04be5d50ec1ed291e504390900e74ee6bb6adb0eee6d",
+    "sv/rtl/mem/register_bank.sv": "18b60aa21e281939510a3c81bf2a0c115312a5736a38064529e12f38ea3670b2",
+    "sv/rtl/mem/register_cluster.sv": "903854ddb0af820b110fdb05c0ebe0a1eb66112723542ab011222003fedef0d2",
+    "sv/rtl/noc/cgra_credit_input.sv": "7d58169e0f7db7b484fa6fb9d3e926ba6de00a971b0cd4b513620a9b4fd8837b",
+    "sv/rtl/noc/cgra_credit_recv.sv": "f6c728e6ea42849f013328018204def97b764662ebd102cadebd5402b1aae0de",
+    "sv/rtl/noc/cgra_credit_ring.sv": "98213452e10b00072f872e0f81c869d744960d377cbd2735fe534beb7e1aaa70",
+    "sv/rtl/noc/cgra_credit_send.sv": "a13e8dc3a08906c46c4dc3675beea17ec13e61c729ac665b7a2c4de6dab5f7bd",
+    "sv/rtl/noc/cgra_ring_route.sv": "d794ba9f657dd7384bb947bf8d5977681e0e7dc14181e9df3989eee04ac1b46b",
+    "sv/rtl/noc/cgra_ring_router.sv": "b15e9d00833d968e97213ea144d75a55ba34e927c8c58e02ffd7f1d94c938e4b",
+    "sv/rtl/noc/cgra_switch.sv": "db3d1610cafc5c86736916a4cac1001e2ad225ba54df278e8b20414bb49866c5",
+    "sv/rtl/noc/cgra_xbar.sv": "ac048fe5d423b3b7bbbe01f34cfbffadd8859ef31df96fb4a9bce2cda3d26b64",
+    "sv/rtl/tile/variants/tile_context.sv": "bbd9c498486581d5d204cefc8d01b1cdd501f03c9511da4ba7501076c219aeb2",
+    "sv/rtl/tile/variants/tile_context_switch.sv": "0296f8460b31d8c4d319e7f5aaef7ee475d5e52330fe883c5b99926282126bcc",
+    "sv/rtl/tile/variants/tile_streaming.sv": "d2ed8a40c5d3838c5ab47c66db1c87784d998d26fe74ac5bd6003f18c16e7357",
+    "sv/rtl/tile/variants/tile_variant_const_queue.sv": "ca784856842d12300874d6ee3ede60863efba855f1ac57c6f7eba899ef2bc459",
+    "sv/rtl/tile/variants/tile_variant_core.sv": "e88d76104081adc11f118036b8daf41ea3a8df8ae1604f843c25ade816a51d0f",
+    "sv/rtl/tile/variants/tile_variant_crossbar.sv": "ba6cdbdc3e1c4c2bb0bc914b4bafcebf56bc26bdb700fd79ebfb39b4b509af24",
+    "sv/rtl/tile/variants/tile_variant_ctrl_mem.sv": "1966a2154654ec6fafd1e312c980353fe9f92c0b48256eb008776d33cd22e1ab",
+    "sv/rtl/tile/tile_core.sv": "637571d7bb1cfa865f00894bd6139f59ab9e65e7ea00644bb3b0f3677a7e06a9",
+    "sv/rtl/tile/tile_link_or.sv": "b86b2471c44d0e6522d20d4e228e5463721bad6225df4a0f0a315084cf2147bc",
+    "sv/rtl/tile/tile_programmable.sv": "1cd94ff0588978a547fee11126337e89dd05eb86c9803a741c0b40112e4e4a2e",
+    "sv/rtl/tile/tile_static_crossbar.sv": "65e4e626ad967eed9380351e5398fc073a96e5627cb075bb13b993a17ac88390",
+    "sv/rtl/vendor/hardfloat/HardFloat_consts.vi": "ff7168d2e1bcce237ee6ac0789d58588705063a3d14c9137ee4abba839822b40",
+    "sv/rtl/vendor/hardfloat/HardFloat_localFuncs.vi": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50",
+    "sv/rtl/vendor/hardfloat/HardFloat_primitives.v": "3273444d956fe82b01ba074ed6c22441d957dc7be02990133dd7a83efb07845d",
+    "sv/rtl/vendor/hardfloat/HardFloat_rawFN.v": "f219b1594ce25df5790af748bf2bcfdb6ff8a2ad4806c447b1dbeffcdecc071a",
+    "sv/rtl/vendor/hardfloat/HardFloat_specialize.vi": "c231a6ec6c62a9c01c3c2962cf43ea9ec92a7c1c115a8102959d89425803c890",
+    "sv/rtl/vendor/hardfloat/RISCV/HardFloat_specialize.vi": "9c12592b78732e7331f4f506c50e84ad15c120507d73e1f9e511fd95ed30448e",
+    "sv/rtl/vendor/hardfloat/addRecFN.v": "8e299e624d7f20c752bb3f59b6ae1ae94685244df20fe2ac274b86f93d87e488",
+    "sv/rtl/vendor/hardfloat/fNToRecFN.v": "146e50014d986df605ed59a69425cd6dc19750df3acdd083f61bff7cf51ac6a3",
+    "sv/rtl/vendor/hardfloat/isSigNaNRecFN.v": "dfec25b11b197b767d15b0e28d56b4742c7329668239cdf14d324ddac0950439",
+    "sv/rtl/vendor/hardfloat/mulRecFN.v": "bff24e22929c49d0f50f70511a93388c784faae9a578cfc79e8fe322cf60cf5a",
+    "sv/rtl/vendor/hardfloat/recFNToFN.v": "9a1cb98579a715965aebf9faab6cb5851154e8284d6af7ace594a0d6cc87adf8",
+    "sv/tests/phase3/system/tb_programmable_vector.sv": "1c67d81161ab010410bfcd4a6dfc09ccaf9b8e4ebf23b60b33b4818453416a05",
+    "sv/tests/phase3/system/run_vector.sh": "dc90b38762da4bd2305a6e1bae5424b18e36cb2c9e9ac79ccb60620a4e76949b"
+  },
+  "compiled_source_timestamp_record": {
+    "path": "sv/build/phase3/system/vector/Vtb_programmable_vector__verFiles.dat",
+    "sha256": "9f0403143cbf6e42b64d6c05e11def2f8b1a1cdb574af13918f83ce27304d612"
+  },
+  "oracle_artifacts_sha256": {
+    "sv/reference/phase3/system/vector/2x2/exporter_snapshot.py": "f5c26e33f5b4f3d357d2f728d202ca0778ea3ff62d760d4c1720879bf94be546",
+    "sv/reference/phase3/system/vector/2x2/manifest.json": "fb1c3853286cf203d7db81e280aa381278a2388a4881559a260d7ca6a3772a3c",
+    "sv/reference/phase3/system/vector/2x2/Phase3VectorReference2x2.v": "18985ea68a3205c48d634494052580ef34573d70861040b60b532e624fab75b8",
+    "sv/reference/phase3/system/vector/2x2/top_ports.txt": "9026fa2cfffacbb98862de0c5c90bf4becf602495c87990214c803b9d06932a5",
+    "sv/vectors/phase3/system/vector/2x2/baseline_trace.jsonl": "8c53405d8fcfbcdf8725352052843461aa849108db5545f5815182630205322f",
+    "sv/vectors/phase3/system/vector/2x2/configuration.json": "adafa79ca1a6e300ba5a4f93b227c5ccb033f630e642457a2de6116489529d54",
+    "sv/vectors/phase3/system/vector/2x2/manifest.json": "72b809a3d083ca10f0bcb32b036e889a0e1b6367389005490b2dfc6704d7b733",
+    "sv/vectors/phase3/system/vector/2x2/negative_after_reset_packets.hex": "097481e505b4bb8d89ecfb213d9dfaf417034fc1d9b7d2242f579541b5e5f390",
+    "sv/vectors/phase3/system/vector/2x2/positive_packets.hex": "ea7b066c0eabb189f4f2ec499dbbd229288dcea3ba33a00a7d4bec684c9836d1",
+    "sv/vectors/phase3/system/vector/2x2/replay_inputs.hex": "c45f7c931f008190eb8435f0f91ad881a06e1b982bfbb466ba2fb3ee987aa4ae",
+    "sv/vectors/phase3/system/vector/2x2/replay_layout.json": "55b0ecd7c014329a88b09c098fecf3918dd8c23f3496d8b3008c4eb2b7b4fb6b",
+    "sv/vectors/phase3/system/vector/2x2/replay_meta.txt": "a01d5258793a1647b04eba81322473d5dfd21d3cf86fb5357233199326602b41",
+    "sv/vectors/phase3/system/vector/2x2/replay_outputs.hex": "62d78e216b559ce18070353e973396fcb35ae260aca089f2f6375fc8c3da15f8"
+  },
+  "logs_sha256": {
+    "sv/build/phase3/system/vector/compile.log": "8065ea6e9c3220e2134a753bb94b7924bce2477d94705eec8195c16b9149a920",
+    "sv/build/phase3/system/vector/export.log": "c95fa7a82bcecf0b5d758ee5e393d5bd38ba293b24f8e8f2f8f8130f2fa0e0c5",
+    "sv/build/phase3/system/vector/negative.log": "f5663c651a705ce70c2f32ff01436cf0759e190bb8c96dea13fdaca6e21fdcf7",
+    "sv/build/phase3/system/vector/run.log": "8622c7859b0d821fd7a2619e2c3c4621d511cf13814336f2a88a1e45375193e7",
+    "sv/build/phase3/system/vector/timeout.log": "cd2fd4b7a63e1f3016f91021e7ee1fdf7e9a952c50ac42cb8f02a8b1c96407d4",
+    "sv/build/phase3/system/vector/verilate.log": "9d6c8a19252717af229a4b3d440eef4ef59a8e71c1bed6073936bd469d455316"
+  },
+  "limitations": [
+    "Single-CGRA base Tile 2x2, 32-bit data, four lanes; finite workload, not exhaustive equivalence.",
+    "No VectorMulCombo is used; no claim of repairing or masking its original high-lane routing limitation.",
+    "Three externally inactive inter-CGRA outputs are excluded exactly as earlier single-CGRA reference contract; no additional output masking.",
+    "No area/frequency or full technology-mapping result is claimed by this integration test."
+  ],
+  "source_changes": "No project Python or existing RTL changed by this test delivery",
+  "collector_sha256": "19a5138f841b3e5887ce9c51bae22442b0ee91552ba5d24dcfc2f79776a663b7"
+}

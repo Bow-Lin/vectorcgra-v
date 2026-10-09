@@ -1,0 +1,323 @@
+{
+  "baseline_commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+  "reference_rtl_sha256": "5d8222b2ac95f3217968d0787a48d2973cc413cf3652b4dc1918cf7dfae4e93b",
+  "parameters": {
+    "COLS": 4,
+    "ROWS": 4,
+    "DATA_W": 32,
+    "CTRL_DEPTH": 8,
+    "REG_DEPTH": 16,
+    "BANK_DEPTH": 16,
+    "NUM_BANKS": 2,
+    "GLOBAL_ADDR_W": 7,
+    "NUM_CTRL": 8,
+    "TOTAL_STEPS": 8
+  },
+  "chain": [
+    0,
+    1,
+    2,
+    3,
+    7,
+    6,
+    5,
+    9,
+    10,
+    11,
+    15,
+    14,
+    13,
+    12,
+    8,
+    4
+  ],
+  "trace_rows": 286,
+  "trace_sha256": "12f2b8099be4bd33681452541507211df24372459a07b0166fbf9f270f73edd0",
+  "scenarios": [
+    {
+      "name": "positive",
+      "input": 7,
+      "expected": 4294967228,
+      "cycles_after_reset": 140,
+      "completion_order": [
+        1,
+        2,
+        3,
+        15,
+        7,
+        5,
+        14,
+        6,
+        9,
+        0,
+        13,
+        11,
+        10,
+        12,
+        8,
+        4
+      ],
+      "responses": [
+        {
+          "cycle": 130,
+          "address": 16,
+          "data": 4294967228,
+          "predicate": 1,
+          "hex": "0200000bffffffbc840000000000000000000000000000000"
+        },
+        {
+          "cycle": 131,
+          "address": 15,
+          "data": 7,
+          "predicate": 1,
+          "hex": "0200000b0000000783c000000000000000000000000000000"
+        }
+      ],
+      "west_cycles": [
+        112
+      ],
+      "links": [
+        {
+          "cycle": 89,
+          "src": 0,
+          "dst": 1,
+          "data": 7
+        },
+        {
+          "cycle": 90,
+          "src": 1,
+          "dst": 2,
+          "data": 12
+        },
+        {
+          "cycle": 91,
+          "src": 2,
+          "dst": 3,
+          "data": 36
+        },
+        {
+          "cycle": 92,
+          "src": 3,
+          "dst": 7,
+          "data": 28
+        },
+        {
+          "cycle": 93,
+          "src": 7,
+          "dst": 6,
+          "data": 20
+        },
+        {
+          "cycle": 94,
+          "src": 6,
+          "dst": 5,
+          "data": 12
+        },
+        {
+          "cycle": 95,
+          "src": 5,
+          "dst": 9,
+          "data": 4
+        },
+        {
+          "cycle": 96,
+          "src": 9,
+          "dst": 10,
+          "data": 4294967292
+        },
+        {
+          "cycle": 97,
+          "src": 10,
+          "dst": 11,
+          "data": 4294967284
+        },
+        {
+          "cycle": 98,
+          "src": 11,
+          "dst": 15,
+          "data": 4294967276
+        },
+        {
+          "cycle": 99,
+          "src": 15,
+          "dst": 14,
+          "data": 4294967268
+        },
+        {
+          "cycle": 100,
+          "src": 14,
+          "dst": 13,
+          "data": 4294967260
+        },
+        {
+          "cycle": 101,
+          "src": 13,
+          "dst": 12,
+          "data": 4294967252
+        },
+        {
+          "cycle": 102,
+          "src": 12,
+          "dst": 8,
+          "data": 4294967244
+        },
+        {
+          "cycle": 103,
+          "src": 8,
+          "dst": 4,
+          "data": 4294967236
+        },
+        {
+          "cycle": 104,
+          "src": 4,
+          "dst": 0,
+          "data": 4294967228
+        }
+      ]
+    },
+    {
+      "name": "negative_after_reset",
+      "input": 4294967290,
+      "expected": 4294967189,
+      "cycles_after_reset": 140,
+      "completion_order": [
+        1,
+        2,
+        3,
+        15,
+        7,
+        5,
+        14,
+        6,
+        9,
+        0,
+        13,
+        11,
+        10,
+        12,
+        8,
+        4
+      ],
+      "responses": [
+        {
+          "cycle": 130,
+          "address": 16,
+          "data": 4294967189,
+          "predicate": 1,
+          "hex": "0200000bffffff95840000000000000000000000000000000"
+        },
+        {
+          "cycle": 131,
+          "address": 15,
+          "data": 4294967290,
+          "predicate": 1,
+          "hex": "0200000bfffffffa83c000000000000000000000000000000"
+        }
+      ],
+      "west_cycles": [
+        112
+      ],
+      "links": [
+        {
+          "cycle": 89,
+          "src": 0,
+          "dst": 1,
+          "data": 4294967290
+        },
+        {
+          "cycle": 90,
+          "src": 1,
+          "dst": 2,
+          "data": 4294967295
+        },
+        {
+          "cycle": 91,
+          "src": 2,
+          "dst": 3,
+          "data": 4294967293
+        },
+        {
+          "cycle": 92,
+          "src": 3,
+          "dst": 7,
+          "data": 4294967285
+        },
+        {
+          "cycle": 93,
+          "src": 7,
+          "dst": 6,
+          "data": 4294967277
+        },
+        {
+          "cycle": 94,
+          "src": 6,
+          "dst": 5,
+          "data": 4294967269
+        },
+        {
+          "cycle": 95,
+          "src": 5,
+          "dst": 9,
+          "data": 4294967261
+        },
+        {
+          "cycle": 96,
+          "src": 9,
+          "dst": 10,
+          "data": 4294967253
+        },
+        {
+          "cycle": 97,
+          "src": 10,
+          "dst": 11,
+          "data": 4294967245
+        },
+        {
+          "cycle": 98,
+          "src": 11,
+          "dst": 15,
+          "data": 4294967237
+        },
+        {
+          "cycle": 99,
+          "src": 15,
+          "dst": 14,
+          "data": 4294967229
+        },
+        {
+          "cycle": 100,
+          "src": 14,
+          "dst": 13,
+          "data": 4294967221
+        },
+        {
+          "cycle": 101,
+          "src": 13,
+          "dst": 12,
+          "data": 4294967213
+        },
+        {
+          "cycle": 102,
+          "src": 12,
+          "dst": 8,
+          "data": 4294967205
+        },
+        {
+          "cycle": 103,
+          "src": 8,
+          "dst": 4,
+          "data": 4294967197
+        },
+        {
+          "cycle": 104,
+          "src": 4,
+          "dst": 0,
+          "data": 4294967189
+        }
+      ]
+    }
+  ],
+  "status": "python_reference_passed",
+  "script_sha256": "f6162dfb10e7b177e366e8efba9095a9dcb42a2638a4150f6010952325c5244e",
+  "scope": "All active input/output bits recorded including idle msg. HDL replay not yet claimed. Two-state reference; three externally inactive NoC outputs excluded."
+}

@@ -1,3 +1,35 @@
+# VectorCGRA-V
+
+This repository includes the current PyMTL3 VectorCGRA project and the
+maintained Verilog/SystemVerilog implementation in [`sv/`](sv/README.md).
+
+- **Python RTL, tests and NoC optimizations:** the root-level project is preserved
+  from `codex/noc-4x4-opt` at `e3caf69`.
+- **Verilog/SystemVerilog RTL and tests:** `sv/` is copied unchanged from
+  `codex/sv-migration-phase4` at `67c407c`. Start with
+  [`sv/README.md`](sv/README.md), the [migration progress](sv/MIGRATION_PROGRESS.md)
+  and the [phase 4 report](sv/PHASE4_REPORT.md).
+- **Baseline boundary:** the SystemVerilog migration uses the `ac96a7a` Python
+  baseline. It does not include the newer B/C2 NoC optimizations in the root
+  Python project. Frozen references and archived verification evidence remain
+  under `sv/`; normal HDL builds do not invoke the root Python project.
+  Migration/export scripts require their documented historical source baseline.
+
+Clone with submodules to obtain the Python project's external dependencies:
+
+```sh
+git clone --recurse-submodules https://github.com/Bow-Lin/vectorcgra-v.git
+cd vectorcgra-v
+```
+
+For native HDL builds, follow the tool setup and commands in
+[`sv/scripts/README.md`](sv/scripts/README.md). Local tool installations, build
+outputs and uncommitted presentation/specification materials are excluded.
+Original upstream history, licenses and attribution are retained below and in
+[`LICENSE`](LICENSE) and [`sv/licenses/`](sv/licenses/).
+
+## Upstream VectorCGRA documentation
+
 <pre>
 ========================================================
  _    __          __             ________________  ___ 

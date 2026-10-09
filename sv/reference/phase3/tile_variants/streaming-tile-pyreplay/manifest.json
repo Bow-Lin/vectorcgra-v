@@ -1,0 +1,422 @@
+{
+  "baseline_commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+  "reference": "unmodified PyMTL simulation (translation failure separately retained)",
+  "kind": "streaming",
+  "cycles": 190,
+  "parameters": {
+    "TILE_PORTS": 8,
+    "DATA_W": 32,
+    "CTRL_DEPTH": 8,
+    "REG_DEPTH": 16,
+    "NUM_CTRL": 2,
+    "TOTAL_STEPS": 2
+  },
+  "fu_list": [
+    "AdderRTL",
+    "MulRTL",
+    "StreamingMemUnitRTL",
+    "NahRTL"
+  ],
+  "inputs": [
+    [
+      "reset",
+      1
+    ],
+    [
+      "cgra_id",
+      1
+    ],
+    [
+      "tile_id",
+      3
+    ],
+    [
+      "from_mem_rdata__msg",
+      35
+    ],
+    [
+      "from_mem_rdata__val",
+      1
+    ],
+    [
+      "recv_from_controller_pkt__msg",
+      215
+    ],
+    [
+      "recv_from_controller_pkt__val",
+      1
+    ],
+    [
+      "send_to_controller_pkt__rdy",
+      1
+    ],
+    [
+      "to_mem_raddr__rdy",
+      1
+    ],
+    [
+      "to_mem_waddr__rdy",
+      1
+    ],
+    [
+      "to_mem_wdata__rdy",
+      1
+    ],
+    [
+      "recv_data__msg[0]",
+      35
+    ],
+    [
+      "recv_data__val[0]",
+      1
+    ],
+    [
+      "send_data__rdy[0]",
+      1
+    ],
+    [
+      "recv_data__msg[1]",
+      35
+    ],
+    [
+      "recv_data__val[1]",
+      1
+    ],
+    [
+      "send_data__rdy[1]",
+      1
+    ],
+    [
+      "recv_data__msg[2]",
+      35
+    ],
+    [
+      "recv_data__val[2]",
+      1
+    ],
+    [
+      "send_data__rdy[2]",
+      1
+    ],
+    [
+      "recv_data__msg[3]",
+      35
+    ],
+    [
+      "recv_data__val[3]",
+      1
+    ],
+    [
+      "send_data__rdy[3]",
+      1
+    ],
+    [
+      "recv_data__msg[4]",
+      35
+    ],
+    [
+      "recv_data__val[4]",
+      1
+    ],
+    [
+      "send_data__rdy[4]",
+      1
+    ],
+    [
+      "recv_data__msg[5]",
+      35
+    ],
+    [
+      "recv_data__val[5]",
+      1
+    ],
+    [
+      "send_data__rdy[5]",
+      1
+    ],
+    [
+      "recv_data__msg[6]",
+      35
+    ],
+    [
+      "recv_data__val[6]",
+      1
+    ],
+    [
+      "send_data__rdy[6]",
+      1
+    ],
+    [
+      "recv_data__msg[7]",
+      35
+    ],
+    [
+      "recv_data__val[7]",
+      1
+    ],
+    [
+      "send_data__rdy[7]",
+      1
+    ]
+  ],
+  "outputs": [
+    [
+      "from_mem_rdata__rdy",
+      1
+    ],
+    [
+      "recv_from_controller_pkt__rdy",
+      1
+    ],
+    [
+      "send_to_controller_pkt__msg",
+      215
+    ],
+    [
+      "send_to_controller_pkt__val",
+      1
+    ],
+    [
+      "to_mem_raddr__msg",
+      7
+    ],
+    [
+      "to_mem_raddr__val",
+      1
+    ],
+    [
+      "to_mem_waddr__msg",
+      7
+    ],
+    [
+      "to_mem_waddr__val",
+      1
+    ],
+    [
+      "to_mem_wdata__msg",
+      35
+    ],
+    [
+      "to_mem_wdata__val",
+      1
+    ],
+    [
+      "recv_data__rdy[0]",
+      1
+    ],
+    [
+      "send_data__msg[0]",
+      35
+    ],
+    [
+      "send_data__val[0]",
+      1
+    ],
+    [
+      "recv_data__rdy[1]",
+      1
+    ],
+    [
+      "send_data__msg[1]",
+      35
+    ],
+    [
+      "send_data__val[1]",
+      1
+    ],
+    [
+      "recv_data__rdy[2]",
+      1
+    ],
+    [
+      "send_data__msg[2]",
+      35
+    ],
+    [
+      "send_data__val[2]",
+      1
+    ],
+    [
+      "recv_data__rdy[3]",
+      1
+    ],
+    [
+      "send_data__msg[3]",
+      35
+    ],
+    [
+      "send_data__val[3]",
+      1
+    ],
+    [
+      "recv_data__rdy[4]",
+      1
+    ],
+    [
+      "send_data__msg[4]",
+      35
+    ],
+    [
+      "send_data__val[4]",
+      1
+    ],
+    [
+      "recv_data__rdy[5]",
+      1
+    ],
+    [
+      "send_data__msg[5]",
+      35
+    ],
+    [
+      "send_data__val[5]",
+      1
+    ],
+    [
+      "recv_data__rdy[6]",
+      1
+    ],
+    [
+      "send_data__msg[6]",
+      35
+    ],
+    [
+      "send_data__val[6]",
+      1
+    ],
+    [
+      "recv_data__rdy[7]",
+      1
+    ],
+    [
+      "send_data__msg[7]",
+      35
+    ],
+    [
+      "send_data__val[7]",
+      1
+    ]
+  ],
+  "events": [
+    {
+      "cycle": 13,
+      "event": "request",
+      "address": 10
+    },
+    {
+      "cycle": 14,
+      "event": "request",
+      "address": 12
+    },
+    {
+      "cycle": 16,
+      "event": "request",
+      "address": 14
+    },
+    {
+      "cycle": 17,
+      "event": "request",
+      "address": 16
+    },
+    {
+      "cycle": 17,
+      "event": "output",
+      "bits": 572,
+      "port": 0
+    },
+    {
+      "cycle": 18,
+      "event": "output",
+      "bits": 684,
+      "port": 0
+    },
+    {
+      "cycle": 19,
+      "event": "request",
+      "address": 18
+    },
+    {
+      "cycle": 20,
+      "event": "output",
+      "bits": 796,
+      "port": 0
+    },
+    {
+      "cycle": 21,
+      "event": "output",
+      "bits": 908,
+      "port": 0
+    },
+    {
+      "cycle": 23,
+      "event": "output",
+      "bits": 1020,
+      "port": 0
+    },
+    {
+      "cycle": 24,
+      "event": "complete"
+    },
+    {
+      "cycle": 108,
+      "event": "request",
+      "address": 10
+    },
+    {
+      "cycle": 109,
+      "event": "request",
+      "address": 12
+    },
+    {
+      "cycle": 111,
+      "event": "request",
+      "address": 14
+    },
+    {
+      "cycle": 112,
+      "event": "request",
+      "address": 16
+    },
+    {
+      "cycle": 113,
+      "event": "output",
+      "bits": 572,
+      "port": 0
+    },
+    {
+      "cycle": 114,
+      "event": "request",
+      "address": 18
+    },
+    {
+      "cycle": 114,
+      "event": "output",
+      "bits": 684,
+      "port": 0
+    },
+    {
+      "cycle": 115,
+      "event": "output",
+      "bits": 796,
+      "port": 0
+    },
+    {
+      "cycle": 118,
+      "event": "output",
+      "bits": 908,
+      "port": 0
+    },
+    {
+      "cycle": 119,
+      "event": "output",
+      "bits": 1020,
+      "port": 0
+    },
+    {
+      "cycle": 120,
+      "event": "complete"
+    }
+  ],
+  "trace_sha256": "93d9fb3a91df8f80de8b660be8ed23cb164201e086ddcd294b61e8e4c5cc8a4b",
+  "exporter_sha256": "d6dbb842969c981ce8d6c7d19491d8ee37ad462c27dd547071ad199d2182f533"
+}

@@ -1,0 +1,46 @@
+# Preserve byte-level provenance across Windows/Linux checkouts.
+reference/** -text
+vectors/** -text
+rtl/fixed/** -text
+migration_tools/** -text
+
+# Native entry points must retain Unix newlines for portable Make/Shell use.
+Makefile text eol=lf
+scripts/** text eol=lf
+tests/** text eol=lf
+rtl/common/** text eol=lf
+rtl/cgra/** text eol=lf
+rtl/fu/** text eol=lf
+rtl/mem/** text eol=lf
+rtl/noc/** text eol=lf
+rtl/tile/** text eol=lf
+rtl/controller/** text eol=lf
+
+# Preserve the exact phase-2 tested bytes and recorded SHA256 on checkout.
+# These maintained HDL sources currently use CRLF; shell entry points stay LF.
+rtl/fu/tile_adder.sv -text
+rtl/fu/tile_multiplier.sv -text
+rtl/fu/tile_memory_fu.sv -text
+rtl/fu/tile_nah.sv -text
+rtl/fu/tile_flexible_fu.sv -text
+rtl/mem/const_queue.sv -text
+rtl/mem/ctrl_mem.sv -text
+rtl/mem/register_bank.sv -text
+rtl/mem/register_cluster.sv -text
+rtl/tile/tile_static_crossbar.sv -text
+rtl/tile/tile_link_or.sv -text
+rtl/tile/tile_core.sv -text
+tests/phase2_tb_cgra_scalar.sv -text
+tests/tb_native_tile.sv -text
+tests/tb_native_tile_units.sv -text
+results/phase2*.json -text
+results/phase3*.json -text
+tests/phase3/**/*.json -text
+rtl/vendor/** -text
+rtl/fu/combo/vendor/** -text
+
+# Stage 4 evidence and measured sources retain their exact tested bytes.
+# Newly authored shell/HDL files are written with LF before validation.
+tests/phase4/** -text
+results/phase4*.json -text
+rtl/peripheral/** -text

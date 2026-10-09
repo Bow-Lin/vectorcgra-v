@@ -1,0 +1,1318 @@
+{
+  "kind": "dma-system",
+  "top": "Phase4DmaSystem",
+  "parameters": {
+    "COLS": 2,
+    "ROWS": 2,
+    "DATA_W": 32,
+    "TILE_PORTS": 8,
+    "CTRL_DEPTH": 8,
+    "REG_DEPTH": 16,
+    "BANK_DEPTH": 16,
+    "NUM_BANKS": 4,
+    "GLOBAL_ADDR_W": 6,
+    "NUM_CTRL": 1,
+    "TOTAL_STEPS": 1,
+    "HAS_DMA": 1,
+    "HAS_IM2COL": 0,
+    "FU_COUNT": 3,
+    "FU_KINDS": [
+      0,
+      2,
+      13
+    ],
+    "CUSTOM_TOPOLOGY": 1,
+    "links": [
+      {
+        "src_tile": 0,
+        "src_port": 3,
+        "dst_tile": 1,
+        "dst_port": 2,
+        "enabled": true
+      },
+      {
+        "src_tile": 1,
+        "src_port": 2,
+        "dst_tile": 0,
+        "dst_port": 3,
+        "enabled": true
+      },
+      {
+        "src_tile": 2,
+        "src_port": 3,
+        "dst_tile": 3,
+        "dst_port": 2,
+        "enabled": true
+      },
+      {
+        "src_tile": 3,
+        "src_port": 2,
+        "dst_tile": 2,
+        "dst_port": 3,
+        "enabled": true
+      },
+      {
+        "src_tile": 0,
+        "src_port": 0,
+        "dst_tile": 2,
+        "dst_port": 1,
+        "enabled": true
+      },
+      {
+        "src_tile": 2,
+        "src_port": 1,
+        "dst_tile": 0,
+        "dst_port": 0,
+        "enabled": true
+      },
+      {
+        "src_tile": 1,
+        "src_port": 0,
+        "dst_tile": 3,
+        "dst_port": 1,
+        "enabled": true
+      },
+      {
+        "src_tile": 3,
+        "src_port": 1,
+        "dst_tile": 1,
+        "dst_port": 0,
+        "enabled": true
+      },
+      {
+        "src_tile": 0,
+        "src_port": 5,
+        "dst_tile": 3,
+        "dst_port": 7,
+        "enabled": true
+      },
+      {
+        "src_tile": 3,
+        "src_port": 7,
+        "dst_tile": 0,
+        "dst_port": 5,
+        "enabled": true
+      },
+      {
+        "src_tile": 1,
+        "src_port": 4,
+        "dst_tile": 2,
+        "dst_port": 6,
+        "enabled": true
+      },
+      {
+        "src_tile": 2,
+        "src_port": 6,
+        "dst_tile": 1,
+        "dst_port": 4,
+        "enabled": true
+      }
+    ],
+    "READ_PORT_TILE": [
+      0,
+      2,
+      1
+    ],
+    "WRITE_PORT_TILE": [
+      0,
+      2,
+      1
+    ]
+  },
+  "baseline_commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+  "export_checkout_commit": "b59cc04c8f388da36c7e00517b764b61dfccf939",
+  "types": {
+    "data": {
+      "name": "CgraData_32_1_1_1",
+      "nbits": 35,
+      "fields": [
+        {
+          "field": "payload",
+          "lsb": 3,
+          "msb": 34,
+          "nbits": 32
+        },
+        {
+          "field": "predicate",
+          "lsb": 2,
+          "msb": 2,
+          "nbits": 1
+        },
+        {
+          "field": "bypass",
+          "lsb": 1,
+          "msb": 1,
+          "nbits": 1
+        },
+        {
+          "field": "delay",
+          "lsb": 0,
+          "msb": 0,
+          "nbits": 1
+        }
+      ]
+    },
+    "ctrl": {
+      "name": "CGRAConfig_7_4_2_8_8_3_4",
+      "nbits": 143,
+      "fields": [
+        {
+          "field": "operation",
+          "lsb": 136,
+          "msb": 142,
+          "nbits": 7
+        },
+        {
+          "field": "fu_in[0]",
+          "lsb": 124,
+          "msb": 126,
+          "nbits": 3
+        },
+        {
+          "field": "fu_in[1]",
+          "lsb": 127,
+          "msb": 129,
+          "nbits": 3
+        },
+        {
+          "field": "fu_in[2]",
+          "lsb": 130,
+          "msb": 132,
+          "nbits": 3
+        },
+        {
+          "field": "fu_in[3]",
+          "lsb": 133,
+          "msb": 135,
+          "nbits": 3
+        },
+        {
+          "field": "routing_xbar_outport[0]",
+          "lsb": 76,
+          "msb": 79,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[1]",
+          "lsb": 80,
+          "msb": 83,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[2]",
+          "lsb": 84,
+          "msb": 87,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[3]",
+          "lsb": 88,
+          "msb": 91,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[4]",
+          "lsb": 92,
+          "msb": 95,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[5]",
+          "lsb": 96,
+          "msb": 99,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[6]",
+          "lsb": 100,
+          "msb": 103,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[7]",
+          "lsb": 104,
+          "msb": 107,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[8]",
+          "lsb": 108,
+          "msb": 111,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[9]",
+          "lsb": 112,
+          "msb": 115,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[10]",
+          "lsb": 116,
+          "msb": 119,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[11]",
+          "lsb": 120,
+          "msb": 123,
+          "nbits": 4
+        },
+        {
+          "field": "fu_xbar_outport[0]",
+          "lsb": 52,
+          "msb": 53,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[1]",
+          "lsb": 54,
+          "msb": 55,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[2]",
+          "lsb": 56,
+          "msb": 57,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[3]",
+          "lsb": 58,
+          "msb": 59,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[4]",
+          "lsb": 60,
+          "msb": 61,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[5]",
+          "lsb": 62,
+          "msb": 63,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[6]",
+          "lsb": 64,
+          "msb": 65,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[7]",
+          "lsb": 66,
+          "msb": 67,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[8]",
+          "lsb": 68,
+          "msb": 69,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[9]",
+          "lsb": 70,
+          "msb": 71,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[10]",
+          "lsb": 72,
+          "msb": 73,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[11]",
+          "lsb": 74,
+          "msb": 75,
+          "nbits": 2
+        },
+        {
+          "field": "vector_factor_power",
+          "lsb": 49,
+          "msb": 51,
+          "nbits": 3
+        },
+        {
+          "field": "is_last_ctrl",
+          "lsb": 48,
+          "msb": 48,
+          "nbits": 1
+        },
+        {
+          "field": "write_reg_from[0]",
+          "lsb": 40,
+          "msb": 41,
+          "nbits": 2
+        },
+        {
+          "field": "write_reg_from[1]",
+          "lsb": 42,
+          "msb": 43,
+          "nbits": 2
+        },
+        {
+          "field": "write_reg_from[2]",
+          "lsb": 44,
+          "msb": 45,
+          "nbits": 2
+        },
+        {
+          "field": "write_reg_from[3]",
+          "lsb": 46,
+          "msb": 47,
+          "nbits": 2
+        },
+        {
+          "field": "write_reg_idx[0]",
+          "lsb": 24,
+          "msb": 27,
+          "nbits": 4
+        },
+        {
+          "field": "write_reg_idx[1]",
+          "lsb": 28,
+          "msb": 31,
+          "nbits": 4
+        },
+        {
+          "field": "write_reg_idx[2]",
+          "lsb": 32,
+          "msb": 35,
+          "nbits": 4
+        },
+        {
+          "field": "write_reg_idx[3]",
+          "lsb": 36,
+          "msb": 39,
+          "nbits": 4
+        },
+        {
+          "field": "read_reg_towards[0]",
+          "lsb": 16,
+          "msb": 17,
+          "nbits": 2
+        },
+        {
+          "field": "read_reg_towards[1]",
+          "lsb": 18,
+          "msb": 19,
+          "nbits": 2
+        },
+        {
+          "field": "read_reg_towards[2]",
+          "lsb": 20,
+          "msb": 21,
+          "nbits": 2
+        },
+        {
+          "field": "read_reg_towards[3]",
+          "lsb": 22,
+          "msb": 23,
+          "nbits": 2
+        },
+        {
+          "field": "read_reg_idx[0]",
+          "lsb": 0,
+          "msb": 3,
+          "nbits": 4
+        },
+        {
+          "field": "read_reg_idx[1]",
+          "lsb": 4,
+          "msb": 7,
+          "nbits": 4
+        },
+        {
+          "field": "read_reg_idx[2]",
+          "lsb": 8,
+          "msb": 11,
+          "nbits": 4
+        },
+        {
+          "field": "read_reg_idx[3]",
+          "lsb": 12,
+          "msb": 15,
+          "nbits": 4
+        }
+      ]
+    },
+    "payload": {
+      "name": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr",
+      "nbits": 193,
+      "fields": [
+        {
+          "field": "cmd",
+          "lsb": 187,
+          "msb": 192,
+          "nbits": 6
+        },
+        {
+          "field": "data.payload",
+          "lsb": 155,
+          "msb": 186,
+          "nbits": 32
+        },
+        {
+          "field": "data.predicate",
+          "lsb": 154,
+          "msb": 154,
+          "nbits": 1
+        },
+        {
+          "field": "data.bypass",
+          "lsb": 153,
+          "msb": 153,
+          "nbits": 1
+        },
+        {
+          "field": "data.delay",
+          "lsb": 152,
+          "msb": 152,
+          "nbits": 1
+        },
+        {
+          "field": "data_addr",
+          "lsb": 146,
+          "msb": 151,
+          "nbits": 6
+        },
+        {
+          "field": "ctrl.operation",
+          "lsb": 139,
+          "msb": 145,
+          "nbits": 7
+        },
+        {
+          "field": "ctrl.fu_in[0]",
+          "lsb": 127,
+          "msb": 129,
+          "nbits": 3
+        },
+        {
+          "field": "ctrl.fu_in[1]",
+          "lsb": 130,
+          "msb": 132,
+          "nbits": 3
+        },
+        {
+          "field": "ctrl.fu_in[2]",
+          "lsb": 133,
+          "msb": 135,
+          "nbits": 3
+        },
+        {
+          "field": "ctrl.fu_in[3]",
+          "lsb": 136,
+          "msb": 138,
+          "nbits": 3
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[0]",
+          "lsb": 79,
+          "msb": 82,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[1]",
+          "lsb": 83,
+          "msb": 86,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[2]",
+          "lsb": 87,
+          "msb": 90,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[3]",
+          "lsb": 91,
+          "msb": 94,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[4]",
+          "lsb": 95,
+          "msb": 98,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[5]",
+          "lsb": 99,
+          "msb": 102,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[6]",
+          "lsb": 103,
+          "msb": 106,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[7]",
+          "lsb": 107,
+          "msb": 110,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[8]",
+          "lsb": 111,
+          "msb": 114,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[9]",
+          "lsb": 115,
+          "msb": 118,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[10]",
+          "lsb": 119,
+          "msb": 122,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[11]",
+          "lsb": 123,
+          "msb": 126,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[0]",
+          "lsb": 55,
+          "msb": 56,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[1]",
+          "lsb": 57,
+          "msb": 58,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[2]",
+          "lsb": 59,
+          "msb": 60,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[3]",
+          "lsb": 61,
+          "msb": 62,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[4]",
+          "lsb": 63,
+          "msb": 64,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[5]",
+          "lsb": 65,
+          "msb": 66,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[6]",
+          "lsb": 67,
+          "msb": 68,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[7]",
+          "lsb": 69,
+          "msb": 70,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[8]",
+          "lsb": 71,
+          "msb": 72,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[9]",
+          "lsb": 73,
+          "msb": 74,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[10]",
+          "lsb": 75,
+          "msb": 76,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[11]",
+          "lsb": 77,
+          "msb": 78,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.vector_factor_power",
+          "lsb": 52,
+          "msb": 54,
+          "nbits": 3
+        },
+        {
+          "field": "ctrl.is_last_ctrl",
+          "lsb": 51,
+          "msb": 51,
+          "nbits": 1
+        },
+        {
+          "field": "ctrl.write_reg_from[0]",
+          "lsb": 43,
+          "msb": 44,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.write_reg_from[1]",
+          "lsb": 45,
+          "msb": 46,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.write_reg_from[2]",
+          "lsb": 47,
+          "msb": 48,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.write_reg_from[3]",
+          "lsb": 49,
+          "msb": 50,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.write_reg_idx[0]",
+          "lsb": 27,
+          "msb": 30,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.write_reg_idx[1]",
+          "lsb": 31,
+          "msb": 34,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.write_reg_idx[2]",
+          "lsb": 35,
+          "msb": 38,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.write_reg_idx[3]",
+          "lsb": 39,
+          "msb": 42,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.read_reg_towards[0]",
+          "lsb": 19,
+          "msb": 20,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.read_reg_towards[1]",
+          "lsb": 21,
+          "msb": 22,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.read_reg_towards[2]",
+          "lsb": 23,
+          "msb": 24,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.read_reg_towards[3]",
+          "lsb": 25,
+          "msb": 26,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.read_reg_idx[0]",
+          "lsb": 3,
+          "msb": 6,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.read_reg_idx[1]",
+          "lsb": 7,
+          "msb": 10,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.read_reg_idx[2]",
+          "lsb": 11,
+          "msb": 14,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.read_reg_idx[3]",
+          "lsb": 15,
+          "msb": 18,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl_addr",
+          "lsb": 0,
+          "msb": 2,
+          "nbits": 3
+        }
+      ]
+    },
+    "host": {
+      "name": "IntraCgraPacket_1_1x1_4_8_2_CgraPayload",
+      "nbits": 214,
+      "fields": [
+        {
+          "field": "src",
+          "lsb": 211,
+          "msb": 213,
+          "nbits": 3
+        },
+        {
+          "field": "dst",
+          "lsb": 208,
+          "msb": 210,
+          "nbits": 3
+        },
+        {
+          "field": "src_cgra_id",
+          "lsb": 207,
+          "msb": 207,
+          "nbits": 1
+        },
+        {
+          "field": "dst_cgra_id",
+          "lsb": 206,
+          "msb": 206,
+          "nbits": 1
+        },
+        {
+          "field": "src_cgra_x",
+          "lsb": 205,
+          "msb": 205,
+          "nbits": 1
+        },
+        {
+          "field": "src_cgra_y",
+          "lsb": 204,
+          "msb": 204,
+          "nbits": 1
+        },
+        {
+          "field": "dst_cgra_x",
+          "lsb": 203,
+          "msb": 203,
+          "nbits": 1
+        },
+        {
+          "field": "dst_cgra_y",
+          "lsb": 202,
+          "msb": 202,
+          "nbits": 1
+        },
+        {
+          "field": "opaque",
+          "lsb": 194,
+          "msb": 201,
+          "nbits": 8
+        },
+        {
+          "field": "vc_id",
+          "lsb": 193,
+          "msb": 193,
+          "nbits": 1
+        },
+        {
+          "field": "payload.cmd",
+          "lsb": 187,
+          "msb": 192,
+          "nbits": 6
+        },
+        {
+          "field": "payload.data.payload",
+          "lsb": 155,
+          "msb": 186,
+          "nbits": 32
+        },
+        {
+          "field": "payload.data.predicate",
+          "lsb": 154,
+          "msb": 154,
+          "nbits": 1
+        },
+        {
+          "field": "payload.data.bypass",
+          "lsb": 153,
+          "msb": 153,
+          "nbits": 1
+        },
+        {
+          "field": "payload.data.delay",
+          "lsb": 152,
+          "msb": 152,
+          "nbits": 1
+        },
+        {
+          "field": "payload.data_addr",
+          "lsb": 146,
+          "msb": 151,
+          "nbits": 6
+        },
+        {
+          "field": "payload.ctrl.operation",
+          "lsb": 139,
+          "msb": 145,
+          "nbits": 7
+        },
+        {
+          "field": "payload.ctrl.fu_in[0]",
+          "lsb": 127,
+          "msb": 129,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.fu_in[1]",
+          "lsb": 130,
+          "msb": 132,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.fu_in[2]",
+          "lsb": 133,
+          "msb": 135,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.fu_in[3]",
+          "lsb": 136,
+          "msb": 138,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[0]",
+          "lsb": 79,
+          "msb": 82,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[1]",
+          "lsb": 83,
+          "msb": 86,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[2]",
+          "lsb": 87,
+          "msb": 90,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[3]",
+          "lsb": 91,
+          "msb": 94,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[4]",
+          "lsb": 95,
+          "msb": 98,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[5]",
+          "lsb": 99,
+          "msb": 102,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[6]",
+          "lsb": 103,
+          "msb": 106,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[7]",
+          "lsb": 107,
+          "msb": 110,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[8]",
+          "lsb": 111,
+          "msb": 114,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[9]",
+          "lsb": 115,
+          "msb": 118,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[10]",
+          "lsb": 119,
+          "msb": 122,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[11]",
+          "lsb": 123,
+          "msb": 126,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[0]",
+          "lsb": 55,
+          "msb": 56,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[1]",
+          "lsb": 57,
+          "msb": 58,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[2]",
+          "lsb": 59,
+          "msb": 60,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[3]",
+          "lsb": 61,
+          "msb": 62,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[4]",
+          "lsb": 63,
+          "msb": 64,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[5]",
+          "lsb": 65,
+          "msb": 66,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[6]",
+          "lsb": 67,
+          "msb": 68,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[7]",
+          "lsb": 69,
+          "msb": 70,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[8]",
+          "lsb": 71,
+          "msb": 72,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[9]",
+          "lsb": 73,
+          "msb": 74,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[10]",
+          "lsb": 75,
+          "msb": 76,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[11]",
+          "lsb": 77,
+          "msb": 78,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.vector_factor_power",
+          "lsb": 52,
+          "msb": 54,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.is_last_ctrl",
+          "lsb": 51,
+          "msb": 51,
+          "nbits": 1
+        },
+        {
+          "field": "payload.ctrl.write_reg_from[0]",
+          "lsb": 43,
+          "msb": 44,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.write_reg_from[1]",
+          "lsb": 45,
+          "msb": 46,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.write_reg_from[2]",
+          "lsb": 47,
+          "msb": 48,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.write_reg_from[3]",
+          "lsb": 49,
+          "msb": 50,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.write_reg_idx[0]",
+          "lsb": 27,
+          "msb": 30,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.write_reg_idx[1]",
+          "lsb": 31,
+          "msb": 34,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.write_reg_idx[2]",
+          "lsb": 35,
+          "msb": 38,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.write_reg_idx[3]",
+          "lsb": 39,
+          "msb": 42,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.read_reg_towards[0]",
+          "lsb": 19,
+          "msb": 20,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.read_reg_towards[1]",
+          "lsb": 21,
+          "msb": 22,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.read_reg_towards[2]",
+          "lsb": 23,
+          "msb": 24,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.read_reg_towards[3]",
+          "lsb": 25,
+          "msb": 26,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.read_reg_idx[0]",
+          "lsb": 3,
+          "msb": 6,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.read_reg_idx[1]",
+          "lsb": 7,
+          "msb": 10,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.read_reg_idx[2]",
+          "lsb": 11,
+          "msb": 14,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.read_reg_idx[3]",
+          "lsb": 15,
+          "msb": 18,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl_addr",
+          "lsb": 0,
+          "msb": 2,
+          "nbits": 3
+        }
+      ]
+    }
+  },
+  "exporter_sha256": "37b7f65a9e78fac29f9bfbeaadbdaf7aefe77031b6669e5124cbcbecfdcb1f02",
+  "python_version": "3.12.13 (main, May  4 2026, 21:19:41) [MSC v.1944 64 bit (AMD64)]",
+  "pymtl3_version": "3.1.13",
+  "status": "translated",
+  "rtl": "Phase4DmaSystem.v",
+  "rtl_sha256": "570dd8c0feac7d1ebd18c715c057d2ca516283722c24245d709507c6a813a036",
+  "top_port_declarations": [
+    "input  logic [5:0] address_lower ,",
+    "  input  logic [5:0] address_upper ,",
+    "  input  logic [0:0] cgra_id ,",
+    "  input  logic [0:0] clk ,",
+    "  input  logic [0:0] reset ,",
+    "  input IntraCgraPacket_1_1x1_4_8_2_CgraPayload__eeb42f4616b424f7 recv_from_cpu_pkt__msg  ,",
+    "  output logic [0:0] recv_from_cpu_pkt__rdy  ,",
+    "  input logic [0:0] recv_from_cpu_pkt__val  ,",
+    "  input logic [127:0] recv_from_dram_rd_resp__msg  ,",
+    "  output logic [0:0] recv_from_dram_rd_resp__rdy  ,",
+    "  input logic [0:0] recv_from_dram_rd_resp__val  ,",
+    "  input logic [0:0] recv_from_dram_wr_resp__msg  ,",
+    "  output logic [0:0] recv_from_dram_wr_resp__rdy  ,",
+    "  input logic [0:0] recv_from_dram_wr_resp__val  ,",
+    "  output IntraCgraPacket_1_1x1_4_8_2_CgraPayload__eeb42f4616b424f7 send_to_cpu_pkt__msg  ,",
+    "  input logic [0:0] send_to_cpu_pkt__rdy  ,",
+    "  output logic [0:0] send_to_cpu_pkt__val  ,",
+    "  output logic [63:0] send_to_dram_rd_req__msg  ,",
+    "  input logic [0:0] send_to_dram_rd_req__rdy  ,",
+    "  output logic [0:0] send_to_dram_rd_req__val  ,",
+    "  output DmaDramWrReq_64_128_16__addr_64__data_128__mask_16 send_to_dram_wr_req__msg  ,",
+    "  input logic [0:0] send_to_dram_wr_req__rdy  ,",
+    "  output logic [0:0] send_to_dram_wr_req__val"
+  ],
+  "source_sha256": {
+    "__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cgra/CgraRTL.py": "3877788f77d355ed4bdaa29d7e08395c060a5f13a242f90016923c6e4588be2a",
+    "cgra/CgraTemplateRTL.py": "5ab5cb686cca463a39422019abdc66ed450da25e02889119c6c1f315c6d9d343",
+    "cgra/IntegratedCgraWithDmaRTL.py": "1db7eff450ea5d7671ef86a866ca136bc0b16126ddf408c162954731ee43ac7b",
+    "cgra/IntegratedIm2ColWithCgraRTL.py": "8d305190231da9c9f9b5b0c65851ff97751f193846dd4a5585cb97674a43e9d2",
+    "cgra/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "cgra/test/IntegratedCgraWithDmaRTL_test.py": "38d23b5d2a585a47443bb86dd87bae8ebd6348c247ad2b2540665e7314c680a7",
+    "cgra/test/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "controller/ControllerRTL.py": "25ddd2f32e8a51a37738a8ab339cf2df77921c25476033bb4a97a7820201b15d",
+    "controller/GlobalReduceUnitRTL.py": "c659fdff25d2d911b2bf7bd46827a049be4f90b37f5c655ff1dfa8b1839c3d67",
+    "controller/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/basic/Fu.py": "0c981a2ac2b0632b2c357e49db1cb90378d3ddad1875b712c9d94fa5f905d2f7",
+    "fu/basic/TwoSeqCombo.py": "dd0d05e06a494a1da6a136262d8ec940a0c3f7a39f88d5d899b02ed94533d5e0",
+    "fu/basic/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/double/SeqMulAdderRTL.py": "4c4382ae3605f2379fdbc5ef411134c1fe5b7a28e2ffdb58bc34ba58161c8c69",
+    "fu/double/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/flexible/FlexibleFuRTL.py": "9c7b355107464bc37a9914b51f49dffee4eb3a7d2c9c6cdbdc81601e5e96da4d",
+    "fu/flexible/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/float/FpAddRTL.py": "bbbe9c1db782fa4809813d47258d78643df5475b0e695714f87137880de5427e",
+    "fu/float/FpMulRTL.py": "1cecfd8b20d113322f7524e647eb061fe0a271066827962873659c2f92b12b1b",
+    "fu/float/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/others/Im2colEngineRTL.py": "ff4d262432bfb1ff502593087921a504835f5ba40bfb3b9c200d13ceb8ea13cb",
+    "fu/others/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/pymtl3_hardfloat/HardFloat/AddFNRTL.py": "c907353a27104979f88ebe78f5a1bdb2809ef263c258ffce0ed1456b38777b6e",
+    "fu/pymtl3_hardfloat/HardFloat/AddRecFNRTL.py": "f75e4fc872abbe7b947a81094b0a52b87d8f266b68a091b7100e8d8cf525e138",
+    "fu/pymtl3_hardfloat/HardFloat/FNToRecFNRTL.py": "f616bfffae495981d72fb2ba50242cff54294baac58bdd774583f43a6c429133",
+    "fu/pymtl3_hardfloat/HardFloat/MulAddFNRTL.py": "3c617de43c217b0fc3a8bf11f987fbcaf6a57092e3f37b0c5aa2427b0ca89be9",
+    "fu/pymtl3_hardfloat/HardFloat/MulAddRecFNRTL.py": "e351145557a732d52bfde855554fd90b6c2b14141a873fb1235eb3443b9f4cb3",
+    "fu/pymtl3_hardfloat/HardFloat/MulFNRTL.py": "584b44ffe4df9aea3ec978caec5a6df5f4d716d2d57832f423f0ee6f1ea45e82",
+    "fu/pymtl3_hardfloat/HardFloat/MulRecFNRTL.py": "82c9c39ebe0961ac04db7139056626a955072d181045e712e1edc095f4cf1df5",
+    "fu/pymtl3_hardfloat/HardFloat/RecFNToFNRTL.py": "855a095e81138663670f2735b050ca189cc9e1baf9cc53cf91d7ec98e6b65b9b",
+    "fu/pymtl3_hardfloat/HardFloat/__init__.py": "f700e5e6b3fcaeee10af86cd25badb5a9a60713cb244c796880fc04531bdcd44",
+    "fu/single/AdderRTL.py": "4fa5962fb161d3afc2804088a2fd2aebdf9d9b84e83c269e1069ec69c70994e9",
+    "fu/single/CompRTL.py": "7b03efc744e3b6d852315c767c507bfa169ae600c96428e2cb0e9f7caf501a4a",
+    "fu/single/ConstRTL.py": "095febaf6eab2474d67d8246a0e41ca07264efcd71f70188e6e6246058c04512",
+    "fu/single/ExclusiveDivRTL.py": "0c79658e78c0bb09412bb31bee7ef41387b9ff63e572f892bce0c934e9e250fc",
+    "fu/single/GrantRTL.py": "080c1a11066a89b0c6f98b3a2006d407db32abb8ce825852a9210d543882c2b2",
+    "fu/single/LogicRTL.py": "54b199a872c2b979fbb4b630304af3932188c22216f9b7964a8a282d7b0f4419",
+    "fu/single/LoopControlRTL.py": "700e06fe0beddb22f9d846892b60a44a649eca24ec7466a6549140219b5b1918",
+    "fu/single/MemUnitRTL.py": "493a4ce1f9a582b3f09b8db4f828546a532a7d473dbe41ffbab60d116f52dc19",
+    "fu/single/MulRTL.py": "a3aeb19aa4ae0aa1eee930c3f71dfd43b259faa0edc7f16cf906cca5ae3ebe90",
+    "fu/single/NahRTL.py": "d68011369e13ab06c3d3202802bc30b43414e065bc050a22bb0c3f08d17af6f5",
+    "fu/single/PhiRTL.py": "2432e71672c36ec844c9b78c5a0b0e5a6a200440adafc356faf8f4cd585f0b62",
+    "fu/single/RetRTL.py": "c02076c25cfe9a9453965f7294ed52155431b31e1ec2989e98b0a6c71f79a547",
+    "fu/single/SelRTL.py": "9870ac5e1f02ab5fc7fe3f38be160121b5b33e7170fcc31e0a45ecc0b0d8b81e",
+    "fu/single/ShifterRTL.py": "751c7a1a0c0560806a2a0fca37e54fa9656647aff3199e1f79cab1ba259a228b",
+    "fu/single/StreamingMemUnitRTL.py": "119cd4b98823ddf9ceaa552a46df03819805a5975b4990b7da61482b57205ba6",
+    "fu/single/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/basic/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/basic/en_rdy/ifcs.py": "9b7005a345639a29beecab811ff258eee817ece76400c16624278c1f4a8bd692",
+    "lib/basic/val_rdy/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/basic/val_rdy/ifcs.py": "718fafefbe1d61ae1ad94ded66360686ca63c76789d8526f14e76a34f9bac148",
+    "lib/basic/val_rdy/queues.py": "547ef3175064e52759037cac8e0dfb037450ad3c1d8d22cf1d207e1a5e1fa909",
+    "lib/cmd_type.py": "994de9ad9dc3b852bfdb52847474d0ab238f84a77063c58f1b7fabd1c788df90",
+    "lib/messages.py": "c23e0bd3825c56ce23540775d49d84965cb0945b7b91013c97ff1a3945fe279e",
+    "lib/opt_type.py": "43c91384c04d6f88f9756d0166d355b5ca3fd8fbefd33e06a425e1db57160df8",
+    "lib/util/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/util/cgra/DataSPM.py": "93d962dfdfc9714de7f112a6bf3e817133a31fda820ffc2a5e21746e6dc1b1ce",
+    "lib/util/cgra/Link.py": "608fbf6e7970091c7da03917e44de2add883758bcf6729d89128b470fcfac796",
+    "lib/util/cgra/Tile.py": "5e991397254b750ecb1739831dd93ce13b3f6c9f35f442aba2053a79f09b8825",
+    "lib/util/cgra/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/util/cgra/cgra_helper.py": "e81ca444ae8d230597336e04efffcc5ee41f24debdd02514109138b949d7e50e",
+    "lib/util/common.py": "67c4bc09b7def9334be757cdb1db656ff2122cff7b4c3eddc9521beb3680b356",
+    "lib/util/data_struct_attr.py": "196aed92486f1239aa4741ebfe387bbf7e09791af3fb3eac18cd644ce056da90",
+    "mem/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mem/const/ConstQueueDynamicRTL.py": "9cc15cc44c140e8e89f60c25870227e20987becdfd59147c4f06c742d0784742",
+    "mem/const/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mem/ctrl/CtrlMemDynamicRTL.py": "12c64a9add62aadae927679af4a66178815bf4e9ba77c2e51f5f183d0edde100",
+    "mem/ctrl/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mem/data/DataMemControllerRTL.py": "f36ee1e9799e02cf8da360306f61d55b7e2a3136850a4b74f9701937e0b18e93",
+    "mem/data/DataMemRTL.py": "3c9343a560ffbf0e25923b31b06d7592e850b5f9a52f772db930ae2e163971c3",
+    "mem/data/DataMemWrapperRTL.py": "2d253f61870727bf1fb5368a7da67d52a9228a2918ebdfc18cdb927f33a6f61f",
+    "mem/data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mem/dma/DmaEngineRTL.py": "c81f6d9fc9f362854e59aadf7e6b127f4b710891cf1894f5ffe3fbfc0da2e964",
+    "mem/dma/__init__.py": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+    "mem/register_cluster/RegisterBankRTL.py": "09580b4f3ad6b861c4e47995738df964c74cd1ecacb436f92f257019caf26f90",
+    "mem/register_cluster/RegisterClusterRTL.py": "3e838a66cde203aaa4c9f4f0641c15ca9a2f3fbcc7e35cf65a81c3150522dbad",
+    "mem/register_cluster/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "noc/CrossbarRTL.py": "fb1a9009be673b26fd490a9d8628096fe36ab46255963a362d61fbfbc761a1c4",
+    "noc/LinkOrRTL.py": "61c57583057e8b8535d287feba332ca5cfaa49b6847bd3c588c323bfd6694c77",
+    "noc/PyOCN/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "noc/PyOCN/pymtl3_net/__init__.py": "46a93f7897f69ed4a0d179442aa4a13ef36bfc4dab437c1f754d97ca9f91e25b",
+    "noc/PyOCN/pymtl3_net/channel/ChannelRTL.py": "0fb9c394dead5dd5ee3c3e7d6c533a5bff5efed64039b1c5075a6afd3cd11711",
+    "noc/PyOCN/pymtl3_net/channel/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "noc/PyOCN/pymtl3_net/ocnlib/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "noc/PyOCN/pymtl3_net/ocnlib/ifcs/CreditIfc.py": "c41e1182ce7e74597acf52c03eafe7fd534403f735666031fe1458258506a4e1",
+    "noc/PyOCN/pymtl3_net/ocnlib/ifcs/PhysicalDimension.py": "12dc7a33957c6b494ae3b56d8a467711f222191323e37353671a142cc8894de3",
+    "noc/PyOCN/pymtl3_net/ocnlib/ifcs/__init__.py": "37f2da4ddba90ed943c0172cfa2c4ad1a721103d95cf078374c8cab413e7e0c7",
+    "noc/PyOCN/pymtl3_net/ocnlib/ifcs/positions.py": "4ec9a911d354b8624def326b2f2a24fc2201f5547d9a25b5a292ffa7ea495086",
+    "noc/PyOCN/pymtl3_net/ocnlib/rtl/Counter.py": "c8840334d63ef1389388da48b42057c05aefe6e2367f76c3a36e2e671537cd0e",
+    "noc/PyOCN/pymtl3_net/ocnlib/rtl/DeserializerRTL.py": "ce8b1293d32f16503d07d95c6f922b9e000ed001c49063ad74842bb379aae55a",
+    "noc/PyOCN/pymtl3_net/ocnlib/rtl/GrantHoldArbiter.py": "62f80976bb41b00c1525cdf379efa6a983fec8423e31e466c8cc08ec0bbbb391",
+    "noc/PyOCN/pymtl3_net/ocnlib/rtl/SerializerRTL.py": "77b9c3a7c548a683076058200142463e54399011173992d55d54604add1bfe53",
+    "noc/PyOCN/pymtl3_net/ocnlib/rtl/__init__.py": "b0138e940d27fd87cec3edcd0628bdabf399856339984e9eb4dc56732c016544",
+    "noc/PyOCN/pymtl3_net/ringnet/RingNetworkRTL.py": "6546235072d4d5f9639d152a8d2f970562f7c4016be6e61d4a0519a565908bfe",
+    "noc/PyOCN/pymtl3_net/ringnet/RingRouteUnitRTL.py": "5f3930666874cd78c8a1480d8f132a3c682b072bca39eafacb1842ab7844a625",
+    "noc/PyOCN/pymtl3_net/ringnet/RingRouterRTL.py": "ee07c522b465f86bd91f47254d9fc669c2daf9e735588bb93b9acd8943261a3c",
+    "noc/PyOCN/pymtl3_net/ringnet/__init__.py": "02b171f212f7e67aceca4e0af4d8b4d371a895bd8b53d366457ddca8a42de86b",
+    "noc/PyOCN/pymtl3_net/ringnet/directions.py": "92fd1b6abb069638ad24952deac7c090b8f7aa02c3a048cc1d933a4651e06228",
+    "noc/PyOCN/pymtl3_net/router/InputUnitCreditRTL.py": "67f93273579bb13699a10c22213c328c6546fa4de8e5a8b799afdd161b3fb0d4",
+    "noc/PyOCN/pymtl3_net/router/InputUnitRTL.py": "1e8c13370fa92c996d876d97c4d07e9c2e87a7bf2be50fd2bb9dbc9c68e08f6b",
+    "noc/PyOCN/pymtl3_net/router/OutputUnitCreditRTL.py": "41aa585db7b51620160d049b1d74d8bc21e1aef0d55c32b7d077e1a194a8c7b0",
+    "noc/PyOCN/pymtl3_net/router/OutputUnitRTL.py": "a6bfd3ccc307546fad3f8689eb0a653b54cb221faaaa8f0a1de6c99eb1e45e94",
+    "noc/PyOCN/pymtl3_net/router/Router.py": "7dfc41ab480de896cfe93f3a073ab7ca47f6487b1423c08830b8d662aeb1df29",
+    "noc/PyOCN/pymtl3_net/router/SwitchUnitNullRTL.py": "dc73fbf6b7ccec2fcd572d97c1242c72fbdb8635054690af9b7093d3a0a77b15",
+    "noc/PyOCN/pymtl3_net/router/SwitchUnitRTL.py": "1ba6da67f945a003a6c50b779b2cd56550d58e81118fba5f648f99fcedc19edb",
+    "noc/PyOCN/pymtl3_net/router/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "noc/PyOCN/pymtl3_net/xbar/XbarBypassQueueRTL.py": "77cb4e88738caed5a682e0d300b5788c9f1b488cef4e46bdcc5f5fa82ef0d7f1",
+    "noc/PyOCN/pymtl3_net/xbar/XbarRTL.py": "b29965c1cdd2c884e0f8133cd152ac1caa1d0d2478249652a602f3af1c38d531",
+    "noc/PyOCN/pymtl3_net/xbar/XbarRouteUnitRTL.py": "ccd9913dbdacbedc1c05b4ef5191f0996fe54d3cfcc4822b19a57f8b8fbe15a9",
+    "noc/PyOCN/pymtl3_net/xbar/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "noc/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rf/RegisterRTL.py": "f4af013a7a1b7ea8bc478d3b32352dc5c36c7ac5138ac0b1298c41ebde9b0abd",
+    "rf/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sv/migration_tools/phase4_peripheral_export.py": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+    "sv/migration_tools/phase4_peripheral_system_export.py": "37b7f65a9e78fac29f9bfbeaadbdaf7aefe77031b6669e5124cbcbecfdcb1f02",
+    "sv/migration_tools/reference_model.py": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+    "tile/TileRTL.py": "e7aaad01e14c8c18cbef449429132d0a141118cf5a9e72b2f8c4b13469d0b9d8",
+    "tile/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

@@ -1,0 +1,14 @@
+rtl/common/cgra_queue.sv
+rtl/common/cgra_channel.sv
+rtl/common/cgra_round_robin.sv
+rtl/noc/cgra_switch.sv
+rtl/noc/cgra_credit_send.sv
+rtl/noc/cgra_credit_input.sv
+rtl/noc/cgra_credit_recv.sv
+rtl/noc/cgra_ring_route.sv
+rtl/noc/cgra_ring_router.sv
+rtl/noc/cgra_credit_ring.sv
+rtl/noc/inter_cgra/cgra_inter_mesh_route.sv
+rtl/noc/inter_cgra/cgra_inter_mesh_router.sv
+rtl/noc/inter_cgra/cgra_inter_mesh.sv
+rtl/noc/inter_cgra/cgra_inter_ring.sv

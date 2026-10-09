@@ -1,0 +1,35 @@
+// PyOCN SwitchUnitRTL. Arbitration advances even during output stalls.
+// Encoder's no-grant selection is input zero, including its invalid message.
+module cgra_switch #(
+  parameter int WIDTH = 32,
+  parameter int INPUTS = 2,
+  parameter int SELECT_WIDTH = (INPUTS <= 1) ? 1 : $clog2(INPUTS)
+) (
+  input logic clk, reset,
+  input logic [WIDTH-1:0] recv_msg [0:INPUTS-1],
+  input logic recv_val [0:INPUTS-1],
+  output logic recv_rdy [0:INPUTS-1],
+  output logic [WIDTH-1:0] send_msg,
+  output logic send_val,
+  input logic send_rdy
+);
+  if (INPUTS == 1) begin : null_switch
+    assign send_msg = recv_msg[0];
+    assign send_val = recv_val[0];
+    assign recv_rdy[0] = send_rdy;
+  end else begin : arbitrated
+    logic [INPUTS-1:0] requests, grants;
+    logic [SELECT_WIDTH-1:0] selected;
+    for (genvar i = 0; i < INPUTS; i++) assign requests[i] = recv_val[i];
+    cgra_round_robin #(.INPUTS(INPUTS)) arbiter (.clk, .reset, .en(1'b1), .reqs(requests), .grants);
+    always_comb begin
+      selected = '0;
+      for (int i = 0; i < INPUTS; i++)
+        if (grants[i]) selected = SELECT_WIDTH'(i);
+    end
+    assign send_msg = recv_msg[selected];
+    assign send_val = grants != 0;
+    for (genvar i = 0; i < INPUTS; i++)
+      assign recv_rdy[i] = send_rdy & (selected == SELECT_WIDTH'(i));
+  end
+endmodule

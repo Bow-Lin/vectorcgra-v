@@ -1,0 +1,20 @@
+{
+  "label": "three_mul_adder_shifter_w32_l4_b8_v0",
+  "case": "three_mul_adder_shifter",
+  "reference": "reference/phase3/vector_combo/three_mul_adder_shifter_w32_l4_b8_v0",
+  "native_module": "tile_three_mul_adder_shifter",
+  "parameters": {
+    "DATA_W": 32,
+    "LANES": 4,
+    "LANE_W": 8,
+    "VECTOR_FACTOR_POWER": 0
+  },
+  "opcodes": [
+    22,
+    23,
+    24
+  ],
+  "legacy_ctrl_adapter": false,
+  "cycles": 640,
+  "seed": "3b123456"
+}

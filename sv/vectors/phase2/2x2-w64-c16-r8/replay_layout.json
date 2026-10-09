@@ -1,0 +1,911 @@
+{
+  "samples": 134,
+  "layouts": {
+    "inputs": {
+      "file": "replay_inputs.hex",
+      "nbits": 786,
+      "sha256": "bda895428a941a2a304bacfb961cbe6628fcf6b62bfbaccfce61116b3aeff578",
+      "fields": [
+        {
+          "field": "reset",
+          "lsb": 0,
+          "msb": 0,
+          "nbits": 1
+        },
+        {
+          "field": "cgra_id",
+          "lsb": 1,
+          "msb": 1,
+          "nbits": 1
+        },
+        {
+          "field": "address_lower",
+          "lsb": 2,
+          "msb": 8,
+          "nbits": 7
+        },
+        {
+          "field": "address_upper",
+          "lsb": 9,
+          "msb": 15,
+          "nbits": 7
+        },
+        {
+          "field": "recv_from_cpu_pkt__val",
+          "lsb": 16,
+          "msb": 16,
+          "nbits": 1
+        },
+        {
+          "field": "recv_from_cpu_pkt__msg",
+          "lsb": 17,
+          "msb": 232,
+          "nbits": 216
+        },
+        {
+          "field": "send_to_cpu_pkt__rdy",
+          "lsb": 233,
+          "msb": 233,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_north__0__val",
+          "lsb": 234,
+          "msb": 234,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_north__0__msg",
+          "lsb": 235,
+          "msb": 301,
+          "nbits": 67
+        },
+        {
+          "field": "send_data_on_boundary_north__0__rdy",
+          "lsb": 302,
+          "msb": 302,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_north__1__val",
+          "lsb": 303,
+          "msb": 303,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_north__1__msg",
+          "lsb": 304,
+          "msb": 370,
+          "nbits": 67
+        },
+        {
+          "field": "send_data_on_boundary_north__1__rdy",
+          "lsb": 371,
+          "msb": 371,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_south__0__val",
+          "lsb": 372,
+          "msb": 372,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_south__0__msg",
+          "lsb": 373,
+          "msb": 439,
+          "nbits": 67
+        },
+        {
+          "field": "send_data_on_boundary_south__0__rdy",
+          "lsb": 440,
+          "msb": 440,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_south__1__val",
+          "lsb": 441,
+          "msb": 441,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_south__1__msg",
+          "lsb": 442,
+          "msb": 508,
+          "nbits": 67
+        },
+        {
+          "field": "send_data_on_boundary_south__1__rdy",
+          "lsb": 509,
+          "msb": 509,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_west__0__val",
+          "lsb": 510,
+          "msb": 510,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_west__0__msg",
+          "lsb": 511,
+          "msb": 577,
+          "nbits": 67
+        },
+        {
+          "field": "send_data_on_boundary_west__0__rdy",
+          "lsb": 578,
+          "msb": 578,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_west__1__val",
+          "lsb": 579,
+          "msb": 579,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_west__1__msg",
+          "lsb": 580,
+          "msb": 646,
+          "nbits": 67
+        },
+        {
+          "field": "send_data_on_boundary_west__1__rdy",
+          "lsb": 647,
+          "msb": 647,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_east__0__val",
+          "lsb": 648,
+          "msb": 648,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_east__0__msg",
+          "lsb": 649,
+          "msb": 715,
+          "nbits": 67
+        },
+        {
+          "field": "send_data_on_boundary_east__0__rdy",
+          "lsb": 716,
+          "msb": 716,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_east__1__val",
+          "lsb": 717,
+          "msb": 717,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_east__1__msg",
+          "lsb": 718,
+          "msb": 784,
+          "nbits": 67
+        },
+        {
+          "field": "send_data_on_boundary_east__1__rdy",
+          "lsb": 785,
+          "msb": 785,
+          "nbits": 1
+        }
+      ]
+    },
+    "outputs": {
+      "file": "replay_outputs.hex",
+      "nbits": 770,
+      "sha256": "0e3e78f2b9ba79427281e12c8d72277ac20a9c5e515fe8dba9f9ed42fdf93587",
+      "fields": [
+        {
+          "field": "recv_from_cpu_pkt__rdy",
+          "lsb": 0,
+          "msb": 0,
+          "nbits": 1
+        },
+        {
+          "field": "send_to_cpu_pkt__val",
+          "lsb": 1,
+          "msb": 1,
+          "nbits": 1
+        },
+        {
+          "field": "send_to_cpu_pkt__msg",
+          "lsb": 2,
+          "msb": 217,
+          "nbits": 216
+        },
+        {
+          "field": "send_data_on_boundary_north__0__val",
+          "lsb": 218,
+          "msb": 218,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_north__0__msg",
+          "lsb": 219,
+          "msb": 285,
+          "nbits": 67
+        },
+        {
+          "field": "recv_data_on_boundary_north__0__rdy",
+          "lsb": 286,
+          "msb": 286,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_north__1__val",
+          "lsb": 287,
+          "msb": 287,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_north__1__msg",
+          "lsb": 288,
+          "msb": 354,
+          "nbits": 67
+        },
+        {
+          "field": "recv_data_on_boundary_north__1__rdy",
+          "lsb": 355,
+          "msb": 355,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_south__0__val",
+          "lsb": 356,
+          "msb": 356,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_south__0__msg",
+          "lsb": 357,
+          "msb": 423,
+          "nbits": 67
+        },
+        {
+          "field": "recv_data_on_boundary_south__0__rdy",
+          "lsb": 424,
+          "msb": 424,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_south__1__val",
+          "lsb": 425,
+          "msb": 425,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_south__1__msg",
+          "lsb": 426,
+          "msb": 492,
+          "nbits": 67
+        },
+        {
+          "field": "recv_data_on_boundary_south__1__rdy",
+          "lsb": 493,
+          "msb": 493,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_west__0__val",
+          "lsb": 494,
+          "msb": 494,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_west__0__msg",
+          "lsb": 495,
+          "msb": 561,
+          "nbits": 67
+        },
+        {
+          "field": "recv_data_on_boundary_west__0__rdy",
+          "lsb": 562,
+          "msb": 562,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_west__1__val",
+          "lsb": 563,
+          "msb": 563,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_west__1__msg",
+          "lsb": 564,
+          "msb": 630,
+          "nbits": 67
+        },
+        {
+          "field": "recv_data_on_boundary_west__1__rdy",
+          "lsb": 631,
+          "msb": 631,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_east__0__val",
+          "lsb": 632,
+          "msb": 632,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_east__0__msg",
+          "lsb": 633,
+          "msb": 699,
+          "nbits": 67
+        },
+        {
+          "field": "recv_data_on_boundary_east__0__rdy",
+          "lsb": 700,
+          "msb": 700,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_east__1__val",
+          "lsb": 701,
+          "msb": 701,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_east__1__msg",
+          "lsb": 702,
+          "msb": 768,
+          "nbits": 67
+        },
+        {
+          "field": "recv_data_on_boundary_east__1__rdy",
+          "lsb": 769,
+          "msb": 769,
+          "nbits": 1
+        }
+      ]
+    }
+  },
+  "row_labels": [
+    {
+      "scenario": 0,
+      "cycle": -3
+    },
+    {
+      "scenario": 0,
+      "cycle": -2
+    },
+    {
+      "scenario": 0,
+      "cycle": -1
+    },
+    {
+      "scenario": 0,
+      "cycle": 0
+    },
+    {
+      "scenario": 0,
+      "cycle": 1
+    },
+    {
+      "scenario": 0,
+      "cycle": 2
+    },
+    {
+      "scenario": 0,
+      "cycle": 3
+    },
+    {
+      "scenario": 0,
+      "cycle": 4
+    },
+    {
+      "scenario": 0,
+      "cycle": 5
+    },
+    {
+      "scenario": 0,
+      "cycle": 6
+    },
+    {
+      "scenario": 0,
+      "cycle": 7
+    },
+    {
+      "scenario": 0,
+      "cycle": 8
+    },
+    {
+      "scenario": 0,
+      "cycle": 9
+    },
+    {
+      "scenario": 0,
+      "cycle": 10
+    },
+    {
+      "scenario": 0,
+      "cycle": 11
+    },
+    {
+      "scenario": 0,
+      "cycle": 12
+    },
+    {
+      "scenario": 0,
+      "cycle": 13
+    },
+    {
+      "scenario": 0,
+      "cycle": 14
+    },
+    {
+      "scenario": 0,
+      "cycle": 15
+    },
+    {
+      "scenario": 0,
+      "cycle": 16
+    },
+    {
+      "scenario": 0,
+      "cycle": 17
+    },
+    {
+      "scenario": 0,
+      "cycle": 18
+    },
+    {
+      "scenario": 0,
+      "cycle": 19
+    },
+    {
+      "scenario": 0,
+      "cycle": 20
+    },
+    {
+      "scenario": 0,
+      "cycle": 21
+    },
+    {
+      "scenario": 0,
+      "cycle": 22
+    },
+    {
+      "scenario": 0,
+      "cycle": 23
+    },
+    {
+      "scenario": 0,
+      "cycle": 24
+    },
+    {
+      "scenario": 0,
+      "cycle": 25
+    },
+    {
+      "scenario": 0,
+      "cycle": 26
+    },
+    {
+      "scenario": 0,
+      "cycle": 27
+    },
+    {
+      "scenario": 0,
+      "cycle": 28
+    },
+    {
+      "scenario": 0,
+      "cycle": 29
+    },
+    {
+      "scenario": 0,
+      "cycle": 30
+    },
+    {
+      "scenario": 0,
+      "cycle": 31
+    },
+    {
+      "scenario": 0,
+      "cycle": 32
+    },
+    {
+      "scenario": 0,
+      "cycle": 33
+    },
+    {
+      "scenario": 0,
+      "cycle": 34
+    },
+    {
+      "scenario": 0,
+      "cycle": 35
+    },
+    {
+      "scenario": 0,
+      "cycle": 36
+    },
+    {
+      "scenario": 0,
+      "cycle": 37
+    },
+    {
+      "scenario": 0,
+      "cycle": 38
+    },
+    {
+      "scenario": 0,
+      "cycle": 39
+    },
+    {
+      "scenario": 0,
+      "cycle": 40
+    },
+    {
+      "scenario": 0,
+      "cycle": 41
+    },
+    {
+      "scenario": 0,
+      "cycle": 42
+    },
+    {
+      "scenario": 0,
+      "cycle": 43
+    },
+    {
+      "scenario": 0,
+      "cycle": 44
+    },
+    {
+      "scenario": 0,
+      "cycle": 45
+    },
+    {
+      "scenario": 0,
+      "cycle": 46
+    },
+    {
+      "scenario": 0,
+      "cycle": 47
+    },
+    {
+      "scenario": 0,
+      "cycle": 48
+    },
+    {
+      "scenario": 0,
+      "cycle": 49
+    },
+    {
+      "scenario": 0,
+      "cycle": 50
+    },
+    {
+      "scenario": 0,
+      "cycle": 51
+    },
+    {
+      "scenario": 0,
+      "cycle": 52
+    },
+    {
+      "scenario": 0,
+      "cycle": 53
+    },
+    {
+      "scenario": 0,
+      "cycle": 54
+    },
+    {
+      "scenario": 0,
+      "cycle": 55
+    },
+    {
+      "scenario": 0,
+      "cycle": 56
+    },
+    {
+      "scenario": 0,
+      "cycle": 57
+    },
+    {
+      "scenario": 0,
+      "cycle": 58
+    },
+    {
+      "scenario": 0,
+      "cycle": 59
+    },
+    {
+      "scenario": 0,
+      "cycle": 60
+    },
+    {
+      "scenario": 0,
+      "cycle": 61
+    },
+    {
+      "scenario": 0,
+      "cycle": 62
+    },
+    {
+      "scenario": 0,
+      "cycle": 63
+    },
+    {
+      "scenario": 1,
+      "cycle": -3
+    },
+    {
+      "scenario": 1,
+      "cycle": -2
+    },
+    {
+      "scenario": 1,
+      "cycle": -1
+    },
+    {
+      "scenario": 1,
+      "cycle": 0
+    },
+    {
+      "scenario": 1,
+      "cycle": 1
+    },
+    {
+      "scenario": 1,
+      "cycle": 2
+    },
+    {
+      "scenario": 1,
+      "cycle": 3
+    },
+    {
+      "scenario": 1,
+      "cycle": 4
+    },
+    {
+      "scenario": 1,
+      "cycle": 5
+    },
+    {
+      "scenario": 1,
+      "cycle": 6
+    },
+    {
+      "scenario": 1,
+      "cycle": 7
+    },
+    {
+      "scenario": 1,
+      "cycle": 8
+    },
+    {
+      "scenario": 1,
+      "cycle": 9
+    },
+    {
+      "scenario": 1,
+      "cycle": 10
+    },
+    {
+      "scenario": 1,
+      "cycle": 11
+    },
+    {
+      "scenario": 1,
+      "cycle": 12
+    },
+    {
+      "scenario": 1,
+      "cycle": 13
+    },
+    {
+      "scenario": 1,
+      "cycle": 14
+    },
+    {
+      "scenario": 1,
+      "cycle": 15
+    },
+    {
+      "scenario": 1,
+      "cycle": 16
+    },
+    {
+      "scenario": 1,
+      "cycle": 17
+    },
+    {
+      "scenario": 1,
+      "cycle": 18
+    },
+    {
+      "scenario": 1,
+      "cycle": 19
+    },
+    {
+      "scenario": 1,
+      "cycle": 20
+    },
+    {
+      "scenario": 1,
+      "cycle": 21
+    },
+    {
+      "scenario": 1,
+      "cycle": 22
+    },
+    {
+      "scenario": 1,
+      "cycle": 23
+    },
+    {
+      "scenario": 1,
+      "cycle": 24
+    },
+    {
+      "scenario": 1,
+      "cycle": 25
+    },
+    {
+      "scenario": 1,
+      "cycle": 26
+    },
+    {
+      "scenario": 1,
+      "cycle": 27
+    },
+    {
+      "scenario": 1,
+      "cycle": 28
+    },
+    {
+      "scenario": 1,
+      "cycle": 29
+    },
+    {
+      "scenario": 1,
+      "cycle": 30
+    },
+    {
+      "scenario": 1,
+      "cycle": 31
+    },
+    {
+      "scenario": 1,
+      "cycle": 32
+    },
+    {
+      "scenario": 1,
+      "cycle": 33
+    },
+    {
+      "scenario": 1,
+      "cycle": 34
+    },
+    {
+      "scenario": 1,
+      "cycle": 35
+    },
+    {
+      "scenario": 1,
+      "cycle": 36
+    },
+    {
+      "scenario": 1,
+      "cycle": 37
+    },
+    {
+      "scenario": 1,
+      "cycle": 38
+    },
+    {
+      "scenario": 1,
+      "cycle": 39
+    },
+    {
+      "scenario": 1,
+      "cycle": 40
+    },
+    {
+      "scenario": 1,
+      "cycle": 41
+    },
+    {
+      "scenario": 1,
+      "cycle": 42
+    },
+    {
+      "scenario": 1,
+      "cycle": 43
+    },
+    {
+      "scenario": 1,
+      "cycle": 44
+    },
+    {
+      "scenario": 1,
+      "cycle": 45
+    },
+    {
+      "scenario": 1,
+      "cycle": 46
+    },
+    {
+      "scenario": 1,
+      "cycle": 47
+    },
+    {
+      "scenario": 1,
+      "cycle": 48
+    },
+    {
+      "scenario": 1,
+      "cycle": 49
+    },
+    {
+      "scenario": 1,
+      "cycle": 50
+    },
+    {
+      "scenario": 1,
+      "cycle": 51
+    },
+    {
+      "scenario": 1,
+      "cycle": 52
+    },
+    {
+      "scenario": 1,
+      "cycle": 53
+    },
+    {
+      "scenario": 1,
+      "cycle": 54
+    },
+    {
+      "scenario": 1,
+      "cycle": 55
+    },
+    {
+      "scenario": 1,
+      "cycle": 56
+    },
+    {
+      "scenario": 1,
+      "cycle": 57
+    },
+    {
+      "scenario": 1,
+      "cycle": 58
+    },
+    {
+      "scenario": 1,
+      "cycle": 59
+    },
+    {
+      "scenario": 1,
+      "cycle": 60
+    },
+    {
+      "scenario": 1,
+      "cycle": 61
+    },
+    {
+      "scenario": 1,
+      "cycle": 62
+    },
+    {
+      "scenario": 1,
+      "cycle": 63
+    }
+  ],
+  "sample_phase": "Pre-rising-edge combinational observation",
+  "excluded_outputs": [
+    "recv_from_inter_cgra_noc__rdy",
+    "send_to_inter_cgra_noc__val",
+    "send_to_inter_cgra_noc__msg"
+  ]
+}

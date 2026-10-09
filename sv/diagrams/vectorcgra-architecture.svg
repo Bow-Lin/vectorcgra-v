@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2400" height="1370" viewBox="0 0 2400 1370" data-generator="fireworks-tech-graph" data-quality-profile="standard">
+<title>VectorCGRA 原生 SystemVerilog 架构：阶段1–4</title>
+<desc>主机和多CGRA组织、4×4单CGRA展开、标准Tile数据通路，以及单CGRA可选DMA与im2col支路。</desc>
+<style>text{font-family:"Microsoft YaHei","PingFang SC",Arial,sans-serif} rect,path,line,polyline{vector-effect:non-scaling-stroke}</style>
+<defs>
+<marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9 Z" fill="#2563eb"/></marker>
+<marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9 Z" fill="#0e8b78"/></marker>
+<marker id="arrow-orange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 1 1 L 9 5 L 1 9 Z" fill="#ce7a16"/></marker>
+</defs>
+<rect data-graph-role="background" width="2400" height="1370" fill="#ffffff"/>
+<line data-graph-role="decoration" x1="60" y1="213" x2="560" y2="213" stroke="#d7e0e6" stroke-width="1.5"/>
+<line data-graph-role="decoration" x1="680" y1="213" x2="1370" y2="213" stroke="#d7e0e6" stroke-width="1.5"/>
+<line data-graph-role="decoration" x1="1490" y1="213" x2="2340" y2="213" stroke="#d7e0e6" stroke-width="1.5"/>
+<path id="expand_cgra_top" data-graph-role="decoration" d="M 505 420 L 680 242" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="7 7"/>
+<path id="expand_cgra_bottom" data-graph-role="decoration" d="M 505 530 L 680 1100" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="7 7"/>
+<rect id="cgra_frame" data-graph-role="container" data-node-id="cgra_frame" x="680" y="235" width="690" height="870" rx="10" fill="#fbfdfb" stroke="#bdd2c2" stroke-width="1.8"/>
+<rect id="control_ring" data-graph-role="container" data-node-id="control_ring" x="745" y="405" width="560" height="460" rx="10" fill="#fffdf8" stroke="#dba95f" stroke-width="1.8" stroke-dasharray="8 6"/>
+<circle data-graph-role="decoration" cx="745" cy="440" r="4" fill="#ce7a16"/>
+<rect id="spm_group" data-graph-role="container" data-node-id="spm_group" x="755" y="930" width="580" height="125" rx="8" fill="#fff8ec" stroke="#e1bd83" stroke-width="1.8"/>
+<path id="expand_tile_top" data-graph-role="decoration" d="M 1265 445 L 1490 235" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="7 7"/>
+<path id="expand_tile_bottom" data-graph-role="decoration" d="M 1265 505 L 1490 1105" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="7 7"/>
+<rect id="tile_frame" data-graph-role="container" data-node-id="tile_frame" x="1490" y="235" width="850" height="870" rx="10" fill="#ffffff" stroke="#bcc8d1" stroke-width="1.8"/>
+<rect id="datapath" data-graph-role="container" data-node-id="datapath" x="1510" y="415" width="810" height="620" rx="10" fill="#fbfcfe" stroke="#d7e1eb" stroke-width="1.8"/>
+<rect id="optional_group" data-graph-role="container" data-node-id="optional_group" x="60" y="1140" width="1310" height="162" rx="10" fill="#fafcff" stroke="#a9b7c6" stroke-width="1.8" stroke-dasharray="8 6"/>
+<polyline id="host_command" data-graph-role="edge" data-edge-id="host_command" data-source="host" data-target="cgra0" points="150,323 150,420" fill="none" stroke="#ce7a16" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-orange)"/>
+<polyline id="host_response" data-graph-role="edge" data-edge-id="host_response" data-source="cgra0" data-target="host" points="220,420 220,323" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<polyline id="noc_top_0" data-graph-role="edge" data-edge-id="noc_top_0" data-source="cgra0" data-target="inter_noc" points="185,530 185,600" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="noc_top_1" data-graph-role="edge" data-edge-id="noc_top_1" data-source="cgra1" data-target="inter_noc" points="420,530 420,600" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="noc_bottom_2" data-graph-role="edge" data-edge-id="noc_bottom_2" data-source="inter_noc" data-target="cgra2" points="185,688 185,770" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="noc_bottom_3" data-graph-role="edge" data-edge-id="noc_bottom_3" data-source="inter_noc" data-target="cgra3" points="420,688 420,770" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="boundary_top" data-graph-role="edge" data-edge-id="boundary_top" data-source="cgra0" data-target="cgra1" points="270,475 335,475" fill="none" stroke="#0e8b78" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-teal)" marker-start="url(#arrow-teal)"/>
+<polyline id="boundary_bottom" data-graph-role="edge" data-edge-id="boundary_bottom" data-source="cgra2" data-target="cgra3" points="270,825 335,825" fill="none" stroke="#0e8b78" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-teal)" marker-start="url(#arrow-teal)"/>
+<polyline id="controller_ring" data-graph-role="edge" data-edge-id="controller_ring" data-source="controller" data-target="control_ring" points="800,290 720,290 720,440 745,440" fill="none" stroke="#ce7a16" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-orange)" stroke-dasharray="8 6"/>
+<polyline id="tile_h_0_0" data-graph-role="edge" data-edge-id="tile_h_0_0" data-source="tile12" data-target="tile13" points="875,475 915,475" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_v_0_0" data-graph-role="edge" data-edge-id="tile_v_0_0" data-source="tile12" data-target="tile8" points="830,505 830,550" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_h_0_1" data-graph-role="edge" data-edge-id="tile_h_0_1" data-source="tile13" data-target="tile14" points="1005,475 1045,475" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_v_0_1" data-graph-role="edge" data-edge-id="tile_v_0_1" data-source="tile13" data-target="tile9" points="960,505 960,550" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_h_0_2" data-graph-role="edge" data-edge-id="tile_h_0_2" data-source="tile14" data-target="tile15" points="1135,475 1175,475" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_v_0_2" data-graph-role="edge" data-edge-id="tile_v_0_2" data-source="tile14" data-target="tile10" points="1090,505 1090,550" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_v_0_3" data-graph-role="edge" data-edge-id="tile_v_0_3" data-source="tile15" data-target="tile11" points="1220,505 1220,550" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_h_1_0" data-graph-role="edge" data-edge-id="tile_h_1_0" data-source="tile8" data-target="tile9" points="875,580 915,580" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_v_1_0" data-graph-role="edge" data-edge-id="tile_v_1_0" data-source="tile8" data-target="tile4" points="830,610 830,655" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_h_1_1" data-graph-role="edge" data-edge-id="tile_h_1_1" data-source="tile9" data-target="tile10" points="1005,580 1045,580" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_v_1_1" data-graph-role="edge" data-edge-id="tile_v_1_1" data-source="tile9" data-target="tile5" points="960,610 960,655" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_h_1_2" data-graph-role="edge" data-edge-id="tile_h_1_2" data-source="tile10" data-target="tile11" points="1135,580 1175,580" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_v_1_2" data-graph-role="edge" data-edge-id="tile_v_1_2" data-source="tile10" data-target="tile6" points="1090,610 1090,655" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_v_1_3" data-graph-role="edge" data-edge-id="tile_v_1_3" data-source="tile11" data-target="tile7" points="1220,610 1220,655" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_h_2_0" data-graph-role="edge" data-edge-id="tile_h_2_0" data-source="tile4" data-target="tile5" points="875,685 915,685" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_v_2_0" data-graph-role="edge" data-edge-id="tile_v_2_0" data-source="tile4" data-target="tile0" points="830,715 830,760" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_h_2_1" data-graph-role="edge" data-edge-id="tile_h_2_1" data-source="tile5" data-target="tile6" points="1005,685 1045,685" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_v_2_1" data-graph-role="edge" data-edge-id="tile_v_2_1" data-source="tile5" data-target="tile1" points="960,715 960,760" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_h_2_2" data-graph-role="edge" data-edge-id="tile_h_2_2" data-source="tile6" data-target="tile7" points="1135,685 1175,685" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_v_2_2" data-graph-role="edge" data-edge-id="tile_v_2_2" data-source="tile6" data-target="tile2" points="1090,715 1090,760" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_v_2_3" data-graph-role="edge" data-edge-id="tile_v_2_3" data-source="tile7" data-target="tile3" points="1220,715 1220,760" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_h_3_0" data-graph-role="edge" data-edge-id="tile_h_3_0" data-source="tile0" data-target="tile1" points="875,790 915,790" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_h_3_1" data-graph-role="edge" data-edge-id="tile_h_3_1" data-source="tile1" data-target="tile2" points="1005,790 1045,790" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="tile_h_3_2" data-graph-role="edge" data-edge-id="tile_h_3_2" data-source="tile2" data-target="tile3" points="1135,790 1175,790" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="memory_port_example" data-graph-role="edge" data-edge-id="memory_port_example" data-source="tile0" data-target="mem_controller" points="830,820 830,942" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="bank0_port" data-graph-role="edge" data-edge-id="bank0_port" data-source="mem_controller" data-target="bank0" points="900,984 900,1010" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="bankn_port" data-graph-role="edge" data-edge-id="bankn_port" data-source="mem_controller" data-target="bankn" points="1190,984 1190,1010" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="ctrl_datapath" data-graph-role="edge" data-edge-id="ctrl_datapath" data-source="ctrl_mem" data-target="datapath" points="2230,360 2230,415" fill="none" stroke="#ce7a16" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-orange)" stroke-dasharray="8 6"/>
+<polyline id="tile_input" data-graph-role="edge" data-edge-id="tile_input" data-source="" data-target="input_fifo" points="1630,422 1630,460" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<polyline id="fifo_route" data-graph-role="edge" data-edge-id="fifo_route" data-source="input_fifo" data-target="routing_xbar" points="1750,495 1810,495" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<polyline id="route_register" data-graph-role="edge" data-edge-id="route_register" data-source="routing_xbar" data-target="reg_cluster" points="1880,530 1880,610" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<polyline id="register_route" data-graph-role="edge" data-edge-id="register_route" data-source="reg_cluster" data-target="routing_xbar" points="1985,610 1985,530" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<polyline id="register_fu" data-graph-role="edge" data-edge-id="register_fu" data-source="reg_cluster" data-target="fu_cluster" points="1930,680 1930,760" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<polyline id="fu_result" data-graph-role="edge" data-edge-id="fu_result" data-source="fu_cluster" data-target="fu_xbar" points="1810,798 1750,798" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<polyline id="fu_writeback" data-graph-role="edge" data-edge-id="fu_writeback" data-source="fu_xbar" data-target="reg_cluster" points="1640,760 1640,648 1810,648" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<polyline id="const_fu" data-graph-role="edge" data-edge-id="const_fu" data-source="const_queue" data-target="fu_cluster" points="1990,905 1990,855" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<polyline id="fu_output" data-graph-role="edge" data-edge-id="fu_output" data-source="fu_xbar" data-target="link_or" points="1640,830 1640,940" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<polyline id="route_output" data-graph-role="edge" data-edge-id="route_output" data-source="routing_xbar" data-target="link_or" points="2055,500 2110,500 2110,980 1750,980" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<polyline id="tile_output" data-graph-role="edge" data-edge-id="tile_output" data-source="link_or" data-target="" points="1640,1010 1640,1060" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)"/>
+<polyline id="dram_dma" data-graph-role="edge" data-edge-id="dram_dma" data-source="dram" data-target="dma" points="265,1235 325,1235" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="dma_controller" data-graph-role="edge" data-edge-id="dma_controller" data-source="dma" data-target="optional_controller" points="475,1235 535,1235" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="controller_spm" data-graph-role="edge" data-edge-id="controller_spm" data-source="optional_controller" data-target="optional_spm" points="775,1235 835,1235" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<polyline id="controller_im2col" data-graph-role="edge" data-edge-id="controller_im2col" data-source="optional_controller" data-target="im2col" points="715,1203 715,1189 1205,1189 1205,1203" fill="none" stroke="#2563eb" stroke-width="2.5" stroke-linejoin="round" marker-end="url(#arrow-blue)" marker-start="url(#arrow-blue)"/>
+<rect id="host" data-graph-role="node" data-node-id="host" x="100" y="245" width="405" height="78" rx="7" fill="#fff0db" stroke="#bac7d1" stroke-width="1.8"/>
+<rect id="cgra0" data-graph-role="node" data-node-id="cgra0" x="100" y="420" width="170" height="110" rx="7" fill="#e6f3e7" stroke="#a9cbb3" stroke-width="1.8"/>
+<rect id="cgra1" data-graph-role="node" data-node-id="cgra1" x="335" y="420" width="170" height="110" rx="7" fill="#e6f3e7" stroke="#0e8b78" stroke-width="2.7"/>
+<rect id="cgra2" data-graph-role="node" data-node-id="cgra2" x="100" y="770" width="170" height="110" rx="7" fill="#e6f3e7" stroke="#a9cbb3" stroke-width="1.8"/>
+<rect id="cgra3" data-graph-role="node" data-node-id="cgra3" x="335" y="770" width="170" height="110" rx="7" fill="#e6f3e7" stroke="#a9cbb3" stroke-width="1.8"/>
+<rect id="inter_noc" data-graph-role="node" data-node-id="inter_noc" x="100" y="600" width="405" height="88" rx="7" fill="#eaf2ff" stroke="#bac7d1" stroke-width="1.8"/>
+<rect id="controller" data-graph-role="node" data-node-id="controller" x="800" y="250" width="455" height="85" rx="7" fill="#fff0db" stroke="#bac7d1" stroke-width="1.8"/>
+<rect id="tile12" data-graph-role="node" data-node-id="tile12" x="785" y="445" width="90" height="60" rx="7" fill="#edf7ee" stroke="#bfd4c4" stroke-width="1.5"/>
+<rect id="tile13" data-graph-role="node" data-node-id="tile13" x="915" y="445" width="90" height="60" rx="7" fill="#edf7ee" stroke="#bfd4c4" stroke-width="1.5"/>
+<rect id="tile14" data-graph-role="node" data-node-id="tile14" x="1045" y="445" width="90" height="60" rx="7" fill="#edf7ee" stroke="#bfd4c4" stroke-width="1.5"/>
+<rect id="tile15" data-graph-role="node" data-node-id="tile15" x="1175" y="445" width="90" height="60" rx="7" fill="#edf7ee" stroke="#0e8b78" stroke-width="2.7"/>
+<rect id="tile8" data-graph-role="node" data-node-id="tile8" x="785" y="550" width="90" height="60" rx="7" fill="#edf7ee" stroke="#bfd4c4" stroke-width="1.5"/>
+<rect id="tile9" data-graph-role="node" data-node-id="tile9" x="915" y="550" width="90" height="60" rx="7" fill="#edf7ee" stroke="#bfd4c4" stroke-width="1.5"/>
+<rect id="tile10" data-graph-role="node" data-node-id="tile10" x="1045" y="550" width="90" height="60" rx="7" fill="#edf7ee" stroke="#bfd4c4" stroke-width="1.5"/>
+<rect id="tile11" data-graph-role="node" data-node-id="tile11" x="1175" y="550" width="90" height="60" rx="7" fill="#edf7ee" stroke="#bfd4c4" stroke-width="1.5"/>
+<rect id="tile4" data-graph-role="node" data-node-id="tile4" x="785" y="655" width="90" height="60" rx="7" fill="#edf7ee" stroke="#bfd4c4" stroke-width="1.5"/>
+<rect id="tile5" data-graph-role="node" data-node-id="tile5" x="915" y="655" width="90" height="60" rx="7" fill="#edf7ee" stroke="#bfd4c4" stroke-width="1.5"/>
+<rect id="tile6" data-graph-role="node" data-node-id="tile6" x="1045" y="655" width="90" height="60" rx="7" fill="#edf7ee" stroke="#bfd4c4" stroke-width="1.5"/>
+<rect id="tile7" data-graph-role="node" data-node-id="tile7" x="1175" y="655" width="90" height="60" rx="7" fill="#edf7ee" stroke="#bfd4c4" stroke-width="1.5"/>
+<rect id="tile0" data-graph-role="node" data-node-id="tile0" x="785" y="760" width="90" height="60" rx="7" fill="#edf7ee" stroke="#bfd4c4" stroke-width="1.5"/>
+<rect id="tile1" data-graph-role="node" data-node-id="tile1" x="915" y="760" width="90" height="60" rx="7" fill="#edf7ee" stroke="#bfd4c4" stroke-width="1.5"/>
+<rect id="tile2" data-graph-role="node" data-node-id="tile2" x="1045" y="760" width="90" height="60" rx="7" fill="#edf7ee" stroke="#bfd4c4" stroke-width="1.5"/>
+<rect id="tile3" data-graph-role="node" data-node-id="tile3" x="1175" y="760" width="90" height="60" rx="7" fill="#edf7ee" stroke="#bfd4c4" stroke-width="1.5"/>
+<rect id="mem_controller" data-graph-role="node" data-node-id="mem_controller" x="775" y="942" width="540" height="42" rx="7" fill="#fff0db" stroke="#bac7d1" stroke-width="1.8"/>
+<rect id="bank0" data-graph-role="node" data-node-id="bank0" x="775" y="1010" width="250" height="34" rx="7" fill="#fffaf0" stroke="#bac7d1" stroke-width="1.8"/>
+<rect id="bankn" data-graph-role="node" data-node-id="bankn" x="1065" y="1010" width="250" height="34" rx="7" fill="#fffaf0" stroke="#bac7d1" stroke-width="1.8"/>
+<rect id="ctrl_mem" data-graph-role="node" data-node-id="ctrl_mem" x="1530" y="255" width="770" height="105" rx="7" fill="#fbe5e5" stroke="#d9aaaa" stroke-width="1.8"/>
+<rect id="input_fifo" data-graph-role="node" data-node-id="input_fifo" x="1530" y="460" width="220" height="70" rx="7" fill="#eaf2ff" stroke="#bac7d1" stroke-width="1.8"/>
+<rect id="routing_xbar" data-graph-role="node" data-node-id="routing_xbar" x="1810" y="460" width="245" height="70" rx="7" fill="#eaf2ff" stroke="#bac7d1" stroke-width="1.8"/>
+<rect id="reg_cluster" data-graph-role="node" data-node-id="reg_cluster" x="1810" y="610" width="245" height="70" rx="7" fill="#f1edff" stroke="#bac7d1" stroke-width="1.8"/>
+<rect id="fu_cluster" data-graph-role="node" data-node-id="fu_cluster" x="1810" y="760" width="245" height="95" rx="7" fill="#e6f3e7" stroke="#a9cbb3" stroke-width="1.8"/>
+<rect id="fu_xbar" data-graph-role="node" data-node-id="fu_xbar" x="1530" y="760" width="220" height="70" rx="7" fill="#eaf2ff" stroke="#bac7d1" stroke-width="1.8"/>
+<rect id="const_queue" data-graph-role="node" data-node-id="const_queue" x="1810" y="905" width="245" height="65" rx="7" fill="#fff0db" stroke="#bac7d1" stroke-width="1.8"/>
+<rect id="link_or" data-graph-role="node" data-node-id="link_or" x="1530" y="940" width="220" height="70" rx="7" fill="#edf1f5" stroke="#bac7d1" stroke-width="1.8"/>
+<rect id="dram" data-graph-role="node" data-node-id="dram" x="85" y="1203" width="180" height="65" rx="7" fill="#f0f3f6" stroke="#bac7d1" stroke-width="1.8"/>
+<rect id="dma" data-graph-role="node" data-node-id="dma" x="325" y="1203" width="150" height="65" rx="7" fill="#eaf2ff" stroke="#bac7d1" stroke-width="1.8"/>
+<rect id="optional_spm" data-graph-role="node" data-node-id="optional_spm" x="835" y="1203" width="180" height="65" rx="7" fill="#fff0db" stroke="#bac7d1" stroke-width="1.8"/>
+<rect id="optional_controller" data-graph-role="node" data-node-id="optional_controller" x="535" y="1203" width="240" height="65" rx="7" fill="#fff0db" stroke="#bac7d1" stroke-width="1.8"/>
+<rect id="im2col" data-graph-role="node" data-node-id="im2col" x="1075" y="1203" width="260" height="65" rx="7" fill="#eaf2ff" stroke="#bac7d1" stroke-width="1.8"/>
+<text x="60" y="74" text-anchor="start" font-size="43" font-weight="600" fill="#17232d">VectorCGRA 原生 SystemVerilog 架构</text>
+<text x="60" y="119" text-anchor="start" font-size="24" font-weight="400" fill="#667585">已迁移功能：阶段 1–4  |  系统组织 → 单 CGRA → 标准 Tile</text>
+<text x="60" y="195" text-anchor="start" font-size="25" font-weight="600" fill="#0e8b78">01</text>
+<text x="115" y="195" text-anchor="start" font-size="29" font-weight="600" fill="#17232d">主机与多 CGRA</text>
+<text x="680" y="195" text-anchor="start" font-size="25" font-weight="600" fill="#0e8b78">02</text>
+<text x="735" y="195" text-anchor="start" font-size="29" font-weight="600" fill="#17232d">单 CGRA · 4×4 Tiles 示例</text>
+<text x="1490" y="195" text-anchor="start" font-size="25" font-weight="600" fill="#0e8b78">03</text>
+<text x="1545" y="195" text-anchor="start" font-size="29" font-weight="600" fill="#17232d">标准 Tile 内部结构</text>
+<text x="302.5" y="279.0" text-anchor="middle" font-size="25" font-weight="600" fill="#17232d">CPU / Host</text>
+<text x="302.5" y="309.0" text-anchor="middle" font-size="19" font-weight="400" fill="#667585">配置、启动、查询与完成响应</text>
+<text x="185.0" y="470.0" text-anchor="middle" font-size="24" font-weight="600" fill="#17232d">CGRA 0</text>
+<text x="185.0" y="500.0" text-anchor="middle" font-size="19" font-weight="400" fill="#667585">Host 入口</text>
+<text x="420.0" y="470.0" text-anchor="middle" font-size="24" font-weight="600" fill="#17232d">CGRA 1</text>
+<text x="420.0" y="500.0" text-anchor="middle" font-size="19" font-weight="400" fill="#667585">控制器 + Tiles</text>
+<text x="185.0" y="820.0" text-anchor="middle" font-size="24" font-weight="600" fill="#17232d">CGRA 2</text>
+<text x="185.0" y="850.0" text-anchor="middle" font-size="19" font-weight="400" fill="#667585">控制器 + Tiles</text>
+<text x="420.0" y="820.0" text-anchor="middle" font-size="24" font-weight="600" fill="#17232d">CGRA 3</text>
+<text x="420.0" y="850.0" text-anchor="middle" font-size="19" font-weight="400" fill="#667585">控制器 + Tiles</text>
+<text x="112" y="374" text-anchor="middle" font-size="19" font-weight="400" fill="#ce7a16">命令</text>
+<text x="263" y="374" text-anchor="middle" font-size="19" font-weight="400" fill="#2563eb">响应</text>
+<text x="302.5" y="639.0" text-anchor="middle" font-size="27" font-weight="600" fill="#17232d">跨 CGRA 报文 NoC</text>
+<text x="302.5" y="669.0" text-anchor="middle" font-size="19" font-weight="400" fill="#667585">Mesh / Ring · 控制包与远程访存</text>
+<text x="302" y="925" text-anchor="middle" font-size="21" font-weight="400" fill="#0e8b78">相邻 Tile 边界另有直接数据连接</text>
+<text x="302" y="959" text-anchor="middle" font-size="19" font-weight="400" fill="#667585">图中仅示出水平方向边界连接</text>
+<text x="302" y="1019" text-anchor="middle" font-size="25" font-weight="600" fill="#17232d">同构 / 异构阵列</text>
+<text x="302" y="1056" text-anchor="middle" font-size="22" font-weight="400" fill="#667585">已验证：4×(4×4) = 64 Tiles</text>
+<text x="302" y="1087" text-anchor="middle" font-size="18" font-weight="400" fill="#667585">异构实例：2×2 / 3×3 / 2×2 / 2×2</text>
+<text x="1027.5" y="287.5" text-anchor="middle" font-size="27" font-weight="600" fill="#17232d">Controller</text>
+<text x="1027.5" y="317.5" text-anchor="middle" font-size="19" font-weight="400" fill="#667585">命令派发 · 地址映射 · 全局归约</text>
+<text x="1025" y="385" text-anchor="middle" font-size="22" font-weight="400" fill="#ce7a16">控制环：配置 / 启动 / 完成</text>
+<text x="830.0" y="483.0" text-anchor="middle" font-size="20" font-weight="600" fill="#17232d">Tile 12</text>
+<text x="960.0" y="483.0" text-anchor="middle" font-size="20" font-weight="600" fill="#17232d">Tile 13</text>
+<text x="1090.0" y="483.0" text-anchor="middle" font-size="20" font-weight="600" fill="#17232d">Tile 14</text>
+<text x="1220.0" y="483.0" text-anchor="middle" font-size="20" font-weight="600" fill="#17232d">Tile 15</text>
+<text x="830.0" y="588.0" text-anchor="middle" font-size="20" font-weight="600" fill="#17232d">Tile 8</text>
+<text x="960.0" y="588.0" text-anchor="middle" font-size="20" font-weight="600" fill="#17232d">Tile 9</text>
+<text x="1090.0" y="588.0" text-anchor="middle" font-size="20" font-weight="600" fill="#17232d">Tile 10</text>
+<text x="1220.0" y="588.0" text-anchor="middle" font-size="20" font-weight="600" fill="#17232d">Tile 11</text>
+<text x="830.0" y="693.0" text-anchor="middle" font-size="20" font-weight="600" fill="#17232d">Tile 4</text>
+<text x="960.0" y="693.0" text-anchor="middle" font-size="20" font-weight="600" fill="#17232d">Tile 5</text>
+<text x="1090.0" y="693.0" text-anchor="middle" font-size="20" font-weight="600" fill="#17232d">Tile 6</text>
+<text x="1220.0" y="693.0" text-anchor="middle" font-size="20" font-weight="600" fill="#17232d">Tile 7</text>
+<text x="830.0" y="798.0" text-anchor="middle" font-size="20" font-weight="600" fill="#17232d">Tile 0</text>
+<text x="960.0" y="798.0" text-anchor="middle" font-size="20" font-weight="600" fill="#17232d">Tile 1</text>
+<text x="1090.0" y="798.0" text-anchor="middle" font-size="20" font-weight="600" fill="#17232d">Tile 2</text>
+<text x="1220.0" y="798.0" text-anchor="middle" font-size="20" font-weight="600" fill="#17232d">Tile 3</text>
+<text x="1045.0" y="971.0" text-anchor="middle" font-size="23" font-weight="600" fill="#17232d">数据存储控制器 / 读写互连</text>
+<text x="900.0" y="1035.0" text-anchor="middle" font-size="20" font-weight="600" fill="#17232d">Bank 0</text>
+<text x="1190.0" y="1035.0" text-anchor="middle" font-size="20" font-weight="600" fill="#17232d">Bank 1 …</text>
+<text x="1065" y="897" text-anchor="middle" font-size="23" font-weight="600" fill="#17232d">共享多 Bank SPM</text>
+<text x="1065" y="922" text-anchor="middle" font-size="18" font-weight="400" fill="#667585">图中示意一个 Tile 访存口</text>
+<text x="1025" y="1083" text-anchor="middle" font-size="19" font-weight="400" fill="#667585">标准 4×4：西列 + 南行共 7 个直达访存口</text>
+<text x="1915.0" y="302.5" text-anchor="middle" font-size="27" font-weight="600" fill="#17232d">配置存储 Ctrl Memory</text>
+<text x="1915.0" y="332.5" text-anchor="middle" font-size="19" font-weight="400" fill="#667585">控制 FU、寄存器簇、两路 Crossbar；ctrl-step 握手推进</text>
+<text x="1530" y="401" text-anchor="start" font-size="21" font-weight="400" fill="#667585">来自邻接 Tiles</text>
+<text x="1640.0" y="490.0" text-anchor="middle" font-size="25" font-weight="600" fill="#17232d">输入 FIFO</text>
+<text x="1640.0" y="520.0" text-anchor="middle" font-size="19" font-weight="400" fill="#667585">原有 depth = 2</text>
+<text x="1932.5" y="490.0" text-anchor="middle" font-size="23" font-weight="600" fill="#17232d">Routing Crossbar</text>
+<text x="1932.5" y="520.0" text-anchor="middle" font-size="19" font-weight="400" fill="#667585">输入路由 / 旁路</text>
+<text x="1932.5" y="640.0" text-anchor="middle" font-size="25" font-weight="600" fill="#17232d">寄存器簇 / 旁路</text>
+<text x="1932.5" y="670.0" text-anchor="middle" font-size="19" font-weight="400" fill="#667585">Register Cluster</text>
+<text x="1932.5" y="790" text-anchor="middle" font-size="26" font-weight="600" fill="#17232d">可配置 FU 簇</text>
+<text x="1932.5" y="817" text-anchor="middle" font-size="19" font-weight="400" fill="#667585">标量 / 向量 / 浮点</text>
+<text x="1932.5" y="841" text-anchor="middle" font-size="19" font-weight="400" fill="#667585">组合 / MAC / 访存</text>
+<text x="1640.0" y="790.0" text-anchor="middle" font-size="24" font-weight="600" fill="#17232d">FU Crossbar</text>
+<text x="1640.0" y="820.0" text-anchor="middle" font-size="19" font-weight="400" fill="#667585">结果路由 / 写回</text>
+<text x="1932.5" y="932.5" text-anchor="middle" font-size="25" font-weight="600" fill="#17232d">常量队列</text>
+<text x="1932.5" y="962.5" text-anchor="middle" font-size="19" font-weight="400" fill="#667585">Const Queue</text>
+<text x="1640.0" y="970.0" text-anchor="middle" font-size="25" font-weight="600" fill="#17232d">LinkOr 合并</text>
+<text x="1640.0" y="1000.0" text-anchor="middle" font-size="19" font-weight="400" fill="#667585">逐位 OR，非仲裁器</text>
+<text x="1838" y="578" text-anchor="middle" font-size="18" font-weight="400" fill="#2563eb">写入</text>
+<text x="2024" y="578" text-anchor="middle" font-size="18" font-weight="400" fill="#2563eb">回读</text>
+<text x="1718" y="628" text-anchor="middle" font-size="19" font-weight="400" fill="#2563eb">结果写回</text>
+<text x="1920" y="889" text-anchor="middle" font-size="18" font-weight="400" fill="#2563eb">常量输入</text>
+<text x="2211" y="595" text-anchor="middle" font-size="21" font-weight="400" fill="#2563eb">路由直通</text>
+<text x="2211" y="772" text-anchor="middle" font-size="20" font-weight="400" fill="#667585">Mem 类 FU</text>
+<text x="2211" y="805" text-anchor="middle" font-size="19" font-weight="400" fill="#667585">另接 SPM 端口</text>
+<text x="1640" y="1090" text-anchor="middle" font-size="22" font-weight="400" fill="#667585">至邻接 Tiles</text>
+<text x="2060" y="1068" text-anchor="middle" font-size="19" font-weight="400" fill="#667585">31 种 FU 可选 · 每 Tile 按需组合</text>
+<text x="2060" y="1094" text-anchor="middle" font-size="18" font-weight="400" fill="#667585">Base / ContextSwitch / StreamingLoad</text>
+<text x="85" y="1174" text-anchor="start" font-size="24" font-weight="600" fill="#17232d">可选外设集成 · 单 CGRA 独立入口</text>
+<text x="175.0" y="1243.5" text-anchor="middle" font-size="23" font-weight="600" fill="#17232d">外部 DRAM</text>
+<text x="400.0" y="1243.5" text-anchor="middle" font-size="26" font-weight="600" fill="#17232d">DMA</text>
+<text x="925.0" y="1243.5" text-anchor="middle" font-size="26" font-weight="600" fill="#17232d">SPM</text>
+<text x="655.0" y="1243.5" text-anchor="middle" font-size="26" font-weight="600" fill="#17232d">Controller</text>
+<text x="1205.0" y="1243.5" text-anchor="middle" font-size="26" font-weight="600" fill="#17232d">im2col</text>
+<text x="1020" y="1177" text-anchor="middle" font-size="18" font-weight="400" fill="#2563eb">配置 / 写回</text>
+<text x="85" y="1289" text-anchor="start" font-size="18" font-weight="400" fill="#667585">DMA 命令与 SPM 访问均经 Controller；im2col 配置与写回也经 Controller。</text>
+<text x="60" y="1334" text-anchor="start" font-size="19" font-weight="400" fill="#667585">可选外设支路不接入上方 host-only 多 CGRA 封装；本图为逻辑结构，非物理版图。</text>
+<line data-graph-role="legend" x1="1510" y1="1180" x2="1555" y2="1180" stroke="#2563eb" stroke-width="2.5"/>
+<text x="1570" y="1187" text-anchor="start" font-size="20" font-weight="400" fill="#667585">数据 / 报文（val/rdy）</text>
+<line data-graph-role="legend" x1="1930" y1="1180" x2="1975" y2="1180" stroke="#0e8b78" stroke-width="2.5"/>
+<text x="1990" y="1187" text-anchor="start" font-size="20" font-weight="400" fill="#667585">相邻 CGRA 边界直连</text>
+<line data-graph-role="legend" x1="1510" y1="1230" x2="1555" y2="1230" stroke="#ce7a16" stroke-width="2.5" stroke-dasharray="7 6"/>
+<text x="1570" y="1237" text-anchor="start" font-size="20" font-weight="400" fill="#667585">控制 / 配置</text>
+<line data-graph-role="legend" x1="1930" y1="1230" x2="1975" y2="1230" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="7 6"/>
+<text x="1990" y="1237" text-anchor="start" font-size="20" font-weight="400" fill="#667585">层级展开，非数据连接</text>
+<text x="1510" y="1290" text-anchor="start" font-size="18" font-weight="400" fill="#667585">Tile 详图以 Base 为例；Streaming 不含 Reg → Routing 回读。</text>
+<text x="1510" y="1322" text-anchor="start" font-size="18" font-weight="400" fill="#667585">只示意主要连接；未添加 FIFO、寄存器或流水级。</text>
+</svg>

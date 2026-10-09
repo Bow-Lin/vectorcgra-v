@@ -1,0 +1,425 @@
+{
+  "status": "passed",
+  "automated_checks": [
+    {
+      "check": "xml",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "check": "markers",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "check": "collisions",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "check": "geometry",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "check": "composition",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "node_text_fit_checks": [
+    {
+      "text": "CPU / Host",
+      "size": 25,
+      "max_width": 383,
+      "target": "host",
+      "measured_width": 132.0
+    },
+    {
+      "text": "配置、启动、查询与完成响应",
+      "size": 19,
+      "max_width": 383,
+      "target": "host",
+      "measured_width": 247.0
+    },
+    {
+      "text": "CGRA 0",
+      "size": 24,
+      "max_width": 148,
+      "target": "cgra0",
+      "measured_width": 87.984375
+    },
+    {
+      "text": "Host 入口",
+      "size": 19,
+      "max_width": 148,
+      "target": "cgra0",
+      "measured_width": 87.0
+    },
+    {
+      "text": "CGRA 1",
+      "size": 24,
+      "max_width": 148,
+      "target": "cgra1",
+      "measured_width": 87.984375
+    },
+    {
+      "text": "控制器 + Tiles",
+      "size": 19,
+      "max_width": 148,
+      "target": "cgra1",
+      "measured_width": 124.0
+    },
+    {
+      "text": "CGRA 2",
+      "size": 24,
+      "max_width": 148,
+      "target": "cgra2",
+      "measured_width": 87.984375
+    },
+    {
+      "text": "控制器 + Tiles",
+      "size": 19,
+      "max_width": 148,
+      "target": "cgra2",
+      "measured_width": 124.0
+    },
+    {
+      "text": "CGRA 3",
+      "size": 24,
+      "max_width": 148,
+      "target": "cgra3",
+      "measured_width": 87.984375
+    },
+    {
+      "text": "控制器 + Tiles",
+      "size": 19,
+      "max_width": 148,
+      "target": "cgra3",
+      "measured_width": 124.0
+    },
+    {
+      "text": "跨 CGRA 报文 NoC",
+      "size": 27,
+      "max_width": 383,
+      "target": "inter_noc",
+      "measured_width": 236.984375
+    },
+    {
+      "text": "Mesh / Ring · 控制包与远程访存",
+      "size": 19,
+      "max_width": 383,
+      "target": "inter_noc",
+      "measured_width": 281.0
+    },
+    {
+      "text": "Controller",
+      "size": 27,
+      "max_width": 433,
+      "target": "controller",
+      "measured_width": 128.0
+    },
+    {
+      "text": "命令派发 · 地址映射 · 全局归约",
+      "size": 19,
+      "max_width": 433,
+      "target": "controller",
+      "measured_width": 262.0
+    },
+    {
+      "text": "Tile 12",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile12",
+      "measured_width": 62.0
+    },
+    {
+      "text": "Tile 13",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile13",
+      "measured_width": 62.0
+    },
+    {
+      "text": "Tile 14",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile14",
+      "measured_width": 62.0
+    },
+    {
+      "text": "Tile 15",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile15",
+      "measured_width": 62.0
+    },
+    {
+      "text": "Tile 8",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile8",
+      "measured_width": 50.0
+    },
+    {
+      "text": "Tile 9",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile9",
+      "measured_width": 50.0
+    },
+    {
+      "text": "Tile 10",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile10",
+      "measured_width": 62.0
+    },
+    {
+      "text": "Tile 11",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile11",
+      "measured_width": 62.0
+    },
+    {
+      "text": "Tile 4",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile4",
+      "measured_width": 50.0
+    },
+    {
+      "text": "Tile 5",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile5",
+      "measured_width": 50.0
+    },
+    {
+      "text": "Tile 6",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile6",
+      "measured_width": 50.0
+    },
+    {
+      "text": "Tile 7",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile7",
+      "measured_width": 50.0
+    },
+    {
+      "text": "Tile 0",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile0",
+      "measured_width": 50.0
+    },
+    {
+      "text": "Tile 1",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile1",
+      "measured_width": 50.0
+    },
+    {
+      "text": "Tile 2",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile2",
+      "measured_width": 50.0
+    },
+    {
+      "text": "Tile 3",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile3",
+      "measured_width": 50.0
+    },
+    {
+      "text": "数据存储控制器 / 读写互连",
+      "size": 23,
+      "max_width": 518,
+      "target": "mem_controller",
+      "measured_width": 277.0
+    },
+    {
+      "text": "Bank 0",
+      "size": 20,
+      "max_width": 228,
+      "target": "bank0",
+      "measured_width": 65.0
+    },
+    {
+      "text": "Bank 1 …",
+      "size": 20,
+      "max_width": 228,
+      "target": "bankn",
+      "measured_width": 87.0
+    },
+    {
+      "text": "配置存储 Ctrl Memory",
+      "size": 27,
+      "max_width": 748,
+      "target": "ctrl_mem",
+      "measured_width": 276.015625
+    },
+    {
+      "text": "控制 FU、寄存器簇、两路 Crossbar；ctrl-step 握手推进",
+      "size": 19,
+      "max_width": 748,
+      "target": "ctrl_mem",
+      "measured_width": 483.0
+    },
+    {
+      "text": "输入 FIFO",
+      "size": 25,
+      "max_width": 198,
+      "target": "input_fifo",
+      "measured_width": 110.0
+    },
+    {
+      "text": "原有 depth = 2",
+      "size": 19,
+      "max_width": 198,
+      "target": "input_fifo",
+      "measured_width": 135.0
+    },
+    {
+      "text": "Routing Crossbar",
+      "size": 23,
+      "max_width": 223,
+      "target": "routing_xbar",
+      "measured_width": 192.984375
+    },
+    {
+      "text": "输入路由 / 旁路",
+      "size": 19,
+      "max_width": 223,
+      "target": "routing_xbar",
+      "measured_width": 134.0
+    },
+    {
+      "text": "寄存器簇 / 旁路",
+      "size": 25,
+      "max_width": 223,
+      "target": "reg_cluster",
+      "measured_width": 175.0
+    },
+    {
+      "text": "Register Cluster",
+      "size": 19,
+      "max_width": 223,
+      "target": "reg_cluster",
+      "measured_width": 144.0
+    },
+    {
+      "text": "可配置 FU 簇",
+      "size": 26,
+      "max_width": 220,
+      "target": "fu_cluster",
+      "measured_width": 153.0
+    },
+    {
+      "text": "标量 / 向量 / 浮点",
+      "size": 19,
+      "max_width": 220,
+      "target": "fu_cluster",
+      "measured_width": 154.0
+    },
+    {
+      "text": "组合 / MAC / 访存",
+      "size": 19,
+      "max_width": 220,
+      "target": "fu_cluster",
+      "measured_width": 161.0
+    },
+    {
+      "text": "FU Crossbar",
+      "size": 24,
+      "max_width": 198,
+      "target": "fu_xbar",
+      "measured_width": 137.0
+    },
+    {
+      "text": "结果路由 / 写回",
+      "size": 19,
+      "max_width": 198,
+      "target": "fu_xbar",
+      "measured_width": 134.0
+    },
+    {
+      "text": "常量队列",
+      "size": 25,
+      "max_width": 223,
+      "target": "const_queue",
+      "measured_width": 100.0
+    },
+    {
+      "text": "Const Queue",
+      "size": 19,
+      "max_width": 223,
+      "target": "const_queue",
+      "measured_width": 120.0
+    },
+    {
+      "text": "LinkOr 合并",
+      "size": 25,
+      "max_width": 198,
+      "target": "link_or",
+      "measured_width": 136.0
+    },
+    {
+      "text": "逐位 OR，非仲裁器",
+      "size": 19,
+      "max_width": 198,
+      "target": "link_or",
+      "measured_width": 166.0
+    },
+    {
+      "text": "外部 DRAM",
+      "size": 23,
+      "max_width": 158,
+      "target": "dram",
+      "measured_width": 124.0
+    },
+    {
+      "text": "DMA",
+      "size": 26,
+      "max_width": 128,
+      "target": "dma",
+      "measured_width": 63.0
+    },
+    {
+      "text": "SPM",
+      "size": 26,
+      "max_width": 158,
+      "target": "optional_spm",
+      "measured_width": 56.0
+    },
+    {
+      "text": "Controller",
+      "size": 26,
+      "max_width": 218,
+      "target": "optional_controller",
+      "measured_width": 126.0
+    },
+    {
+      "text": "im2col",
+      "size": 26,
+      "max_width": 238,
+      "target": "im2col",
+      "measured_width": 83.0
+    }
+  ],
+  "visual_review": "passed",
+  "visual_review_notes": "Inspected final PNG after correcting the optional peripheral path: Chinese text rendered, labels fit, hierarchy clear, arrows visible and DMA/SPM/im2col all pass through Controller.",
+  "renderer": "Sharp / librsvg",
+  "png_pixels": [
+    3600,
+    2055
+  ],
+  "limitations": "Conceptual block diagram of primary paths, not an exhaustive netlist or physical layout."
+}

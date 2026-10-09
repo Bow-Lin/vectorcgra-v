@@ -1,0 +1,22 @@
+// Measured via original PyMTL packet packer; source manifest: ring_6_l1_w64
+`define PHASE4_NOC_GOLD Phase4_ring_6_l1_w64
+localparam string PROFILE_LABEL="ring_6_l1_w64";
+localparam bit IS_RING=1;
+localparam int WIDTH=234;
+localparam int COLS=6;
+localparam int ROWS=1;
+localparam int NODES=6;
+localparam int CHANNEL_LATENCY=1;
+localparam int DATA_W=64;
+localparam int DST_LSB=228;
+localparam int DST_WIDTH=3;
+localparam int DST_X_LSB=221;
+localparam int X_WIDTH=3;
+localparam int DST_Y_LSB=220;
+localparam int Y_WIDTH=1;
+localparam int VC_LSB=202;
+localparam int VC_WIDTH=2;
+localparam int SRC_LSB=231;
+localparam int SRC_X_LSB=225;
+localparam int SRC_Y_LSB=224;
+localparam int ID_LSB=132;

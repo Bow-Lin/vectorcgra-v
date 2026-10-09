@@ -1,0 +1,93 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "baseline_commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+  "profiles": [
+    {
+      "profile": "add-e8-s23",
+      "status": "passed",
+      "banner": "PHASE3_FLOAT_PASS multiply=0 exp=8 sig=23 samples=1170 arithmetic_checks=168 special_checks=8 seed=c03e2026",
+      "samples": 1170,
+      "finite_math_checks": 160,
+      "special_checks": 8,
+      "logs": {
+        "compile.log": "2d560ce9f9431736812bcf8d1224f2eb2ef41ca7eacd0ddb493e94464991941a",
+        "negative.log": "e0b9893cbc9dfbd2bb643916073f1978347613b31afb9bdec4b2718ae2059873",
+        "run.log": "be51850eb0a5e056688ec2444fd94a78e4c17719210ac6f6a2ba41d5bae962f8",
+        "verilate.log": "241986e84b141e7f628ff089d4ace44057c88cd14f7d18b1922df7998577af3c"
+      }
+    },
+    {
+      "profile": "mul-e8-s23",
+      "status": "passed",
+      "banner": "PHASE3_FLOAT_PASS multiply=1 exp=8 sig=23 samples=1170 arithmetic_checks=168 special_checks=8 seed=c03e2026",
+      "samples": 1170,
+      "finite_math_checks": 160,
+      "special_checks": 8,
+      "logs": {
+        "compile.log": "899d5969000b31859be9d09f51d9fb54119569575ebfcdbeedfd1d683d31cd9c",
+        "run.log": "a00179689d75157cca85eda3b9f6861da11e9794ac19297bf3180fd7a3e88429",
+        "verilate.log": "3d348b874c79adbff836a2bb1eb19bad6295201d346edc07c3bae6845384bd16"
+      }
+    },
+    {
+      "profile": "add-e4-s11",
+      "status": "passed",
+      "banner": "PHASE3_FLOAT_PASS multiply=0 exp=4 sig=11 samples=1170 arithmetic_checks=168 special_checks=8 seed=c03e2026",
+      "samples": 1170,
+      "finite_math_checks": 160,
+      "special_checks": 8,
+      "logs": {
+        "compile.log": "13ccfed3f9f5df89b536637e487b18c18086a0ac33b27f6e20d80c50091259bd",
+        "run.log": "6ae9faad9e9bf8ebb5977c6de7e1e530763d42525350e6c3d2655e0d5c2c1349",
+        "verilate.log": "5302e5778093482bd0c31cf6da5ee8a5a924f2b67042a5fde9780139607c321c"
+      }
+    },
+    {
+      "profile": "mul-e4-s11",
+      "status": "passed",
+      "banner": "PHASE3_FLOAT_PASS multiply=1 exp=4 sig=11 samples=1170 arithmetic_checks=168 special_checks=8 seed=c03e2026",
+      "samples": 1170,
+      "finite_math_checks": 160,
+      "special_checks": 8,
+      "logs": {
+        "compile.log": "25765c5838ea5455d7b0205b7b5ffc69e65198b59a889eac2ce174e22c27137e",
+        "run.log": "3b02ddfadc1a3eb840a18a814ac368820afbabe987092c604cccd4f598a31681",
+        "verilate.log": "34cd31c1d9813fc541778907f329fbf59270be88677386e97b6b12548ba4498f"
+      }
+    }
+  ],
+  "negative_control": "Wrong arithmetic expectation caused nonzero simulation exit in the normal checker; runner checked error text.",
+  "source_sha256": {
+    "rtl/vendor/hardfloat/HardFloat_primitives.v": "3273444d956fe82b01ba074ed6c22441d957dc7be02990133dd7a83efb07845d",
+    "rtl/vendor/hardfloat/isSigNaNRecFN.v": "dfec25b11b197b767d15b0e28d56b4742c7329668239cdf14d324ddac0950439",
+    "rtl/vendor/hardfloat/HardFloat_rawFN.v": "f219b1594ce25df5790af748bf2bcfdb6ff8a2ad4806c447b1dbeffcdecc071a",
+    "rtl/vendor/hardfloat/fNToRecFN.v": "146e50014d986df605ed59a69425cd6dc19750df3acdd083f61bff7cf51ac6a3",
+    "rtl/vendor/hardfloat/recFNToFN.v": "9a1cb98579a715965aebf9faab6cb5851154e8284d6af7ace594a0d6cc87adf8",
+    "rtl/vendor/hardfloat/addRecFN.v": "8e299e624d7f20c752bb3f59b6ae1ae94685244df20fe2ac274b86f93d87e488",
+    "rtl/vendor/hardfloat/mulRecFN.v": "bff24e22929c49d0f50f70511a93388c784faae9a578cfc79e8fe322cf60cf5a",
+    "rtl/fu/float/cgra_hardfloat_fn.sv": "fc52932df3a81ecfc90edd1d2c51c991e344213db5165d910700ab1205392d4d",
+    "rtl/fu/float/tile_fp_fu.sv": "1a9752cc821d167b5f315806d957695cb62d31fe1b6cf4177923d5cb45751c9b",
+    "rtl/fu/float/tile_fp_add.sv": "f48e19915e51ac4174f79ddb13b3dd54d58c9aacb2043ce34fd34a842922f476",
+    "rtl/fu/float/tile_fp_mul.sv": "7a11946a3f26dfc5771b4b81e073c73b63634827bd73a311b03ca7d1a743506e",
+    "rtl/vendor/hardfloat/HardFloat_consts.vi": "ff7168d2e1bcce237ee6ac0789d58588705063a3d14c9137ee4abba839822b40",
+    "rtl/vendor/hardfloat/HardFloat_localFuncs.vi": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50",
+    "rtl/vendor/hardfloat/HardFloat_specialize.vi": "c231a6ec6c62a9c01c3c2962cf43ea9ec92a7c1c115a8102959d89425803c890",
+    "rtl/common/cgra_profile.svh": "abe6d5dc397a3fbdf56801ef5db185e9575734fe0d6c8eaed97ff6da97656e92",
+    "rtl/common/cgra_profile_defs.svh": "e084a0a74d52bf8c32ca4d846dcf666d0ccc4bd5c2f2d1e7ce669b5d6b6c44ee",
+    "filelists/phase3_float.f": "3a1b67882cfd42d3a4a30ef26e8c1f9ea2e280a57097fe8cd8e2d56f70d73631",
+    "tests/phase3/float/check_synthesis.ps1": "82e60e34b08468afcaf7e13633129873bdc1de3811faf4c16d47fb30cf4e6829",
+    "tests/phase3/float/README.md": "602447112fa56a4d515eb964ad3d8836368e079dc3688bfb838f8a4d567f42b0",
+    "tests/phase3/float/run.sh": "cd51295e83ef2e8eb8d0c4c447cc84ae239bb235fadb191aa8da4fdf9ddbfb3f",
+    "tests/phase3/float/tb_float.sv": "b14273d0a3f89e0773ea12c9045989637a85dc48ef026275b5864a49a4040ae2"
+  },
+  "comparison": "Raw complete FU outputs, including invalid messages; frozen original HDL uses the same original HardFloat IP.",
+  "independent_oracle": "Integer-based exact finite arithmetic plus independently constructed special-value expectations.",
+  "synthesis_summary": "phase3-float-synthesis.json",
+  "limitations": [
+    "Finite two-state verification, not exhaustive/four-state proof.",
+    "No pure-Python simulation claim for external Verilog placeholders.",
+    "ac96 exp/sig mapping and FINC=0.5 behavior intentionally preserved.",
+    "No standard-cell mapping, area comparison or frequency measurement."
+  ]
+}

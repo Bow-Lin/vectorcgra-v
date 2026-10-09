@@ -1,0 +1,99 @@
+{
+  "tool_versions": {
+    "sv2v": "0.0.13",
+    "yosys": "Yosys 0.69+62 (git sha1 0edda7a3a-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)"
+  },
+  "flow": "sv2v; read_verilog -defer; chparam; hierarchy -check; synth -noabc; check -assert; stat -json. No mapping or timing.",
+  "source_sha256": {
+    "rtl/peripheral/cgra_dma_engine.sv": "0ad4b0281fdb286960dbcb8460b0241d467f5ff4ddfb5d7771febe9aa3d7264b",
+    "rtl/peripheral/cgra_im2col_engine.sv": "b17118ae24ffb40852d7aa6027c69f485d33ba415c6f2485587138bd0ac8385f",
+    "rtl/common/cgra_profile.svh": "8a360c5a38dc98087d9cbd89c9508bd6b2c6d428bc4cc90bba357e36de168eec",
+    "rtl/common/cgra_profile_defs.svh": "0dbcc2e9b43f80fffd5101f24742f3d1ccb0fa5af67ba5f788049df9c02042dd"
+  },
+  "profiles": [
+    {
+      "kind": "dma",
+      "parameters": "-set DRAM_ADDR_W 64 -set SPM_ADDR_W 32 -set BYTES_W 32 -set TAG_W 8",
+      "exit_code": 0,
+      "seconds": 4.0181394,
+      "check_problem_counts": [
+        0,
+        0,
+        0
+      ],
+      "output": "build/phase4/peripheral/synthesis/dma",
+      "script_sha256": "868b1d33a3fa69ef972cfacc871fe6888648d7b44136478b3a433c669a785a52",
+      "yosys_log_sha256": "4b033db10617b3c1e8218694f0700b128842659527ab5ae0bc99689e52357f63"
+    },
+    {
+      "kind": "dma-small",
+      "parameters": "-set DRAM_ADDR_W 16 -set SPM_ADDR_W 8 -set BYTES_W 8 -set TAG_W 4",
+      "exit_code": 0,
+      "seconds": 2.6362709,
+      "check_problem_counts": [
+        0,
+        0,
+        0
+      ],
+      "output": "build/phase4/peripheral/synthesis/dma-small",
+      "script_sha256": "6f3ea6defae7de92fd3fdffd41357cc4bcbfde3e545da964b3ecdd3f3aedaae9",
+      "yosys_log_sha256": "77b0c1623a0a130d84b327893832003db312a535586c7a998e1adc9c4aff341e"
+    },
+    {
+      "kind": "dma-python",
+      "parameters": "-set DRAM_ADDR_W 64 -set SPM_ADDR_W 32 -set BYTES_W 32 -set TAG_W 8 -set BASELINE_TRANSLATED_SLICES 0",
+      "exit_code": 0,
+      "seconds": 3.3979548,
+      "check_problem_counts": [
+        0,
+        0,
+        0
+      ],
+      "output": "build/phase4/peripheral/synthesis/dma-python",
+      "script_sha256": "467334ef78b90fc02cf19a5192cbb9bc0bacdbf00d045fef3298a23220adce14",
+      "yosys_log_sha256": "71eb979d9692212127cde1fada5a527318637f32513ecebe1935d8ba01684990"
+    },
+    {
+      "kind": "dma-small-python",
+      "parameters": "-set DRAM_ADDR_W 16 -set SPM_ADDR_W 8 -set BYTES_W 8 -set TAG_W 4 -set BASELINE_TRANSLATED_SLICES 0",
+      "exit_code": 0,
+      "seconds": 2.4636049,
+      "check_problem_counts": [
+        0,
+        0,
+        0
+      ],
+      "output": "build/phase4/peripheral/synthesis/dma-small-python",
+      "script_sha256": "0d485c3be3fad1504aa6103a997e97b6f1a24e2f0bf53d3aaa63294b8fee9df7",
+      "yosys_log_sha256": "f240f95bf134cdd24fd7983d2720f24c36cc44fe663abf8067185e20390537b9"
+    },
+    {
+      "kind": "im2col",
+      "parameters": "-set DATA_W 32 -set SCRATCH_DEPTH 64 -set PRELOAD_IMAGE 2048'h19b0000018a0000017980000168000001570000014600000135000001240000011300000102800000f1000000e0000000cf000000be000000ad0000009c0000008b8000007a00000069000000580000004700000036000000250000001480000003",
+      "exit_code": 0,
+      "seconds": 5.8445364,
+      "check_problem_counts": [
+        0,
+        0,
+        0
+      ],
+      "output": "build/phase4/peripheral/synthesis/im2col",
+      "script_sha256": "b3964ee71fb94b73651ca08cbe0da60fc937761576a83fe52423867f338acd0c",
+      "yosys_log_sha256": "c32dc9837bc1385c689b5b21183bd2cec3001dfd00749530a9e0445a8e7fddd5"
+    },
+    {
+      "kind": "im2col-wide",
+      "parameters": "-set DATA_W 64 -set SCRATCH_DEPTH 32 -set PRELOAD_IMAGE 2048'h18000000019b000017000000018a000016000000017900001500800001680000140000000157000013000000014600001200000001350000110000000124000010000000011300000f000000010200000e00800000f100000d00000000e000000c00000000cf00000b00000000be00000a00000000ad000009000000009c000008000000008b000007008000007a0000060000000069000005000000005800000400000000470000030000000036000002000000002500000100000000140000000080000003",
+      "exit_code": 0,
+      "seconds": 4.6827403,
+      "check_problem_counts": [
+        0,
+        0,
+        0
+      ],
+      "output": "build/phase4/peripheral/synthesis/im2col-wide",
+      "script_sha256": "593b69fb017649002eaab9e30469e0d0167dba903b734441d6a3205afc48069c",
+      "yosys_log_sha256": "04ca15e94754d27dfb5dcba66d132ab0a5a370d16822071762feca0ce73e7817"
+    }
+  ]
+}

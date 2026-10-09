@@ -1,0 +1,128 @@
+`timescale 1ns/1ps
+`include "cgra_profile_defs.svh"
+module tb_phase3_vector;
+  localparam int DATA_W=32, LANES=4, LANE_W=8, DATA_BITS=DATA_W+3;
+  localparam int REG_ADDR_W=4, GLOBAL_ADDR_W=7, CTRL_ADDR_W=3, TILE_ID_W=3, MEM_PORT_W=2, BANK_PORT_W=2, ROUTING_OUTPUTS=8, ROUTING_SEL_W=4;
+  localparam int CGRA_ID_W=1, CGRA_X_W=1, CGRA_Y_W=1, XBAR_MEM_PORT_W=2, XBAR_WR_MEM_PORT_W=2;
+  `include "cgra_profile.svh"
+  localparam int RESULT_W=9;
+  logic clock=0;always #5 clock=~clock;
+  logic [31:0] rng=32'h3b123456;
+  function automatic logic [31:0] next_word();rng^=rng<<13;rng^=rng>>17;rng^=rng<<5;return rng;endfunction
+  function automatic logic [255:0] random_bits();return {next_word(),next_word(),next_word(),next_word(),next_word(),next_word(),next_word(),next_word()};endfunction
+  function automatic logic [15:0] ip_value(input logic[15:0]aa,bb,cc,input logic[5:0]mode);
+    logic [15:0] tmp;tmp=mode[4]?(aa*bb+(mode[5]?cc:16'd0)):((mode[3]?~aa:aa)+(mode[0]?~bb:bb));
+    tmp=tmp+16'(mode[0]|mode[3]);return mode[1]?{15'd0,(mode[2]^tmp[15])}:tmp;endfunction
+  int operations[0:5]='{2,25,3,4,36,31};
+  int op_hits[0:5];
+  int cycle=0,arithmetic_checks=0,stall_checks=0,valid_outputs=0,legacy_defect_checks=0;logic supported;
+  logic [127:0] expected[0:1],a,b,c,d,k,x,y,z,temp;logic [127:0]lane_mask=(128'(1)<<LANE_W)-1;
+  int ix0,ix1,ix2;logic carry,model_sent=0;logic [7:0]model_counter=0;
+  logic [15:0]held_a=0,held_b=0,held_c=0;logic [5:0]ip_op;
+  ctrl_t ctrl;payload_t response,sent_payload;string result_path;integer fd;
+  logic [0:0] i_carry_in ;
+  logic [0:0] d_carry_out ;
+  logic [0:0] g_carry_out ;
+  logic [0:0] i_combine_adder ;
+  logic [0:0] i_reset ;
+  logic [8:0] i_recv_const__msg ;
+  logic [0:0] d_recv_const__rdy ;
+  logic [0:0] g_recv_const__rdy ;
+  logic [0:0] i_recv_const__val ;
+  logic [8:0] i_recv_in__msg [0:3];
+  logic [0:0] d_recv_in__rdy [0:3];
+  logic [0:0] g_recv_in__rdy [0:3];
+  logic [0:0] i_recv_in__val [0:3];
+  logic [118:0] i_recv_opt__msg ;
+  assign i_recv_opt__msg=ctrl;
+  logic [0:0] d_recv_opt__rdy ;
+  logic [0:0] g_recv_opt__rdy ;
+  logic [0:0] i_recv_opt__val ;
+  logic [8:0] d_send_out__msg [0:1];
+  logic [8:0] g_send_out__msg [0:1];
+  logic [0:0] i_send_out__rdy [0:1];
+  logic [0:0] d_send_out__val [0:1];
+  logic [0:0] g_send_out__val [0:1];
+  cgra_vector_adder #(.DATA_W(32),.LANE_W(8)) dut (.carry_in(i_carry_in),.carry_out(d_carry_out),.clk(clock),.combine_adder(i_combine_adder),.reset(i_reset),.recv_const__msg(i_recv_const__msg),.recv_const__rdy(d_recv_const__rdy),.recv_const__val(i_recv_const__val),.recv_in__msg(i_recv_in__msg),.recv_in__rdy(d_recv_in__rdy),.recv_in__val(i_recv_in__val),.recv_opt__msg(i_recv_opt__msg),.recv_opt__rdy(d_recv_opt__rdy),.recv_opt__val(i_recv_opt__val),.send_out__msg(d_send_out__msg),.send_out__rdy(i_send_out__rdy),.send_out__val(d_send_out__val));
+  P3Vector_vector_adder_w32_l4_b8_v0 gold (.carry_in(i_carry_in),.carry_out(g_carry_out),.clk(clock),.combine_adder(i_combine_adder),.reset(i_reset),.recv_const__msg(i_recv_const__msg),.recv_const__rdy(g_recv_const__rdy),.recv_const__val(i_recv_const__val),.recv_in__msg(i_recv_in__msg),.recv_in__rdy(g_recv_in__rdy),.recv_in__val(i_recv_in__val),.recv_opt__msg(i_recv_opt__msg),.recv_opt__rdy(g_recv_opt__rdy),.recv_opt__val(i_recv_opt__val),.send_out__msg(g_send_out__msg),.send_out__rdy(i_send_out__rdy),.send_out__val(g_send_out__val));
+  initial begin
+    for(int n=0;n<6;n++)op_hits[n]=0;
+    for(cycle=0;cycle<640;cycle++)begin
+      @(negedge clock);
+      i_carry_in=1'(random_bits());
+      i_combine_adder=1'(random_bits());
+      i_reset=1'(random_bits());
+      i_recv_const__msg=9'(random_bits());
+      i_recv_const__val=1'(random_bits());
+      i_recv_in__msg[0]=9'(random_bits());
+      i_recv_in__msg[1]=9'(random_bits());
+      i_recv_in__msg[2]=9'(random_bits());
+      i_recv_in__msg[3]=9'(random_bits());
+      i_recv_in__val[0]=1'(random_bits());
+      i_recv_in__val[1]=1'(random_bits());
+      i_recv_in__val[2]=1'(random_bits());
+      i_recv_in__val[3]=1'(random_bits());
+      i_recv_opt__val=1'(random_bits());
+      i_send_out__rdy[0]=1'(random_bits());
+      i_send_out__rdy[1]=1'(random_bits());
+      i_reset=(cycle<2)||(cycle==320)||(cycle==321);
+      ctrl=119'(random_bits());
+      ctrl.operation=(cycle%(6+1)==6)?7'd127:7'(operations[cycle%(6+1)]);
+      ctrl.vector_factor_power=(cycle>=128&&cycle<400)?3'd7:3'(cycle/16);
+      ctrl.is_last_ctrl=(cycle>=128&&cycle<400)?1'b1:1'(next_word());
+      i_recv_opt__val=(cycle>=128&&cycle<400)?1:((cycle%5)!=0);
+      supported=0;
+      for(int n=0;n<6;n++)if(ctrl.operation==operations[n])supported=1;
+      @(posedge clock);
+      if(d_carry_out !== 1'(g_carry_out))$fatal(1,"P3_VECTOR_DIFF cycle=%0d port=carry_out native=%h gold=%h",cycle,d_carry_out,g_carry_out);
+      if(d_recv_const__rdy !== 1'(g_recv_const__rdy))$fatal(1,"P3_VECTOR_DIFF cycle=%0d port=recv_const__rdy native=%h gold=%h",cycle,d_recv_const__rdy,g_recv_const__rdy);
+      if(d_recv_in__rdy[0] !== 1'(g_recv_in__rdy[0]))$fatal(1,"P3_VECTOR_DIFF cycle=%0d port=recv_in__rdy[0] native=%h gold=%h",cycle,d_recv_in__rdy[0],g_recv_in__rdy[0]);
+      if(d_recv_in__rdy[1] !== 1'(g_recv_in__rdy[1]))$fatal(1,"P3_VECTOR_DIFF cycle=%0d port=recv_in__rdy[1] native=%h gold=%h",cycle,d_recv_in__rdy[1],g_recv_in__rdy[1]);
+      if(d_recv_in__rdy[2] !== 1'(g_recv_in__rdy[2]))$fatal(1,"P3_VECTOR_DIFF cycle=%0d port=recv_in__rdy[2] native=%h gold=%h",cycle,d_recv_in__rdy[2],g_recv_in__rdy[2]);
+      if(d_recv_in__rdy[3] !== 1'(g_recv_in__rdy[3]))$fatal(1,"P3_VECTOR_DIFF cycle=%0d port=recv_in__rdy[3] native=%h gold=%h",cycle,d_recv_in__rdy[3],g_recv_in__rdy[3]);
+      if(d_recv_opt__rdy !== 1'(g_recv_opt__rdy))$fatal(1,"P3_VECTOR_DIFF cycle=%0d port=recv_opt__rdy native=%h gold=%h",cycle,d_recv_opt__rdy,g_recv_opt__rdy);
+      if(d_send_out__msg[0] !== 9'(g_send_out__msg[0]))$fatal(1,"P3_VECTOR_DIFF cycle=%0d port=send_out__msg[0] native=%h gold=%h",cycle,d_send_out__msg[0],g_send_out__msg[0]);
+      if(d_send_out__msg[1] !== 9'(g_send_out__msg[1]))$fatal(1,"P3_VECTOR_DIFF cycle=%0d port=send_out__msg[1] native=%h gold=%h",cycle,d_send_out__msg[1],g_send_out__msg[1]);
+      if(d_send_out__val[0] !== 1'(g_send_out__val[0]))$fatal(1,"P3_VECTOR_DIFF cycle=%0d port=send_out__val[0] native=%h gold=%h",cycle,d_send_out__val[0],g_send_out__val[0]);
+      if(d_send_out__val[1] !== 1'(g_send_out__val[1]))$fatal(1,"P3_VECTOR_DIFF cycle=%0d port=send_out__val[1] native=%h gold=%h",cycle,d_send_out__val[1],g_send_out__val[1]);
+      for(int n=0;n<6;n++)if(ctrl.operation==operations[n]&&i_recv_opt__val)op_hits[n]++;
+      if(i_recv_opt__val&&!i_send_out__rdy[0])stall_checks++;
+      if(d_send_out__val[0])valid_outputs++;
+      expected[0]='0;expected[1]='0;
+      a=DATA_W'(i_recv_in__msg[0]>>3);b=DATA_W'(i_recv_in__msg[1]>>3);
+      c=DATA_W'(i_recv_in__msg[2]>>3);d=DATA_W'(i_recv_in__msg[3]>>3);
+      k=DATA_W'(i_recv_const__msg>>3);
+      ix0=ctrl.fu_in[0]==0?0:(int'(ctrl.fu_in[0])-1)%4;
+      ix1=ctrl.fu_in[1]==0?0:(int'(ctrl.fu_in[1])-1)%4;
+      ix2=ctrl.fu_in[2]==0?0:(int'(ctrl.fu_in[2])-1)%4;
+if(i_recv_opt__val) begin
+        a=128'(i_recv_in__msg[ix0]);b=128'(i_recv_in__msg[ix1]);k=128'(i_recv_const__msg);
+case(ctrl.operation)
+          2:expected[0]=a+b+(i_carry_in&i_combine_adder);
+          25:expected[0]=a+k+(i_carry_in&i_combine_adder);
+          3:expected[0]=a+1;
+          4:expected[0]=a-b-(i_carry_in&i_combine_adder);
+          36:expected[0]=a-k-(i_carry_in&i_combine_adder);
+          31:expected[0]=a;
+          default:begin end
+        endcase
+end
+      if($test$plusargs("EXPECT_FAILURE")&&cycle==64)begin
+        expected[0]^=1;$display("intentional negative control: corrupt independent expected result");
+      end
+      if(d_send_out__msg[0] !== RESULT_W'(expected[0]))$fatal(1,"independent leaf arithmetic cycle=%0d op=%0d expected=%h got=%h",cycle,ctrl.operation,RESULT_W'(expected[0]),d_send_out__msg[0]);
+      arithmetic_checks++;
+      if($test$plusargs("EXPECT_FAILURE")&&cycle==64)$fatal(1,"intentional negative control: result checker exercised");
+    end
+    for(int n=0;n<6;n++)if(op_hits[n]==0)$fatal(1,"operation not exercised op=%0d",operations[n]);
+    if(arithmetic_checks!=640)$fatal(1,"arithmetic coverage incomplete");
+    if(stall_checks<50||valid_outputs<10)$fatal(1,"handshake coverage incomplete");
+    if(!$value$plusargs("RESULT=%s",result_path))result_path="result.json";
+    fd=$fopen(result_path,"w");if(fd==0)$fatal(1,"cannot write result JSON");
+    $fwrite(fd,"{\n  \"label\": \"vector_adder_w32_l4_b8_v0\",\n  \"status\": \"pass\",\n  \"cycles\": 640,\n  \"seed\": \"3b123456\",\n  \"raw_invalid_comparison\": true,\n  \"arithmetic_checks\": %0d,\n  \"stall_samples\": %0d,\n  \"valid_output_samples\": %0d,\n  \"legacy_defect_checks\": %0d,\n  \"operation_hits\": [",arithmetic_checks,stall_checks,valid_outputs,legacy_defect_checks);
+    for(int n=0;n<6;n++)$fwrite(fd,"%s%0d",n==0?"":",",op_hits[n]);
+    $fwrite(fd,"]\n}\n");$fclose(fd);
+    $display("P3_VECTOR_PASS label=vector_adder_w32_l4_b8_v0 cycles=640 arithmetic=%0d stalls=%0d valid=%0d",arithmetic_checks,stall_checks,valid_outputs);
+    $finish;
+  end
+endmodule

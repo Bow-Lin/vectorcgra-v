@@ -1,0 +1,9 @@
+input  logic [0:0] clk ,
+  output logic [0:0] done ,
+  input  logic [0:0] reset ,
+  input IntraCgraPacket_1_1x1_4_8_2_CgraPayload__9899db8623b89eb8 recv_cmd_pkt__msg  ,
+  output logic [0:0] recv_cmd_pkt__rdy  ,
+  input logic [0:0] recv_cmd_pkt__val  ,
+  output IntraCgraPacket_1_1x1_4_8_2_CgraPayload__9899db8623b89eb8 send_pkt__msg  ,
+  input logic [0:0] send_pkt__rdy  ,
+  output logic [0:0] send_pkt__val

@@ -1,0 +1,23 @@
+{
+  "label": "vector_adder_w32_l4_b16_v0",
+  "case": "vector_adder",
+  "reference": "reference/phase3/vector_combo/vector_adder_w32_l4_b16_v0",
+  "native_module": "cgra_vector_adder",
+  "parameters": {
+    "DATA_W": 32,
+    "LANES": 4,
+    "LANE_W": 16,
+    "VECTOR_FACTOR_POWER": 0
+  },
+  "opcodes": [
+    2,
+    25,
+    3,
+    4,
+    36,
+    31
+  ],
+  "legacy_ctrl_adapter": false,
+  "cycles": 640,
+  "seed": "3b123456"
+}

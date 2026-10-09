@@ -1,0 +1,282 @@
+{
+  "parent": "gold.v",
+  "parent_sha256": "56b5eddf5ffd32e630c9d0310dafef6e5ef4cd376196115615a9a925dd4c7f34",
+  "derived": "gold_portable.v",
+  "derived_sha256": "cfb2d7efeb8dfe4d65890a504cb320c72ccfbb8403ba5a1bf656bc968d190c03",
+  "changes": [
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_primitives.v\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_primitives.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\GoldFpAddE4S11_isSigNaNRecFN.v\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/GoldFpAddE4S11_isSigNaNRecFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_rawFN.v\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_rawFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_consts.vi\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_consts.vi\" 0"
+    },
+    {
+      "before": "`line 40 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_rawFN.v\" 0",
+      "after": "`line 40 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_rawFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_specialize.vi\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_specialize.vi\" 0"
+    },
+    {
+      "before": "`line 41 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_rawFN.v\" 0\n",
+      "after": "`line 41 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_rawFN.v\" 0\n"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\RISCV/HardFloat_specialize.vi\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/RISCV/HardFloat_specialize.vi\" 0"
+    },
+    {
+      "before": "`line 44 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_rawFN.v\" 0",
+      "after": "`line 44 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_rawFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\GoldFpAddE4S11_addRecFN.v\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/GoldFpAddE4S11_addRecFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_consts.vi\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_consts.vi\" 0"
+    },
+    {
+      "before": "`line 40 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\GoldFpAddE4S11_addRecFN.v\" 0",
+      "after": "`line 40 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/GoldFpAddE4S11_addRecFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_specialize.vi\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_specialize.vi\" 0"
+    },
+    {
+      "before": "`line 41 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\GoldFpAddE4S11_addRecFN.v\" 0\n",
+      "after": "`line 41 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/GoldFpAddE4S11_addRecFN.v\" 0\n"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_localFuncs.vi\" 0\n",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_localFuncs.vi\" 0\n"
+    },
+    {
+      "before": "`line 61 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\GoldFpAddE4S11_addRecFN.v\" 0\n",
+      "after": "`line 61 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/GoldFpAddE4S11_addRecFN.v\" 0\n"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_primitives.v\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_primitives.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\GoldFpAddE4S11_isSigNaNRecFN.v\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/GoldFpAddE4S11_isSigNaNRecFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_rawFN.v\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_rawFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_consts.vi\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_consts.vi\" 0"
+    },
+    {
+      "before": "`line 40 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_rawFN.v\" 0",
+      "after": "`line 40 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_rawFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_specialize.vi\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_specialize.vi\" 0"
+    },
+    {
+      "before": "`line 41 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_rawFN.v\" 0\n",
+      "after": "`line 41 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_rawFN.v\" 0\n"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\RISCV/HardFloat_specialize.vi\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/RISCV/HardFloat_specialize.vi\" 0"
+    },
+    {
+      "before": "`line 44 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_rawFN.v\" 0",
+      "after": "`line 44 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_rawFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\GoldFpAddE4S11_recFNToRecFN.v\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/GoldFpAddE4S11_recFNToRecFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_consts.vi\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_consts.vi\" 0"
+    },
+    {
+      "before": "`line 40 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\GoldFpAddE4S11_recFNToRecFN.v\" 0",
+      "after": "`line 40 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/GoldFpAddE4S11_recFNToRecFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_specialize.vi\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_specialize.vi\" 0"
+    },
+    {
+      "before": "`line 41 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\GoldFpAddE4S11_recFNToRecFN.v\" 0\n",
+      "after": "`line 41 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/GoldFpAddE4S11_recFNToRecFN.v\" 0\n"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_specialize.vi\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_specialize.vi\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\GoldFpAddE4S11_recFNToFN.v\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/GoldFpAddE4S11_recFNToFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\includeFile.v\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/includeFile.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_rawFN.v\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_rawFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_consts.vi\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_consts.vi\" 0"
+    },
+    {
+      "before": "`line 40 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_rawFN.v\" 0",
+      "after": "`line 40 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_rawFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_specialize.vi\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_specialize.vi\" 0"
+    },
+    {
+      "before": "`line 41 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_rawFN.v\" 0\n",
+      "after": "`line 41 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_rawFN.v\" 0\n"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\RISCV/HardFloat_specialize.vi\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/RISCV/HardFloat_specialize.vi\" 0"
+    },
+    {
+      "before": "`line 44 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_rawFN.v\" 0",
+      "after": "`line 44 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_rawFN.v\" 0"
+    },
+    {
+      "before": "`line 3 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\includeFile.v\" 0",
+      "after": "`line 3 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/includeFile.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\GoldFpAddE4S11_recFNToRecFN.v\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/GoldFpAddE4S11_recFNToRecFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_consts.vi\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_consts.vi\" 0"
+    },
+    {
+      "before": "`line 40 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\GoldFpAddE4S11_recFNToRecFN.v\" 0",
+      "after": "`line 40 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/GoldFpAddE4S11_recFNToRecFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_specialize.vi\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_specialize.vi\" 0"
+    },
+    {
+      "before": "`line 41 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\GoldFpAddE4S11_recFNToRecFN.v\" 0\n",
+      "after": "`line 41 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/GoldFpAddE4S11_recFNToRecFN.v\" 0\n"
+    },
+    {
+      "before": "`line 4 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\includeFile.v\" 0",
+      "after": "`line 4 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/includeFile.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\GoldFpAddE4S11_isSigNaNRecFN.v\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/GoldFpAddE4S11_isSigNaNRecFN.v\" 0"
+    },
+    {
+      "before": "`line 5 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\includeFile.v\" 0",
+      "after": "`line 5 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/includeFile.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_primitives.v\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_primitives.v\" 0"
+    },
+    {
+      "before": "`line 6 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\includeFile.v\" 0",
+      "after": "`line 6 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/includeFile.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\RISCV/HardFloat_specialize.vi\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/RISCV/HardFloat_specialize.vi\" 0"
+    },
+    {
+      "before": "`line 7 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\includeFile.v\" 0",
+      "after": "`line 7 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/includeFile.v\" 0"
+    },
+    {
+      "before": "`line 42 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\GoldFpAddE4S11_recFNToFN.v\" 0",
+      "after": "`line 42 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/GoldFpAddE4S11_recFNToFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_localFuncs.vi\" 0\n",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_localFuncs.vi\" 0\n"
+    },
+    {
+      "before": "`line 54 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\GoldFpAddE4S11_recFNToFN.v\" 0\n",
+      "after": "`line 54 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/GoldFpAddE4S11_recFNToFN.v\" 0\n"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_primitives.v\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_primitives.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\GoldFpAddE4S11_isSigNaNRecFN.v\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/GoldFpAddE4S11_isSigNaNRecFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_rawFN.v\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_rawFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_consts.vi\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_consts.vi\" 0"
+    },
+    {
+      "before": "`line 40 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_rawFN.v\" 0",
+      "after": "`line 40 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_rawFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_specialize.vi\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_specialize.vi\" 0"
+    },
+    {
+      "before": "`line 41 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_rawFN.v\" 0\n",
+      "after": "`line 41 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_rawFN.v\" 0\n"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\RISCV/HardFloat_specialize.vi\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/RISCV/HardFloat_specialize.vi\" 0"
+    },
+    {
+      "before": "`line 44 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_rawFN.v\" 0",
+      "after": "`line 44 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_rawFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\GoldFpAddE4S11_fNToRecFN.v\" 0",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/GoldFpAddE4S11_fNToRecFN.v\" 0"
+    },
+    {
+      "before": "`line 1 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\HardFloat_localFuncs.vi\" 0\n",
+      "after": "`line 1 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/HardFloat_localFuncs.vi\" 0\n"
+    },
+    {
+      "before": "`line 48 \"D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\fu\\pymtl3_hardfloat\\HardFloat\\source\\GoldFpAddE4S11_fNToRecFN.v\" 0\n",
+      "after": "`line 48 \"D:/work/VectorCGRA/.worktrees/VectorCGRA/fu/pymtl3_hardfloat/HardFloat/source/GoldFpAddE4S11_fNToRecFN.v\" 0\n"
+    }
+  ],
+  "roundtrip_verified": true,
+  "reason": "Unescaped Windows paths in original diagnostic `line directives are rejected by Verilator; only filenames use forward slashes."
+}

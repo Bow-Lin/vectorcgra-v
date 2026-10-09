@@ -1,0 +1,25 @@
+{
+  "label": "ring_4_l1_w32",
+  "network": "ring",
+  "parameters": {
+    "WIDTH": 198,
+    "COLS": 4,
+    "ROWS": 1,
+    "NODES": 4,
+    "CHANNEL_LATENCY": 1,
+    "DATA_W": 32,
+    "DST_LSB": 194,
+    "DST_WIDTH": 2,
+    "DST_X_LSB": 189,
+    "X_WIDTH": 2,
+    "DST_Y_LSB": 188,
+    "Y_WIDTH": 1,
+    "VC_LSB": 170,
+    "VC_WIDTH": 2,
+    "SRC_LSB": 196,
+    "SRC_X_LSB": 192,
+    "SRC_Y_LSB": 191,
+    "ID_LSB": 132
+  },
+  "rtl_sha256": "8473fd696c561140c84ac04a3008bcb3b8ca904e9217386588a96375fe2db287"
+}

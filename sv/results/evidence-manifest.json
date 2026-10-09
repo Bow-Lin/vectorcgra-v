@@ -1,0 +1,114 @@
+{
+  "schema": 1,
+  "phase": 1,
+  "status": "passed",
+  "archive": "phase1-evidence.zip",
+  "archive_sha256": "ec9cfe7c7b70926820dec950472e6a50cc99ec959dce60e0917f8e397b879c6a",
+  "entries": {
+    "main/build/probe/run.log": {
+      "sha256": "1a5c78d14c34a9e9e534630983863c8f92be3eb1716d56ee4ad47f04ca156cc2",
+      "bytes": 257
+    },
+    "main/build/probe/negative.log": {
+      "sha256": "bfb4274b06c20099989087cac49d49f040c534b5e91f1c8929e7a13aae0576de",
+      "bytes": 174
+    },
+    "main/build/probe/verilate.log": {
+      "sha256": "2190239a26bc0ea5fce6d11d41461f9d5df9752ff3e64b2e69a8a5962a9af16b",
+      "bytes": 307
+    },
+    "main/build/probe/compile.log": {
+      "sha256": "5d5b117a245c152f2391a0c61fed46aba4c72fabdc0d01b1f0acf8e264d39670",
+      "bytes": 4676
+    },
+    "main/build/probe/synth.log": {
+      "sha256": "de06d6eb6a1235fa98f05cdd446fc3b31d0b80f6e5da8bb93574e17d98a0f4dc",
+      "bytes": 28047
+    },
+    "main/build/types/run.log": {
+      "sha256": "2a43e1cbbc18c963a299263fae38274d7fee188cd654d1d0231841e7e103e235",
+      "bytes": 288
+    },
+    "main/build/types/verilate.log": {
+      "sha256": "a93cc8f94383640f28dec32866b781cd7f1d6339980fc8fa5d6269fdae2b210a",
+      "bytes": 307
+    },
+    "main/build/types/compile.log": {
+      "sha256": "3c32e6f193e16b72aeff729d87cb78f9767bb113a7eb2ae8dba6e64d72f43683",
+      "bytes": 3384
+    },
+    "main/build/sim/run.log": {
+      "sha256": "d5fec4ed5e6b820331a4e724ecf64e1bca5f77c66950561be7a688bc4d037a25",
+      "bytes": 999
+    },
+    "main/build/sim/negative.log": {
+      "sha256": "1dfe8bea268fe8811c5ce83580acd3872ac3fe9ec981b4aa86b28518c53ce5fc",
+      "bytes": 413
+    },
+    "main/build/sim/timeout-negative.log": {
+      "sha256": "07230dd1e6794c11066b7d8c112fba4081e32b489cc7bfe1403ab328abec60d1",
+      "bytes": 434
+    },
+    "main/build/sim/verilate.log": {
+      "sha256": "2828d2e6fabe8cd04b2fe80169225fc6bbb6b516e918bdf1a8e467cbaaf47bfc",
+      "bytes": 185575
+    },
+    "main/build/sim/compile.log": {
+      "sha256": "d6dd966a53be98f9307449cccd52de6c0b2b712fdfa891a1b9d42374d126fea6",
+      "bytes": 54853
+    },
+    "main/build/synth/generic.log": {
+      "sha256": "6875f3ee82ecb4e4672bd514ada33d4afbed133d2fce5165f77f1f72d1aeb433",
+      "bytes": 3486948
+    },
+    "main/build/synth/mapped.log": {
+      "sha256": "fe469296422e98d13dae087df00ee3233093186a809224ba2b4e03d94b2c2b92",
+      "bytes": 708005
+    },
+    "main/build/synth/generic-stat.json": {
+      "sha256": "aab80bd1f96ccdbc87614dedd7a504f03cececd665e920cdc9d3a3dc3c7ab658",
+      "bytes": 69550
+    },
+    "main/build/synth/mapped-stat.json": {
+      "sha256": "fc8dfce0599b8c8e8017750544851cceda325cd26be0f8ba89c3533cddce805b",
+      "bytes": 105788
+    },
+    "main/build/synth/abc.constr": {
+      "sha256": "6710077f5f66e43fcb9993d501d605c2a9a99549566ad74fa987bc839a803c89",
+      "bytes": 37
+    },
+    "standalone/build/sim/compile.log": {
+      "sha256": "7e759383e59b7db78769ab813dbdcdc7491e7f44ec05b6c3196d21f1dec052ec",
+      "bytes": 54901
+    },
+    "standalone/build/sim/negative.log": {
+      "sha256": "1dfe8bea268fe8811c5ce83580acd3872ac3fe9ec981b4aa86b28518c53ce5fc",
+      "bytes": 413
+    },
+    "standalone/build/sim/run.log": {
+      "sha256": "4ab5e24ef8560253ef8a0747cde24ec0b3722e7d1b933db4d80b8ded7997caae",
+      "bytes": 999
+    },
+    "standalone/build/sim/timeout-negative.log": {
+      "sha256": "07230dd1e6794c11066b7d8c112fba4081e32b489cc7bfe1403ab328abec60d1",
+      "bytes": 434
+    },
+    "standalone/build/sim/verilate.log": {
+      "sha256": "34e5b53401118e7e504660d6f0e1a0ec48daddaca2f67f4852fd8090a07a6176",
+      "bytes": 185575
+    },
+    "standalone/build/synth/generic-stat.json": {
+      "sha256": "aab80bd1f96ccdbc87614dedd7a504f03cececd665e920cdc9d3a3dc3c7ab658",
+      "bytes": 69550
+    },
+    "standalone/build/synth/generic.log": {
+      "sha256": "6875f3ee82ecb4e4672bd514ada33d4afbed133d2fce5165f77f1f72d1aeb433",
+      "bytes": 3486948
+    },
+    "standalone/build/types/run.log": {
+      "sha256": "2a43e1cbbc18c963a299263fae38274d7fee188cd654d1d0231841e7e103e235",
+      "bytes": 288
+    }
+  },
+  "note": "Snapshots of final phase-1 logs. Subsequent builds may overwrite local build logs; this archive preserves these results."
+}

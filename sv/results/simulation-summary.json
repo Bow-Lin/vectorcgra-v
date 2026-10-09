@@ -1,0 +1,85 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "source_sha256": {
+    "Makefile": "5f96c4a9b231591a53ff32bebfa6bb5989b2dd1237b2b7dd027acf05849aa3d9",
+    "scripts/run.ps1": "233add2f958f8e21993f7c0678edf6efa6a45dcd828c85db0bc73fe5d9a631c8",
+    "filelists/rtl.f": "243b28facc122bc7feb15c7fc513a292d87c51cedc912a819d7780a1847bae8b",
+    "filelists/sim.f": "18bc403e00559241a4f3fe95374765065a4468d83d046ea78026091f91b812e0",
+    "tb/tb_cgra_types.sv": "4b6cd107e9f97f0e7fa2bdb64e6138a46ec24b4e5a411ab2c9c63b3573197c5b",
+    "tb/scalar_workload_pkg.sv": "104408422389b57683ea59e22e3ea02a82cc9d2c3d45748bafd5829430ca334a",
+    "tb/tb_cgra_2x2_scalar.sv": "94eb0712d5010e02ac567d1430a9027a756203bc17828d8adadbeaad69d73766",
+    "reference/VectorCGRA2x2Reference.v": "f7d4479abe7b2305f21875a4ba82d685cb20d61275abbf4114786c57185487aa",
+    "rtl/common/cgra_types_pkg.sv": "9a8068f1f4a81062fbd405fdf1615c6a347a65e35ae3e66cfaf077501e565caa",
+    "rtl/fixed/cgra_2x2_core.sv": "6be4c3471c14ea66bf14dea87c15c11fe7d5c327bcb741a4ca949e23ab1bf780",
+    "rtl/cgra/cgra_2x2.sv": "e72be6457914b8c4052259e1199e426bb853ac2128d117ddcbcef55074a01e8e",
+    "vectors/negative_after_reset_packets.hex": "bbf39112e38a767fa0abcbb32862ee0a27cd92d47d97ff868a425bd235388eea",
+    "vectors/positive_packets.hex": "46f30c6a1d259f5144fc93c2d2fd415513ebaaafdb73d773cc628b220108c13a",
+    "vectors/replay_inputs.hex": "520e746c88fdb38c2245e2de0baf0a45d5588c92146adb7e5ad6ed66cbade0a8",
+    "vectors/replay_outputs.hex": "4b8d5ff184425b666c43b0e4eaf36884c6845484f76469dd7f20c2a346f44dcc"
+  },
+  "checks": {
+    "type_widths_and_four_pack_samples": "passed",
+    "native_reference_all_output_bits": "passed",
+    "frozen_pymtl_replay_all_output_bits": "passed",
+    "canonical_configuration_packets": "passed",
+    "incorrect_result_negative": {
+      "log": "build/sim/negative.log",
+      "expected_marker": "intentional negative control",
+      "nonzero_exit_verified": true,
+      "status": "passed"
+    },
+    "permanent_backpressure_negative": {
+      "log": "build/sim/timeout-negative.log",
+      "expected_marker": "TIMEOUT scenario=",
+      "nonzero_exit_verified": true,
+      "status": "passed",
+      "parameters": {
+        "STALL_FOREVER": true,
+        "MAX_CYCLES": 200
+      }
+    }
+  },
+  "coverage": {
+    "mesh_links_per_scenario": 4,
+    "west_outputs_per_scenario": 1,
+    "tile_completions_per_scenario": 4,
+    "scenarios": 2,
+    "compared_cycles": 134,
+    "post_reset_cycles_per_scenario": 64,
+    "input_bits_per_replay_cycle": 505,
+    "west_stall_cycles_per_scenario": 8,
+    "configuration_packets_per_scenario": 26,
+    "handshakes_per_mesh_link": 1,
+    "host_stall_cycles_per_scenario": 8,
+    "pymtl_compared_cycles": 134,
+    "output_bits_per_cycle": 489,
+    "host_reads_per_scenario": 2
+  },
+  "results": {
+    "scenario1": {
+      "input_hex": "fffffffa",
+      "output_hex": "fffffff5"
+    },
+    "scenario0": {
+      "input_hex": "00000007",
+      "output_hex": "0000001c"
+    }
+  },
+  "logs": [
+    "build/types/run.log",
+    "build/sim/run.log",
+    "build/sim/negative.log",
+    "build/sim/timeout-negative.log",
+    "build/sim/verilate.log",
+    "build/sim/compile.log"
+  ],
+  "warnings": "results/verilator-warnings.json",
+  "project_python_invoked": false,
+  "tool_internal_python_allowed": true,
+  "limitations": [
+    "Fixed 2x2 configuration and two directed workloads; not all configurations or full parameterized migration.",
+    "Verilator default two-state simulation. No arbitrary-X behavioral equivalence claim.",
+    "Original reference and namespace-renamed core share provenance; frozen PyMTL replay supplies an additional source-level comparison."
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "scope": "Delivered phase1-4 architecture; no phase5 work",
+  "source_revision": "ab26148a3acadbe1e5cf556b4966f98b14142259",
+  "source_sha256": {
+    "rtl/cgra/cgra_multi.sv": "8b6cf447299a65d80e474454a48f2c4567a7dc5e3b48d08ca72edf077f405da6",
+    "rtl/cgra/cgra_multi_template.sv": "7a3413778d44b61f8619dc14f23d696d6fd25d203be95eae72e3509894012c85",
+    "rtl/cgra/cgra_system.sv": "1db40967fb5adf15e6aaf395c703c5bb687a98e88604becc392c14fd8a3af082",
+    "rtl/tile/tile_programmable.sv": "73254d6f12f7682d0451165a219d73615acf4e8cdc33c979ad2149c93701f325",
+    "rtl/tile/variants/tile_variant_core.sv": "8dc9c1e5cc708d12960d94ad51ec97b941f333ecb276b45e7586c23afdba61bb",
+    "rtl/tile/tile_link_or.sv": "b86b2471c44d0e6522d20d4e228e5463721bad6225df4a0f0a315084cf2147bc",
+    "rtl/common/cgra_channel.sv": "0f2d6a0be4202910ffa8ebf3fbed6ed2c08d947ffaf8a11e50e1c195ffa8bf34",
+    "rtl/common/cgra_fu_catalog.svh": "3c416c1647e5763b6bfda6a041c19815f354ea0f7226663558bb81c82697fbc5",
+    "rtl/peripheral/cgra_integrated_dma.sv": "bf4ea115ff5552e6df5794f3279491fb88a5aa0a154df5e7a78e9f501cea36b2",
+    "rtl/peripheral/cgra_integrated_im2col.sv": "2f9db4817ecde154234b58ba2e1ca76377083521fa2dfb4cfe0347135de1e9e4"
+  },
+  "outputs": {
+    "vectorcgra-architecture.svg": "22825d1dc0bfde16120df4864ee9b873b7184d7f14a7cfdbdd262ed7e79890f3",
+    "vectorcgra-architecture.png": "4bff54700b835e40142194b2945ab0f0cc48d2bef67f59c3c49edda4eafb8c9a"
+  },
+  "visual_review": "passed",
+  "semantic_review_agent": "noc_contract",
+  "style": "User reference: pastel technical blocks and hierarchical expansion; fireworks-tech-graph style1",
+  "render_notes": "Initial direct-SVG Edge screenshot timed out; switched to local Sharp/librsvg. PNG CJK rendering visually verified. No external image generation or hardware changes.",
+  "semantic_review_notes": "noc_contract reviewed the delivered RTL relationships. Corrected optional DMA/SPM topology to forward requests and responses through Controller; im2col also connects through Controller.",
+  "output_encoding": "Generated SVG uses UTF-8 and LF line endings to match Git storage and preserve output hashes across checkouts."
+}

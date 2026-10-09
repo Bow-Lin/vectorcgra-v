@@ -1,0 +1,4074 @@
+{
+  "schema": 2,
+  "audited_utc": "2026-09-22T03:10:56.797433+00:00",
+  "auditor": "independent noc_contract scoped provenance revalidation",
+  "baseline_commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+  "status": "all_declared_hashes_resolved_and_matched",
+  "derivation": {
+    "kind": "filtered historical audit with fresh current-file validation; not a rerun of historical export/simulation",
+    "historical_report_git_commit": "b31dea343eefd41fcb01b9286a0e121067ce024d",
+    "historical_report_git_path": "sv/results/phase4-reference-audit.json",
+    "historical_report_sha256": "c67dac00af1665c5ef578ccf60251c5a78500e25c442659689c8dcd5985a2dfc",
+    "historical_audited_utc": "2026-09-22T02:05:46.752414+00:00",
+    "historical_manifest_count": 46,
+    "filter": "manifest path starts exactly with sv/reference/phase4/",
+    "selected_manifest_count": 28,
+    "excluded_manifest_count": 18,
+    "field_accounting": "Every top-level *_sha256 scalar or mapped entry in every current selected manifest is assigned exactly one check.",
+    "current_rechecks": [
+      "All selected manifest bytes versus historical audit",
+      "All declared source and artifact bytes",
+      "Historical exporter_snapshot.py bytes, never current exporters as substitutes",
+      "Original Python versus baseline Git/submodule blobs, reporting EOL-only differences separately",
+      "Archived DMA stimulus files; original ignored build locations are provenance metadata only"
+    ],
+    "no_deferred_stage_runtime_dependency": true
+  },
+  "summary": {
+    "manifests": 28,
+    "declared_sha256_entries": 2827,
+    "declared_entry_results": {
+      "matched": 2827
+    },
+    "not_applicable_fields": 7,
+    "files_without_declared_checksum": 9,
+    "unique_original_python_paths": 147,
+    "original_source_vs_worktree_and_baseline": {
+      "matched": 107,
+      "manifest_bytes_match_git_eol_only_difference": 40
+    },
+    "categories": {
+      "original_python_source": 2719,
+      "historical_exporter_snapshot": 51,
+      "reference_hdl": 21,
+      "migration_tool_source": 30,
+      "reference_trace": 4,
+      "archived_stimulus": 2
+    }
+  },
+  "git_guard": {
+    "branch": "codex/sv-migration-phase4",
+    "current_head": "c56d0c69aa6bde77aa7090a7921e22c36676571d",
+    "original_worktree_head": "41cb0c0e94d9373dbb967cb69baa38990d0f402e",
+    "master_head": "41cb0c0e94d9373dbb967cb69baa38990d0f402e",
+    "python_diff_outside_allowed_new_sv_files": [],
+    "untracked_python_outside_sv": [],
+    "referenced_submodules": [
+      {
+        "path": "noc/PyOCN",
+        "baseline_commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe",
+        "current_commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe",
+        "tracked_status": []
+      },
+      {
+        "path": "fu/pymtl3_hardfloat",
+        "baseline_commit": "aea69e416e079178df4bb5697795ef653f55df58",
+        "current_commit": "aea69e416e079178df4bb5697795ef653f55df58",
+        "tracked_status": []
+      }
+    ],
+    "original_worktree_branch": "master",
+    "original_worktree_tracked_status": [],
+    "preserved_optimization_branch_head": "e3caf6928a4e8c97e6be36574af2520ec92083b9"
+  },
+  "manifests": [
+    {
+      "path": "sv/reference/phase4/memory/r1w3/manifest.json",
+      "manifest_sha256": "37e1c44d80c5a6c770ac5ec03b385e3fbbcc896a6d5153e24aee08525cbf57b7",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "exported",
+      "declared_hash_entries": 132,
+      "counts": {
+        "matched": 132
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [
+        "sv/reference/phase4/memory/r1w3/top_ports.txt"
+      ],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/memory/r3w1/manifest.json",
+      "manifest_sha256": "e46baa8ab15f061a90cb8e854f1364dad40e71c8a8d681c84336aaf4afe95728",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "baseline_export_failed",
+      "declared_hash_entries": 131,
+      "counts": {
+        "matched": 131
+      },
+      "resolution_notes": [],
+      "not_applicable": [
+        {
+          "field": "reference_hdl_sha256",
+          "reason": "Original export failed; no successful HDL artifact/check is claimed."
+        }
+      ],
+      "files_without_declared_checksum": [],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/migration/dynamic_fir/manifest.json",
+      "manifest_sha256": "e07b135cc31a288d1b040be702829abb4219ef7de6d1523a4e8c67bfe9a6e00f",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "recorded",
+      "declared_hash_entries": 131,
+      "counts": {
+        "matched": 131
+      },
+      "resolution_notes": [],
+      "not_applicable": [
+        {
+          "field": "reference_hdl_sha256",
+          "reason": "This manifest records a Python trace only, not an HDL export."
+        }
+      ],
+      "files_without_declared_checksum": [],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/migration/global_add/manifest.json",
+      "manifest_sha256": "b4aafadf502b82988e7d7135a602c105416f13f0cd6d2b516f30a4ce06bbf620",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "recorded",
+      "declared_hash_entries": 132,
+      "counts": {
+        "matched": 132
+      },
+      "resolution_notes": [],
+      "not_applicable": [
+        {
+          "field": "reference_hdl_sha256",
+          "reason": "This manifest records a Python trace only, not an HDL export."
+        }
+      ],
+      "files_without_declared_checksum": [],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/noc/mesh_1x2_l1_w32/manifest.json",
+      "manifest_sha256": "21e6c05b1dc8fc0ce5116caf7d20bef8ec96d59e4d61ef14c2179aba81805b50",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "baseline_export_failed",
+      "declared_hash_entries": 90,
+      "counts": {
+        "matched": 90
+      },
+      "resolution_notes": [],
+      "not_applicable": [
+        {
+          "field": "reference_hdl_sha256",
+          "reason": "Original export failed; no successful HDL artifact/check is claimed."
+        }
+      ],
+      "files_without_declared_checksum": [],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/noc/mesh_2x1_l1_w32/manifest.json",
+      "manifest_sha256": "47a262a1cd1ca7e216cd9b5e11097d1c58bcc12beefd329ab6d7d4b2fc4d2369",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "baseline_export_failed",
+      "declared_hash_entries": 90,
+      "counts": {
+        "matched": 90
+      },
+      "resolution_notes": [],
+      "not_applicable": [
+        {
+          "field": "reference_hdl_sha256",
+          "reason": "Original export failed; no successful HDL artifact/check is claimed."
+        }
+      ],
+      "files_without_declared_checksum": [],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/noc/mesh_2x2_l0_w32/manifest.json",
+      "manifest_sha256": "224bc7065e336798cd8e709bcd4e6b8e462f4d42786618157cbbc59426832932",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "exported",
+      "declared_hash_entries": 91,
+      "counts": {
+        "matched": 91
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/noc/mesh_2x2_l1_w32/manifest.json",
+      "manifest_sha256": "c52ee289361d3d354031185bd4ee58ed99317483ff56c2b1bed676aeaaa4b1ce",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "exported",
+      "declared_hash_entries": 91,
+      "counts": {
+        "matched": 91
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/noc/mesh_2x2_l2_w32/manifest.json",
+      "manifest_sha256": "2b5064f6869d353268092101b3ffca12484766e0456590f7948cb16fd7ec80b4",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "exported",
+      "declared_hash_entries": 91,
+      "counts": {
+        "matched": 91
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/noc/mesh_3x2_l1_w64/manifest.json",
+      "manifest_sha256": "dd81e51d03e27ae5efa45f25a6ad50a90402d3769c6554277574c01861eb1a02",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "exported",
+      "declared_hash_entries": 91,
+      "counts": {
+        "matched": 91
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/noc/ring_2_l1_w32/manifest.json",
+      "manifest_sha256": "4b37e26b82db83436cbd8fe98442334d396951a596a640f418c3e69e340b9480",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "exported",
+      "declared_hash_entries": 91,
+      "counts": {
+        "matched": 91
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/noc/ring_3_l1_w32/manifest.json",
+      "manifest_sha256": "be0cae84a64375edfc2db3f10e86706f46900402f3791f8f91528cd275d1eade",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "exported",
+      "declared_hash_entries": 91,
+      "counts": {
+        "matched": 91
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/noc/ring_4_l0_w32/manifest.json",
+      "manifest_sha256": "8bc2802a3bd3fa355dd2d0b6f522e1e75c2551b373529c59ba3a2ff5b4e34705",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "exported",
+      "declared_hash_entries": 91,
+      "counts": {
+        "matched": 91
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/noc/ring_4_l1_w32/manifest.json",
+      "manifest_sha256": "b4dd15fdae99354648f86e81b1ca9848c5aa754dd408973ecd114b04dc7167cc",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "exported",
+      "declared_hash_entries": 91,
+      "counts": {
+        "matched": 91
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/noc/ring_6_l1_w64/manifest.json",
+      "manifest_sha256": "12af2c6fa9d385443f6ded3c3030a697fec9f286ac218f4d130cf1c9cae5c820",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "exported",
+      "declared_hash_entries": 91,
+      "counts": {
+        "matched": 91
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/peripheral/dma/manifest.json",
+      "manifest_sha256": "f4befb7594380dcf8d9a3fd7e541e31de2f175b35d835e222d82d4a9c21466db",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "translated",
+      "declared_hash_entries": 91,
+      "counts": {
+        "matched": 91
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [
+        "sv/reference/phase4/peripheral/dma/top_ports.txt"
+      ],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/peripheral/dma-pytrace/manifest.json",
+      "manifest_sha256": "bbf9ee3532bf1e20c31592d4ec851c0efd74fec1953362c759538c6c1205330f",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "actual-unmodified-python-replay-passed",
+      "declared_hash_entries": 93,
+      "counts": {
+        "matched": 93
+      },
+      "resolution_notes": [],
+      "not_applicable": [
+        {
+          "field": "reference_hdl_sha256",
+          "reason": "This manifest records a Python trace only, not an HDL export."
+        }
+      ],
+      "files_without_declared_checksum": [],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/peripheral/dma-small/manifest.json",
+      "manifest_sha256": "3fe64d3e1d5fa31872d9f473d8a26a0ad6f8087bfdde4d1833bd11482bd81d5b",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "translated",
+      "declared_hash_entries": 91,
+      "counts": {
+        "matched": 91
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [
+        "sv/reference/phase4/peripheral/dma-small/top_ports.txt"
+      ],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/peripheral/dma-small-pytrace/manifest.json",
+      "manifest_sha256": "442bedde0f224706dc1c39eb8c4b2449aa77af0e3ddc379c7fdfb31949ad6c89",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "actual-unmodified-python-replay-passed",
+      "declared_hash_entries": 93,
+      "counts": {
+        "matched": 93
+      },
+      "resolution_notes": [],
+      "not_applicable": [
+        {
+          "field": "reference_hdl_sha256",
+          "reason": "This manifest records a Python trace only, not an HDL export."
+        }
+      ],
+      "files_without_declared_checksum": [],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/peripheral/dma-system/manifest.json",
+      "manifest_sha256": "e2db62512210e8680303e2315a4038d35073066eae7d3f419c57787f8341efb5",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "translated",
+      "declared_hash_entries": 123,
+      "counts": {
+        "matched": 123
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [
+        "sv/reference/phase4/peripheral/dma-system/native-profile-expansion.json",
+        "sv/reference/phase4/peripheral/dma-system/top_ports.txt"
+      ],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/peripheral/im2col/manifest.json",
+      "manifest_sha256": "359a2bf2df1546a1e3e472baa499e08bbf206a62e197e65b95ae5ac3aec48d20",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "translated",
+      "declared_hash_entries": 91,
+      "counts": {
+        "matched": 91
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [
+        "sv/reference/phase4/peripheral/im2col/top_ports.txt"
+      ],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/peripheral/im2col-system/manifest.json",
+      "manifest_sha256": "43da826c3b99b54e6e1ae7ad60fcfa51ffe442e216cc81b50df80faf113be7d0",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "translated",
+      "declared_hash_entries": 123,
+      "counts": {
+        "matched": 123
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [
+        "sv/reference/phase4/peripheral/im2col-system/top_ports.txt"
+      ],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/peripheral/im2col-wide/manifest.json",
+      "manifest_sha256": "353f842e8870424dbf3a86d8516c6a2cefab2c133a44f21ad8e70e6a928ea556",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "translated",
+      "declared_hash_entries": 91,
+      "counts": {
+        "matched": 91
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [
+        "sv/reference/phase4/peripheral/im2col-wide/top_ports.txt"
+      ],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/system/mesh4-tiles2/manifest.json",
+      "manifest_sha256": "556eb2d7b81d71460f2d442213c2d19a9d7942996bf665478943ea28dd744df7",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "not_declared",
+      "declared_hash_entries": 97,
+      "counts": {
+        "matched": 97
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/system/mesh4-tiles2-registered/manifest.json",
+      "manifest_sha256": "ba74839d7368085e7909b047f01a8b54bbbeb265276d096e4bf46cd5839c945d",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "not_declared",
+      "declared_hash_entries": 97,
+      "counts": {
+        "matched": 97
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/system/mesh4-tiles4/manifest.json",
+      "manifest_sha256": "9868e568aaf2967104d53a680951dd747e0715b25e73e9e428004eea02e8f020",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "not_declared",
+      "declared_hash_entries": 97,
+      "counts": {
+        "matched": 97
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [
+        "sv/reference/phase4/system/mesh4-tiles4/python-trace-status.json"
+      ],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/system/ring4-tiles2/manifest.json",
+      "manifest_sha256": "8224da84555d59f5f1a99a1a1a51b31a7b1ae3536b3558131a02b447c6ad8845",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "not_declared",
+      "declared_hash_entries": 97,
+      "counts": {
+        "matched": 97
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [],
+      "current_manifest_bytes_rechecked": true
+    },
+    {
+      "path": "sv/reference/phase4/template/heterogeneous/manifest.json",
+      "manifest_sha256": "2e15a581d16f6b73c33c0ec320df0db90844f7c03596e5e1a7f06deec36d6820",
+      "baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+      "status": "not_declared",
+      "declared_hash_entries": 118,
+      "counts": {
+        "matched": 118
+      },
+      "resolution_notes": [],
+      "not_applicable": [],
+      "files_without_declared_checksum": [],
+      "current_manifest_bytes_rechecked": true
+    }
+  ],
+  "original_sources": [
+    {
+      "path": "__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "cgra/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "controller/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "lib/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "lib/basic/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "lib/basic/val_rdy/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "lib/basic/val_rdy/ifcs.py",
+      "expected_sha256": "718fafefbe1d61ae1ad94ded66360686ca63c76789d8526f14e76a34f9bac148",
+      "current_sha256": "718fafefbe1d61ae1ad94ded66360686ca63c76789d8526f14e76a34f9bac148",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "718fafefbe1d61ae1ad94ded66360686ca63c76789d8526f14e76a34f9bac148",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "lib/basic/val_rdy/queues.py",
+      "expected_sha256": "547ef3175064e52759037cac8e0dfb037450ad3c1d8d22cf1d207e1a5e1fa909",
+      "current_sha256": "547ef3175064e52759037cac8e0dfb037450ad3c1d8d22cf1d207e1a5e1fa909",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "547ef3175064e52759037cac8e0dfb037450ad3c1d8d22cf1d207e1a5e1fa909",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "lib/cmd_type.py",
+      "expected_sha256": "994de9ad9dc3b852bfdb52847474d0ab238f84a77063c58f1b7fabd1c788df90",
+      "current_sha256": "994de9ad9dc3b852bfdb52847474d0ab238f84a77063c58f1b7fabd1c788df90",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "994de9ad9dc3b852bfdb52847474d0ab238f84a77063c58f1b7fabd1c788df90",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "lib/opt_type.py",
+      "expected_sha256": "43c91384c04d6f88f9756d0166d355b5ca3fd8fbefd33e06a425e1db57160df8",
+      "current_sha256": "43c91384c04d6f88f9756d0166d355b5ca3fd8fbefd33e06a425e1db57160df8",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "43c91384c04d6f88f9756d0166d355b5ca3fd8fbefd33e06a425e1db57160df8",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "lib/util/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "lib/util/data_struct_attr.py",
+      "expected_sha256": "196aed92486f1239aa4741ebfe387bbf7e09791af3fb3eac18cd644ce056da90",
+      "current_sha256": "196aed92486f1239aa4741ebfe387bbf7e09791af3fb3eac18cd644ce056da90",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "196aed92486f1239aa4741ebfe387bbf7e09791af3fb3eac18cd644ce056da90",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "lib/messages.py",
+      "expected_sha256": "c23e0bd3825c56ce23540775d49d84965cb0945b7b91013c97ff1a3945fe279e",
+      "current_sha256": "c23e0bd3825c56ce23540775d49d84965cb0945b7b91013c97ff1a3945fe279e",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "c23e0bd3825c56ce23540775d49d84965cb0945b7b91013c97ff1a3945fe279e",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "lib/util/common.py",
+      "expected_sha256": "67c4bc09b7def9334be757cdb1db656ff2122cff7b4c3eddc9521beb3680b356",
+      "current_sha256": "67c4bc09b7def9334be757cdb1db656ff2122cff7b4c3eddc9521beb3680b356",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "67c4bc09b7def9334be757cdb1db656ff2122cff7b4c3eddc9521beb3680b356",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "noc/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "noc/PyOCN/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/__init__.py",
+      "expected_sha256": "46a93f7897f69ed4a0d179442aa4a13ef36bfc4dab437c1f754d97ca9f91e25b",
+      "current_sha256": "46a93f7897f69ed4a0d179442aa4a13ef36bfc4dab437c1f754d97ca9f91e25b",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "1fd3564596fb35b79144f2cffd5d5f01198b357ada9e8ad533e38e63ef3fdae8",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 1,
+        "baseline_crlf": 0,
+        "normalized_sha256": "1fd3564596fb35b79144f2cffd5d5f01198b357ada9e8ad533e38e63ef3fdae8"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/channel/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/ocnlib/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/ocnlib/ifcs/__init__.py",
+      "expected_sha256": "37f2da4ddba90ed943c0172cfa2c4ad1a721103d95cf078374c8cab413e7e0c7",
+      "current_sha256": "37f2da4ddba90ed943c0172cfa2c4ad1a721103d95cf078374c8cab413e7e0c7",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "51b9a4c79d549e2b4b57d403b516bde1e56d9d0622ef5895b8b431a838280ed6",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 2,
+        "baseline_crlf": 0,
+        "normalized_sha256": "51b9a4c79d549e2b4b57d403b516bde1e56d9d0622ef5895b8b431a838280ed6"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/ocnlib/ifcs/PhysicalDimension.py",
+      "expected_sha256": "12dc7a33957c6b494ae3b56d8a467711f222191323e37353671a142cc8894de3",
+      "current_sha256": "12dc7a33957c6b494ae3b56d8a467711f222191323e37353671a142cc8894de3",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "b487631b90b9bd0bc1ebe439c709554d344de96a99574b1c635626fd08b29e8b",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 23,
+        "baseline_crlf": 0,
+        "normalized_sha256": "b487631b90b9bd0bc1ebe439c709554d344de96a99574b1c635626fd08b29e8b"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/channel/ChannelRTL.py",
+      "expected_sha256": "0fb9c394dead5dd5ee3c3e7d6c533a5bff5efed64039b1c5075a6afd3cd11711",
+      "current_sha256": "0fb9c394dead5dd5ee3c3e7d6c533a5bff5efed64039b1c5075a6afd3cd11711",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "d06934634c2415464cea46e84584fe7c19a2d9d41206f80001b2d663746ff923",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 71,
+        "baseline_crlf": 0,
+        "normalized_sha256": "d06934634c2415464cea46e84584fe7c19a2d9d41206f80001b2d663746ff923"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/xbar/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/router/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/router/InputUnitRTL.py",
+      "expected_sha256": "1e8c13370fa92c996d876d97c4d07e9c2e87a7bf2be50fd2bb9dbc9c68e08f6b",
+      "current_sha256": "1e8c13370fa92c996d876d97c4d07e9c2e87a7bf2be50fd2bb9dbc9c68e08f6b",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "ef2470268c3db09b07a9093ef63c9d9393f23723d7d22bbba651f212b127b476",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 33,
+        "baseline_crlf": 0,
+        "normalized_sha256": "ef2470268c3db09b07a9093ef63c9d9393f23723d7d22bbba651f212b127b476"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/router/OutputUnitRTL.py",
+      "expected_sha256": "a6bfd3ccc307546fad3f8689eb0a653b54cb221faaaa8f0a1de6c99eb1e45e94",
+      "current_sha256": "a6bfd3ccc307546fad3f8689eb0a653b54cb221faaaa8f0a1de6c99eb1e45e94",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "67a73253682da0cadbc3ad1bcb015a770a61cc70ee9d897adaf7f006082f634c",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 57,
+        "baseline_crlf": 0,
+        "normalized_sha256": "67a73253682da0cadbc3ad1bcb015a770a61cc70ee9d897adaf7f006082f634c"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/router/SwitchUnitRTL.py",
+      "expected_sha256": "1ba6da67f945a003a6c50b779b2cd56550d58e81118fba5f648f99fcedc19edb",
+      "current_sha256": "1ba6da67f945a003a6c50b779b2cd56550d58e81118fba5f648f99fcedc19edb",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "0815ff927570154287ee8f2e65c3380e2881b0d8691d2a184b9261996ea83d61",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 66,
+        "baseline_crlf": 0,
+        "normalized_sha256": "0815ff927570154287ee8f2e65c3380e2881b0d8691d2a184b9261996ea83d61"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/router/SwitchUnitNullRTL.py",
+      "expected_sha256": "dc73fbf6b7ccec2fcd572d97c1242c72fbdb8635054690af9b7093d3a0a77b15",
+      "current_sha256": "dc73fbf6b7ccec2fcd572d97c1242c72fbdb8635054690af9b7093d3a0a77b15",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "b16aef411a92a60df2c0cdda55d40ca15121b8fd095ce133eca6a970dbdb530d",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 34,
+        "baseline_crlf": 0,
+        "normalized_sha256": "b16aef411a92a60df2c0cdda55d40ca15121b8fd095ce133eca6a970dbdb530d"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/xbar/XbarRouteUnitRTL.py",
+      "expected_sha256": "ccd9913dbdacbedc1c05b4ef5191f0996fe54d3cfcc4822b19a57f8b8fbe15a9",
+      "current_sha256": "ccd9913dbdacbedc1c05b4ef5191f0996fe54d3cfcc4822b19a57f8b8fbe15a9",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "927cf328ff4995e8d0c22c441eb19857bca12e3f26b1d8b8b8f265072f470b35",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 58,
+        "baseline_crlf": 0,
+        "normalized_sha256": "927cf328ff4995e8d0c22c441eb19857bca12e3f26b1d8b8b8f265072f470b35"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/xbar/XbarRTL.py",
+      "expected_sha256": "b29965c1cdd2c884e0f8133cd152ac1caa1d0d2478249652a602f3af1c38d531",
+      "current_sha256": "b29965c1cdd2c884e0f8133cd152ac1caa1d0d2478249652a602f3af1c38d531",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "eb5d1e9815c2b157b6c7c0a6491bde2fbc50ef7d18eb9fabdaa1f8f630b170f0",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 79,
+        "baseline_crlf": 0,
+        "normalized_sha256": "eb5d1e9815c2b157b6c7c0a6491bde2fbc50ef7d18eb9fabdaa1f8f630b170f0"
+      }
+    },
+    {
+      "path": "controller/GlobalReduceUnitRTL.py",
+      "expected_sha256": "c659fdff25d2d911b2bf7bd46827a049be4f90b37f5c655ff1dfa8b1839c3d67",
+      "current_sha256": "c659fdff25d2d911b2bf7bd46827a049be4f90b37f5c655ff1dfa8b1839c3d67",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "c659fdff25d2d911b2bf7bd46827a049be4f90b37f5c655ff1dfa8b1839c3d67",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "controller/ControllerRTL.py",
+      "expected_sha256": "25ddd2f32e8a51a37738a8ab339cf2df77921c25476033bb4a97a7820201b15d",
+      "current_sha256": "25ddd2f32e8a51a37738a8ab339cf2df77921c25476033bb4a97a7820201b15d",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "25ddd2f32e8a51a37738a8ab339cf2df77921c25476033bb4a97a7820201b15d",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "mem/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "mem/data/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "mem/data/DataMemWrapperRTL.py",
+      "expected_sha256": "2d253f61870727bf1fb5368a7da67d52a9228a2918ebdfc18cdb927f33a6f61f",
+      "current_sha256": "2d253f61870727bf1fb5368a7da67d52a9228a2918ebdfc18cdb927f33a6f61f",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "2d253f61870727bf1fb5368a7da67d52a9228a2918ebdfc18cdb927f33a6f61f",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/xbar/XbarBypassQueueRTL.py",
+      "expected_sha256": "77cb4e88738caed5a682e0d300b5788c9f1b488cef4e46bdcc5f5fa82ef0d7f1",
+      "current_sha256": "77cb4e88738caed5a682e0d300b5788c9f1b488cef4e46bdcc5f5fa82ef0d7f1",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "cbc28d43576be9534a53eb68b1ae2212ccaef9f6bd2a7ef2d3f7bee321898096",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 78,
+        "baseline_crlf": 0,
+        "normalized_sha256": "cbc28d43576be9534a53eb68b1ae2212ccaef9f6bd2a7ef2d3f7bee321898096"
+      }
+    },
+    {
+      "path": "mem/data/DataMemControllerRTL.py",
+      "expected_sha256": "f36ee1e9799e02cf8da360306f61d55b7e2a3136850a4b74f9701937e0b18e93",
+      "current_sha256": "f36ee1e9799e02cf8da360306f61d55b7e2a3136850a4b74f9701937e0b18e93",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "f36ee1e9799e02cf8da360306f61d55b7e2a3136850a4b74f9701937e0b18e93",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/ocnlib/ifcs/positions.py",
+      "expected_sha256": "4ec9a911d354b8624def326b2f2a24fc2201f5547d9a25b5a292ffa7ea495086",
+      "current_sha256": "4ec9a911d354b8624def326b2f2a24fc2201f5547d9a25b5a292ffa7ea495086",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "e0d9b784d45ad5c8d1d594437013e860fc0eae4cc2213b5697cecdaf48093a59",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 44,
+        "baseline_crlf": 0,
+        "normalized_sha256": "e0d9b784d45ad5c8d1d594437013e860fc0eae4cc2213b5697cecdaf48093a59"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/ocnlib/rtl/Counter.py",
+      "expected_sha256": "c8840334d63ef1389388da48b42057c05aefe6e2367f76c3a36e2e671537cd0e",
+      "current_sha256": "c8840334d63ef1389388da48b42057c05aefe6e2367f76c3a36e2e671537cd0e",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "67016893580f6f7fd3eb0757d71ac0533259825bdadc27790e0dbe77b3f2a279",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 44,
+        "baseline_crlf": 0,
+        "normalized_sha256": "67016893580f6f7fd3eb0757d71ac0533259825bdadc27790e0dbe77b3f2a279"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/ocnlib/rtl/GrantHoldArbiter.py",
+      "expected_sha256": "62f80976bb41b00c1525cdf379efa6a983fec8423e31e466c8cc08ec0bbbb391",
+      "current_sha256": "62f80976bb41b00c1525cdf379efa6a983fec8423e31e466c8cc08ec0bbbb391",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "a4a781af67eef32bf8dcf6f7c6574f3ba52f69297e5862434eb59c367667cbc2",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 43,
+        "baseline_crlf": 0,
+        "normalized_sha256": "a4a781af67eef32bf8dcf6f7c6574f3ba52f69297e5862434eb59c367667cbc2"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/ocnlib/rtl/SerializerRTL.py",
+      "expected_sha256": "77b9c3a7c548a683076058200142463e54399011173992d55d54604add1bfe53",
+      "current_sha256": "77b9c3a7c548a683076058200142463e54399011173992d55d54604add1bfe53",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "079d319f2e73d414643a835a163c50a9e9107ecb908d13014ec3699d72e9feab",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 142,
+        "baseline_crlf": 0,
+        "normalized_sha256": "079d319f2e73d414643a835a163c50a9e9107ecb908d13014ec3699d72e9feab"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/ocnlib/rtl/DeserializerRTL.py",
+      "expected_sha256": "ce8b1293d32f16503d07d95c6f922b9e000ed001c49063ad74842bb379aae55a",
+      "current_sha256": "ce8b1293d32f16503d07d95c6f922b9e000ed001c49063ad74842bb379aae55a",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "0fb95eaf64bec9ccc98a158c1039fa42d837833528b0cb909148ab66e1922621",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 154,
+        "baseline_crlf": 0,
+        "normalized_sha256": "0fb95eaf64bec9ccc98a158c1039fa42d837833528b0cb909148ab66e1922621"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/ocnlib/rtl/__init__.py",
+      "expected_sha256": "b0138e940d27fd87cec3edcd0628bdabf399856339984e9eb4dc56732c016544",
+      "current_sha256": "b0138e940d27fd87cec3edcd0628bdabf399856339984e9eb4dc56732c016544",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "740e4ccb155f5bb4507c3ca58d00647d96d64ef9e6e5158bbb18a00e51ab15cf",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 4,
+        "baseline_crlf": 0,
+        "normalized_sha256": "740e4ccb155f5bb4507c3ca58d00647d96d64ef9e6e5158bbb18a00e51ab15cf"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/ocnlib/ifcs/CreditIfc.py",
+      "expected_sha256": "c41e1182ce7e74597acf52c03eafe7fd534403f735666031fe1458258506a4e1",
+      "current_sha256": "c41e1182ce7e74597acf52c03eafe7fd534403f735666031fe1458258506a4e1",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "1288aec8ac1d6f5a55a23b3eeae02d57ee7702a138147ed1f285922e0d84fe33",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 224,
+        "baseline_crlf": 0,
+        "normalized_sha256": "1288aec8ac1d6f5a55a23b3eeae02d57ee7702a138147ed1f285922e0d84fe33"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/ringnet/directions.py",
+      "expected_sha256": "92fd1b6abb069638ad24952deac7c090b8f7aa02c3a048cc1d933a4651e06228",
+      "current_sha256": "92fd1b6abb069638ad24952deac7c090b8f7aa02c3a048cc1d933a4651e06228",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "fe07dd5642bf7a9aa84ea6fdecc03536bb385d3e4c8fab55fffc5f3a63e8aea6",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 15,
+        "baseline_crlf": 0,
+        "normalized_sha256": "fe07dd5642bf7a9aa84ea6fdecc03536bb385d3e4c8fab55fffc5f3a63e8aea6"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/ringnet/RingRouteUnitRTL.py",
+      "expected_sha256": "5f3930666874cd78c8a1480d8f132a3c682b072bca39eafacb1842ab7844a625",
+      "current_sha256": "5f3930666874cd78c8a1480d8f132a3c682b072bca39eafacb1842ab7844a625",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "0311d179cf48da63c7b385dd4413ad063288647c8c037af172a8eb6ce4909287",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 96,
+        "baseline_crlf": 0,
+        "normalized_sha256": "0311d179cf48da63c7b385dd4413ad063288647c8c037af172a8eb6ce4909287"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/router/InputUnitCreditRTL.py",
+      "expected_sha256": "67f93273579bb13699a10c22213c328c6546fa4de8e5a8b799afdd161b3fb0d4",
+      "current_sha256": "67f93273579bb13699a10c22213c328c6546fa4de8e5a8b799afdd161b3fb0d4",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "359550701554e701bcf184f280ce4a21654a28959f9c8bf7503b701812840eec",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 55,
+        "baseline_crlf": 0,
+        "normalized_sha256": "359550701554e701bcf184f280ce4a21654a28959f9c8bf7503b701812840eec"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/router/OutputUnitCreditRTL.py",
+      "expected_sha256": "41aa585db7b51620160d049b1d74d8bc21e1aef0d55c32b7d077e1a194a8c7b0",
+      "current_sha256": "41aa585db7b51620160d049b1d74d8bc21e1aef0d55c32b7d077e1a194a8c7b0",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "cecef4bc8a93ebc192f0780ad4b9a461f3db75cfdbeeb48ca628e10c9e3a4568",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 62,
+        "baseline_crlf": 0,
+        "normalized_sha256": "cecef4bc8a93ebc192f0780ad4b9a461f3db75cfdbeeb48ca628e10c9e3a4568"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/router/Router.py",
+      "expected_sha256": "7dfc41ab480de896cfe93f3a073ab7ca47f6487b1423c08830b8d662aeb1df29",
+      "current_sha256": "7dfc41ab480de896cfe93f3a073ab7ca47f6487b1423c08830b8d662aeb1df29",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "b1a94744bbfd90776223773eeaf1c1e0b8fcba6db07e1d7dcb1c47fd13fca748",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 73,
+        "baseline_crlf": 0,
+        "normalized_sha256": "b1a94744bbfd90776223773eeaf1c1e0b8fcba6db07e1d7dcb1c47fd13fca748"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/ringnet/RingRouterRTL.py",
+      "expected_sha256": "ee07c522b465f86bd91f47254d9fc669c2daf9e735588bb93b9acd8943261a3c",
+      "current_sha256": "ee07c522b465f86bd91f47254d9fc669c2daf9e735588bb93b9acd8943261a3c",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "bb11d5cac9279fcfcb3ce60e6b3eef4023f8b597775a2bc0d14a149e39118add",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 102,
+        "baseline_crlf": 0,
+        "normalized_sha256": "bb11d5cac9279fcfcb3ce60e6b3eef4023f8b597775a2bc0d14a149e39118add"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/ringnet/RingNetworkRTL.py",
+      "expected_sha256": "6546235072d4d5f9639d152a8d2f970562f7c4016be6e61d4a0519a565908bfe",
+      "current_sha256": "6546235072d4d5f9639d152a8d2f970562f7c4016be6e61d4a0519a565908bfe",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "1cb7365e2d0d8a020536a1cf6b74b15d8c62b1c83526c7444f43b74edc74d2dc",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 115,
+        "baseline_crlf": 0,
+        "normalized_sha256": "1cb7365e2d0d8a020536a1cf6b74b15d8c62b1c83526c7444f43b74edc74d2dc"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/ringnet/__init__.py",
+      "expected_sha256": "02b171f212f7e67aceca4e0af4d8b4d371a895bd8b53d366457ddca8a42de86b",
+      "current_sha256": "02b171f212f7e67aceca4e0af4d8b4d371a895bd8b53d366457ddca8a42de86b",
+      "declarations": 28,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "82b2774baef18d7ab2e65d92d1930a41420a184f247d02b4b2b9325ef18955e8",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 1,
+        "baseline_crlf": 0,
+        "normalized_sha256": "82b2774baef18d7ab2e65d92d1930a41420a184f247d02b4b2b9325ef18955e8"
+      }
+    },
+    {
+      "path": "tile/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/flexible/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/single/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/basic/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/basic/Fu.py",
+      "expected_sha256": "0c981a2ac2b0632b2c357e49db1cb90378d3ddad1875b712c9d94fa5f905d2f7",
+      "current_sha256": "0c981a2ac2b0632b2c357e49db1cb90378d3ddad1875b712c9d94fa5f905d2f7",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "0c981a2ac2b0632b2c357e49db1cb90378d3ddad1875b712c9d94fa5f905d2f7",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/single/MemUnitRTL.py",
+      "expected_sha256": "493a4ce1f9a582b3f09b8db4f828546a532a7d473dbe41ffbab60d116f52dc19",
+      "current_sha256": "493a4ce1f9a582b3f09b8db4f828546a532a7d473dbe41ffbab60d116f52dc19",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "493a4ce1f9a582b3f09b8db4f828546a532a7d473dbe41ffbab60d116f52dc19",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/single/StreamingMemUnitRTL.py",
+      "expected_sha256": "119cd4b98823ddf9ceaa552a46df03819805a5975b4990b7da61482b57205ba6",
+      "current_sha256": "119cd4b98823ddf9ceaa552a46df03819805a5975b4990b7da61482b57205ba6",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "119cd4b98823ddf9ceaa552a46df03819805a5975b4990b7da61482b57205ba6",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/single/AdderRTL.py",
+      "expected_sha256": "4fa5962fb161d3afc2804088a2fd2aebdf9d9b84e83c269e1069ec69c70994e9",
+      "current_sha256": "4fa5962fb161d3afc2804088a2fd2aebdf9d9b84e83c269e1069ec69c70994e9",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "4fa5962fb161d3afc2804088a2fd2aebdf9d9b84e83c269e1069ec69c70994e9",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/single/RetRTL.py",
+      "expected_sha256": "c02076c25cfe9a9453965f7294ed52155431b31e1ec2989e98b0a6c71f79a547",
+      "current_sha256": "c02076c25cfe9a9453965f7294ed52155431b31e1ec2989e98b0a6c71f79a547",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "c02076c25cfe9a9453965f7294ed52155431b31e1ec2989e98b0a6c71f79a547",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/single/NahRTL.py",
+      "expected_sha256": "d68011369e13ab06c3d3202802bc30b43414e065bc050a22bb0c3f08d17af6f5",
+      "current_sha256": "d68011369e13ab06c3d3202802bc30b43414e065bc050a22bb0c3f08d17af6f5",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "d68011369e13ab06c3d3202802bc30b43414e065bc050a22bb0c3f08d17af6f5",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/flexible/FlexibleFuRTL.py",
+      "expected_sha256": "9c7b355107464bc37a9914b51f49dffee4eb3a7d2c9c6cdbdc81601e5e96da4d",
+      "current_sha256": "9c7b355107464bc37a9914b51f49dffee4eb3a7d2c9c6cdbdc81601e5e96da4d",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "9c7b355107464bc37a9914b51f49dffee4eb3a7d2c9c6cdbdc81601e5e96da4d",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/single/GrantRTL.py",
+      "expected_sha256": "080c1a11066a89b0c6f98b3a2006d407db32abb8ce825852a9210d543882c2b2",
+      "current_sha256": "080c1a11066a89b0c6f98b3a2006d407db32abb8ce825852a9210d543882c2b2",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "080c1a11066a89b0c6f98b3a2006d407db32abb8ce825852a9210d543882c2b2",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/single/CompRTL.py",
+      "expected_sha256": "7b03efc744e3b6d852315c767c507bfa169ae600c96428e2cb0e9f7caf501a4a",
+      "current_sha256": "7b03efc744e3b6d852315c767c507bfa169ae600c96428e2cb0e9f7caf501a4a",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "7b03efc744e3b6d852315c767c507bfa169ae600c96428e2cb0e9f7caf501a4a",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/single/MulRTL.py",
+      "expected_sha256": "a3aeb19aa4ae0aa1eee930c3f71dfd43b259faa0edc7f16cf906cca5ae3ebe90",
+      "current_sha256": "a3aeb19aa4ae0aa1eee930c3f71dfd43b259faa0edc7f16cf906cca5ae3ebe90",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "a3aeb19aa4ae0aa1eee930c3f71dfd43b259faa0edc7f16cf906cca5ae3ebe90",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/single/PhiRTL.py",
+      "expected_sha256": "2432e71672c36ec844c9b78c5a0b0e5a6a200440adafc356faf8f4cd585f0b62",
+      "current_sha256": "2432e71672c36ec844c9b78c5a0b0e5a6a200440adafc356faf8f4cd585f0b62",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "2432e71672c36ec844c9b78c5a0b0e5a6a200440adafc356faf8f4cd585f0b62",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "mem/const/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "mem/const/ConstQueueDynamicRTL.py",
+      "expected_sha256": "9cc15cc44c140e8e89f60c25870227e20987becdfd59147c4f06c742d0784742",
+      "current_sha256": "9cc15cc44c140e8e89f60c25870227e20987becdfd59147c4f06c742d0784742",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "9cc15cc44c140e8e89f60c25870227e20987becdfd59147c4f06c742d0784742",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "mem/ctrl/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "lib/basic/en_rdy/ifcs.py",
+      "expected_sha256": "9b7005a345639a29beecab811ff258eee817ece76400c16624278c1f4a8bd692",
+      "current_sha256": "9b7005a345639a29beecab811ff258eee817ece76400c16624278c1f4a8bd692",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "9b7005a345639a29beecab811ff258eee817ece76400c16624278c1f4a8bd692",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "mem/ctrl/CtrlMemDynamicRTL.py",
+      "expected_sha256": "12c64a9add62aadae927679af4a66178815bf4e9ba77c2e51f5f183d0edde100",
+      "current_sha256": "12c64a9add62aadae927679af4a66178815bf4e9ba77c2e51f5f183d0edde100",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "12c64a9add62aadae927679af4a66178815bf4e9ba77c2e51f5f183d0edde100",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "mem/register_cluster/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "mem/register_cluster/RegisterBankRTL.py",
+      "expected_sha256": "09580b4f3ad6b861c4e47995738df964c74cd1ecacb436f92f257019caf26f90",
+      "current_sha256": "09580b4f3ad6b861c4e47995738df964c74cd1ecacb436f92f257019caf26f90",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "09580b4f3ad6b861c4e47995738df964c74cd1ecacb436f92f257019caf26f90",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "mem/register_cluster/RegisterClusterRTL.py",
+      "expected_sha256": "3e838a66cde203aaa4c9f4f0641c15ca9a2f3fbcc7e35cf65a81c3150522dbad",
+      "current_sha256": "3e838a66cde203aaa4c9f4f0641c15ca9a2f3fbcc7e35cf65a81c3150522dbad",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "3e838a66cde203aaa4c9f4f0641c15ca9a2f3fbcc7e35cf65a81c3150522dbad",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "noc/CrossbarRTL.py",
+      "expected_sha256": "fb1a9009be673b26fd490a9d8628096fe36ab46255963a362d61fbfbc761a1c4",
+      "current_sha256": "fb1a9009be673b26fd490a9d8628096fe36ab46255963a362d61fbfbc761a1c4",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "fb1a9009be673b26fd490a9d8628096fe36ab46255963a362d61fbfbc761a1c4",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "noc/LinkOrRTL.py",
+      "expected_sha256": "61c57583057e8b8535d287feba332ca5cfaa49b6847bd3c588c323bfd6694c77",
+      "current_sha256": "61c57583057e8b8535d287feba332ca5cfaa49b6847bd3c588c323bfd6694c77",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "61c57583057e8b8535d287feba332ca5cfaa49b6847bd3c588c323bfd6694c77",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "rf/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "rf/RegisterRTL.py",
+      "expected_sha256": "f4af013a7a1b7ea8bc478d3b32352dc5c36c7ac5138ac0b1298c41ebde9b0abd",
+      "current_sha256": "f4af013a7a1b7ea8bc478d3b32352dc5c36c7ac5138ac0b1298c41ebde9b0abd",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "f4af013a7a1b7ea8bc478d3b32352dc5c36c7ac5138ac0b1298c41ebde9b0abd",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "tile/TileRTL.py",
+      "expected_sha256": "e7aaad01e14c8c18cbef449429132d0a141118cf5a9e72b2f8c4b13469d0b9d8",
+      "current_sha256": "e7aaad01e14c8c18cbef449429132d0a141118cf5a9e72b2f8c4b13469d0b9d8",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e7aaad01e14c8c18cbef449429132d0a141118cf5a9e72b2f8c4b13469d0b9d8",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "cgra/CgraRTL.py",
+      "expected_sha256": "3877788f77d355ed4bdaa29d7e08395c060a5f13a242f90016923c6e4588be2a",
+      "current_sha256": "3877788f77d355ed4bdaa29d7e08395c060a5f13a242f90016923c6e4588be2a",
+      "declarations": 28,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "3877788f77d355ed4bdaa29d7e08395c060a5f13a242f90016923c6e4588be2a",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "multi_cgra/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 9,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "multi_cgra/test/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 4,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "lib/status_type.py",
+      "expected_sha256": "52000c996eac52eeb1cdc8f85a04a8dd2162ef4e424c3769095a5b861d452c73",
+      "current_sha256": "52000c996eac52eeb1cdc8f85a04a8dd2162ef4e424c3769095a5b861d452c73",
+      "declarations": 8,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "52000c996eac52eeb1cdc8f85a04a8dd2162ef4e424c3769095a5b861d452c73",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "mem/ctrl/ContextSwitchRTL.py",
+      "expected_sha256": "d97a6c23849dbda09aea147ab7dc3c6168dedd6746ea65010d0e70f60d465153",
+      "current_sha256": "d97a6c23849dbda09aea147ab7dc3c6168dedd6746ea65010d0e70f60d465153",
+      "declarations": 8,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "d97a6c23849dbda09aea147ab7dc3c6168dedd6746ea65010d0e70f60d465153",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "noc/ChannelWithClearRTL.py",
+      "expected_sha256": "990151851b896d2ba7849ffc9b84eab82cd7b575ed69f5bbcd3df0cda486399f",
+      "current_sha256": "990151851b896d2ba7849ffc9b84eab82cd7b575ed69f5bbcd3df0cda486399f",
+      "declarations": 8,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "990151851b896d2ba7849ffc9b84eab82cd7b575ed69f5bbcd3df0cda486399f",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "tile/TileWithContextSwitchRTL.py",
+      "expected_sha256": "967b7110bb8bc8b3bc57ed564d00a6645582dbc4365ff34fb4fc93e41d88a453",
+      "current_sha256": "967b7110bb8bc8b3bc57ed564d00a6645582dbc4365ff34fb4fc93e41d88a453",
+      "declarations": 8,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "967b7110bb8bc8b3bc57ed564d00a6645582dbc4365ff34fb4fc93e41d88a453",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "cgra/CgraWithContextSwitchRTL.py",
+      "expected_sha256": "203e2e48e5004e777d403d95ccbad20f910b330112ccb463c9a98cce3e74b752",
+      "current_sha256": "203e2e48e5004e777d403d95ccbad20f910b330112ccb463c9a98cce3e74b752",
+      "declarations": 8,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "203e2e48e5004e777d403d95ccbad20f910b330112ccb463c9a98cce3e74b752",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/meshnet/directions.py",
+      "expected_sha256": "86f2435b94ab7ef33a638c0fa73d610d8456ee3255227e877c9384d73cc6f3a1",
+      "current_sha256": "86f2435b94ab7ef33a638c0fa73d610d8456ee3255227e877c9384d73cc6f3a1",
+      "declarations": 20,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "2ae5aa2346a0b2834706a2a9fc5a170254efd0a69f7d1c10b0a59337b65eb131",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 17,
+        "baseline_crlf": 0,
+        "normalized_sha256": "2ae5aa2346a0b2834706a2a9fc5a170254efd0a69f7d1c10b0a59337b65eb131"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/meshnet/DORYMeshRouteUnitRTL.py",
+      "expected_sha256": "d5fad2ee6af6472cfd643d949ba7cade7118eadf8340413faed831445ec6d567",
+      "current_sha256": "d5fad2ee6af6472cfd643d949ba7cade7118eadf8340413faed831445ec6d567",
+      "declarations": 20,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "d5234bf106bea7f5ecb0ff471baff7d5a42750a779f8fb6f00eaa321ed716b50",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 65,
+        "baseline_crlf": 0,
+        "normalized_sha256": "d5234bf106bea7f5ecb0ff471baff7d5a42750a779f8fb6f00eaa321ed716b50"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/meshnet/MeshRouterRTL.py",
+      "expected_sha256": "82908a9fa2ef966dd2b5f6618441922d8248a93bd6099a347d934a0fcfa56d33",
+      "current_sha256": "82908a9fa2ef966dd2b5f6618441922d8248a93bd6099a347d934a0fcfa56d33",
+      "declarations": 20,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "cd78e483cab109d300bd9bc2052a1b076c0ebac9d4845d380148cd7538f131a4",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 27,
+        "baseline_crlf": 0,
+        "normalized_sha256": "cd78e483cab109d300bd9bc2052a1b076c0ebac9d4845d380148cd7538f131a4"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/meshnet/MeshNetworkRTL.py",
+      "expected_sha256": "45f2f00be83ee769a4a2d3e0f858cf68bf010906aab29b90918aa94c4627c165",
+      "current_sha256": "45f2f00be83ee769a4a2d3e0f858cf68bf010906aab29b90918aa94c4627c165",
+      "declarations": 20,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "a137a57615c3e3244062d07b2c30bad8a431540ea7043a8fcba01ba63fa8e742",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 122,
+        "baseline_crlf": 0,
+        "normalized_sha256": "a137a57615c3e3244062d07b2c30bad8a431540ea7043a8fcba01ba63fa8e742"
+      }
+    },
+    {
+      "path": "noc/PyOCN/pymtl3_net/meshnet/__init__.py",
+      "expected_sha256": "ca396c7eff380f24090659f56cb61712271def4cb275f34b37ca9cdfdb59b5ec",
+      "current_sha256": "ca396c7eff380f24090659f56cb61712271def4cb275f34b37ca9cdfdb59b5ec",
+      "declarations": 20,
+      "git_scope": {
+        "submodule": "noc/PyOCN",
+        "commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      },
+      "baseline_git_blob_sha256": "7faa010104b1aa7344955d87b11964abee7289887f8cadaa418031a0ba989679",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 1,
+        "baseline_crlf": 0,
+        "normalized_sha256": "7faa010104b1aa7344955d87b11964abee7289887f8cadaa418031a0ba989679"
+      }
+    },
+    {
+      "path": "multi_cgra/MeshMultiCgraRTL.py",
+      "expected_sha256": "6325682d0e286de64644190458ae88512de9a63e52f69ffcf075085cfd99716a",
+      "current_sha256": "6325682d0e286de64644190458ae88512de9a63e52f69ffcf075085cfd99716a",
+      "declarations": 8,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "6325682d0e286de64644190458ae88512de9a63e52f69ffcf075085cfd99716a",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/double/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 7,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/basic/TwoSeqCombo.py",
+      "expected_sha256": "dd0d05e06a494a1da6a136262d8ec940a0c3f7a39f88d5d899b02ed94533d5e0",
+      "current_sha256": "dd0d05e06a494a1da6a136262d8ec940a0c3f7a39f88d5d899b02ed94533d5e0",
+      "declarations": 7,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "dd0d05e06a494a1da6a136262d8ec940a0c3f7a39f88d5d899b02ed94533d5e0",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/double/SeqMulAdderRTL.py",
+      "expected_sha256": "4c4382ae3605f2379fdbc5ef411134c1fe5b7a28e2ffdb58bc34ba58161c8c69",
+      "current_sha256": "4c4382ae3605f2379fdbc5ef411134c1fe5b7a28e2ffdb58bc34ba58161c8c69",
+      "declarations": 7,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "4c4382ae3605f2379fdbc5ef411134c1fe5b7a28e2ffdb58bc34ba58161c8c69",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/float/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 7,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/pymtl3_hardfloat/HardFloat/RecFNToFNRTL.py",
+      "expected_sha256": "855a095e81138663670f2735b050ca189cc9e1baf9cc53cf91d7ec98e6b65b9b",
+      "current_sha256": "855a095e81138663670f2735b050ca189cc9e1baf9cc53cf91d7ec98e6b65b9b",
+      "declarations": 7,
+      "git_scope": {
+        "submodule": "fu/pymtl3_hardfloat",
+        "commit": "aea69e416e079178df4bb5697795ef653f55df58"
+      },
+      "baseline_git_blob_sha256": "cb0882b93fd404fbbb3e6db638d8ad1258a85fa9cce86f68a59f5b2a9270f6e7",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 40,
+        "baseline_crlf": 0,
+        "normalized_sha256": "cb0882b93fd404fbbb3e6db638d8ad1258a85fa9cce86f68a59f5b2a9270f6e7"
+      }
+    },
+    {
+      "path": "fu/pymtl3_hardfloat/HardFloat/FNToRecFNRTL.py",
+      "expected_sha256": "f616bfffae495981d72fb2ba50242cff54294baac58bdd774583f43a6c429133",
+      "current_sha256": "f616bfffae495981d72fb2ba50242cff54294baac58bdd774583f43a6c429133",
+      "declarations": 7,
+      "git_scope": {
+        "submodule": "fu/pymtl3_hardfloat",
+        "commit": "aea69e416e079178df4bb5697795ef653f55df58"
+      },
+      "baseline_git_blob_sha256": "8ac2d43fe33e5efc7e9a5af39ec70ec95f8883ba2623ad9edf42b3080c7325ea",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 36,
+        "baseline_crlf": 0,
+        "normalized_sha256": "8ac2d43fe33e5efc7e9a5af39ec70ec95f8883ba2623ad9edf42b3080c7325ea"
+      }
+    },
+    {
+      "path": "fu/pymtl3_hardfloat/HardFloat/AddRecFNRTL.py",
+      "expected_sha256": "f75e4fc872abbe7b947a81094b0a52b87d8f266b68a091b7100e8d8cf525e138",
+      "current_sha256": "f75e4fc872abbe7b947a81094b0a52b87d8f266b68a091b7100e8d8cf525e138",
+      "declarations": 7,
+      "git_scope": {
+        "submodule": "fu/pymtl3_hardfloat",
+        "commit": "aea69e416e079178df4bb5697795ef653f55df58"
+      },
+      "baseline_git_blob_sha256": "e661fa0997b94cd807387edbc3dea1315bd21e0b9a35f83c31a98f2a58fb7a44",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 43,
+        "baseline_crlf": 0,
+        "normalized_sha256": "e661fa0997b94cd807387edbc3dea1315bd21e0b9a35f83c31a98f2a58fb7a44"
+      }
+    },
+    {
+      "path": "fu/pymtl3_hardfloat/HardFloat/AddFNRTL.py",
+      "expected_sha256": "c907353a27104979f88ebe78f5a1bdb2809ef263c258ffce0ed1456b38777b6e",
+      "current_sha256": "c907353a27104979f88ebe78f5a1bdb2809ef263c258ffce0ed1456b38777b6e",
+      "declarations": 7,
+      "git_scope": {
+        "submodule": "fu/pymtl3_hardfloat",
+        "commit": "aea69e416e079178df4bb5697795ef653f55df58"
+      },
+      "baseline_git_blob_sha256": "013636390058c76b5f968f26cc04732f7766e8f506fec04e5484aad15b8d6a42",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 61,
+        "baseline_crlf": 0,
+        "normalized_sha256": "013636390058c76b5f968f26cc04732f7766e8f506fec04e5484aad15b8d6a42"
+      }
+    },
+    {
+      "path": "fu/pymtl3_hardfloat/HardFloat/MulAddRecFNRTL.py",
+      "expected_sha256": "e351145557a732d52bfde855554fd90b6c2b14141a873fb1235eb3443b9f4cb3",
+      "current_sha256": "e351145557a732d52bfde855554fd90b6c2b14141a873fb1235eb3443b9f4cb3",
+      "declarations": 7,
+      "git_scope": {
+        "submodule": "fu/pymtl3_hardfloat",
+        "commit": "aea69e416e079178df4bb5697795ef653f55df58"
+      },
+      "baseline_git_blob_sha256": "c2f0fb4b724d87637811a7ce7f65d0879c2e2ae7a0d732aa759d5263e485bfa1",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 42,
+        "baseline_crlf": 0,
+        "normalized_sha256": "c2f0fb4b724d87637811a7ce7f65d0879c2e2ae7a0d732aa759d5263e485bfa1"
+      }
+    },
+    {
+      "path": "fu/pymtl3_hardfloat/HardFloat/MulAddFNRTL.py",
+      "expected_sha256": "3c617de43c217b0fc3a8bf11f987fbcaf6a57092e3f37b0c5aa2427b0ca89be9",
+      "current_sha256": "3c617de43c217b0fc3a8bf11f987fbcaf6a57092e3f37b0c5aa2427b0ca89be9",
+      "declarations": 7,
+      "git_scope": {
+        "submodule": "fu/pymtl3_hardfloat",
+        "commit": "aea69e416e079178df4bb5697795ef653f55df58"
+      },
+      "baseline_git_blob_sha256": "1fd03d61f9640c3e1bf2404c740935dde2dae41befb05043c08fab83d85ad617",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 72,
+        "baseline_crlf": 0,
+        "normalized_sha256": "1fd03d61f9640c3e1bf2404c740935dde2dae41befb05043c08fab83d85ad617"
+      }
+    },
+    {
+      "path": "fu/pymtl3_hardfloat/HardFloat/MulRecFNRTL.py",
+      "expected_sha256": "82c9c39ebe0961ac04db7139056626a955072d181045e712e1edc095f4cf1df5",
+      "current_sha256": "82c9c39ebe0961ac04db7139056626a955072d181045e712e1edc095f4cf1df5",
+      "declarations": 7,
+      "git_scope": {
+        "submodule": "fu/pymtl3_hardfloat",
+        "commit": "aea69e416e079178df4bb5697795ef653f55df58"
+      },
+      "baseline_git_blob_sha256": "da9ffd3ce5ecfd0734677b09d07dd2559f67df9368c28bc4c2edc9d166e83835",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 40,
+        "baseline_crlf": 0,
+        "normalized_sha256": "da9ffd3ce5ecfd0734677b09d07dd2559f67df9368c28bc4c2edc9d166e83835"
+      }
+    },
+    {
+      "path": "fu/pymtl3_hardfloat/HardFloat/MulFNRTL.py",
+      "expected_sha256": "584b44ffe4df9aea3ec978caec5a6df5f4d716d2d57832f423f0ee6f1ea45e82",
+      "current_sha256": "584b44ffe4df9aea3ec978caec5a6df5f4d716d2d57832f423f0ee6f1ea45e82",
+      "declarations": 7,
+      "git_scope": {
+        "submodule": "fu/pymtl3_hardfloat",
+        "commit": "aea69e416e079178df4bb5697795ef653f55df58"
+      },
+      "baseline_git_blob_sha256": "3c190d0f9e7295ff2565ade3beedb2479eccf46aad17b52c505194b9c869f03f",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 61,
+        "baseline_crlf": 0,
+        "normalized_sha256": "3c190d0f9e7295ff2565ade3beedb2479eccf46aad17b52c505194b9c869f03f"
+      }
+    },
+    {
+      "path": "fu/pymtl3_hardfloat/HardFloat/__init__.py",
+      "expected_sha256": "f700e5e6b3fcaeee10af86cd25badb5a9a60713cb244c796880fc04531bdcd44",
+      "current_sha256": "f700e5e6b3fcaeee10af86cd25badb5a9a60713cb244c796880fc04531bdcd44",
+      "declarations": 7,
+      "git_scope": {
+        "submodule": "fu/pymtl3_hardfloat",
+        "commit": "aea69e416e079178df4bb5697795ef653f55df58"
+      },
+      "baseline_git_blob_sha256": "fb4ac843a9414f47bc7cec7574ac74a81b3c1bd3d424a963daf9c8bd31d66f8c",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": false,
+      "git_blob_normalized_equivalent": true,
+      "status": "manifest_bytes_match_git_eol_only_difference",
+      "line_endings": {
+        "current_crlf": 8,
+        "baseline_crlf": 0,
+        "normalized_sha256": "fb4ac843a9414f47bc7cec7574ac74a81b3c1bd3d424a963daf9c8bd31d66f8c"
+      }
+    },
+    {
+      "path": "fu/float/FpAddRTL.py",
+      "expected_sha256": "bbbe9c1db782fa4809813d47258d78643df5475b0e695714f87137880de5427e",
+      "current_sha256": "bbbe9c1db782fa4809813d47258d78643df5475b0e695714f87137880de5427e",
+      "declarations": 7,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "bbbe9c1db782fa4809813d47258d78643df5475b0e695714f87137880de5427e",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/float/FpMulRTL.py",
+      "expected_sha256": "1cecfd8b20d113322f7524e647eb061fe0a271066827962873659c2f92b12b1b",
+      "current_sha256": "1cecfd8b20d113322f7524e647eb061fe0a271066827962873659c2f92b12b1b",
+      "declarations": 7,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "1cecfd8b20d113322f7524e647eb061fe0a271066827962873659c2f92b12b1b",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/quadra/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 4,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/basic/FourCombo.py",
+      "expected_sha256": "23d2ccbe4b0d2eb41d5ba66371601cfd4dd96d52bf4ab0f2fa3e1cda5213f8b7",
+      "current_sha256": "23d2ccbe4b0d2eb41d5ba66371601cfd4dd96d52bf4ab0f2fa3e1cda5213f8b7",
+      "declarations": 4,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "23d2ccbe4b0d2eb41d5ba66371601cfd4dd96d52bf4ab0f2fa3e1cda5213f8b7",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/single/LogicRTL.py",
+      "expected_sha256": "54b199a872c2b979fbb4b630304af3932188c22216f9b7964a8a282d7b0f4419",
+      "current_sha256": "54b199a872c2b979fbb4b630304af3932188c22216f9b7964a8a282d7b0f4419",
+      "declarations": 7,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "54b199a872c2b979fbb4b630304af3932188c22216f9b7964a8a282d7b0f4419",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/quadra/FourIncCmpNotGrantRTL.py",
+      "expected_sha256": "7b62be9d8a22402df4fa8f8d373587df15b7f2a187c1488e7c8c857d9c3d0087",
+      "current_sha256": "7b62be9d8a22402df4fa8f8d373587df15b7f2a187c1488e7c8c857d9c3d0087",
+      "declarations": 4,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "7b62be9d8a22402df4fa8f8d373587df15b7f2a187c1488e7c8c857d9c3d0087",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/single/SelRTL.py",
+      "expected_sha256": "9870ac5e1f02ab5fc7fe3f38be160121b5b33e7170fcc31e0a45ecc0b0d8b81e",
+      "current_sha256": "9870ac5e1f02ab5fc7fe3f38be160121b5b33e7170fcc31e0a45ecc0b0d8b81e",
+      "declarations": 7,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "9870ac5e1f02ab5fc7fe3f38be160121b5b33e7170fcc31e0a45ecc0b0d8b81e",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/single/ShifterRTL.py",
+      "expected_sha256": "751c7a1a0c0560806a2a0fca37e54fa9656647aff3199e1f79cab1ba259a228b",
+      "current_sha256": "751c7a1a0c0560806a2a0fca37e54fa9656647aff3199e1f79cab1ba259a228b",
+      "declarations": 7,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "751c7a1a0c0560806a2a0fca37e54fa9656647aff3199e1f79cab1ba259a228b",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/vector/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 4,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/basic/SumUnit.py",
+      "expected_sha256": "631a54831624e2c20bb5cd2455b61405027de5dd44f2576dc6c1454c2fda5b4d",
+      "current_sha256": "631a54831624e2c20bb5cd2455b61405027de5dd44f2576dc6c1454c2fda5b4d",
+      "declarations": 4,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "631a54831624e2c20bb5cd2455b61405027de5dd44f2576dc6c1454c2fda5b4d",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/basic/ReduceMulUnit.py",
+      "expected_sha256": "ef2fe2e7742363f94f26053d8c9c8f0861ec2dd510482e19c9ae23edc7764832",
+      "current_sha256": "ef2fe2e7742363f94f26053d8c9c8f0861ec2dd510482e19c9ae23edc7764832",
+      "declarations": 4,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "ef2fe2e7742363f94f26053d8c9c8f0861ec2dd510482e19c9ae23edc7764832",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/vector/VectorAllReduceRTL.py",
+      "expected_sha256": "5a8ee29d3fa55f373c4943c42ac6b348d3dd6c0fc1645fe4460ee1c39c62f8b2",
+      "current_sha256": "5a8ee29d3fa55f373c4943c42ac6b348d3dd6c0fc1645fe4460ee1c39c62f8b2",
+      "declarations": 4,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "5a8ee29d3fa55f373c4943c42ac6b348d3dd6c0fc1645fe4460ee1c39c62f8b2",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/vector/VectorAdderRTL.py",
+      "expected_sha256": "b4bc7c2ed05148da65f4a31a8b95f3c621f207e15a571ce71d05952efbb090a1",
+      "current_sha256": "b4bc7c2ed05148da65f4a31a8b95f3c621f207e15a571ce71d05952efbb090a1",
+      "declarations": 4,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "b4bc7c2ed05148da65f4a31a8b95f3c621f207e15a571ce71d05952efbb090a1",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/vector/VectorAdderComboRTL.py",
+      "expected_sha256": "9f9b8fbdc71418ce0ff0a9d70d0ac217b7789a0037e7524ee5773746975de637",
+      "current_sha256": "9f9b8fbdc71418ce0ff0a9d70d0ac217b7789a0037e7524ee5773746975de637",
+      "declarations": 4,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "9f9b8fbdc71418ce0ff0a9d70d0ac217b7789a0037e7524ee5773746975de637",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/vector/VectorMulRTL.py",
+      "expected_sha256": "24963b450cf3d79fab00c39ffbb64a7339b150f890dd8ebcc05258782ee58594",
+      "current_sha256": "24963b450cf3d79fab00c39ffbb64a7339b150f890dd8ebcc05258782ee58594",
+      "declarations": 4,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "24963b450cf3d79fab00c39ffbb64a7339b150f890dd8ebcc05258782ee58594",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/vector/VectorMulComboRTL.py",
+      "expected_sha256": "552dc3c48395ad64088594f86220edc972aa8573e08f723df48bcaf3776e33c4",
+      "current_sha256": "552dc3c48395ad64088594f86220edc972aa8573e08f723df48bcaf3776e33c4",
+      "declarations": 4,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "552dc3c48395ad64088594f86220edc972aa8573e08f723df48bcaf3776e33c4",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "lib/basic/val_rdy/SinkRTL.py",
+      "expected_sha256": "7c4d044a4f3ca76dd4cc9c232d1c5ecff7c9c545079e8363cd1791cc48756a4e",
+      "current_sha256": "7c4d044a4f3ca76dd4cc9c232d1c5ecff7c9c545079e8363cd1791cc48756a4e",
+      "declarations": 4,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "7c4d044a4f3ca76dd4cc9c232d1c5ecff7c9c545079e8363cd1791cc48756a4e",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "lib/basic/val_rdy/SourceRTL.py",
+      "expected_sha256": "188c54d27020a08830f466fb0a7fcb192f40be0687a4f5ee2020e6661a934b31",
+      "current_sha256": "188c54d27020a08830f466fb0a7fcb192f40be0687a4f5ee2020e6661a934b31",
+      "declarations": 4,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "188c54d27020a08830f466fb0a7fcb192f40be0687a4f5ee2020e6661a934b31",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "multi_cgra/test/MultiCgraRTL_migration_test.py",
+      "expected_sha256": "87763fae4428c8bafca33ab54bbcff377fb093a4fed4f7b29fe059b49992d572",
+      "current_sha256": "87763fae4428c8bafca33ab54bbcff377fb093a4fed4f7b29fe059b49992d572",
+      "declarations": 4,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "87763fae4428c8bafca33ab54bbcff377fb093a4fed4f7b29fe059b49992d572",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/others/Im2colEngineRTL.py",
+      "expected_sha256": "ff4d262432bfb1ff502593087921a504835f5ba40bfb3b9c200d13ceb8ea13cb",
+      "current_sha256": "ff4d262432bfb1ff502593087921a504835f5ba40bfb3b9c200d13ceb8ea13cb",
+      "declarations": 8,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "ff4d262432bfb1ff502593087921a504835f5ba40bfb3b9c200d13ceb8ea13cb",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/others/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 8,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "mem/data/DataMemRTL.py",
+      "expected_sha256": "3c9343a560ffbf0e25923b31b06d7592e850b5f9a52f772db930ae2e163971c3",
+      "current_sha256": "3c9343a560ffbf0e25923b31b06d7592e850b5f9a52f772db930ae2e163971c3",
+      "declarations": 8,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "3c9343a560ffbf0e25923b31b06d7592e850b5f9a52f772db930ae2e163971c3",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "mem/dma/DmaEngineRTL.py",
+      "expected_sha256": "c81f6d9fc9f362854e59aadf7e6b127f4b710891cf1894f5ffe3fbfc0da2e964",
+      "current_sha256": "c81f6d9fc9f362854e59aadf7e6b127f4b710891cf1894f5ffe3fbfc0da2e964",
+      "declarations": 8,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "c81f6d9fc9f362854e59aadf7e6b127f4b710891cf1894f5ffe3fbfc0da2e964",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "mem/dma/__init__.py",
+      "expected_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "current_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "declarations": 8,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "cgra/CgraTemplateRTL.py",
+      "expected_sha256": "5ab5cb686cca463a39422019abdc66ed450da25e02889119c6c1f315c6d9d343",
+      "current_sha256": "5ab5cb686cca463a39422019abdc66ed450da25e02889119c6c1f315c6d9d343",
+      "declarations": 3,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "5ab5cb686cca463a39422019abdc66ed450da25e02889119c6c1f315c6d9d343",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "cgra/IntegratedCgraWithDmaRTL.py",
+      "expected_sha256": "1db7eff450ea5d7671ef86a866ca136bc0b16126ddf408c162954731ee43ac7b",
+      "current_sha256": "1db7eff450ea5d7671ef86a866ca136bc0b16126ddf408c162954731ee43ac7b",
+      "declarations": 2,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "1db7eff450ea5d7671ef86a866ca136bc0b16126ddf408c162954731ee43ac7b",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "cgra/IntegratedIm2ColWithCgraRTL.py",
+      "expected_sha256": "8d305190231da9c9f9b5b0c65851ff97751f193846dd4a5585cb97674a43e9d2",
+      "current_sha256": "8d305190231da9c9f9b5b0c65851ff97751f193846dd4a5585cb97674a43e9d2",
+      "declarations": 2,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "8d305190231da9c9f9b5b0c65851ff97751f193846dd4a5585cb97674a43e9d2",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "cgra/test/IntegratedCgraWithDmaRTL_test.py",
+      "expected_sha256": "38d23b5d2a585a47443bb86dd87bae8ebd6348c247ad2b2540665e7314c680a7",
+      "current_sha256": "38d23b5d2a585a47443bb86dd87bae8ebd6348c247ad2b2540665e7314c680a7",
+      "declarations": 2,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "38d23b5d2a585a47443bb86dd87bae8ebd6348c247ad2b2540665e7314c680a7",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "cgra/test/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 2,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/single/ConstRTL.py",
+      "expected_sha256": "095febaf6eab2474d67d8246a0e41ca07264efcd71f70188e6e6246058c04512",
+      "current_sha256": "095febaf6eab2474d67d8246a0e41ca07264efcd71f70188e6e6246058c04512",
+      "declarations": 3,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "095febaf6eab2474d67d8246a0e41ca07264efcd71f70188e6e6246058c04512",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/single/ExclusiveDivRTL.py",
+      "expected_sha256": "0c79658e78c0bb09412bb31bee7ef41387b9ff63e572f892bce0c934e9e250fc",
+      "current_sha256": "0c79658e78c0bb09412bb31bee7ef41387b9ff63e572f892bce0c934e9e250fc",
+      "declarations": 3,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "0c79658e78c0bb09412bb31bee7ef41387b9ff63e572f892bce0c934e9e250fc",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "fu/single/LoopControlRTL.py",
+      "expected_sha256": "700e06fe0beddb22f9d846892b60a44a649eca24ec7466a6549140219b5b1918",
+      "current_sha256": "700e06fe0beddb22f9d846892b60a44a649eca24ec7466a6549140219b5b1918",
+      "declarations": 3,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "700e06fe0beddb22f9d846892b60a44a649eca24ec7466a6549140219b5b1918",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "lib/util/cgra/DataSPM.py",
+      "expected_sha256": "93d962dfdfc9714de7f112a6bf3e817133a31fda820ffc2a5e21746e6dc1b1ce",
+      "current_sha256": "93d962dfdfc9714de7f112a6bf3e817133a31fda820ffc2a5e21746e6dc1b1ce",
+      "declarations": 3,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "93d962dfdfc9714de7f112a6bf3e817133a31fda820ffc2a5e21746e6dc1b1ce",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "lib/util/cgra/Link.py",
+      "expected_sha256": "608fbf6e7970091c7da03917e44de2add883758bcf6729d89128b470fcfac796",
+      "current_sha256": "608fbf6e7970091c7da03917e44de2add883758bcf6729d89128b470fcfac796",
+      "declarations": 3,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "608fbf6e7970091c7da03917e44de2add883758bcf6729d89128b470fcfac796",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "lib/util/cgra/Tile.py",
+      "expected_sha256": "5e991397254b750ecb1739831dd93ce13b3f6c9f35f442aba2053a79f09b8825",
+      "current_sha256": "5e991397254b750ecb1739831dd93ce13b3f6c9f35f442aba2053a79f09b8825",
+      "declarations": 3,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "5e991397254b750ecb1739831dd93ce13b3f6c9f35f442aba2053a79f09b8825",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "lib/util/cgra/__init__.py",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "current_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "declarations": 3,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "lib/util/cgra/cgra_helper.py",
+      "expected_sha256": "e81ca444ae8d230597336e04efffcc5ee41f24debdd02514109138b949d7e50e",
+      "current_sha256": "e81ca444ae8d230597336e04efffcc5ee41f24debdd02514109138b949d7e50e",
+      "declarations": 3,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "e81ca444ae8d230597336e04efffcc5ee41f24debdd02514109138b949d7e50e",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "multi_cgra/RingMultiCgraRTL.py",
+      "expected_sha256": "340d0e0033c6348b5bb1c5c3cc7b59eaabe608ea28d6c1c32b8390275e724027",
+      "current_sha256": "340d0e0033c6348b5bb1c5c3cc7b59eaabe608ea28d6c1c32b8390275e724027",
+      "declarations": 4,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "340d0e0033c6348b5bb1c5c3cc7b59eaabe608ea28d6c1c32b8390275e724027",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    },
+    {
+      "path": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "expected_sha256": "ef00ca4c31fd6a2fade5eb5e9aa3a61177e4c3eae743f04cd494e8daa2597830",
+      "current_sha256": "ef00ca4c31fd6a2fade5eb5e9aa3a61177e4c3eae743f04cd494e8daa2597830",
+      "declarations": 1,
+      "git_scope": {
+        "commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b"
+      },
+      "baseline_git_blob_sha256": "ef00ca4c31fd6a2fade5eb5e9aa3a61177e4c3eae743f04cd494e8daa2597830",
+      "original_worktree_bytes_sha": "matched",
+      "git_blob_raw_sha_matched": true,
+      "git_blob_normalized_equivalent": true,
+      "status": "matched"
+    }
+  ],
+  "archived_stimulus_mappings": [
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-pytrace/manifest.json",
+      "field": "stimulus_sha256",
+      "original_build_path": "sv/build/phase4/peripheral/dma-python/stimulus.hex",
+      "archived_path": "sv/reference/phase4/peripheral/dma-pytrace/stimulus.hex",
+      "expected_sha256": "63a3eb847ae75e7d1bf8b5ec448bdc356a7fbcf07a1a336c6ec6161dd834080e",
+      "build_sha256": "63a3eb847ae75e7d1bf8b5ec448bdc356a7fbcf07a1a336c6ec6161dd834080e",
+      "archive_sha256": "63a3eb847ae75e7d1bf8b5ec448bdc356a7fbcf07a1a336c6ec6161dd834080e",
+      "exact_bytes_preserved": true,
+      "path_evidence": [
+        "sv/tests/phase4/peripheral/run_components.sh:10 output directory and :15 +TRACE=$out/stimulus.hex",
+        "sv/reference/phase4/peripheral/dma-pytrace/exporter_snapshot.py:8 --stimulus argument, :28 read_text, :48 sha(a.stimulus)",
+        "Exporter owner identified these exact historical build inputs; SHA verified before copying."
+      ],
+      "original_manifest_changed": false,
+      "current_archive_bytes_rechecked": true,
+      "original_build_path_required_for_current_audit": false
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-small-pytrace/manifest.json",
+      "field": "stimulus_sha256",
+      "original_build_path": "sv/build/phase4/peripheral/dma-small-python/stimulus.hex",
+      "archived_path": "sv/reference/phase4/peripheral/dma-small-pytrace/stimulus.hex",
+      "expected_sha256": "3f960b6e9ada425312274896a34c7b9fe0325d5e28280694de149dad064ddab6",
+      "build_sha256": "3f960b6e9ada425312274896a34c7b9fe0325d5e28280694de149dad064ddab6",
+      "archive_sha256": "3f960b6e9ada425312274896a34c7b9fe0325d5e28280694de149dad064ddab6",
+      "exact_bytes_preserved": true,
+      "path_evidence": [
+        "sv/tests/phase4/peripheral/run_components.sh:10 output directory and :15 +TRACE=$out/stimulus.hex",
+        "sv/reference/phase4/peripheral/dma-small-pytrace/exporter_snapshot.py:8 --stimulus argument, :28 read_text, :48 sha(a.stimulus)",
+        "Exporter owner identified these exact historical build inputs; SHA verified before copying."
+      ],
+      "original_manifest_changed": false,
+      "current_archive_bytes_rechecked": true,
+      "original_build_path_required_for_current_audit": false
+    }
+  ],
+  "artifact_and_tool_checks": [
+    {
+      "manifest": "sv/reference/phase4/memory/r1w3/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "d675a15ceab9532082013ca33d12ba46c63d73aeaac3ef14e9103710cfc1c469",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/memory/r1w3/exporter_snapshot.py",
+      "actual_sha256": "d675a15ceab9532082013ca33d12ba46c63d73aeaac3ef14e9103710cfc1c469",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/memory/r1w3/manifest.json",
+      "field": "rtl_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "da9369b76e6a5782891b64d59a4b0e8be83a86084721d6beb0e8af6a9f542edd",
+      "resolution_basis": "Explicit reference.v output/hash path in historical exporter",
+      "path": "sv/reference/phase4/memory/r1w3/reference.v",
+      "actual_sha256": "da9369b76e6a5782891b64d59a4b0e8be83a86084721d6beb0e8af6a9f542edd",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/memory/r1w3/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_memory_export.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "d675a15ceab9532082013ca33d12ba46c63d73aeaac3ef14e9103710cfc1c469",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/memory/r1w3/exporter_snapshot.py",
+      "actual_sha256": "d675a15ceab9532082013ca33d12ba46c63d73aeaac3ef14e9103710cfc1c469",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/memory/r1w3/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/memory/r1w3/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_migration_trace.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "f92c2bfe01e74e2b9993caca98c91c16e27a12e2b6df281843f26df3d0c1faeb",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/phase4_migration_trace.py",
+      "actual_sha256": "f92c2bfe01e74e2b9993caca98c91c16e27a12e2b6df281843f26df3d0c1faeb",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/memory/r3w1/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "d675a15ceab9532082013ca33d12ba46c63d73aeaac3ef14e9103710cfc1c469",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/memory/r3w1/exporter_snapshot.py",
+      "actual_sha256": "d675a15ceab9532082013ca33d12ba46c63d73aeaac3ef14e9103710cfc1c469",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/memory/r3w1/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_memory_export.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "d675a15ceab9532082013ca33d12ba46c63d73aeaac3ef14e9103710cfc1c469",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/memory/r3w1/exporter_snapshot.py",
+      "actual_sha256": "d675a15ceab9532082013ca33d12ba46c63d73aeaac3ef14e9103710cfc1c469",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/memory/r3w1/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/memory/r3w1/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_migration_trace.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "f92c2bfe01e74e2b9993caca98c91c16e27a12e2b6df281843f26df3d0c1faeb",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/phase4_migration_trace.py",
+      "actual_sha256": "f92c2bfe01e74e2b9993caca98c91c16e27a12e2b6df281843f26df3d0c1faeb",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/migration/dynamic_fir/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "f92c2bfe01e74e2b9993caca98c91c16e27a12e2b6df281843f26df3d0c1faeb",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/migration/dynamic_fir/exporter_snapshot.py",
+      "actual_sha256": "f92c2bfe01e74e2b9993caca98c91c16e27a12e2b6df281843f26df3d0c1faeb",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/migration/dynamic_fir/manifest.json",
+      "field": "trace_sha256",
+      "category": "reference_trace",
+      "expected_sha256": "f280b379578a9ed3fe1f405cec1494cbc25dbee1b100786bc0f5041a2fbe1c8a",
+      "resolution_basis": "Explicit trace output/hash path in historical exporter",
+      "path": "sv/reference/phase4/migration/dynamic_fir/cycles.txt",
+      "actual_sha256": "f280b379578a9ed3fe1f405cec1494cbc25dbee1b100786bc0f5041a2fbe1c8a",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/migration/dynamic_fir/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_migration_trace.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "f92c2bfe01e74e2b9993caca98c91c16e27a12e2b6df281843f26df3d0c1faeb",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/migration/dynamic_fir/exporter_snapshot.py",
+      "actual_sha256": "f92c2bfe01e74e2b9993caca98c91c16e27a12e2b6df281843f26df3d0c1faeb",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/migration/dynamic_fir/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/migration/global_add/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "9888978487e5941c7885c50119bdbf9fee842a021b50fa939df70f59da9ea22c",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/migration/global_add/exporter_snapshot.py",
+      "actual_sha256": "9888978487e5941c7885c50119bdbf9fee842a021b50fa939df70f59da9ea22c",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/migration/global_add/manifest.json",
+      "field": "trace_sha256",
+      "category": "reference_trace",
+      "expected_sha256": "89441e7eea8a48480cff5964b16ed79324c1a4acc488c534604ad714d8ab73e3",
+      "resolution_basis": "Explicit trace output/hash path in historical exporter",
+      "path": "sv/reference/phase4/migration/global_add/cycles.txt",
+      "actual_sha256": "89441e7eea8a48480cff5964b16ed79324c1a4acc488c534604ad714d8ab73e3",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/migration/global_add/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_migration_reduce.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "9888978487e5941c7885c50119bdbf9fee842a021b50fa939df70f59da9ea22c",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/migration/global_add/exporter_snapshot.py",
+      "actual_sha256": "9888978487e5941c7885c50119bdbf9fee842a021b50fa939df70f59da9ea22c",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/migration/global_add/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/migration/global_add/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_migration_trace.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "f92c2bfe01e74e2b9993caca98c91c16e27a12e2b6df281843f26df3d0c1faeb",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/phase4_migration_trace.py",
+      "actual_sha256": "f92c2bfe01e74e2b9993caca98c91c16e27a12e2b6df281843f26df3d0c1faeb",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_1x2_l1_w32/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/noc/mesh_1x2_l1_w32/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_1x2_l1_w32/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_noc_export.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/noc/mesh_1x2_l1_w32/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_1x2_l1_w32/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_2x1_l1_w32/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/noc/mesh_2x1_l1_w32/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_2x1_l1_w32/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_noc_export.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/noc/mesh_2x1_l1_w32/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_2x1_l1_w32/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_2x2_l0_w32/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/noc/mesh_2x2_l0_w32/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_2x2_l0_w32/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_noc_export.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/noc/mesh_2x2_l0_w32/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_2x2_l0_w32/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_2x2_l0_w32/manifest.json",
+      "field": "rtl_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "d8675b73600749e9993e9e1eb3044655dd97bf0264294d64589f0e9d4fe13d1f",
+      "resolution_basis": "Explicit reference.v output/hash path in historical exporter",
+      "path": "sv/reference/phase4/noc/mesh_2x2_l0_w32/reference.v",
+      "actual_sha256": "d8675b73600749e9993e9e1eb3044655dd97bf0264294d64589f0e9d4fe13d1f",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_2x2_l1_w32/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/noc/mesh_2x2_l1_w32/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_2x2_l1_w32/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_noc_export.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/noc/mesh_2x2_l1_w32/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_2x2_l1_w32/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_2x2_l1_w32/manifest.json",
+      "field": "rtl_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "4f461d89d6f7086d3d4235e794c0ce219185efa19362740642e3fce5bbb3a4cd",
+      "resolution_basis": "Explicit reference.v output/hash path in historical exporter",
+      "path": "sv/reference/phase4/noc/mesh_2x2_l1_w32/reference.v",
+      "actual_sha256": "4f461d89d6f7086d3d4235e794c0ce219185efa19362740642e3fce5bbb3a4cd",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_2x2_l2_w32/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/noc/mesh_2x2_l2_w32/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_2x2_l2_w32/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_noc_export.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/noc/mesh_2x2_l2_w32/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_2x2_l2_w32/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_2x2_l2_w32/manifest.json",
+      "field": "rtl_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "1f3c6b746d35cd5c5774b84648afa6eba6bb604657118e5cc2b03821f8bc3661",
+      "resolution_basis": "Explicit reference.v output/hash path in historical exporter",
+      "path": "sv/reference/phase4/noc/mesh_2x2_l2_w32/reference.v",
+      "actual_sha256": "1f3c6b746d35cd5c5774b84648afa6eba6bb604657118e5cc2b03821f8bc3661",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_3x2_l1_w64/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/noc/mesh_3x2_l1_w64/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_3x2_l1_w64/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_noc_export.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/noc/mesh_3x2_l1_w64/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_3x2_l1_w64/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/mesh_3x2_l1_w64/manifest.json",
+      "field": "rtl_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "1d722b8bf8f6f21fe2280a93c072db5c9dc65e0c6c5971fc531f26dd3fa64d1d",
+      "resolution_basis": "Explicit reference.v output/hash path in historical exporter",
+      "path": "sv/reference/phase4/noc/mesh_3x2_l1_w64/reference.v",
+      "actual_sha256": "1d722b8bf8f6f21fe2280a93c072db5c9dc65e0c6c5971fc531f26dd3fa64d1d",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/ring_2_l1_w32/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/noc/ring_2_l1_w32/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/ring_2_l1_w32/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_noc_export.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/noc/ring_2_l1_w32/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/ring_2_l1_w32/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/ring_2_l1_w32/manifest.json",
+      "field": "rtl_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "7f91ce8a3bc1ba9c48cb4c381f3f79cdab0e760ad94fc05b8a3beabd8fdb847e",
+      "resolution_basis": "Explicit reference.v output/hash path in historical exporter",
+      "path": "sv/reference/phase4/noc/ring_2_l1_w32/reference.v",
+      "actual_sha256": "7f91ce8a3bc1ba9c48cb4c381f3f79cdab0e760ad94fc05b8a3beabd8fdb847e",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/ring_3_l1_w32/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/noc/ring_3_l1_w32/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/ring_3_l1_w32/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_noc_export.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/noc/ring_3_l1_w32/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/ring_3_l1_w32/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/ring_3_l1_w32/manifest.json",
+      "field": "rtl_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "5656d8703d22a47f38bbfae9968fb7f71a03b9f35ffb15215f45d0a10c602419",
+      "resolution_basis": "Explicit reference.v output/hash path in historical exporter",
+      "path": "sv/reference/phase4/noc/ring_3_l1_w32/reference.v",
+      "actual_sha256": "5656d8703d22a47f38bbfae9968fb7f71a03b9f35ffb15215f45d0a10c602419",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/ring_4_l0_w32/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/noc/ring_4_l0_w32/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/ring_4_l0_w32/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_noc_export.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/noc/ring_4_l0_w32/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/ring_4_l0_w32/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/ring_4_l0_w32/manifest.json",
+      "field": "rtl_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "e8fad577a8597797099ed6ed6eb48293a2e119cba5f950b41365a9b0b0099aaf",
+      "resolution_basis": "Explicit reference.v output/hash path in historical exporter",
+      "path": "sv/reference/phase4/noc/ring_4_l0_w32/reference.v",
+      "actual_sha256": "e8fad577a8597797099ed6ed6eb48293a2e119cba5f950b41365a9b0b0099aaf",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/ring_4_l1_w32/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/noc/ring_4_l1_w32/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/ring_4_l1_w32/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_noc_export.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/noc/ring_4_l1_w32/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/ring_4_l1_w32/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/ring_4_l1_w32/manifest.json",
+      "field": "rtl_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "8473fd696c561140c84ac04a3008bcb3b8ca904e9217386588a96375fe2db287",
+      "resolution_basis": "Explicit reference.v output/hash path in historical exporter",
+      "path": "sv/reference/phase4/noc/ring_4_l1_w32/reference.v",
+      "actual_sha256": "8473fd696c561140c84ac04a3008bcb3b8ca904e9217386588a96375fe2db287",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/ring_6_l1_w64/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/noc/ring_6_l1_w64/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/ring_6_l1_w64/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_noc_export.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/noc/ring_6_l1_w64/exporter_snapshot.py",
+      "actual_sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/ring_6_l1_w64/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/noc/ring_6_l1_w64/manifest.json",
+      "field": "rtl_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "54c0b542f39d2003946a78a1adee4097964806e9aa839f5befec63c0df0dac51",
+      "resolution_basis": "Explicit reference.v output/hash path in historical exporter",
+      "path": "sv/reference/phase4/noc/ring_6_l1_w64/reference.v",
+      "actual_sha256": "54c0b542f39d2003946a78a1adee4097964806e9aa839f5befec63c0df0dac51",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/peripheral/dma/exporter_snapshot.py",
+      "actual_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma/manifest.json",
+      "field": "rtl_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "33d0b1e34db7ffc89c06da9717d80de195f101bff91ea6e5679bfcdeb0880e37",
+      "resolution_basis": "Explicit rtl filename in manifest",
+      "path": "sv/reference/phase4/peripheral/dma/Phase4Dma.v",
+      "actual_sha256": "33d0b1e34db7ffc89c06da9717d80de195f101bff91ea6e5679bfcdeb0880e37",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_peripheral_export.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/peripheral/dma/exporter_snapshot.py",
+      "actual_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-pytrace/manifest.json",
+      "field": "trace_sha256",
+      "category": "reference_trace",
+      "expected_sha256": "f84669a58dea470d504ea5d70ff4d52213aa0bd876231760e8429de0ddfbb4e0",
+      "resolution_basis": "Explicit trace output/hash path in historical exporter",
+      "path": "sv/reference/phase4/peripheral/dma-pytrace/trace.hex",
+      "actual_sha256": "f84669a58dea470d504ea5d70ff4d52213aa0bd876231760e8429de0ddfbb4e0",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-pytrace/manifest.json",
+      "field": "stimulus_sha256",
+      "category": "archived_stimulus",
+      "expected_sha256": "63a3eb847ae75e7d1bf8b5ec448bdc356a7fbcf07a1a336c6ec6161dd834080e",
+      "resolution_basis": "Explicit historical build-input path confirmed by exporter owner and run_components.sh; archived byte-for-byte without changing manifest",
+      "path": "sv/reference/phase4/peripheral/dma-pytrace/stimulus.hex",
+      "actual_sha256": "63a3eb847ae75e7d1bf8b5ec448bdc356a7fbcf07a1a336c6ec6161dd834080e",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-pytrace/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "f04958ca30a36fafec453052a8d48937a4cf239d8cde976ca8ed828642e2522f",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/peripheral/dma-pytrace/exporter_snapshot.py",
+      "actual_sha256": "f04958ca30a36fafec453052a8d48937a4cf239d8cde976ca8ed828642e2522f",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-pytrace/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_peripheral_export.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/phase4_peripheral_export.py",
+      "actual_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-pytrace/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_peripheral_pytrace.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "f04958ca30a36fafec453052a8d48937a4cf239d8cde976ca8ed828642e2522f",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/peripheral/dma-pytrace/exporter_snapshot.py",
+      "actual_sha256": "f04958ca30a36fafec453052a8d48937a4cf239d8cde976ca8ed828642e2522f",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-pytrace/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-small/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/peripheral/dma-small/exporter_snapshot.py",
+      "actual_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-small/manifest.json",
+      "field": "rtl_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "60a8109785cc8b25cc116fdf338cf50a5632a666966faac12f4d23ed9c3eb39b",
+      "resolution_basis": "Explicit rtl filename in manifest",
+      "path": "sv/reference/phase4/peripheral/dma-small/Phase4DmaSmall.v",
+      "actual_sha256": "60a8109785cc8b25cc116fdf338cf50a5632a666966faac12f4d23ed9c3eb39b",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-small/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_peripheral_export.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/peripheral/dma-small/exporter_snapshot.py",
+      "actual_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-small/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-small-pytrace/manifest.json",
+      "field": "trace_sha256",
+      "category": "reference_trace",
+      "expected_sha256": "edea46aae1d349884ce65a9bc6fb8e278526a1ec11781df7a6b3f95912a6d58d",
+      "resolution_basis": "Explicit trace output/hash path in historical exporter",
+      "path": "sv/reference/phase4/peripheral/dma-small-pytrace/trace.hex",
+      "actual_sha256": "edea46aae1d349884ce65a9bc6fb8e278526a1ec11781df7a6b3f95912a6d58d",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-small-pytrace/manifest.json",
+      "field": "stimulus_sha256",
+      "category": "archived_stimulus",
+      "expected_sha256": "3f960b6e9ada425312274896a34c7b9fe0325d5e28280694de149dad064ddab6",
+      "resolution_basis": "Explicit historical build-input path confirmed by exporter owner and run_components.sh; archived byte-for-byte without changing manifest",
+      "path": "sv/reference/phase4/peripheral/dma-small-pytrace/stimulus.hex",
+      "actual_sha256": "3f960b6e9ada425312274896a34c7b9fe0325d5e28280694de149dad064ddab6",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-small-pytrace/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "f04958ca30a36fafec453052a8d48937a4cf239d8cde976ca8ed828642e2522f",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/peripheral/dma-small-pytrace/exporter_snapshot.py",
+      "actual_sha256": "f04958ca30a36fafec453052a8d48937a4cf239d8cde976ca8ed828642e2522f",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-small-pytrace/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_peripheral_export.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/phase4_peripheral_export.py",
+      "actual_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-small-pytrace/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_peripheral_pytrace.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "f04958ca30a36fafec453052a8d48937a4cf239d8cde976ca8ed828642e2522f",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/peripheral/dma-small-pytrace/exporter_snapshot.py",
+      "actual_sha256": "f04958ca30a36fafec453052a8d48937a4cf239d8cde976ca8ed828642e2522f",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-small-pytrace/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-system/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "37b7f65a9e78fac29f9bfbeaadbdaf7aefe77031b6669e5124cbcbecfdcb1f02",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/peripheral/dma-system/exporter_snapshot.py",
+      "actual_sha256": "37b7f65a9e78fac29f9bfbeaadbdaf7aefe77031b6669e5124cbcbecfdcb1f02",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-system/manifest.json",
+      "field": "rtl_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "570dd8c0feac7d1ebd18c715c057d2ca516283722c24245d709507c6a813a036",
+      "resolution_basis": "Explicit rtl filename in manifest",
+      "path": "sv/reference/phase4/peripheral/dma-system/Phase4DmaSystem.v",
+      "actual_sha256": "570dd8c0feac7d1ebd18c715c057d2ca516283722c24245d709507c6a813a036",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-system/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_peripheral_export.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/phase4_peripheral_export.py",
+      "actual_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-system/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_peripheral_system_export.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "37b7f65a9e78fac29f9bfbeaadbdaf7aefe77031b6669e5124cbcbecfdcb1f02",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/peripheral/dma-system/exporter_snapshot.py",
+      "actual_sha256": "37b7f65a9e78fac29f9bfbeaadbdaf7aefe77031b6669e5124cbcbecfdcb1f02",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/dma-system/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/im2col/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/peripheral/im2col/exporter_snapshot.py",
+      "actual_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/im2col/manifest.json",
+      "field": "rtl_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "5e78b07bd1ee27ba24b697ec2dd030f6d19eeb92543f125e5f37ae24a0a353bd",
+      "resolution_basis": "Explicit rtl filename in manifest",
+      "path": "sv/reference/phase4/peripheral/im2col/Phase4Im2Col.v",
+      "actual_sha256": "5e78b07bd1ee27ba24b697ec2dd030f6d19eeb92543f125e5f37ae24a0a353bd",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/im2col/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_peripheral_export.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/peripheral/im2col/exporter_snapshot.py",
+      "actual_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/im2col/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/im2col-system/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "37b7f65a9e78fac29f9bfbeaadbdaf7aefe77031b6669e5124cbcbecfdcb1f02",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/peripheral/im2col-system/exporter_snapshot.py",
+      "actual_sha256": "37b7f65a9e78fac29f9bfbeaadbdaf7aefe77031b6669e5124cbcbecfdcb1f02",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/im2col-system/manifest.json",
+      "field": "rtl_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "f70c5de0c1481c93d48dfba29fc1ec0d0fdaffa40f8273f5043d738624ab5316",
+      "resolution_basis": "Explicit rtl filename in manifest",
+      "path": "sv/reference/phase4/peripheral/im2col-system/Phase4Im2ColSystem.v",
+      "actual_sha256": "f70c5de0c1481c93d48dfba29fc1ec0d0fdaffa40f8273f5043d738624ab5316",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/im2col-system/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_peripheral_export.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/phase4_peripheral_export.py",
+      "actual_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/im2col-system/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_peripheral_system_export.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "37b7f65a9e78fac29f9bfbeaadbdaf7aefe77031b6669e5124cbcbecfdcb1f02",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/peripheral/im2col-system/exporter_snapshot.py",
+      "actual_sha256": "37b7f65a9e78fac29f9bfbeaadbdaf7aefe77031b6669e5124cbcbecfdcb1f02",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/im2col-system/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/im2col-wide/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/peripheral/im2col-wide/exporter_snapshot.py",
+      "actual_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/im2col-wide/manifest.json",
+      "field": "rtl_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "d0b8cba75e8cc5109cab9d6e039340c69216789acf7997f0241d5aa0c5079437",
+      "resolution_basis": "Explicit rtl filename in manifest",
+      "path": "sv/reference/phase4/peripheral/im2col-wide/Phase4Im2ColWide.v",
+      "actual_sha256": "d0b8cba75e8cc5109cab9d6e039340c69216789acf7997f0241d5aa0c5079437",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/im2col-wide/manifest.json",
+      "field": "source_sha256/sv/migration_tools/phase4_peripheral_export.py",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "resolution_basis": "Source-map digest equals declared exporter_sha256; check immutable exporter_snapshot.py, never substitute current exporter",
+      "path": "sv/reference/phase4/peripheral/im2col-wide/exporter_snapshot.py",
+      "actual_sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/peripheral/im2col-wide/manifest.json",
+      "field": "source_sha256/sv/migration_tools/reference_model.py",
+      "category": "migration_tool_source",
+      "expected_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "resolution_basis": "Explicit repository-relative source_sha256 key",
+      "path": "sv/migration_tools/reference_model.py",
+      "actual_sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/system/mesh4-tiles2/manifest.json",
+      "field": "original_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "51a8ece682f24e60c6c77866910244a8959aa2fcd1be98bb23ef65fd41f4bf21",
+      "resolution_basis": "Explicit original.v output path in historical exporter",
+      "path": "sv/reference/phase4/system/mesh4-tiles2/original.v",
+      "actual_sha256": "51a8ece682f24e60c6c77866910244a8959aa2fcd1be98bb23ef65fd41f4bf21",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/system/mesh4-tiles2/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "9722534626b6ebca8bf7661cea1bdb3fa0920b3c6a5efa179f9e4f4cc82617f1",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/system/mesh4-tiles2/exporter_snapshot.py",
+      "actual_sha256": "9722534626b6ebca8bf7661cea1bdb3fa0920b3c6a5efa179f9e4f4cc82617f1",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/system/mesh4-tiles2-registered/manifest.json",
+      "field": "original_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "a8092abff6cbae1181fa51c1da5bf452cf734e24f13fa4b20df5430ccb33a255",
+      "resolution_basis": "Explicit original.v output path in historical exporter",
+      "path": "sv/reference/phase4/system/mesh4-tiles2-registered/original.v",
+      "actual_sha256": "a8092abff6cbae1181fa51c1da5bf452cf734e24f13fa4b20df5430ccb33a255",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/system/mesh4-tiles2-registered/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "9722534626b6ebca8bf7661cea1bdb3fa0920b3c6a5efa179f9e4f4cc82617f1",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/system/mesh4-tiles2-registered/exporter_snapshot.py",
+      "actual_sha256": "9722534626b6ebca8bf7661cea1bdb3fa0920b3c6a5efa179f9e4f4cc82617f1",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/system/mesh4-tiles4/manifest.json",
+      "field": "original_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "1ac181e58a771dcc6d77f04d1b5a17ffbe6615fb7549d23559d6054b71bcf32b",
+      "resolution_basis": "Explicit original.v output path in historical exporter",
+      "path": "sv/reference/phase4/system/mesh4-tiles4/original.v",
+      "actual_sha256": "1ac181e58a771dcc6d77f04d1b5a17ffbe6615fb7549d23559d6054b71bcf32b",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/system/mesh4-tiles4/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "9722534626b6ebca8bf7661cea1bdb3fa0920b3c6a5efa179f9e4f4cc82617f1",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/system/mesh4-tiles4/exporter_snapshot.py",
+      "actual_sha256": "9722534626b6ebca8bf7661cea1bdb3fa0920b3c6a5efa179f9e4f4cc82617f1",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/system/ring4-tiles2/manifest.json",
+      "field": "original_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "d8386bc9efc0e85502b3e953df611d392af3adb28f9fec8421e6801a1942e758",
+      "resolution_basis": "Explicit original.v output path in historical exporter",
+      "path": "sv/reference/phase4/system/ring4-tiles2/original.v",
+      "actual_sha256": "d8386bc9efc0e85502b3e953df611d392af3adb28f9fec8421e6801a1942e758",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/system/ring4-tiles2/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "9722534626b6ebca8bf7661cea1bdb3fa0920b3c6a5efa179f9e4f4cc82617f1",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/system/ring4-tiles2/exporter_snapshot.py",
+      "actual_sha256": "9722534626b6ebca8bf7661cea1bdb3fa0920b3c6a5efa179f9e4f4cc82617f1",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/template/heterogeneous/manifest.json",
+      "field": "original_sha256",
+      "category": "reference_hdl",
+      "expected_sha256": "a436e50878135e17d6399e52619c68fe96e78df4b542abf908bba97a6af44496",
+      "resolution_basis": "Explicit original.v output path in historical exporter",
+      "path": "sv/reference/phase4/template/heterogeneous/original.v",
+      "actual_sha256": "a436e50878135e17d6399e52619c68fe96e78df4b542abf908bba97a6af44496",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    },
+    {
+      "manifest": "sv/reference/phase4/template/heterogeneous/manifest.json",
+      "field": "exporter_sha256",
+      "category": "historical_exporter_snapshot",
+      "expected_sha256": "516c2df8be0e58c69b3c87c54b74e7bf33ffbd59ab347bb14dbae1e60ba1ad75",
+      "resolution_basis": "Frozen exporter_snapshot.py; current script is not consulted",
+      "path": "sv/reference/phase4/template/heterogeneous/exporter_snapshot.py",
+      "actual_sha256": "516c2df8be0e58c69b3c87c54b74e7bf33ffbd59ab347bb14dbae1e60ba1ad75",
+      "status": "matched",
+      "current_bytes_rechecked": true
+    }
+  ],
+  "unresolved": [],
+  "failures": [],
+  "source_failures": [],
+  "stopped_64tile_python": {
+    "path": "sv/reference/phase4/system/mesh4-tiles4/python-trace-status.json",
+    "sha256": "332c8691cf4affad17c5a2a0f65ffd9e76c1795a2bb4881f79fb15416c1950e5",
+    "status": "stopped_without_cycle_trace",
+    "reason": "64-Tile Python simulation remained in its first scenario after the recorded elapsed time. This profile uses the already frozen unmodified ac96 HDL plus an independent SV arithmetic/transaction oracle; Python three-way comparison is not claimed.",
+    "elapsed_seconds": 4178.0149213,
+    "cpu_seconds": 2331.0,
+    "original_hdl_hash_matches": true,
+    "python_cycle_equivalence_claimed": false,
+    "current_bytes_rechecked": true
+  },
+  "manifest_bytes_unchanged_after_audit": true,
+  "limitations": [
+    "Byte provenance only; no new hardware tests, synthesis or historical oracle generation were run.",
+    "Declared source lists are checked exhaustively as listed, not claimed to be a complete transitive closure.",
+    "Undeclared checksums are inventoried and not counted as passes; failed exports and trace-only manifests do not imply HDL verification.",
+    "The full historical mixed-scope audit remains accessible by its draft Git commit and SHA; this report contains only selected stage4 checks."
+  ]
+}

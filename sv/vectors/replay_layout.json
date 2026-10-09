@@ -1,0 +1,918 @@
+{
+  "samples": 134,
+  "sample_phase": "drive inputs, settle combinational logic, compare immediately before rising edge",
+  "comparison": "All active raw output bits are present including idle messages. No HDL replay result is claimed by this encoding tool.",
+  "excluded_outputs": [
+    "recv_from_inter_cgra_noc__rdy",
+    "send_to_inter_cgra_noc__val",
+    "send_to_inter_cgra_noc__msg"
+  ],
+  "fixed_inputs_not_encoded": {
+    "recv_from_inter_cgra_noc__val": 0,
+    "recv_from_inter_cgra_noc__msg": 0,
+    "send_to_inter_cgra_noc__rdy": 0
+  },
+  "source_trace_sha256": "763b141c8ac10963d7a84a8f7657a6e03acc58d3297baa10d38f2c9988ceaec0",
+  "layouts": {
+    "inputs": {
+      "file": "replay_inputs.hex",
+      "nbits": 505,
+      "fields": [
+        {
+          "field": "reset",
+          "lsb": 0,
+          "msb": 0,
+          "nbits": 1
+        },
+        {
+          "field": "cgra_id",
+          "lsb": 1,
+          "msb": 1,
+          "nbits": 1
+        },
+        {
+          "field": "address_lower",
+          "lsb": 2,
+          "msb": 8,
+          "nbits": 7
+        },
+        {
+          "field": "address_upper",
+          "lsb": 9,
+          "msb": 15,
+          "nbits": 7
+        },
+        {
+          "field": "recv_from_cpu_pkt__val",
+          "lsb": 16,
+          "msb": 16,
+          "nbits": 1
+        },
+        {
+          "field": "recv_from_cpu_pkt__msg",
+          "lsb": 17,
+          "msb": 207,
+          "nbits": 191
+        },
+        {
+          "field": "send_to_cpu_pkt__rdy",
+          "lsb": 208,
+          "msb": 208,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_north__0__val",
+          "lsb": 209,
+          "msb": 209,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_north__0__msg",
+          "lsb": 210,
+          "msb": 244,
+          "nbits": 35
+        },
+        {
+          "field": "send_data_on_boundary_north__0__rdy",
+          "lsb": 245,
+          "msb": 245,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_north__1__val",
+          "lsb": 246,
+          "msb": 246,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_north__1__msg",
+          "lsb": 247,
+          "msb": 281,
+          "nbits": 35
+        },
+        {
+          "field": "send_data_on_boundary_north__1__rdy",
+          "lsb": 282,
+          "msb": 282,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_south__0__val",
+          "lsb": 283,
+          "msb": 283,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_south__0__msg",
+          "lsb": 284,
+          "msb": 318,
+          "nbits": 35
+        },
+        {
+          "field": "send_data_on_boundary_south__0__rdy",
+          "lsb": 319,
+          "msb": 319,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_south__1__val",
+          "lsb": 320,
+          "msb": 320,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_south__1__msg",
+          "lsb": 321,
+          "msb": 355,
+          "nbits": 35
+        },
+        {
+          "field": "send_data_on_boundary_south__1__rdy",
+          "lsb": 356,
+          "msb": 356,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_west__0__val",
+          "lsb": 357,
+          "msb": 357,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_west__0__msg",
+          "lsb": 358,
+          "msb": 392,
+          "nbits": 35
+        },
+        {
+          "field": "send_data_on_boundary_west__0__rdy",
+          "lsb": 393,
+          "msb": 393,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_west__1__val",
+          "lsb": 394,
+          "msb": 394,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_west__1__msg",
+          "lsb": 395,
+          "msb": 429,
+          "nbits": 35
+        },
+        {
+          "field": "send_data_on_boundary_west__1__rdy",
+          "lsb": 430,
+          "msb": 430,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_east__0__val",
+          "lsb": 431,
+          "msb": 431,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_east__0__msg",
+          "lsb": 432,
+          "msb": 466,
+          "nbits": 35
+        },
+        {
+          "field": "send_data_on_boundary_east__0__rdy",
+          "lsb": 467,
+          "msb": 467,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_east__1__val",
+          "lsb": 468,
+          "msb": 468,
+          "nbits": 1
+        },
+        {
+          "field": "recv_data_on_boundary_east__1__msg",
+          "lsb": 469,
+          "msb": 503,
+          "nbits": 35
+        },
+        {
+          "field": "send_data_on_boundary_east__1__rdy",
+          "lsb": 504,
+          "msb": 504,
+          "nbits": 1
+        }
+      ],
+      "sha256": "520e746c88fdb38c2245e2de0baf0a45d5588c92146adb7e5ad6ed66cbade0a8"
+    },
+    "outputs": {
+      "file": "replay_outputs.hex",
+      "nbits": 489,
+      "fields": [
+        {
+          "field": "recv_from_cpu_pkt__rdy",
+          "lsb": 0,
+          "msb": 0,
+          "nbits": 1
+        },
+        {
+          "field": "send_to_cpu_pkt__val",
+          "lsb": 1,
+          "msb": 1,
+          "nbits": 1
+        },
+        {
+          "field": "send_to_cpu_pkt__msg",
+          "lsb": 2,
+          "msb": 192,
+          "nbits": 191
+        },
+        {
+          "field": "recv_data_on_boundary_north__0__rdy",
+          "lsb": 193,
+          "msb": 193,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_north__0__val",
+          "lsb": 194,
+          "msb": 194,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_north__0__msg",
+          "lsb": 195,
+          "msb": 229,
+          "nbits": 35
+        },
+        {
+          "field": "recv_data_on_boundary_north__1__rdy",
+          "lsb": 230,
+          "msb": 230,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_north__1__val",
+          "lsb": 231,
+          "msb": 231,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_north__1__msg",
+          "lsb": 232,
+          "msb": 266,
+          "nbits": 35
+        },
+        {
+          "field": "recv_data_on_boundary_south__0__rdy",
+          "lsb": 267,
+          "msb": 267,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_south__0__val",
+          "lsb": 268,
+          "msb": 268,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_south__0__msg",
+          "lsb": 269,
+          "msb": 303,
+          "nbits": 35
+        },
+        {
+          "field": "recv_data_on_boundary_south__1__rdy",
+          "lsb": 304,
+          "msb": 304,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_south__1__val",
+          "lsb": 305,
+          "msb": 305,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_south__1__msg",
+          "lsb": 306,
+          "msb": 340,
+          "nbits": 35
+        },
+        {
+          "field": "recv_data_on_boundary_west__0__rdy",
+          "lsb": 341,
+          "msb": 341,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_west__0__val",
+          "lsb": 342,
+          "msb": 342,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_west__0__msg",
+          "lsb": 343,
+          "msb": 377,
+          "nbits": 35
+        },
+        {
+          "field": "recv_data_on_boundary_west__1__rdy",
+          "lsb": 378,
+          "msb": 378,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_west__1__val",
+          "lsb": 379,
+          "msb": 379,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_west__1__msg",
+          "lsb": 380,
+          "msb": 414,
+          "nbits": 35
+        },
+        {
+          "field": "recv_data_on_boundary_east__0__rdy",
+          "lsb": 415,
+          "msb": 415,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_east__0__val",
+          "lsb": 416,
+          "msb": 416,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_east__0__msg",
+          "lsb": 417,
+          "msb": 451,
+          "nbits": 35
+        },
+        {
+          "field": "recv_data_on_boundary_east__1__rdy",
+          "lsb": 452,
+          "msb": 452,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_east__1__val",
+          "lsb": 453,
+          "msb": 453,
+          "nbits": 1
+        },
+        {
+          "field": "send_data_on_boundary_east__1__msg",
+          "lsb": 454,
+          "msb": 488,
+          "nbits": 35
+        }
+      ],
+      "sha256": "4b8d5ff184425b666c43b0e4eaf36884c6845484f76469dd7f20c2a346f44dcc"
+    }
+  },
+  "row_labels": [
+    {
+      "scenario": "positive",
+      "cycle": -3
+    },
+    {
+      "scenario": "positive",
+      "cycle": -2
+    },
+    {
+      "scenario": "positive",
+      "cycle": -1
+    },
+    {
+      "scenario": "positive",
+      "cycle": 0
+    },
+    {
+      "scenario": "positive",
+      "cycle": 1
+    },
+    {
+      "scenario": "positive",
+      "cycle": 2
+    },
+    {
+      "scenario": "positive",
+      "cycle": 3
+    },
+    {
+      "scenario": "positive",
+      "cycle": 4
+    },
+    {
+      "scenario": "positive",
+      "cycle": 5
+    },
+    {
+      "scenario": "positive",
+      "cycle": 6
+    },
+    {
+      "scenario": "positive",
+      "cycle": 7
+    },
+    {
+      "scenario": "positive",
+      "cycle": 8
+    },
+    {
+      "scenario": "positive",
+      "cycle": 9
+    },
+    {
+      "scenario": "positive",
+      "cycle": 10
+    },
+    {
+      "scenario": "positive",
+      "cycle": 11
+    },
+    {
+      "scenario": "positive",
+      "cycle": 12
+    },
+    {
+      "scenario": "positive",
+      "cycle": 13
+    },
+    {
+      "scenario": "positive",
+      "cycle": 14
+    },
+    {
+      "scenario": "positive",
+      "cycle": 15
+    },
+    {
+      "scenario": "positive",
+      "cycle": 16
+    },
+    {
+      "scenario": "positive",
+      "cycle": 17
+    },
+    {
+      "scenario": "positive",
+      "cycle": 18
+    },
+    {
+      "scenario": "positive",
+      "cycle": 19
+    },
+    {
+      "scenario": "positive",
+      "cycle": 20
+    },
+    {
+      "scenario": "positive",
+      "cycle": 21
+    },
+    {
+      "scenario": "positive",
+      "cycle": 22
+    },
+    {
+      "scenario": "positive",
+      "cycle": 23
+    },
+    {
+      "scenario": "positive",
+      "cycle": 24
+    },
+    {
+      "scenario": "positive",
+      "cycle": 25
+    },
+    {
+      "scenario": "positive",
+      "cycle": 26
+    },
+    {
+      "scenario": "positive",
+      "cycle": 27
+    },
+    {
+      "scenario": "positive",
+      "cycle": 28
+    },
+    {
+      "scenario": "positive",
+      "cycle": 29
+    },
+    {
+      "scenario": "positive",
+      "cycle": 30
+    },
+    {
+      "scenario": "positive",
+      "cycle": 31
+    },
+    {
+      "scenario": "positive",
+      "cycle": 32
+    },
+    {
+      "scenario": "positive",
+      "cycle": 33
+    },
+    {
+      "scenario": "positive",
+      "cycle": 34
+    },
+    {
+      "scenario": "positive",
+      "cycle": 35
+    },
+    {
+      "scenario": "positive",
+      "cycle": 36
+    },
+    {
+      "scenario": "positive",
+      "cycle": 37
+    },
+    {
+      "scenario": "positive",
+      "cycle": 38
+    },
+    {
+      "scenario": "positive",
+      "cycle": 39
+    },
+    {
+      "scenario": "positive",
+      "cycle": 40
+    },
+    {
+      "scenario": "positive",
+      "cycle": 41
+    },
+    {
+      "scenario": "positive",
+      "cycle": 42
+    },
+    {
+      "scenario": "positive",
+      "cycle": 43
+    },
+    {
+      "scenario": "positive",
+      "cycle": 44
+    },
+    {
+      "scenario": "positive",
+      "cycle": 45
+    },
+    {
+      "scenario": "positive",
+      "cycle": 46
+    },
+    {
+      "scenario": "positive",
+      "cycle": 47
+    },
+    {
+      "scenario": "positive",
+      "cycle": 48
+    },
+    {
+      "scenario": "positive",
+      "cycle": 49
+    },
+    {
+      "scenario": "positive",
+      "cycle": 50
+    },
+    {
+      "scenario": "positive",
+      "cycle": 51
+    },
+    {
+      "scenario": "positive",
+      "cycle": 52
+    },
+    {
+      "scenario": "positive",
+      "cycle": 53
+    },
+    {
+      "scenario": "positive",
+      "cycle": 54
+    },
+    {
+      "scenario": "positive",
+      "cycle": 55
+    },
+    {
+      "scenario": "positive",
+      "cycle": 56
+    },
+    {
+      "scenario": "positive",
+      "cycle": 57
+    },
+    {
+      "scenario": "positive",
+      "cycle": 58
+    },
+    {
+      "scenario": "positive",
+      "cycle": 59
+    },
+    {
+      "scenario": "positive",
+      "cycle": 60
+    },
+    {
+      "scenario": "positive",
+      "cycle": 61
+    },
+    {
+      "scenario": "positive",
+      "cycle": 62
+    },
+    {
+      "scenario": "positive",
+      "cycle": 63
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": -3
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": -2
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": -1
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 0
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 1
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 2
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 3
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 4
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 5
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 6
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 7
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 8
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 9
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 10
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 11
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 12
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 13
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 14
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 15
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 16
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 17
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 18
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 19
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 20
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 21
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 22
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 23
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 24
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 25
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 26
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 27
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 28
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 29
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 30
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 31
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 32
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 33
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 34
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 35
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 36
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 37
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 38
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 39
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 40
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 41
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 42
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 43
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 44
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 45
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 46
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 47
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 48
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 49
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 50
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 51
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 52
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 53
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 54
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 55
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 56
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 57
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 58
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 59
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 60
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 61
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 62
+    },
+    {
+      "scenario": "negative_after_reset",
+      "cycle": 63
+    }
+  ]
+}

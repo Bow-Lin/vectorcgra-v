@@ -1,0 +1,276 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "timestamp_utc": "2026-09-21T10:49:45.6853342Z",
+  "baseline_commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+  "branch": "codex/sv-migration",
+  "stage_start_commit": "741dc5d6f2fc1a9770f8764bd29d87e6c4509b61",
+  "plan_commit": "c2a05a0",
+  "reference_commit": "a2162a5",
+  "implementation_commit": "614dc8bd0806c8ae9f99734c7535e2d602f96eaa",
+  "native_module_count": 30,
+  "fixed_core_in_dut": false,
+  "tools": {
+    "yosys": "Yosys 0.69+62 (git sha1 0edda7a3a-dirty, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)",
+    "verilator": "5.050 2026-07-01",
+    "sv2v": "0.0.13",
+    "make": "4.4.1",
+    "compiler": "Clang 22.1.8"
+  },
+  "commands": [
+    "./sv/scripts/run.ps1 -Task all -OssCadSuite D:/work/VectorCGRA/sys_lib/tools/oss-cad-suite -Sv2v D:/work/VectorCGRA/sys_lib/tools/sv2v-v0.0.13/sv2v-Windows/sv2v.exe -Jobs 2",
+    "./sv/scripts/run.ps1 -Task phase2 -OssCadSuite D:/work/VectorCGRA/sys_lib/tools/oss-cad-suite -Sv2v D:/work/VectorCGRA/sys_lib/tools/sv2v-v0.0.13/sv2v-Windows/sv2v.exe -Jobs 2",
+    "C:/msys64/usr/bin/bash.exe sv/tests/run_native_tile.sh",
+    "C:/msys64/usr/bin/bash.exe sv/tests/run_native_noc.sh",
+    "C:/msys64/usr/bin/bash.exe sv/tests/run_native_ring_profiles.sh",
+    "./sv/tests/check_native_noc_synthesis.ps1",
+    "./sv/tests/check_phase2_synthesis.ps1"
+  ],
+  "final_system_runner_exit_codes": {
+    "phase2": 0,
+    "all": 0
+  },
+  "profiles": [
+    {
+      "profile": "2x2",
+      "status": "passed",
+      "parameters": {
+        "COLS": 2,
+        "ROWS": 2,
+        "DATA_W": 32,
+        "CTRL_DEPTH": 8,
+        "REG_DEPTH": 16,
+        "BANK_DEPTH": 16,
+        "NUM_BANKS": 2,
+        "GLOBAL_ADDR_W": 7,
+        "NUM_CTRL": 8,
+        "TOTAL_STEPS": 8
+      },
+      "compared_cycles": 134,
+      "python_replay_cycles": 134,
+      "output_bits_per_cycle": 489,
+      "independent_expected_results": [
+        28,
+        -11
+      ],
+      "scenario_markers": [
+        "SCENARIO_PASS id=0 input=00000007 result=0000001c cycles=64 inputs=26 completions=4 reads=2 west=1 host_stalls=8 west_stalls=8",
+        "SCENARIO_PASS id=1 input=fffffffa result=fffffff5 cycles=64 inputs=26 completions=4 reads=2 west=1 host_stalls=8 west_stalls=8"
+      ],
+      "native_link_acceptances": 8,
+      "reference_rtl_sha256": "c48548b015bfe6612dd6950f4404515a39508323aa640d10f0d73a58aa334f41",
+      "run_log_sha256": "d1112789c0cc7110f06976b686cdfdbe8dabecb888ef5bcf92a64d8c8d374310"
+    },
+    {
+      "profile": "3x2",
+      "status": "passed",
+      "parameters": {
+        "COLS": 3,
+        "ROWS": 2,
+        "DATA_W": 32,
+        "CTRL_DEPTH": 8,
+        "REG_DEPTH": 16,
+        "BANK_DEPTH": 16,
+        "NUM_BANKS": 2,
+        "GLOBAL_ADDR_W": 7,
+        "NUM_CTRL": 8,
+        "TOTAL_STEPS": 8
+      },
+      "compared_cycles": 158,
+      "python_replay_cycles": 158,
+      "output_bits_per_cycle": 563,
+      "independent_expected_results": [
+        12,
+        -27
+      ],
+      "scenario_markers": [
+        "SCENARIO_PASS id=0 input=00000007 result=0000000c cycles=76 inputs=36 completions=6 reads=2 west=1 host_stalls=8 west_stalls=8",
+        "SCENARIO_PASS id=1 input=fffffffa result=ffffffe5 cycles=76 inputs=36 completions=6 reads=2 west=1 host_stalls=8 west_stalls=8"
+      ],
+      "native_link_acceptances": 12,
+      "reference_rtl_sha256": "e15db72b718b672ee423b9635aac3f918fcc84cf03adbf6ac236760011d990c2",
+      "run_log_sha256": "7add5d7db071b5d467235109fc15890163458911417679d246d471c202f24ba5"
+    },
+    {
+      "profile": "4x4",
+      "status": "passed",
+      "parameters": {
+        "COLS": 4,
+        "ROWS": 4,
+        "DATA_W": 32,
+        "CTRL_DEPTH": 8,
+        "REG_DEPTH": 16,
+        "BANK_DEPTH": 16,
+        "NUM_BANKS": 2,
+        "GLOBAL_ADDR_W": 7,
+        "NUM_CTRL": 8,
+        "TOTAL_STEPS": 8
+      },
+      "compared_cycles": 286,
+      "python_replay_cycles": 286,
+      "output_bits_per_cycle": 789,
+      "independent_expected_results": [
+        -68,
+        -107
+      ],
+      "scenario_markers": [
+        "SCENARIO_PASS id=0 input=00000007 result=ffffffbc cycles=140 inputs=86 completions=16 reads=2 west=1 host_stalls=12 west_stalls=8",
+        "SCENARIO_PASS id=1 input=fffffffa result=ffffff95 cycles=140 inputs=86 completions=16 reads=2 west=1 host_stalls=12 west_stalls=8"
+      ],
+      "native_link_acceptances": 32,
+      "reference_rtl_sha256": "5d8222b2ac95f3217968d0787a48d2973cc413cf3652b4dc1918cf7dfae4e93b",
+      "run_log_sha256": "36011b3c43b752beb74f701a3c3190353e5e81c25eca2c42075c3d20221a7588"
+    },
+    {
+      "profile": "2x2-w64-c16-r8",
+      "status": "passed",
+      "parameters": {
+        "COLS": 2,
+        "ROWS": 2,
+        "DATA_W": 64,
+        "CTRL_DEPTH": 16,
+        "REG_DEPTH": 8,
+        "BANK_DEPTH": 16,
+        "NUM_BANKS": 2,
+        "GLOBAL_ADDR_W": 7,
+        "NUM_CTRL": 8,
+        "TOTAL_STEPS": 8
+      },
+      "compared_cycles": 134,
+      "python_replay_cycles": 134,
+      "output_bits_per_cycle": 770,
+      "independent_expected_results": [
+        28,
+        -11
+      ],
+      "scenario_markers": [
+        "SCENARIO_PASS id=0 input=0000000000000007 result=000000000000001c cycles=64 inputs=26 completions=4 reads=2 west=1 host_stalls=8 west_stalls=8",
+        "SCENARIO_PASS id=1 input=fffffffffffffffa result=fffffffffffffff5 cycles=64 inputs=26 completions=4 reads=2 west=1 host_stalls=8 west_stalls=8"
+      ],
+      "native_link_acceptances": 8,
+      "reference_rtl_sha256": "14ab9ebb67461acab241b8602a52947fc63ca3b019e6dd48e7e089e2b94e7547",
+      "run_log_sha256": "4638686b405bb93cb974865ead7aebafedf61f6db4307206165e676952443614"
+    }
+  ],
+  "compatibility_2x2": {
+    "python_replay_cycles": 134,
+    "compared_cycles": 134,
+    "status": "passed",
+    "bits": 489
+  },
+  "negative_controls": {
+    "invalid_total_steps": [
+      {
+        "parameters": {
+          "TOTAL_STEPS": 2048
+        },
+        "status": "passed",
+        "expected": "nonzero elaboration exit at the specified parameter guard",
+        "tool_exit_code": 1,
+        "specified_fatal_message": "TOTAL_STEPS exceeds the ac96 eleven-bit counter",
+        "converted_verilog_line": 6997,
+        "match_method": "Yosys reports the exact $finish file/line; its immediately preceding $display contains the specified fatal text. Yosys does not echo that display text.",
+        "diagnostic": "native.v:6997: ERROR: System task `$finish' executed.",
+        "source_context": [
+          "\t\t\t$display(\"Fatal [%0t] D:\\work\\VectorCGRA\\.worktrees\\VectorCGRA\\sv\\rtl\\cgra\\cgra_scalar.sv:86:7 - cgra_scalar.<unnamed_block>.<unnamed_block>\\n msg: \", $time, \"TOTAL_STEPS exceeds the ac96 eleven-bit counter\");",
+          "\t\t\t$finish(1);"
+        ],
+        "log_sha256": "53164b797e03d56245b193f81b85aef8a30a094ff8e12dffb8b1077dcdeca1db"
+      }
+    ],
+    "incorrect_result": "passed: nonzero exit plus required message",
+    "profiles": [
+      "legacy 2x2",
+      "phase2 3x2"
+    ],
+    "permanent_backpressure": "passed: nonzero exit plus timeout message"
+  },
+  "type_samples": "passed",
+  "component_tests": {
+    "accepted_delivered": {
+      "nodes7": [
+        786,
+        786
+      ],
+      "nodes17": [
+        800,
+        800
+      ],
+      "nodes5": [
+        361,
+        361
+      ]
+    },
+    "tile_verilator_seed_decimal": 31415926,
+    "noc_prng_seed_hex": "0x31415926",
+    "noc_cycles": 500,
+    "ring_prng_seed_hex": "0x27182818",
+    "ring_cycles_each": 800,
+    "tile_units": "1999 samples each for four units",
+    "tile": "2000 raw-output samples"
+  },
+  "synthesis": {
+    "final_problems": 0,
+    "area_measured": false,
+    "flow": "sv2v -> Yosys synth -noabc -> check -assert",
+    "noc_frontend_structural_configurations": 12,
+    "complete_profiles": [
+      "2x2",
+      "4x4",
+      "2x2-w64-c16-r8"
+    ],
+    "profile_report": "phase2-profile-synthesis.json",
+    "frequency_measured": false
+  },
+  "source_sha256": {
+    "rtl/common/cgra_types_pkg.sv": "9a8068f1f4a81062fbd405fdf1615c6a347a65e35ae3e66cfaf077501e565caa",
+    "rtl/common/cgra_register_file.sv": "13856021bc1acb361a12a96870a501dea98856aec5c301dd503b41327323d41d",
+    "rtl/common/cgra_queue.sv": "87e03f556141d8c2c0abe26168ef567ce4b5e456a9f090f9f797aed51a4c4761",
+    "rtl/common/cgra_channel.sv": "0f2d6a0be4202910ffa8ebf3fbed6ed2c08d947ffaf8a11e50e1c195ffa8bf34",
+    "rtl/common/cgra_round_robin.sv": "294d46b6394c205ea67577ef8f4f51b6cc220072051c6a42b3280c5b7ef4b93d",
+    "rtl/noc/cgra_switch.sv": "db3d1610cafc5c86736916a4cac1001e2ad225ba54df278e8b20414bb49866c5",
+    "rtl/noc/cgra_xbar.sv": "ac048fe5d423b3b7bbbe01f34cfbffadd8859ef31df96fb4a9bce2cda3d26b64",
+    "rtl/noc/cgra_credit_send.sv": "a13e8dc3a08906c46c4dc3675beea17ec13e61c729ac665b7a2c4de6dab5f7bd",
+    "rtl/noc/cgra_credit_input.sv": "7d58169e0f7db7b484fa6fb9d3e926ba6de00a971b0cd4b513620a9b4fd8837b",
+    "rtl/noc/cgra_credit_recv.sv": "f6c728e6ea42849f013328018204def97b764662ebd102cadebd5402b1aae0de",
+    "rtl/noc/cgra_ring_route.sv": "d794ba9f657dd7384bb947bf8d5977681e0e7dc14181e9df3989eee04ac1b46b",
+    "rtl/noc/cgra_ring_router.sv": "b15e9d00833d968e97213ea144d75a55ba34e927c8c58e02ffd7f1d94c938e4b",
+    "rtl/noc/cgra_credit_ring.sv": "98213452e10b00072f872e0f81c869d744960d377cbd2735fe534beb7e1aaa70",
+    "rtl/fu/tile_adder.sv": "d9fe057d504e107c6c265e2a7132f915baac90ff749f27ebe40e742bfd9f76f2",
+    "rtl/fu/tile_multiplier.sv": "d4141cf2c17a1b7cb114345a8dcb2ba1ab85dd7017573c5484dcf517ce3123cf",
+    "rtl/fu/tile_memory_fu.sv": "1c3ccd797aca8a4385ad06267afb829023655a8848bd5da516a520ca3de8c5f0",
+    "rtl/fu/tile_nah.sv": "60f96e3d868c67faac3e57d88d30e15f89df90b05fc2e9466984c89fdab257df",
+    "rtl/fu/tile_flexible_fu.sv": "90c718524c954a8b699aa620d73bdce42b1177353eb473c04eb72d200fb2fde0",
+    "rtl/mem/const_queue.sv": "5666b0ba18a21efd186002d5e9e394320d22926637bee4e8af8e93b2d7cd7f17",
+    "rtl/mem/ctrl_mem.sv": "604514cf67ba2590bf6c04be5d50ec1ed291e504390900e74ee6bb6adb0eee6d",
+    "rtl/mem/register_bank.sv": "18b60aa21e281939510a3c81bf2a0c115312a5736a38064529e12f38ea3670b2",
+    "rtl/mem/register_cluster.sv": "903854ddb0af820b110fdb05c0ebe0a1eb66112723542ab011222003fedef0d2",
+    "rtl/mem/cgra_data_bank.sv": "1a5b5aa4cec3ac9f428e80e3da72793a94759ca80aea3ca5cef2177f8152db19",
+    "rtl/mem/cgra_data_memory.sv": "041f51550c9ec3429ed6cbe63f8300f15d10c7545cd53b82003041cfe47c4072",
+    "rtl/tile/tile_static_crossbar.sv": "65e4e626ad967eed9380351e5398fc073a96e5627cb075bb13b993a17ac88390",
+    "rtl/tile/tile_link_or.sv": "b86b2471c44d0e6522d20d4e228e5463721bad6225df4a0f0a315084cf2147bc",
+    "rtl/tile/tile_core.sv": "637571d7bb1cfa865f00894bd6139f59ab9e65e7ea00644bb3b0f3677a7e06a9",
+    "rtl/controller/cgra_global_reduce.sv": "09cec6468cc53aff676cca857c06cb2593e7dcfe25f4f49b10bdfe2bbdf27d8f",
+    "rtl/controller/cgra_controller.sv": "ef0de953a81522f2ecc866d6922d92f386538738d40d8d004eb415a178570393",
+    "rtl/cgra/cgra_scalar.sv": "ef4417c663332d8d625bcd24fe513603a7960f335bc1f54a7ce6bed53c07999d",
+    "rtl/cgra/cgra_2x2.sv": "594608753066235c2f563460323109b82f685aabe763da40e005b7cb40975f9a",
+    "rtl/common/cgra_profile_defs.svh": "0d12ee9bb9fdc2a2c6cc0896bc3b27e56fef78486d2d8d58ed30d35add13a39a",
+    "rtl/common/cgra_profile.svh": "2336dea05a3aba1401ba1a9a29e47bb944679f21a49ebbe06c16d887f7c82cc4",
+    "tests/phase2_tb_cgra_scalar.sv": "b1903e382ad15746d0cd5b5fc16206aa4f60c705f89bf064863b5046323fcc5f",
+    "tests/tb_cgra_2x2_scalar.sv": "39b9deee545341d15170b81cf78e6d7e60f652df05182baa13597faa13aaef07",
+    "tests/scalar_workload_pkg.sv": "104408422389b57683ea59e22e3ea02a82cc9d2c3d45748bafd5829430ca334a",
+    "tests/tb_cgra_types.sv": "4b6cd107e9f97f0e7fa2bdb64e6138a46ec24b4e5a411ab2c9c63b3573197c5b",
+    "Makefile": "c95c498288e13e1932b2ca956c29913462027754d7fbbc25ab52f87a289b42c2",
+    "scripts/run.ps1": "3473a83dcbc929fe73313f0572552c0977367c2a0d821d3084e36abd897b5cfa",
+    "filelists/rtl.f": "b513558b37f1f44761a15e0ce5c8be46979226d99d126968b62a73cfabc8f51a",
+    "filelists/sim.f": "5a38683f86100f5d985456c5a70740fdc9b5118f4744faaccd7fc50f5ee9c0f8"
+  },
+  "limitations": [
+    "Finite two-state differential and independent workload tests, not formal equivalence for all programs, parameters, or four-state X propagation.",
+    "Original undriven domains and known baseline defects remain; initial Yosys warnings are not removed by a final zero-problem check.",
+    "64-bit/depth variant does not exercise every register index or high control address.",
+    "Vector, floating point, other Tile variants, multi-CGRA and DMA/im2col remain later stages.",
+    "No new standard-cell area or frequency result in this stage."
+  ],
+  "archive_manifest": "phase2-evidence-manifest.json"
+}

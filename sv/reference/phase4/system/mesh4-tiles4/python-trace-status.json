@@ -1,0 +1,11 @@
+{
+  "status": "stopped_without_cycle_trace",
+  "reason": "64-Tile Python simulation remained in its first scenario after the recorded elapsed time. This profile uses the already frozen unmodified ac96 HDL plus an independent SV arithmetic/transaction oracle; Python three-way comparison is not claimed.",
+  "verified_command": "sv/migration_tools/phase4_multi_export.py --topology mesh --tiles 4",
+  "pid": 5900,
+  "started": "2026-09-22T08:31:49.7303859+08:00",
+  "stopped": "2026-09-22T09:41:27.7221913+08:00",
+  "elapsed_seconds": 4178.0149213,
+  "cpu_seconds": 2331.0,
+  "original_hdl_sha256": "1ac181e58a771dcc6d77f04d1b5a17ffbe6615fb7549d23559d6054b71bcf32b"
+}

@@ -1,0 +1,2539 @@
+{
+  "schema": 1,
+  "revision": "c3184dc07ca3a0572a5e7e92fac7e2a5efb38ea6",
+  "branch": "codex/sv-migration-phase4",
+  "methodology": "Only Git-tracked files at the pinned phase4 delivery revision; raw working bytes checked against Git blob IDs. Physical lines include blank lines/comments; binary archives excluded from LOC. Native DUT set is native.f plus recursively resolved literal include headers. No reference/generated/history HDL is counted as native implementation; no phase5 draft files.",
+  "tracked_sv_files": 937,
+  "tracked_files_by_top_directory": {
+    "(root)": 10,
+    "filelists": 8,
+    "licenses": 2,
+    "migration_tools": 69,
+    "reference": 409,
+    "results": 33,
+    "rtl": 107,
+    "scripts": 4,
+    "tests": 229,
+    "vectors": 66
+  },
+  "direct_native_filelist": {
+    "files": 94,
+    "physical_lines": 16624,
+    "nonblank_lines": 16156,
+    "paths": [
+      "sv/rtl/cgra/cgra_2x2.sv",
+      "sv/rtl/cgra/cgra_multi.sv",
+      "sv/rtl/cgra/cgra_multi_template.sv",
+      "sv/rtl/cgra/cgra_programmable.sv",
+      "sv/rtl/cgra/cgra_scalar.sv",
+      "sv/rtl/cgra/cgra_system.sv",
+      "sv/rtl/common/cgra_channel.sv",
+      "sv/rtl/common/cgra_queue.sv",
+      "sv/rtl/common/cgra_register_file.sv",
+      "sv/rtl/common/cgra_round_robin.sv",
+      "sv/rtl/common/cgra_types_pkg.sv",
+      "sv/rtl/controller/cgra_controller.sv",
+      "sv/rtl/controller/cgra_global_reduce.sv",
+      "sv/rtl/fu/combo/cgra_alu_gen_mac.sv",
+      "sv/rtl/fu/combo/cgra_alu_gen_mac_core.sv",
+      "sv/rtl/fu/combo/cgra_multp.sv",
+      "sv/rtl/fu/combo/tile_alu_gen_mac.sv",
+      "sv/rtl/fu/combo/tile_four_inc_cmp_not_grant.sv",
+      "sv/rtl/fu/combo/tile_prl_mul_adder.sv",
+      "sv/rtl/fu/combo/tile_seq_mul_adder.sv",
+      "sv/rtl/fu/combo/tile_seq_mul_shifter.sv",
+      "sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv",
+      "sv/rtl/fu/float/cgra_hardfloat_fn.sv",
+      "sv/rtl/fu/float/tile_fp_add.sv",
+      "sv/rtl/fu/float/tile_fp_fu.sv",
+      "sv/rtl/fu/float/tile_fp_mul.sv",
+      "sv/rtl/fu/scalar/scalar_comp.sv",
+      "sv/rtl/fu/scalar/scalar_const.sv",
+      "sv/rtl/fu/scalar/scalar_div.sv",
+      "sv/rtl/fu/scalar/scalar_div_pipeline.sv",
+      "sv/rtl/fu/scalar/scalar_exclusive_div.sv",
+      "sv/rtl/fu/scalar/scalar_extract_predicate.sv",
+      "sv/rtl/fu/scalar/scalar_gep.sv",
+      "sv/rtl/fu/scalar/scalar_grant.sv",
+      "sv/rtl/fu/scalar/scalar_inclusive_div.sv",
+      "sv/rtl/fu/scalar/scalar_logic.sv",
+      "sv/rtl/fu/scalar/scalar_loop_control.sv",
+      "sv/rtl/fu/scalar/scalar_loop_counter.sv",
+      "sv/rtl/fu/scalar/scalar_phi.sv",
+      "sv/rtl/fu/scalar/scalar_ret.sv",
+      "sv/rtl/fu/scalar/scalar_sel.sv",
+      "sv/rtl/fu/scalar/scalar_shifter.sv",
+      "sv/rtl/fu/streaming/tile_streaming_memory_fu.sv",
+      "sv/rtl/fu/tile_adder.sv",
+      "sv/rtl/fu/tile_flexible_fu.sv",
+      "sv/rtl/fu/tile_flexible_fu_configurable.sv",
+      "sv/rtl/fu/tile_memory_fu.sv",
+      "sv/rtl/fu/tile_multiplier.sv",
+      "sv/rtl/fu/tile_nah.sv",
+      "sv/rtl/fu/vector/cgra_vector_adder.sv",
+      "sv/rtl/fu/vector/cgra_vector_mul.sv",
+      "sv/rtl/fu/vector/tile_vector_adder_combo.sv",
+      "sv/rtl/fu/vector/tile_vector_all_reduce.sv",
+      "sv/rtl/fu/vector/tile_vector_mul_combo.sv",
+      "sv/rtl/mem/cgra_data_bank.sv",
+      "sv/rtl/mem/cgra_data_memory.sv",
+      "sv/rtl/mem/const_queue.sv",
+      "sv/rtl/mem/ctrl_mem.sv",
+      "sv/rtl/mem/register_bank.sv",
+      "sv/rtl/mem/register_cluster.sv",
+      "sv/rtl/noc/cgra_credit_input.sv",
+      "sv/rtl/noc/cgra_credit_recv.sv",
+      "sv/rtl/noc/cgra_credit_ring.sv",
+      "sv/rtl/noc/cgra_credit_send.sv",
+      "sv/rtl/noc/cgra_ring_route.sv",
+      "sv/rtl/noc/cgra_ring_router.sv",
+      "sv/rtl/noc/cgra_switch.sv",
+      "sv/rtl/noc/cgra_xbar.sv",
+      "sv/rtl/noc/inter_cgra/cgra_inter_mesh.sv",
+      "sv/rtl/noc/inter_cgra/cgra_inter_mesh_route.sv",
+      "sv/rtl/noc/inter_cgra/cgra_inter_mesh_router.sv",
+      "sv/rtl/noc/inter_cgra/cgra_inter_ring.sv",
+      "sv/rtl/peripheral/cgra_dma_engine.sv",
+      "sv/rtl/peripheral/cgra_im2col_engine.sv",
+      "sv/rtl/peripheral/cgra_integrated_dma.sv",
+      "sv/rtl/peripheral/cgra_integrated_im2col.sv",
+      "sv/rtl/tile/tile_core.sv",
+      "sv/rtl/tile/tile_link_or.sv",
+      "sv/rtl/tile/tile_programmable.sv",
+      "sv/rtl/tile/tile_static_crossbar.sv",
+      "sv/rtl/tile/variants/tile_context.sv",
+      "sv/rtl/tile/variants/tile_context_switch.sv",
+      "sv/rtl/tile/variants/tile_streaming.sv",
+      "sv/rtl/tile/variants/tile_variant_const_queue.sv",
+      "sv/rtl/tile/variants/tile_variant_core.sv",
+      "sv/rtl/tile/variants/tile_variant_crossbar.sv",
+      "sv/rtl/tile/variants/tile_variant_ctrl_mem.sv",
+      "sv/rtl/vendor/hardfloat/HardFloat_primitives.v",
+      "sv/rtl/vendor/hardfloat/HardFloat_rawFN.v",
+      "sv/rtl/vendor/hardfloat/addRecFN.v",
+      "sv/rtl/vendor/hardfloat/fNToRecFN.v",
+      "sv/rtl/vendor/hardfloat/isSigNaNRecFN.v",
+      "sv/rtl/vendor/hardfloat/mulRecFN.v",
+      "sv/rtl/vendor/hardfloat/recFNToFN.v"
+    ]
+  },
+  "included_headers": {
+    "files": 7,
+    "physical_lines": 410,
+    "nonblank_lines": 355,
+    "paths": [
+      "sv/rtl/common/cgra_fu_catalog.svh",
+      "sv/rtl/common/cgra_profile.svh",
+      "sv/rtl/common/cgra_profile_defs.svh",
+      "sv/rtl/vendor/hardfloat/HardFloat_consts.vi",
+      "sv/rtl/vendor/hardfloat/HardFloat_localFuncs.vi",
+      "sv/rtl/vendor/hardfloat/HardFloat_specialize.vi",
+      "sv/rtl/vendor/hardfloat/RISCV/HardFloat_specialize.vi"
+    ]
+  },
+  "active_dut_total": {
+    "files": 101,
+    "physical_lines": 17034,
+    "nonblank_lines": 16511,
+    "paths": [
+      "sv/rtl/cgra/cgra_2x2.sv",
+      "sv/rtl/cgra/cgra_multi.sv",
+      "sv/rtl/cgra/cgra_multi_template.sv",
+      "sv/rtl/cgra/cgra_programmable.sv",
+      "sv/rtl/cgra/cgra_scalar.sv",
+      "sv/rtl/cgra/cgra_system.sv",
+      "sv/rtl/common/cgra_channel.sv",
+      "sv/rtl/common/cgra_fu_catalog.svh",
+      "sv/rtl/common/cgra_profile.svh",
+      "sv/rtl/common/cgra_profile_defs.svh",
+      "sv/rtl/common/cgra_queue.sv",
+      "sv/rtl/common/cgra_register_file.sv",
+      "sv/rtl/common/cgra_round_robin.sv",
+      "sv/rtl/common/cgra_types_pkg.sv",
+      "sv/rtl/controller/cgra_controller.sv",
+      "sv/rtl/controller/cgra_global_reduce.sv",
+      "sv/rtl/fu/combo/cgra_alu_gen_mac.sv",
+      "sv/rtl/fu/combo/cgra_alu_gen_mac_core.sv",
+      "sv/rtl/fu/combo/cgra_multp.sv",
+      "sv/rtl/fu/combo/tile_alu_gen_mac.sv",
+      "sv/rtl/fu/combo/tile_four_inc_cmp_not_grant.sv",
+      "sv/rtl/fu/combo/tile_prl_mul_adder.sv",
+      "sv/rtl/fu/combo/tile_seq_mul_adder.sv",
+      "sv/rtl/fu/combo/tile_seq_mul_shifter.sv",
+      "sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv",
+      "sv/rtl/fu/float/cgra_hardfloat_fn.sv",
+      "sv/rtl/fu/float/tile_fp_add.sv",
+      "sv/rtl/fu/float/tile_fp_fu.sv",
+      "sv/rtl/fu/float/tile_fp_mul.sv",
+      "sv/rtl/fu/scalar/scalar_comp.sv",
+      "sv/rtl/fu/scalar/scalar_const.sv",
+      "sv/rtl/fu/scalar/scalar_div.sv",
+      "sv/rtl/fu/scalar/scalar_div_pipeline.sv",
+      "sv/rtl/fu/scalar/scalar_exclusive_div.sv",
+      "sv/rtl/fu/scalar/scalar_extract_predicate.sv",
+      "sv/rtl/fu/scalar/scalar_gep.sv",
+      "sv/rtl/fu/scalar/scalar_grant.sv",
+      "sv/rtl/fu/scalar/scalar_inclusive_div.sv",
+      "sv/rtl/fu/scalar/scalar_logic.sv",
+      "sv/rtl/fu/scalar/scalar_loop_control.sv",
+      "sv/rtl/fu/scalar/scalar_loop_counter.sv",
+      "sv/rtl/fu/scalar/scalar_phi.sv",
+      "sv/rtl/fu/scalar/scalar_ret.sv",
+      "sv/rtl/fu/scalar/scalar_sel.sv",
+      "sv/rtl/fu/scalar/scalar_shifter.sv",
+      "sv/rtl/fu/streaming/tile_streaming_memory_fu.sv",
+      "sv/rtl/fu/tile_adder.sv",
+      "sv/rtl/fu/tile_flexible_fu.sv",
+      "sv/rtl/fu/tile_flexible_fu_configurable.sv",
+      "sv/rtl/fu/tile_memory_fu.sv",
+      "sv/rtl/fu/tile_multiplier.sv",
+      "sv/rtl/fu/tile_nah.sv",
+      "sv/rtl/fu/vector/cgra_vector_adder.sv",
+      "sv/rtl/fu/vector/cgra_vector_mul.sv",
+      "sv/rtl/fu/vector/tile_vector_adder_combo.sv",
+      "sv/rtl/fu/vector/tile_vector_all_reduce.sv",
+      "sv/rtl/fu/vector/tile_vector_mul_combo.sv",
+      "sv/rtl/mem/cgra_data_bank.sv",
+      "sv/rtl/mem/cgra_data_memory.sv",
+      "sv/rtl/mem/const_queue.sv",
+      "sv/rtl/mem/ctrl_mem.sv",
+      "sv/rtl/mem/register_bank.sv",
+      "sv/rtl/mem/register_cluster.sv",
+      "sv/rtl/noc/cgra_credit_input.sv",
+      "sv/rtl/noc/cgra_credit_recv.sv",
+      "sv/rtl/noc/cgra_credit_ring.sv",
+      "sv/rtl/noc/cgra_credit_send.sv",
+      "sv/rtl/noc/cgra_ring_route.sv",
+      "sv/rtl/noc/cgra_ring_router.sv",
+      "sv/rtl/noc/cgra_switch.sv",
+      "sv/rtl/noc/cgra_xbar.sv",
+      "sv/rtl/noc/inter_cgra/cgra_inter_mesh.sv",
+      "sv/rtl/noc/inter_cgra/cgra_inter_mesh_route.sv",
+      "sv/rtl/noc/inter_cgra/cgra_inter_mesh_router.sv",
+      "sv/rtl/noc/inter_cgra/cgra_inter_ring.sv",
+      "sv/rtl/peripheral/cgra_dma_engine.sv",
+      "sv/rtl/peripheral/cgra_im2col_engine.sv",
+      "sv/rtl/peripheral/cgra_integrated_dma.sv",
+      "sv/rtl/peripheral/cgra_integrated_im2col.sv",
+      "sv/rtl/tile/tile_core.sv",
+      "sv/rtl/tile/tile_link_or.sv",
+      "sv/rtl/tile/tile_programmable.sv",
+      "sv/rtl/tile/tile_static_crossbar.sv",
+      "sv/rtl/tile/variants/tile_context.sv",
+      "sv/rtl/tile/variants/tile_context_switch.sv",
+      "sv/rtl/tile/variants/tile_streaming.sv",
+      "sv/rtl/tile/variants/tile_variant_const_queue.sv",
+      "sv/rtl/tile/variants/tile_variant_core.sv",
+      "sv/rtl/tile/variants/tile_variant_crossbar.sv",
+      "sv/rtl/tile/variants/tile_variant_ctrl_mem.sv",
+      "sv/rtl/vendor/hardfloat/HardFloat_consts.vi",
+      "sv/rtl/vendor/hardfloat/HardFloat_localFuncs.vi",
+      "sv/rtl/vendor/hardfloat/HardFloat_primitives.v",
+      "sv/rtl/vendor/hardfloat/HardFloat_rawFN.v",
+      "sv/rtl/vendor/hardfloat/HardFloat_specialize.vi",
+      "sv/rtl/vendor/hardfloat/RISCV/HardFloat_specialize.vi",
+      "sv/rtl/vendor/hardfloat/addRecFN.v",
+      "sv/rtl/vendor/hardfloat/fNToRecFN.v",
+      "sv/rtl/vendor/hardfloat/isSigNaNRecFN.v",
+      "sv/rtl/vendor/hardfloat/mulRecFN.v",
+      "sv/rtl/vendor/hardfloat/recFNToFN.v"
+    ]
+  },
+  "maintained_native_sv": {
+    "files": 90,
+    "physical_lines": 15563,
+    "nonblank_lines": 15237,
+    "paths": [
+      "sv/rtl/cgra/cgra_2x2.sv",
+      "sv/rtl/cgra/cgra_multi.sv",
+      "sv/rtl/cgra/cgra_multi_template.sv",
+      "sv/rtl/cgra/cgra_programmable.sv",
+      "sv/rtl/cgra/cgra_scalar.sv",
+      "sv/rtl/cgra/cgra_system.sv",
+      "sv/rtl/common/cgra_channel.sv",
+      "sv/rtl/common/cgra_fu_catalog.svh",
+      "sv/rtl/common/cgra_profile.svh",
+      "sv/rtl/common/cgra_profile_defs.svh",
+      "sv/rtl/common/cgra_queue.sv",
+      "sv/rtl/common/cgra_register_file.sv",
+      "sv/rtl/common/cgra_round_robin.sv",
+      "sv/rtl/common/cgra_types_pkg.sv",
+      "sv/rtl/controller/cgra_controller.sv",
+      "sv/rtl/controller/cgra_global_reduce.sv",
+      "sv/rtl/fu/combo/cgra_alu_gen_mac.sv",
+      "sv/rtl/fu/combo/cgra_alu_gen_mac_core.sv",
+      "sv/rtl/fu/combo/cgra_multp.sv",
+      "sv/rtl/fu/combo/tile_alu_gen_mac.sv",
+      "sv/rtl/fu/combo/tile_four_inc_cmp_not_grant.sv",
+      "sv/rtl/fu/combo/tile_prl_mul_adder.sv",
+      "sv/rtl/fu/combo/tile_seq_mul_adder.sv",
+      "sv/rtl/fu/combo/tile_seq_mul_shifter.sv",
+      "sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv",
+      "sv/rtl/fu/float/cgra_hardfloat_fn.sv",
+      "sv/rtl/fu/float/tile_fp_add.sv",
+      "sv/rtl/fu/float/tile_fp_fu.sv",
+      "sv/rtl/fu/float/tile_fp_mul.sv",
+      "sv/rtl/fu/scalar/scalar_comp.sv",
+      "sv/rtl/fu/scalar/scalar_const.sv",
+      "sv/rtl/fu/scalar/scalar_div.sv",
+      "sv/rtl/fu/scalar/scalar_div_pipeline.sv",
+      "sv/rtl/fu/scalar/scalar_exclusive_div.sv",
+      "sv/rtl/fu/scalar/scalar_extract_predicate.sv",
+      "sv/rtl/fu/scalar/scalar_gep.sv",
+      "sv/rtl/fu/scalar/scalar_grant.sv",
+      "sv/rtl/fu/scalar/scalar_inclusive_div.sv",
+      "sv/rtl/fu/scalar/scalar_logic.sv",
+      "sv/rtl/fu/scalar/scalar_loop_control.sv",
+      "sv/rtl/fu/scalar/scalar_loop_counter.sv",
+      "sv/rtl/fu/scalar/scalar_phi.sv",
+      "sv/rtl/fu/scalar/scalar_ret.sv",
+      "sv/rtl/fu/scalar/scalar_sel.sv",
+      "sv/rtl/fu/scalar/scalar_shifter.sv",
+      "sv/rtl/fu/streaming/tile_streaming_memory_fu.sv",
+      "sv/rtl/fu/tile_adder.sv",
+      "sv/rtl/fu/tile_flexible_fu.sv",
+      "sv/rtl/fu/tile_flexible_fu_configurable.sv",
+      "sv/rtl/fu/tile_memory_fu.sv",
+      "sv/rtl/fu/tile_multiplier.sv",
+      "sv/rtl/fu/tile_nah.sv",
+      "sv/rtl/fu/vector/cgra_vector_adder.sv",
+      "sv/rtl/fu/vector/cgra_vector_mul.sv",
+      "sv/rtl/fu/vector/tile_vector_adder_combo.sv",
+      "sv/rtl/fu/vector/tile_vector_all_reduce.sv",
+      "sv/rtl/fu/vector/tile_vector_mul_combo.sv",
+      "sv/rtl/mem/cgra_data_bank.sv",
+      "sv/rtl/mem/cgra_data_memory.sv",
+      "sv/rtl/mem/const_queue.sv",
+      "sv/rtl/mem/ctrl_mem.sv",
+      "sv/rtl/mem/register_bank.sv",
+      "sv/rtl/mem/register_cluster.sv",
+      "sv/rtl/noc/cgra_credit_input.sv",
+      "sv/rtl/noc/cgra_credit_recv.sv",
+      "sv/rtl/noc/cgra_credit_ring.sv",
+      "sv/rtl/noc/cgra_credit_send.sv",
+      "sv/rtl/noc/cgra_ring_route.sv",
+      "sv/rtl/noc/cgra_ring_router.sv",
+      "sv/rtl/noc/cgra_switch.sv",
+      "sv/rtl/noc/cgra_xbar.sv",
+      "sv/rtl/noc/inter_cgra/cgra_inter_mesh.sv",
+      "sv/rtl/noc/inter_cgra/cgra_inter_mesh_route.sv",
+      "sv/rtl/noc/inter_cgra/cgra_inter_mesh_router.sv",
+      "sv/rtl/noc/inter_cgra/cgra_inter_ring.sv",
+      "sv/rtl/peripheral/cgra_dma_engine.sv",
+      "sv/rtl/peripheral/cgra_im2col_engine.sv",
+      "sv/rtl/peripheral/cgra_integrated_dma.sv",
+      "sv/rtl/peripheral/cgra_integrated_im2col.sv",
+      "sv/rtl/tile/tile_core.sv",
+      "sv/rtl/tile/tile_link_or.sv",
+      "sv/rtl/tile/tile_programmable.sv",
+      "sv/rtl/tile/tile_static_crossbar.sv",
+      "sv/rtl/tile/variants/tile_context.sv",
+      "sv/rtl/tile/variants/tile_context_switch.sv",
+      "sv/rtl/tile/variants/tile_streaming.sv",
+      "sv/rtl/tile/variants/tile_variant_const_queue.sv",
+      "sv/rtl/tile/variants/tile_variant_core.sv",
+      "sv/rtl/tile/variants/tile_variant_crossbar.sv",
+      "sv/rtl/tile/variants/tile_variant_ctrl_mem.sv"
+    ]
+  },
+  "reused_vendor_hdl": {
+    "files": 11,
+    "physical_lines": 1471,
+    "nonblank_lines": 1274,
+    "paths": [
+      "sv/rtl/vendor/hardfloat/HardFloat_consts.vi",
+      "sv/rtl/vendor/hardfloat/HardFloat_localFuncs.vi",
+      "sv/rtl/vendor/hardfloat/HardFloat_primitives.v",
+      "sv/rtl/vendor/hardfloat/HardFloat_rawFN.v",
+      "sv/rtl/vendor/hardfloat/HardFloat_specialize.vi",
+      "sv/rtl/vendor/hardfloat/RISCV/HardFloat_specialize.vi",
+      "sv/rtl/vendor/hardfloat/addRecFN.v",
+      "sv/rtl/vendor/hardfloat/fNToRecFN.v",
+      "sv/rtl/vendor/hardfloat/isSigNaNRecFN.v",
+      "sv/rtl/vendor/hardfloat/mulRecFN.v",
+      "sv/rtl/vendor/hardfloat/recFNToFN.v"
+    ]
+  },
+  "test_hdl": {
+    "files": 77,
+    "physical_lines": 16249,
+    "nonblank_lines": 16077,
+    "paths": [
+      "sv/tests/phase2_tb_cgra_scalar.sv",
+      "sv/tests/phase3/float/tb_float.sv",
+      "sv/tests/phase3/scalar/w32/references.sv",
+      "sv/tests/phase3/scalar/w32/tb_scalar.sv",
+      "sv/tests/phase3/scalar/w64/references.sv",
+      "sv/tests/phase3/scalar/w64/tb_scalar.sv",
+      "sv/tests/phase3/system/tb_programmable_base.sv",
+      "sv/tests/phase3/system/tb_programmable_float.sv",
+      "sv/tests/phase3/system/tb_programmable_logic.sv",
+      "sv/tests/phase3/system/tb_programmable_vector.sv",
+      "sv/tests/phase3/tile_variants/tb_cgra_context.sv",
+      "sv/tests/phase3/tile_variants/tb_cgra_streaming.sv",
+      "sv/tests/phase3/tile_variants/tb_context_switch.sv",
+      "sv/tests/phase3/tile_variants/tb_streaming_memory.sv",
+      "sv/tests/phase3/tile_variants/tb_tile_context.sv",
+      "sv/tests/phase3/tile_variants/tb_tile_streaming.sv",
+      "sv/tests/phase3/vector_combo/alu_gen_mac_w16_l4_b8_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/alu_gen_mac_wrapper_w16_l4_b8_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/four_inc_cmp_not_grant_w32_l4_b8_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/four_inc_cmp_not_grant_w64_l4_b8_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/prl_mul_adder_w32_l4_b8_v0_ctrl2/tb.sv",
+      "sv/tests/phase3/vector_combo/prl_mul_adder_w64_l4_b8_v0_ctrl2/tb.sv",
+      "sv/tests/phase3/vector_combo/seq_mul_adder_w32_l4_b8_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/seq_mul_adder_w64_l4_b8_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/seq_mul_shifter_w32_l4_b8_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/seq_mul_shifter_w64_l4_b8_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/tb_multp.sv",
+      "sv/tests/phase3/vector_combo/three_mul_adder_shifter_w32_l4_b8_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/three_mul_adder_shifter_w64_l4_b8_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/vector_adder_combo_w32_l1_b8_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/vector_adder_combo_w32_l2_b8_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/vector_adder_combo_w32_l4_b8_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/vector_adder_combo_w32_l8_b8_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/vector_adder_combo_w64_l8_b8_v3/tb.sv",
+      "sv/tests/phase3/vector_combo/vector_adder_w32_l4_b16_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/vector_adder_w32_l4_b1_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/vector_adder_w32_l4_b8_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/vector_all_reduce_w32_l4_b8_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/vector_all_reduce_w32_l8_b8_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/vector_all_reduce_w64_l8_b8_v3/tb.sv",
+      "sv/tests/phase3/vector_combo/vector_mul_combo_w32_l4_b8_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/vector_mul_combo_w32_l8_b8_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/vector_mul_combo_w64_l4_b8_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/vector_mul_combo_w64_l8_b8_v3/tb.sv",
+      "sv/tests/phase3/vector_combo/vector_mul_w32_l4_b16_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/vector_mul_w32_l4_b1_v0/tb.sv",
+      "sv/tests/phase3/vector_combo/vector_mul_w32_l4_b8_v0/tb.sv",
+      "sv/tests/phase4/memory/tb_memory_asymmetric.sv",
+      "sv/tests/phase4/migration/dynamic_fir/tb_multi_migration.sv",
+      "sv/tests/phase4/migration/global_add/tb_multi_migration.sv",
+      "sv/tests/phase4/noc/mesh_2x2_l0_w32/profile.svh",
+      "sv/tests/phase4/noc/mesh_2x2_l1_w32/profile.svh",
+      "sv/tests/phase4/noc/mesh_2x2_l2_w32/profile.svh",
+      "sv/tests/phase4/noc/mesh_3x2_l1_w64/profile.svh",
+      "sv/tests/phase4/noc/ring_2_l1_w32/profile.svh",
+      "sv/tests/phase4/noc/ring_3_l1_w32/profile.svh",
+      "sv/tests/phase4/noc/ring_4_l0_w32/profile.svh",
+      "sv/tests/phase4/noc/ring_4_l1_w32/profile.svh",
+      "sv/tests/phase4/noc/ring_6_l1_w64/profile.svh",
+      "sv/tests/phase4/noc/tb_inter_cgra_noc.sv",
+      "sv/tests/phase4/peripheral/tb_dma.sv",
+      "sv/tests/phase4/peripheral/tb_dma_small.sv",
+      "sv/tests/phase4/peripheral/tb_dma_system.sv",
+      "sv/tests/phase4/peripheral/tb_im2col.sv",
+      "sv/tests/phase4/peripheral/tb_im2col_system.sv",
+      "sv/tests/phase4/peripheral/tb_im2col_wide.sv",
+      "sv/tests/phase4/system/tb_multi.sv",
+      "sv/tests/phase4/template/heterogeneous/architecture.svh",
+      "sv/tests/phase4/template/synthesis_profile.sv",
+      "sv/tests/phase4/template/tb_template.sv",
+      "sv/tests/scalar_workload_pkg.sv",
+      "sv/tests/tb_cgra_2x2_scalar.sv",
+      "sv/tests/tb_cgra_types.sv",
+      "sv/tests/tb_native_noc.sv",
+      "sv/tests/tb_native_ring_profiles.sv",
+      "sv/tests/tb_native_tile.sv",
+      "sv/tests/tb_native_tile_units.sv"
+    ]
+  },
+  "build_and_test_scripts": {
+    "files": 42,
+    "physical_lines": 1821,
+    "nonblank_lines": 1799,
+    "paths": [
+      "sv/Makefile",
+      "sv/scripts/run.ps1",
+      "sv/tests/check_native_noc_synthesis.ps1",
+      "sv/tests/check_phase2_synthesis.ps1",
+      "sv/tests/phase3/float/check_synthesis.ps1",
+      "sv/tests/phase3/float/run.sh",
+      "sv/tests/phase3/scalar/check_synthesis.sh",
+      "sv/tests/phase3/scalar/run.sh",
+      "sv/tests/phase3/system/check_guard.ps1",
+      "sv/tests/phase3/system/check_synthesis.ps1",
+      "sv/tests/phase3/system/run_base.sh",
+      "sv/tests/phase3/system/run_float.sh",
+      "sv/tests/phase3/system/run_logic.sh",
+      "sv/tests/phase3/system/run_negative.sh",
+      "sv/tests/phase3/system/run_vector.sh",
+      "sv/tests/phase3/tile_variants/check_synthesis.ps1",
+      "sv/tests/phase3/tile_variants/collect_results.ps1",
+      "sv/tests/phase3/tile_variants/run_cgra.sh",
+      "sv/tests/phase3/tile_variants/run_components.sh",
+      "sv/tests/phase3/tile_variants/run_tiles.sh",
+      "sv/tests/phase3/vector_combo/check_synthesis.ps1",
+      "sv/tests/phase3/vector_combo/run.sh",
+      "sv/tests/phase3/vector_combo/run_multp.sh",
+      "sv/tests/phase3/vector_combo/run_negative.sh",
+      "sv/tests/phase4/memory/run.sh",
+      "sv/tests/phase4/migration/run.sh",
+      "sv/tests/phase4/noc/check_synthesis.ps1",
+      "sv/tests/phase4/noc/run.sh",
+      "sv/tests/phase4/noc/run_negative.sh",
+      "sv/tests/phase4/peripheral/check_synthesis.ps1",
+      "sv/tests/phase4/peripheral/check_system_synthesis.ps1",
+      "sv/tests/phase4/peripheral/collect_results.ps1",
+      "sv/tests/phase4/peripheral/run_components.sh",
+      "sv/tests/phase4/peripheral/run_systems.sh",
+      "sv/tests/phase4/system/check_synthesis.ps1",
+      "sv/tests/phase4/system/replay.sh",
+      "sv/tests/phase4/system/run.sh",
+      "sv/tests/phase4/system/run_negative.sh",
+      "sv/tests/phase4/template/run.sh",
+      "sv/tests/run_native_noc.sh",
+      "sv/tests/run_native_ring_profiles.sh",
+      "sv/tests/run_native_tile.sh"
+    ]
+  },
+  "filelists": {
+    "files": 8,
+    "physical_lines": 343,
+    "nonblank_lines": 342,
+    "paths": [
+      "sv/filelists/native.f",
+      "sv/filelists/phase3.f",
+      "sv/filelists/phase3_float.f",
+      "sv/filelists/phase4.f",
+      "sv/filelists/phase4_noc.f",
+      "sv/filelists/phase4_peripheral.f",
+      "sv/filelists/rtl.f",
+      "sv/filelists/sim.f"
+    ]
+  },
+  "migration_evidence_python": {
+    "files": 68,
+    "physical_lines": 8240,
+    "nonblank_lines": 7832,
+    "paths": [
+      "sv/migration_tools/export_packing_and_replay.py",
+      "sv/migration_tools/export_reference.py",
+      "sv/migration_tools/export_vectors.py",
+      "sv/migration_tools/freeze_core.py",
+      "sv/migration_tools/phase2_export.py",
+      "sv/migration_tools/phase2_port_support.py",
+      "sv/migration_tools/phase2_testbench.py",
+      "sv/migration_tools/phase3_cgra_port.py",
+      "sv/migration_tools/phase3_collect.py",
+      "sv/migration_tools/phase3_flexible_port.py",
+      "sv/migration_tools/phase3_float_export.py",
+      "sv/migration_tools/phase3_float_port.py",
+      "sv/migration_tools/phase3_float_portable.py",
+      "sv/migration_tools/phase3_float_results.py",
+      "sv/migration_tools/phase3_float_testbench.py",
+      "sv/migration_tools/phase3_fp_system_export.py",
+      "sv/migration_tools/phase3_fp_system_scaffold.py",
+      "sv/migration_tools/phase3_logic_export.py",
+      "sv/migration_tools/phase3_logic_scaffold.py",
+      "sv/migration_tools/phase3_scalar_export.py",
+      "sv/migration_tools/phase3_scalar_port.py",
+      "sv/migration_tools/phase3_scalar_provenance.py",
+      "sv/migration_tools/phase3_scalar_results.py",
+      "sv/migration_tools/phase3_scalar_testbench.py",
+      "sv/migration_tools/phase3_scalar_vectors.py",
+      "sv/migration_tools/phase3_tile_port.py",
+      "sv/migration_tools/phase3_variants_cgra_bench.py",
+      "sv/migration_tools/phase3_variants_cgra_trace.py",
+      "sv/migration_tools/phase3_variants_component_tests.py",
+      "sv/migration_tools/phase3_variants_export.py",
+      "sv/migration_tools/phase3_variants_local_modules.py",
+      "sv/migration_tools/phase3_variants_probe.py",
+      "sv/migration_tools/phase3_variants_streaming_bench.py",
+      "sv/migration_tools/phase3_variants_tile_bench.py",
+      "sv/migration_tools/phase3_variants_tile_source.py",
+      "sv/migration_tools/phase3_variants_tile_trace.py",
+      "sv/migration_tools/phase3_vector_export.py",
+      "sv/migration_tools/phase3_vector_mul_probe.py",
+      "sv/migration_tools/phase3_vector_outer_port.py",
+      "sv/migration_tools/phase3_vector_port.py",
+      "sv/migration_tools/phase3_vector_results.py",
+      "sv/migration_tools/phase3_vector_system_export.py",
+      "sv/migration_tools/phase3_vector_system_results.py",
+      "sv/migration_tools/phase3_vector_system_scaffold.py",
+      "sv/migration_tools/phase3_vector_testbench.py",
+      "sv/migration_tools/phase4_collect.py",
+      "sv/migration_tools/phase4_compatibility_scope.py",
+      "sv/migration_tools/phase4_memory_bench.py",
+      "sv/migration_tools/phase4_memory_check.py",
+      "sv/migration_tools/phase4_memory_export.py",
+      "sv/migration_tools/phase4_migration_benches.py",
+      "sv/migration_tools/phase4_migration_reduce.py",
+      "sv/migration_tools/phase4_migration_results.py",
+      "sv/migration_tools/phase4_migration_trace.py",
+      "sv/migration_tools/phase4_multi_export.py",
+      "sv/migration_tools/phase4_noc_check.py",
+      "sv/migration_tools/phase4_noc_export.py",
+      "sv/migration_tools/phase4_noc_profiles.py",
+      "sv/migration_tools/phase4_noc_results.py",
+      "sv/migration_tools/phase4_peripheral_benches.py",
+      "sv/migration_tools/phase4_peripheral_export.py",
+      "sv/migration_tools/phase4_peripheral_pytrace.py",
+      "sv/migration_tools/phase4_peripheral_system_benches.py",
+      "sv/migration_tools/phase4_peripheral_system_export.py",
+      "sv/migration_tools/phase4_peripheral_wrappers.py",
+      "sv/migration_tools/phase4_system_results.py",
+      "sv/migration_tools/phase4_template_export.py",
+      "sv/migration_tools/reference_model.py"
+    ]
+  },
+  "historical_or_reference_only_rtl": {
+    "files": 3,
+    "physical_lines": 17029,
+    "nonblank_lines": 15503,
+    "paths": [
+      "sv/rtl/fixed/cgra_2x2_core.sv",
+      "sv/rtl/fu/combo/vendor/dp_fpfma/DW02_multp.v",
+      "sv/rtl/fu/combo/vendor/svsrc/ALUgenMAC.sv"
+    ]
+  },
+  "native_by_component": {
+    "cgra": {
+      "files": 6,
+      "physical_lines": 1307,
+      "nonblank_lines": 1292,
+      "paths": [
+        "sv/rtl/cgra/cgra_2x2.sv",
+        "sv/rtl/cgra/cgra_multi.sv",
+        "sv/rtl/cgra/cgra_multi_template.sv",
+        "sv/rtl/cgra/cgra_programmable.sv",
+        "sv/rtl/cgra/cgra_scalar.sv",
+        "sv/rtl/cgra/cgra_system.sv"
+      ]
+    },
+    "common": {
+      "files": 8,
+      "physical_lines": 445,
+      "nonblank_lines": 436,
+      "paths": [
+        "sv/rtl/common/cgra_channel.sv",
+        "sv/rtl/common/cgra_fu_catalog.svh",
+        "sv/rtl/common/cgra_profile.svh",
+        "sv/rtl/common/cgra_profile_defs.svh",
+        "sv/rtl/common/cgra_queue.sv",
+        "sv/rtl/common/cgra_register_file.sv",
+        "sv/rtl/common/cgra_round_robin.sv",
+        "sv/rtl/common/cgra_types_pkg.sv"
+      ]
+    },
+    "controller": {
+      "files": 2,
+      "physical_lines": 835,
+      "nonblank_lines": 795,
+      "paths": [
+        "sv/rtl/controller/cgra_controller.sv",
+        "sv/rtl/controller/cgra_global_reduce.sv"
+      ]
+    },
+    "fu": {
+      "files": 41,
+      "physical_lines": 7694,
+      "nonblank_lines": 7446,
+      "paths": [
+        "sv/rtl/fu/combo/cgra_alu_gen_mac.sv",
+        "sv/rtl/fu/combo/cgra_alu_gen_mac_core.sv",
+        "sv/rtl/fu/combo/cgra_multp.sv",
+        "sv/rtl/fu/combo/tile_alu_gen_mac.sv",
+        "sv/rtl/fu/combo/tile_four_inc_cmp_not_grant.sv",
+        "sv/rtl/fu/combo/tile_prl_mul_adder.sv",
+        "sv/rtl/fu/combo/tile_seq_mul_adder.sv",
+        "sv/rtl/fu/combo/tile_seq_mul_shifter.sv",
+        "sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv",
+        "sv/rtl/fu/float/cgra_hardfloat_fn.sv",
+        "sv/rtl/fu/float/tile_fp_add.sv",
+        "sv/rtl/fu/float/tile_fp_fu.sv",
+        "sv/rtl/fu/float/tile_fp_mul.sv",
+        "sv/rtl/fu/scalar/scalar_comp.sv",
+        "sv/rtl/fu/scalar/scalar_const.sv",
+        "sv/rtl/fu/scalar/scalar_div.sv",
+        "sv/rtl/fu/scalar/scalar_div_pipeline.sv",
+        "sv/rtl/fu/scalar/scalar_exclusive_div.sv",
+        "sv/rtl/fu/scalar/scalar_extract_predicate.sv",
+        "sv/rtl/fu/scalar/scalar_gep.sv",
+        "sv/rtl/fu/scalar/scalar_grant.sv",
+        "sv/rtl/fu/scalar/scalar_inclusive_div.sv",
+        "sv/rtl/fu/scalar/scalar_logic.sv",
+        "sv/rtl/fu/scalar/scalar_loop_control.sv",
+        "sv/rtl/fu/scalar/scalar_loop_counter.sv",
+        "sv/rtl/fu/scalar/scalar_phi.sv",
+        "sv/rtl/fu/scalar/scalar_ret.sv",
+        "sv/rtl/fu/scalar/scalar_sel.sv",
+        "sv/rtl/fu/scalar/scalar_shifter.sv",
+        "sv/rtl/fu/streaming/tile_streaming_memory_fu.sv",
+        "sv/rtl/fu/tile_adder.sv",
+        "sv/rtl/fu/tile_flexible_fu.sv",
+        "sv/rtl/fu/tile_flexible_fu_configurable.sv",
+        "sv/rtl/fu/tile_memory_fu.sv",
+        "sv/rtl/fu/tile_multiplier.sv",
+        "sv/rtl/fu/tile_nah.sv",
+        "sv/rtl/fu/vector/cgra_vector_adder.sv",
+        "sv/rtl/fu/vector/cgra_vector_mul.sv",
+        "sv/rtl/fu/vector/tile_vector_adder_combo.sv",
+        "sv/rtl/fu/vector/tile_vector_all_reduce.sv",
+        "sv/rtl/fu/vector/tile_vector_mul_combo.sv"
+      ]
+    },
+    "mem": {
+      "files": 6,
+      "physical_lines": 1255,
+      "nonblank_lines": 1242,
+      "paths": [
+        "sv/rtl/mem/cgra_data_bank.sv",
+        "sv/rtl/mem/cgra_data_memory.sv",
+        "sv/rtl/mem/const_queue.sv",
+        "sv/rtl/mem/ctrl_mem.sv",
+        "sv/rtl/mem/register_bank.sv",
+        "sv/rtl/mem/register_cluster.sv"
+      ]
+    },
+    "noc": {
+      "files": 12,
+      "physical_lines": 550,
+      "nonblank_lines": 550,
+      "paths": [
+        "sv/rtl/noc/cgra_credit_input.sv",
+        "sv/rtl/noc/cgra_credit_recv.sv",
+        "sv/rtl/noc/cgra_credit_ring.sv",
+        "sv/rtl/noc/cgra_credit_send.sv",
+        "sv/rtl/noc/cgra_ring_route.sv",
+        "sv/rtl/noc/cgra_ring_router.sv",
+        "sv/rtl/noc/cgra_switch.sv",
+        "sv/rtl/noc/cgra_xbar.sv",
+        "sv/rtl/noc/inter_cgra/cgra_inter_mesh.sv",
+        "sv/rtl/noc/inter_cgra/cgra_inter_mesh_route.sv",
+        "sv/rtl/noc/inter_cgra/cgra_inter_mesh_router.sv",
+        "sv/rtl/noc/inter_cgra/cgra_inter_ring.sv"
+      ]
+    },
+    "peripheral": {
+      "files": 4,
+      "physical_lines": 575,
+      "nonblank_lines": 575,
+      "paths": [
+        "sv/rtl/peripheral/cgra_dma_engine.sv",
+        "sv/rtl/peripheral/cgra_im2col_engine.sv",
+        "sv/rtl/peripheral/cgra_integrated_dma.sv",
+        "sv/rtl/peripheral/cgra_integrated_im2col.sv"
+      ]
+    },
+    "tile": {
+      "files": 11,
+      "physical_lines": 2902,
+      "nonblank_lines": 2901,
+      "paths": [
+        "sv/rtl/tile/tile_core.sv",
+        "sv/rtl/tile/tile_link_or.sv",
+        "sv/rtl/tile/tile_programmable.sv",
+        "sv/rtl/tile/tile_static_crossbar.sv",
+        "sv/rtl/tile/variants/tile_context.sv",
+        "sv/rtl/tile/variants/tile_context_switch.sv",
+        "sv/rtl/tile/variants/tile_streaming.sv",
+        "sv/rtl/tile/variants/tile_variant_const_queue.sv",
+        "sv/rtl/tile/variants/tile_variant_core.sv",
+        "sv/rtl/tile/variants/tile_variant_crossbar.sv",
+        "sv/rtl/tile/variants/tile_variant_ctrl_mem.sv"
+      ]
+    }
+  },
+  "references_file_count": 409,
+  "vectors_file_count": 66,
+  "phase5_included": false,
+  "file_metrics": {
+    "sv/rtl/cgra/cgra_2x2.sv": {
+      "path": "sv/rtl/cgra/cgra_2x2.sv",
+      "physical_lines": 51,
+      "nonblank_lines": 47,
+      "sha256": "594608753066235c2f563460323109b82f685aabe763da40e005b7cb40975f9a"
+    },
+    "sv/rtl/cgra/cgra_multi.sv": {
+      "path": "sv/rtl/cgra/cgra_multi.sv",
+      "physical_lines": 162,
+      "nonblank_lines": 162,
+      "sha256": "8b6cf447299a65d80e474454a48f2c4567a7dc5e3b48d08ca72edf077f405da6"
+    },
+    "sv/rtl/cgra/cgra_multi_template.sv": {
+      "path": "sv/rtl/cgra/cgra_multi_template.sv",
+      "physical_lines": 195,
+      "nonblank_lines": 195,
+      "sha256": "7a3413778d44b61f8619dc14f23d696d6fd25d203be95eae72e3509894012c85"
+    },
+    "sv/rtl/cgra/cgra_programmable.sv": {
+      "path": "sv/rtl/cgra/cgra_programmable.sv",
+      "physical_lines": 262,
+      "nonblank_lines": 258,
+      "sha256": "161817e84e7823c1d74fbeb1581b9e6b817d9820c3b46e161a7ba48900870651"
+    },
+    "sv/rtl/cgra/cgra_scalar.sv": {
+      "path": "sv/rtl/cgra/cgra_scalar.sv",
+      "physical_lines": 206,
+      "nonblank_lines": 203,
+      "sha256": "efaee3229228d7052bc79191300f8f0bb602f3310428bbd9c512b49fd57fa06e"
+    },
+    "sv/rtl/cgra/cgra_system.sv": {
+      "path": "sv/rtl/cgra/cgra_system.sv",
+      "physical_lines": 431,
+      "nonblank_lines": 427,
+      "sha256": "1db40967fb5adf15e6aaf395c703c5bb687a98e88604becc392c14fd8a3af082"
+    },
+    "sv/rtl/common/cgra_channel.sv": {
+      "path": "sv/rtl/common/cgra_channel.sv",
+      "physical_lines": 30,
+      "nonblank_lines": 30,
+      "sha256": "0f2d6a0be4202910ffa8ebf3fbed6ed2c08d947ffaf8a11e50e1c195ffa8bf34"
+    },
+    "sv/rtl/common/cgra_queue.sv": {
+      "path": "sv/rtl/common/cgra_queue.sv",
+      "physical_lines": 55,
+      "nonblank_lines": 55,
+      "sha256": "87e03f556141d8c2c0abe26168ef567ce4b5e456a9f090f9f797aed51a4c4761"
+    },
+    "sv/rtl/common/cgra_register_file.sv": {
+      "path": "sv/rtl/common/cgra_register_file.sv",
+      "physical_lines": 24,
+      "nonblank_lines": 24,
+      "sha256": "13856021bc1acb361a12a96870a501dea98856aec5c301dd503b41327323d41d"
+    },
+    "sv/rtl/common/cgra_round_robin.sv": {
+      "path": "sv/rtl/common/cgra_round_robin.sv",
+      "physical_lines": 32,
+      "nonblank_lines": 32,
+      "sha256": "294d46b6394c205ea67577ef8f4f51b6cc220072051c6a42b3280c5b7ef4b93d"
+    },
+    "sv/rtl/common/cgra_types_pkg.sv": {
+      "path": "sv/rtl/common/cgra_types_pkg.sv",
+      "physical_lines": 111,
+      "nonblank_lines": 103,
+      "sha256": "9a8068f1f4a81062fbd405fdf1615c6a347a65e35ae3e66cfaf077501e565caa"
+    },
+    "sv/rtl/controller/cgra_controller.sv": {
+      "path": "sv/rtl/controller/cgra_controller.sv",
+      "physical_lines": 696,
+      "nonblank_lines": 665,
+      "sha256": "65e277bac03d134f4a3b6b9c7e1b711a20ffa4f528be318e1e552b524490bb42"
+    },
+    "sv/rtl/controller/cgra_global_reduce.sv": {
+      "path": "sv/rtl/controller/cgra_global_reduce.sv",
+      "physical_lines": 139,
+      "nonblank_lines": 130,
+      "sha256": "09cec6468cc53aff676cca857c06cb2593e7dcfe25f4f49b10bdfe2bbdf27d8f"
+    },
+    "sv/rtl/fu/combo/cgra_alu_gen_mac.sv": {
+      "path": "sv/rtl/fu/combo/cgra_alu_gen_mac.sv",
+      "physical_lines": 9,
+      "nonblank_lines": 9,
+      "sha256": "8ffd2c8491a00989db2ec9a0c8d597f7afef8f20418de80bf8ce56b63cd0ebe2"
+    },
+    "sv/rtl/fu/combo/cgra_alu_gen_mac_core.sv": {
+      "path": "sv/rtl/fu/combo/cgra_alu_gen_mac_core.sv",
+      "physical_lines": 28,
+      "nonblank_lines": 28,
+      "sha256": "8513f82ace7206cc8583c0043b139e7ef2d043eab66794b04d416905d677c28d"
+    },
+    "sv/rtl/fu/combo/cgra_multp.sv": {
+      "path": "sv/rtl/fu/combo/cgra_multp.sv",
+      "physical_lines": 78,
+      "nonblank_lines": 78,
+      "sha256": "855e5c180f10e01be38d012d4c539fa8ef9e497e91a7be846d78f548a9be588b"
+    },
+    "sv/rtl/fu/combo/tile_alu_gen_mac.sv": {
+      "path": "sv/rtl/fu/combo/tile_alu_gen_mac.sv",
+      "physical_lines": 209,
+      "nonblank_lines": 198,
+      "sha256": "40f02f954b2bfac8e4fb9a512944c72e8b1100112fe084497fa229b9d81738ab"
+    },
+    "sv/rtl/fu/combo/tile_four_inc_cmp_not_grant.sv": {
+      "path": "sv/rtl/fu/combo/tile_four_inc_cmp_not_grant.sv",
+      "physical_lines": 446,
+      "nonblank_lines": 431,
+      "sha256": "26064759ea4439dd8be395bea69e6d5f7e311ccc40d08711ed1a5716dca326a3"
+    },
+    "sv/rtl/fu/combo/tile_prl_mul_adder.sv": {
+      "path": "sv/rtl/fu/combo/tile_prl_mul_adder.sv",
+      "physical_lines": 280,
+      "nonblank_lines": 269,
+      "sha256": "c573244a086de762f1a4ab72942be5640e369ac51ebfbf48f859694aa2399b0a"
+    },
+    "sv/rtl/fu/combo/tile_seq_mul_adder.sv": {
+      "path": "sv/rtl/fu/combo/tile_seq_mul_adder.sv",
+      "physical_lines": 288,
+      "nonblank_lines": 277,
+      "sha256": "5bc2174fd32013ec395f354c88a47a189b6edfe6f4bbd9e2d2bc3ef538500680"
+    },
+    "sv/rtl/fu/combo/tile_seq_mul_shifter.sv": {
+      "path": "sv/rtl/fu/combo/tile_seq_mul_shifter.sv",
+      "physical_lines": 277,
+      "nonblank_lines": 266,
+      "sha256": "444b094f7d8dabd02d73b447defe1098c285cf58ab9ffc8ea7be043825d7590e"
+    },
+    "sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv": {
+      "path": "sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv",
+      "physical_lines": 367,
+      "nonblank_lines": 354,
+      "sha256": "7e4ead2419931c63cae22a86fd06d3920ee74a7ea150e453fec0bcef82bdeb83"
+    },
+    "sv/rtl/fu/float/cgra_hardfloat_fn.sv": {
+      "path": "sv/rtl/fu/float/cgra_hardfloat_fn.sv",
+      "physical_lines": 23,
+      "nonblank_lines": 23,
+      "sha256": "fc52932df3a81ecfc90edd1d2c51c991e344213db5165d910700ab1205392d4d"
+    },
+    "sv/rtl/fu/float/tile_fp_add.sv": {
+      "path": "sv/rtl/fu/float/tile_fp_add.sv",
+      "physical_lines": 80,
+      "nonblank_lines": 79,
+      "sha256": "f48e19915e51ac4174f79ddb13b3dd54d58c9aacb2043ce34fd34a842922f476"
+    },
+    "sv/rtl/fu/float/tile_fp_fu.sv": {
+      "path": "sv/rtl/fu/float/tile_fp_fu.sv",
+      "physical_lines": 125,
+      "nonblank_lines": 123,
+      "sha256": "1a9752cc821d167b5f315806d957695cb62d31fe1b6cf4177923d5cb45751c9b"
+    },
+    "sv/rtl/fu/float/tile_fp_mul.sv": {
+      "path": "sv/rtl/fu/float/tile_fp_mul.sv",
+      "physical_lines": 80,
+      "nonblank_lines": 79,
+      "sha256": "7a11946a3f26dfc5771b4b81e073c73b63634827bd73a311b03ca7d1a743506e"
+    },
+    "sv/rtl/fu/scalar/scalar_comp.sv": {
+      "path": "sv/rtl/fu/scalar/scalar_comp.sv",
+      "physical_lines": 250,
+      "nonblank_lines": 242,
+      "sha256": "ce6caa6ee931fb8f5d7fe82cf1fc377ecf9a20740a36597f42d420cc2ecb12a7"
+    },
+    "sv/rtl/fu/scalar/scalar_const.sv": {
+      "path": "sv/rtl/fu/scalar/scalar_const.sv",
+      "physical_lines": 147,
+      "nonblank_lines": 139,
+      "sha256": "d151ada440b47625f00f2b6d5310bfba2011a8be2934faee4828eedfd84b4054"
+    },
+    "sv/rtl/fu/scalar/scalar_div.sv": {
+      "path": "sv/rtl/fu/scalar/scalar_div.sv",
+      "physical_lines": 176,
+      "nonblank_lines": 168,
+      "sha256": "8324701c5569fa835964292e94f8c200d937f73d24f4f37330f00a96287b0dbe"
+    },
+    "sv/rtl/fu/scalar/scalar_div_pipeline.sv": {
+      "path": "sv/rtl/fu/scalar/scalar_div_pipeline.sv",
+      "physical_lines": 130,
+      "nonblank_lines": 110,
+      "sha256": "9381e8b4ff8dd31d14d69b62f29a82309d20e932103b493f31bc97f0bf39482b"
+    },
+    "sv/rtl/fu/scalar/scalar_exclusive_div.sv": {
+      "path": "sv/rtl/fu/scalar/scalar_exclusive_div.sv",
+      "physical_lines": 218,
+      "nonblank_lines": 207,
+      "sha256": "e537dd10e432f78d6541c3a3ec55cfbf9adfb2a28073a7ad3a9c5d9a177887fc"
+    },
+    "sv/rtl/fu/scalar/scalar_extract_predicate.sv": {
+      "path": "sv/rtl/fu/scalar/scalar_extract_predicate.sv",
+      "physical_lines": 154,
+      "nonblank_lines": 146,
+      "sha256": "be0552d837bdead6a73fea9c7926e3a99ad816a14098b95df6e78ff91cf90a98"
+    },
+    "sv/rtl/fu/scalar/scalar_gep.sv": {
+      "path": "sv/rtl/fu/scalar/scalar_gep.sv",
+      "physical_lines": 219,
+      "nonblank_lines": 210,
+      "sha256": "d8bd708e75a5f0c88f12342351a42b10d102fcf73e57c5a89a6fb5b3763cfcc2"
+    },
+    "sv/rtl/fu/scalar/scalar_grant.sv": {
+      "path": "sv/rtl/fu/scalar/scalar_grant.sv",
+      "physical_lines": 200,
+      "nonblank_lines": 191,
+      "sha256": "bc4de7ce423713077bede4294d4255a4e6c63cd891d2003615cf37ed75f39423"
+    },
+    "sv/rtl/fu/scalar/scalar_inclusive_div.sv": {
+      "path": "sv/rtl/fu/scalar/scalar_inclusive_div.sv",
+      "physical_lines": 202,
+      "nonblank_lines": 192,
+      "sha256": "b74862d23a7ee6e73a0bce636e4f93c3d338d7ff1c01ebd9d3f386d373e1bc92"
+    },
+    "sv/rtl/fu/scalar/scalar_logic.sv": {
+      "path": "sv/rtl/fu/scalar/scalar_logic.sv",
+      "physical_lines": 208,
+      "nonblank_lines": 200,
+      "sha256": "d58273045045603c47e0fc1745ec9606c5fcd53f474f9121b9592df41849ae7e"
+    },
+    "sv/rtl/fu/scalar/scalar_loop_control.sv": {
+      "path": "sv/rtl/fu/scalar/scalar_loop_control.sv",
+      "physical_lines": 274,
+      "nonblank_lines": 264,
+      "sha256": "43c4e16ebf3b27b399761201a90b90f1bb2957df660353f982765343cb83fb0d"
+    },
+    "sv/rtl/fu/scalar/scalar_loop_counter.sv": {
+      "path": "sv/rtl/fu/scalar/scalar_loop_counter.sv",
+      "physical_lines": 290,
+      "nonblank_lines": 279,
+      "sha256": "dd015b68bee380c6c16b73d49346fb0b7782132870e6decff88501dd95990fbb"
+    },
+    "sv/rtl/fu/scalar/scalar_phi.sv": {
+      "path": "sv/rtl/fu/scalar/scalar_phi.sv",
+      "physical_lines": 229,
+      "nonblank_lines": 220,
+      "sha256": "d3446f6e233f584496a18c33efeca19136615254ba12555ff69dcc908abf1faf"
+    },
+    "sv/rtl/fu/scalar/scalar_ret.sv": {
+      "path": "sv/rtl/fu/scalar/scalar_ret.sv",
+      "physical_lines": 199,
+      "nonblank_lines": 190,
+      "sha256": "b73978c5e42c98f4734c55c5d45dcb6987d63a9d9b81aff3ece4b0be9462cf20"
+    },
+    "sv/rtl/fu/scalar/scalar_sel.sv": {
+      "path": "sv/rtl/fu/scalar/scalar_sel.sv",
+      "physical_lines": 165,
+      "nonblank_lines": 158,
+      "sha256": "59e5f82c500a627072f41c5bd89a412ccec1054f281897226d93cf93a81fa33f"
+    },
+    "sv/rtl/fu/scalar/scalar_shifter.sv": {
+      "path": "sv/rtl/fu/scalar/scalar_shifter.sv",
+      "physical_lines": 176,
+      "nonblank_lines": 168,
+      "sha256": "19f554b946c1851d9ed88dbbc0e76c431178704226d36d98e56bf66390e46aab"
+    },
+    "sv/rtl/fu/streaming/tile_streaming_memory_fu.sv": {
+      "path": "sv/rtl/fu/streaming/tile_streaming_memory_fu.sv",
+      "physical_lines": 132,
+      "nonblank_lines": 132,
+      "sha256": "0327c496d4898da8c1f9f041b7b5649906aded5529d4071c20415e3e1cbf80be"
+    },
+    "sv/rtl/fu/tile_adder.sv": {
+      "path": "sv/rtl/fu/tile_adder.sv",
+      "physical_lines": 210,
+      "nonblank_lines": 210,
+      "sha256": "d9fe057d504e107c6c265e2a7132f915baac90ff749f27ebe40e742bfd9f76f2"
+    },
+    "sv/rtl/fu/tile_flexible_fu.sv": {
+      "path": "sv/rtl/fu/tile_flexible_fu.sv",
+      "physical_lines": 377,
+      "nonblank_lines": 377,
+      "sha256": "90c718524c954a8b699aa620d73bdce42b1177353eb473c04eb72d200fb2fde0"
+    },
+    "sv/rtl/fu/tile_flexible_fu_configurable.sv": {
+      "path": "sv/rtl/fu/tile_flexible_fu_configurable.sv",
+      "physical_lines": 297,
+      "nonblank_lines": 297,
+      "sha256": "50938e7881dab96015c8327bb1daad62a5d767e79a49a642fadba075582ea397"
+    },
+    "sv/rtl/fu/tile_memory_fu.sv": {
+      "path": "sv/rtl/fu/tile_memory_fu.sv",
+      "physical_lines": 238,
+      "nonblank_lines": 238,
+      "sha256": "1c3ccd797aca8a4385ad06267afb829023655a8848bd5da516a520ca3de8c5f0"
+    },
+    "sv/rtl/fu/tile_multiplier.sv": {
+      "path": "sv/rtl/fu/tile_multiplier.sv",
+      "physical_lines": 171,
+      "nonblank_lines": 171,
+      "sha256": "d4141cf2c17a1b7cb114345a8dcb2ba1ab85dd7017573c5484dcf517ce3123cf"
+    },
+    "sv/rtl/fu/tile_nah.sv": {
+      "path": "sv/rtl/fu/tile_nah.sv",
+      "physical_lines": 133,
+      "nonblank_lines": 133,
+      "sha256": "60f96e3d868c67faac3e57d88d30e15f89df90b05fc2e9466984c89fdab257df"
+    },
+    "sv/rtl/fu/vector/cgra_vector_adder.sv": {
+      "path": "sv/rtl/fu/vector/cgra_vector_adder.sv",
+      "physical_lines": 130,
+      "nonblank_lines": 126,
+      "sha256": "f2cf6e9f82754f8c4d47a5268ca841f5119397e865f11ba0612989acd16b23d8"
+    },
+    "sv/rtl/fu/vector/cgra_vector_mul.sv": {
+      "path": "sv/rtl/fu/vector/cgra_vector_mul.sv",
+      "physical_lines": 79,
+      "nonblank_lines": 75,
+      "sha256": "c6e739b8656cf11d191587ff6a2b9d74fa0a5ff55efa32182eabeeecc4e219ea"
+    },
+    "sv/rtl/fu/vector/tile_vector_adder_combo.sv": {
+      "path": "sv/rtl/fu/vector/tile_vector_adder_combo.sv",
+      "physical_lines": 129,
+      "nonblank_lines": 125,
+      "sha256": "d3c955af607638a28da21f245833a26be7f7b2e8f070b6d967ff94ca14bcf20a"
+    },
+    "sv/rtl/fu/vector/tile_vector_all_reduce.sv": {
+      "path": "sv/rtl/fu/vector/tile_vector_all_reduce.sv",
+      "physical_lines": 138,
+      "nonblank_lines": 135,
+      "sha256": "9132997c1eedb14297e66b2aa712e8f8f133a172c870c52e42d6873f8da1dd9a"
+    },
+    "sv/rtl/fu/vector/tile_vector_mul_combo.sv": {
+      "path": "sv/rtl/fu/vector/tile_vector_mul_combo.sv",
+      "physical_lines": 133,
+      "nonblank_lines": 129,
+      "sha256": "b761f333256777299ef2693cc823540c601cc66480f893ecd06c4884a06b3905"
+    },
+    "sv/rtl/mem/cgra_data_bank.sv": {
+      "path": "sv/rtl/mem/cgra_data_bank.sv",
+      "physical_lines": 48,
+      "nonblank_lines": 48,
+      "sha256": "77c3214c4cf388fdeefc3145d91a0106404e36624c9fef009bd11a400fe60a1b"
+    },
+    "sv/rtl/mem/cgra_data_memory.sv": {
+      "path": "sv/rtl/mem/cgra_data_memory.sv",
+      "physical_lines": 351,
+      "nonblank_lines": 338,
+      "sha256": "0b75da82f24a8ef77c4795ee39af899394901dd33a5d1a88230f23ae1ff35335"
+    },
+    "sv/rtl/mem/const_queue.sv": {
+      "path": "sv/rtl/mem/const_queue.sv",
+      "physical_lines": 89,
+      "nonblank_lines": 89,
+      "sha256": "5666b0ba18a21efd186002d5e9e394320d22926637bee4e8af8e93b2d7cd7f17"
+    },
+    "sv/rtl/mem/ctrl_mem.sv": {
+      "path": "sv/rtl/mem/ctrl_mem.sv",
+      "physical_lines": 378,
+      "nonblank_lines": 378,
+      "sha256": "acdaf3dd3e757ce0009d156fe50bedc83f246ca322ee17b7677df5cb44840442"
+    },
+    "sv/rtl/mem/register_bank.sv": {
+      "path": "sv/rtl/mem/register_bank.sv",
+      "physical_lines": 173,
+      "nonblank_lines": 173,
+      "sha256": "18b60aa21e281939510a3c81bf2a0c115312a5736a38064529e12f38ea3670b2"
+    },
+    "sv/rtl/mem/register_cluster.sv": {
+      "path": "sv/rtl/mem/register_cluster.sv",
+      "physical_lines": 216,
+      "nonblank_lines": 216,
+      "sha256": "903854ddb0af820b110fdb05c0ebe0a1eb66112723542ab011222003fedef0d2"
+    },
+    "sv/rtl/noc/cgra_credit_input.sv": {
+      "path": "sv/rtl/noc/cgra_credit_input.sv",
+      "physical_lines": 26,
+      "nonblank_lines": 26,
+      "sha256": "7d58169e0f7db7b484fa6fb9d3e926ba6de00a971b0cd4b513620a9b4fd8837b"
+    },
+    "sv/rtl/noc/cgra_credit_recv.sv": {
+      "path": "sv/rtl/noc/cgra_credit_recv.sv",
+      "physical_lines": 46,
+      "nonblank_lines": 46,
+      "sha256": "f6c728e6ea42849f013328018204def97b764662ebd102cadebd5402b1aae0de"
+    },
+    "sv/rtl/noc/cgra_credit_ring.sv": {
+      "path": "sv/rtl/noc/cgra_credit_ring.sv",
+      "physical_lines": 61,
+      "nonblank_lines": 61,
+      "sha256": "98213452e10b00072f872e0f81c869d744960d377cbd2735fe534beb7e1aaa70"
+    },
+    "sv/rtl/noc/cgra_credit_send.sv": {
+      "path": "sv/rtl/noc/cgra_credit_send.sv",
+      "physical_lines": 40,
+      "nonblank_lines": 40,
+      "sha256": "a13e8dc3a08906c46c4dc3675beea17ec13e61c729ac665b7a2c4de6dab5f7bd"
+    },
+    "sv/rtl/noc/cgra_ring_route.sv": {
+      "path": "sv/rtl/noc/cgra_ring_route.sv",
+      "physical_lines": 53,
+      "nonblank_lines": 53,
+      "sha256": "d794ba9f657dd7384bb947bf8d5977681e0e7dc14181e9df3989eee04ac1b46b"
+    },
+    "sv/rtl/noc/cgra_ring_router.sv": {
+      "path": "sv/rtl/noc/cgra_ring_router.sv",
+      "physical_lines": 69,
+      "nonblank_lines": 69,
+      "sha256": "b15e9d00833d968e97213ea144d75a55ba34e927c8c58e02ffd7f1d94c938e4b"
+    },
+    "sv/rtl/noc/cgra_switch.sv": {
+      "path": "sv/rtl/noc/cgra_switch.sv",
+      "physical_lines": 35,
+      "nonblank_lines": 35,
+      "sha256": "db3d1610cafc5c86736916a4cac1001e2ad225ba54df278e8b20414bb49866c5"
+    },
+    "sv/rtl/noc/cgra_xbar.sv": {
+      "path": "sv/rtl/noc/cgra_xbar.sv",
+      "physical_lines": 55,
+      "nonblank_lines": 55,
+      "sha256": "ac048fe5d423b3b7bbbe01f34cfbffadd8859ef31df96fb4a9bce2cda3d26b64"
+    },
+    "sv/rtl/noc/inter_cgra/cgra_inter_mesh.sv": {
+      "path": "sv/rtl/noc/inter_cgra/cgra_inter_mesh.sv",
+      "physical_lines": 60,
+      "nonblank_lines": 60,
+      "sha256": "99c6ab483bf52189c6d1bc086bf6632381096c6f71c808b858051860f4b51814"
+    },
+    "sv/rtl/noc/inter_cgra/cgra_inter_mesh_route.sv": {
+      "path": "sv/rtl/noc/inter_cgra/cgra_inter_mesh_route.sv",
+      "physical_lines": 36,
+      "nonblank_lines": 36,
+      "sha256": "e1b31e0e6cae251fba0c910d835270c76dc9d39ac4de9ef1a96de056f9a02963"
+    },
+    "sv/rtl/noc/inter_cgra/cgra_inter_mesh_router.sv": {
+      "path": "sv/rtl/noc/inter_cgra/cgra_inter_mesh_router.sv",
+      "physical_lines": 43,
+      "nonblank_lines": 43,
+      "sha256": "c6f2688c07d875b1960f37f6986d7e4ab53fea445f6832dc8b01d3966999edaa"
+    },
+    "sv/rtl/noc/inter_cgra/cgra_inter_ring.sv": {
+      "path": "sv/rtl/noc/inter_cgra/cgra_inter_ring.sv",
+      "physical_lines": 26,
+      "nonblank_lines": 26,
+      "sha256": "3d96672d77ef8574a0da06291a116aac3b655a1ef44f909d2368557cd6b884ea"
+    },
+    "sv/rtl/peripheral/cgra_dma_engine.sv": {
+      "path": "sv/rtl/peripheral/cgra_dma_engine.sv",
+      "physical_lines": 144,
+      "nonblank_lines": 144,
+      "sha256": "0ad4b0281fdb286960dbcb8460b0241d467f5ff4ddfb5d7771febe9aa3d7264b"
+    },
+    "sv/rtl/peripheral/cgra_im2col_engine.sv": {
+      "path": "sv/rtl/peripheral/cgra_im2col_engine.sv",
+      "physical_lines": 97,
+      "nonblank_lines": 97,
+      "sha256": "b17118ae24ffb40852d7aa6027c69f485d33ba415c6f2485587138bd0ac8385f"
+    },
+    "sv/rtl/peripheral/cgra_integrated_dma.sv": {
+      "path": "sv/rtl/peripheral/cgra_integrated_dma.sv",
+      "physical_lines": 172,
+      "nonblank_lines": 172,
+      "sha256": "bf4ea115ff5552e6df5794f3279491fb88a5aa0a154df5e7a78e9f501cea36b2"
+    },
+    "sv/rtl/peripheral/cgra_integrated_im2col.sv": {
+      "path": "sv/rtl/peripheral/cgra_integrated_im2col.sv",
+      "physical_lines": 162,
+      "nonblank_lines": 162,
+      "sha256": "2f9db4817ecde154234b58ba2e1ca76377083521fa2dfb4cfe0347135de1e9e4"
+    },
+    "sv/rtl/tile/tile_core.sv": {
+      "path": "sv/rtl/tile/tile_core.sv",
+      "physical_lines": 760,
+      "nonblank_lines": 760,
+      "sha256": "575da529aaeca5e9d485b6224de8a2372c319f6640d5991aaa413fb201175fdf"
+    },
+    "sv/rtl/tile/tile_link_or.sv": {
+      "path": "sv/rtl/tile/tile_link_or.sv",
+      "physical_lines": 34,
+      "nonblank_lines": 34,
+      "sha256": "b86b2471c44d0e6522d20d4e228e5463721bad6225df4a0f0a315084cf2147bc"
+    },
+    "sv/rtl/tile/tile_programmable.sv": {
+      "path": "sv/rtl/tile/tile_programmable.sv",
+      "physical_lines": 574,
+      "nonblank_lines": 573,
+      "sha256": "73254d6f12f7682d0451165a219d73615acf4e8cdc33c979ad2149c93701f325"
+    },
+    "sv/rtl/tile/tile_static_crossbar.sv": {
+      "path": "sv/rtl/tile/tile_static_crossbar.sv",
+      "physical_lines": 203,
+      "nonblank_lines": 203,
+      "sha256": "87e2adf6183310b45886680682227d78dbc0e7b26ef38b65d69bdc6220dc968d"
+    },
+    "sv/rtl/tile/variants/tile_context.sv": {
+      "path": "sv/rtl/tile/variants/tile_context.sv",
+      "physical_lines": 63,
+      "nonblank_lines": 63,
+      "sha256": "310996ebfc87777c73c5b2b921adf643010018c4e3aada09ba06aad3564b522a"
+    },
+    "sv/rtl/tile/variants/tile_context_switch.sv": {
+      "path": "sv/rtl/tile/variants/tile_context_switch.sv",
+      "physical_lines": 66,
+      "nonblank_lines": 66,
+      "sha256": "0296f8460b31d8c4d319e7f5aaef7ee475d5e52330fe883c5b99926282126bcc"
+    },
+    "sv/rtl/tile/variants/tile_streaming.sv": {
+      "path": "sv/rtl/tile/variants/tile_streaming.sv",
+      "physical_lines": 63,
+      "nonblank_lines": 63,
+      "sha256": "2df67d7a04cafa8f8b273ed90ac4dfdaeb24a0361f385b0806298a317947440c"
+    },
+    "sv/rtl/tile/variants/tile_variant_const_queue.sv": {
+      "path": "sv/rtl/tile/variants/tile_variant_const_queue.sv",
+      "physical_lines": 91,
+      "nonblank_lines": 91,
+      "sha256": "ca784856842d12300874d6ee3ede60863efba855f1ac57c6f7eba899ef2bc459"
+    },
+    "sv/rtl/tile/variants/tile_variant_core.sv": {
+      "path": "sv/rtl/tile/variants/tile_variant_core.sv",
+      "physical_lines": 467,
+      "nonblank_lines": 467,
+      "sha256": "8dc9c1e5cc708d12960d94ad51ec97b941f333ecb276b45e7586c23afdba61bb"
+    },
+    "sv/rtl/tile/variants/tile_variant_crossbar.sv": {
+      "path": "sv/rtl/tile/variants/tile_variant_crossbar.sv",
+      "physical_lines": 203,
+      "nonblank_lines": 203,
+      "sha256": "258536eb88a39a250a187447c7125b28b1f192c089c38f421c6f6e7f2434864e"
+    },
+    "sv/rtl/tile/variants/tile_variant_ctrl_mem.sv": {
+      "path": "sv/rtl/tile/variants/tile_variant_ctrl_mem.sv",
+      "physical_lines": 378,
+      "nonblank_lines": 378,
+      "sha256": "c3d545f6f5e0f91a6074267ae6ff2509878fe1998eb2df86a2a418a7e104ac06"
+    },
+    "sv/rtl/vendor/hardfloat/HardFloat_primitives.v": {
+      "path": "sv/rtl/vendor/hardfloat/HardFloat_primitives.v",
+      "physical_lines": 176,
+      "nonblank_lines": 142,
+      "sha256": "3273444d956fe82b01ba074ed6c22441d957dc7be02990133dd7a83efb07845d"
+    },
+    "sv/rtl/vendor/hardfloat/HardFloat_rawFN.v": {
+      "path": "sv/rtl/vendor/hardfloat/HardFloat_rawFN.v",
+      "physical_lines": 367,
+      "nonblank_lines": 343,
+      "sha256": "f219b1594ce25df5790af748bf2bcfdb6ff8a2ad4806c447b1dbeffcdecc071a"
+    },
+    "sv/rtl/vendor/hardfloat/addRecFN.v": {
+      "path": "sv/rtl/vendor/hardfloat/addRecFN.v",
+      "physical_lines": 257,
+      "nonblank_lines": 238,
+      "sha256": "8e299e624d7f20c752bb3f59b6ae1ae94685244df20fe2ac274b86f93d87e488"
+    },
+    "sv/rtl/vendor/hardfloat/fNToRecFN.v": {
+      "path": "sv/rtl/vendor/hardfloat/fNToRecFN.v",
+      "physical_lines": 82,
+      "nonblank_lines": 68,
+      "sha256": "146e50014d986df605ed59a69425cd6dc19750df3acdd083f61bff7cf51ac6a3"
+    },
+    "sv/rtl/vendor/hardfloat/isSigNaNRecFN.v": {
+      "path": "sv/rtl/vendor/hardfloat/isSigNaNRecFN.v",
+      "physical_lines": 53,
+      "nonblank_lines": 39,
+      "sha256": "dfec25b11b197b767d15b0e28d56b4742c7329668239cdf14d324ddac0950439"
+    },
+    "sv/rtl/vendor/hardfloat/mulRecFN.v": {
+      "path": "sv/rtl/vendor/hardfloat/mulRecFN.v",
+      "physical_lines": 240,
+      "nonblank_lines": 217,
+      "sha256": "bff24e22929c49d0f50f70511a93388c784faae9a578cfc79e8fe322cf60cf5a"
+    },
+    "sv/rtl/vendor/hardfloat/recFNToFN.v": {
+      "path": "sv/rtl/vendor/hardfloat/recFNToFN.v",
+      "physical_lines": 79,
+      "nonblank_lines": 64,
+      "sha256": "9a1cb98579a715965aebf9faab6cb5851154e8284d6af7ace594a0d6cc87adf8"
+    },
+    "sv/rtl/common/cgra_fu_catalog.svh": {
+      "path": "sv/rtl/common/cgra_fu_catalog.svh",
+      "physical_lines": 45,
+      "nonblank_lines": 45,
+      "sha256": "3c416c1647e5763b6bfda6a041c19815f354ea0f7226663558bb81c82697fbc5"
+    },
+    "sv/rtl/common/cgra_profile.svh": {
+      "path": "sv/rtl/common/cgra_profile.svh",
+      "physical_lines": 90,
+      "nonblank_lines": 90,
+      "sha256": "8a360c5a38dc98087d9cbd89c9508bd6b2c6d428bc4cc90bba357e36de168eec"
+    },
+    "sv/rtl/common/cgra_profile_defs.svh": {
+      "path": "sv/rtl/common/cgra_profile_defs.svh",
+      "physical_lines": 58,
+      "nonblank_lines": 57,
+      "sha256": "0dbcc2e9b43f80fffd5101f24742f3d1ccb0fa5af67ba5f788049df9c02042dd"
+    },
+    "sv/rtl/vendor/hardfloat/HardFloat_consts.vi": {
+      "path": "sv/rtl/vendor/hardfloat/HardFloat_consts.vi",
+      "physical_lines": 61,
+      "nonblank_lines": 48,
+      "sha256": "ff7168d2e1bcce237ee6ac0789d58588705063a3d14c9137ee4abba839822b40"
+    },
+    "sv/rtl/vendor/hardfloat/HardFloat_localFuncs.vi": {
+      "path": "sv/rtl/vendor/hardfloat/HardFloat_localFuncs.vi",
+      "physical_lines": 49,
+      "nonblank_lines": 35,
+      "sha256": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50"
+    },
+    "sv/rtl/vendor/hardfloat/HardFloat_specialize.vi": {
+      "path": "sv/rtl/vendor/hardfloat/HardFloat_specialize.vi",
+      "physical_lines": 55,
+      "nonblank_lines": 41,
+      "sha256": "c231a6ec6c62a9c01c3c2962cf43ea9ec92a7c1c115a8102959d89425803c890"
+    },
+    "sv/rtl/vendor/hardfloat/RISCV/HardFloat_specialize.vi": {
+      "path": "sv/rtl/vendor/hardfloat/RISCV/HardFloat_specialize.vi",
+      "physical_lines": 52,
+      "nonblank_lines": 39,
+      "sha256": "9c12592b78732e7331f4f506c50e84ad15c120507d73e1f9e511fd95ed30448e"
+    },
+    "sv/tests/phase2_tb_cgra_scalar.sv": {
+      "path": "sv/tests/phase2_tb_cgra_scalar.sv",
+      "physical_lines": 586,
+      "nonblank_lines": 569,
+      "sha256": "b1903e382ad15746d0cd5b5fc16206aa4f60c705f89bf064863b5046323fcc5f"
+    },
+    "sv/tests/phase3/float/tb_float.sv": {
+      "path": "sv/tests/phase3/float/tb_float.sv",
+      "physical_lines": 272,
+      "nonblank_lines": 272,
+      "sha256": "b14273d0a3f89e0773ea12c9045989637a85dc48ef026275b5864a49a4040ae2"
+    },
+    "sv/tests/phase3/scalar/w32/references.sv": {
+      "path": "sv/tests/phase3/scalar/w32/references.sv",
+      "physical_lines": 30,
+      "nonblank_lines": 30,
+      "sha256": "70a3b8ddbe93edb1921b4f218d57c8bafa30fcb8908796ef18bad24bae1c2cbd"
+    },
+    "sv/tests/phase3/scalar/w32/tb_scalar.sv": {
+      "path": "sv/tests/phase3/scalar/w32/tb_scalar.sv",
+      "physical_lines": 1797,
+      "nonblank_lines": 1797,
+      "sha256": "6a368ac186710c20f081d26d5e8c097238d01a1b6d3b20bd216697044a5ed698"
+    },
+    "sv/tests/phase3/scalar/w64/references.sv": {
+      "path": "sv/tests/phase3/scalar/w64/references.sv",
+      "physical_lines": 26,
+      "nonblank_lines": 26,
+      "sha256": "65772f3975b001b40dc11accb03b186d4df99e80fda22357cb34532d509ea406"
+    },
+    "sv/tests/phase3/scalar/w64/tb_scalar.sv": {
+      "path": "sv/tests/phase3/scalar/w64/tb_scalar.sv",
+      "physical_lines": 1571,
+      "nonblank_lines": 1571,
+      "sha256": "7df711008dcae6eb66583b09fda8a2a51e8df8e8f739387522bdf48cf197d70c"
+    },
+    "sv/tests/phase3/system/tb_programmable_base.sv": {
+      "path": "sv/tests/phase3/system/tb_programmable_base.sv",
+      "physical_lines": 586,
+      "nonblank_lines": 569,
+      "sha256": "ea417ef1821b0093ba6b558bd6abfa793ab2b17ecd0c06d1922eb1c1e9d7e518"
+    },
+    "sv/tests/phase3/system/tb_programmable_float.sv": {
+      "path": "sv/tests/phase3/system/tb_programmable_float.sv",
+      "physical_lines": 525,
+      "nonblank_lines": 510,
+      "sha256": "e14a1cb330a922b4ef83d258098045ffed5c8b69c9ce927a9b0f2242f8bd9608"
+    },
+    "sv/tests/phase3/system/tb_programmable_logic.sv": {
+      "path": "sv/tests/phase3/system/tb_programmable_logic.sv",
+      "physical_lines": 588,
+      "nonblank_lines": 571,
+      "sha256": "081fe2705724dfbebdaf322c98e5317ae3875bbb23d7b332e78574c652fa0d94"
+    },
+    "sv/tests/phase3/system/tb_programmable_vector.sv": {
+      "path": "sv/tests/phase3/system/tb_programmable_vector.sv",
+      "physical_lines": 602,
+      "nonblank_lines": 585,
+      "sha256": "1c67d81161ab010410bfcd4a6dfc09ccaf9b8e4ebf23b60b33b4818453416a05"
+    },
+    "sv/tests/phase3/tile_variants/tb_cgra_context.sv": {
+      "path": "sv/tests/phase3/tile_variants/tb_cgra_context.sv",
+      "physical_lines": 84,
+      "nonblank_lines": 84,
+      "sha256": "3b18c9faa8b7d5a8a3fd87f9f45c3070674cf5ad319208279316aebb1bd29f3f"
+    },
+    "sv/tests/phase3/tile_variants/tb_cgra_streaming.sv": {
+      "path": "sv/tests/phase3/tile_variants/tb_cgra_streaming.sv",
+      "physical_lines": 92,
+      "nonblank_lines": 92,
+      "sha256": "97923e148f659f6ecc638a6b63ba34ce3a449f9078c5ac3730c28f89ddc9ebe2"
+    },
+    "sv/tests/phase3/tile_variants/tb_context_switch.sv": {
+      "path": "sv/tests/phase3/tile_variants/tb_context_switch.sv",
+      "physical_lines": 36,
+      "nonblank_lines": 36,
+      "sha256": "3e619f1919e577a52e9080196fe739ae3c0e5c86790ce3d529034a8b639d92ef"
+    },
+    "sv/tests/phase3/tile_variants/tb_streaming_memory.sv": {
+      "path": "sv/tests/phase3/tile_variants/tb_streaming_memory.sv",
+      "physical_lines": 233,
+      "nonblank_lines": 233,
+      "sha256": "2145a72cbf35250fbe824c8364a378cc425d16cc00a4541374b03f4befd5e68b"
+    },
+    "sv/tests/phase3/tile_variants/tb_tile_context.sv": {
+      "path": "sv/tests/phase3/tile_variants/tb_tile_context.sv",
+      "physical_lines": 67,
+      "nonblank_lines": 67,
+      "sha256": "cb03b5efb2dcaf6f240ba2fe7ff6e135c821ae4c57c2a7bdefac2930f7fbee8e"
+    },
+    "sv/tests/phase3/tile_variants/tb_tile_streaming.sv": {
+      "path": "sv/tests/phase3/tile_variants/tb_tile_streaming.sv",
+      "physical_lines": 65,
+      "nonblank_lines": 65,
+      "sha256": "925710d3bc0939c6a6aec0cec4de4458d019e80d774b8d925df99b0ec8d59910"
+    },
+    "sv/tests/phase3/vector_combo/alu_gen_mac_w16_l4_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/alu_gen_mac_w16_l4_b8_v0/tb.sv",
+      "physical_lines": 181,
+      "nonblank_lines": 180,
+      "sha256": "dcd3d168c12a987b314f50ce036930459a08af12687ca46eaae5ec5b5d742dc4"
+    },
+    "sv/tests/phase3/vector_combo/alu_gen_mac_wrapper_w16_l4_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/alu_gen_mac_wrapper_w16_l4_b8_v0/tb.sv",
+      "physical_lines": 66,
+      "nonblank_lines": 66,
+      "sha256": "5d20e6db57327be2c08e0a6c1114601f361c308fab8fb39eb170b19320f901ec"
+    },
+    "sv/tests/phase3/vector_combo/four_inc_cmp_not_grant_w32_l4_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/four_inc_cmp_not_grant_w32_l4_b8_v0/tb.sv",
+      "physical_lines": 174,
+      "nonblank_lines": 173,
+      "sha256": "2d562229092ec72c21c3fde9d21ee94e322ca08b866c90e6f39e1ede63a7814a"
+    },
+    "sv/tests/phase3/vector_combo/four_inc_cmp_not_grant_w64_l4_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/four_inc_cmp_not_grant_w64_l4_b8_v0/tb.sv",
+      "physical_lines": 174,
+      "nonblank_lines": 173,
+      "sha256": "2c8958c5ea5e807e8b75da499b4fdcb9aee14f8071402368e4f9315070790891"
+    },
+    "sv/tests/phase3/vector_combo/prl_mul_adder_w32_l4_b8_v0_ctrl2/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/prl_mul_adder_w32_l4_b8_v0_ctrl2/tb.sv",
+      "physical_lines": 200,
+      "nonblank_lines": 199,
+      "sha256": "40bf1aa890f0ed16f8277776a1bd167410978eb3bea8a42ba5da356004f503ae"
+    },
+    "sv/tests/phase3/vector_combo/prl_mul_adder_w64_l4_b8_v0_ctrl2/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/prl_mul_adder_w64_l4_b8_v0_ctrl2/tb.sv",
+      "physical_lines": 200,
+      "nonblank_lines": 199,
+      "sha256": "c517e2a22ee5a4a59e342b0a57ab3a1912c99546c3886807da70fb8653c62a72"
+    },
+    "sv/tests/phase3/vector_combo/seq_mul_adder_w32_l4_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/seq_mul_adder_w32_l4_b8_v0/tb.sv",
+      "physical_lines": 177,
+      "nonblank_lines": 176,
+      "sha256": "92b3e218e31b65822ffeffff948a7e5e02feb34e65bd4e92d2cc4c81e4135560"
+    },
+    "sv/tests/phase3/vector_combo/seq_mul_adder_w64_l4_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/seq_mul_adder_w64_l4_b8_v0/tb.sv",
+      "physical_lines": 177,
+      "nonblank_lines": 176,
+      "sha256": "63b74c12557cec4821903c1ba883c45c06e9679638bfe408ae41bbed3d662192"
+    },
+    "sv/tests/phase3/vector_combo/seq_mul_shifter_w32_l4_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/seq_mul_shifter_w32_l4_b8_v0/tb.sv",
+      "physical_lines": 175,
+      "nonblank_lines": 174,
+      "sha256": "05a8683e98836e97bf1569d72f44c6dcb8a9b806833bf668b00c1c2491b2b59e"
+    },
+    "sv/tests/phase3/vector_combo/seq_mul_shifter_w64_l4_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/seq_mul_shifter_w64_l4_b8_v0/tb.sv",
+      "physical_lines": 175,
+      "nonblank_lines": 174,
+      "sha256": "79b3c300412991e60ac79d916cd9fefe08df2f6c9bdf6014260b6d42054285a1"
+    },
+    "sv/tests/phase3/vector_combo/tb_multp.sv": {
+      "path": "sv/tests/phase3/vector_combo/tb_multp.sv",
+      "physical_lines": 45,
+      "nonblank_lines": 45,
+      "sha256": "90e135c27129712a6014cddbd28d2b4c71dbd553979b203a70eca03331d5c41d"
+    },
+    "sv/tests/phase3/vector_combo/three_mul_adder_shifter_w32_l4_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/three_mul_adder_shifter_w32_l4_b8_v0/tb.sv",
+      "physical_lines": 170,
+      "nonblank_lines": 169,
+      "sha256": "aae97313dfb6e4f3f62737da2aac6dda231f12e30c8862d5bb92a022c899107f"
+    },
+    "sv/tests/phase3/vector_combo/three_mul_adder_shifter_w64_l4_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/three_mul_adder_shifter_w64_l4_b8_v0/tb.sv",
+      "physical_lines": 170,
+      "nonblank_lines": 169,
+      "sha256": "b39391774093d908c6f21ee02a7f0ab724eb2d3c4347bf7cc3151a7b9eb62295"
+    },
+    "sv/tests/phase3/vector_combo/vector_adder_combo_w32_l1_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/vector_adder_combo_w32_l1_b8_v0/tb.sv",
+      "physical_lines": 181,
+      "nonblank_lines": 180,
+      "sha256": "8a9f828019b8e95c5499bedbb5ef783814d840bbed2017b8f223f7a504280fb2"
+    },
+    "sv/tests/phase3/vector_combo/vector_adder_combo_w32_l2_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/vector_adder_combo_w32_l2_b8_v0/tb.sv",
+      "physical_lines": 181,
+      "nonblank_lines": 180,
+      "sha256": "58f6faf4782e75db9b8e20b6bb1f2b240dae65994afc543337ba5c5a6c2dd5ac"
+    },
+    "sv/tests/phase3/vector_combo/vector_adder_combo_w32_l4_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/vector_adder_combo_w32_l4_b8_v0/tb.sv",
+      "physical_lines": 181,
+      "nonblank_lines": 180,
+      "sha256": "59fb2c60b3e853c784d3eceaeccfcc5ce71ec055a44e23732e3e2bcd7df8d230"
+    },
+    "sv/tests/phase3/vector_combo/vector_adder_combo_w32_l8_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/vector_adder_combo_w32_l8_b8_v0/tb.sv",
+      "physical_lines": 181,
+      "nonblank_lines": 180,
+      "sha256": "1ffda7ae3373808d4b38f68451a4fa73e6a967665540acc0c7e9b2306c86fcc9"
+    },
+    "sv/tests/phase3/vector_combo/vector_adder_combo_w64_l8_b8_v3/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/vector_adder_combo_w64_l8_b8_v3/tb.sv",
+      "physical_lines": 181,
+      "nonblank_lines": 180,
+      "sha256": "50a0b06b7f7bbb0a71884cce5e6a9d5e7296f942d1013c99835fa3ed7d2635ad"
+    },
+    "sv/tests/phase3/vector_combo/vector_adder_w32_l4_b16_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/vector_adder_w32_l4_b16_v0/tb.sv",
+      "physical_lines": 125,
+      "nonblank_lines": 125,
+      "sha256": "257907794d7c9f1b5a8e8f3c1555c592f7c134fa50c0d6751d9dce63cb2a08b0"
+    },
+    "sv/tests/phase3/vector_combo/vector_adder_w32_l4_b1_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/vector_adder_w32_l4_b1_v0/tb.sv",
+      "physical_lines": 125,
+      "nonblank_lines": 125,
+      "sha256": "7fa4ad88590cb8b59ae8194d16ec16efed314364a467bcfbb1ee1d127f40ef4a"
+    },
+    "sv/tests/phase3/vector_combo/vector_adder_w32_l4_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/vector_adder_w32_l4_b8_v0/tb.sv",
+      "physical_lines": 128,
+      "nonblank_lines": 128,
+      "sha256": "e323d4a009b9eeaa240035aac35c57e74d7c53757164461a0b875490183ea404"
+    },
+    "sv/tests/phase3/vector_combo/vector_all_reduce_w32_l4_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/vector_all_reduce_w32_l4_b8_v0/tb.sv",
+      "physical_lines": 184,
+      "nonblank_lines": 183,
+      "sha256": "06566583b0d07c11134efb7cf181979b7d2ad439128d1f89ade6d9cde4cad7ee"
+    },
+    "sv/tests/phase3/vector_combo/vector_all_reduce_w32_l8_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/vector_all_reduce_w32_l8_b8_v0/tb.sv",
+      "physical_lines": 184,
+      "nonblank_lines": 183,
+      "sha256": "a48dce5b52ba320e54e64dc9a70577f2e0a88c8bc47a38143c34dfee033e89fe"
+    },
+    "sv/tests/phase3/vector_combo/vector_all_reduce_w64_l8_b8_v3/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/vector_all_reduce_w64_l8_b8_v3/tb.sv",
+      "physical_lines": 184,
+      "nonblank_lines": 183,
+      "sha256": "5ed83a376915096b13f9e8eab473814397e2ceae46b7362cb30775c7959fcc30"
+    },
+    "sv/tests/phase3/vector_combo/vector_mul_combo_w32_l4_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/vector_mul_combo_w32_l4_b8_v0/tb.sv",
+      "physical_lines": 176,
+      "nonblank_lines": 175,
+      "sha256": "35c9fc7f4951b51f2030b902fa552c2f3b4e385a09bc438834c90ea4e41c8d66"
+    },
+    "sv/tests/phase3/vector_combo/vector_mul_combo_w32_l8_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/vector_mul_combo_w32_l8_b8_v0/tb.sv",
+      "physical_lines": 176,
+      "nonblank_lines": 175,
+      "sha256": "694cd2cedda25a5a20b0c158a6a5a29bb79cdcf6ca7611b59fc7034f027a11ab"
+    },
+    "sv/tests/phase3/vector_combo/vector_mul_combo_w64_l4_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/vector_mul_combo_w64_l4_b8_v0/tb.sv",
+      "physical_lines": 176,
+      "nonblank_lines": 175,
+      "sha256": "84d909ad9f8dd859a8d9fea9ec8202457347b26078f1a6145b2e962f79bb8750"
+    },
+    "sv/tests/phase3/vector_combo/vector_mul_combo_w64_l8_b8_v3/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/vector_mul_combo_w64_l8_b8_v3/tb.sv",
+      "physical_lines": 176,
+      "nonblank_lines": 175,
+      "sha256": "58e66fbb280ceeef7f877e1f08e8c3a2ed1987c5a3fe6c3ee8a1eea974ed2b45"
+    },
+    "sv/tests/phase3/vector_combo/vector_mul_w32_l4_b16_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/vector_mul_w32_l4_b16_v0/tb.sv",
+      "physical_lines": 110,
+      "nonblank_lines": 110,
+      "sha256": "165706d674a85f90f68770d68f69938089e3670e8cead900f2eec85f76b84a54"
+    },
+    "sv/tests/phase3/vector_combo/vector_mul_w32_l4_b1_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/vector_mul_w32_l4_b1_v0/tb.sv",
+      "physical_lines": 110,
+      "nonblank_lines": 110,
+      "sha256": "33862980788600086dfdbb8b0bc40c8606ce81966660bf6302b180bf03196643"
+    },
+    "sv/tests/phase3/vector_combo/vector_mul_w32_l4_b8_v0/tb.sv": {
+      "path": "sv/tests/phase3/vector_combo/vector_mul_w32_l4_b8_v0/tb.sv",
+      "physical_lines": 110,
+      "nonblank_lines": 110,
+      "sha256": "b95d11e8f135aa70f97af589dd26e602cf2347534862018286942aae3369dc38"
+    },
+    "sv/tests/phase4/memory/tb_memory_asymmetric.sv": {
+      "path": "sv/tests/phase4/memory/tb_memory_asymmetric.sv",
+      "physical_lines": 242,
+      "nonblank_lines": 242,
+      "sha256": "a09eb2dd2372900f5f6eee59193fccf586a52176c900b0e7294e426289c3dc2d"
+    },
+    "sv/tests/phase4/migration/dynamic_fir/tb_multi_migration.sv": {
+      "path": "sv/tests/phase4/migration/dynamic_fir/tb_multi_migration.sv",
+      "physical_lines": 339,
+      "nonblank_lines": 339,
+      "sha256": "c8f815debd8af654c2dea94dcc8e63aca53181198cd7a794020c34689e4cd546"
+    },
+    "sv/tests/phase4/migration/global_add/tb_multi_migration.sv": {
+      "path": "sv/tests/phase4/migration/global_add/tb_multi_migration.sv",
+      "physical_lines": 90,
+      "nonblank_lines": 90,
+      "sha256": "c333091f2ed245399e833e3887ff7de6a2242a6721bff2984eaf419c2a7ecba7"
+    },
+    "sv/tests/phase4/noc/mesh_2x2_l0_w32/profile.svh": {
+      "path": "sv/tests/phase4/noc/mesh_2x2_l0_w32/profile.svh",
+      "physical_lines": 22,
+      "nonblank_lines": 22,
+      "sha256": "1ba570179da6b17d017d8736f2c2fb077b54a3e3cf635690b186025ca57e7f69"
+    },
+    "sv/tests/phase4/noc/mesh_2x2_l1_w32/profile.svh": {
+      "path": "sv/tests/phase4/noc/mesh_2x2_l1_w32/profile.svh",
+      "physical_lines": 22,
+      "nonblank_lines": 22,
+      "sha256": "4d0b3249cf8b4d4c1ebc4c37bc0ccd321369a943906fc52879db2dcdbf5e683f"
+    },
+    "sv/tests/phase4/noc/mesh_2x2_l2_w32/profile.svh": {
+      "path": "sv/tests/phase4/noc/mesh_2x2_l2_w32/profile.svh",
+      "physical_lines": 22,
+      "nonblank_lines": 22,
+      "sha256": "c2ca025d17f37712845802f2d39868ae2f3a5639e7ecefc394274f6af91e2671"
+    },
+    "sv/tests/phase4/noc/mesh_3x2_l1_w64/profile.svh": {
+      "path": "sv/tests/phase4/noc/mesh_3x2_l1_w64/profile.svh",
+      "physical_lines": 22,
+      "nonblank_lines": 22,
+      "sha256": "6c1fa50aa38d63c986d3c1d9917b2fac499bf9a28755eef1db234ce809d5da31"
+    },
+    "sv/tests/phase4/noc/ring_2_l1_w32/profile.svh": {
+      "path": "sv/tests/phase4/noc/ring_2_l1_w32/profile.svh",
+      "physical_lines": 22,
+      "nonblank_lines": 22,
+      "sha256": "356522fabfd52e355eb9752ad88cb9a06e70e0bbcdb9b4031f043d52bfd8b17e"
+    },
+    "sv/tests/phase4/noc/ring_3_l1_w32/profile.svh": {
+      "path": "sv/tests/phase4/noc/ring_3_l1_w32/profile.svh",
+      "physical_lines": 22,
+      "nonblank_lines": 22,
+      "sha256": "8e578bde5846b0ce1577730527f70d13a1f0896c63c50132152bc884d2403d36"
+    },
+    "sv/tests/phase4/noc/ring_4_l0_w32/profile.svh": {
+      "path": "sv/tests/phase4/noc/ring_4_l0_w32/profile.svh",
+      "physical_lines": 22,
+      "nonblank_lines": 22,
+      "sha256": "c96c9ef498c770556cdf8d25b3303c98b138061e36f1cc41624194274fb86db5"
+    },
+    "sv/tests/phase4/noc/ring_4_l1_w32/profile.svh": {
+      "path": "sv/tests/phase4/noc/ring_4_l1_w32/profile.svh",
+      "physical_lines": 22,
+      "nonblank_lines": 22,
+      "sha256": "9b134bda5eb557baf3e39784cc5646e1365c726f0af3492b44d77b3ff8cad6d6"
+    },
+    "sv/tests/phase4/noc/ring_6_l1_w64/profile.svh": {
+      "path": "sv/tests/phase4/noc/ring_6_l1_w64/profile.svh",
+      "physical_lines": 22,
+      "nonblank_lines": 22,
+      "sha256": "16a0273bcda76115d684ab99ef8e0bd8a3e49f4eb6163aeacb940f802e08a061"
+    },
+    "sv/tests/phase4/noc/tb_inter_cgra_noc.sv": {
+      "path": "sv/tests/phase4/noc/tb_inter_cgra_noc.sv",
+      "physical_lines": 202,
+      "nonblank_lines": 199,
+      "sha256": "034172e3e41c88af283ef43098024b75504f35c91a8a710e4be8223dda050ec7"
+    },
+    "sv/tests/phase4/peripheral/tb_dma.sv": {
+      "path": "sv/tests/phase4/peripheral/tb_dma.sv",
+      "physical_lines": 225,
+      "nonblank_lines": 222,
+      "sha256": "a1c134cde64f974356e4eb791885f29ecce5a402707c290a415d5fc5683f084a"
+    },
+    "sv/tests/phase4/peripheral/tb_dma_small.sv": {
+      "path": "sv/tests/phase4/peripheral/tb_dma_small.sv",
+      "physical_lines": 225,
+      "nonblank_lines": 222,
+      "sha256": "ba9a97b30e7ce85859432527b3d8c2038daa99ebb6a2e6dbdaba966ac9bd58bf"
+    },
+    "sv/tests/phase4/peripheral/tb_dma_system.sv": {
+      "path": "sv/tests/phase4/peripheral/tb_dma_system.sv",
+      "physical_lines": 226,
+      "nonblank_lines": 218,
+      "sha256": "87ddf3d430959f6dde0fd3ea0f57fd260706f3d9ff4d8fa32dad4eb29131aaa9"
+    },
+    "sv/tests/phase4/peripheral/tb_im2col.sv": {
+      "path": "sv/tests/phase4/peripheral/tb_im2col.sv",
+      "physical_lines": 104,
+      "nonblank_lines": 101,
+      "sha256": "c99167c8214bc83b24eb8c4f0a30d66326a1454b030044161b254c8523a79a70"
+    },
+    "sv/tests/phase4/peripheral/tb_im2col_system.sv": {
+      "path": "sv/tests/phase4/peripheral/tb_im2col_system.sv",
+      "physical_lines": 248,
+      "nonblank_lines": 240,
+      "sha256": "c72fb2fe1c5d94c93b035d7c1509dd26b5a47b030a9c1b34cc3df1d042b6c1d7"
+    },
+    "sv/tests/phase4/peripheral/tb_im2col_wide.sv": {
+      "path": "sv/tests/phase4/peripheral/tb_im2col_wide.sv",
+      "physical_lines": 104,
+      "nonblank_lines": 101,
+      "sha256": "ab6a4fad0b6a5b2871e9790ad4449689664702dea43ff23506ffefa3d7296a02"
+    },
+    "sv/tests/phase4/system/tb_multi.sv": {
+      "path": "sv/tests/phase4/system/tb_multi.sv",
+      "physical_lines": 183,
+      "nonblank_lines": 183,
+      "sha256": "fe2315b73de9b8e7bcc2c99c761606094da39c30160ea3f77c350419083d0cac"
+    },
+    "sv/tests/phase4/template/heterogeneous/architecture.svh": {
+      "path": "sv/tests/phase4/template/heterogeneous/architecture.svh",
+      "physical_lines": 14,
+      "nonblank_lines": 14,
+      "sha256": "d5ad912bf383e18582dee0396d0a63acf0c14f6b30d7c82afc15ecdb5209090d"
+    },
+    "sv/tests/phase4/template/synthesis_profile.sv": {
+      "path": "sv/tests/phase4/template/synthesis_profile.sv",
+      "physical_lines": 18,
+      "nonblank_lines": 18,
+      "sha256": "5381b42d321eb221a716cceba946e95ebe2c909f6323e1362ef5e2085f4c9990"
+    },
+    "sv/tests/phase4/template/tb_template.sv": {
+      "path": "sv/tests/phase4/template/tb_template.sv",
+      "physical_lines": 64,
+      "nonblank_lines": 64,
+      "sha256": "11d991981e3e0dc000a2e42f2c30f88482c3625977434c0c78ce3cc7c157247b"
+    },
+    "sv/tests/scalar_workload_pkg.sv": {
+      "path": "sv/tests/scalar_workload_pkg.sv",
+      "physical_lines": 113,
+      "nonblank_lines": 108,
+      "sha256": "104408422389b57683ea59e22e3ea02a82cc9d2c3d45748bafd5829430ca334a"
+    },
+    "sv/tests/tb_cgra_2x2_scalar.sv": {
+      "path": "sv/tests/tb_cgra_2x2_scalar.sv",
+      "physical_lines": 542,
+      "nonblank_lines": 526,
+      "sha256": "39b9deee545341d15170b81cf78e6d7e60f652df05182baa13597faa13aaef07"
+    },
+    "sv/tests/tb_cgra_types.sv": {
+      "path": "sv/tests/tb_cgra_types.sv",
+      "physical_lines": 79,
+      "nonblank_lines": 73,
+      "sha256": "4b6cd107e9f97f0e7fa2bdb64e6138a46ec24b4e5a411ab2c9c63b3573197c5b"
+    },
+    "sv/tests/tb_native_noc.sv": {
+      "path": "sv/tests/tb_native_noc.sv",
+      "physical_lines": 139,
+      "nonblank_lines": 131,
+      "sha256": "d5e745be1e66cb93f662cb773ec19bdc45b28e64a4635a3f3414510899a148bd"
+    },
+    "sv/tests/tb_native_ring_profiles.sv": {
+      "path": "sv/tests/tb_native_ring_profiles.sv",
+      "physical_lines": 91,
+      "nonblank_lines": 91,
+      "sha256": "faaba82b803cebe21605c0330010bca4bb1caad76e912c195e117b5cd0bc58f0"
+    },
+    "sv/tests/tb_native_tile.sv": {
+      "path": "sv/tests/tb_native_tile.sv",
+      "physical_lines": 156,
+      "nonblank_lines": 156,
+      "sha256": "e9fa0d86eb477fbec7daff4d6752e54075056cdf0ed8472d7c57220bdfba291f"
+    },
+    "sv/tests/tb_native_tile_units.sv": {
+      "path": "sv/tests/tb_native_tile_units.sv",
+      "physical_lines": 534,
+      "nonblank_lines": 534,
+      "sha256": "26d6f483900b80217266b40aca26880cb750494df902e193eebbc9edc902c862"
+    },
+    "sv/Makefile": {
+      "path": "sv/Makefile",
+      "physical_lines": 168,
+      "nonblank_lines": 147,
+      "sha256": "64af48d7f3d0754485a733a8f09f810a4f660749beddd8b988cac518acdf8605"
+    },
+    "sv/scripts/run.ps1": {
+      "path": "sv/scripts/run.ps1",
+      "physical_lines": 46,
+      "nonblank_lines": 46,
+      "sha256": "6c7ccfceecbb6db54f7e31786c85aeed14f172112e784b0ed4f48069803540ca"
+    },
+    "sv/tests/check_native_noc_synthesis.ps1": {
+      "path": "sv/tests/check_native_noc_synthesis.ps1",
+      "physical_lines": 58,
+      "nonblank_lines": 58,
+      "sha256": "502386139d903a38f5bd2c319a4dbfd9ae6c2a003ed785c8b89678f1ef954a17"
+    },
+    "sv/tests/check_phase2_synthesis.ps1": {
+      "path": "sv/tests/check_phase2_synthesis.ps1",
+      "physical_lines": 187,
+      "nonblank_lines": 187,
+      "sha256": "a82fb7f3f97cc3983d601a59133a7a917a77199b863d8f40af6ea9b368f9950a"
+    },
+    "sv/tests/phase3/float/check_synthesis.ps1": {
+      "path": "sv/tests/phase3/float/check_synthesis.ps1",
+      "physical_lines": 37,
+      "nonblank_lines": 37,
+      "sha256": "82e60e34b08468afcaf7e13633129873bdc1de3811faf4c16d47fb30cf4e6829"
+    },
+    "sv/tests/phase3/float/run.sh": {
+      "path": "sv/tests/phase3/float/run.sh",
+      "physical_lines": 30,
+      "nonblank_lines": 30,
+      "sha256": "cd51295e83ef2e8eb8d0c4c447cc84ae239bb235fadb191aa8da4fdf9ddbfb3f"
+    },
+    "sv/tests/phase3/scalar/check_synthesis.sh": {
+      "path": "sv/tests/phase3/scalar/check_synthesis.sh",
+      "physical_lines": 25,
+      "nonblank_lines": 25,
+      "sha256": "c06b36506b8ce0506aaa3770bb55ba9608a5eae7ce50930f2155683044997d3e"
+    },
+    "sv/tests/phase3/scalar/run.sh": {
+      "path": "sv/tests/phase3/scalar/run.sh",
+      "physical_lines": 34,
+      "nonblank_lines": 34,
+      "sha256": "f21cbe7ccb018d4411c875e67a5e39ec2d4fb6cf8bebac4120b7194ec393017c"
+    },
+    "sv/tests/phase3/system/check_guard.ps1": {
+      "path": "sv/tests/phase3/system/check_guard.ps1",
+      "physical_lines": 34,
+      "nonblank_lines": 34,
+      "sha256": "85178b3d0ef4080c57244ef7be2029a2f51d2b9eb26ffcf93fff12dd92d164d6"
+    },
+    "sv/tests/phase3/system/check_synthesis.ps1": {
+      "path": "sv/tests/phase3/system/check_synthesis.ps1",
+      "physical_lines": 80,
+      "nonblank_lines": 80,
+      "sha256": "453683ea10cea749208e57aa84100826abc2e88b9aafb5c329544dc05765fb34"
+    },
+    "sv/tests/phase3/system/run_base.sh": {
+      "path": "sv/tests/phase3/system/run_base.sh",
+      "physical_lines": 16,
+      "nonblank_lines": 16,
+      "sha256": "d3c83755a32f5ccb629bf7d108c345c6f1c3d481246dbe4c7b005ff3f7da35cb"
+    },
+    "sv/tests/phase3/system/run_float.sh": {
+      "path": "sv/tests/phase3/system/run_float.sh",
+      "physical_lines": 16,
+      "nonblank_lines": 16,
+      "sha256": "44a342f3845dd26ab81a613cb640c2ca1c639aed30d74c5f8abb528d462f1c81"
+    },
+    "sv/tests/phase3/system/run_logic.sh": {
+      "path": "sv/tests/phase3/system/run_logic.sh",
+      "physical_lines": 16,
+      "nonblank_lines": 16,
+      "sha256": "060bb488956efa6170f7e69abafe458004494507288ecd8778baaec71b948484"
+    },
+    "sv/tests/phase3/system/run_negative.sh": {
+      "path": "sv/tests/phase3/system/run_negative.sh",
+      "physical_lines": 20,
+      "nonblank_lines": 20,
+      "sha256": "e40bb045ee525eafc86717321e61fb0a7d1e9bc2bd30ba6850c312eb16598b22"
+    },
+    "sv/tests/phase3/system/run_vector.sh": {
+      "path": "sv/tests/phase3/system/run_vector.sh",
+      "physical_lines": 32,
+      "nonblank_lines": 32,
+      "sha256": "dc90b38762da4bd2305a6e1bae5424b18e36cb2c9e9ac79ccb60620a4e76949b"
+    },
+    "sv/tests/phase3/tile_variants/check_synthesis.ps1": {
+      "path": "sv/tests/phase3/tile_variants/check_synthesis.ps1",
+      "physical_lines": 66,
+      "nonblank_lines": 66,
+      "sha256": "98e4034ab3ab0b5dd3ddd0364749e533ecad762eb033fb3a9a8b056b10d2e100"
+    },
+    "sv/tests/phase3/tile_variants/collect_results.ps1": {
+      "path": "sv/tests/phase3/tile_variants/collect_results.ps1",
+      "physical_lines": 56,
+      "nonblank_lines": 56,
+      "sha256": "a57baed8bc43510045eff36c59cd9874ac08afbeda050b86bd712f3072cbb4fd"
+    },
+    "sv/tests/phase3/tile_variants/run_cgra.sh": {
+      "path": "sv/tests/phase3/tile_variants/run_cgra.sh",
+      "physical_lines": 37,
+      "nonblank_lines": 37,
+      "sha256": "11985f357cb61e5d4494e428c5a7e3c151572fc267f1319c5815527348c0be8b"
+    },
+    "sv/tests/phase3/tile_variants/run_components.sh": {
+      "path": "sv/tests/phase3/tile_variants/run_components.sh",
+      "physical_lines": 38,
+      "nonblank_lines": 38,
+      "sha256": "a6581291f59bf74ac0ac8095ba82b3fa15860eff02fc19d366ce83f4b08d36f0"
+    },
+    "sv/tests/phase3/tile_variants/run_tiles.sh": {
+      "path": "sv/tests/phase3/tile_variants/run_tiles.sh",
+      "physical_lines": 36,
+      "nonblank_lines": 36,
+      "sha256": "c4d9ed729fcaf0a99db1d7e35ca6d5c8de95433315dd6395e36c80ff878dcccb"
+    },
+    "sv/tests/phase3/vector_combo/check_synthesis.ps1": {
+      "path": "sv/tests/phase3/vector_combo/check_synthesis.ps1",
+      "physical_lines": 121,
+      "nonblank_lines": 120,
+      "sha256": "a085b22bd2173bb223269be933f4893907d8ddd1fc569fa7482ea2b32dc1cd82"
+    },
+    "sv/tests/phase3/vector_combo/run.sh": {
+      "path": "sv/tests/phase3/vector_combo/run.sh",
+      "physical_lines": 26,
+      "nonblank_lines": 26,
+      "sha256": "17b1db20a636fa4e2d84ef9a7312cf92dd5c5bcff556a81c0532e06025f92862"
+    },
+    "sv/tests/phase3/vector_combo/run_multp.sh": {
+      "path": "sv/tests/phase3/vector_combo/run_multp.sh",
+      "physical_lines": 12,
+      "nonblank_lines": 12,
+      "sha256": "672bb04c2c0e1674d04f4fe5a0f28c71ed264033cc60da066c35f535d68dac46"
+    },
+    "sv/tests/phase3/vector_combo/run_negative.sh": {
+      "path": "sv/tests/phase3/vector_combo/run_negative.sh",
+      "physical_lines": 17,
+      "nonblank_lines": 17,
+      "sha256": "e32ab8efb50e8f89f6b22138939b5649d9a3b13d3728cb890c7a830ebddef305"
+    },
+    "sv/tests/phase4/memory/run.sh": {
+      "path": "sv/tests/phase4/memory/run.sh",
+      "physical_lines": 23,
+      "nonblank_lines": 23,
+      "sha256": "81a76879fba91fafab85e81fdbaaa8901407b490289c6e499d160c4ab3348825"
+    },
+    "sv/tests/phase4/migration/run.sh": {
+      "path": "sv/tests/phase4/migration/run.sh",
+      "physical_lines": 32,
+      "nonblank_lines": 32,
+      "sha256": "660827c43e9440b26cf7ebada26e6615c956650f8f2b7817c5f899d8e0475ca5"
+    },
+    "sv/tests/phase4/noc/check_synthesis.ps1": {
+      "path": "sv/tests/phase4/noc/check_synthesis.ps1",
+      "physical_lines": 8,
+      "nonblank_lines": 8,
+      "sha256": "eb27ab51dfe392bbf44e4f5601a6666d69e9a26835dc19fb67ca59ed7b981e31"
+    },
+    "sv/tests/phase4/noc/run.sh": {
+      "path": "sv/tests/phase4/noc/run.sh",
+      "physical_lines": 26,
+      "nonblank_lines": 26,
+      "sha256": "de2bc8894cd6a056baa7a8605ed7634f5d8afc471ac89e3965c18ac2394e12d2"
+    },
+    "sv/tests/phase4/noc/run_negative.sh": {
+      "path": "sv/tests/phase4/noc/run_negative.sh",
+      "physical_lines": 17,
+      "nonblank_lines": 17,
+      "sha256": "b7f7da86f82822f543cf417a66aabf8f4e2bf690e3d37cb8c175aa1911f8eb56"
+    },
+    "sv/tests/phase4/peripheral/check_synthesis.ps1": {
+      "path": "sv/tests/phase4/peripheral/check_synthesis.ps1",
+      "physical_lines": 50,
+      "nonblank_lines": 50,
+      "sha256": "7825f6aec72c55a6e1b65df2f2a01603d8328a89cc100e4f00bf2bf3f1d60af0"
+    },
+    "sv/tests/phase4/peripheral/check_system_synthesis.ps1": {
+      "path": "sv/tests/phase4/peripheral/check_system_synthesis.ps1",
+      "physical_lines": 63,
+      "nonblank_lines": 63,
+      "sha256": "d20a09cb0a51e5b7e789e995c16d7bb9e0e9cfb062371c10cc1703f9c4387ac2"
+    },
+    "sv/tests/phase4/peripheral/collect_results.ps1": {
+      "path": "sv/tests/phase4/peripheral/collect_results.ps1",
+      "physical_lines": 57,
+      "nonblank_lines": 57,
+      "sha256": "2cbe25bce809131ef07619d84e478f8587e273b088b49c162ddc84bed0e3d8ce"
+    },
+    "sv/tests/phase4/peripheral/run_components.sh": {
+      "path": "sv/tests/phase4/peripheral/run_components.sh",
+      "physical_lines": 42,
+      "nonblank_lines": 42,
+      "sha256": "57f743ff752eb0ec7508276a9f3908071f1142799a3f00264004796e55a5c847"
+    },
+    "sv/tests/phase4/peripheral/run_systems.sh": {
+      "path": "sv/tests/phase4/peripheral/run_systems.sh",
+      "physical_lines": 26,
+      "nonblank_lines": 26,
+      "sha256": "3e785617b628780ed873a1cd2833ca5c6b91f595a412a8bc28510e32a1223e17"
+    },
+    "sv/tests/phase4/system/check_synthesis.ps1": {
+      "path": "sv/tests/phase4/system/check_synthesis.ps1",
+      "physical_lines": 84,
+      "nonblank_lines": 84,
+      "sha256": "141360ee996df50e82526db5ab6d0a60f005e15a8cde3006919b329201d290c7"
+    },
+    "sv/tests/phase4/system/replay.sh": {
+      "path": "sv/tests/phase4/system/replay.sh",
+      "physical_lines": 40,
+      "nonblank_lines": 40,
+      "sha256": "6a3eab669a52ef1857bb3886fae1e78e4c2b48c37bc97df029454d434f01985d"
+    },
+    "sv/tests/phase4/system/run.sh": {
+      "path": "sv/tests/phase4/system/run.sh",
+      "physical_lines": 27,
+      "nonblank_lines": 27,
+      "sha256": "a7c8a5bc433006597ac23d70787a4c922a2c2edfb4393f007840a5e15128468c"
+    },
+    "sv/tests/phase4/system/run_negative.sh": {
+      "path": "sv/tests/phase4/system/run_negative.sh",
+      "physical_lines": 17,
+      "nonblank_lines": 17,
+      "sha256": "a21adc1fb555699f34a4ceaa4858f321017f8c268633e5e8058848a91e32b366"
+    },
+    "sv/tests/phase4/template/run.sh": {
+      "path": "sv/tests/phase4/template/run.sh",
+      "physical_lines": 27,
+      "nonblank_lines": 27,
+      "sha256": "29163ee6d5d279f596e93df5e5fbba0b1a4e5a9dc76ae0804adf4e90ef1c87e4"
+    },
+    "sv/tests/run_native_noc.sh": {
+      "path": "sv/tests/run_native_noc.sh",
+      "physical_lines": 12,
+      "nonblank_lines": 12,
+      "sha256": "f3d6bc20838c676ad4dcce47405651b7013c55b14753cd16802b20a6ddd9ed4c"
+    },
+    "sv/tests/run_native_ring_profiles.sh": {
+      "path": "sv/tests/run_native_ring_profiles.sh",
+      "physical_lines": 22,
+      "nonblank_lines": 22,
+      "sha256": "0a8c502d1b446d703f4b7109d8bbd7ff0abbc74ebc3ac932b77bce6f360db73e"
+    },
+    "sv/tests/run_native_tile.sh": {
+      "path": "sv/tests/run_native_tile.sh",
+      "physical_lines": 40,
+      "nonblank_lines": 40,
+      "sha256": "22205b3a94008b85ad12fc8646bb3f008f47ae39ac3296253121adbebeae40f3"
+    },
+    "sv/filelists/native.f": {
+      "path": "sv/filelists/native.f",
+      "physical_lines": 97,
+      "nonblank_lines": 97,
+      "sha256": "0e33dc3e931fe74cdede8518f261bbabda1493f8311844382cf9f7ad2ce3ea9d"
+    },
+    "sv/filelists/phase3.f": {
+      "path": "sv/filelists/phase3.f",
+      "physical_lines": 86,
+      "nonblank_lines": 86,
+      "sha256": "b8c5154343b940ba044c437072974826ebf6d522124a74866ca31c9fb2aac9ad"
+    },
+    "sv/filelists/phase3_float.f": {
+      "path": "sv/filelists/phase3_float.f",
+      "physical_lines": 13,
+      "nonblank_lines": 13,
+      "sha256": "3a1b67882cfd42d3a4a30ef26e8c1f9ea2e280a57097fe8cd8e2d56f70d73631"
+    },
+    "sv/filelists/phase4.f": {
+      "path": "sv/filelists/phase4.f",
+      "physical_lines": 94,
+      "nonblank_lines": 93,
+      "sha256": "2165601b4a61141ca3370089c68f6341352aab73f582f621750985abd819c213"
+    },
+    "sv/filelists/phase4_noc.f": {
+      "path": "sv/filelists/phase4_noc.f",
+      "physical_lines": 14,
+      "nonblank_lines": 14,
+      "sha256": "9f364380d291dfdb047e2096b33f9275d3f443cc465700ac0d8e834edefbb8c0"
+    },
+    "sv/filelists/phase4_peripheral.f": {
+      "path": "sv/filelists/phase4_peripheral.f",
+      "physical_lines": 3,
+      "nonblank_lines": 3,
+      "sha256": "1e036d2625b33b7c114b655ba306dd3895bcaa69d45b1fc06dc98b32ae068d51"
+    },
+    "sv/filelists/rtl.f": {
+      "path": "sv/filelists/rtl.f",
+      "physical_lines": 32,
+      "nonblank_lines": 32,
+      "sha256": "b513558b37f1f44761a15e0ce5c8be46979226d99d126968b62a73cfabc8f51a"
+    },
+    "sv/filelists/sim.f": {
+      "path": "sv/filelists/sim.f",
+      "physical_lines": 4,
+      "nonblank_lines": 4,
+      "sha256": "5a38683f86100f5d985456c5a70740fdc9b5118f4744faaccd7fc50f5ee9c0f8"
+    },
+    "sv/migration_tools/export_packing_and_replay.py": {
+      "path": "sv/migration_tools/export_packing_and_replay.py",
+      "physical_lines": 86,
+      "nonblank_lines": 79,
+      "sha256": "8238d5a6e89e072d8f2083d21fed8a35be85026f86ddb8e7565556139f5132cd"
+    },
+    "sv/migration_tools/export_reference.py": {
+      "path": "sv/migration_tools/export_reference.py",
+      "physical_lines": 94,
+      "nonblank_lines": 86,
+      "sha256": "53fa0fe8b67c9757de65a6613bf91d4546970718eee2b7c78634d689f4a764b7"
+    },
+    "sv/migration_tools/export_vectors.py": {
+      "path": "sv/migration_tools/export_vectors.py",
+      "physical_lines": 258,
+      "nonblank_lines": 241,
+      "sha256": "16b828d4415eec9cff575f79df84a6f0a0060ee81bcdbd032cdea846f8b4f893"
+    },
+    "sv/migration_tools/freeze_core.py": {
+      "path": "sv/migration_tools/freeze_core.py",
+      "physical_lines": 64,
+      "nonblank_lines": 54,
+      "sha256": "18b114d9775055a042224b7de668751da45d9ba4e788b5981fdebaa8838a650e"
+    },
+    "sv/migration_tools/phase2_export.py": {
+      "path": "sv/migration_tools/phase2_export.py",
+      "physical_lines": 333,
+      "nonblank_lines": 309,
+      "sha256": "0f10f983abb2fe39f8a58f7a689199e16cb7a14dc8c3f7fea854f5039a1fa2dd"
+    },
+    "sv/migration_tools/phase2_port_support.py": {
+      "path": "sv/migration_tools/phase2_port_support.py",
+      "physical_lines": 192,
+      "nonblank_lines": 174,
+      "sha256": "80709a0df4b8aca727998c1f6fa8dd92b31096eb5943afdf359556c20102b85d"
+    },
+    "sv/migration_tools/phase2_testbench.py": {
+      "path": "sv/migration_tools/phase2_testbench.py",
+      "physical_lines": 257,
+      "nonblank_lines": 247,
+      "sha256": "c099d950585e7d5a21115198f9e60963d89b738c534cdf84769ec7127038bc36"
+    },
+    "sv/migration_tools/phase3_cgra_port.py": {
+      "path": "sv/migration_tools/phase3_cgra_port.py",
+      "physical_lines": 49,
+      "nonblank_lines": 49,
+      "sha256": "6ed87b97b4b74fa49e6b2bcbede53563327d4d0f7ef75d01b9efd5e99a95a05d"
+    },
+    "sv/migration_tools/phase3_collect.py": {
+      "path": "sv/migration_tools/phase3_collect.py",
+      "physical_lines": 118,
+      "nonblank_lines": 115,
+      "sha256": "e774991d81311ebe37855b4a0d6c0f88cb31bd748411f32ac1ba3ed1e9186cad"
+    },
+    "sv/migration_tools/phase3_flexible_port.py": {
+      "path": "sv/migration_tools/phase3_flexible_port.py",
+      "physical_lines": 108,
+      "nonblank_lines": 108,
+      "sha256": "e94bfd69dffbeaf2e1670b0554e6a646c2e5a1386f1014d6520c9cd8fdc47be2"
+    },
+    "sv/migration_tools/phase3_float_export.py": {
+      "path": "sv/migration_tools/phase3_float_export.py",
+      "physical_lines": 124,
+      "nonblank_lines": 116,
+      "sha256": "89c0b70f7b3524399ccce7f121e068ceaf9f1c0e1fa11e3394dca2614d1c8966"
+    },
+    "sv/migration_tools/phase3_float_port.py": {
+      "path": "sv/migration_tools/phase3_float_port.py",
+      "physical_lines": 157,
+      "nonblank_lines": 150,
+      "sha256": "34d8f6abd825be905e85eaf9465e0691034ed3f063aaa371a2d7b225ee9b58f9"
+    },
+    "sv/migration_tools/phase3_float_portable.py": {
+      "path": "sv/migration_tools/phase3_float_portable.py",
+      "physical_lines": 33,
+      "nonblank_lines": 32,
+      "sha256": "0784e2ab0ab0f8e4841b02301ae442746f7f1722e4ca7d272d3a006e0e3f1303"
+    },
+    "sv/migration_tools/phase3_float_results.py": {
+      "path": "sv/migration_tools/phase3_float_results.py",
+      "physical_lines": 35,
+      "nonblank_lines": 34,
+      "sha256": "91ef8ca68fe4d690824e48885bc3515eecdb8c3cc38c6d9c0183389c7d238d8a"
+    },
+    "sv/migration_tools/phase3_float_testbench.py": {
+      "path": "sv/migration_tools/phase3_float_testbench.py",
+      "physical_lines": 158,
+      "nonblank_lines": 158,
+      "sha256": "ae3eb34b52e47d9e8ce6ce046c2195a25260a0c4eea3c6e6c512b65c30634048"
+    },
+    "sv/migration_tools/phase3_fp_system_export.py": {
+      "path": "sv/migration_tools/phase3_fp_system_export.py",
+      "physical_lines": 214,
+      "nonblank_lines": 192,
+      "sha256": "aa661460b65704d3c5b29acfcee651f4ea9d789332fe25871e6992edf63dec30"
+    },
+    "sv/migration_tools/phase3_fp_system_scaffold.py": {
+      "path": "sv/migration_tools/phase3_fp_system_scaffold.py",
+      "physical_lines": 100,
+      "nonblank_lines": 96,
+      "sha256": "d6fad3145eaff0c3f83364eaf3a1664840ed29167fb5190d319486128f4383a8"
+    },
+    "sv/migration_tools/phase3_logic_export.py": {
+      "path": "sv/migration_tools/phase3_logic_export.py",
+      "physical_lines": 336,
+      "nonblank_lines": 312,
+      "sha256": "8a1ddf9ed6f7dc5d53310cfe38baeb0fc570850697000120e58a3221c7cdb47b"
+    },
+    "sv/migration_tools/phase3_logic_scaffold.py": {
+      "path": "sv/migration_tools/phase3_logic_scaffold.py",
+      "physical_lines": 39,
+      "nonblank_lines": 39,
+      "sha256": "b0739a55a1ade2d4e1da0c0d655e4b2c0c442c4e1438aff067a9a3c83d1c1ea0"
+    },
+    "sv/migration_tools/phase3_scalar_export.py": {
+      "path": "sv/migration_tools/phase3_scalar_export.py",
+      "physical_lines": 198,
+      "nonblank_lines": 188,
+      "sha256": "9ade4067a41bf3c1c74f744fcdb2f4b62d329c8c092e27945534c6b48d345015"
+    },
+    "sv/migration_tools/phase3_scalar_port.py": {
+      "path": "sv/migration_tools/phase3_scalar_port.py",
+      "physical_lines": 113,
+      "nonblank_lines": 105,
+      "sha256": "53cc49ca32b3bb470214a5f43f48b15cc5613d22a75fb02bf3cfb1ff0cfea1b6"
+    },
+    "sv/migration_tools/phase3_scalar_provenance.py": {
+      "path": "sv/migration_tools/phase3_scalar_provenance.py",
+      "physical_lines": 31,
+      "nonblank_lines": 26,
+      "sha256": "2cd2229fdb8597022eaa241b89b1d24ea782cc9a82f1a0784b5715ca58adf6bf"
+    },
+    "sv/migration_tools/phase3_scalar_results.py": {
+      "path": "sv/migration_tools/phase3_scalar_results.py",
+      "physical_lines": 103,
+      "nonblank_lines": 99,
+      "sha256": "d81a7f4ef8d9e25ccdc6d605b78d03b6a28b53d6f1134efdf8fe7f3f72fc72de"
+    },
+    "sv/migration_tools/phase3_scalar_testbench.py": {
+      "path": "sv/migration_tools/phase3_scalar_testbench.py",
+      "physical_lines": 117,
+      "nonblank_lines": 113,
+      "sha256": "334e0d25d674d6cd816a7d7a3995c1dabe950256471fb7c8bc2a02017d725219"
+    },
+    "sv/migration_tools/phase3_scalar_vectors.py": {
+      "path": "sv/migration_tools/phase3_scalar_vectors.py",
+      "physical_lines": 200,
+      "nonblank_lines": 188,
+      "sha256": "067eda66b1fe6a8a59976ce86a12f4cfa46587fd099ec438f930f07a1aa75b5e"
+    },
+    "sv/migration_tools/phase3_tile_port.py": {
+      "path": "sv/migration_tools/phase3_tile_port.py",
+      "physical_lines": 54,
+      "nonblank_lines": 54,
+      "sha256": "7dd281a53624821f7276510cd6529ac25dd27c961f5c09b99ec78bd4bc96efae"
+    },
+    "sv/migration_tools/phase3_variants_cgra_bench.py": {
+      "path": "sv/migration_tools/phase3_variants_cgra_bench.py",
+      "physical_lines": 53,
+      "nonblank_lines": 53,
+      "sha256": "2c73b90388d3411e2a5758bd4b5946f875e4671394960220e8751272e69a2174"
+    },
+    "sv/migration_tools/phase3_variants_cgra_trace.py": {
+      "path": "sv/migration_tools/phase3_variants_cgra_trace.py",
+      "physical_lines": 153,
+      "nonblank_lines": 151,
+      "sha256": "258ad467b87fc1e091ab08ad98788714208b1e63a0a36a70e85d02a5e95a54be"
+    },
+    "sv/migration_tools/phase3_variants_component_tests.py": {
+      "path": "sv/migration_tools/phase3_variants_component_tests.py",
+      "physical_lines": 88,
+      "nonblank_lines": 85,
+      "sha256": "cf64470561da7e9997aa1730b93d3dff7b404a8894cf5b71a034155704379a09"
+    },
+    "sv/migration_tools/phase3_variants_export.py": {
+      "path": "sv/migration_tools/phase3_variants_export.py",
+      "physical_lines": 95,
+      "nonblank_lines": 91,
+      "sha256": "f6ac925dbc60c984c0d7012b60f9216ce2dfe65f1ef25216fdce1662a04af0aa"
+    },
+    "sv/migration_tools/phase3_variants_local_modules.py": {
+      "path": "sv/migration_tools/phase3_variants_local_modules.py",
+      "physical_lines": 39,
+      "nonblank_lines": 34,
+      "sha256": "b5874fd657ffd334a27e7e78ce3393282d2a4c79791c0e19584b29daa6a2f195"
+    },
+    "sv/migration_tools/phase3_variants_probe.py": {
+      "path": "sv/migration_tools/phase3_variants_probe.py",
+      "physical_lines": 39,
+      "nonblank_lines": 37,
+      "sha256": "9156f90343be2ba62e130e250469cef56e24da6f29cadf69c624c06f75f41618"
+    },
+    "sv/migration_tools/phase3_variants_streaming_bench.py": {
+      "path": "sv/migration_tools/phase3_variants_streaming_bench.py",
+      "physical_lines": 99,
+      "nonblank_lines": 99,
+      "sha256": "aded033ccf804c3cd89b91074696a76d37eb91391a96235c7b1559f937bb29a6"
+    },
+    "sv/migration_tools/phase3_variants_tile_bench.py": {
+      "path": "sv/migration_tools/phase3_variants_tile_bench.py",
+      "physical_lines": 51,
+      "nonblank_lines": 51,
+      "sha256": "0536d122435aa0d3217763ef98c923d35832649407079015cae9a5d420005e03"
+    },
+    "sv/migration_tools/phase3_variants_tile_source.py": {
+      "path": "sv/migration_tools/phase3_variants_tile_source.py",
+      "physical_lines": 176,
+      "nonblank_lines": 172,
+      "sha256": "894161ff04507ed0fb9f8fc59d17260a0d58b36b194efb53d9e038361e5cc87b"
+    },
+    "sv/migration_tools/phase3_variants_tile_trace.py": {
+      "path": "sv/migration_tools/phase3_variants_tile_trace.py",
+      "physical_lines": 129,
+      "nonblank_lines": 127,
+      "sha256": "4f5c23280e0102c818850a5573950a1ff2e915e71cdf6ea4a61eb6dd2feb394d"
+    },
+    "sv/migration_tools/phase3_vector_export.py": {
+      "path": "sv/migration_tools/phase3_vector_export.py",
+      "physical_lines": 189,
+      "nonblank_lines": 175,
+      "sha256": "0e69de660807dee6d5716210a8f3af33acc62c6a0d3561a5fe69cd6be8646141"
+    },
+    "sv/migration_tools/phase3_vector_mul_probe.py": {
+      "path": "sv/migration_tools/phase3_vector_mul_probe.py",
+      "physical_lines": 50,
+      "nonblank_lines": 49,
+      "sha256": "2af49bf821a8ea04dd590f15707dc65a1999967851ae71ccb16ff8a9c274a2b7"
+    },
+    "sv/migration_tools/phase3_vector_outer_port.py": {
+      "path": "sv/migration_tools/phase3_vector_outer_port.py",
+      "physical_lines": 223,
+      "nonblank_lines": 214,
+      "sha256": "b78c03086a991be5fdde574f63056840845ba3cf6967c2394ea28bd6f987a340"
+    },
+    "sv/migration_tools/phase3_vector_port.py": {
+      "path": "sv/migration_tools/phase3_vector_port.py",
+      "physical_lines": 105,
+      "nonblank_lines": 90,
+      "sha256": "3f49438f4863832ab4376d139edec0f1755352ad44f695ba2e155c1963f76c0b"
+    },
+    "sv/migration_tools/phase3_vector_results.py": {
+      "path": "sv/migration_tools/phase3_vector_results.py",
+      "physical_lines": 76,
+      "nonblank_lines": 73,
+      "sha256": "a693cd4971cf426576f8b0a8d296ec4a0d3be4f8e37a9487d24218f016958433"
+    },
+    "sv/migration_tools/phase3_vector_system_export.py": {
+      "path": "sv/migration_tools/phase3_vector_system_export.py",
+      "physical_lines": 350,
+      "nonblank_lines": 323,
+      "sha256": "f5c26e33f5b4f3d357d2f728d202ca0778ea3ff62d760d4c1720879bf94be546"
+    },
+    "sv/migration_tools/phase3_vector_system_results.py": {
+      "path": "sv/migration_tools/phase3_vector_system_results.py",
+      "physical_lines": 83,
+      "nonblank_lines": 76,
+      "sha256": "19a5138f841b3e5887ce9c51bae22442b0ee91552ba5d24dcfc2f79776a663b7"
+    },
+    "sv/migration_tools/phase3_vector_system_scaffold.py": {
+      "path": "sv/migration_tools/phase3_vector_system_scaffold.py",
+      "physical_lines": 107,
+      "nonblank_lines": 95,
+      "sha256": "e87e95aa4f26da4ebb20c29e6ab0bb0dce729b976af872fcc3917eb66f729a20"
+    },
+    "sv/migration_tools/phase3_vector_testbench.py": {
+      "path": "sv/migration_tools/phase3_vector_testbench.py",
+      "physical_lines": 302,
+      "nonblank_lines": 293,
+      "sha256": "d8721d35555a490e079952f0e01d8941a8e8fd06836209ff64b16eac8fa685ce"
+    },
+    "sv/migration_tools/phase4_collect.py": {
+      "path": "sv/migration_tools/phase4_collect.py",
+      "physical_lines": 106,
+      "nonblank_lines": 105,
+      "sha256": "2f70f8cf2e2173f641afa039ca1dc40e2df022ba9c506cdcf86cc178bb3af131"
+    },
+    "sv/migration_tools/phase4_compatibility_scope.py": {
+      "path": "sv/migration_tools/phase4_compatibility_scope.py",
+      "physical_lines": 65,
+      "nonblank_lines": 62,
+      "sha256": "d748f7a4231bbf79e3b05bc48fac71252d271cd09e1cfa72832fb5183b61aafc"
+    },
+    "sv/migration_tools/phase4_memory_bench.py": {
+      "path": "sv/migration_tools/phase4_memory_bench.py",
+      "physical_lines": 134,
+      "nonblank_lines": 133,
+      "sha256": "65dc5c173624d40229a5e353850dc2bf73d2eaa372b29ddfd241bd67b6a4ed27"
+    },
+    "sv/migration_tools/phase4_memory_check.py": {
+      "path": "sv/migration_tools/phase4_memory_check.py",
+      "physical_lines": 35,
+      "nonblank_lines": 34,
+      "sha256": "cfe69fb7f3c85488a7f13bc23eb85a0037a7367cb61ea13d0c9e5a0322c6616e"
+    },
+    "sv/migration_tools/phase4_memory_export.py": {
+      "path": "sv/migration_tools/phase4_memory_export.py",
+      "physical_lines": 42,
+      "nonblank_lines": 38,
+      "sha256": "d675a15ceab9532082013ca33d12ba46c63d73aeaac3ef14e9103710cfc1c469"
+    },
+    "sv/migration_tools/phase4_migration_benches.py": {
+      "path": "sv/migration_tools/phase4_migration_benches.py",
+      "physical_lines": 113,
+      "nonblank_lines": 108,
+      "sha256": "6ffe59fbb80658c1821e490cecef34ff1cd978a6325b86d27251758774a76e31"
+    },
+    "sv/migration_tools/phase4_migration_reduce.py": {
+      "path": "sv/migration_tools/phase4_migration_reduce.py",
+      "physical_lines": 124,
+      "nonblank_lines": 120,
+      "sha256": "9888978487e5941c7885c50119bdbf9fee842a021b50fa939df70f59da9ea22c"
+    },
+    "sv/migration_tools/phase4_migration_results.py": {
+      "path": "sv/migration_tools/phase4_migration_results.py",
+      "physical_lines": 63,
+      "nonblank_lines": 56,
+      "sha256": "e6fae7593ecbcc085140ecf8171b406a8afd0ee61382c6d7b20fe50c39c27143"
+    },
+    "sv/migration_tools/phase4_migration_trace.py": {
+      "path": "sv/migration_tools/phase4_migration_trace.py",
+      "physical_lines": 161,
+      "nonblank_lines": 149,
+      "sha256": "f92c2bfe01e74e2b9993caca98c91c16e27a12e2b6df281843f26df3d0c1faeb"
+    },
+    "sv/migration_tools/phase4_multi_export.py": {
+      "path": "sv/migration_tools/phase4_multi_export.py",
+      "physical_lines": 156,
+      "nonblank_lines": 153,
+      "sha256": "a447003e4b3d0c830a0cd0678f1b3db1c1b11cd70fc7415941b9aa2425e99522"
+    },
+    "sv/migration_tools/phase4_noc_check.py": {
+      "path": "sv/migration_tools/phase4_noc_check.py",
+      "physical_lines": 74,
+      "nonblank_lines": 67,
+      "sha256": "17345f6498b5ff41c79af80b1c0908bc4f7ec24b1608b5e50b91d28daa5b7d78"
+    },
+    "sv/migration_tools/phase4_noc_export.py": {
+      "path": "sv/migration_tools/phase4_noc_export.py",
+      "physical_lines": 94,
+      "nonblank_lines": 88,
+      "sha256": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae"
+    },
+    "sv/migration_tools/phase4_noc_profiles.py": {
+      "path": "sv/migration_tools/phase4_noc_profiles.py",
+      "physical_lines": 18,
+      "nonblank_lines": 17,
+      "sha256": "d7ad27affb84a1a39cf874e0e8e6d669026938b83a34ed1f5c30c79a3ac31950"
+    },
+    "sv/migration_tools/phase4_noc_results.py": {
+      "path": "sv/migration_tools/phase4_noc_results.py",
+      "physical_lines": 49,
+      "nonblank_lines": 44,
+      "sha256": "e9d3c6bbc5a66983a73e017fb513001b8f81dddb390fe10605fa37e5d783a6e3"
+    },
+    "sv/migration_tools/phase4_peripheral_benches.py": {
+      "path": "sv/migration_tools/phase4_peripheral_benches.py",
+      "physical_lines": 259,
+      "nonblank_lines": 256,
+      "sha256": "90ec8494de007050dec0090c117e5c4fbbd3defcd898b7b52d4dd827f3cc8e7b"
+    },
+    "sv/migration_tools/phase4_peripheral_export.py": {
+      "path": "sv/migration_tools/phase4_peripheral_export.py",
+      "physical_lines": 71,
+      "nonblank_lines": 71,
+      "sha256": "8432b65e1495ec0755b10bf6b6b3c69ec37410c949417a996769372a5a034936"
+    },
+    "sv/migration_tools/phase4_peripheral_pytrace.py": {
+      "path": "sv/migration_tools/phase4_peripheral_pytrace.py",
+      "physical_lines": 54,
+      "nonblank_lines": 54,
+      "sha256": "f04958ca30a36fafec453052a8d48937a4cf239d8cde976ca8ed828642e2522f"
+    },
+    "sv/migration_tools/phase4_peripheral_system_benches.py": {
+      "path": "sv/migration_tools/phase4_peripheral_system_benches.py",
+      "physical_lines": 154,
+      "nonblank_lines": 154,
+      "sha256": "549b150bd3f86203e170e892f2df21e65ec35291573abce4664d548f04feb572"
+    },
+    "sv/migration_tools/phase4_peripheral_system_export.py": {
+      "path": "sv/migration_tools/phase4_peripheral_system_export.py",
+      "physical_lines": 67,
+      "nonblank_lines": 67,
+      "sha256": "69da83d32b8b6c1c2cf8fff4c24809e95cfda892302ea0f4e288ece94f84755e"
+    },
+    "sv/migration_tools/phase4_peripheral_wrappers.py": {
+      "path": "sv/migration_tools/phase4_peripheral_wrappers.py",
+      "physical_lines": 97,
+      "nonblank_lines": 97,
+      "sha256": "5ea1c65d3fd16b0184bb9cab83ac42b3071311bb3fcc7552b58ebebed61722e9"
+    },
+    "sv/migration_tools/phase4_system_results.py": {
+      "path": "sv/migration_tools/phase4_system_results.py",
+      "physical_lines": 84,
+      "nonblank_lines": 80,
+      "sha256": "d432705688f060ea20e534fc2b5b831d2b925072eee48642b9cfaa783e9a7a06"
+    },
+    "sv/migration_tools/phase4_template_export.py": {
+      "path": "sv/migration_tools/phase4_template_export.py",
+      "physical_lines": 160,
+      "nonblank_lines": 156,
+      "sha256": "516c2df8be0e58c69b3c87c54b74e7bf33ffbd59ab347bb14dbae1e60ba1ad75"
+    },
+    "sv/migration_tools/reference_model.py": {
+      "path": "sv/migration_tools/reference_model.py",
+      "physical_lines": 82,
+      "nonblank_lines": 71,
+      "sha256": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421"
+    },
+    "sv/rtl/fixed/cgra_2x2_core.sv": {
+      "path": "sv/rtl/fixed/cgra_2x2_core.sv",
+      "physical_lines": 16706,
+      "nonblank_lines": 15245,
+      "sha256": "6be4c3471c14ea66bf14dea87c15c11fe7d5c327bcb741a4ca949e23ab1bf780"
+    },
+    "sv/rtl/fu/combo/vendor/dp_fpfma/DW02_multp.v": {
+      "path": "sv/rtl/fu/combo/vendor/dp_fpfma/DW02_multp.v",
+      "physical_lines": 199,
+      "nonblank_lines": 157,
+      "sha256": "a9d9bb4b4b5fa032e5626e3dd32d069cf39d45765c398530bb41bb3a541b4515"
+    },
+    "sv/rtl/fu/combo/vendor/svsrc/ALUgenMAC.sv": {
+      "path": "sv/rtl/fu/combo/vendor/svsrc/ALUgenMAC.sv",
+      "physical_lines": 124,
+      "nonblank_lines": 101,
+      "sha256": "a279b80f648394ed7b15c955360a8d803ec9a597105f0a5bd17dc32b982565a6"
+    }
+  },
+  "review": "Independent area_report review read Git blobs at the pinned revision; active HDL and test HDL counts agree exactly.",
+  "interpretation": "Counts describe source-file organization and physical text size, not unique modules, independent tests, original authorship or percent of Python functionality migrated. This statistics JSON and its companion Markdown report are not included in the pinned-revision totals."
+}

@@ -1,0 +1,18 @@
+{
+  "log_sha256": "9a028dd4aee0ca75765d377a05f705d41efbeef60c1d51129f7d6d8633e2bfd1",
+  "specified_fatal": "ac96 composed FU clusters require VECTOR_FACTOR_POWER=0",
+  "context": [
+    "\t\t\t$display(\"Fatal [%0t] rtl/fu/tile_flexible_fu_configurable.sv:66:32 - tile_flexible_fu_configurable.<unnamed_block>.<unnamed_block>\\n msg: \", $time, \"ac96 composed FU clusters require VECTOR_FACTOR_POWER=0\");",
+    "\t\t\t$finish(1);"
+  ],
+  "diagnostic": "native.v:19472: ERROR: System task `$finish' executed.",
+  "source_sha256": {
+    "rtl/fu/tile_flexible_fu_configurable.sv": "50938e7881dab96015c8327bb1daad62a5d767e79a49a642fadba075582ea397"
+  },
+  "parameter": {
+    "VECTOR_FACTOR_POWER": 1
+  },
+  "converted_sha256": "c463a583f078290b2a7006ff54a8376842e2331f195e93bbb09a5dff0c959346",
+  "exit_code": 1,
+  "status": "passed"
+}

@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "timestamp_utc": "2026-09-21T10:25:53.0868928Z",
+  "command": "C:/msys64/usr/bin/bash.exe sv/tests/run_native_tile.sh",
+  "baseline_commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+  "test_reference": "sv/rtl/fixed/cgra_2x2_core.sv (frozen phase-one modules, test-only)",
+  "tools": {
+    "verilator": "5.050 2026-07-01",
+    "verilator_path": "C:/msys64/ucrt64/bin/verilator",
+    "compiler": "Clang 22.1.8",
+    "compiler_path": "C:/msys64/clang64/bin/clang++.exe",
+    "project_python_required": false
+  },
+  "profile": {
+    "COLS": 2,
+    "ROWS": 2,
+    "DATA_W": 32,
+    "CTRL_DEPTH": 8,
+    "REG_DEPTH": 16,
+    "BANK_DEPTH": 16,
+    "NUM_BANKS": 2,
+    "GLOBAL_ADDR_W": 7,
+    "NUM_CTRL": 8,
+    "TOTAL_STEPS": 8
+  },
+  "verilator_seed": 31415926,
+  "comparisons": [
+    {
+      "bench": "sv/tests/tb_native_tile.sv",
+      "samples": 2000,
+      "units": [
+        "TileRTL"
+      ],
+      "status": "passed",
+      "outputs": "all raw output bits, including idle messages"
+    },
+    {
+      "bench": "sv/tests/tb_native_tile_units.sv",
+      "clock_cycles": 2000,
+      "samples_per_unit": 1999,
+      "units": [
+        "FlexibleFuRTL",
+        "RegisterClusterRTL",
+        "CrossbarRTL 8x8",
+        "CrossbarRTL 2x8"
+      ],
+      "status": "passed",
+      "outputs": "all raw output bits, including idle messages"
+    }
+  ],
+  "verilator_warning_counts": {
+    "tile": {
+      "UNOPTFLAT": 7,
+      "WIDTHEXPAND": 105,
+      "WIDTHTRUNC": 11
+    },
+    "units": {
+      "UNOPTFLAT": 5,
+      "WIDTHEXPAND": 80,
+      "WIDTHTRUNC": 36
+    }
+  },
+  "limitations": [
+    "Random differential tests are not exhaustive; directed whole-CGRA replay tests are reported separately.",
+    "ConstQueue clear remains undriven exactly as in ac96; simulation uses the established Verilator two-state model.",
+    "FU list and port counts remain the scalar profile Adder/Mul/Mem/Nah with four inputs and two outputs."
+  ],
+  "hashes_relative_to_sv": {
+    "*rtl/common/cgra_register_file.sv": "13856021bc1acb361a12a96870a501dea98856aec5c301dd503b41327323d41d",
+    "*rtl/common/cgra_queue.sv": "87e03f556141d8c2c0abe26168ef567ce4b5e456a9f090f9f797aed51a4c4761",
+    "*rtl/common/cgra_channel.sv": "0f2d6a0be4202910ffa8ebf3fbed6ed2c08d947ffaf8a11e50e1c195ffa8bf34",
+    "*rtl/mem/const_queue.sv": "5666b0ba18a21efd186002d5e9e394320d22926637bee4e8af8e93b2d7cd7f17",
+    "*rtl/mem/ctrl_mem.sv": "604514cf67ba2590bf6c04be5d50ec1ed291e504390900e74ee6bb6adb0eee6d",
+    "*rtl/mem/register_bank.sv": "18b60aa21e281939510a3c81bf2a0c115312a5736a38064529e12f38ea3670b2",
+    "*rtl/mem/register_cluster.sv": "903854ddb0af820b110fdb05c0ebe0a1eb66112723542ab011222003fedef0d2",
+    "*rtl/fu/tile_adder.sv": "d9fe057d504e107c6c265e2a7132f915baac90ff749f27ebe40e742bfd9f76f2",
+    "*rtl/fu/tile_multiplier.sv": "d4141cf2c17a1b7cb114345a8dcb2ba1ab85dd7017573c5484dcf517ce3123cf",
+    "*rtl/fu/tile_memory_fu.sv": "1c3ccd797aca8a4385ad06267afb829023655a8848bd5da516a520ca3de8c5f0",
+    "*rtl/fu/tile_nah.sv": "60f96e3d868c67faac3e57d88d30e15f89df90b05fc2e9466984c89fdab257df",
+    "*rtl/fu/tile_flexible_fu.sv": "90c718524c954a8b699aa620d73bdce42b1177353eb473c04eb72d200fb2fde0",
+    "*rtl/tile/tile_static_crossbar.sv": "65e4e626ad967eed9380351e5398fc073a96e5627cb075bb13b993a17ac88390",
+    "*rtl/tile/tile_link_or.sv": "b86b2471c44d0e6522d20d4e228e5463721bad6225df4a0f0a315084cf2147bc",
+    "*rtl/tile/tile_core.sv": "637571d7bb1cfa865f00894bd6139f59ab9e65e7ea00644bb3b0f3677a7e06a9",
+    "*rtl/common/cgra_profile_defs.svh": "0d12ee9bb9fdc2a2c6cc0896bc3b27e56fef78486d2d8d58ed30d35add13a39a",
+    "*rtl/common/cgra_profile.svh": "2336dea05a3aba1401ba1a9a29e47bb944679f21a49ebbe06c16d887f7c82cc4",
+    "*rtl/fixed/cgra_2x2_core.sv": "6be4c3471c14ea66bf14dea87c15c11fe7d5c327bcb741a4ca949e23ab1bf780",
+    "*tests/tb_native_tile.sv": "e9fa0d86eb477fbec7daff4d6752e54075056cdf0ed8472d7c57220bdfba291f",
+    "*tests/tb_native_tile_units.sv": "26d6f483900b80217266b40aca26880cb750494df902e193eebbc9edc902c862",
+    "*tests/run_native_tile.sh": "22205b3a94008b85ad12fc8646bb3f008f47ae39ac3296253121adbebeae40f3",
+    "*build/native_tile/tile/verilate.log": "b9d3508fe5ffdb5a29bc029cbada1c4b7ee8273319e6305afd9d4cfd4618a021",
+    "*build/native_tile/tile/compile.log": "625e445fc5064d13f8ebe875b3d63baef4f77c142c599ad2a565c3692b5293fe",
+    "*build/native_tile/tile/run.log": "361760dd2675a2a5d6326bf863b0e67f1bd905a3fa09d81391c8df247559d1a0",
+    "*build/native_tile/units/verilate.log": "e6cfeb9932d9358a59f16192b1ee362c5ec7b75e7a51a4a8eb100c4776943d9d",
+    "*build/native_tile/units/compile.log": "e64d98f1474d7a52933bd609c9204b056221efda4a91965fffe209f32b7d3362",
+    "*build/native_tile/units/run.log": "a12773a253b15d64e8f79dbc016c01ba7d6bf36442a3ba6484b6467807886370"
+  }
+}

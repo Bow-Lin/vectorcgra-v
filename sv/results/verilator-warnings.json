@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "status": "warnings_retained",
+  "full_design_flags": "-Wno-TIMESCALEMOD -Wno-fatal",
+  "total": 354,
+  "categories": {
+    "UNOPTFLAT": 14,
+    "WIDTHEXPAND": 329,
+    "WIDTHTRUNC": 11
+  },
+  "source_files": {
+    "reference\\VectorCGRA2x2Reference.v": 171,
+    "rtl/fixed\\cgra_2x2_core.sv": 171,
+    "tb\\tb_cgra_2x2_scalar.sv": 12
+  },
+  "source_sha256": "94eb0712d5010e02ac567d1430a9027a756203bc17828d8adadbeaad69d73766",
+  "log": "build/sim/verilate.log",
+  "note": "Warnings are not suppressed except TIMESCALEMOD. The two-state simulator and final optimized Yosys check do not prove absence of source unknowns."
+}

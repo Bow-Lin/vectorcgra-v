@@ -1,0 +1,1419 @@
+{
+  "schema": 1,
+  "baseline_commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+  "collected_utc": "2026-09-21T12:03:16.136260+00:00",
+  "status": "pass",
+  "profile_count": 30,
+  "total_fu_cycles": 19200,
+  "independent_fu_arithmetic_checks": 19200,
+  "raw_invalid_comparison": true,
+  "simulation": "Verilator 5.050 two-state",
+  "formal_equivalence": false,
+  "source_hash_capture": "Final native source tree, collected after profile runs.",
+  "native_source_sha256": {
+    "rtl/fu/vector/cgra_vector_adder.sv": "f2cf6e9f82754f8c4d47a5268ca841f5119397e865f11ba0612989acd16b23d8",
+    "rtl/fu/vector/cgra_vector_mul.sv": "c6e739b8656cf11d191587ff6a2b9d74fa0a5ff55efa32182eabeeecc4e219ea",
+    "rtl/fu/vector/tile_vector_adder_combo.sv": "d3c955af607638a28da21f245833a26be7f7b2e8f070b6d967ff94ca14bcf20a",
+    "rtl/fu/vector/tile_vector_all_reduce.sv": "9132997c1eedb14297e66b2aa712e8f8f133a172c870c52e42d6873f8da1dd9a",
+    "rtl/fu/vector/tile_vector_mul_combo.sv": "b761f333256777299ef2693cc823540c601cc66480f893ecd06c4884a06b3905",
+    "rtl/fu/combo/cgra_alu_gen_mac.sv": "8ffd2c8491a00989db2ec9a0c8d597f7afef8f20418de80bf8ce56b63cd0ebe2",
+    "rtl/fu/combo/cgra_alu_gen_mac_core.sv": "8513f82ace7206cc8583c0043b139e7ef2d043eab66794b04d416905d677c28d",
+    "rtl/fu/combo/cgra_multp.sv": "855e5c180f10e01be38d012d4c539fa8ef9e497e91a7be846d78f548a9be588b",
+    "rtl/fu/combo/tile_alu_gen_mac.sv": "40f02f954b2bfac8e4fb9a512944c72e8b1100112fe084497fa229b9d81738ab",
+    "rtl/fu/combo/tile_four_inc_cmp_not_grant.sv": "26064759ea4439dd8be395bea69e6d5f7e311ccc40d08711ed1a5716dca326a3",
+    "rtl/fu/combo/tile_prl_mul_adder.sv": "c573244a086de762f1a4ab72942be5640e369ac51ebfbf48f859694aa2399b0a",
+    "rtl/fu/combo/tile_seq_mul_adder.sv": "5bc2174fd32013ec395f354c88a47a189b6edfe6f4bbd9e2d2bc3ef538500680",
+    "rtl/fu/combo/tile_seq_mul_shifter.sv": "444b094f7d8dabd02d73b447defe1098c285cf58ab9ffc8ea7be043825d7590e",
+    "rtl/fu/combo/tile_three_mul_adder_shifter.sv": "7e4ead2419931c63cae22a86fd06d3920ee74a7ea150e453fec0bcef82bdeb83"
+  },
+  "profiles": [
+    {
+      "label": "alu_gen_mac_w16_l4_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 185,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        63,
+        63,
+        63,
+        63,
+        63,
+        62,
+        63,
+        63
+      ],
+      "opcodes": [
+        2,
+        4,
+        60,
+        61,
+        62,
+        63,
+        7,
+        18
+      ],
+      "parameters": {
+        "DATA_W": 16,
+        "LANES": 4,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "85cefaf899ac62ef12b71e4986438a18ac1a20e73e20fa2d7e15104901394d68",
+      "bench_sha256": "6f2aa821b196e7de37978de6ef43e09d0312bca364c0eac7a895f4f6fdf96df0",
+      "run_log_sha256": "df5c46c26696b2cc3ed66b245d51a40dcffee64f8488bdba498510fb86b2899b",
+      "run_log": "build/phase3/vector_combo/alu_gen_mac_w16_l4_b8_v0/run.log"
+    },
+    {
+      "label": "alu_gen_mac_wrapper_w16_l4_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 0,
+      "valid_output_samples": 0,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "opcodes": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40,
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50,
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60,
+        61,
+        62,
+        63
+      ],
+      "parameters": {
+        "DATA_W": 16,
+        "LANES": 4,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "4758d868859e748480af67ddd423ead34481769649a11484961e0c677708cfe4",
+      "bench_sha256": "4a83f3129b533cdbee0fb250199600c38af92034ec42f8f94524710387046937",
+      "run_log_sha256": "b5d3f5cb41b29d19d6fd2e694f2bed256bc841fa3714b6abcf285a82b7a65614",
+      "run_log": "build/phase3/vector_combo/alu_gen_mac_wrapper_w16_l4_b8_v0/run.log"
+    },
+    {
+      "label": "four_inc_cmp_not_grant_w32_l4_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 66,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        283
+      ],
+      "opcodes": [
+        82
+      ],
+      "parameters": {
+        "DATA_W": 32,
+        "LANES": 4,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "2f3d5c342f2da3f3ea4fe10386eb529f6639653fc3eb712cd94dd738bbb78356",
+      "bench_sha256": "2209f33ac7b2cec0d122f422cb5a44caf5df6a3c9d97c0a829b622163d7b0336",
+      "run_log_sha256": "50b91953fdcaaa01d76dd88ade7272a127be71452fe50d79bb818318ea60b704",
+      "run_log": "build/phase3/vector_combo/four_inc_cmp_not_grant_w32_l4_b8_v0/run.log"
+    },
+    {
+      "label": "four_inc_cmp_not_grant_w64_l4_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 66,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        283
+      ],
+      "opcodes": [
+        82
+      ],
+      "parameters": {
+        "DATA_W": 64,
+        "LANES": 4,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "12990c468d58cdb0ec0cb471a72e24183ce9c96708e04726481722a24081a132",
+      "bench_sha256": "fb49a8983e030b54479efc52fdbb55774f257f91943f331690167484b52ab189",
+      "run_log_sha256": "a49d73b72854730046b57638e9957b19df7f3d9e5074f0de854bb23005387403",
+      "run_log": "build/phase3/vector_combo/four_inc_cmp_not_grant_w64_l4_b8_v0/run.log"
+    },
+    {
+      "label": "prl_mul_adder_w32_l4_b8_v0_ctrl2",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 100,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        189,
+        189
+      ],
+      "opcodes": [
+        18,
+        19
+      ],
+      "parameters": {
+        "DATA_W": 32,
+        "LANES": 4,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": true,
+      "reference_sha256": "7b8baa69f8f93d12a25c595163c1427656aa1c5fba75c13c5dc7a91143812307",
+      "bench_sha256": "fcb7e193e0d538f5a61a726fa324b1c54ecd97a998c53f44d19915b5a5ce0484",
+      "run_log_sha256": "22b2f8b952d86a99a5ae1bb0fd54d6c9abd17a260d0d2011fffd1d45e7971100",
+      "run_log": "build/phase3/vector_combo/prl_mul_adder_w32_l4_b8_v0_ctrl2/run.log"
+    },
+    {
+      "label": "prl_mul_adder_w64_l4_b8_v0_ctrl2",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 100,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        189,
+        189
+      ],
+      "opcodes": [
+        18,
+        19
+      ],
+      "parameters": {
+        "DATA_W": 64,
+        "LANES": 4,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": true,
+      "reference_sha256": "f9c3c706e9f4e3db68466de6c806509206331aae55523f5a34bd9dd6f32ddf24",
+      "bench_sha256": "8bf305cd9c2ecae5d0f1e1cf99991c8dc2a44c1d43b863fc0be6f3b57997f023",
+      "run_log_sha256": "8100402a750ecf8ab343f6d0237e691e6404e015f4e5a369b4f1c78074471e3e",
+      "run_log": "build/phase3/vector_combo/prl_mul_adder_w64_l4_b8_v0_ctrl2/run.log"
+    },
+    {
+      "label": "seq_mul_adder_w32_l4_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 60,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        54,
+        128,
+        128,
+        128
+      ],
+      "opcodes": [
+        18,
+        30,
+        29,
+        19
+      ],
+      "parameters": {
+        "DATA_W": 32,
+        "LANES": 4,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "0bbc2126bc17f0c788294023a2b5e51e60cc195c9a1e571afd0b5be673b8f88f",
+      "bench_sha256": "f5348498ca8e49c2fcb953953c0b1975944bcea36816a07cf3d7f13f5abfe5e6",
+      "run_log_sha256": "5859c0ebbf0a98e097a863a6b6769bcc01fa96cfe31c247749bad8622bb78ba3",
+      "run_log": "build/phase3/vector_combo/seq_mul_adder_w32_l4_b8_v0/run.log"
+    },
+    {
+      "label": "seq_mul_adder_w64_l4_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 60,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        54,
+        128,
+        128,
+        128
+      ],
+      "opcodes": [
+        18,
+        30,
+        29,
+        19
+      ],
+      "parameters": {
+        "DATA_W": 64,
+        "LANES": 4,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "33aca8d363fc652ef96c51c761cdac8c0732e545f09f13b147f42c8baec480b9",
+      "bench_sha256": "d8260171ebfb1cd6f7c5125ecb38cc67091f9b8f8d7226f4893466e368dffa5e",
+      "run_log_sha256": "4fa66cd1eb30f29cf3948e86f0f0247a725b0e8f2943f97fa12564c83458cbae",
+      "run_log": "build/phase3/vector_combo/seq_mul_adder_w64_l4_b8_v0/run.log"
+    },
+    {
+      "label": "seq_mul_shifter_w32_l4_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 38,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        189,
+        189
+      ],
+      "opcodes": [
+        20,
+        21
+      ],
+      "parameters": {
+        "DATA_W": 32,
+        "LANES": 4,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "0d9b60c5d1ebdcf4569e3bf86045e176b8fd23a3f91a1d9e59888e406a1d628e",
+      "bench_sha256": "7c05263974b0c5878ca180bc83f909b647a5a1b0d70c562e33e84da0053280c7",
+      "run_log_sha256": "f26013f8e475b3ad8bf9721c630b96eb0ba90639a9dbb959cf799c2daddd1722",
+      "run_log": "build/phase3/vector_combo/seq_mul_shifter_w32_l4_b8_v0/run.log"
+    },
+    {
+      "label": "seq_mul_shifter_w64_l4_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 38,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        189,
+        189
+      ],
+      "opcodes": [
+        20,
+        21
+      ],
+      "parameters": {
+        "DATA_W": 64,
+        "LANES": 4,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "bb46dc56b6f15007b21e6d09af31673d0b2cc0fecd8f986a1a2f4bacf7d82c1d",
+      "bench_sha256": "ad22f9bb0dbca6756b31f34de23627ad4a2c1a9471caa7dd68f7a139c5987fb5",
+      "run_log_sha256": "2216fdca451a66023a57b30659bf37ba4fbfcc3f1080c8cb53fe1381997f0c19",
+      "run_log": "build/phase3/vector_combo/seq_mul_shifter_w64_l4_b8_v0/run.log"
+    },
+    {
+      "label": "three_mul_adder_shifter_w32_l4_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 17,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        141,
+        141,
+        142
+      ],
+      "opcodes": [
+        22,
+        23,
+        24
+      ],
+      "parameters": {
+        "DATA_W": 32,
+        "LANES": 4,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "ff4ced2b35b6c64da771f462c5e0c5c12267463428f7d95991fee7328f01ad9c",
+      "bench_sha256": "ce7ca61bf10830791a9750ca5a20a45293af099865ab5991a5c2ba52f97c51c0",
+      "run_log_sha256": "5ccaef630822feed20fa0730422d4fbfa4d4d83d62341869258b8b16cac35c28",
+      "run_log": "build/phase3/vector_combo/three_mul_adder_shifter_w32_l4_b8_v0/run.log"
+    },
+    {
+      "label": "three_mul_adder_shifter_w64_l4_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 17,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        141,
+        141,
+        142
+      ],
+      "opcodes": [
+        22,
+        23,
+        24
+      ],
+      "parameters": {
+        "DATA_W": 64,
+        "LANES": 4,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "e7f31207e21477c497aa0bfa8258f53ca89598896a85e85be74711a438e6e4b9",
+      "bench_sha256": "fdf4b8794c6c893d5df7779876c86835df03a5e9ee2c67036f8d1b4a8ecbc005",
+      "run_log_sha256": "b616dce0edbe8f9ff40579766ea176c48742d683b211450b17d9974058536b0c",
+      "run_log": "build/phase3/vector_combo/three_mul_adder_shifter_w64_l4_b8_v0/run.log"
+    },
+    {
+      "label": "vector_adder_combo_w32_l1_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 117,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        63,
+        63,
+        63,
+        63,
+        63,
+        62,
+        63,
+        63
+      ],
+      "opcodes": [
+        51,
+        71,
+        53,
+        73,
+        52,
+        72,
+        54,
+        74
+      ],
+      "parameters": {
+        "DATA_W": 32,
+        "LANES": 1,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "7b4fc0dc02d04e4e3c3e4556552128c6989c83342f83ac7ff54226495fcfb9fe",
+      "bench_sha256": "2a9601f7fe4b4f21c84a4a4bf8ce6ed2299a159d127a863cfe03a17994e2bce5",
+      "run_log_sha256": "0b557a765a06b72f7c338d3f799dec220e47465adc9d36669ebb51f0e6cacee9",
+      "run_log": "build/phase3/vector_combo/vector_adder_combo_w32_l1_b8_v0/run.log"
+    },
+    {
+      "label": "vector_adder_combo_w32_l2_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 117,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        63,
+        63,
+        63,
+        63,
+        63,
+        62,
+        63,
+        63
+      ],
+      "opcodes": [
+        51,
+        71,
+        53,
+        73,
+        52,
+        72,
+        54,
+        74
+      ],
+      "parameters": {
+        "DATA_W": 32,
+        "LANES": 2,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "fc7405b4e3f033bd5d2b43245e7702ed9c387e93c4b62395ae3fcb21f1c2542b",
+      "bench_sha256": "872d4d4d0eb7a3de54cdf451fc8fab7a0db9d69b0c62f65fb7afb0111b0b2a52",
+      "run_log_sha256": "eaf3305da0292f6d7898ef46c5072b00927812f19b2334667bf0c473c620d375",
+      "run_log": "build/phase3/vector_combo/vector_adder_combo_w32_l2_b8_v0/run.log"
+    },
+    {
+      "label": "vector_adder_combo_w32_l4_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 117,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        63,
+        63,
+        63,
+        63,
+        63,
+        62,
+        63,
+        63
+      ],
+      "opcodes": [
+        51,
+        71,
+        53,
+        73,
+        52,
+        72,
+        54,
+        74
+      ],
+      "parameters": {
+        "DATA_W": 32,
+        "LANES": 4,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "19733548dc46f15e5882df2486bd5dfb0286b8f481ee7699881603d4e5ae7c96",
+      "bench_sha256": "4c91682ca683fc4cb2dc858a3ed33cc4228f44c4017020b6f22e8713cfbb477a",
+      "run_log_sha256": "2c385dd2ec3ff5078985cf2631a3c96f47f8a7befa82cf83466af32d3a62e3c7",
+      "run_log": "build/phase3/vector_combo/vector_adder_combo_w32_l4_b8_v0/run.log"
+    },
+    {
+      "label": "vector_adder_combo_w32_l8_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 117,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        63,
+        63,
+        63,
+        63,
+        63,
+        62,
+        63,
+        63
+      ],
+      "opcodes": [
+        51,
+        71,
+        53,
+        73,
+        52,
+        72,
+        54,
+        74
+      ],
+      "parameters": {
+        "DATA_W": 32,
+        "LANES": 8,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "3ad1bf1ef08df46ba89ddd9be09d555db47f98c118afd4ffb8752f3dcf902932",
+      "bench_sha256": "4253fa77d8100dd6bb0f8971379dc9c4349609555bf356c9db0c9a780c196d7e",
+      "run_log_sha256": "bab30c2158ba6af7d03b740bd54fc8fc1d9c864157cf909d66e98ff3952001ac",
+      "run_log": "build/phase3/vector_combo/vector_adder_combo_w32_l8_b8_v0/run.log"
+    },
+    {
+      "label": "vector_adder_combo_w64_l8_b8_v3",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 117,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        63,
+        63,
+        63,
+        63,
+        63,
+        62,
+        63,
+        63
+      ],
+      "opcodes": [
+        51,
+        71,
+        53,
+        73,
+        52,
+        72,
+        54,
+        74
+      ],
+      "parameters": {
+        "DATA_W": 64,
+        "LANES": 8,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 3
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "698717560ca4fb80ef93a9ec234090e7f8794a3c652252ea90d284cbdcbdbfbd",
+      "bench_sha256": "938a70289f526ebc5aa5c29704729bd1806dc2f50e31820e8537c81a1570a717",
+      "run_log_sha256": "88bf0eea659c050a82331dc54e662197f5ef4e5697e8280e7f4e9325457756bf",
+      "run_log": "build/phase3/vector_combo/vector_adder_combo_w64_l8_b8_v3/run.log"
+    },
+    {
+      "label": "vector_adder_w32_l4_b16_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 286,
+      "valid_output_samples": 161,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        81,
+        81,
+        82,
+        81,
+        81,
+        80
+      ],
+      "opcodes": [
+        2,
+        25,
+        3,
+        4,
+        36,
+        31
+      ],
+      "parameters": {
+        "DATA_W": 32,
+        "LANES": 4,
+        "LANE_W": 16,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "acc830cc75840b290cac00ef32f9dfaf6fa8d154b14cd4d34da7e9b64ea294d4",
+      "bench_sha256": "3811a2e06c6697159a0c87609d0b9f994452ffa067d0861846b2f334a41870ec",
+      "run_log_sha256": "c89cc5c7fcfdff28c0913e0df5c64bc0ec7fab4c365552595b395d56b85a87b8",
+      "run_log": "build/phase3/vector_combo/vector_adder_w32_l4_b16_v0/run.log"
+    },
+    {
+      "label": "vector_adder_w32_l4_b1_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 286,
+      "valid_output_samples": 161,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        81,
+        81,
+        82,
+        81,
+        81,
+        80
+      ],
+      "opcodes": [
+        2,
+        25,
+        3,
+        4,
+        36,
+        31
+      ],
+      "parameters": {
+        "DATA_W": 32,
+        "LANES": 4,
+        "LANE_W": 1,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "8950e50b77243fea9ee50ec3c930168805560f553ada79306801440ad3dd68cc",
+      "bench_sha256": "8b9556e6c06d9179f4dd78d4d8622307d14ffa9235266c769e52f34027db6368",
+      "run_log_sha256": "a8b2b58397214440ef6590c83479daf5b31102a393d61d19441f1ea159ce2761",
+      "run_log": "build/phase3/vector_combo/vector_adder_w32_l4_b1_v0/run.log"
+    },
+    {
+      "label": "vector_adder_w32_l4_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 286,
+      "valid_output_samples": 161,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        81,
+        81,
+        82,
+        81,
+        81,
+        80
+      ],
+      "opcodes": [
+        2,
+        25,
+        3,
+        4,
+        36,
+        31
+      ],
+      "parameters": {
+        "DATA_W": 32,
+        "LANES": 4,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "df0cd528fe2060c0b339fa8665ea4fbd2b42a4bde817ec25b05fbf8518281d89",
+      "bench_sha256": "1161665a701f73760c313b50e3d63265c3b2613aee0ca70b38c1a946bdfd0cec",
+      "run_log_sha256": "6ae091dc0b3bb93333f1d4f6ac4802a33a2dbe86a3986655d168e2ed20cef43a",
+      "run_log": "build/phase3/vector_combo/vector_adder_w32_l4_b8_v0/run.log"
+    },
+    {
+      "label": "vector_all_reduce_w32_l4_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 199,
+      "legacy_defect_checks": 52,
+      "operation_hits": [
+        63,
+        63,
+        63,
+        63,
+        63,
+        62,
+        63,
+        63
+      ],
+      "opcodes": [
+        56,
+        68,
+        57,
+        69,
+        76,
+        77,
+        78,
+        79
+      ],
+      "parameters": {
+        "DATA_W": 32,
+        "LANES": 4,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "116a5e73f552d70f34707e9619f64c31200bd3935674ad4804db5b947bc0acb5",
+      "bench_sha256": "76ff045dcff0b726af7a6626a006b94ea1d3f738c5833a4a3f56f3230ec38caf",
+      "run_log_sha256": "e9b6095d731b1d24c55889da6913aa7b741cafa3883cdbd8115040a50404c4ba",
+      "run_log": "build/phase3/vector_combo/vector_all_reduce_w32_l4_b8_v0/run.log"
+    },
+    {
+      "label": "vector_all_reduce_w32_l8_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 199,
+      "legacy_defect_checks": 52,
+      "operation_hits": [
+        63,
+        63,
+        63,
+        63,
+        63,
+        62,
+        63,
+        63
+      ],
+      "opcodes": [
+        56,
+        68,
+        57,
+        69,
+        76,
+        77,
+        78,
+        79
+      ],
+      "parameters": {
+        "DATA_W": 32,
+        "LANES": 8,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "c2cb6ea6538834b769a61fd9baae1287b8e782866a70d04e42ec87617eb0d0b0",
+      "bench_sha256": "177f51b033113371e9c05cb91c177517ebefc70da7cb2d8c723cc82d42d230f4",
+      "run_log_sha256": "8d6014bcfaa60ba8510b3ccae31c806be00ee34cfddb436e74c94e604a0be6dc",
+      "run_log": "build/phase3/vector_combo/vector_all_reduce_w32_l8_b8_v0/run.log"
+    },
+    {
+      "label": "vector_all_reduce_w64_l8_b8_v3",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 199,
+      "legacy_defect_checks": 52,
+      "operation_hits": [
+        63,
+        63,
+        63,
+        63,
+        63,
+        62,
+        63,
+        63
+      ],
+      "opcodes": [
+        56,
+        68,
+        57,
+        69,
+        76,
+        77,
+        78,
+        79
+      ],
+      "parameters": {
+        "DATA_W": 64,
+        "LANES": 8,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 3
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "8ebf9f929801b819cc87dde96bcf6033719d8c0e3747c4eadad96ab351089b14",
+      "bench_sha256": "43a4fc17a7a081ea98eb4e22f22ad979bdcc29cc377b3430e4d98695c9fea286",
+      "run_log_sha256": "12b0d51546933204a31215b9b65118567b1079c2072b15039620c1958f567567",
+      "run_log": "build/phase3/vector_combo/vector_all_reduce_w64_l8_b8_v3/run.log"
+    },
+    {
+      "label": "vector_mul_combo_w32_l4_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 100,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        189,
+        189
+      ],
+      "opcodes": [
+        55,
+        75
+      ],
+      "parameters": {
+        "DATA_W": 32,
+        "LANES": 4,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": false,
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "1517a1225f30ede23c857a4b82eb0d11d72b132e731538f5dd085ab08bae3853",
+      "bench_sha256": "996dfd28ec44c205fe60b5d2c95bbf2f942dbb9aef704fcf6a016b0d0d983b27",
+      "run_log_sha256": "e06c6a6613dea6d82ae640de800d3fe05db0190a4a6dde1a36bf7ae4e7183463",
+      "run_log": "build/phase3/vector_combo/vector_mul_combo_w32_l4_b8_v0/run.log",
+      "discrepancy_witness": "HDL_SHIFT_WITNESS width=32 lanes=4 op=75 a=000000100 b=000000100 native=000000001 gold=000000001 shift2=0 shift3=8",
+      "frozen_shift_expressions": [
+        {
+          "line": 401,
+          "expression": "temp_result[2'(i)][5'd15:5'd0] = Fu__send_out__msg[2'(i)][1'd0][4'd15:4'd0];"
+        },
+        {
+          "line": 403,
+          "expression": "send_out__msg[1'd0].payload[5'd31:5'd0] = ( ( ( temp_result[2'd3] << ( 4'( __const__sub_bw_at_update_input_output ) * 4'd3 ) ) + ( temp_result[2'd2] << ( 4'( __const__sub_bw_at_update_input_output ) * 4'd2 ) ) ) + ( temp_result[2'd1] << 4'( __const__sub_bw_at_update_input_output ) ) ) + temp_result[2'd0];"
+        },
+        {
+          "line": 416,
+          "expression": "temp_result[2'(i)][5'd15:5'd0] = Fu__send_out__msg[2'(i)][1'd0][4'd15:4'd0];"
+        },
+        {
+          "line": 418,
+          "expression": "send_out__msg[1'd0].payload[5'd31:5'd0] = ( ( temp_result[2'd0] + ( temp_result[2'd1] << 4'( __const__sub_bw_at_update_input_output ) ) ) + ( temp_result[2'd2] << 4'( __const__sub_bw_at_update_input_output ) ) ) + ( temp_result[2'd3] << ( 4'( __const__sub_bw_at_update_input_output ) * 4'd2 ) );"
+        }
+      ]
+    },
+    {
+      "label": "vector_mul_combo_w32_l8_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 100,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        189,
+        189
+      ],
+      "opcodes": [
+        55,
+        75
+      ],
+      "parameters": {
+        "DATA_W": 32,
+        "LANES": 8,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": false,
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "b98d47ecb503448a9932e8dd7e636423f48b606e1ffac89b52ce18396a1767f2",
+      "bench_sha256": "f198ac29e26e80b184d0d42ef60cd38bd9fc74c72dadad6ff0145dab8804e75a",
+      "run_log_sha256": "03c2077e55d63998335da44ec8afda6ba1e2c5ed1ce24ac55cf80ba0d3fe3b74",
+      "run_log": "build/phase3/vector_combo/vector_mul_combo_w32_l8_b8_v0/run.log",
+      "discrepancy_witness": "HDL_SHIFT_WITNESS width=32 lanes=8 op=75 a=000000010 b=000000010 native=000000001 gold=000000001 shift2=0 shift3=4",
+      "frozen_shift_expressions": [
+        {
+          "line": 473,
+          "expression": "temp_result[3'(i)][5'd7:5'd0] = Fu__send_out__msg[3'(i)][1'd0][3'd7:3'd0];"
+        },
+        {
+          "line": 475,
+          "expression": "send_out__msg[1'd0].payload[5'd31:5'd0] = ( ( ( temp_result[3'd3] << ( 3'( __const__sub_bw_at_update_input_output ) * 3'd3 ) ) + ( temp_result[3'd2] << ( 3'( __const__sub_bw_at_update_input_output ) * 3'd2 ) ) ) + ( temp_result[3'd1] << 3'( __const__sub_bw_at_update_input_output ) ) ) + temp_result[3'd0];"
+        },
+        {
+          "line": 488,
+          "expression": "temp_result[3'(i)][5'd7:5'd0] = Fu__send_out__msg[3'(i)][1'd0][3'd7:3'd0];"
+        },
+        {
+          "line": 490,
+          "expression": "send_out__msg[1'd0].payload[5'd31:5'd0] = ( ( temp_result[3'd0] + ( temp_result[3'd1] << 3'( __const__sub_bw_at_update_input_output ) ) ) + ( temp_result[3'd2] << 3'( __const__sub_bw_at_update_input_output ) ) ) + ( temp_result[3'd3] << ( 3'( __const__sub_bw_at_update_input_output ) * 3'd2 ) );"
+        }
+      ]
+    },
+    {
+      "label": "vector_mul_combo_w64_l4_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 100,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        189,
+        189
+      ],
+      "opcodes": [
+        55,
+        75
+      ],
+      "parameters": {
+        "DATA_W": 64,
+        "LANES": 4,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": false,
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "056fd76dd470002cfd0e4a5465063cf824807546544fb55bccce1737af8e8896",
+      "bench_sha256": "0026387a0c843cde6b6bc4fa7f601e8bcae51c065b02a7d2168a6a716ed1fc30",
+      "run_log_sha256": "d399d9cb92c3dadf5c5e85d3375868263c6412fe106af18b5d8ea8a6a85e769b",
+      "run_log": "build/phase3/vector_combo/vector_mul_combo_w64_l4_b8_v0/run.log",
+      "discrepancy_witness": "HDL_SHIFT_WITNESS width=64 lanes=4 op=75 a=00000000000010000 b=00000000000010000 native=00000000000000001 gold=00000000000000001 shift2=0 shift3=16",
+      "frozen_shift_expressions": [
+        {
+          "line": 401,
+          "expression": "temp_result[2'(i)][6'd31:6'd0] = Fu__send_out__msg[2'(i)][1'd0][5'd31:5'd0];"
+        },
+        {
+          "line": 403,
+          "expression": "send_out__msg[1'd0].payload[6'd63:6'd0] = ( ( ( temp_result[2'd3] << ( 5'( __const__sub_bw_at_update_input_output ) * 5'd3 ) ) + ( temp_result[2'd2] << ( 5'( __const__sub_bw_at_update_input_output ) * 5'd2 ) ) ) + ( temp_result[2'd1] << 5'( __const__sub_bw_at_update_input_output ) ) ) + temp_result[2'd0];"
+        },
+        {
+          "line": 416,
+          "expression": "temp_result[2'(i)][6'd31:6'd0] = Fu__send_out__msg[2'(i)][1'd0][5'd31:5'd0];"
+        },
+        {
+          "line": 418,
+          "expression": "send_out__msg[1'd0].payload[6'd63:6'd0] = ( ( temp_result[2'd0] + ( temp_result[2'd1] << 5'( __const__sub_bw_at_update_input_output ) ) ) + ( temp_result[2'd2] << 5'( __const__sub_bw_at_update_input_output ) ) ) + ( temp_result[2'd3] << ( 5'( __const__sub_bw_at_update_input_output ) * 5'd2 ) );"
+        }
+      ]
+    },
+    {
+      "label": "vector_mul_combo_w64_l8_b8_v3",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 285,
+      "valid_output_samples": 100,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        189,
+        189
+      ],
+      "opcodes": [
+        55,
+        75
+      ],
+      "parameters": {
+        "DATA_W": 64,
+        "LANES": 8,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 3
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": false,
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "fef95e481c56f6949afbf5fe296b2ec64706a24aa7312d093897640d95e87c50",
+      "bench_sha256": "43d1da185c2d8eb434ca990969fed33eae5e4aa9d1fdd06e4c4144576b9a7f2b",
+      "run_log_sha256": "b8a48c2b7ae31648835abed692122cec477bb921ef7ebf901ca3a3bff52e1fec",
+      "run_log": "build/phase3/vector_combo/vector_mul_combo_w64_l8_b8_v3/run.log",
+      "discrepancy_witness": "HDL_SHIFT_WITNESS width=64 lanes=8 op=75 a=00000000000000100 b=00000000000000100 native=00000000000000001 gold=00000000000000001 shift2=0 shift3=8",
+      "frozen_shift_expressions": [
+        {
+          "line": 473,
+          "expression": "temp_result[3'(i)][6'd15:6'd0] = Fu__send_out__msg[3'(i)][1'd0][4'd15:4'd0];"
+        },
+        {
+          "line": 475,
+          "expression": "send_out__msg[1'd0].payload[6'd63:6'd0] = ( ( ( temp_result[3'd3] << ( 4'( __const__sub_bw_at_update_input_output ) * 4'd3 ) ) + ( temp_result[3'd2] << ( 4'( __const__sub_bw_at_update_input_output ) * 4'd2 ) ) ) + ( temp_result[3'd1] << 4'( __const__sub_bw_at_update_input_output ) ) ) + temp_result[3'd0];"
+        },
+        {
+          "line": 488,
+          "expression": "temp_result[3'(i)][6'd15:6'd0] = Fu__send_out__msg[3'(i)][1'd0][4'd15:4'd0];"
+        },
+        {
+          "line": 490,
+          "expression": "send_out__msg[1'd0].payload[6'd63:6'd0] = ( ( temp_result[3'd0] + ( temp_result[3'd1] << 4'( __const__sub_bw_at_update_input_output ) ) ) + ( temp_result[3'd2] << 4'( __const__sub_bw_at_update_input_output ) ) ) + ( temp_result[3'd3] << ( 4'( __const__sub_bw_at_update_input_output ) * 4'd2 ) );"
+        }
+      ]
+    },
+    {
+      "label": "vector_mul_w32_l4_b16_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 280,
+      "valid_output_samples": 120,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        283
+      ],
+      "opcodes": [
+        7
+      ],
+      "parameters": {
+        "DATA_W": 32,
+        "LANES": 4,
+        "LANE_W": 16,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "0a272a9e2dcc25e270d36e8914e46136d85cc8776852309919eaabd92605d788",
+      "bench_sha256": "3577c0f7cd5dbe2f95de61409d161f5394405fb082ba2a14200aeeccfbacc655",
+      "run_log_sha256": "c99d6b86ba3fba395781500a8fc94ad6396b3038c713746b32174e7e3528ba67",
+      "run_log": "build/phase3/vector_combo/vector_mul_w32_l4_b16_v0/run.log"
+    },
+    {
+      "label": "vector_mul_w32_l4_b1_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 280,
+      "valid_output_samples": 120,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        283
+      ],
+      "opcodes": [
+        7
+      ],
+      "parameters": {
+        "DATA_W": 32,
+        "LANES": 4,
+        "LANE_W": 1,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "8dd0a20a169fb6ff2c08616d2d2a0da749f35383f3457a5ff1c60a75bdd75cf3",
+      "bench_sha256": "6ab5480ce14185f2709dd39931cc186856ad7fe0198a1df45ac383da1a792079",
+      "run_log_sha256": "e5c96d867b9c9dd829fb1f50f07351568aa98a3ec6f38fa16acf0fc1077ada0f",
+      "run_log": "build/phase3/vector_combo/vector_mul_w32_l4_b1_v0/run.log"
+    },
+    {
+      "label": "vector_mul_w32_l4_b8_v0",
+      "status": "pass",
+      "cycles": 640,
+      "seed": "3b123456",
+      "raw_invalid_comparison": true,
+      "arithmetic_checks": 640,
+      "stall_samples": 280,
+      "valid_output_samples": 120,
+      "legacy_defect_checks": 0,
+      "operation_hits": [
+        283
+      ],
+      "opcodes": [
+        7
+      ],
+      "parameters": {
+        "DATA_W": 32,
+        "LANES": 4,
+        "LANE_W": 8,
+        "VECTOR_FACTOR_POWER": 0
+      },
+      "oracle": "translated_hdl",
+      "python_equivalence": "not_claimed",
+      "legacy_ctrl_adapter": false,
+      "reference_sha256": "fa7cf6877c63a6788eeb0aaaf6c018a15788b68420d58e446cfbfd5b0948786f",
+      "bench_sha256": "cbb0b06936d3bdc9b3158e19b3fdc9eee59f09aefb6238aba6c6ea41989ac481",
+      "run_log_sha256": "5b1a26e815cd159e1c3937dcff961246ab2ff516d53ae5632e320c4017813a98",
+      "run_log": "build/phase3/vector_combo/vector_mul_w32_l4_b8_v0/run.log"
+    }
+  ],
+  "multp": {
+    "status": "pass",
+    "samples": 18432,
+    "exact_partial_outputs": true,
+    "independent_signed_unsigned_product": true,
+    "cases": [
+      {
+        "A_W": 17,
+        "B_W": 11,
+        "OUT_W": 32,
+        "samples": 2048
+      },
+      {
+        "A_W": 16,
+        "B_W": 16,
+        "OUT_W": 34,
+        "samples": 2048
+      },
+      {
+        "A_W": 9,
+        "B_W": 6,
+        "OUT_W": 20,
+        "samples": 2048
+      },
+      {
+        "A_W": 8,
+        "B_W": 8,
+        "OUT_W": 18,
+        "samples": 2048
+      },
+      {
+        "A_W": 5,
+        "B_W": 3,
+        "OUT_W": 16,
+        "samples": 2048
+      },
+      {
+        "A_W": 4,
+        "B_W": 4,
+        "OUT_W": 10,
+        "samples": 2048
+      },
+      {
+        "A_W": 3,
+        "B_W": 5,
+        "OUT_W": 10,
+        "samples": 2048
+      },
+      {
+        "A_W": 2,
+        "B_W": 3,
+        "OUT_W": 7,
+        "samples": 2048
+      },
+      {
+        "A_W": 1,
+        "B_W": 1,
+        "OUT_W": 4,
+        "samples": 2048
+      }
+    ],
+    "bench_sha256": "90e135c27129712a6014cddbd28d2b4c71dbd553979b203a70eca03331d5c41d",
+    "log_sha256": "3acda4573c5e0856a01e9183863ca38e6a1ecb43385232073ffe3f23c87f5d15"
+  },
+  "synthesis": {
+    "status": "pass",
+    "profiles": 7,
+    "flow": "sv2v -> Yosys proc; opt; check -assert; stat",
+    "scope": "Native cgra_multp and MAC only",
+    "area_measured": false,
+    "frequency_measured": false,
+    "log_sha256": "078e61bc720719f3a41f55655ac9cfff5b3d9e6c8595dd1775756a009fadd23d"
+  },
+  "negative": {
+    "status": "pass",
+    "profile": "vector_adder_w32_l4_b8_v0",
+    "mechanism": "Independent expected payload bit is flipped at cycle64; ordinary arithmetic checker fatals.",
+    "log_sha256": "cb293aa36afc964e8328d68376445120332752befc9fcbc487f75047fe6d2ec0"
+  },
+  "baseline_exceptions": [
+    {
+      "case": "prl_mul_adder",
+      "failed_profile": "prl_mul_adder_w32_l4_b8_v0",
+      "reason": "ac96 4-input Ctrl selector is wider than the two-input child selector; zext fails.",
+      "compatible_domain": "Original ctrl2 HDL with explicit field adapter to native ctrl4."
+    },
+    {
+      "case": "vector_mul_combo",
+      "oracle": "translated_hdl",
+      "python_equivalence": false,
+      "evidence": "python_hdl_discrepancy.json",
+      "reason": "Narrow RTLIR shift-count multiplication truncates."
+    }
+  ]
+}

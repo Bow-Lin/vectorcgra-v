@@ -1,0 +1,173 @@
+{
+  "baseline_commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+  "reference_rtl_sha256": "e15db72b718b672ee423b9635aac3f918fcc84cf03adbf6ac236760011d990c2",
+  "parameters": {
+    "COLS": 3,
+    "ROWS": 2,
+    "DATA_W": 32,
+    "CTRL_DEPTH": 8,
+    "REG_DEPTH": 16,
+    "BANK_DEPTH": 16,
+    "NUM_BANKS": 2,
+    "GLOBAL_ADDR_W": 7,
+    "NUM_CTRL": 8,
+    "TOTAL_STEPS": 8
+  },
+  "chain": [
+    0,
+    1,
+    2,
+    5,
+    4,
+    3
+  ],
+  "trace_rows": 158,
+  "trace_sha256": "23a8726cc2dbc336a276ea1ff3468045c36fa6a2289f96f47bd57d17e0cc2334",
+  "scenarios": [
+    {
+      "name": "positive",
+      "input": 7,
+      "expected": 12,
+      "cycles_after_reset": 76,
+      "completion_order": [
+        1,
+        5,
+        2,
+        4,
+        0,
+        3
+      ],
+      "responses": [
+        {
+          "cycle": 66,
+          "address": 16,
+          "data": 12,
+          "predicate": 1,
+          "hex": "0c0000b0000000c840000000000000000000000000000000"
+        },
+        {
+          "cycle": 67,
+          "address": 15,
+          "data": 7,
+          "predicate": 1,
+          "hex": "0c0000b0000000783c000000000000000000000000000000"
+        }
+      ],
+      "west_cycles": [
+        52
+      ],
+      "links": [
+        {
+          "cycle": 39,
+          "src": 0,
+          "dst": 1,
+          "data": 7
+        },
+        {
+          "cycle": 40,
+          "src": 1,
+          "dst": 2,
+          "data": 12
+        },
+        {
+          "cycle": 41,
+          "src": 2,
+          "dst": 5,
+          "data": 36
+        },
+        {
+          "cycle": 42,
+          "src": 5,
+          "dst": 4,
+          "data": 28
+        },
+        {
+          "cycle": 43,
+          "src": 4,
+          "dst": 3,
+          "data": 20
+        },
+        {
+          "cycle": 44,
+          "src": 3,
+          "dst": 0,
+          "data": 12
+        }
+      ]
+    },
+    {
+      "name": "negative_after_reset",
+      "input": 4294967290,
+      "expected": 4294967269,
+      "cycles_after_reset": 76,
+      "completion_order": [
+        1,
+        5,
+        2,
+        4,
+        0,
+        3
+      ],
+      "responses": [
+        {
+          "cycle": 66,
+          "address": 16,
+          "data": 4294967269,
+          "predicate": 1,
+          "hex": "0c0000bffffffe5840000000000000000000000000000000"
+        },
+        {
+          "cycle": 67,
+          "address": 15,
+          "data": 4294967290,
+          "predicate": 1,
+          "hex": "0c0000bfffffffa83c000000000000000000000000000000"
+        }
+      ],
+      "west_cycles": [
+        52
+      ],
+      "links": [
+        {
+          "cycle": 39,
+          "src": 0,
+          "dst": 1,
+          "data": 4294967290
+        },
+        {
+          "cycle": 40,
+          "src": 1,
+          "dst": 2,
+          "data": 4294967295
+        },
+        {
+          "cycle": 41,
+          "src": 2,
+          "dst": 5,
+          "data": 4294967293
+        },
+        {
+          "cycle": 42,
+          "src": 5,
+          "dst": 4,
+          "data": 4294967285
+        },
+        {
+          "cycle": 43,
+          "src": 4,
+          "dst": 3,
+          "data": 4294967277
+        },
+        {
+          "cycle": 44,
+          "src": 3,
+          "dst": 0,
+          "data": 4294967269
+        }
+      ]
+    }
+  ],
+  "status": "python_reference_passed",
+  "script_sha256": "f6162dfb10e7b177e366e8efba9095a9dcb42a2638a4150f6010952325c5244e",
+  "scope": "All active input/output bits recorded including idle msg. HDL replay not yet claimed. Two-state reference; three externally inactive NoC outputs excluded."
+}

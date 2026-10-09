@@ -1,0 +1,284 @@
+{
+  "baseline_commit": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+  "top": "VectorCGRA2x2Reference",
+  "host_packet_nbits": 191,
+  "program": "T0 LD[15] -> east T1 ADD5 -> north T3 MUL3 -> west T2 ADD(-8) -> south T0 ST[16]; T2 also multicasts west",
+  "scenarios": [
+    {
+      "name": "positive",
+      "input": 7,
+      "expected": 28,
+      "configuration_count": 24,
+      "packets": [
+        {
+          "index": 0,
+          "description": "preload bank0[15] input",
+          "hex": "000000c0000000783c000000000000000000000000000000"
+        },
+        {
+          "index": 1,
+          "description": "preload bank1[0] sentinel",
+          "hex": "000000cdeadbeef840000000000000000000000000000000"
+        },
+        {
+          "index": 2,
+          "description": "tile0 constant 0x0000000f",
+          "hex": "000000d0000000f800000000000000000000000000000000"
+        },
+        {
+          "index": 3,
+          "description": "tile0 constant 0x00000010",
+          "hex": "000000d00000010800000000000000000000000000000000"
+        },
+        {
+          "index": 4,
+          "description": "tile0 command8 count 2",
+          "hex": "000000800000002000000000000000000000000000000000"
+        },
+        {
+          "index": 5,
+          "description": "tile0 command7 count 2",
+          "hex": "000000700000002000000000000000000000000000000000"
+        },
+        {
+          "index": 6,
+          "description": "tile0 ctrl0 operation 28",
+          "hex": "000000300000000000e46880000000002000000000000000"
+        },
+        {
+          "index": 7,
+          "description": "tile0 ctrl1 operation 58",
+          "hex": "000000300000000001d46880008000000000000000000001"
+        },
+        {
+          "index": 8,
+          "description": "tile1 constant 0x00000005",
+          "hex": "020000d00000005800000000000000000000000000000000"
+        },
+        {
+          "index": 9,
+          "description": "tile1 command8 count 1",
+          "hex": "020000800000001000000000000000000000000000000000"
+        },
+        {
+          "index": 10,
+          "description": "tile1 command7 count 1",
+          "hex": "020000700000001000000000000000000000000000000000"
+        },
+        {
+          "index": 11,
+          "description": "tile1 ctrl0 operation 25",
+          "hex": "020000300000000000cc6880018000000080000000000000"
+        },
+        {
+          "index": 12,
+          "description": "tile2 constant 0xfffffff8",
+          "hex": "040000dfffffff8800000000000000000000000000000000"
+        },
+        {
+          "index": 13,
+          "description": "tile2 command8 count 1",
+          "hex": "040000800000001000000000000000000000000000000000"
+        },
+        {
+          "index": 14,
+          "description": "tile2 command7 count 1",
+          "hex": "040000700000001000000000000000000000000000000000"
+        },
+        {
+          "index": 15,
+          "description": "tile2 ctrl0 operation 25",
+          "hex": "040000300000000000cc6880020000000a00000000000000"
+        },
+        {
+          "index": 16,
+          "description": "tile3 constant 0x00000003",
+          "hex": "060000d00000003800000000000000000000000000000000"
+        },
+        {
+          "index": 17,
+          "description": "tile3 command8 count 1",
+          "hex": "060000800000001000000000000000000000000000000000"
+        },
+        {
+          "index": 18,
+          "description": "tile3 command7 count 1",
+          "hex": "060000700000001000000000000000000000000000000000"
+        },
+        {
+          "index": 19,
+          "description": "tile3 ctrl0 operation 29",
+          "hex": "060000300000000000ec6880010000000800000000000000"
+        },
+        {
+          "index": 20,
+          "description": "launch tile2",
+          "hex": "040000000000000000000000000000000000000000000000"
+        },
+        {
+          "index": 21,
+          "description": "launch tile3",
+          "hex": "060000000000000000000000000000000000000000000000"
+        },
+        {
+          "index": 22,
+          "description": "launch tile1",
+          "hex": "020000000000000000000000000000000000000000000000"
+        },
+        {
+          "index": 23,
+          "description": "launch tile0",
+          "hex": "000000000000000000000000000000000000000000000000"
+        },
+        {
+          "index": 24,
+          "description": "after all 4 completions query address 16",
+          "hex": "000000a00000000040000000000000000000000000000000"
+        },
+        {
+          "index": 25,
+          "description": "after all 4 completions query address 15",
+          "hex": "000000a0000000003c000000000000000000000000000000"
+        }
+      ]
+    },
+    {
+      "name": "negative_after_reset",
+      "input": 4294967290,
+      "expected": 4294967285,
+      "configuration_count": 24,
+      "packets": [
+        {
+          "index": 0,
+          "description": "preload bank0[15] input",
+          "hex": "000000cfffffffa83c000000000000000000000000000000"
+        },
+        {
+          "index": 1,
+          "description": "preload bank1[0] sentinel",
+          "hex": "000000cdeadbeef840000000000000000000000000000000"
+        },
+        {
+          "index": 2,
+          "description": "tile0 constant 0x0000000f",
+          "hex": "000000d0000000f800000000000000000000000000000000"
+        },
+        {
+          "index": 3,
+          "description": "tile0 constant 0x00000010",
+          "hex": "000000d00000010800000000000000000000000000000000"
+        },
+        {
+          "index": 4,
+          "description": "tile0 command8 count 2",
+          "hex": "000000800000002000000000000000000000000000000000"
+        },
+        {
+          "index": 5,
+          "description": "tile0 command7 count 2",
+          "hex": "000000700000002000000000000000000000000000000000"
+        },
+        {
+          "index": 6,
+          "description": "tile0 ctrl0 operation 28",
+          "hex": "000000300000000000e46880000000002000000000000000"
+        },
+        {
+          "index": 7,
+          "description": "tile0 ctrl1 operation 58",
+          "hex": "000000300000000001d46880008000000000000000000001"
+        },
+        {
+          "index": 8,
+          "description": "tile1 constant 0x00000005",
+          "hex": "020000d00000005800000000000000000000000000000000"
+        },
+        {
+          "index": 9,
+          "description": "tile1 command8 count 1",
+          "hex": "020000800000001000000000000000000000000000000000"
+        },
+        {
+          "index": 10,
+          "description": "tile1 command7 count 1",
+          "hex": "020000700000001000000000000000000000000000000000"
+        },
+        {
+          "index": 11,
+          "description": "tile1 ctrl0 operation 25",
+          "hex": "020000300000000000cc6880018000000080000000000000"
+        },
+        {
+          "index": 12,
+          "description": "tile2 constant 0xfffffff8",
+          "hex": "040000dfffffff8800000000000000000000000000000000"
+        },
+        {
+          "index": 13,
+          "description": "tile2 command8 count 1",
+          "hex": "040000800000001000000000000000000000000000000000"
+        },
+        {
+          "index": 14,
+          "description": "tile2 command7 count 1",
+          "hex": "040000700000001000000000000000000000000000000000"
+        },
+        {
+          "index": 15,
+          "description": "tile2 ctrl0 operation 25",
+          "hex": "040000300000000000cc6880020000000a00000000000000"
+        },
+        {
+          "index": 16,
+          "description": "tile3 constant 0x00000003",
+          "hex": "060000d00000003800000000000000000000000000000000"
+        },
+        {
+          "index": 17,
+          "description": "tile3 command8 count 1",
+          "hex": "060000800000001000000000000000000000000000000000"
+        },
+        {
+          "index": 18,
+          "description": "tile3 command7 count 1",
+          "hex": "060000700000001000000000000000000000000000000000"
+        },
+        {
+          "index": 19,
+          "description": "tile3 ctrl0 operation 29",
+          "hex": "060000300000000000ec6880010000000800000000000000"
+        },
+        {
+          "index": 20,
+          "description": "launch tile2",
+          "hex": "040000000000000000000000000000000000000000000000"
+        },
+        {
+          "index": 21,
+          "description": "launch tile3",
+          "hex": "060000000000000000000000000000000000000000000000"
+        },
+        {
+          "index": 22,
+          "description": "launch tile1",
+          "hex": "020000000000000000000000000000000000000000000000"
+        },
+        {
+          "index": 23,
+          "description": "launch tile0",
+          "hex": "000000000000000000000000000000000000000000000000"
+        },
+        {
+          "index": 24,
+          "description": "after all 4 completions query address 16",
+          "hex": "000000a00000000040000000000000000000000000000000"
+        },
+        {
+          "index": 25,
+          "description": "after all 4 completions query address 15",
+          "hex": "000000a0000000003c000000000000000000000000000000"
+        }
+      ]
+    }
+  ]
+}

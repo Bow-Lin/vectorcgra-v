@@ -1,0 +1,25 @@
+{
+  "label": "vector_all_reduce_w32_l4_b8_v0",
+  "case": "vector_all_reduce",
+  "reference": "reference/phase3/vector_combo/vector_all_reduce_w32_l4_b8_v0",
+  "native_module": "tile_vector_all_reduce",
+  "parameters": {
+    "DATA_W": 32,
+    "LANES": 4,
+    "LANE_W": 8,
+    "VECTOR_FACTOR_POWER": 0
+  },
+  "opcodes": [
+    56,
+    68,
+    57,
+    69,
+    76,
+    77,
+    78,
+    79
+  ],
+  "legacy_ctrl_adapter": false,
+  "cycles": 640,
+  "seed": "3b123456"
+}

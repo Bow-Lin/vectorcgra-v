@@ -1,0 +1,576 @@
+{
+  "canvas": [
+    2400,
+    1370
+  ],
+  "nodes": {
+    "host": [
+      100,
+      245,
+      405,
+      78
+    ],
+    "cgra0": [
+      100,
+      420,
+      170,
+      110
+    ],
+    "cgra1": [
+      335,
+      420,
+      170,
+      110
+    ],
+    "cgra2": [
+      100,
+      770,
+      170,
+      110
+    ],
+    "cgra3": [
+      335,
+      770,
+      170,
+      110
+    ],
+    "inter_noc": [
+      100,
+      600,
+      405,
+      88
+    ],
+    "controller": [
+      800,
+      250,
+      455,
+      85
+    ],
+    "tile12": [
+      785,
+      445,
+      90,
+      60
+    ],
+    "tile13": [
+      915,
+      445,
+      90,
+      60
+    ],
+    "tile14": [
+      1045,
+      445,
+      90,
+      60
+    ],
+    "tile15": [
+      1175,
+      445,
+      90,
+      60
+    ],
+    "tile8": [
+      785,
+      550,
+      90,
+      60
+    ],
+    "tile9": [
+      915,
+      550,
+      90,
+      60
+    ],
+    "tile10": [
+      1045,
+      550,
+      90,
+      60
+    ],
+    "tile11": [
+      1175,
+      550,
+      90,
+      60
+    ],
+    "tile4": [
+      785,
+      655,
+      90,
+      60
+    ],
+    "tile5": [
+      915,
+      655,
+      90,
+      60
+    ],
+    "tile6": [
+      1045,
+      655,
+      90,
+      60
+    ],
+    "tile7": [
+      1175,
+      655,
+      90,
+      60
+    ],
+    "tile0": [
+      785,
+      760,
+      90,
+      60
+    ],
+    "tile1": [
+      915,
+      760,
+      90,
+      60
+    ],
+    "tile2": [
+      1045,
+      760,
+      90,
+      60
+    ],
+    "tile3": [
+      1175,
+      760,
+      90,
+      60
+    ],
+    "mem_controller": [
+      775,
+      942,
+      540,
+      42
+    ],
+    "bank0": [
+      775,
+      1010,
+      250,
+      34
+    ],
+    "bankn": [
+      1065,
+      1010,
+      250,
+      34
+    ],
+    "ctrl_mem": [
+      1530,
+      255,
+      770,
+      105
+    ],
+    "input_fifo": [
+      1530,
+      460,
+      220,
+      70
+    ],
+    "routing_xbar": [
+      1810,
+      460,
+      245,
+      70
+    ],
+    "reg_cluster": [
+      1810,
+      610,
+      245,
+      70
+    ],
+    "fu_cluster": [
+      1810,
+      760,
+      245,
+      95
+    ],
+    "fu_xbar": [
+      1530,
+      760,
+      220,
+      70
+    ],
+    "const_queue": [
+      1810,
+      905,
+      245,
+      65
+    ],
+    "link_or": [
+      1530,
+      940,
+      220,
+      70
+    ],
+    "dram": [
+      85,
+      1203,
+      180,
+      65
+    ],
+    "dma": [
+      325,
+      1203,
+      150,
+      65
+    ],
+    "optional_spm": [
+      835,
+      1203,
+      180,
+      65
+    ],
+    "optional_controller": [
+      535,
+      1203,
+      240,
+      65
+    ],
+    "im2col": [
+      1075,
+      1203,
+      260,
+      65
+    ]
+  },
+  "text_fit_checks": [
+    {
+      "text": "CPU / Host",
+      "size": 25,
+      "max_width": 383,
+      "target": "host"
+    },
+    {
+      "text": "配置、启动、查询与完成响应",
+      "size": 19,
+      "max_width": 383,
+      "target": "host"
+    },
+    {
+      "text": "CGRA 0",
+      "size": 24,
+      "max_width": 148,
+      "target": "cgra0"
+    },
+    {
+      "text": "Host 入口",
+      "size": 19,
+      "max_width": 148,
+      "target": "cgra0"
+    },
+    {
+      "text": "CGRA 1",
+      "size": 24,
+      "max_width": 148,
+      "target": "cgra1"
+    },
+    {
+      "text": "控制器 + Tiles",
+      "size": 19,
+      "max_width": 148,
+      "target": "cgra1"
+    },
+    {
+      "text": "CGRA 2",
+      "size": 24,
+      "max_width": 148,
+      "target": "cgra2"
+    },
+    {
+      "text": "控制器 + Tiles",
+      "size": 19,
+      "max_width": 148,
+      "target": "cgra2"
+    },
+    {
+      "text": "CGRA 3",
+      "size": 24,
+      "max_width": 148,
+      "target": "cgra3"
+    },
+    {
+      "text": "控制器 + Tiles",
+      "size": 19,
+      "max_width": 148,
+      "target": "cgra3"
+    },
+    {
+      "text": "跨 CGRA 报文 NoC",
+      "size": 27,
+      "max_width": 383,
+      "target": "inter_noc"
+    },
+    {
+      "text": "Mesh / Ring · 控制包与远程访存",
+      "size": 19,
+      "max_width": 383,
+      "target": "inter_noc"
+    },
+    {
+      "text": "Controller",
+      "size": 27,
+      "max_width": 433,
+      "target": "controller"
+    },
+    {
+      "text": "命令派发 · 地址映射 · 全局归约",
+      "size": 19,
+      "max_width": 433,
+      "target": "controller"
+    },
+    {
+      "text": "Tile 12",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile12"
+    },
+    {
+      "text": "Tile 13",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile13"
+    },
+    {
+      "text": "Tile 14",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile14"
+    },
+    {
+      "text": "Tile 15",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile15"
+    },
+    {
+      "text": "Tile 8",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile8"
+    },
+    {
+      "text": "Tile 9",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile9"
+    },
+    {
+      "text": "Tile 10",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile10"
+    },
+    {
+      "text": "Tile 11",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile11"
+    },
+    {
+      "text": "Tile 4",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile4"
+    },
+    {
+      "text": "Tile 5",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile5"
+    },
+    {
+      "text": "Tile 6",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile6"
+    },
+    {
+      "text": "Tile 7",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile7"
+    },
+    {
+      "text": "Tile 0",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile0"
+    },
+    {
+      "text": "Tile 1",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile1"
+    },
+    {
+      "text": "Tile 2",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile2"
+    },
+    {
+      "text": "Tile 3",
+      "size": 20,
+      "max_width": 68,
+      "target": "tile3"
+    },
+    {
+      "text": "数据存储控制器 / 读写互连",
+      "size": 23,
+      "max_width": 518,
+      "target": "mem_controller"
+    },
+    {
+      "text": "Bank 0",
+      "size": 20,
+      "max_width": 228,
+      "target": "bank0"
+    },
+    {
+      "text": "Bank 1 …",
+      "size": 20,
+      "max_width": 228,
+      "target": "bankn"
+    },
+    {
+      "text": "配置存储 Ctrl Memory",
+      "size": 27,
+      "max_width": 748,
+      "target": "ctrl_mem"
+    },
+    {
+      "text": "控制 FU、寄存器簇、两路 Crossbar；ctrl-step 握手推进",
+      "size": 19,
+      "max_width": 748,
+      "target": "ctrl_mem"
+    },
+    {
+      "text": "输入 FIFO",
+      "size": 25,
+      "max_width": 198,
+      "target": "input_fifo"
+    },
+    {
+      "text": "原有 depth = 2",
+      "size": 19,
+      "max_width": 198,
+      "target": "input_fifo"
+    },
+    {
+      "text": "Routing Crossbar",
+      "size": 23,
+      "max_width": 223,
+      "target": "routing_xbar"
+    },
+    {
+      "text": "输入路由 / 旁路",
+      "size": 19,
+      "max_width": 223,
+      "target": "routing_xbar"
+    },
+    {
+      "text": "寄存器簇 / 旁路",
+      "size": 25,
+      "max_width": 223,
+      "target": "reg_cluster"
+    },
+    {
+      "text": "Register Cluster",
+      "size": 19,
+      "max_width": 223,
+      "target": "reg_cluster"
+    },
+    {
+      "text": "可配置 FU 簇",
+      "size": 26,
+      "max_width": 220,
+      "target": "fu_cluster"
+    },
+    {
+      "text": "标量 / 向量 / 浮点",
+      "size": 19,
+      "max_width": 220,
+      "target": "fu_cluster"
+    },
+    {
+      "text": "组合 / MAC / 访存",
+      "size": 19,
+      "max_width": 220,
+      "target": "fu_cluster"
+    },
+    {
+      "text": "FU Crossbar",
+      "size": 24,
+      "max_width": 198,
+      "target": "fu_xbar"
+    },
+    {
+      "text": "结果路由 / 写回",
+      "size": 19,
+      "max_width": 198,
+      "target": "fu_xbar"
+    },
+    {
+      "text": "常量队列",
+      "size": 25,
+      "max_width": 223,
+      "target": "const_queue"
+    },
+    {
+      "text": "Const Queue",
+      "size": 19,
+      "max_width": 223,
+      "target": "const_queue"
+    },
+    {
+      "text": "LinkOr 合并",
+      "size": 25,
+      "max_width": 198,
+      "target": "link_or"
+    },
+    {
+      "text": "逐位 OR，非仲裁器",
+      "size": 19,
+      "max_width": 198,
+      "target": "link_or"
+    },
+    {
+      "text": "外部 DRAM",
+      "size": 23,
+      "max_width": 158,
+      "target": "dram"
+    },
+    {
+      "text": "DMA",
+      "size": 26,
+      "max_width": 128,
+      "target": "dma"
+    },
+    {
+      "text": "SPM",
+      "size": 26,
+      "max_width": 158,
+      "target": "optional_spm"
+    },
+    {
+      "text": "Controller",
+      "size": 26,
+      "max_width": 218,
+      "target": "optional_controller"
+    },
+    {
+      "text": "im2col",
+      "size": 26,
+      "max_width": 238,
+      "target": "im2col"
+    }
+  ],
+  "profile": "standard",
+  "scope": "Delivered stages 1-4; Base Tile view; peripherals shown only in separate single-CGRA integration view"
+}
