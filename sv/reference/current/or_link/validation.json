@@ -1,0 +1,484 @@
+{
+  "task": "Standalone N-input OrLink",
+  "status": "passed",
+  "date": "2026-10-10",
+  "base_commit": "e1e7d8ea24ed2978219cf338b36f9418e06a0421",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "pinned_python_unchanged": 274,
+  "profiles": [
+    {
+      "name": "w16_n3",
+      "parameters": {
+        "DATA_W": 16,
+        "NUM_INPUTS": 3
+      },
+      "cycles": 320,
+      "input_bits": 62,
+      "output_bits": 23,
+      "reset_samples": 7,
+      "notes": [
+        "All input payloads and predicates are ORed regardless of their valid bits.",
+        "All-invalid output is zero; bypass/delay outputs zero; ready broadcasts even during reset."
+      ],
+      "source_sha256": {
+        "noc/OrLinkRTL.py": "5849649e4b347c23ee8fc53115dab612526566fb5263db0ce5f83c9f400e46a0",
+        "noc/test/OrLinkRTL_test.py": "9e74fc1db787f643862c76db9fba7dd29a91351e52fe328dc836f9a409215588",
+        "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf"
+      },
+      "generator_sha256": "234444ca100ba56a4b6dcd0e861104ef20f543773c4e4d48cce0916bb18b615a",
+      "vectors_sha256": "3fe090d796f7e13f12ce9031bf00a574b91f1fae89cfc105c42ce91561a89967",
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019"
+    },
+    {
+      "name": "w32_n5",
+      "parameters": {
+        "DATA_W": 32,
+        "NUM_INPUTS": 5
+      },
+      "cycles": 320,
+      "input_bits": 182,
+      "output_bits": 41,
+      "reset_samples": 7,
+      "notes": [
+        "All input payloads and predicates are ORed regardless of their valid bits.",
+        "All-invalid output is zero; bypass/delay outputs zero; ready broadcasts even during reset."
+      ],
+      "source_sha256": {
+        "noc/OrLinkRTL.py": "5849649e4b347c23ee8fc53115dab612526566fb5263db0ce5f83c9f400e46a0",
+        "noc/test/OrLinkRTL_test.py": "9e74fc1db787f643862c76db9fba7dd29a91351e52fe328dc836f9a409215588",
+        "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf"
+      },
+      "generator_sha256": "234444ca100ba56a4b6dcd0e861104ef20f543773c4e4d48cce0916bb18b615a",
+      "vectors_sha256": "3ef02270e5b79ef368c62c2504b727d57bfd02a451746b06c030c3838d8d4b4d",
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019"
+    },
+    {
+      "name": "w64_n8",
+      "parameters": {
+        "DATA_W": 64,
+        "NUM_INPUTS": 8
+      },
+      "cycles": 320,
+      "input_bits": 546,
+      "output_bits": 76,
+      "reset_samples": 7,
+      "notes": [
+        "All input payloads and predicates are ORed regardless of their valid bits.",
+        "All-invalid output is zero; bypass/delay outputs zero; ready broadcasts even during reset."
+      ],
+      "source_sha256": {
+        "noc/OrLinkRTL.py": "5849649e4b347c23ee8fc53115dab612526566fb5263db0ce5f83c9f400e46a0",
+        "noc/test/OrLinkRTL_test.py": "9e74fc1db787f643862c76db9fba7dd29a91351e52fe328dc836f9a409215588",
+        "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf"
+      },
+      "generator_sha256": "234444ca100ba56a4b6dcd0e861104ef20f543773c4e4d48cce0916bb18b615a",
+      "vectors_sha256": "ca99e78912c3fc05866ccb534e5cd6cc7ffb0aa6398e2c9cfbef0e3dcb94031a",
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019"
+    }
+  ],
+  "compatibility_cycles": 960,
+  "compatibility_reset_cycles": 21,
+  "compatibility_output_bits_per_implementation": 44800,
+  "native_checks": {
+    "rtl": 12516,
+    "synth": 12516
+  },
+  "positive_runs": [
+    {
+      "path": "sv/build/current/or-link/rtl/w16_n3/native.log",
+      "sha256": "c5bed3cf8e661d63d68926da98273d8a27f89e5a91206b7df69ec20f6e51cf93",
+      "results": [
+        "OR_LINK_NATIVE_PASS samples=32 checks=193 invalid_nonzero=48"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/rtl/w16_n3/replay.log",
+      "sha256": "3781417f68958d155894dbf288e7998cdbf86524e3db00a63483744167c77db6",
+      "results": [
+        "OR_LINK_REPLAY_PASS samples=320 output_bits=23"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/rtl/w32_n5/native.log",
+      "sha256": "65612c452d3992579b61c3fc63eb238efa9a5d811dc0cb5120eee737e1e130c1",
+      "results": [
+        "OR_LINK_NATIVE_PASS samples=128 checks=1025 invalid_nonzero=320"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/rtl/w32_n5/replay.log",
+      "sha256": "4bea9d633a0a540d62f828db94eb23d6f4c9e2d9660b273ffc7e1aa393219d21",
+      "results": [
+        "OR_LINK_REPLAY_PASS samples=320 output_bits=41"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/rtl/w64_n8/native.log",
+      "sha256": "26017c7f5d82e2b8f71d7572b8a11a8e9165f869eadcfb0ce1c7e6cbb1fe0af7",
+      "results": [
+        "OR_LINK_NATIVE_PASS samples=1024 checks=11265 invalid_nonzero=4096"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/rtl/w64_n8/replay.log",
+      "sha256": "0cb5e88c00ba25de9ebb33375029903cb2c48a7bed0e791982f028a509cbed90",
+      "results": [
+        "OR_LINK_REPLAY_PASS samples=320 output_bits=76"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/rtl/w1_n1/native.log",
+      "sha256": "6e3cd98b633959700232763f68b5765ba89cf525244838185435a5b5560aac80",
+      "results": [
+        "OR_LINK_NATIVE_PASS samples=8 checks=33 invalid_nonzero=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/synth/w16_n3/native.log",
+      "sha256": "c0b829814e0969b6843e41033b9642300a9e8a729ce1f64bbdd99082791a4fb9",
+      "results": [
+        "OR_LINK_NATIVE_PASS samples=32 checks=193 invalid_nonzero=48"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/synth/w16_n3/replay.log",
+      "sha256": "1d6f26e13bb2536be90c844be3ab697e520d0895920d57824034aa383cc2bff9",
+      "results": [
+        "OR_LINK_REPLAY_PASS samples=320 output_bits=23"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/synth/w32_n5/native.log",
+      "sha256": "d45b4008106005d3d0c10ed6ad1795ab829f18f552f90cf140c5fc2c76c8a592",
+      "results": [
+        "OR_LINK_NATIVE_PASS samples=128 checks=1025 invalid_nonzero=320"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/synth/w32_n5/replay.log",
+      "sha256": "688feacf2c2fc52858d8e8b00c0849b2d80e44e2a770886166fdb7f662a9e40b",
+      "results": [
+        "OR_LINK_REPLAY_PASS samples=320 output_bits=41"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/synth/w64_n8/native.log",
+      "sha256": "ee9c55ae2b98bde17238c12b3b937c32c28388c7085c413924642aee341a4935",
+      "results": [
+        "OR_LINK_NATIVE_PASS samples=1024 checks=11265 invalid_nonzero=4096"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/synth/w64_n8/replay.log",
+      "sha256": "e8268ca858f9aa751965e1fed1e76a6b673670f0856a4dcc66e8e168a1ca90f6",
+      "results": [
+        "OR_LINK_REPLAY_PASS samples=320 output_bits=76"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/synth/w1_n1/native.log",
+      "sha256": "4d17288aea2c9ca7b33bada84932ce199a7ae144eeff048e061186da40850bbc",
+      "results": [
+        "OR_LINK_NATIVE_PASS samples=8 checks=33 invalid_nonzero=4"
+      ]
+    }
+  ],
+  "negative_runs": [
+    {
+      "path": "sv/build/current/or-link/rtl/w16_n3/native-negative.log",
+      "sha256": "ee280e50064470f5f3fc97547ee158493f59ec2776fe757943b8f70751d3cfa6",
+      "results": [
+        "[17000] %Fatal: tb_or_link.sv:28: Assertion failed in TOP.tb_or_link.require: OR_LINK_CHECK bitwise payload/predicate OR and zero metadata sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/rtl/w16_n3/replay-negative.log",
+      "sha256": "b3ebfc5392a0cfffaae012b792d6de0ecb82babb8976b2609efb49e0fe59dd5c",
+      "results": [
+        "[17000] %Fatal: tb_or_link.sv:45: Assertion failed in TOP.tb_or_link.replay: OR_LINK_REPLAY_MISMATCH sample=4 got=757fe0 expected=757fe1"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/rtl/w32_n5/native-negative.log",
+      "sha256": "ee280e50064470f5f3fc97547ee158493f59ec2776fe757943b8f70751d3cfa6",
+      "results": [
+        "[17000] %Fatal: tb_or_link.sv:28: Assertion failed in TOP.tb_or_link.require: OR_LINK_CHECK bitwise payload/predicate OR and zero metadata sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/rtl/w32_n5/replay-negative.log",
+      "sha256": "6d3274603fd2c8b20836a2ba1610dff5c93f5d8afc7d14f94d566fcbf3aae028",
+      "results": [
+        "[17000] %Fatal: tb_or_link.sv:45: Assertion failed in TOP.tb_or_link.replay: OR_LINK_REPLAY_MISMATCH sample=4 got=1ffffffff80 expected=1ffffffff81"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/rtl/w64_n8/native-negative.log",
+      "sha256": "ee280e50064470f5f3fc97547ee158493f59ec2776fe757943b8f70751d3cfa6",
+      "results": [
+        "[17000] %Fatal: tb_or_link.sv:28: Assertion failed in TOP.tb_or_link.require: OR_LINK_CHECK bitwise payload/predicate OR and zero metadata sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/rtl/w64_n8/replay-negative.log",
+      "sha256": "30107ff732f23905d2e605a2c81bea897683eb6997f92cd53edfd4411b07199f",
+      "results": [
+        "[17000] %Fatal: tb_or_link.sv:45: Assertion failed in TOP.tb_or_link.replay: OR_LINK_REPLAY_MISMATCH sample=4 got=ffffffffffffffffc00 expected=ffffffffffffffffc01"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/rtl/w1_n1/native-negative.log",
+      "sha256": "ee280e50064470f5f3fc97547ee158493f59ec2776fe757943b8f70751d3cfa6",
+      "results": [
+        "[17000] %Fatal: tb_or_link.sv:28: Assertion failed in TOP.tb_or_link.require: OR_LINK_CHECK bitwise payload/predicate OR and zero metadata sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/synth/w16_n3/native-negative.log",
+      "sha256": "ee280e50064470f5f3fc97547ee158493f59ec2776fe757943b8f70751d3cfa6",
+      "results": [
+        "[17000] %Fatal: tb_or_link.sv:28: Assertion failed in TOP.tb_or_link.require: OR_LINK_CHECK bitwise payload/predicate OR and zero metadata sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/synth/w16_n3/replay-negative.log",
+      "sha256": "b3ebfc5392a0cfffaae012b792d6de0ecb82babb8976b2609efb49e0fe59dd5c",
+      "results": [
+        "[17000] %Fatal: tb_or_link.sv:45: Assertion failed in TOP.tb_or_link.replay: OR_LINK_REPLAY_MISMATCH sample=4 got=757fe0 expected=757fe1"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/synth/w32_n5/native-negative.log",
+      "sha256": "ee280e50064470f5f3fc97547ee158493f59ec2776fe757943b8f70751d3cfa6",
+      "results": [
+        "[17000] %Fatal: tb_or_link.sv:28: Assertion failed in TOP.tb_or_link.require: OR_LINK_CHECK bitwise payload/predicate OR and zero metadata sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/synth/w32_n5/replay-negative.log",
+      "sha256": "6d3274603fd2c8b20836a2ba1610dff5c93f5d8afc7d14f94d566fcbf3aae028",
+      "results": [
+        "[17000] %Fatal: tb_or_link.sv:45: Assertion failed in TOP.tb_or_link.replay: OR_LINK_REPLAY_MISMATCH sample=4 got=1ffffffff80 expected=1ffffffff81"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/synth/w64_n8/native-negative.log",
+      "sha256": "ee280e50064470f5f3fc97547ee158493f59ec2776fe757943b8f70751d3cfa6",
+      "results": [
+        "[17000] %Fatal: tb_or_link.sv:28: Assertion failed in TOP.tb_or_link.require: OR_LINK_CHECK bitwise payload/predicate OR and zero metadata sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/synth/w64_n8/replay-negative.log",
+      "sha256": "30107ff732f23905d2e605a2c81bea897683eb6997f92cd53edfd4411b07199f",
+      "results": [
+        "[17000] %Fatal: tb_or_link.sv:45: Assertion failed in TOP.tb_or_link.replay: OR_LINK_REPLAY_MISMATCH sample=4 got=ffffffffffffffffc00 expected=ffffffffffffffffc01"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/synth/w1_n1/native-negative.log",
+      "sha256": "ee280e50064470f5f3fc97547ee158493f59ec2776fe757943b8f70751d3cfa6",
+      "results": [
+        "[17000] %Fatal: tb_or_link.sv:28: Assertion failed in TOP.tb_or_link.require: OR_LINK_CHECK bitwise payload/predicate OR and zero metadata sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/or-link/rtl/invalid-width/run.log",
+      "sha256": "d277344ce9cce08890857c8ae5a44bc989c2651aab25c3a1dbc245cbfdb7dcdb",
+      "results": [
+        "[0] %Fatal: cgra_or_link.sv:24: Assertion failed in TOP.tb_or_link.dut: OR_LINK_PARAMETER"
+      ]
+    }
+  ],
+  "netlists": [
+    {
+      "profile": "w16_n3",
+      "sha256": "6d433910a87c133605870af891a7815a84df81bb77a92edaad07623f67c05666",
+      "synthesis": {
+        "path": "sv/build/current/or-link/synth/w16_n3/yosys.log",
+        "sha256": "b886477e6854d4fab14e83c51b91f2dcfee9dee1780d260590ba27f25fcbe92d",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/or-link/synth/w16_n3/scc.log",
+        "sha256": "b1e7c6481c54193ac9cc2fd39f26ae05f97d8f138bab786687254f1b7fe6c876",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "w32_n5",
+      "sha256": "03e33b0c79cfe2e4e7db6a836b5d82876a56a634025edef4c7663175ce141938",
+      "synthesis": {
+        "path": "sv/build/current/or-link/synth/w32_n5/yosys.log",
+        "sha256": "abf6e8b576934c38d3daea2f583a0b3a68e7e503c1b609773c354c440fc25a67",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/or-link/synth/w32_n5/scc.log",
+        "sha256": "c619d8aac66c2b58a1d92a6bb4c71786d52da083b576588606cd6deba3014015",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "w64_n8",
+      "sha256": "6ba29257cf3db7b524c9fa0b2acff483340f88472da98d674077177d547c0be5",
+      "synthesis": {
+        "path": "sv/build/current/or-link/synth/w64_n8/yosys.log",
+        "sha256": "19ecc5a881f8f7ff573be6abbfa324a128c75eac245def6145b567dd2c4d02e8",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/or-link/synth/w64_n8/scc.log",
+        "sha256": "1f23a134b2cade05fb1088c7529193283cf091fcd3a09c37dc4f713aa8f26b33",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "w1_n1",
+      "sha256": "c94dab6e8d19683620da6418b4a8f13c67b107d1b85c617745528d3cd889912e",
+      "synthesis": {
+        "path": "sv/build/current/or-link/synth/w1_n1/yosys.log",
+        "sha256": "f1c77b90581f1953433c6859c52d42967f0148b07f38240bab0ab05e9896da78",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/or-link/synth/w1_n1/scc.log",
+        "sha256": "6939fe57298acf3ac8fe392cf021455995148723efdcedc1f99311141bca0424",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    }
+  ],
+  "compile_diagnostics": [
+    {
+      "path": "sv/build/current/or-link/rtl/w16_n3/compile.log",
+      "sha256": "b7562be9c9616621c6d0ac65c4da088af1de6b6fd8d63ae6fee6c69485ac84c5",
+      "warnings": {}
+    },
+    {
+      "path": "sv/build/current/or-link/rtl/w32_n5/compile.log",
+      "sha256": "73f1bbbadf97c902f29cb0a5a9cf3f5ff35a24ff4855286aea658e710c0890f3",
+      "warnings": {}
+    },
+    {
+      "path": "sv/build/current/or-link/rtl/w64_n8/compile.log",
+      "sha256": "a9527f08c9f059f6c8dcbe7d9a870bc82ec77cae3a0a4a173fb81f07933f6b87",
+      "warnings": {}
+    },
+    {
+      "path": "sv/build/current/or-link/rtl/w1_n1/compile.log",
+      "sha256": "8efea1bd88a232588cd84acf05d252e68b85f336fb10d33696cfdee4c5123339",
+      "warnings": {}
+    },
+    {
+      "path": "sv/build/current/or-link/synth/w16_n3/compile.log",
+      "sha256": "643b3ed292dbd6dbc05e1725c0f528449cdf36f5e8561cb60cb2d075409dc224",
+      "warnings": {
+        "TIMESCALEMOD": 1
+      }
+    },
+    {
+      "path": "sv/build/current/or-link/synth/w32_n5/compile.log",
+      "sha256": "253bfa57320fe6750cb1763cdc4a11ac308403d769ad09c41ef3f2ae89f1a0da",
+      "warnings": {
+        "TIMESCALEMOD": 1
+      }
+    },
+    {
+      "path": "sv/build/current/or-link/synth/w64_n8/compile.log",
+      "sha256": "841869024ab7cd5d3987f13e9e5c3ab37a4d72e4ca262b890f4a1af78a4aa7f0",
+      "warnings": {
+        "TIMESCALEMOD": 1
+      }
+    },
+    {
+      "path": "sv/build/current/or-link/synth/w1_n1/compile.log",
+      "sha256": "41d7eca0ab0ddab77645d05a372d8aeceb3064b729b1fd8823e55030ae234a57",
+      "warnings": {
+        "TIMESCALEMOD": 1
+      }
+    }
+  ],
+  "regenerated_identical_files": 8,
+  "frozen_sha256": {
+    "sv/reference/current/or_link/original_test.txt": "a8361f40d3de3f7235d3b0a48540affc35271133b6944c8c4053701456052e55",
+    "sv/reference/current/or_link/python_boundary.json": "33e08e9794749ede57cd5fabf24863c269d36a4b91ad13db7324463f92d0906f",
+    "sv/reference/current/or_link/w16_n3/manifest.json": "f65da060de0db3a285eb96d348c7838c7acb38e1925e744d74824e5963066536",
+    "sv/reference/current/or_link/w16_n3/vectors.txt": "3fe090d796f7e13f12ce9031bf00a574b91f1fae89cfc105c42ce91561a89967",
+    "sv/reference/current/or_link/w32_n5/manifest.json": "697790a25e231d86bec7ceff5fb3a46abffae2d8ad19772ae5c7e17615cb0ac9",
+    "sv/reference/current/or_link/w32_n5/vectors.txt": "3ef02270e5b79ef368c62c2504b727d57bfd02a451746b06c030c3838d8d4b4d",
+    "sv/reference/current/or_link/w64_n8/manifest.json": "8845671a00b46ee867abdd19cc535aef8ad4fb94f6f1d729d78d6a51c245c6b3",
+    "sv/reference/current/or_link/w64_n8/vectors.txt": "ca99e78912c3fc05866ccb534e5cd6cc7ffb0aa6398e2c9cfbef0e3dcb94031a"
+  },
+  "input_sha256": {
+    "sv/rtl/noc/cgra_or_link.sv": "bc815b089ab81e08631b3e7aaaec8c0801cab56b3994c2370578ae685d735fbf",
+    "sv/tests/current/tb_or_link.sv": "d403433cf7eb6f4aa29d712dc2e57432e57fcd3dc4051412f81d8ea3d65fd38a",
+    "sv/tests/current/run_or_link.sh": "a8deb4baed2b1efabb761cb2469772d230456f2f924289ffd2159901caa45420",
+    "sv/migration_tools/current_or_link.py": "234444ca100ba56a4b6dcd0e861104ef20f543773c4e4d48cce0916bb18b615a",
+    "sv/scripts/toolchain.sh": "11b934d6f4ee1f19027faaece45b5a025a20ed2c1eed45dcba24ae7a4b33a0b4",
+    "sv/filelists/native.f": "ac640c454dfb103ada096ec27af43daf3a5fe391d1b64dbc361f58c05c673445",
+    "sv/Makefile": "7779302d4c27430c3243adc5d7eb23cc500aba3b3d398f5de81fdf9ee5f85078",
+    "sv/scripts/run.ps1": "049f3444850d9f0722343f7852c67579f589272ccf281b2e33be960090e2aa86",
+    ".github/workflows/native-sv.yml": "f025976a16fd87d8bde6e1d08d0bd6802bda6bdf812bd06f2fa6b87919fb3f0c",
+    "sv/LINK_APIS.md": "7fb534be2ee1a51d3d91bc94d7c3ad6813f8902980f89c7c8df762cdcf3bb4a8",
+    "sv/MIGRATION_TASKS.md": "814dbacf66ad77043856fbe836033ba186818def09a61903deb5b0916fb2e7aa",
+    "sv/CURRENT_MIGRATION.md": "e915b082c833519e06c1f099a75b93f8ee28393ede08e3da62d86f188473683d",
+    "sv/MIGRATION_PROGRESS.md": "67aa50b92f4ed81f8891bf83e308fc2fe5328474537aeedaff6968169fac8e97",
+    "sv/EXPERIMENT_LOG.md": "2fb882b67230fa2fa1bbd1f77ca13d3ea136c4cc873b9ce62379992c97a69f76",
+    "sv/README.md": "66f34a36388f95026317b907d9c4f88f53cfb369bb3972b6fdc51704ed812c2a",
+    "sv/tests/README.md": "f9b3f15ab6d09c527324d2e4461726aabb15a62f64cf34a02d2575b92d706bdf",
+    "sv/migration_tools/README.md": "0581590906d31d1e62000171d66e5f7b91de4f9ae2888280868134b5561784fc",
+    "sv/reference/current/target.json": "c560f1ccf61706ed50c871a2987ea2c2837c6ae14b942f1216b275a201de14aa"
+  },
+  "native_filelist_lint": {
+    "path": "sv/build/current/or-link/native-filelist-lint.log",
+    "sha256": "bdc7a6a464485f8f728e308c63f6c46ce20a818624312a204ef11d78b2ffc251"
+  },
+  "tools": {
+    "verilator": "Verilator 5.029 devel rev v5.028-104-ge2041f745",
+    "sv2v": "sv2v v0.0.13",
+    "yosys": "Yosys 0.45+139 (git sha1 4d581a97d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)"
+  },
+  "limitations": [
+    "Pure combinational OR, including invalid payload/predicate; not an arbiter or independent-stream merger.",
+    "Only mk_data(DATA_W,1,1) field layout exposed; 1/16/32/64-bit payload and 1/3/5/8 inputs tested.",
+    "Single-input Python fails an unused Bits0 declaration; SV explicitly supports the degenerate case.",
+    "No PE replacement, new system kernel run, PPA, PowerShell runtime or remote CI result claimed."
+  ],
+  "commit_and_push": "Evidence generated before commit/push; Git is authoritative"
+}

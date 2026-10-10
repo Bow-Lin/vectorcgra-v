@@ -103,3 +103,4 @@ rtl/mem/cgra_ring_ctrl_node.sv
 rtl/mem/cgra_ring_multi_ctrl_mem.sv
 rtl/mem/cgra_data_mem.sv
 rtl/mem/cgra_data_mem_scalable.sv
+rtl/noc/cgra_or_link.sv

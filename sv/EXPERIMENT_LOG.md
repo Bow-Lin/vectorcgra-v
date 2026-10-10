@@ -359,3 +359,20 @@
   下一项按 [MIGRATION_TASKS.md](MIGRATION_TASKS.md) 补齐 N 输入 OrLink。
 
 提交前记录；实际提交／推送状态以 Git 为准。
+
+## 独立 N 输入 OrLink API（2026-10-10）
+
+新增 `cgra_or_link`，保留原 N 输入 OR 语义：valid 求 OR，所有输入的 payload／predicate
+均参与 OR（包含无效输入），无有效输入时输出消息为零，bypass／delay 始终为零，
+ready 广播。未替换已有双来源 `tile_link_or`，详细契约见 [LINK_APIS.md](LINK_APIS.md)。
+
+- 原 Python Source/Sink 测试原样通过；3／5／8 输入、16／32／64 位 payload 的
+  960 周期、44800 个输出位在 RTL／网表全部匹配，包含 21 个 reset 周期。
+- 四组原生配置（含 1 位／单输入）穷举所有 valid 掩码、ready 与 reset 组合，
+  每种实现 12516 项独立检查；15 次错误期望／非法宽度负控检出预期错误。
+- 4 份实际网表完整综合、优化前后 check、实际网表重读 check／零 SCC 全通过；
+  8 个参考文件再生成一致，274 个原 Python SHA 未变。接口提供单输入退化情况，
+  原 Python 的未使用 Bits0 声明在该参数下失败，已明确登记。
+- Make、PowerShell、regression、CI 与 native 文件列表接入；既有 PE 台架 lint 通过。
+  组合链接不缓存独立流，不承诺输入字段变化下的背压保持；未新增系统或 PPA 验收。
+- 独立证据 `reference/current/or_link/validation.json`；下一项是 Selector 的未选口 ready 修正。

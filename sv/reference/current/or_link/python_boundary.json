@@ -1,0 +1,5 @@
+{
+  "single_input": "Original unused mk_bits(clog2(1)) rejects Bits0; SV supports this degenerate case.",
+  "original_test": "passed unmodified with Source/Sink assertions",
+  "pinned_python_files": 274
+}

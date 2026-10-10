@@ -85,3 +85,5 @@ RTL package against nonzero PyMTL packing samples.
 `make -C sv current-data-memory current-data-memory-synth` 验证独立 DataMem 的 Python 对照、原生计分板及综合网表。
 
 `current-scalable-memory` / `current-scalable-memory-synth` 通过共享台架验证 Scalable 包装层；NoC 随机输入期间本地功能及固定零输出均受检查。
+
+`current-or-link` / `current-or-link-synth` 验证多输入 OrLink 的未修改 Python 轨迹及全部 valid 掩码的独立位计数结果。

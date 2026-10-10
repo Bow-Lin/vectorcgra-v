@@ -8,7 +8,7 @@
 |---|---|---|
 | 1 | 独立 DataMemRTL API；多读写口、预加载、冲突、复位 | 已完成；见 DATA_MEMORY_API.md 与独立 validation.json |
 | 2 | DataMemScalableRTL API；保留原 NoC 端口未实现的边界 | 已完成；见 DATA_MEMORY_API.md 与独立 validation.json |
-| 3 | N 输入 OrLinkRTL API | 待执行 |
+| 3 | N 输入 OrLinkRTL API | 已完成；见 LINK_APIS.md 与独立 validation.json |
 | 4 | SelectorRTL API；修正未选择输入的 ready | 待执行 |
 | 5 | PipeQueueRTL API；满队列同拍出入替换 | 待执行 |
 | 6 | VectorAllReduce 数学、请求及返回握手语义 | 待执行 |
