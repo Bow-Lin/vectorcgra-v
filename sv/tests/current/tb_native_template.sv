@@ -31,9 +31,11 @@ module tb_native_template #(`CGRA_PROFILE_PARAMETERS);
     if(dut.noc_recv_val[c] && dut.noc_recv_rdy[c] && outgoing[c].src!=outgoing[c].dst &&
        (outgoing[c].payload.cmd==10 || outgoing[c].payload.cmd==12)) remote_requests++;
   host_packet_t program_packets[$],packet;
+  int barrier_packet[$],barrier_completions[$];
+  bit use_barriers=0;
   initial begin
-    string vectors;
-    int fd,rc,pi=0,cycle,owner,tile,addr,expected,done_cycle=-1;
+    string vectors,barriers;
+    int fd,rc,pi=0,bi=0,cycle,owner,tile,addr,expected,done_cycle=-1;
     host_packet_t p;
     if(!$value$plusargs("VECTORS=%s",vectors)) $fatal(1,"VECTORS required");
     fd=$fopen({vectors,"/program.hex"},"r");if(!fd)$fatal(1,"Missing program");
@@ -42,15 +44,31 @@ module tb_native_template #(`CGRA_PROFILE_PARAMETERS);
       if(rc==1)program_packets.push_back(packet);else if(rc!=-1)$fatal(1,"Malformed program");
     end
     $fclose(fd);
+    if($value$plusargs("BARRIERS=%s",barriers))begin
+      int at_packet,required_completions;
+      use_barriers=1;fd=$fopen(barriers,"r");if(!fd)$fatal(1,"Missing barrier file");
+      while(!$feof(fd))begin
+        rc=$fscanf(fd,"%d %d\n",at_packet,required_completions);
+        if(rc==2)begin
+          if(at_packet<0 || at_packet>program_packets.size() || required_completions<0 ||
+             (barrier_packet.size()>0 && (at_packet<barrier_packet[$] || required_completions<barrier_completions[$])))
+            $fatal(1,"Invalid barrier order");
+          barrier_packet.push_back(at_packet);barrier_completions.push_back(required_completions);
+        end else if(rc!=-1)$fatal(1,"Malformed barrier file");
+      end
+      $fclose(fd);
+    end
     for(int c=0;c<4;c++) for(int k=0;k<ARCH_LINKS;k++) if(!ARCH_ENABLED[c][k]) disabled_links++;
     reset=1;recv_from_cpu_pkt__val=0;recv_from_cpu_pkt__msg=0;send_to_cpu_pkt__rdy=0;
     repeat(3)begin #5;clk=1;#5;clk=0;end
     reset=0;
     for(cycle=0;cycle<3000;cycle++) begin
+      while(bi<barrier_packet.size() && pi>=barrier_packet[bi] && completions>=barrier_completions[bi])bi++;
       recv_from_cpu_pkt__val=0;recv_from_cpu_pkt__msg=0;
       if(pi<program_packets.size()) begin
         packet=program_packets[pi];
-        recv_from_cpu_pkt__val=packet.payload.cmd!=10 || completions==21;
+        recv_from_cpu_pkt__val=use_barriers ?
+          !(bi<barrier_packet.size() && pi>=barrier_packet[bi]) : (packet.payload.cmd!=10 || completions==21);
         recv_from_cpu_pkt__msg=packet;
       end
       send_to_cpu_pkt__rdy=!$test$plusargs("STALL_FOREVER") && cycle%7>=2 && stalls>=8;
@@ -75,7 +93,7 @@ module tb_native_template #(`CGRA_PROFILE_PARAMETERS);
         end
       end
       clk=1;#5;clk=0;
-      if(pi==program_packets.size() && completions==21 && reads==8) begin
+      if(pi==program_packets.size() && completions==21 && reads==8 && bi==barrier_packet.size()) begin
         if(done_cycle<0)done_cycle=cycle;
         if(cycle>done_cycle+10)break;
       end
@@ -83,6 +101,7 @@ module tb_native_template #(`CGRA_PROFILE_PARAMETERS);
     if(cycle==3000)$fatal(1,"NATIVE_TEMPLATE_TIMEOUT");
     if(completions!=21 || reads!=8 || stalls<8 || remote_requests<8 || disabled_links==0) $fatal(1,"Insufficient template coverage");
     $display("NATIVE_TEMPLATE_PASS cycles=%0d completions=%0d reads=%0d stalls=%0d remote_requests=%0d",cycle,completions,reads,stalls,remote_requests);
+    if(use_barriers)$display("PROGRAM_BARRIERS_PASS barriers=%0d completed=%0d",barrier_packet.size(),bi);
     $finish;
   end
 endmodule

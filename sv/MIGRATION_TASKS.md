@@ -19,7 +19,7 @@
 | 11 | Base／Context／Streaming PE 公共参数、类型及重复逻辑整理 | 已完成；见 PE_INTERFACES.md、五份 PE 网表及异构浮点系统反例 |
 | 12 | NoC 剩余握手、VC／credit 及实际组合环检查 | 已完成；见 NOC_HANDSHAKES.md、18 组 RTL 流量及六份实际网络网表 |
 | 13 | 不依赖项目 Python 的架构配置工具 | 已完成；见 CONFIGURATION_TOOL.md、五种配置展开及生成参数驱动的 21 PE 内核 |
-| 14 | 不依赖项目 Python 的程序／常量／预加载／命令生成工具 | 待执行 |
+| 14 | 不依赖项目 Python 的程序／常量／预加载／命令生成工具 | 已完成；见 PROGRAM_TOOL.md、3,950 次 SV 字段检查及带 barrier 的整机回读 |
 | 15 | 全模块／功能／opcode 与原始 274 文件覆盖清单 | 待执行 |
 | 16 | 扩展内核独立数学验收，包括 AXPY 最终回读及矩阵边界 | 待执行 |
 | 17 | 当前源码完整系统与选定综合网表验收 | 待执行 |

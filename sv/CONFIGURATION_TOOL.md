@@ -118,4 +118,4 @@ make -C sv config-tools
 程序运行，以独立算式检查 8 次最终回读，包含错误结果和永久阻塞反例。
 
 证据保存在 `reference/current/config_tools/validation.json`。程序／常量／
-预加载／主机命令的独立打包工具属于后续单独任务。
+预加载／主机命令的独立打包工具见 [PROGRAM_TOOL.md](PROGRAM_TOOL.md)。
