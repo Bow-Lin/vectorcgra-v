@@ -1,5 +1,5 @@
 `include "cgra_profile_defs.svh"
-// ac96 behavior preserved, including undriven fields and original handshake rules.
+// Python vector arithmetic with the original interface/handshake rules.
 module tile_vector_mul_combo #(
   `CGRA_PROFILE_PARAMETERS,
   parameter int LANES = 4, VECTOR_FACTOR_POWER = 0
@@ -58,12 +58,9 @@ module tile_vector_mul_combo #(
   assign to_mem_wdata__msg = p_to_mem_wdata__msg;
 
   localparam int LANE_W = DATA_W / LANES;
-  // ac96 RTLIR sizes sub_bw*2/3 to the widest literal operand, not int.
-  // Preserve the emitted hardware's truncated shift counts. Python simulation
-  // computes full integer products and differs for these vector operations.
-  localparam int SHIFT_PRODUCT_W = ($clog2(LANE_W+1)>2)?$clog2(LANE_W+1):2;
-  localparam logic [SHIFT_PRODUCT_W-1:0] SHIFT_TWO = LANE_W*2;
-  localparam logic [SHIFT_PRODUCT_W-1:0] SHIFT_THREE = LANE_W*3;
+  // Full-width integer shifts implement the Python arithmetic contract.
+  localparam int SHIFT_TWO = LANE_W*2;
+  localparam int SHIFT_THREE = LANE_W*3;
   initial if (LANES < 4 || LANES % 4 != 0 || DATA_W % LANES != 0)
     $fatal(1,"VectorMulCombo requires LANES multiple of four dividing DATA_W");
   // ac96 allocates LANES but its data routing uses only lanes 0..3.

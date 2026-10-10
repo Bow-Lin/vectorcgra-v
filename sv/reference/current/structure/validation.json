@@ -1,0 +1,91 @@
+{
+  "scope": "PE loop-bound/interface regression plus native PHI RTL-to-netlist functional validation",
+  "before_undriven_bits": 497,
+  "after_default_undriven_bits": 0,
+  "cause": "Narrow signed casts of integer loop bounds in ctrl_mem and tile_static_crossbar cause the synthesis frontend to eliminate loops. Removed 19 unnecessary bound casts.",
+  "other_fixes": [
+    "Tie unused Base raw-packet input to zero",
+    "Tie raw-packet ready to zero when no streaming FU exists",
+    "Tie PE memory outputs idle when no memory FU exists"
+  ],
+  "post_synthesis_profiles": {
+    "base": {
+      "status": "passed",
+      "run_log": "sv/build/current/post-synth/base/run.log",
+      "netlist_sha256": "fe1d3111cc631ea171dc76bb8a9bc175bd8c7524faedde89daceab4c64624b01",
+      "pre_optimization_check": "passed",
+      "final_check": "passed",
+      "yosys_log_sha256": "1a55bc11b105b2d6f209a739aa53d5bcc16b08f7ec65552a6608dac953e01328",
+      "run_log_sha256": "9175468e11b64741915a89b1c27771033a8e16c27a962ea025f0b8699e86473b",
+      "undriven_bits": 0
+    },
+    "context": {
+      "status": "passed",
+      "run_log": "sv/build/current/post-synth/context/run.log",
+      "netlist_sha256": "020224df4ec2b889f89a60df3fccbf91ff627f05915244a31ee8c9b021da2ae3",
+      "pre_optimization_check": "passed",
+      "final_check": "passed",
+      "yosys_log_sha256": "80b11522398ed5914d8ee8bede027ed88481a9f70b77c7e2a9ca2410106b83ae",
+      "run_log_sha256": "78d976cb47456d59ea68eb77ea37a674940ac235cf633e0493387fb1773a9dee",
+      "undriven_bits": 0
+    },
+    "streaming": {
+      "status": "passed",
+      "run_log": "sv/build/current/post-synth/streaming/run.log",
+      "netlist_sha256": "faf973ea118576294ea41237a4dd30031520b1dcbe049da901f953ab6d9a9282",
+      "pre_optimization_check": "passed",
+      "final_check": "passed",
+      "yosys_log_sha256": "b3ee6e0fc93ee042080b2839e06fae6be93e734cb2f362c3e0b12e55c6b2a964",
+      "run_log_sha256": "d8cdf08d5c00b1bef0cb8e00a99def657275dd950257d97c248204cac88b0b28",
+      "undriven_bits": 0
+    },
+    "base64": {
+      "status": "passed",
+      "run_log": "sv/build/current/post-synth/base64/run.log",
+      "netlist_sha256": "774d2e5b475c41a1361214b95b0c94d28dfb2929309df5c9eedc7455e1b3352d",
+      "pre_optimization_check": "passed",
+      "final_check": "passed",
+      "yosys_log_sha256": "6cf8b67bafb3e64a693080dad53d726fec1c462347273482ef4b08d4c42adbc0",
+      "run_log_sha256": "33624ba499c5a6fa8435b45fdeb21a836c95be501548b3c6d619cff35baeb5f3",
+      "undriven_bits": 0
+    },
+    "context8": {
+      "status": "passed",
+      "run_log": "sv/build/current/post-synth/context8/run.log",
+      "netlist_sha256": "44dfbe198486231f6bbcf30729bec24466de279a07a742a69942ab954540d9df",
+      "pre_optimization_check": "passed",
+      "final_check": "passed",
+      "yosys_log_sha256": "c26552e1aa4c9faaf9d828bc52e2e46209fac5083c8c772f4b95eb0ea7be03be",
+      "run_log_sha256": "8525fca520fa2e98b28d379b7cea43a39e5d0361aac2cbbb4be9dc05ed5a6571",
+      "undriven_bits": 0
+    }
+  },
+  "source_python_modified": false,
+  "verilator_5_029_counter_defect": {
+    "reproducer": "verilator_counter_repro.sv",
+    "default_result": "false constant folding; a=0 b=0 c=0 after 91 input lines",
+    "workaround": "public_flat_rw on each testbench counter and coverage register",
+    "workaround_result": "a=91 b=6 c=2; checks retained; migration raw and negative comparisons pass"
+  },
+  "batch": "M23",
+  "native_phi_post_synthesis": {
+    "32": {
+      "log": "build/current/post-synth/phi/32/run.log",
+      "sha256": "6c1b4ff3fa75f1a67ab88c5f19b62ee6fe3fe85dc8ead8d0f620ec9efcbca1fa",
+      "markers": [
+        "NATIVE_PHI_PASS width=32 checks=395"
+      ],
+      "netlist_sha256": "202fdca2968a9c2d2b0b25dd4bc00f0e11c72428d505e784b90f528660a144ed",
+      "yosys_log_sha256": "7b66006e4575de7a9baeef8f038ca2567d46414746494141600ea594dd8000b3"
+    },
+    "64": {
+      "log": "build/current/post-synth/phi/64/run.log",
+      "sha256": "95a6259b0799e2034d189b185cdf6552556bd595111a22709e250acf26dce5af",
+      "markers": [
+        "NATIVE_PHI_PASS width=64 checks=395"
+      ],
+      "netlist_sha256": "a19886fc4025f828789224fcf43eb91e0597be2718c2c70d90c49a6e0eec45d8",
+      "yosys_log_sha256": "2de4891f4ddcf89acede2d7581aafae2ae617eb00a887664c22d9b302d375614"
+    }
+  }
+}

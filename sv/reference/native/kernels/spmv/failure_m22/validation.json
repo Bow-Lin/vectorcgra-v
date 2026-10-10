@@ -1,0 +1,33 @@
+{
+  "status": "failed_math",
+  "diagnostic_extra_cycles": 2000,
+  "expected": [
+    0,
+    2,
+    6,
+    12,
+    20,
+    30,
+    42,
+    56
+  ],
+  "actual": [
+    0,
+    2,
+    2,
+    12,
+    4,
+    5,
+    6,
+    7
+  ],
+  "return_fu_cycle": 584,
+  "replay": "build/native/spmv/Vtb_native_kernel +PROGRAM=reference/native/kernels/spmv +TRACE_FU +DIAGNOSTIC_DRAIN=2000 +DIAGNOSTIC_ALL_RESULTS",
+  "failures_are_not_python_equivalence": true,
+  "fixture_sha256": {
+    "program.hex": "18572de1ef01c2870b18735e1e8898d670987b86dc59246527b3406056ac46c0",
+    "return.hex": "763b45924c0b5ad634d42793e39fede8a5eada87a75779c2443b0f46ab976c67",
+    "expected.hex": "446f08e64c3d3c05e3410d88e7685e62ea175f846f5bbe5ab9d77fa9930b32e3"
+  },
+  "unresolved": "Control/data dependence and configuration semantics; no final root cause claimed for all five incorrect results."
+}

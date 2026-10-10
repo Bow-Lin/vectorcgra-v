@@ -1,3 +1,4 @@
+`include "cgra_opcodes.svh"
 `include "cgra_profile_defs.svh"
 // ac96 behavior preserved, including undriven fields and original handshake rules.
 module cgra_vector_adder #(
@@ -28,12 +29,12 @@ module cgra_vector_adder #(
 
   localparam logic [2:0] num_inports_at_comb_logic  = 3'd4;
   localparam logic [1:0] num_outports_at_comb_logic  = 2'd2;
-  localparam logic [6:0] OPT_ADD  = 7'd2;
-  localparam logic [6:0] OPT_ADD_CONST  = 7'd25;
-  localparam logic [6:0] OPT_INC  = 7'd3;
-  localparam logic [6:0] OPT_SUB  = 7'd4;
-  localparam logic [6:0] OPT_SUB_CONST  = 7'd36;
-  localparam logic [6:0] OPT_PAS  = 7'd31;
+  localparam logic [6:0] OPT_ADD  = `CGRA_OPT_ADD;
+  localparam logic [6:0] OPT_ADD_CONST  = `CGRA_OPT_ADD_CONST;
+  localparam logic [6:0] OPT_INC  = `CGRA_OPT_INC;
+  localparam logic [6:0] OPT_SUB  = `CGRA_OPT_SUB;
+  localparam logic [6:0] OPT_SUB_CONST  = `CGRA_OPT_SUB_CONST;
+  localparam logic [6:0] OPT_PAS  = `CGRA_OPT_PAS;
   localparam int bw_at_comb_logic = LANE_W;
   // Only bit 0 was driven by ac96; high bits deliberately remain undriven.
   logic [LANE_W:0] carry_in_temp;

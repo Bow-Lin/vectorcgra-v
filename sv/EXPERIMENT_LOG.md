@@ -240,3 +240,44 @@
 - 最终SVG的XML、marker、碰撞、几何、排版五类检查均通过；55项节点文本宽度检查通过，最终PNG目视检查通过（visual_review: passed）。`manifest.json` 固定十项RTL来源SHA与两项图像SHA，`validation.json`保留检查结果。绘图Python仅用于文档资产，不进入日常HDL构建。
 - `sv/README.md` 增加图像入口。本轮没有运行新的硬件仿真或综合，图像审查不计入迁移测试覆盖。
 - Git落盘复核发现文本会按仓库规则归一化LF；绘图脚本已显式输出UTF-8/LF，更新SVG SHA并再次通过五类检查，确保检出后的SVG与清单一致。PNG字节未变化。
+
+## M21：当前 Python 同步与单 PE 验收（2026-10-09）
+
+- 用户授权继续迁移；由主智能体执行，未创建子智能体。起始 HEAD 为 `cd7aad878915e389cecf8cc01ff6987d156bd019`，工作分支 `work`。当前 Python 内容来自父提交 `e3caf6928a4e8c97e6be36574af2520ec92083b9`，原迁移基线 `ac96a7af` 继续保留；274 个原项目 Python 文件的 SHA 固定在 `reference/current/target.json`，本批未改原文件及历史参考。
+- 新增 `cgra_pe` 统一 Base/Context/Streaming；阵列入口复用单 PE；opcode 集中管理。同步 Grant/LLS_CONST/GEP/STR、常量退役、寄存器槽背压与 Crossbar prologue；修复 VectorMul 翻译位移截断及 DMA beat 拆装。DMA 默认改为 Python 正确切片，原翻译缺陷只能显式选择；独立 32/96/128/256 位 DRAM 及 128/256 位集成测试通过。
+- 未修改 Python 即复现 Streaming 标量控制步同周期完成丢失造成的死锁；反例保存在 `reference/current/streaming_defect.json`。SV 修正同周期完成记录，另用 Streaming Load 验证多次输出没有被提前截断。原 SUB_CONST/FP 共有问题仍登记为待修复，未更换参考掩盖差异。
+- 本地执行入口：`make -C sv current`、`make -C sv current-synth`、`make -C sv current-kernels`、`make -C sv current-prefixes`、`bash sv/scripts/run_baseline.sh all`。工具：Verilator 5.029 devel v5.028-104-ge2041f745、sv2v 0.0.13、Yosys 0.45+139 4d581a97d、G++ Debian 14.2.0-19；使用显式工具环境变量。具体 marker、工具和输入目标保存在 `reference/current/validation.json`，日志位于 `build/current/`。
+- 当前组件验收：8 FU × 539 周期全部输出位比较、控制步状态和多播背压、五组 PE 参数、流式加载、四种 DMA 宽度和两种集成宽度；故意错误 oracle 和非法 PE 参数负控通过。默认单 PE 通过 sv2v、Yosys synth/check，不声称 PPA 改善。历史 all 在归档的原始 RTL 上通过，未用旧错误切片和旧 opcode 约束当前实现。
+- 原 YAML 程序完整对照：AXPY 290、FIR4x4 350、Histogram 240、ReLU4x4 345、SAD 190 周期，原 Sink 断言继续生效。GEMM/GEMV 的原 Python 在 30 分钟内尚未完成，停止后保留 2258/2689 周期；这些前缀与 SV 全部顶层输出逐位匹配，不能算完整程序通过。SPMV 配置生成在 `ICMP_ULT` 映射处失败，早于 RTL 仿真。配置包、失败信息、逐周期文件和 manifest 均保存。
+- 一次运行中的 shell runner 被编辑，导致该次读取偏移出错；固定脚本后完整重新运行通过，失败运行不作为证据。当前参考生成器增加墙钟限制和进度输出；不完整记录与完整 kernel 的验证入口及结果标记分开。
+- Linux/MSYS 工具路径统一；新增 CI 工作流尚未在远端运行。本批的后续事项包含完整多 CGRA 当前语义验收、旧独立 API 补齐和剩余原模型缺陷，详见 `CURRENT_MIGRATION.md`；未宣称全项目迁移完成。
+
+## M22：结构修复、数学回读与当前系统重新验收（2026-10-09）
+
+- 继续用户授权流程，未创建子智能体，未提交或推送。274 个原项目 Python 文件的 SHA-256 未变，99 个原 opcode 定义保持一致；历史跟踪的 reference/vectors 未改。
+- 将默认 PE 综合中的 497 个未驱动位定位到窄有符号循环边界和未使用接口。删除 CtrlMem/Crossbar 的 19 个边界转换，显式驱动空闲 raw-packet/存储接口。优化前及综合后都运行 `check -assert`；五组 Base/Context/Streaming 参数的真实综合网表完成公共接口程序，均通过。
+- GEMM/GEMV 的原配置延长到 12,000 周期仍停顿。独立配置修复保留再次读取前仍活跃的寄存器 token，并将冲突目标重分配到空闲 bank。GEMM 另外补 stride=4 配置和 Controller 的命令 43 转发。GEMV 405 周期、4 个输出；GEMM 1657 周期、16 个输出，全部数学回读正确，错误期望与永久背压负向检查有效。这不是原 Python 程序的等价完成。
+- 实现原生 ULT/ULT_CONST（102/103）和现有编码的常量 AND/OR（100/101），32/64 位独立数值/握手检查通过。原 SPMV YAML 在 opcode/liveness 修复后可返回，但地址 2 的首个错误为 2 而非 6；额外运行 2000 周期后仍有五个错误输出。三输入 PHI、共享数组基址及其控制/数据依赖尚未完成修复。隔离实验修改 PHI 首次握手状态没有改善该结果，因此未合入这一实验 RTL。
+- 新增独立 COO 程序，使用不重叠数组、重复行、负权重及串行读改写依赖；206 周期回读 481、2、123、274，错误结果与永久背压检查通过。原 4×4 YAML 仍单列失败，未以这个独立程序替代原测试的状态。
+- 当前五个完整 YAML 轨迹重新逐位通过，GEMM/GEMV 的两个原始前缀仍按 incomplete 验证。当前 Python 的 global_add 91 周期 × 1779 位、dynamic_fir 165 周期 × 3844 位均与 SV 逐位匹配，结果分别 53/31、2215；动态用例覆盖 5 次物理边界传输和 2 次恢复。
+- 当前 RTL 的 Mesh、Ring、注册存储、64 Tile 和 21 Tile 异构数学/协议验收通过，均验证错误结果与永久背压失败。上述独立验收不声称新的完整 Python 等价。
+- SUB_CONST 默认改为消耗 const.ready，不再错误地驱动无关第二输入 ready；旧缺陷仅在冻结 FU 轨迹中通过显式叶参数复核。浮点默认采用 IEEE 字段/HardFloat 位宽映射，FINC 加 1.0，常量操作检查有效性及谓词。FP16/32/64 独立算术及负向测试通过；`FP_LEGACY_PYTHON=1` 的四组旧格式各 1170 个样本与冻结 HDL 匹配。
+- Verilator 5.029 对文件循环计数器有错误常量折叠，最小反例已保存。`-O0` 可修复最小反例，但在完整设计触发另一处生成 C++ 错误，因此未作为最终方案。仅将测试台计数器/覆盖位声明为 `public_flat_rw` 后，保留 RTL 优化、全部比较及覆盖检查，正负向用例均通过。
+- 完成旧独立模块接口盘点，未将 LoopController、静态 CtrlMem/ConstQueue、DataMem 系列、RingMultiCtrlMem、OrLink/Selector/PipeQueue 等未验收 API 标为完成。结果、明确边界和入口见 CURRENT_MIGRATION.md；`reference/current/validation.json` 固定 36 个正向配置的结果及源码/测试 SHA，原 SPMV 失败证据位于 `reference/native/kernels/spmv/`。
+- Make/PowerShell/CI 加入新验收入口；远端 CI 尚未运行。没有新的 PPA 或全项目迁移完成声明。
+
+## M23：原 4×4 SPMV 控制依赖收尾（2026-10-10）
+
+- 用户授权开始上一轮尚未执行的 SPMV 修复。保留原 Python/YAML 和 M22 失败证据；未创建子智能体、提交或推送。
+- 重现原候选的五个错误回读。定位 M22 工具把 tile 9 的寄存器从 `$0` 移到 `$24` 时，没有把路由 prologue 的物理输入 5 改成 8；修正后地址 2 恢复，仍缺少后半组结果。
+- 原 YAML 的“余数为零”路径没有等待主循环退出。对编译期正的四倍数 nnz，将已有退出 token 经 tile 4 `$24` 接到 slot 7 的返回条件。继续执行后暴露旧 PHI_START 强制真谓词会启动本应关闭的尾循环。
+- 保留旧 opcode 行为，新增原生 PHI_START_PRED=105 与 PHI_N=104，分别保留初始入口谓词和支持配置的多输入合并。首次状态及原生 vector factor 只在实际接受时推进；三输入返回合并不再漏掉第三条分支。
+- 加入“返回前实际存储次数/地址必须匹配”的检查，发现 nnz=1/4/5 的返回可以早于存储，原先只读结果甚至会漏掉 nnz=1 的零值缺写。通过既有路由通道传递 STORE 后的控制 token，并在 Ret 的输入交叉开关合并两条完成链。无新增存储/返回 opcode。
+- 返回移到 tile 4 slot 14，位于原循环退出输入之后，避免把退出 token 当作存储确认消费。GEP 移至 slot 11，地址临时寄存器为 `$25`。保持 4×4 映射和 II=15。
+- 原始 nnz=8 的前八字为 0/2/6/12/20/30/42/56，全部 32 字回读正确，普通/主机背压及配置间隔模式为 964/3086 周期。nnz=0…8 共 18 组运行，检查唯一写入地址、写次数、返回前存储握手和返回后不得继续写入。
+- 五组故障注入分别检出错误 prologue、旧启动 PHI、缺失第三 PHI 输入、移除循环退出依赖、丢失存储确认。错误 oracle 和永久背压检查仍保留。M22 的旧失败文件归档到 `reference/native/kernels/spmv/failure_m22/`。
+- 新 PHI 的 32/64 位 RTL 及实际综合网表各通过 395 项检查，覆盖缺失操作数、谓词优先级、长期背压、独立控制槽、clear、vector factor，以及旧 PHI/PHI_START 语义；错误期望必须失败。sv2v 将数组端口展平，测试台通过显式拼接连接综合网表。
+- `native-kernels` 默认纳入修复后的原 4×4 SPMV，并自动运行长度/故障矩阵；`native-math` 纳入 PHI 单元，`current-post-synth` 纳入 PHI 网表。构建不依赖项目 Python；`native_kernels.py spmv --spmv-matrix` 仅用于重新生成冻结配置。
+- 本批完整检查清单、代码/测试及日志 SHA 见 `reference/current/validation.json`；M22 元数据另存 `validation_m22.json`。原项目 274 个 Python 文件和 99 个原 opcode 定义保持不变。
+- 收尾回归全部通过：当前组件、五组 PE 综合网表、五个完整 Python 内核轨迹、原生 GEMM/GEMV/SPMV/COO、原生算术和四组旧浮点格式。配置重新生成得到的 70 个文件逐字节一致；当前证据记录包含 42 条正向日志记录。M22 原 SPMV 归档在当前兼容 RTL 上仍复现地址 2 得到 2 而不是 6。
+- 完成的是原生修复配置在局部 32 字、恒等行列索引、nnz=0…8 的验收。原 Python 配置仍因 ICMP_ULT 映射缺失失败；任意地址别名、更多长度、重复行并行读改写和旧独立 API 等仍不在本批完成声明中。

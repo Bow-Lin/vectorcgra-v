@@ -1,0 +1,12 @@
+{
+  "status": "must_fail",
+  "ablation": "legacy_start",
+  "nnz": 8,
+  "mutations": 7,
+  "fixture_sha256": {
+    "program.hex": "b560a1ce11aaf88be709d633cd53bcf815503c4299681cb51f3b81cee6cbee3c",
+    "return.hex": "035d6282e70c004a4a3872faa6a1a3cec1bb573682a07018d9168134cbc11e3e",
+    "expected.hex": "4e04b2ca4e128aa6547ca17f7cc93c16733e481fd9d89a3b18b7cdf6cd07a752",
+    "nnz.txt": "aa67a169b0bba217aa0aa88a65346920c84c42447c36ba5f7ea65f422c1fe5d8"
+  }
+}

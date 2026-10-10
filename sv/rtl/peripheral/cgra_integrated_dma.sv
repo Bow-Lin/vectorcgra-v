@@ -19,7 +19,8 @@ module cgra_integrated_dma #(
   parameter logic [MEM_PORTS-1:0][31:0] READ_PORT_TILE='1,
   parameter logic [MEM_WRITE_PORTS-1:0][31:0] WRITE_PORT_TILE='1,
   parameter logic [NUM_TILES-1:0][TILE_PORTS-1:0] BOUNDARY_IN_ENABLE='0, BOUNDARY_OUT_ENABLE='0,
-  parameter bit BASELINE_TRANSLATED_SLICES=1
+  parameter int DRAM_DATA_W=128,
+  parameter bit BASELINE_TRANSLATED_SLICES=0
 ) (
   input logic [GLOBAL_ADDR_W-1:0] address_lower, address_upper,
   input logic [CGRA_ID_W-1:0] cgra_id,
@@ -63,10 +64,10 @@ module cgra_integrated_dma #(
   output logic[63:0] send_to_dram_rd_req__msg,
   output logic send_to_dram_rd_req__val,
   input logic send_to_dram_rd_req__rdy,
-  input logic[127:0] recv_from_dram_rd_resp__msg,
+  input logic[DRAM_DATA_W-1:0] recv_from_dram_rd_resp__msg,
   input logic recv_from_dram_rd_resp__val,
   output logic recv_from_dram_rd_resp__rdy,
-  output logic[207:0] send_to_dram_wr_req__msg,
+  output logic[64+DRAM_DATA_W+DRAM_DATA_W/8-1:0] send_to_dram_wr_req__msg,
   output logic send_to_dram_wr_req__val,
   input logic send_to_dram_wr_req__rdy,
   input logic recv_from_dram_wr_resp__msg,
@@ -79,7 +80,7 @@ module cgra_integrated_dma #(
   logic [7:0] done_msg;logic done_val,done_rdy;
   logic [31:0] rd_msg,rdata_msg;logic rd_val,rd_rdy,rdata_val,rdata_rdy;
   logic [67:0] wr_msg;logic wr_val,wr_rdy;
-  cgra_dma_engine #(.BASELINE_TRANSLATED_SLICES(BASELINE_TRANSLATED_SLICES)) dma (
+  cgra_dma_engine #(.DRAM_DATA_W(DRAM_DATA_W),.BASELINE_TRANSLATED_SLICES(BASELINE_TRANSLATED_SLICES)) dma (
     .clk,.reset,.dma_cmd__msg(command_msg),.dma_cmd__val(command_val),.dma_cmd__rdy(command_rdy),
     .dma_done__msg(done_msg),.dma_done__val(done_val),.dma_done__rdy(done_rdy),
     .send_to_dram_rd_req__msg,.send_to_dram_rd_req__val,.send_to_dram_rd_req__rdy,

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Replay an already compiled final model with hashed runtime oracle inputs.
 set -euo pipefail
-export PATH="/clang64/bin:/ucrt64/bin:/usr/bin:$PATH"
+source "$(dirname "${BASH_SOURCE[0]}")/../../../scripts/toolchain.sh"
 cd "$(dirname "$0")/../../.."
 label=${1:?Specify a system profile or heterogeneous}
 case "$label" in
@@ -11,7 +11,7 @@ case "$label" in
 esac
 out="build/phase4/$family/$label"
 vectors="tests/phase4/$family/$label"
-[[ -f "$out/$exe.exe" ]]
+[[ -f "$out/$exe${EXEEXT}" ]]
 # Compile provenance is checked before replay as well as by the collector.
 sha256sum -c "$out/compiled_sources.sha256" > "$out/replay-source-check.log"
 find "$vectors" -maxdepth 1 -type f \( -name '*.hex' -o -name '*.txt' -o -name 'results.json' \) -print0 |
@@ -22,14 +22,14 @@ if [[ "$label" == mesh4-tiles4 ]]; then
 else
   printf '%s\n' 'Frozen vectors and Python trace files under this profile are hashed before/after replay.' > "$out/runtime-input-scope.txt"
 fi
-"$out/$exe.exe" "+VECTORS=$PWD/$vectors" > "$out/run.log" 2>&1 || { cat "$out/run.log";exit 1; }
+"$out/$exe${EXEEXT}" "+VECTORS=$PWD/$vectors" > "$out/run.log" 2>&1 || { cat "$out/run.log";exit 1; }
 grep -q "$marker" "$out/run.log"
 cat "$out/run.log"
 if [[ "$family" == system ]]; then
   bash tests/phase4/system/run_negative.sh "$label"
 else
   set +e
-  "$out/$exe.exe" "+VECTORS=$PWD/$vectors" +NEGATIVE > "$out/negative.log" 2>&1
+  "$out/$exe${EXEEXT}" "+VECTORS=$PWD/$vectors" +NEGATIVE > "$out/negative.log" 2>&1
   negative=$?
   set -e
   [[ $negative != 0 ]]

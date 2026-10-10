@@ -84,3 +84,4 @@ rtl/tile/variants/tile_variant_ctrl_mem.sv
 rtl/fu/tile_flexible_fu_configurable.sv
 rtl/tile/tile_programmable.sv
 rtl/cgra/cgra_programmable.sv
+rtl/tile/cgra_pe.sv

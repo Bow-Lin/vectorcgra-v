@@ -1,3 +1,4 @@
+`include "cgra_opcodes.svh"
 `include "cgra_profile_defs.svh"
 // Native RetRTL migration from ac96; original state/handshake semantics.
 module scalar_ret #(
@@ -59,13 +60,13 @@ module scalar_ret #(
   assign to_mem_wdata__msg = to_mem_wdata__msg_typed;
 
   localparam data_t const_zero  = '0;
-  localparam logic [6:0] OPT_START  = 7'd0;
+  localparam logic [6:0] OPT_START  = `CGRA_OPT_START;
   localparam logic [0:0] latency_at_proceed_latency  = 1'd1;
   localparam logic [2:0] num_inports_at_comb_logic  = 3'd4;
   localparam logic [1:0] num_outports_at_comb_logic  = 2'd2;
-  localparam logic [6:0] OPT_RET  = 7'd35;
+  localparam logic [6:0] OPT_RET  = `CGRA_OPT_RET;
   localparam logic [3:0] CMD_COMPLETE  = 4'd14;
-  localparam logic [6:0] OPT_RET_VOID  = 7'd64;
+  localparam logic [6:0] OPT_RET_VOID  = `CGRA_OPT_RET_VOID;
   localparam int ctrl_mem_size_at_update_already_done = CTRL_SLOTS;
   logic [0:0] already_done [0:CTRL_SLOTS-1];
   logic [2:0] in0;

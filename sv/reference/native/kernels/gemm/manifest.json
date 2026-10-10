@@ -1,0 +1,136 @@
+{
+  "kernel": "gemm",
+  "status": "native_candidate",
+  "parameters": {
+    "COLS": 4,
+    "ROWS": 4,
+    "CTRL_DEPTH": 17,
+    "GLOBAL_ADDR_W": 8,
+    "BANK_DEPTH": 32,
+    "NUM_BANKS": 2,
+    "REG_DEPTH": 8,
+    "NUM_CTRL": 17,
+    "TOTAL_STEPS": 1118,
+    "MEM_COMBINATIONAL": 1,
+    "MULTI_ROWS": 1,
+    "MULTI_COLS": 4
+  },
+  "fu_kinds": [
+    0,
+    1,
+    16,
+    6,
+    7,
+    9,
+    4,
+    5,
+    10,
+    2,
+    8,
+    13,
+    11,
+    3
+  ],
+  "source_manifest": "sv/reference/current/kernels/gemm/manifest.json",
+  "source_manifest_sha256": "0f075baa74276b8561d74e46011e18c919119e265abc8d2a9d00e8b682945a26",
+  "changes": [
+    {
+      "tile": 9,
+      "pc": 2,
+      "kind": "rename_read",
+      "old_register": 1,
+      "new_register": 24
+    },
+    {
+      "tile": 9,
+      "pc": 15,
+      "kind": "rename_write",
+      "old_register": 1,
+      "new_register": 24
+    },
+    {
+      "tile": 5,
+      "pc": 2,
+      "kind": "retain_live_register",
+      "bank": 0,
+      "index": 0
+    },
+    {
+      "tile": 5,
+      "pc": 12,
+      "kind": "retain_live_register",
+      "bank": 2,
+      "index": 0
+    },
+    {
+      "tile": 6,
+      "pc": 0,
+      "kind": "retain_live_register",
+      "bank": 2,
+      "index": 1
+    },
+    {
+      "tile": 6,
+      "pc": 13,
+      "kind": "retain_live_register",
+      "bank": 1,
+      "index": 0
+    },
+    {
+      "tile": 9,
+      "pc": 14,
+      "kind": "retain_live_register",
+      "bank": 1,
+      "index": 1
+    },
+    {
+      "tile": 9,
+      "pc": 15,
+      "kind": "retain_live_register",
+      "bank": 0,
+      "index": 0
+    },
+    {
+      "tile": 4,
+      "kind": "GEP_stride",
+      "stride": 4
+    },
+    {
+      "tile": 6,
+      "kind": "GEP_stride",
+      "stride": 4
+    },
+    {
+      "kind": "return_oracle",
+      "reason": "RetRTL preserves the executed control word in CMD_COMPLETE payload.ctrl; original YAML sink omitted it."
+    }
+  ],
+  "expected_memory_base": 32,
+  "expected_memory": [
+    0,
+    0,
+    0,
+    0,
+    40,
+    61,
+    82,
+    103,
+    80,
+    122,
+    164,
+    206,
+    120,
+    183,
+    246,
+    309
+  ],
+  "expected_return_packet": "300000070000000000080002000000000000000000020000",
+  "claim": "Native configuration repair/extension; not Python RTL equivalence",
+  "fixture_sha256": {
+    "program.hex": "acb262dfb836395fc2c408043d133e2a291b625b7e2dc2b18d3df6d6561b3635",
+    "return.hex": "ed019b8b6d89111629fed4a3bfb4992e41ab8b582c723d6760d9a23414914821",
+    "expected.hex": "e029c12631fcbe5cfff69927a31f4a1fb1cb76a2f61d31297f5a3ee6e48c3d38",
+    "verilator.args": "ddc36bbe79b18665172b9b2cf8f32be153ce0638f9c7738638dcdb2cd3ac7e2c"
+  },
+  "known_limitations": []
+}

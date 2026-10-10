@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "oracle": "Pinned current Python raw cycle trace plus independent arithmetic/coverage",
+  "positive": {
+    "log": "build/current/migration/dynamic_fir/run.log",
+    "sha256": "7d9cb186f4037bbc0d4ac8a03770bb1371f11568df6a0f3d11b2fdaf8823897a",
+    "markers": [
+      "CURRENT_MIGRATION_PASS label=dynamic_fir cycles=165 raw_bits=3844 inputs=126 completions=1 math=1 boundary=5 resume=2"
+    ]
+  },
+  "negative": {
+    "log": "build/current/migration/dynamic_fir/negative.log",
+    "sha256": "c643a3cdd34f83a97c59706311c70d3b0e96f2723245a621fa4cb3e553d33831",
+    "markers": []
+  },
+  "manifest_sha256": "7e8426a4d768f943cbdb9d12ed0cd1ccba1bee5093c2417c11baa4c3dcfbd1da"
+}

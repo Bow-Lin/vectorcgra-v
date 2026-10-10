@@ -1,0 +1,23 @@
+{
+  "batch": "M23",
+  "status": "passed_independent_math",
+  "python_equivalence": false,
+  "positive": {
+    "log": "build/native/spmv_coo/run.log",
+    "sha256": "4cd1870d80c2f411c723187a7461a8dd5a641dfe5e39c479ac3177bbb2ec3c54",
+    "markers": [
+      "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv_coo cycles=206 words=4"
+    ]
+  },
+  "negative": {
+    "log": "build/native/spmv_coo/negative.log",
+    "sha256": "d043ec62944d85f7fbecc9071c32bfa694e73e795fb0bc48bdb5190e25d3e9aa",
+    "markers": []
+  },
+  "permanent_backpressure": {
+    "log": "build/native/spmv_coo/timeout-negative.log",
+    "sha256": "bd8cb31be92592139a8b3289247bda879be33f77a1ae7b8272219e5665369cd9",
+    "markers": []
+  },
+  "manifest_sha256": "7a2348bf60a1060d8f19e082198cc64a1f43dc3096f1478ab02d4852d414a1f2"
+}

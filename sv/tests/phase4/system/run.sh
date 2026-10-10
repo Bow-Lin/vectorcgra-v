@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-export PATH="/clang64/bin:/ucrt64/bin:/usr/bin:$PATH"
-export VERILATOR_ROOT="$(cygpath -m /ucrt64/share/verilator)"
+source "$(dirname "${BASH_SOURCE[0]}")/../../../scripts/toolchain.sh"
 cd "$(dirname "$0")/../../.."
 label=${1:-mesh4-tiles2}
 case "$label" in
@@ -15,13 +14,13 @@ out="build/phase4/system/$label"
 mkdir -p "$out"
 { grep -v '^+' filelists/phase4.f | grep -v '^$'; printf '%s\n' tests/phase4/system/tb_multi.sv; } | xargs sha256sum > "$out/compiled_sources.sha256"
 sha256sum rtl/common/*.svh >> "$out/compiled_sources.sha256"
-/ucrt64/bin/verilator --cc --main --exe --timing --compiler clang --top-module tb_multi \
+"$VERILATOR" --cc --main --exe --timing --compiler "$COMPILER" --top-module tb_multi \
   --Mdir "$out" -o multi_test -CFLAGS -std=c++20 -Wno-fatal -Wno-TIMESCALEMOD \
   "${args[@]}" "+define+PHASE4_REFERENCE=$top" -f filelists/phase4.f \
   "reference/phase4/system/$label/original.v" tests/phase4/system/tb_multi.sv \
   > "$out/verilate.log" 2>&1 || { tail -n 40 "$out/verilate.log"; exit 1; }
-make -C "$out" -f Vtb_multi.mk -j "${JOBS:-2}" CXX=clang++ 'LINK=env -u LINK clang++' LDLIBS=-pthread \
+make -C "$out" -f Vtb_multi.mk -j "${JOBS:-2}" "CXX=$CXX" "LINK=env -u LINK $CXX" LDLIBS=-pthread \
   > "$out/compile.log" 2>&1 || { tail -n 30 "$out/compile.log"; exit 1; }
-"$out/multi_test.exe" "+VECTORS=$PWD/tests/phase4/system/$label" > "$out/run.log" 2>&1 || { cat "$out/run.log"; exit 1; }
+"$out/multi_test${EXEEXT}" "+VECTORS=$PWD/tests/phase4/system/$label" > "$out/run.log" 2>&1 || { cat "$out/run.log"; exit 1; }
 grep -q PHASE4_MULTI_PASS "$out/run.log"
 cat "$out/run.log"

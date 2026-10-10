@@ -66,9 +66,8 @@ module tile_core #(
   logic [0:0] element_done;
   logic [0:0] fu_crossbar_done;
   logic [0:0] routing_crossbar_done;
-  // ac96 TileRTL leaves ConstQueueDynamicRTL.clear undriven. Preserve this
-  // baseline behavior; connecting it is a separate functional correction.
-  logic [0:0] const_mem__clear;
+  // Base Tile has no task-switch clear; make the inactive input explicit.
+  wire [0:0] const_mem__clear = 1'b0;
   logic [0:0] const_mem__clk;
   logic [0:0] const_mem__ctrl_proceed;
   logic [0:0] const_mem__reset;
@@ -164,6 +163,9 @@ module tile_core #(
   host_packet_t element__recv_pkt_from_controller__msg;
   logic [0:0] element__recv_pkt_from_controller__rdy;
   logic [0:0] element__recv_pkt_from_controller__val;
+  // Base PE has no streaming raw-packet consumer.
+  assign element__recv_pkt_from_controller__msg = '0;
+  assign element__recv_pkt_from_controller__val = 1'b0;
   data_t element__send_out__msg [0:1];
   logic [0:0] element__send_out__rdy [0:1];
   logic [0:0] element__send_out__val [0:1];
@@ -471,7 +473,7 @@ module tile_core #(
     ctrl_mem__recv_pkt_from_controller__val = 1'd0;
     const_mem__recv_const__val = 1'd0;
     recv_from_controller_pkt__rdy = 1'd0;
-    if ( recv_from_controller_pkt__val & ( ( ( ( ( ( ( ( ( ( ( ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_CONFIG ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_CONFIG_PROLOGUE_FU ) ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_CONFIG_PROLOGUE_FU_CROSSBAR ) ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_CONFIG_PROLOGUE_ROUTING_CROSSBAR ) ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_CONFIG_TOTAL_CTRL_COUNT ) ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_CONFIG_COUNT_PER_ITER ) ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_GLOBAL_REDUCE_ADD_RESPONSE ) ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_GLOBAL_REDUCE_MUL_RESPONSE ) ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_LAUNCH ) ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_CONFIG_LOOP_LOWER ) ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_CONFIG_LOOP_UPPER ) ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_CONFIG_LOOP_STEP ) ) ) ) begin
+    if ( recv_from_controller_pkt__val & ( ( ( ( ( ( ( ( ( ( ( ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_CONFIG ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_CONFIG_PROLOGUE_FU ) ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_CONFIG_PROLOGUE_FU_CROSSBAR ) ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_CONFIG_PROLOGUE_ROUTING_CROSSBAR ) ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_CONFIG_TOTAL_CTRL_COUNT ) ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_CONFIG_COUNT_PER_ITER ) ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_GLOBAL_REDUCE_ADD_RESPONSE ) ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_GLOBAL_REDUCE_MUL_RESPONSE ) ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_LAUNCH ) ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_CONFIG_LOOP_LOWER ) ) ) | ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_CONFIG_LOOP_UPPER ) ) ) | ( ( recv_from_controller_pkt__msg_typed.payload.cmd == 6'( CMD_CONFIG_LOOP_STEP ) ) | (recv_from_controller_pkt__msg_typed.payload.cmd == 6'd43) ) ) ) begin
       ctrl_mem__recv_pkt_from_controller__val = 1'd1;
       ctrl_mem__recv_pkt_from_controller__msg = recv_from_controller_pkt__msg_typed;
       recv_from_controller_pkt__rdy = ctrl_mem__recv_pkt_from_controller__rdy;

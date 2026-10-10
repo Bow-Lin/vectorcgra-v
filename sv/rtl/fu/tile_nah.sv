@@ -1,3 +1,4 @@
+`include "cgra_opcodes.svh"
 // Native parameterized scalar profile; migrated from ac96 NahRTL.
 // State and update-block names preserve the original cycle semantics.
 `include "cgra_profile_defs.svh"
@@ -61,11 +62,11 @@ module tile_nah #(
   payload_t send_to_ctrl_mem__msg_typed ;
   assign send_to_ctrl_mem__msg = send_to_ctrl_mem__msg_typed;
   localparam data_t const_zero  = '0;
-  localparam logic [6:0] OPT_START  = 7'd0;
+  localparam logic [6:0] OPT_START  = `CGRA_OPT_START;
   localparam logic [0:0] latency_at_proceed_latency  = 1'd1;
   localparam logic [2:0] num_inports_at_comb_logic  = 3'd4;
   localparam logic [1:0] num_outports_at_comb_logic  = 2'd2;
-  localparam logic [6:0] OPT_NAH  = 7'd1;
+  localparam logic [6:0] OPT_NAH  = `CGRA_OPT_NAH;
   logic [0:0] latency;
   logic [0:0] reached_vector_factor;
   logic [7:0] vector_factor_counter;

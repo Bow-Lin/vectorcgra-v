@@ -1,0 +1,70 @@
+{
+  "scope": "Yosys/sv2v signed loop-bound regression and PE unused-interface closure",
+  "before_undriven_bits": 497,
+  "after_default_undriven_bits": 0,
+  "cause": "Narrow signed casts of integer loop bounds in ctrl_mem and tile_static_crossbar cause the synthesis frontend to eliminate loops. Removed 19 unnecessary bound casts.",
+  "other_fixes": [
+    "Tie unused Base raw-packet input to zero",
+    "Tie raw-packet ready to zero when no streaming FU exists",
+    "Tie PE memory outputs idle when no memory FU exists"
+  ],
+  "post_synthesis_profiles": {
+    "base": {
+      "status": "passed",
+      "run_log": "sv/build/current/post-synth/base/run.log",
+      "netlist_sha256": "b44e49bb1d529c2ffbeb1990ff23667d602c801f6418ae80621627f442f6f71f",
+      "pre_optimization_check": "passed",
+      "final_check": "passed",
+      "yosys_log_sha256": "e57118c9d1321b21bf22a49bac929dcaa6d81f66b178e1eb512aab472059d913",
+      "run_log_sha256": "84833011096c6a0c72f25d1254d347090d30c20515374909e9f169aaca46e29d",
+      "undriven_bits": 0
+    },
+    "context": {
+      "status": "passed",
+      "run_log": "sv/build/current/post-synth/context/run.log",
+      "netlist_sha256": "af15e5cf6c4aba3cd2152489b298280fd262be651232e332baf85b0bdaf70dc1",
+      "pre_optimization_check": "passed",
+      "final_check": "passed",
+      "yosys_log_sha256": "c8db8f15bece79f450adcf8cf78a8c1e318cd2e10c8db2815468c9855b2cc139",
+      "run_log_sha256": "36d5f13793e0b7209c895e7083de6e62a5b85f78ce785c034ac12dc328307013",
+      "undriven_bits": 0
+    },
+    "streaming": {
+      "status": "passed",
+      "run_log": "sv/build/current/post-synth/streaming/run.log",
+      "netlist_sha256": "37821ac309d83dcb368bb200f794d929c7d9c92d308f8b9f41ec64b0b5527aa6",
+      "pre_optimization_check": "passed",
+      "final_check": "passed",
+      "yosys_log_sha256": "7d25efe059e56789d3089d4484a2f672ac1562f19b669dd90292120e30436fc7",
+      "run_log_sha256": "465bbcda0cd5fb7fe54db1a9c682c38bab23752c1ad1996a7a923152fd9be97d",
+      "undriven_bits": 0
+    },
+    "base64": {
+      "status": "passed",
+      "run_log": "sv/build/current/post-synth/base64/run.log",
+      "netlist_sha256": "a434383d6a1d3660bc886f3a7130849c8363b60f4d606ba109be3c33565feb3a",
+      "pre_optimization_check": "passed",
+      "final_check": "passed",
+      "yosys_log_sha256": "a4a6d4b39e2103babbb77abfa53f3904cc148c295bbc6f5d37e691936af59985",
+      "run_log_sha256": "d6befff431b37f3021f5d63ce01634703d0ba0c3c7141d6988d9ce8bfb9fc258",
+      "undriven_bits": 0
+    },
+    "context8": {
+      "status": "passed",
+      "run_log": "sv/build/current/post-synth/context8/run.log",
+      "netlist_sha256": "e04bb61881c70b7577d48a389d378ffbc5e71b2e706c7bc7a6f9a71d7f8edc1f",
+      "pre_optimization_check": "passed",
+      "final_check": "passed",
+      "yosys_log_sha256": "dd017e3f5ab9d9188cc04bf1b3610c7ef49368792318dd110fc75f0b75e6587e",
+      "run_log_sha256": "271954665c8c77862fb9db2660bf05714a67aad8d5e1c5928bfe3db821ec3139",
+      "undriven_bits": 0
+    }
+  },
+  "source_python_modified": false,
+  "verilator_5_029_counter_defect": {
+    "reproducer": "verilator_counter_repro.sv",
+    "default_result": "false constant folding; a=0 b=0 c=0 after 91 input lines",
+    "workaround": "public_flat_rw on each testbench counter and coverage register",
+    "workaround_result": "a=91 b=6 c=2; checks retained; migration raw and negative comparisons pass"
+  }
+}

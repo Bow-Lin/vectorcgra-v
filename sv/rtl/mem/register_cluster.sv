@@ -1,5 +1,6 @@
+`include "cgra_opcodes.svh"
 // Native parameterized scalar profile; migrated from ac96 RegisterClusterRTL.
-// State and update-block names preserve the original cycle semantics.
+// Cycle contract synchronized with frozen Python cd7aad878915; see CURRENT_MIGRATION.md.
 `include "cgra_profile_defs.svh"
 module register_cluster #(
   `CGRA_PROFILE_PARAMETERS
@@ -50,7 +51,7 @@ module register_cluster #(
   assign inport_opt_typed = inport_opt;
   localparam logic [2:0] num_reg_banks_at_update_msgs_signals  = 3'd4;
   localparam logic [0:0] PORT_ROUTING_CROSSBAR  = 1'd1;
-  localparam logic [6:0] OPT_NAH  = 7'd1;
+  localparam logic [6:0] OPT_NAH  = `CGRA_OPT_NAH;
   localparam logic [1:0] PORT_FU_CROSSBAR  = 2'd2;
   localparam logic [1:0] PORT_CONST  = 2'd3;
   logic [0:0] reg_bank__clear [0:3];
@@ -135,6 +136,18 @@ module register_cluster #(
     .send_data_to_xbar__rdy( reg_bank__send_data_to_xbar__rdy[3] ),
     .send_data_to_xbar__val( reg_bank__send_data_to_xbar__val[3] )
   );
+  logic [3:0] lane_used_by_fu, reg_towards_fu, routing_selected_for_write;
+  always_comb begin
+    lane_used_by_fu = '0;
+    for (int lane=0; lane<4; lane++) begin
+      for (int operand=0; operand<4; operand++)
+        lane_used_by_fu[lane] |= inport_opt_typed.fu_in[operand] == 3'(lane+1);
+      reg_towards_fu[lane] = inport_opt_typed.read_reg_towards[lane] == 2'd1 ||
+                             inport_opt_typed.read_reg_towards[lane] == 2'd3;
+      routing_selected_for_write[lane] = inport_opt_typed.write_reg_from[lane] == 2'(PORT_ROUTING_CROSSBAR) &&
+                                         (inport_opt_typed.operation == OPT_NAH || reg_towards_fu[lane]);
+    end
+  end
   always_comb begin : update_msgs_signals
     for ( int unsigned i = 0; i < 3'( num_reg_banks_at_update_msgs_signals ); i++ ) begin
       send_data_to_fu__msg_typed[2'(i)] = '0;
@@ -152,7 +165,10 @@ module register_cluster #(
       end
       send_data_to_fu__val[2'(i)] = recv_data_from_routing_crossbar__val[2'(i)] | reg_bank__send_data_to_fu__val[2'(i)];
       reg_bank__send_data_to_fu__rdy[2'(i)] = send_data_to_fu__rdy[2'(i)];
-      recv_data_from_routing_crossbar__rdy[2'(i)] = ( ( ( inport_opt_typed.write_reg_from[2'(i)] == 2'( PORT_ROUTING_CROSSBAR ) ) & ( inport_opt_typed.operation == 7'( OPT_NAH ) ) ) & reg_bank__outport_wr_rdy[2'(i)] ) | send_data_to_fu__rdy[2'(i)];
+      recv_data_from_routing_crossbar__rdy[2'(i)] =
+          (routing_selected_for_write[i] & reg_bank__outport_wr_rdy[i]) |
+          (~routing_selected_for_write[i] & ((inport_opt_typed.operation == OPT_NAH) |
+           ~lane_used_by_fu[i] | reg_towards_fu[i] | send_data_to_fu__rdy[i]));
       recv_data_from_fu_crossbar__rdy[2'(i)] = ( inport_opt_typed.write_reg_from[2'(i)] != 2'( PORT_FU_CROSSBAR ) ) | reg_bank__outport_wr_rdy[2'(i)];
       recv_data_from_const__rdy[2'(i)] = ( inport_opt_typed.write_reg_from[2'(i)] != 2'( PORT_CONST ) ) | reg_bank__outport_wr_rdy[2'(i)];
     end

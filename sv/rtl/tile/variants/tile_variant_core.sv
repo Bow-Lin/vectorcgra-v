@@ -2,6 +2,7 @@
 // STREAMING selects the original structural/state differences, not a behavior model.
 `include "cgra_profile_defs.svh"
 `include "cgra_fu_catalog.svh"
+`include "cgra_opcodes.svh"
 module tile_variant_core #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS, parameter bit STREAMING=0) (
   input  logic [CGRA_ID_W-1:0] cgra_id ,
   input  logic [0:0] clk ,
@@ -388,7 +389,8 @@ module tile_variant_core #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS, parame
     assign element__ctrl_addr_inport=ctrl_mem__ctrl_addr_outport;
     assign fu_crossbar__recv_data__msg[0]=element__send_out__msg[0];
     assign fu_crossbar__recv_data__val[0]=element__send_out__val[0];
-    // ac96 leaves const_mem.clear unconnected in this Tile variant.
+    // Streaming has no task-switch clear.
+    assign const_mem__clear=1'b0;
   end else begin : context_wiring
     logic [DATA_BITS-1:0] overwrite_msg; logic overwrite_val;
     tile_context_switch #(`CGRA_PROFILE_BIND) context_switch (
@@ -400,11 +402,31 @@ module tile_variant_core #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS, parame
     assign fu_crossbar__recv_data__msg[0]=overwrite_val ? overwrite_msg : element__send_out__msg[0];
     assign fu_crossbar__recv_data__val[0]=overwrite_val | element__send_out__val[0];
     assign const_mem__clear=clear;
-    // ac96 leaves element.ctrl_addr_inport and its raw packet input undriven.
+    // Per-slot grant state requires the actual control address in every variant.
+    assign element__ctrl_addr_inport=ctrl_mem__ctrl_addr_outport;
+    assign element__recv_pkt_from_controller__msg='0;
+    assign element__recv_pkt_from_controller__val=1'b0;
+  end
+  function automatic int memory_count();
+    int count;
+    count=0;
+    for(int i=0;i<FU_COUNT;i++)
+      if(FU_KINDS[8*i+:8]==(STREAMING ? `CGRA_FU_STREAMING_MEM : `CGRA_FU_MEM)) count++;
+    return count;
+  endfunction
+  initial if(memory_count()>1) $fatal(1,"Only one attached memory FU is supported");
+  if(memory_count()==0) begin : no_memory_fu
+    assign to_mem_raddr__msg='0;
+    assign to_mem_raddr__val=1'b0;
+    assign to_mem_waddr__msg='0;
+    assign to_mem_waddr__val=1'b0;
+    assign to_mem_wdata__msg='0;
+    assign to_mem_wdata__val=1'b0;
+    assign from_mem_rdata__rdy=1'b0;
   end
   for(genvar i=0;i<FU_COUNT;i++) begin : memory_slots
     localparam logic [7:0] KIND=FU_KINDS[8*i+:8];
-    assign element__clear[i]=(!STREAMING && (KIND==`CGRA_FU_PHI || KIND==`CGRA_FU_RET)) ? clear : 1'b0;
+    assign element__clear[i]=(!STREAMING && (KIND==`CGRA_FU_PHI || KIND==`CGRA_FU_RET || KIND==`CGRA_FU_GRANT)) ? clear : 1'b0;
     if((STREAMING && KIND==`CGRA_FU_STREAMING_MEM) || (!STREAMING && KIND==`CGRA_FU_MEM)) begin : attached
   assign to_mem_raddr__msg=element__to_mem_raddr__msg[i];
   assign to_mem_raddr__val=element__to_mem_raddr__val[i];
@@ -429,7 +451,7 @@ module tile_variant_core #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS, parame
   logic accepted_command;
   always_comb begin
     case(packet.payload.cmd)
-      6'd0,6'd3,6'd4,6'd5,6'd6,6'd7,6'd8,6'd20,6'd21,6'd23,6'd24,6'd25: accepted_command=1;
+      6'd0,6'd3,6'd4,6'd5,6'd6,6'd7,6'd8,6'd20,6'd21,6'd23,6'd24,6'd25,6'd43: accepted_command=1;
       6'd1,6'd2,6'd9,6'd15,6'd16,6'd22: accepted_command=!STREAMING;
       default: accepted_command=0;
     endcase
@@ -460,8 +482,13 @@ module tile_variant_core #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS, parame
       element_done<=0; routing_crossbar_done<=0; fu_crossbar_done<=0;
     end else begin
       if(element__recv_opt__rdy) element_done<=1;
-      if(routing_crossbar__recv_opt__rdy) routing_crossbar_done<=STREAMING ? element_done : 1'b1;
-      if(fu_crossbar__recv_opt__rdy) fu_crossbar_done<=STREAMING ? element_done : 1'b1;
+      // STREAM_LD can emit multiple results within one control step. Other
+      // operations retire each crossbar once, even if the FU just completed
+      // in this cycle (element_done still contains the previous cycle).
+      if(routing_crossbar__recv_opt__rdy)
+        routing_crossbar_done<=!STREAMING || control.operation!=`CGRA_OPT_STREAM_LD || element_done || element__recv_opt__rdy;
+      if(fu_crossbar__recv_opt__rdy)
+        fu_crossbar_done<=!STREAMING || control.operation!=`CGRA_OPT_STREAM_LD || element_done || element__recv_opt__rdy;
     end
   end
 endmodule

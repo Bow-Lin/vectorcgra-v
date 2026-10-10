@@ -1,0 +1,33 @@
+name: Native SystemVerilog
+on:
+  pull_request:
+    paths: ['sv/**', '.github/workflows/native-sv.yml']
+  push:
+    paths: ['sv/**', '.github/workflows/native-sv.yml']
+  workflow_dispatch:
+jobs:
+  current:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install native simulation tools
+        run: sudo apt-get update && sudo apt-get install -y verilator g++ make
+      - name: Record tool versions
+        run: verilator --version && g++ --version
+      - name: Components, PE variants and DMA
+        run: make -C sv current JOBS=2
+      - name: Current YAML system programs
+        run: make -C sv current-kernels JOBS=2
+      - name: Independent native arithmetic and repaired programs
+        run: make -C sv native-math native-kernels JOBS=2
+      - name: Current multi-CGRA and migration acceptance
+        run: make -C sv native-multi native-template current-migration JOBS=2
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-sv-current
+          path: |
+            sv/build/current/**/*.log
+            sv/build/current/SHA256SUMS
+            sv/build/native/**/*.log

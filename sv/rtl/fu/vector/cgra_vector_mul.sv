@@ -1,3 +1,4 @@
+`include "cgra_opcodes.svh"
 `include "cgra_profile_defs.svh"
 // ac96 behavior preserved, including undriven fields and original handshake rules.
 module cgra_vector_mul #(
@@ -25,7 +26,7 @@ module cgra_vector_mul #(
 
   localparam logic [2:0] num_inports_at_comb_logic  = 3'd4;
   localparam logic [1:0] num_outports_at_comb_logic  = 2'd2;
-  localparam logic [6:0] OPT_MUL  = 7'd7;
+  localparam logic [6:0] OPT_MUL  = `CGRA_OPT_MUL;
   logic [2:0] in0;
   logic [1:0] in0_idx;
   logic [2:0] in1;

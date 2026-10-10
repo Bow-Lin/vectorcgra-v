@@ -1,3 +1,4 @@
+`include "cgra_opcodes.svh"
 `include "cgra_profile_defs.svh"
 // Native LogicRTL migration from ac96; original state/handshake semantics.
 module scalar_logic #(
@@ -59,15 +60,15 @@ module scalar_logic #(
   assign to_mem_wdata__msg = to_mem_wdata__msg_typed;
 
   localparam data_t const_zero  = '0;
-  localparam logic [6:0] OPT_START  = 7'd0;
+  localparam logic [6:0] OPT_START  = `CGRA_OPT_START;
   localparam logic [0:0] latency_at_proceed_latency  = 1'd1;
   localparam logic [2:0] num_inports_at_comb_logic  = 3'd4;
   localparam logic [1:0] num_outports_at_comb_logic  = 2'd2;
-  localparam logic [6:0] OPT_OR  = 7'd8;
-  localparam logic [6:0] OPT_AND  = 7'd10;
-  localparam logic [6:0] OPT_BIT_NOT  = 7'd43;
-  localparam logic [6:0] OPT_NOT  = 7'd11;
-  localparam logic [6:0] OPT_XOR  = 7'd9;
+  localparam logic [6:0] OPT_OR  = `CGRA_OPT_OR;
+  localparam logic [6:0] OPT_AND  = `CGRA_OPT_AND;
+  localparam logic [6:0] OPT_BIT_NOT  = `CGRA_OPT_BIT_NOT;
+  localparam logic [6:0] OPT_NOT  = `CGRA_OPT_NOT;
+  localparam logic [6:0] OPT_XOR  = `CGRA_OPT_XOR;
   logic [2:0] in0;
   logic [1:0] in0_idx;
   logic [2:0] in1;
@@ -119,6 +120,18 @@ module scalar_logic #(
         recv_in__rdy[in0_idx] = recv_all_val & send_out__rdy[1'd0];
         recv_in__rdy[in1_idx] = recv_all_val & send_out__rdy[1'd0];
         recv_opt__rdy = recv_all_val & send_out__rdy[1'd0];
+      end
+      else if (recv_opt__msg_typed.operation == `CGRA_OPT_AND_CONST || recv_opt__msg_typed.operation == `CGRA_OPT_OR_CONST) begin
+        if(recv_opt__msg_typed.operation == `CGRA_OPT_AND_CONST)
+          send_out__msg_typed[0].payload = recv_in__msg_typed[in0_idx].payload & recv_const__msg_typed.payload;
+        else
+          send_out__msg_typed[0].payload = recv_in__msg_typed[in0_idx].payload | recv_const__msg_typed.payload;
+        send_out__msg_typed[0].predicate = recv_in__msg_typed[in0_idx].predicate & recv_const__msg_typed.predicate & reached_vector_factor;
+        recv_all_val = recv_in__val[in0_idx] & recv_const__val;
+        send_out__val[0] = recv_all_val;
+        recv_in__rdy[in0_idx] = recv_all_val & send_out__rdy[0];
+        recv_const__rdy = recv_all_val & send_out__rdy[0];
+        recv_opt__rdy = recv_all_val & send_out__rdy[0];
       end
       else if ( recv_opt__msg_typed.operation == 7'( OPT_BIT_NOT ) ) begin
         send_out__msg_typed[1'd0].payload = ~recv_in__msg_typed[in0_idx].payload;

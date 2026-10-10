@@ -1,3 +1,4 @@
+`include "cgra_opcodes.svh"
 `include "cgra_profile_defs.svh"
 // Native LoopCounterRTL migration from ac96; original state/handshake semantics.
 module scalar_loop_counter #(
@@ -59,13 +60,13 @@ module scalar_loop_counter #(
   assign to_mem_wdata__msg = to_mem_wdata__msg_typed;
 
   localparam data_t const_zero  = '0;
-  localparam logic [6:0] OPT_START  = 7'd0;
+  localparam logic [6:0] OPT_START  = `CGRA_OPT_START;
   localparam logic [0:0] latency_at_proceed_latency  = 1'd1;
   localparam logic [2:0] num_inports_at_comb_logic  = 3'd4;
   localparam logic [1:0] num_outports_at_comb_logic  = 2'd2;
-  localparam logic [6:0] OPT_LOOP_COUNT  = 7'd85;
+  localparam logic [6:0] OPT_LOOP_COUNT  = `CGRA_OPT_LOOP_COUNT;
   localparam logic [4:0] CMD_LEAF_COUNTER_COMPLETE  = 5'd31;
-  localparam logic [6:0] OPT_LOOP_DELIVERY  = 7'd86;
+  localparam logic [6:0] OPT_LOOP_DELIVERY  = `CGRA_OPT_LOOP_DELIVERY;
   localparam logic [4:0] CMD_RESET_LEAF_COUNTER  = 5'd27;
   localparam logic [4:0] CMD_UPDATE_COUNTER_SHADOW_VALUE  = 5'd26;
   localparam logic [4:0] CMD_CONFIG_LOOP_LOWER  = 5'd28;

@@ -1,5 +1,6 @@
+`include "cgra_opcodes.svh"
 // Native parameterized scalar profile; migrated from ac96 MemUnitRTL.
-// State and update-block names preserve the original cycle semantics.
+// Cycle contract synchronized with frozen Python cd7aad878915; see CURRENT_MIGRATION.md.
 `include "cgra_profile_defs.svh"
 module tile_memory_fu #(
   `CGRA_PROFILE_PARAMETERS
@@ -62,11 +63,11 @@ module tile_memory_fu #(
   assign send_to_ctrl_mem__msg = send_to_ctrl_mem__msg_typed;
   localparam logic [2:0] num_inports_at_comb_logic  = 3'd4;
   localparam logic [1:0] num_outports_at_comb_logic  = 2'd2;
-  localparam logic [6:0] OPT_LD  = 7'd12;
-  localparam logic [6:0] OPT_ADD_CONST_LD  = 7'd81;
-  localparam logic [6:0] OPT_LD_CONST  = 7'd28;
-  localparam logic [6:0] OPT_STR  = 7'd13;
-  localparam logic [6:0] OPT_STR_CONST  = 7'd58;
+  localparam logic [6:0] OPT_LD  = `CGRA_OPT_LD;
+  localparam logic [6:0] OPT_ADD_CONST_LD  = `CGRA_OPT_ADD_CONST_LD;
+  localparam logic [6:0] OPT_LD_CONST  = `CGRA_OPT_LD_CONST;
+  localparam logic [6:0] OPT_STR  = `CGRA_OPT_STR;
+  localparam logic [6:0] OPT_STR_CONST  = `CGRA_OPT_STR_CONST;
   logic [0:0] already_sent_raddr;
   logic [2:0] in0;
   logic [1:0] in0_idx;
@@ -169,10 +170,10 @@ module tile_memory_fu #(
         recv_in__rdy[in0_idx] = ( recv_all_val & to_mem_waddr__rdy ) & to_mem_wdata__rdy;
         recv_in__rdy[in1_idx] = ( recv_all_val & to_mem_waddr__rdy ) & to_mem_wdata__rdy;
         to_mem_waddr__msg = GLOBAL_ADDR_W'( recv_in__msg_typed[in0_idx].payload[GLOBAL_ADDR_W-1:0] );
-        to_mem_waddr__val = recv_all_val;
+        to_mem_waddr__val = recv_all_val & recv_in__msg_typed[in0_idx].predicate & recv_in__msg_typed[in1_idx].predicate;
         to_mem_wdata__msg_typed = recv_in__msg_typed[in1_idx];
         to_mem_wdata__msg_typed.predicate = ( recv_in__msg_typed[in0_idx].predicate & recv_in__msg_typed[in1_idx].predicate ) & reached_vector_factor;
-        to_mem_wdata__val = recv_all_val;
+        to_mem_wdata__val = recv_all_val & recv_in__msg_typed[in0_idx].predicate & recv_in__msg_typed[in1_idx].predicate;
         send_out__val[1'd0] = 1'd0;
         recv_opt__rdy = ( recv_all_val & to_mem_waddr__rdy ) & to_mem_wdata__rdy;
       end

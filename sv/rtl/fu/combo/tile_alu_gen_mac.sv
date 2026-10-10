@@ -1,3 +1,4 @@
+`include "cgra_opcodes.svh"
 `include "cgra_profile_defs.svh"
 // ac96 behavior preserved, including undriven fields and original handshake rules.
 module tile_alu_gen_mac #(
@@ -58,16 +59,16 @@ module tile_alu_gen_mac #(
   assign to_mem_wdata__msg = p_to_mem_wdata__msg;
 
   localparam data_t const_zero  = '0;
-  localparam logic [6:0] OPT_START  = GLOBAL_ADDR_W'(0);
+  localparam logic [6:0] OPT_START  = `CGRA_OPT_START;
   localparam logic [0:0] latency_at_proceed_latency  = 1'd1;
-  localparam logic [6:0] OPT_ADD  = 7'd2;
-  localparam logic [6:0] OPT_SUB  = 7'd4;
-  localparam logic [6:0] OPT_LT  = 7'd60;
-  localparam logic [6:0] OPT_GTE  = 7'd61;
-  localparam logic [6:0] OPT_GT  = 7'd62;
-  localparam logic [6:0] OPT_LTE  = 7'd63;
-  localparam logic [6:0] OPT_MUL  = 7'd7;
-  localparam logic [6:0] OPT_MUL_ADD  = 7'd18;
+  localparam logic [6:0] OPT_ADD  = `CGRA_OPT_ADD;
+  localparam logic [6:0] OPT_SUB  = `CGRA_OPT_SUB;
+  localparam logic [6:0] OPT_LT  = `CGRA_OPT_LT;
+  localparam logic [6:0] OPT_GTE  = `CGRA_OPT_GTE;
+  localparam logic [6:0] OPT_GT  = `CGRA_OPT_GT;
+  localparam logic [6:0] OPT_LTE  = `CGRA_OPT_LTE;
+  localparam logic [6:0] OPT_MUL  = `CGRA_OPT_MUL;
+  localparam logic [6:0] OPT_MUL_ADD  = `CGRA_OPT_MUL_ADD;
   localparam logic [2:0] num_inports_at_comb_logic  = 3'd4;
   localparam logic [1:0] num_outports_at_comb_logic  = 2'd2;
   logic [2:0] in0;

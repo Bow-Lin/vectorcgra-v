@@ -1,9 +1,9 @@
-// ac96 FP interface and behavior; original HardFloat format mapping is preserved.
+// IEEE field widths by default; explicit compatibility for frozen Python traces.
 `include "cgra_profile_defs.svh"
 module tile_fp_fu #(
   `CGRA_PROFILE_PARAMETERS,
   parameter int FP_EXP_W = 8, FP_SIG_W = 23,
-  parameter bit MULTIPLY = 0
+  parameter bit MULTIPLY = 0, FP_LEGACY_PYTHON = 0
 ) (
   input  logic [0:0] clear ,
   input  logic [0:0] clk ,
@@ -67,11 +67,12 @@ module tile_fp_fu #(
   assign to_mem_wdata__val = 1'b0;
   assign from_mem_rdata__rdy = 1'b0;
   initial begin
-    if (DATA_W != FP_EXP_W + FP_SIG_W + 1) $fatal(1, "FP payload width must match ac96 exp+sig+1");
+    if (DATA_W != FP_EXP_W + FP_SIG_W + 1) $fatal(1, "FP payload width must match sign+exponent+fraction");
     if (FP_EXP_W < 2 || FP_SIG_W < 3) $fatal(1, "Unsupported HardFloat format");
   end
-  // ac96 uses exp_nbits+1 and sig_nbits, rather than the usual IEEE field names.
-  cgra_hardfloat_fn #(.EXP_W(FP_EXP_W+1), .SIG_W(FP_SIG_W), .MULTIPLY(MULTIPLY)) arithmetic (
+  // HardFloat SIG_W includes the hidden bit, while FP_SIG_W is the stored fraction.
+  cgra_hardfloat_fn #(.EXP_W(FP_EXP_W + (FP_LEGACY_PYTHON ? 1 : 0)),
+    .SIG_W(FP_SIG_W + (FP_LEGACY_PYTHON ? 0 : 1)), .MULTIPLY(MULTIPLY)) arithmetic (
     .a(a), .b(b), .sub_op(control.operation==FSUB), .result(arithmetic_result)
   );
   always_comb begin
@@ -102,9 +103,8 @@ module tile_fp_fu #(
                    (MULTIPLY && control.operation==FMUL_CONST)) begin
         a = inputs[in0].payload;
         b = constant_data.payload;
-        result.predicate = inputs[in0].predicate;
-        // The original FMUL_CONST intentionally does not check recv_const.val.
-        all_valid = recv_in__val[in0] & (MULTIPLY || recv_const__val);
+        result.predicate = inputs[in0].predicate & (FP_LEGACY_PYTHON || constant_data.predicate);
+        all_valid = recv_in__val[in0] & ((FP_LEGACY_PYTHON && MULTIPLY) || recv_const__val);
         send_out__val[0] = all_valid;
         recv_in__rdy[in0] = all_valid & send_out__rdy[0];
         recv_const__rdy = all_valid & send_out__rdy[0];
@@ -114,8 +114,7 @@ module tile_fp_fu #(
         b = FLOATING_ONE;
         result.predicate = inputs[in0].predicate;
         all_valid = recv_in__val[in0];
-        // FINC gates val with ready in ac96; retain that observable behavior.
-        send_out__val[0] = all_valid & send_out__rdy[0];
+        send_out__val[0] = all_valid & (!FP_LEGACY_PYTHON || send_out__rdy[0]);
         recv_in__rdy[in0] = all_valid & send_out__rdy[0];
         recv_opt__rdy = all_valid & send_out__rdy[0];
       end

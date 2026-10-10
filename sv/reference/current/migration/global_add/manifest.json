@@ -1,0 +1,830 @@
+{
+  "label": "global_add",
+  "baseline_commit": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "oracle": "pinned current Python full MeshMultiCgraRTL",
+  "hdl_equivalence": false,
+  "status": "recorded",
+  "exporter_sha256": "4062c492b5f2e5cad5bd438a5acbc036f9792831a208bb07142224cab5ed0b74",
+  "host": {
+    "name": "IntraCgraPacket_4_2x2_4_8_2_CgraPayload",
+    "nbits": 193,
+    "fields": [
+      {
+        "field": "src",
+        "lsb": 190,
+        "msb": 192,
+        "nbits": 3
+      },
+      {
+        "field": "dst",
+        "lsb": 187,
+        "msb": 189,
+        "nbits": 3
+      },
+      {
+        "field": "src_cgra_id",
+        "lsb": 185,
+        "msb": 186,
+        "nbits": 2
+      },
+      {
+        "field": "dst_cgra_id",
+        "lsb": 183,
+        "msb": 184,
+        "nbits": 2
+      },
+      {
+        "field": "src_cgra_x",
+        "lsb": 182,
+        "msb": 182,
+        "nbits": 1
+      },
+      {
+        "field": "src_cgra_y",
+        "lsb": 181,
+        "msb": 181,
+        "nbits": 1
+      },
+      {
+        "field": "dst_cgra_x",
+        "lsb": 180,
+        "msb": 180,
+        "nbits": 1
+      },
+      {
+        "field": "dst_cgra_y",
+        "lsb": 179,
+        "msb": 179,
+        "nbits": 1
+      },
+      {
+        "field": "opaque",
+        "lsb": 171,
+        "msb": 178,
+        "nbits": 8
+      },
+      {
+        "field": "vc_id",
+        "lsb": 170,
+        "msb": 170,
+        "nbits": 1
+      },
+      {
+        "field": "payload.cmd",
+        "lsb": 164,
+        "msb": 169,
+        "nbits": 6
+      },
+      {
+        "field": "payload.data.payload",
+        "lsb": 132,
+        "msb": 163,
+        "nbits": 32
+      },
+      {
+        "field": "payload.data.predicate",
+        "lsb": 131,
+        "msb": 131,
+        "nbits": 1
+      },
+      {
+        "field": "payload.data.bypass",
+        "lsb": 130,
+        "msb": 130,
+        "nbits": 1
+      },
+      {
+        "field": "payload.data.delay",
+        "lsb": 129,
+        "msb": 129,
+        "nbits": 1
+      },
+      {
+        "field": "payload.data_addr",
+        "lsb": 122,
+        "msb": 128,
+        "nbits": 7
+      },
+      {
+        "field": "payload.ctrl.operation",
+        "lsb": 115,
+        "msb": 121,
+        "nbits": 7
+      },
+      {
+        "field": "payload.ctrl.fu_in[0]",
+        "lsb": 103,
+        "msb": 105,
+        "nbits": 3
+      },
+      {
+        "field": "payload.ctrl.fu_in[1]",
+        "lsb": 106,
+        "msb": 108,
+        "nbits": 3
+      },
+      {
+        "field": "payload.ctrl.fu_in[2]",
+        "lsb": 109,
+        "msb": 111,
+        "nbits": 3
+      },
+      {
+        "field": "payload.ctrl.fu_in[3]",
+        "lsb": 112,
+        "msb": 114,
+        "nbits": 3
+      },
+      {
+        "field": "payload.ctrl.routing_xbar_outport[0]",
+        "lsb": 71,
+        "msb": 74,
+        "nbits": 4
+      },
+      {
+        "field": "payload.ctrl.routing_xbar_outport[1]",
+        "lsb": 75,
+        "msb": 78,
+        "nbits": 4
+      },
+      {
+        "field": "payload.ctrl.routing_xbar_outport[2]",
+        "lsb": 79,
+        "msb": 82,
+        "nbits": 4
+      },
+      {
+        "field": "payload.ctrl.routing_xbar_outport[3]",
+        "lsb": 83,
+        "msb": 86,
+        "nbits": 4
+      },
+      {
+        "field": "payload.ctrl.routing_xbar_outport[4]",
+        "lsb": 87,
+        "msb": 90,
+        "nbits": 4
+      },
+      {
+        "field": "payload.ctrl.routing_xbar_outport[5]",
+        "lsb": 91,
+        "msb": 94,
+        "nbits": 4
+      },
+      {
+        "field": "payload.ctrl.routing_xbar_outport[6]",
+        "lsb": 95,
+        "msb": 98,
+        "nbits": 4
+      },
+      {
+        "field": "payload.ctrl.routing_xbar_outport[7]",
+        "lsb": 99,
+        "msb": 102,
+        "nbits": 4
+      },
+      {
+        "field": "payload.ctrl.fu_xbar_outport[0]",
+        "lsb": 55,
+        "msb": 56,
+        "nbits": 2
+      },
+      {
+        "field": "payload.ctrl.fu_xbar_outport[1]",
+        "lsb": 57,
+        "msb": 58,
+        "nbits": 2
+      },
+      {
+        "field": "payload.ctrl.fu_xbar_outport[2]",
+        "lsb": 59,
+        "msb": 60,
+        "nbits": 2
+      },
+      {
+        "field": "payload.ctrl.fu_xbar_outport[3]",
+        "lsb": 61,
+        "msb": 62,
+        "nbits": 2
+      },
+      {
+        "field": "payload.ctrl.fu_xbar_outport[4]",
+        "lsb": 63,
+        "msb": 64,
+        "nbits": 2
+      },
+      {
+        "field": "payload.ctrl.fu_xbar_outport[5]",
+        "lsb": 65,
+        "msb": 66,
+        "nbits": 2
+      },
+      {
+        "field": "payload.ctrl.fu_xbar_outport[6]",
+        "lsb": 67,
+        "msb": 68,
+        "nbits": 2
+      },
+      {
+        "field": "payload.ctrl.fu_xbar_outport[7]",
+        "lsb": 69,
+        "msb": 70,
+        "nbits": 2
+      },
+      {
+        "field": "payload.ctrl.vector_factor_power",
+        "lsb": 52,
+        "msb": 54,
+        "nbits": 3
+      },
+      {
+        "field": "payload.ctrl.is_last_ctrl",
+        "lsb": 51,
+        "msb": 51,
+        "nbits": 1
+      },
+      {
+        "field": "payload.ctrl.write_reg_from[0]",
+        "lsb": 43,
+        "msb": 44,
+        "nbits": 2
+      },
+      {
+        "field": "payload.ctrl.write_reg_from[1]",
+        "lsb": 45,
+        "msb": 46,
+        "nbits": 2
+      },
+      {
+        "field": "payload.ctrl.write_reg_from[2]",
+        "lsb": 47,
+        "msb": 48,
+        "nbits": 2
+      },
+      {
+        "field": "payload.ctrl.write_reg_from[3]",
+        "lsb": 49,
+        "msb": 50,
+        "nbits": 2
+      },
+      {
+        "field": "payload.ctrl.write_reg_idx[0]",
+        "lsb": 27,
+        "msb": 30,
+        "nbits": 4
+      },
+      {
+        "field": "payload.ctrl.write_reg_idx[1]",
+        "lsb": 31,
+        "msb": 34,
+        "nbits": 4
+      },
+      {
+        "field": "payload.ctrl.write_reg_idx[2]",
+        "lsb": 35,
+        "msb": 38,
+        "nbits": 4
+      },
+      {
+        "field": "payload.ctrl.write_reg_idx[3]",
+        "lsb": 39,
+        "msb": 42,
+        "nbits": 4
+      },
+      {
+        "field": "payload.ctrl.read_reg_towards[0]",
+        "lsb": 19,
+        "msb": 20,
+        "nbits": 2
+      },
+      {
+        "field": "payload.ctrl.read_reg_towards[1]",
+        "lsb": 21,
+        "msb": 22,
+        "nbits": 2
+      },
+      {
+        "field": "payload.ctrl.read_reg_towards[2]",
+        "lsb": 23,
+        "msb": 24,
+        "nbits": 2
+      },
+      {
+        "field": "payload.ctrl.read_reg_towards[3]",
+        "lsb": 25,
+        "msb": 26,
+        "nbits": 2
+      },
+      {
+        "field": "payload.ctrl.read_reg_idx[0]",
+        "lsb": 3,
+        "msb": 6,
+        "nbits": 4
+      },
+      {
+        "field": "payload.ctrl.read_reg_idx[1]",
+        "lsb": 7,
+        "msb": 10,
+        "nbits": 4
+      },
+      {
+        "field": "payload.ctrl.read_reg_idx[2]",
+        "lsb": 11,
+        "msb": 14,
+        "nbits": 4
+      },
+      {
+        "field": "payload.ctrl.read_reg_idx[3]",
+        "lsb": 15,
+        "msb": 18,
+        "nbits": 4
+      },
+      {
+        "field": "payload.ctrl_addr",
+        "lsb": 0,
+        "msb": 2,
+        "nbits": 3
+      }
+    ]
+  },
+  "parameters": {
+    "DATA_W": 32,
+    "COLS": 2,
+    "ROWS": 2,
+    "MULTI_COLS": 2,
+    "MULTI_ROWS": 2,
+    "TILE_PORTS": 4,
+    "CTRL_DEPTH": 8,
+    "GLOBAL_ADDR_W": 7,
+    "BANK_DEPTH": 16,
+    "NUM_BANKS": 2,
+    "REG_DEPTH": 16,
+    "NUM_CTRL": 8,
+    "TOTAL_STEPS": 8,
+    "TILE_VARIANT": 0
+  },
+  "fu_list": [
+    "MemUnitRTL",
+    "VectorAllReduceRTL",
+    "RetRTL",
+    "NahRTL"
+  ],
+  "fu_kinds": [
+    2,
+    21,
+    13,
+    3
+  ],
+  "independent_math": {
+    "lanes": [
+      [
+        1,
+        2,
+        3,
+        4
+      ],
+      [
+        5,
+        6,
+        7,
+        8
+      ]
+    ],
+    "global_sum": 36,
+    "bases": [
+      17,
+      -5
+    ],
+    "expected_returns": [
+      53,
+      31
+    ]
+  },
+  "configuration_packets": [
+    "0000001100000002800000000000000000000000000000000",
+    "0000000c04030201800000000000000000000000000000000",
+    "0000000c00000011804000000000000000000000000000000",
+    "0000000d00000001800000000000000000000000000000000",
+    "0000000800000002000000000000000000000000000000000",
+    "0000000700000002000000000000000000000000000000000",
+    "0000000300000000000e46880000000020000400000000000",
+    "0000000300000000002746880008000002000000000200001",
+    "0080000800000001000000000000000000000000000000000",
+    "0080000700000064000000000000000000000000000000000",
+    "00800003000000000011c6880018000000000000000000000",
+    "0100000d00000000800000000000000000000000000000000",
+    "0100000800000001000000000000000000000000000000000",
+    "0100000700000001000000000000000000000000000000000",
+    "0100000300000000000e46880000000000200000000000000",
+    "0000000c08070605980000000000000000000000000000000",
+    "0000000cfffffffb984000000000000000000000000000000",
+    "0019800d00000061800000000000000000000000000000000",
+    "0019800800000002000000000000000000000000000000000",
+    "0019800700000002000000000000000000000000000000000",
+    "0019800300000000000e46880000000020000400000000000",
+    "0019800300000000002746880008000002000000000200001",
+    "0099800800000001000000000000000000000000000000000",
+    "0099800700000064000000000000000000000000000000000",
+    "00998003000000000011c6880018000000000000000000000",
+    "0119800d00000060800000000000000000000000000000000",
+    "0119800800000001000000000000000000000000000000000",
+    "0119800700000001000000000000000000000000000000000",
+    "0119800300000000000e46880000000000200000000000000",
+    "0099800000000000000000000000000000000000000000000",
+    "0019800000000000000000000000000000000000000000000",
+    "0119800000000000000000000000000000000000000000000",
+    "0080000000000000000000000000000000000000000000000",
+    "0000000000000000000000000000000000000000000000000",
+    "0100000000000000000000000000000000000000000000000"
+  ],
+  "inputs": [
+    {
+      "name": "reset",
+      "width": 1,
+      "sv": "reset"
+    },
+    {
+      "name": "host_recv_msg",
+      "width": 193,
+      "sv": "recv_from_cpu_pkt__msg"
+    },
+    {
+      "name": "host_recv_val",
+      "width": 1,
+      "sv": "recv_from_cpu_pkt__val"
+    },
+    {
+      "name": "host_send_rdy",
+      "width": 1,
+      "sv": "send_to_cpu_pkt__rdy"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "host_recv_rdy",
+      "width": 1,
+      "sv": "recv_from_cpu_pkt__rdy"
+    },
+    {
+      "name": "host_send_msg",
+      "width": 193,
+      "sv": "send_to_cpu_pkt__msg"
+    },
+    {
+      "name": "host_send_val",
+      "width": 1,
+      "sv": "send_to_cpu_pkt__val"
+    },
+    {
+      "name": "cgra0_noc_recv_msg",
+      "width": 196,
+      "sv": "dut.noc_send_msg[0]"
+    },
+    {
+      "name": "cgra0_noc_recv_val",
+      "width": 1,
+      "sv": "dut.noc_send_val[0]"
+    },
+    {
+      "name": "cgra0_noc_recv_rdy",
+      "width": 1,
+      "sv": "dut.noc_send_rdy[0]"
+    },
+    {
+      "name": "cgra0_noc_send_msg",
+      "width": 196,
+      "sv": "dut.noc_recv_msg[0]"
+    },
+    {
+      "name": "cgra0_noc_send_val",
+      "width": 1,
+      "sv": "dut.noc_recv_val[0]"
+    },
+    {
+      "name": "cgra0_noc_send_rdy",
+      "width": 1,
+      "sv": "dut.noc_recv_rdy[0]"
+    },
+    {
+      "name": "cgra1_noc_recv_msg",
+      "width": 196,
+      "sv": "dut.noc_send_msg[1]"
+    },
+    {
+      "name": "cgra1_noc_recv_val",
+      "width": 1,
+      "sv": "dut.noc_send_val[1]"
+    },
+    {
+      "name": "cgra1_noc_recv_rdy",
+      "width": 1,
+      "sv": "dut.noc_send_rdy[1]"
+    },
+    {
+      "name": "cgra1_noc_send_msg",
+      "width": 196,
+      "sv": "dut.noc_recv_msg[1]"
+    },
+    {
+      "name": "cgra1_noc_send_val",
+      "width": 1,
+      "sv": "dut.noc_recv_val[1]"
+    },
+    {
+      "name": "cgra1_noc_send_rdy",
+      "width": 1,
+      "sv": "dut.noc_recv_rdy[1]"
+    },
+    {
+      "name": "cgra2_noc_recv_msg",
+      "width": 196,
+      "sv": "dut.noc_send_msg[2]"
+    },
+    {
+      "name": "cgra2_noc_recv_val",
+      "width": 1,
+      "sv": "dut.noc_send_val[2]"
+    },
+    {
+      "name": "cgra2_noc_recv_rdy",
+      "width": 1,
+      "sv": "dut.noc_send_rdy[2]"
+    },
+    {
+      "name": "cgra2_noc_send_msg",
+      "width": 196,
+      "sv": "dut.noc_recv_msg[2]"
+    },
+    {
+      "name": "cgra2_noc_send_val",
+      "width": 1,
+      "sv": "dut.noc_recv_val[2]"
+    },
+    {
+      "name": "cgra2_noc_send_rdy",
+      "width": 1,
+      "sv": "dut.noc_recv_rdy[2]"
+    },
+    {
+      "name": "cgra3_noc_recv_msg",
+      "width": 196,
+      "sv": "dut.noc_send_msg[3]"
+    },
+    {
+      "name": "cgra3_noc_recv_val",
+      "width": 1,
+      "sv": "dut.noc_send_val[3]"
+    },
+    {
+      "name": "cgra3_noc_recv_rdy",
+      "width": 1,
+      "sv": "dut.noc_send_rdy[3]"
+    },
+    {
+      "name": "cgra3_noc_send_msg",
+      "width": 196,
+      "sv": "dut.noc_recv_msg[3]"
+    },
+    {
+      "name": "cgra3_noc_send_val",
+      "width": 1,
+      "sv": "dut.noc_recv_val[3]"
+    },
+    {
+      "name": "cgra3_noc_send_rdy",
+      "width": 1,
+      "sv": "dut.noc_recv_rdy[3]"
+    }
+  ],
+  "cycles": 91,
+  "input_bits": 196,
+  "output_bits": 1779,
+  "events": [
+    {
+      "cycle": 51,
+      "event": "reduce-request",
+      "cgra": 0,
+      "src": 0,
+      "dst": 0,
+      "data": 10,
+      "predicate": 1
+    },
+    {
+      "cycle": 52,
+      "event": "reduce-request",
+      "cgra": 3,
+      "src": 3,
+      "dst": 0,
+      "data": 26,
+      "predicate": 1
+    },
+    {
+      "cycle": 59,
+      "event": "reduce-response",
+      "cgra": 0,
+      "src": 0,
+      "dst": 0,
+      "data": 36,
+      "predicate": 1
+    },
+    {
+      "cycle": 60,
+      "event": "reduce-response",
+      "cgra": 0,
+      "src": 0,
+      "dst": 3,
+      "data": 36,
+      "predicate": 1
+    },
+    {
+      "cycle": 61,
+      "event": "complete",
+      "cgra": 0,
+      "tile": 2,
+      "data": 0,
+      "predicate": 0
+    },
+    {
+      "cycle": 62,
+      "event": "complete",
+      "cgra": 3,
+      "tile": 2,
+      "data": 0,
+      "predicate": 0
+    },
+    {
+      "cycle": 69,
+      "event": "complete",
+      "cgra": 0,
+      "tile": 0,
+      "data": 0,
+      "predicate": 0
+    },
+    {
+      "cycle": 71,
+      "event": "complete",
+      "cgra": 0,
+      "tile": 1,
+      "data": 53,
+      "predicate": 1
+    },
+    {
+      "cycle": 78,
+      "event": "complete",
+      "cgra": 3,
+      "tile": 0,
+      "data": 0,
+      "predicate": 0
+    },
+    {
+      "cycle": 82,
+      "event": "complete",
+      "cgra": 3,
+      "tile": 1,
+      "data": 31,
+      "predicate": 1
+    }
+  ],
+  "host_inputs": 35,
+  "completions": 6,
+  "host_backpressure_samples": 8,
+  "returns": {
+    "0": 53,
+    "3": 31
+  },
+  "seconds": 95.73389436699654,
+  "trace_sha256": "89441e7eea8a48480cff5964b16ed79324c1a4acc488c534604ad714d8ab73e3",
+  "source_sha256": {
+    "sv/migration_tools/current_migration_reduce.py": "4062c492b5f2e5cad5bd438a5acbc036f9792831a208bb07142224cab5ed0b74",
+    "cgra/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "controller/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/basic/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/basic/val_rdy/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/basic/val_rdy/ifcs.py": "718fafefbe1d61ae1ad94ded66360686ca63c76789d8526f14e76a34f9bac148",
+    "lib/basic/val_rdy/queues.py": "547ef3175064e52759037cac8e0dfb037450ad3c1d8d22cf1d207e1a5e1fa909",
+    "lib/cmd_type.py": "994de9ad9dc3b852bfdb52847474d0ab238f84a77063c58f1b7fabd1c788df90",
+    "lib/opt_type.py": "e9ce8c545b99fc8328670d944e915e7d12098111cda38048c1de43daa82614bc",
+    "lib/util/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/util/data_struct_attr.py": "196aed92486f1239aa4741ebfe387bbf7e09791af3fb3eac18cd644ce056da90",
+    "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf",
+    "lib/util/common.py": "67c4bc09b7def9334be757cdb1db656ff2122cff7b4c3eddc9521beb3680b356",
+    "noc/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "noc/PyOCN/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "noc/PyOCN/pymtl3_net/__init__.py": "1fd3564596fb35b79144f2cffd5d5f01198b357ada9e8ad533e38e63ef3fdae8",
+    "noc/PyOCN/pymtl3_net/channel/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "noc/PyOCN/pymtl3_net/ocnlib/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "noc/PyOCN/pymtl3_net/ocnlib/ifcs/__init__.py": "51b9a4c79d549e2b4b57d403b516bde1e56d9d0622ef5895b8b431a838280ed6",
+    "noc/PyOCN/pymtl3_net/ocnlib/ifcs/PhysicalDimension.py": "b487631b90b9bd0bc1ebe439c709554d344de96a99574b1c635626fd08b29e8b",
+    "noc/PyOCN/pymtl3_net/channel/ChannelRTL.py": "d06934634c2415464cea46e84584fe7c19a2d9d41206f80001b2d663746ff923",
+    "noc/PyOCN/pymtl3_net/xbar/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "noc/PyOCN/pymtl3_net/router/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "noc/PyOCN/pymtl3_net/router/InputUnitRTL.py": "ef2470268c3db09b07a9093ef63c9d9393f23723d7d22bbba651f212b127b476",
+    "noc/PyOCN/pymtl3_net/router/OutputUnitRTL.py": "67a73253682da0cadbc3ad1bcb015a770a61cc70ee9d897adaf7f006082f634c",
+    "noc/PyOCN/pymtl3_net/router/SwitchUnitRTL.py": "0815ff927570154287ee8f2e65c3380e2881b0d8691d2a184b9261996ea83d61",
+    "noc/PyOCN/pymtl3_net/router/SwitchUnitNullRTL.py": "b16aef411a92a60df2c0cdda55d40ca15121b8fd095ce133eca6a970dbdb530d",
+    "noc/PyOCN/pymtl3_net/xbar/XbarRouteUnitRTL.py": "927cf328ff4995e8d0c22c441eb19857bca12e3f26b1d8b8b8f265072f470b35",
+    "noc/PyOCN/pymtl3_net/xbar/XbarRTL.py": "eb5d1e9815c2b157b6c7c0a6491bde2fbc50ef7d18eb9fabdaa1f8f630b170f0",
+    "controller/GlobalReduceUnitRTL.py": "c659fdff25d2d911b2bf7bd46827a049be4f90b37f5c655ff1dfa8b1839c3d67",
+    "controller/ControllerRTL.py": "25ddd2f32e8a51a37738a8ab339cf2df77921c25476033bb4a97a7820201b15d",
+    "mem/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mem/data/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mem/data/DataMemWrapperRTL.py": "2d253f61870727bf1fb5368a7da67d52a9228a2918ebdfc18cdb927f33a6f61f",
+    "noc/PyOCN/pymtl3_net/xbar/XbarBypassQueueRTL.py": "cbc28d43576be9534a53eb68b1ae2212ccaef9f6bd2a7ef2d3f7bee321898096",
+    "mem/data/DataMemControllerRTL.py": "f36ee1e9799e02cf8da360306f61d55b7e2a3136850a4b74f9701937e0b18e93",
+    "noc/PyOCN/pymtl3_net/ocnlib/ifcs/positions.py": "e0d9b784d45ad5c8d1d594437013e860fc0eae4cc2213b5697cecdaf48093a59",
+    "noc/PyOCN/pymtl3_net/ocnlib/rtl/Counter.py": "67016893580f6f7fd3eb0757d71ac0533259825bdadc27790e0dbe77b3f2a279",
+    "noc/PyOCN/pymtl3_net/ocnlib/rtl/GrantHoldArbiter.py": "a4a781af67eef32bf8dcf6f7c6574f3ba52f69297e5862434eb59c367667cbc2",
+    "noc/PyOCN/pymtl3_net/ocnlib/rtl/SerializerRTL.py": "079d319f2e73d414643a835a163c50a9e9107ecb908d13014ec3699d72e9feab",
+    "noc/PyOCN/pymtl3_net/ocnlib/rtl/DeserializerRTL.py": "0fb95eaf64bec9ccc98a158c1039fa42d837833528b0cb909148ab66e1922621",
+    "noc/PyOCN/pymtl3_net/ocnlib/rtl/__init__.py": "740e4ccb155f5bb4507c3ca58d00647d96d64ef9e6e5158bbb18a00e51ab15cf",
+    "noc/PyOCN/pymtl3_net/ocnlib/ifcs/CreditIfc.py": "1288aec8ac1d6f5a55a23b3eeae02d57ee7702a138147ed1f285922e0d84fe33",
+    "noc/PyOCN/pymtl3_net/ringnet/directions.py": "fe07dd5642bf7a9aa84ea6fdecc03536bb385d3e4c8fab55fffc5f3a63e8aea6",
+    "noc/PyOCN/pymtl3_net/ringnet/RingRouteUnitRTL.py": "0311d179cf48da63c7b385dd4413ad063288647c8c037af172a8eb6ce4909287",
+    "noc/PyOCN/pymtl3_net/router/InputUnitCreditRTL.py": "359550701554e701bcf184f280ce4a21654a28959f9c8bf7503b701812840eec",
+    "noc/PyOCN/pymtl3_net/router/OutputUnitCreditRTL.py": "cecef4bc8a93ebc192f0780ad4b9a461f3db75cfdbeeb48ca628e10c9e3a4568",
+    "noc/PyOCN/pymtl3_net/router/Router.py": "b1a94744bbfd90776223773eeaf1c1e0b8fcba6db07e1d7dcb1c47fd13fca748",
+    "noc/PyOCN/pymtl3_net/ringnet/RingRouterRTL.py": "bb11d5cac9279fcfcb3ce60e6b3eef4023f8b597775a2bc0d14a149e39118add",
+    "noc/PyOCN/pymtl3_net/ringnet/RingNetworkRTL.py": "1cb7365e2d0d8a020536a1cf6b74b15d8c62b1c83526c7444f43b74edc74d2dc",
+    "noc/PyOCN/pymtl3_net/ringnet/__init__.py": "82b2774baef18d7ab2e65d92d1930a41420a184f247d02b4b2b9325ef18955e8",
+    "noc/StaticSwitchUnitRTL.py": "8af211f56d23922d55cfeacca7d4edb33c0ecb8e848dc0e3303804a1f99cc42d",
+    "tile/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/flexible/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/single/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/basic/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/basic/Fu.py": "0c981a2ac2b0632b2c357e49db1cb90378d3ddad1875b712c9d94fa5f905d2f7",
+    "fu/single/MemUnitRTL.py": "890d3ac59e62c3a3be80dd4583dd04ee96314bfb9b7b8968f8e93ac06dccd5a9",
+    "fu/single/StreamingMemUnitRTL.py": "119cd4b98823ddf9ceaa552a46df03819805a5975b4990b7da61482b57205ba6",
+    "fu/single/AdderRTL.py": "4fa5962fb161d3afc2804088a2fd2aebdf9d9b84e83c269e1069ec69c70994e9",
+    "fu/single/RetRTL.py": "c02076c25cfe9a9453965f7294ed52155431b31e1ec2989e98b0a6c71f79a547",
+    "fu/single/NahRTL.py": "d68011369e13ab06c3d3202802bc30b43414e065bc050a22bb0c3f08d17af6f5",
+    "fu/flexible/FlexibleFuRTL.py": "9c7b355107464bc37a9914b51f49dffee4eb3a7d2c9c6cdbdc81601e5e96da4d",
+    "fu/single/GrantRTL.py": "808f6d64abdc8602748fa271894c303573f85a8ccf8595d91ed71df5809572a6",
+    "fu/single/CompRTL.py": "7b03efc744e3b6d852315c767c507bfa169ae600c96428e2cb0e9f7caf501a4a",
+    "fu/single/MulRTL.py": "a3aeb19aa4ae0aa1eee930c3f71dfd43b259faa0edc7f16cf906cca5ae3ebe90",
+    "fu/single/PhiRTL.py": "13e2ebe47938d6f16d3cc234c5858b5539a4fb0bcce101c894c0c9f632271e0b",
+    "mem/const/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mem/const/ConstQueueDynamicRTL.py": "41c3d90c19b4d7bb727ca228ff63584d15375634fcaed45493d8e305a52c98fb",
+    "mem/ctrl/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/basic/en_rdy/ifcs.py": "9b7005a345639a29beecab811ff258eee817ece76400c16624278c1f4a8bd692",
+    "mem/ctrl/CtrlMemDynamicRTL.py": "54bfc632194d673d0d58c1e59f252dca8f0aa0de1ad37d7463a2ab3fd786f21c",
+    "mem/register_cluster/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "mem/register_cluster/RegisterBankRTL.py": "09580b4f3ad6b861c4e47995738df964c74cd1ecacb436f92f257019caf26f90",
+    "mem/register_cluster/RegisterClusterRTL.py": "6227955522b389d955e7094016ac0c738a64a0fa92c2414853be533501d4aa39",
+    "noc/CrossbarRTL.py": "40f5077b172e2c8f9917eb70012a0119c7df13c996e0314a926ef3d56080b5a4",
+    "noc/LinkOrRTL.py": "61c57583057e8b8535d287feba332ca5cfaa49b6847bd3c588c323bfd6694c77",
+    "rf/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "rf/RegisterRTL.py": "f4af013a7a1b7ea8bc478d3b32352dc5c36c7ac5138ac0b1298c41ebde9b0abd",
+    "tile/TileRTL.py": "8e7839c7ce6e83e43e47c57684b9597738eb6d1591fa3367f201e1bf01ec2177",
+    "cgra/CgraRTL.py": "e372a6a363063b69ff04bca3baf1f800295f0d02d55ed574ef76b694051af9ab",
+    "sv/migration_tools/reference_model.py": "61b4a20219ef5047e68f206fd8e62732606204b2b0db38ddb0baf763b7277421",
+    "sv/migration_tools/current_kernels.py": "71ced9e5fcbb505b9463e34b35a4543d5ddaaf363e08e5f810e9d7a9dbb4d8bf",
+    "multi_cgra/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "multi_cgra/test/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "lib/status_type.py": "52000c996eac52eeb1cdc8f85a04a8dd2162ef4e424c3769095a5b861d452c73",
+    "mem/ctrl/ContextSwitchRTL.py": "d97a6c23849dbda09aea147ab7dc3c6168dedd6746ea65010d0e70f60d465153",
+    "noc/ChannelWithClearRTL.py": "990151851b896d2ba7849ffc9b84eab82cd7b575ed69f5bbcd3df0cda486399f",
+    "tile/TileWithContextSwitchRTL.py": "967b7110bb8bc8b3bc57ed564d00a6645582dbc4365ff34fb4fc93e41d88a453",
+    "cgra/CgraWithContextSwitchRTL.py": "203e2e48e5004e777d403d95ccbad20f910b330112ccb463c9a98cce3e74b752",
+    "noc/PyOCN/pymtl3_net/meshnet/directions.py": "2ae5aa2346a0b2834706a2a9fc5a170254efd0a69f7d1c10b0a59337b65eb131",
+    "noc/PyOCN/pymtl3_net/meshnet/DORYMeshRouteUnitRTL.py": "d5234bf106bea7f5ecb0ff471baff7d5a42750a779f8fb6f00eaa321ed716b50",
+    "noc/PyOCN/pymtl3_net/meshnet/MeshRouterRTL.py": "cd78e483cab109d300bd9bc2052a1b076c0ebac9d4845d380148cd7538f131a4",
+    "noc/PyOCN/pymtl3_net/meshnet/MeshNetworkRTL.py": "a137a57615c3e3244062d07b2c30bad8a431540ea7043a8fcba01ba63fa8e742",
+    "noc/PyOCN/pymtl3_net/meshnet/__init__.py": "7faa010104b1aa7344955d87b11964abee7289887f8cadaa418031a0ba989679",
+    "multi_cgra/MeshMultiCgraRTL.py": "6325682d0e286de64644190458ae88512de9a63e52f69ffcf075085cfd99716a",
+    "fu/double/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/basic/TwoSeqCombo.py": "dd0d05e06a494a1da6a136262d8ec940a0c3f7a39f88d5d899b02ed94533d5e0",
+    "fu/double/SeqMulAdderRTL.py": "4c4382ae3605f2379fdbc5ef411134c1fe5b7a28e2ffdb58bc34ba58161c8c69",
+    "fu/float/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/pymtl3_hardfloat/HardFloat/RecFNToFNRTL.py": "cb0882b93fd404fbbb3e6db638d8ad1258a85fa9cce86f68a59f5b2a9270f6e7",
+    "fu/pymtl3_hardfloat/HardFloat/FNToRecFNRTL.py": "8ac2d43fe33e5efc7e9a5af39ec70ec95f8883ba2623ad9edf42b3080c7325ea",
+    "fu/pymtl3_hardfloat/HardFloat/AddRecFNRTL.py": "e661fa0997b94cd807387edbc3dea1315bd21e0b9a35f83c31a98f2a58fb7a44",
+    "fu/pymtl3_hardfloat/HardFloat/AddFNRTL.py": "013636390058c76b5f968f26cc04732f7766e8f506fec04e5484aad15b8d6a42",
+    "fu/pymtl3_hardfloat/HardFloat/MulAddRecFNRTL.py": "c2f0fb4b724d87637811a7ce7f65d0879c2e2ae7a0d732aa759d5263e485bfa1",
+    "fu/pymtl3_hardfloat/HardFloat/MulAddFNRTL.py": "1fd03d61f9640c3e1bf2404c740935dde2dae41befb05043c08fab83d85ad617",
+    "fu/pymtl3_hardfloat/HardFloat/MulRecFNRTL.py": "da9ffd3ce5ecfd0734677b09d07dd2559f67df9368c28bc4c2edc9d166e83835",
+    "fu/pymtl3_hardfloat/HardFloat/MulFNRTL.py": "3c190d0f9e7295ff2565ade3beedb2479eccf46aad17b52c505194b9c869f03f",
+    "fu/pymtl3_hardfloat/HardFloat/__init__.py": "fb4ac843a9414f47bc7cec7574ac74a81b3c1bd3d424a963daf9c8bd31d66f8c",
+    "fu/float/FpAddRTL.py": "bbbe9c1db782fa4809813d47258d78643df5475b0e695714f87137880de5427e",
+    "fu/float/FpMulRTL.py": "1cecfd8b20d113322f7524e647eb061fe0a271066827962873659c2f92b12b1b",
+    "fu/quadra/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/basic/FourCombo.py": "23d2ccbe4b0d2eb41d5ba66371601cfd4dd96d52bf4ab0f2fa3e1cda5213f8b7",
+    "fu/single/LogicRTL.py": "54b199a872c2b979fbb4b630304af3932188c22216f9b7964a8a282d7b0f4419",
+    "fu/quadra/FourIncCmpNotGrantRTL.py": "7b62be9d8a22402df4fa8f8d373587df15b7f2a187c1488e7c8c857d9c3d0087",
+    "fu/single/SelRTL.py": "9870ac5e1f02ab5fc7fe3f38be160121b5b33e7170fcc31e0a45ecc0b0d8b81e",
+    "fu/single/ShifterRTL.py": "3b87b838a52f1a45bde6804862c717ba6cd52fea63085e07c4300585581c4585",
+    "fu/vector/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "fu/basic/SumUnit.py": "631a54831624e2c20bb5cd2455b61405027de5dd44f2576dc6c1454c2fda5b4d",
+    "fu/basic/ReduceMulUnit.py": "ef2fe2e7742363f94f26053d8c9c8f0861ec2dd510482e19c9ae23edc7764832",
+    "fu/vector/VectorAllReduceRTL.py": "5a8ee29d3fa55f373c4943c42ac6b348d3dd6c0fc1645fe4460ee1c39c62f8b2",
+    "fu/vector/VectorAdderRTL.py": "b4bc7c2ed05148da65f4a31a8b95f3c621f207e15a571ce71d05952efbb090a1",
+    "fu/vector/VectorAdderComboRTL.py": "9f9b8fbdc71418ce0ff0a9d70d0ac217b7789a0037e7524ee5773746975de637",
+    "fu/vector/VectorMulRTL.py": "24963b450cf3d79fab00c39ffbb64a7339b150f890dd8ebcc05258782ee58594",
+    "fu/vector/VectorMulComboRTL.py": "552dc3c48395ad64088594f86220edc972aa8573e08f723df48bcaf3776e33c4",
+    "lib/basic/val_rdy/SinkRTL.py": "7c4d044a4f3ca76dd4cc9c232d1c5ecff7c9c545079e8363cd1791cc48756a4e",
+    "lib/basic/val_rdy/SourceRTL.py": "188c54d27020a08830f466fb0a7fcb192f40be0687a4f5ee2020e6661a934b31",
+    "multi_cgra/test/MultiCgraRTL_migration_test.py": "87763fae4428c8bafca33ab54bbcff377fb093a4fed4f7b29fe059b49992d572",
+    "sv/migration_tools/current_migration_trace.py": "7cb9f3020cc89f5bafbb905b2a6011322ee20f0269910a30152da5b2c7baf77f"
+  }
+}

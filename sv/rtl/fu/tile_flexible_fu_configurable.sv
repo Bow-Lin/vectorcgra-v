@@ -271,12 +271,12 @@ module tile_flexible_fu_configurable #(
       );
     end
     else if(KIND==`CGRA_FU_FP_ADD) begin : kind_fp_add
-      tile_fp_add #(`CGRA_PROFILE_BIND, .FP_EXP_W(FP_EXP_W), .FP_SIG_W(FP_SIG_W)) fu (
+      tile_fp_add #(`CGRA_PROFILE_BIND, .FP_EXP_W(FP_EXP_W), .FP_SIG_W(FP_SIG_W), .FP_LEGACY_PYTHON(FP_LEGACY_PYTHON)) fu (
         `CGRA_FU_SLOT_PORTS
       );
     end
     else if(KIND==`CGRA_FU_FP_MUL) begin : kind_fp_mul
-      tile_fp_mul #(`CGRA_PROFILE_BIND, .FP_EXP_W(FP_EXP_W), .FP_SIG_W(FP_SIG_W)) fu (
+      tile_fp_mul #(`CGRA_PROFILE_BIND, .FP_EXP_W(FP_EXP_W), .FP_SIG_W(FP_SIG_W), .FP_LEGACY_PYTHON(FP_LEGACY_PYTHON)) fu (
         `CGRA_FU_SLOT_PORTS
       );
     end
@@ -292,6 +292,8 @@ module tile_flexible_fu_configurable #(
       initial $fatal(1,"Unknown elaboration-time FU kind %0d",KIND);
     end
   end
-  // With no streaming FU, recv_pkt_from_controller.rdy is undriven in ac96.
+  if(count_kind(`CGRA_FU_STREAMING_MEM)==0) begin : no_raw_packet_consumer
+    assign recv_pkt_from_controller__rdy=1'b0;
+  end
 endmodule
 `undef CGRA_FU_SLOT_PORTS

@@ -1,5 +1,6 @@
+`include "cgra_opcodes.svh"
 `include "cgra_profile_defs.svh"
-// Native GrantRTL migration from ac96; original state/handshake semantics.
+// Native current GrantRTL: independent once state per control slot.
 module scalar_grant #(
   `CGRA_PROFILE_PARAMETERS,
   parameter int VECTOR_FACTOR_POWER = 0
@@ -59,14 +60,15 @@ module scalar_grant #(
   assign to_mem_wdata__msg = to_mem_wdata__msg_typed;
 
   localparam data_t const_zero  = '0;
-  localparam logic [6:0] OPT_START  = 7'd0;
+  localparam logic [6:0] OPT_START  = `CGRA_OPT_START;
   localparam logic [0:0] latency_at_proceed_latency  = 1'd1;
   localparam logic [2:0] num_inports_at_comb_logic  = 3'd4;
   localparam logic [1:0] num_outports_at_comb_logic  = 2'd2;
-  localparam logic [6:0] OPT_GRT_PRED  = 7'd16;
-  localparam logic [6:0] OPT_GRT_ALWAYS  = 7'd34;
-  localparam logic [6:0] OPT_GRT_ONCE  = 7'd47;
-  logic [0:0] already_grt_once;
+  localparam logic [6:0] OPT_GRT_PRED  = `CGRA_OPT_GRT_PRED;
+  localparam logic [6:0] OPT_GRT_ALWAYS  = `CGRA_OPT_GRT_ALWAYS;
+  localparam logic [6:0] OPT_GRT_ONCE  = `CGRA_OPT_GRT_ONCE;
+  localparam logic [6:0] OPT_GRT_ONCE_CONST = `CGRA_OPT_GRT_ONCE_CONST;
+  logic [CTRL_SLOTS-1:0] already_grt_once;
   logic [2:0] in0;
   logic [1:0] in0_idx;
   logic [2:0] in1;
@@ -124,11 +126,19 @@ module scalar_grant #(
       end
       else if ( recv_opt__msg_typed.operation == 7'( OPT_GRT_ONCE ) ) begin
         send_out__msg_typed[1'd0] = recv_in__msg_typed[in0_idx];
-        send_out__msg_typed[1'd0].predicate = reached_vector_factor & ( ~already_grt_once );
+        send_out__msg_typed[1'd0].predicate = reached_vector_factor & ( ~already_grt_once[ctrl_addr_inport] );
         recv_all_val = recv_in__val[in0_idx];
         send_out__val[1'd0] = recv_all_val;
         recv_in__rdy[in0_idx] = recv_all_val & send_out__rdy[1'd0];
         recv_opt__rdy = recv_all_val & send_out__rdy[1'd0];
+      end
+      else if (recv_opt__msg_typed.operation == OPT_GRT_ONCE_CONST) begin
+        send_out__msg_typed[0] = recv_const__msg_typed;
+        send_out__msg_typed[0].predicate = reached_vector_factor & ~already_grt_once[ctrl_addr_inport];
+        recv_all_val = recv_const__val;
+        send_out__val[0] = recv_all_val;
+        recv_const__rdy = recv_all_val & send_out__rdy[0];
+        recv_opt__rdy = recv_all_val & send_out__rdy[0];
       end
       else begin
         for ( int unsigned j = 1'd0; j < 2'( num_outports_at_comb_logic ); j += 1'd1 )
@@ -169,14 +179,11 @@ module scalar_grant #(
   end
 
   always_ff @(posedge clk) begin : record_grt_once
-    if ( reset | clear ) begin
-      already_grt_once <= 1'd0;
-    end
-    else if ( ( ( ( ~already_grt_once ) & send_out__val[1'd0] ) & send_out__rdy[1'd0] ) & ( recv_opt__msg_typed.operation == 7'( OPT_GRT_ONCE ) ) ) begin
-      already_grt_once <= 1'd1;
-    end
-    else
-      already_grt_once <= already_grt_once;
+    if (reset | clear) already_grt_once <= '0;
+    else if (send_out__val[0] & send_out__rdy[0] &
+             ((recv_opt__msg_typed.operation == OPT_GRT_ONCE) |
+              (recv_opt__msg_typed.operation == OPT_GRT_ONCE_CONST)))
+      already_grt_once[ctrl_addr_inport] <= 1'b1;
   end
 
   always_ff @(posedge clk) begin : update_vector_factor_counter

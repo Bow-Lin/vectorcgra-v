@@ -1,3 +1,4 @@
+`include "cgra_opcodes.svh"
 `include "cgra_profile_defs.svh"
 // Native SelRTL migration from ac96; original state/handshake semantics.
 module scalar_sel #(
@@ -61,7 +62,7 @@ module scalar_sel #(
   localparam data_t const_zero  = '0;
   localparam logic [2:0] num_inports_at_comb_logic  = 3'd4;
   localparam logic [1:0] num_outports_at_comb_logic  = 2'd2;
-  localparam logic [6:0] OPT_SEL  = 7'd27;
+  localparam logic [6:0] OPT_SEL  = `CGRA_OPT_SEL;
   logic [2:0] in0;
   logic [1:0] in0_idx;
   logic [2:0] in1;

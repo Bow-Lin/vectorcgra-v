@@ -2,7 +2,8 @@
 `include "cgra_profile_defs.svh"
 module tile_fp_add #(
   `CGRA_PROFILE_PARAMETERS,
-  parameter int FP_EXP_W = 8, FP_SIG_W = 23
+  parameter int FP_EXP_W = 8, FP_SIG_W = 23,
+  parameter bit FP_LEGACY_PYTHON = 0
 ) (
   input  logic [0:0] clear ,
   input  logic [0:0] clk ,
@@ -41,7 +42,7 @@ module tile_fp_add #(
 );
 
   tile_fp_fu #(`CGRA_PROFILE_BIND, .FP_EXP_W(FP_EXP_W),
-    .FP_SIG_W(FP_SIG_W), .MULTIPLY(0)) core (
+    .FP_SIG_W(FP_SIG_W), .FP_LEGACY_PYTHON(FP_LEGACY_PYTHON), .MULTIPLY(0)) core (
     .clear(clear),
     .clk(clk),
     .ctrl_addr_inport(ctrl_addr_inport),
