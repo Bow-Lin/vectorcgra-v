@@ -4,6 +4,7 @@
 > 最新内核数学回读与完成顺序修复见 [内核边界验收](KERNEL_BOUNDARIES.md)。
 > 当前源码的完整整机与选定 Mesh／Ring 网表验收见 [整机验收](SYSTEM_ACCEPTANCE.md)。
 > 统一清单、固定工具链和 CI 入口见 [回归说明](REGRESSION.md)。
+> 独立工程包与干净构建见 [STANDALONE.md](STANDALONE.md)，来源和许可见 [DEPENDENCIES.md](DEPENDENCIES.md)。
 
 目标 Python 固定为 `cd7aad878915e389cecf8cc01ff6987d156bd019`。该提交导入 SV；Python 内容来自父提交 `e3caf6928a4e8c97e6be36574af2520ec92083b9`。原始迁移基线仍为 `ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b`。`reference/current/target.json` 记录所有 274 个原项目 Python 文件的 SHA-256；本批没有修改这些文件。
 
