@@ -143,7 +143,11 @@ module cgra_system #(
     assign send_to_inter_cgra_noc__val=loop_in_val;
     assign loop_in_rdy=send_to_inter_cgra_noc__rdy;
   end else begin : local_noc
-    // The original single-CGRA declares but does not drive the external outputs.
+    // Single-CGRA traffic uses the local loopback. The unused public NoC port
+    // must still have defined outputs when this hierarchy is synthesized.
+    assign recv_from_inter_cgra_noc__rdy=1'b0;
+    assign send_to_inter_cgra_noc__msg='0;
+    assign send_to_inter_cgra_noc__val=1'b0;
     cgra_queue #(.WIDTH(NOC_BITS), .DEPTH(1), .BYPASS(1)) loopback (
       .clk, .reset, .clear(1'b0), .recv_msg(loop_in_msg), .recv_val(loop_in_val), .recv_rdy(loop_in_rdy),
       .send_msg(loop_out_msg), .send_val(loop_out_val), .send_rdy(loop_out_rdy), .count()

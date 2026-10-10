@@ -12,7 +12,7 @@ module tb_im2col;
   logic [1-1:0] send_pkt__val, gold_send_pkt__val;
   logic [1-1:0] send_pkt__rdy=0;
   logic [1-1:0] done, gold_done;
-  cgra_im2col_engine #(.DATA_W(DATA_W),.SCRATCH_DEPTH(SCRATCH_DEPTH),.PRELOAD_IMAGE(IMAGE)) dut (.clk(clk),
+  cgra_im2col_engine #(.LEGACY_PYTHON(1),.DATA_W(DATA_W),.SCRATCH_DEPTH(SCRATCH_DEPTH),.PRELOAD_IMAGE(IMAGE)) dut (.clk(clk),
     .reset(reset),
     .recv_cmd_pkt__msg(recv_cmd_pkt__msg),
     .recv_cmd_pkt__val(recv_cmd_pkt__val),

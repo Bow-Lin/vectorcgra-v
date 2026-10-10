@@ -1,6 +1,6 @@
 `include "cgra_profile_defs.svh"
 // Native parameterized cgra_data_memory; control flow derived from ac96 cgra_data_memory.
-// Disabled DMA/im2col declarations and undriven inputs retain baseline semantics.
+// Native writes pair address/data; explicit compatibility retains source handshakes.
 module cgra_data_memory #(
   `CGRA_PROFILE_PARAMETERS
 ) (
@@ -54,6 +54,11 @@ module cgra_data_memory #(
   assign p_recv_from_controller_spm_rd_req__msg = recv_from_controller_spm_rd_req__msg;
   dma_write_req_t p_recv_from_controller_spm_wr_req__msg ;
   assign p_recv_from_controller_spm_wr_req__msg = recv_from_controller_spm_wr_req__msg;
+  wire dma_write_legal = MEMORY_LEGACY_PYTHON || p_recv_from_controller_spm_wr_req__msg.mask==4'hf;
+`ifndef SYNTHESIS
+  always @(posedge clk) if(HAS_DMA && !reset && recv_from_controller_spm_wr_req__val && !dma_write_legal)
+    $fatal(1,"MEM_DMA_MASK: the banked SPM interface accepts full 32-bit words");
+`endif
   noc_packet_t p_recv_from_noc_load_request__msg ;
   assign p_recv_from_noc_load_request__msg = recv_from_noc_load_request__msg;
   noc_packet_t p_recv_from_noc_load_response_pkt__msg ;
@@ -228,7 +233,7 @@ module cgra_data_memory #(
       end
       else
         assemble_xbar_pkt_bank_index_store_from_dma = BANK_PORT_W'(NUM_BANKS);
-      wr_pkt[assemble_xbar_pkt_dma_wr_idx] = { assemble_xbar_pkt_dma_wr_idx, assemble_xbar_pkt_bank_index_store_from_dma, assemble_xbar_pkt_recv_waddr_from_dma, { p_recv_from_controller_spm_wr_req__msg.data, 1'd1, 1'd0, 1'd0 }, CGRA_ID_W'(0), TILE_ID_W'(0), MEM_PORT_W'(0) };
+      wr_pkt[assemble_xbar_pkt_dma_wr_idx] = { assemble_xbar_pkt_dma_wr_idx, assemble_xbar_pkt_bank_index_store_from_dma, assemble_xbar_pkt_recv_waddr_from_dma, { DATA_W'(p_recv_from_controller_spm_wr_req__msg.data), 1'd1, 1'd0, 1'd0 }, CGRA_ID_W'(0), TILE_ID_W'(0), MEM_PORT_W'(0) };
     end
   end
 
@@ -279,19 +284,19 @@ module cgra_data_memory #(
       recv_from_controller_spm_rd_req__rdy = read_crossbar__recv__rdy[update_all_dma_rd_idx];
     end
     for ( int unsigned i = 1'd0; i < num_wr_tiles_at_update_all; i += 1'd1 ) begin
-      write_crossbar__recv__val[i] = recv_waddr__val[i];
+      write_crossbar__recv__val[i] = recv_waddr__val[i] && (MEMORY_LEGACY_PYTHON || recv_wdata__val[i]);
       write_crossbar__recv__msg[i] = wr_pkt[i];
-      recv_waddr__rdy[i] = write_crossbar__recv__rdy[i];
-      recv_wdata__rdy[i] = write_crossbar__recv__rdy[i];
+      recv_waddr__rdy[i] = write_crossbar__recv__rdy[i] && (MEMORY_LEGACY_PYTHON || recv_wdata__val[i]);
+      recv_wdata__rdy[i] = write_crossbar__recv__rdy[i] && (MEMORY_LEGACY_PYTHON || recv_waddr__val[i]);
     end
     write_crossbar__recv__val[num_wr_tiles_at_update_all] = recv_from_noc_store_request__val;
     write_crossbar__recv__msg[num_wr_tiles_at_update_all] = wr_pkt[num_wr_tiles_at_update_all];
     recv_from_noc_store_request__rdy = write_crossbar__recv__rdy[num_wr_tiles_at_update_all];
     if ( 1'( has_dma_ports_at_update_all ) ) begin
       update_all_dma_wr_idx = XBAR_WR_MEM_PORT_W'(XBAR_WR_MEM_PORTS-1);
-      write_crossbar__recv__val[update_all_dma_wr_idx] = recv_from_controller_spm_wr_req__val;
+      write_crossbar__recv__val[update_all_dma_wr_idx] = recv_from_controller_spm_wr_req__val && dma_write_legal;
       write_crossbar__recv__msg[update_all_dma_wr_idx] = wr_pkt[update_all_dma_wr_idx];
-      recv_from_controller_spm_wr_req__rdy = write_crossbar__recv__rdy[update_all_dma_wr_idx];
+      recv_from_controller_spm_wr_req__rdy = write_crossbar__recv__rdy[update_all_dma_wr_idx] && dma_write_legal;
     end
     for ( int unsigned i = 1'd0; i < num_xbar_in_rd_ports_at_update_all; i += 1'd1 )
       if ( XBAR_MEM_PORT_W'(i) < XBAR_MEM_PORT_W'(num_rd_tiles_at_update_all) ) begin
@@ -320,6 +325,22 @@ module cgra_data_memory #(
     p_send_to_noc_store_pkt__msg = { cgra_id, CGRA_ID_W'(0), idTo2d_x_lut[cgra_id], idTo2d_y_lut[cgra_id], CGRA_X_W'(0), CGRA_Y_W'(0), TILE_ID_W'(0), TILE_ID_W'(0), MEM_PORT_W'(write_crossbar__send__msg[num_banks_per_cgra_at_update_all].src), 8'd0, 2'd0, { 6'( CMD_STORE_REQUEST ), write_crossbar__send__msg[num_banks_per_cgra_at_update_all].data, write_crossbar__send__msg[num_banks_per_cgra_at_update_all].addr, CTRL_BITS'(0), CTRL_ADDR_W'(0) } };
     send_to_noc_store_pkt__val = write_crossbar__send__val[num_banks_per_cgra_at_update_all];
     write_crossbar__send__rdy[num_banks_per_cgra_at_update_all] = send_to_noc_store_pkt__rdy;
+    if (!MEMORY_LEGACY_PYTHON && reset) begin
+      for(integer i=0;i<MEM_PORTS;i++) begin
+        recv_raddr__rdy[i]=0;send_rdata__val[i]=0;p_send_rdata__msg[i]='0;
+      end
+      for(integer i=0;i<MEM_WRITE_PORTS;i++) begin recv_waddr__rdy[i]=0;recv_wdata__rdy[i]=0;end
+      for(integer i=0;i<XBAR_MEM_PORTS;i++) begin read_crossbar__recv__val[i]=0;response_crossbar__send__rdy[i]=0;end
+      for(integer i=0;i<XBAR_WR_MEM_PORTS;i++) write_crossbar__recv__val[i]=0;
+      response_crossbar__recv__val[NUM_BANKS]=0;
+      read_crossbar__send__rdy[NUM_BANKS]=0;write_crossbar__send__rdy[NUM_BANKS]=0;
+      recv_from_noc_load_request__rdy=0;recv_from_noc_load_response_pkt__rdy=0;recv_from_noc_store_request__rdy=0;
+      send_to_noc_load_request_pkt__val=0;p_send_to_noc_load_request_pkt__msg='0;
+      send_to_noc_load_response_pkt__val=0;p_send_to_noc_load_response_pkt__msg='0;
+      send_to_noc_store_pkt__val=0;p_send_to_noc_store_pkt__msg='0;
+      recv_from_controller_spm_rd_req__rdy=0;recv_from_controller_spm_wr_req__rdy=0;
+      send_to_controller_spm_rd_resp__val=0;p_send_to_controller_spm_rd_resp__msg='0;
+    end
   end
 
   assign read_crossbar__clk = clk;

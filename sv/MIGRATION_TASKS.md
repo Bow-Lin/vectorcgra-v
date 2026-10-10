@@ -15,7 +15,7 @@
 | 7 | 向量组合常量进位、VectorMul lane 数边界 | 已完成；见 VECTOR_ARITHMETIC_API.md、十一份网表及三种 PE 验收 |
 | 8 | LoopController 输出保持、并发完成及父循环契约 | 已完成；见 LOOP_CONTROLLER_API.md、八份网表及独立语义证据 |
 | 9 | 复位、未驱动／锁存、除零及 MAC 有符号边界 | 已完成；见 ARITHMETIC_BOUNDARIES.md、46 份网表及 21 个原生 PE 用例 |
-| 10 | im2col／DataMem、非对称端口、DMA 长度及重启边界 | 待执行 |
+| 10 | im2col／DataMem、非对称端口、DMA 长度及重启边界 | 已完成；见 MEMORY_BOUNDARIES.md、22 份网表及 CPU／SPM 集成回读 |
 | 11 | Base／Context／Streaming PE 公共参数、类型及重复逻辑整理 | 待执行 |
 | 12 | NoC 剩余握手、VC／credit 及实际组合环检查 | 待执行 |
 | 13 | 不依赖项目 Python 的架构配置工具 | 待执行 |

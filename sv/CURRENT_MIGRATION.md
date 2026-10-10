@@ -2,7 +2,7 @@
 
 目标 Python 固定为 `cd7aad878915e389cecf8cc01ff6987d156bd019`。该提交导入 SV；Python 内容来自父提交 `e3caf6928a4e8c97e6be36574af2520ec92083b9`。原始迁移基线仍为 `ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b`。`reference/current/target.json` 记录所有 274 个原项目 Python 文件的 SHA-256；本批没有修改这些文件。
 
-本轮按 `MIGRATION_TASKS.md` 的已授权顺序推进，独立存储／链路／队列、向量归约、向量组合与 LoopController 已完成。第 9 项算术边界、复位及组合逻辑已通过组件、PE 和网表检查，记录见本文末尾及 `ARITHMETIC_BOUNDARIES.md`。下一项是 im2col、非对称存储端口和 DMA 长度／重启边界。验收中的提交、推送及远端 CI 状态是记录生成时的快照，实际以 Git 为准。
+本轮按 `MIGRATION_TASKS.md` 的已授权顺序推进，独立存储／链路／队列、向量归约、向量组合与 LoopController 已完成。第 9 项算术边界、复位及组合逻辑已通过组件、PE 和网表检查，记录见本文末尾及 `ARITHMETIC_BOUNDARIES.md`。第 10 项内存及外设边界已完成，见 `MEMORY_BOUNDARIES.md`；下一项整理三种 PE 的公共参数、类型和重复逻辑。验收中的提交、推送及远端 CI 状态是记录生成时的快照，实际以 Git 为准。
 
 ## 已实现
 
@@ -128,7 +128,7 @@ SPMV 在迁移工具的内存副本中补充 opcode 映射，并使用原生无�
 - 未修改 Python 的 SPMV 配置生成仍遇到 `KeyError: ICMP_ULT`。M23 的原生修复程序已通过上述限定范围的验收；原 Python 等价状态仍是配置生成失败。
 - GEMM/GEMV 的原始 Python 轨迹仍标记 incomplete；修复配置的数学通过不是未修改 Python 程序的等价完成。
 - VectorMul 的 LANES>4 仍有 Python 只连接前四路的边界，本批不将它扩展为任意 lane 算术。
-- DMA command 的 `nbytes >> 2` 仍遵循当前 Python。已验收的 SPM word 为 32 位、长度为 4 的倍数；其它 SPM 位宽/非对齐长度没有完整业务语义保证。
+- 原生 DMA 明确限定 32 位 SPM word 和 4 的倍数字节数；非对齐长度、未知 opcode 及不支持的 SPM 部分掩码被拒绝。`LEGACY_PYTHON=1` 单独保留原 Python 的截断／下溢行为。复位要求全局清空端点未完成响应，不能撤销已接受的写入。
 - Mesh/Ring、注册存储、64 Tile 和异构程序使用当前 RTL 的独立数学验收；这些结果不等于当前 Python 的完整逐周期等价。当前跨 CGRA 归约和动态 FIR 另有新采集的原 Python 轨迹。历史 64-Tile Python 轨迹不完整的边界仍保留。
 - 独立 LoopController 的 payload API、稳定派发及计数型父通知已完成；尚未接入系统路由，不支持通用 DAG 或带身份／epoch 的去重协议。静态 CtrlMem/ConstQueue 和 RingMultiCtrlMem API 已补齐，未扩大其 PE 变体／FU sideband 集成范围。DataMem/DataMemScalable、OrLink/Selector/PipeQueue 现均有独立接口及网表验收，不能据此推断所有系统组合已完成验证。
 - ConstQueue/Crossbar 等变体内部的重复实现，以及 NoC 新版结构优化仍待后续集中重构；当前先以同一验收矩阵保持行为一致。
@@ -374,3 +374,11 @@ Verilator 5.029 的文件驱动 while 循环会错误常量折叠循环外的计
 首次 PE 台架颠倒配置命令 7／8，已修正并重跑完整矩阵。旧 ac96 标量整组台架不适用
 当前 Grant／GEP 语义，因此只对保持不变的 LoopCounter 使用其旧向量，除法和
 LoopControl 使用新冻结的当前 Python 轨迹；历史文件未被改写。
+
+## 内存和外设边界验收
+
+- 多 bank 存储控制器要求写地址／数据成对接受，复位隔离公开事务并取消尚未提交的排队写入；已提交 SRAM 数据保留。64 位 SRAM 的 DMA 数据正确零扩展，原生 DMA SPM 口拒绝部分字节掩码。
+- im2col 默认复用独立 DataMem、校验几何／输出范围并支持完成后再次启动。复位清配置和执行状态，兼容模式单独保留原终止状态／跨复位配置。
+- 集成 im2col 的启动封锁改在 CPU 接受启动时生效，修复紧随启动的 CPU 读请求抢先读到旧值。持续 DONE 下直接重启及执行中全局复位也纳入集成验证。
+- 14 个原始测试、24 个独立重生成文件、七组当前 Python 原始采样及原始非对称 HDL 比较均保留来源。3 读／1 写原 Python 可仿真但不能翻译；1 读／3 写可翻译但纯仿真位宽失败，二者明确区分。
+- 22 份综合网表（含完整 im2col 系统）通过结构检查、零 SCC 及同一独立数学／源行为测试。单 CGRA 模式的未使用外部 NoC 输出显式接零。更广 DMA 格式、任意 NoC 协议与平台实现验收仍按后续范围处理。详见 `MEMORY_BOUNDARIES.md` 与 `reference/current/memory_boundaries/validation.json`。
