@@ -1,6 +1,9 @@
 **VectorCGRA 迁移进度与成果汇总**
 
-2026-10-10 更新：当前已继续执行迁移，新增参数化单 PE 入口、当前 Python 功能同步、语义修复和原生回归。本轮进一步完成五组 PE 网表验收、GEMM/GEMV 与独立 COO 回读、当前多 CGRA/动态迁移及算术修正；M23 已修复原 4×4 SPMV 映射，nnz=0…8 的原生数学及存储协议验收通过；未修改 Python 的配置生成仍失败。M24 已补齐独立 LoopController API，四组参数的 RTL／网表及原 Python 对照通过，系统集成仍未完成。M25 已补齐独立静态 CtrlMem/ConstQueue，18 个配置的 RTL／综合网表及原生修正检查通过，未替换 PE 动态存储。M26 已补齐独立 RingMultiCtrlMem，四组参数的原生／兼容 RTL 和网表通过，默认修正虚假返回和 COMPLETE 饥饿，系统集成范围未扩大。独立 DataMem 的原生／兼容接口及七份网表已验收，Scalable 包装层及占位 NoC 边界也已验收，N 输入 OrLink 及四份网表也已验收，Selector 的 ready 修正及七份网表也已验收，PipeQueue 的满队列替换及八份网表也已验收，VectorAllReduce 默认数学与事务语义已修正，八份组件网表及四 CGRA 全局加／乘法通过；向量组合常量进位已修正，原生 VectorMul 明确限制四 lane，十一份网表及三种 PE 的兼容／原生用例通过；LoopController 默认输出保持、并发完成和父通知已修正，四组 RTL／八份网表通过，系统路由范围未扩大；算术边界、公共复位及未驱动／锁存审查已完成，46 份组件网表、21 个原生 PE 配置与原 Python 兼容检查通过；后续按 `MIGRATION_TASKS.md` 逐项检查和提交。最新结果及剩余问题见 [CURRENT_MIGRATION.md](CURRENT_MIGRATION.md)。以下统计保留为原第四阶段交付快照，其文件数量、测试结果及“等待指令”描述不适用于当前工作树。
+> 本文的文件／行数及阶段状态是其注明提交的历史快照。当前完成范围和剩余边界见
+> [CURRENT_MIGRATION.md](CURRENT_MIGRATION.md)，本轮收尾见 [MIGRATION_TASKS.md](MIGRATION_TASKS.md)。
+
+历史批次更新（2026-10-10，保留原文）：当前已继续执行迁移，新增参数化单 PE 入口、当前 Python 功能同步、语义修复和原生回归。本轮进一步完成五组 PE 网表验收、GEMM/GEMV 与独立 COO 回读、当前多 CGRA/动态迁移及算术修正；M23 已修复原 4×4 SPMV 映射，nnz=0…8 的原生数学及存储协议验收通过；未修改 Python 的配置生成仍失败。M24 已补齐独立 LoopController API，四组参数的 RTL／网表及原 Python 对照通过，系统集成仍未完成。M25 已补齐独立静态 CtrlMem/ConstQueue，18 个配置的 RTL／综合网表及原生修正检查通过，未替换 PE 动态存储。M26 已补齐独立 RingMultiCtrlMem，四组参数的原生／兼容 RTL 和网表通过，默认修正虚假返回和 COMPLETE 饥饿，系统集成范围未扩大。独立 DataMem 的原生／兼容接口及七份网表已验收，Scalable 包装层及占位 NoC 边界也已验收，N 输入 OrLink 及四份网表也已验收，Selector 的 ready 修正及七份网表也已验收，PipeQueue 的满队列替换及八份网表也已验收，VectorAllReduce 默认数学与事务语义已修正，八份组件网表及四 CGRA 全局加／乘法通过；向量组合常量进位已修正，原生 VectorMul 明确限制四 lane，十一份网表及三种 PE 的兼容／原生用例通过；LoopController 默认输出保持、并发完成和父通知已修正，四组 RTL／八份网表通过，系统路由范围未扩大；算术边界、公共复位及未驱动／锁存审查已完成，46 份组件网表、21 个原生 PE 配置与原 Python 兼容检查通过；后续按 `MIGRATION_TASKS.md` 逐项检查和提交。最新结果及剩余问题见 [CURRENT_MIGRATION.md](CURRENT_MIGRATION.md)。以下统计保留为原第四阶段交付快照，其文件数量、测试结果及“等待指令”描述不适用于当前工作树。
 
 统计版本：第四阶段交付分支 `codex/sv-migration-phase4`，代码提交 `c3184dc07ca3a0572a5e7e92fac7e2a5efb38ea6`。源码基线为 `ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b`。本次只整理已有成果，没有继续第五阶段迁移或修改硬件。
 
@@ -50,7 +53,7 @@ FU 种类包括加乘、比较/逻辑/移位、选择/Phi/Grant、地址计算�
 | 2：参数化单 CGRA | 完成 | 恢复尺寸、数据位宽、控制/寄存器/数据存储深度参数；验证 2×2、4×4、原架构已有的 3×2，以及 64 位变体 |
 | 3：FU 与 Tile 变体 | 完成 | 31 种可选 FU 目录；Base/ContextSwitch/StreamingLoad；4/8 端口连接、上下文保存/恢复、流式访存 |
 | 4：多 CGRA 与系统扩展 | 完成 | Mesh/Ring、多地址 owner、远程访存、异构大小/逐 Tile FU/定向链路；全局 ADD、跨 CGRA FIR 任务迁移、DMA/im2col |
-| 5：全项目替代与交付 | 等待指令 | 配置工具、遗留功能逐项关闭、完整交付回归与独立工程收尾；此前探索保存在 `codex/sv-phase5-draft`，不计入本次成果 |
+| 5：全项目替代与交付 | 此历史快照时尚未授权；现状见上述链接 | 配置工具、遗留功能逐项关闭、完整交付回归与独立工程收尾；此前探索保存在 `codex/sv-phase5-draft`，不计入本次成果 |
 
 单 CGRA 已验证最大为 4×4、16 Tiles。多 CGRA 已验证四个 4×4 CGRA，共 **64 Tiles**；异构用例为 2×2 / 3×3 / 2×2 / 2×2，共 **21 Tiles**。这些是已测试配置，不表示任意尺寸、FU 排列和稀疏结构均可用。
 

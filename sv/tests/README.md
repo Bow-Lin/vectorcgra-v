@@ -1,5 +1,11 @@
 # Native SystemVerilog tests
 
+The complete current test catalog is maintained in
+[REGRESSION.md](../REGRESSION.md): 14 groups and 48 targets. Use `make -C sv current`
+for the current component/PE/DMA entry, or `python3 sv/scripts/regression.py --all`
+for the full catalog. Exact evidence and remaining scope are indexed in
+[FINAL_ACCEPTANCE.md](../FINAL_ACCEPTANCE.md).
+
 Current standalone static storage tests run with `make -C sv current-static-memory`
 and `make -C sv current-static-memory-synth`. They cover frozen Python compatibility,
 native handshake/reset corrections, negative controls, and real synthesized netlists.
@@ -12,11 +18,11 @@ legacy Python replay and native completion/backpressure checks; see
 
 Stage 3 tests are under [`phase3/`](phase3/system/README.md): scalar,
 vector/composite, floating-point, Tile variants and six complete single-CGRA
-profiles. Run `sv/scripts/run.ps1 -Task phase3` with the documented tool paths,
-or `-Task phase3-system` for the complete arrays. Stage 2 parameterized array
-tests remain documented in [phase2_README.md](phase2_README.md).
+profiles. These are historical contracts; select their fixed source through
+`sv/scripts/run_baseline.sh`, as described in the regression guide. Stage 2
+parameterized array tests remain documented in [phase2_README.md](phase2_README.md).
 
-## Fixed 2x2 acceptance test
+## Historical fixed 2x2 acceptance test
 
 `tb_cgra_2x2_scalar.sv` tests the frozen `ac96a7` scalar profile, with
 `cgra_2x2` and `VectorCGRA2x2Reference` driven together. The profile has four
@@ -78,9 +84,11 @@ to run this test. The test's independent packing types live in
 `scalar_workload_pkg.sv`; `tb_cgra_types.sv` separately checks the public
 RTL package against nonzero PyMTL packing samples.
 
-## 第四阶段
+## 第四阶段历史记录
 
-[phase4/README.md](phase4/README.md) 是多 CGRA、异构结构、NoC、任务迁移、DMA/im2col 与非对称存储用例的入口。旧阶段默认配置兼容性重跑结果见 `phase4/compatibility/results.json`。第五阶段等待用户指令，本交付分支不包含第五阶段用例。
+[phase4/README.md](phase4/README.md) 保留多 CGRA、异构结构、NoC、任务迁移、DMA/im2col 与非对称存储的历史用例。旧阶段默认配置兼容性重跑结果见 `phase4/compatibility/results.json`。当前已授权收尾任务及状态见 [MIGRATION_TASKS.md](../MIGRATION_TASKS.md)。
+
+## 当前独立 API
 
 `make -C sv current-data-memory current-data-memory-synth` 验证独立 DataMem 的 Python 对照、原生计分板及综合网表。
 
@@ -96,4 +104,4 @@ RTL package against nonzero PyMTL packing samples.
 
 `current-vector-arithmetic` / `current-vector-arithmetic-synth` 检查组合常量进位、独立加／乘法数学、完整 Python 轨迹，以及原生八 lane 乘法拒绝。
 
-`current-loop-controller` / `current-loop-controller-synth` 现同时检查默认森林计数契约和原 Python 兼容分支；地址匹配、并发完成及 parent 语义见 `LOOP_CONTROLLER_API.md`。
+`current-loop-controller` / `current-loop-controller-synth` 现同时检查默认森林计数契约和原 Python 兼容分支；地址匹配、并发完成及 parent 语义见 [LOOP_CONTROLLER_API.md](../LOOP_CONTROLLER_API.md)。

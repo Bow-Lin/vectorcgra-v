@@ -42,3 +42,4 @@ runner、有效参数和工具版本。身份变化必须重新编译，不允�
 本批本地记录见 `reference/current/regression/validation.json`：统一 baseline／core、
 Context64 实际网表、72 次内核数学运行及两个迁移场景均通过；干净 Ubuntu 24.04／
 GCC 13 的 8 FU、539 周期重放也通过。该记录生成于提交前，远端结果单独记录。
+具体远端提交、运行链接和观察结果见 [最终验收索引](FINAL_ACCEPTANCE.md)。

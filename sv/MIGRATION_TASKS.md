@@ -23,9 +23,9 @@
 | 15 | 全模块／功能／opcode 与原始 274 文件覆盖清单 | 已完成；见 MIGRATION_INVENTORY.md，274 文件／99+4 opcode／59 命令及独立 RegFile 三份网表 |
 | 16 | 扩展内核独立数学验收，包括 AXPY 最终回读及矩阵边界 | 已完成；见 KERNEL_BOUNDARIES.md，72 次数学验收、完整回读／写次数、完成顺序修复及两个 STORE 网表 |
 | 17 | 当前源码完整系统与选定综合网表验收 | 已完成；见 SYSTEM_ACCEPTANCE.md，18 次正向、27 次负向及两份完整 Mesh／Ring 网表 |
-| 18 | 统一回归、CI 与工具链 | 本地验收完成并提交；见 REGRESSION.md，14 组／48 目标，远端 CI 在推送后核验 |
+| 18 | 统一回归、CI 与工具链 | 已完成；见 REGRESSION.md／FINAL_ACCEPTANCE.md，实际远端 CI 的 14 组、48 目标全部通过 |
 | 19 | 当前独立工程导出、干净环境构建与 IP 来源／许可 | 已完成；见 STANDALONE.md／DEPENDENCIES.md，无原 Python／Git／PyMTL 的容器通过选定原生与历史验收 |
-| 20 | 最终文档、差异、参数范围及证据交付 | 待执行 |
+| 20 | 最终文档、差异、参数范围及证据交付 | 已完成；见 FINAL_ACCEPTANCE.md 与 results/migration-closeout.json，保留历史记录并核对当前源码、范围及独立包 |
 
 以下为另行确认的功能扩展，不因收尾任务而自动实现：LoopController 系统路由，
 DataMemScalable 远程访问，任意 FU 端口／VC／credit／稀疏删除 Tile，通用 DAG，

@@ -1,5 +1,13 @@
 # Migration-only reference export
 
+Ordinary native builds and standalone delivery use the checked-in HDL and frozen
+inputs; see [REGRESSION.md](../REGRESSION.md) and [STANDALONE.md](../STANDALONE.md).
+The independent architecture/program tools are under `sv/tools/` and use only
+the Python standard library. This directory retains reference-generation and
+source-audit tools with separate requirements. `inventory.py --check` reads the
+original source tree without importing PyMTL; the standalone package carries its
+results but does not contain the original source needed to repeat that audit.
+
 Current-target exporters (`current_*.py`) use the Python pinned in
 `sv/reference/current/target.json`; the historical tools described below retain
 the original ac96 baseline. `current_static_memory.py --output-root <directory>`
@@ -12,7 +20,9 @@ RingMultiCtrlMemDynamicRTL wrapper and its original test. It retains the dummy
 event and stalled-return defects; native repairs are verified separately by HDL
 protocol tests. See [RING_CTRL_MEMORY_API.md](../RING_CTRL_MEMORY_API.md).
 
-These scripts freeze the unmodified Python RTL at
+## Historical ac96 exporters
+
+The following historical scripts freeze the unmodified Python RTL at
 `ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b`. They are optional migration tools;
 the normal SystemVerilog build uses checked-in RTL and vectors without importing
 the project Python generator.
@@ -115,6 +125,8 @@ port. It is not a hardware generator used by Make, and is not the source of
 truth for subsequent edits to `rtl/`. Later corrections and integration are
 maintained in the checked-in SystemVerilog. Final phase-2 coverage and evidence
 are described in `../PHASE2_REPORT.md`.
+
+## Current pinned Python exporters
 
 `current_data_memory.py` 冻结未修改 DataMemRTL；原测试 Source/Sink 断言保留，附加多口位级轨迹及 Bits0 边界。日常回归不调用此工具。
 
