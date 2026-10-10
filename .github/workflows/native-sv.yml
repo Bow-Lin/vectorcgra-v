@@ -17,7 +17,7 @@ jobs:
         run: verilator --version && g++ --version
       - name: Components, PE variants and DMA
         run: make -C sv current JOBS=2
-      - name: Standalone loop controller API and capacity boundaries
+      - name: Loop controller stable dispatch, concurrent completions and compatibility
         run: make -C sv current-loop-controller JOBS=2
       - name: Standalone static control memory and constant ROM APIs
         run: make -C sv current-static-memory JOBS=2

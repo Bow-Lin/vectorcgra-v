@@ -18,7 +18,7 @@ module tb_loop_controller #(
 `else
   cgra_loop_controller #(.DATA_W(DATA_W),.CTRL_BITS(CTRL_BITS),.NUM_CCUS(NUM_CCUS),
     .MAX_TARGETS(MAX_TARGETS),.DATA_ADDR_W(DATA_ADDR_W),.CTRL_ADDR_W(CTRL_ADDR_W),
-    .LEGACY_DISPATCH_WRAP(LEGACY_DISPATCH_WRAP)) dut(.*);
+    .LEGACY_PYTHON(1),.LEGACY_DISPATCH_WRAP(LEGACY_DISPATCH_WRAP)) dut(.*);
 `endif
   int checks /* verilator public_flat_rw */ = 0;
   int samples /* verilator public_flat_rw */ = 0;

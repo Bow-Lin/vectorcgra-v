@@ -326,3 +326,20 @@ Verilator 5.029 的文件驱动 while 循环会错误常量折叠循环外的计
 - 详见 `VECTOR_ARITHMETIC_API.md` 和 `reference/current/vector_arithmetic/validation.json`。
   本项保持旧 reset／clear 和乘法控制 ready 语义，后续统一审查；未声称完整系统网表
   或任意 lane 乘法已完成。下一项为 LoopController 仲裁、并发完成及父／完成契约。
+
+## LoopController 输出保持和完成语义（2026-10-10）
+
+- 默认核心修复背压下被低编号抢占、同拍完成覆盖、兄弟完成丢失、祖先通知不完整、
+  未启动／无根误报完成及运行中配置修改。兼容核心只改模块名，保留原行为用于对照。
+- 本地／远端完成相加，非终止派发保留剩余额度；有根森林的父通知逐级寄存，最后
+  目标握手重启整个已配置子树。原生远程命令 40 的 ctrl_addr 明确为接收 CCU ID。
+  reset 屏蔽握手；配置只在启动前或全部完成后接受；没有添加系统实例或 NoC 路由。
+- 四组配置覆盖 32／64 位、1／3／8 个 CCU、1／3／4／8 个目标。RTL 和八份实际网表
+  各通过 1,852 项原生检查，网表重新读取后 check 和零 SCC 通过。共 36 次正向运行、
+  52 次负控；八项缺陷要求原生通过、兼容失败；非法配置与错误预期明确失败。
+- 原四组 Python Source/Sink 测试通过，12 个冻结文件独立再生成逐字节一致。
+  原 2,080 个采样中，12 个 reset 样本施加但不比较，剩余 2,068 周期／714,372 位
+  在每种实现全部匹配。原 274 个 Python 文件哈希不变。
+- 详见 `LOOP_CONTROLLER_API.md` 与 `reference/current/loop_controller_semantics/validation.json`。
+  仍是计数型、无身份／epoch 的有根森林协议，非法配置诊断不是硬件错误响应。
+  下一项为复位、未驱动／锁存、除零及 MAC 有符号边界。

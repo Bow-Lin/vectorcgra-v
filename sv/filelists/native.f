@@ -96,6 +96,8 @@ rtl/peripheral/cgra_im2col_engine.sv
 rtl/peripheral/cgra_integrated_dma.sv
 rtl/peripheral/cgra_integrated_im2col.sv
 rtl/tile/cgra_pe.sv
+rtl/controller/cgra_loop_controller_legacy.sv
+rtl/controller/cgra_loop_controller_native.sv
 rtl/controller/cgra_loop_controller.sv
 rtl/mem/cgra_static_ctrl_mem.sv
 rtl/mem/cgra_static_const_queue.sv

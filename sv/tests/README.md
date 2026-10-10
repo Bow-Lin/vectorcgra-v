@@ -95,3 +95,5 @@ RTL package against nonzero PyMTL packing samples.
 `current-vector-reduce` / `current-vector-reduce-synth` 检查归约的原生数学、事务守恒和原 Python 缺陷兼容；`native-global-reduce` 验收四 CGRA 全局加／乘法。
 
 `current-vector-arithmetic` / `current-vector-arithmetic-synth` 检查组合常量进位、独立加／乘法数学、完整 Python 轨迹，以及原生八 lane 乘法拒绝。
+
+`current-loop-controller` / `current-loop-controller-synth` 现同时检查默认森林计数契约和原 Python 兼容分支；地址匹配、并发完成及 parent 语义见 `LOOP_CONTROLLER_API.md`。
