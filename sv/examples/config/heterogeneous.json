@@ -1,0 +1,842 @@
+{
+  "schema": 1,
+  "top": "multi",
+  "parameters": {
+    "MULTI_COLS": 2,
+    "MULTI_ROWS": 2,
+    "TILE_PORTS": 8
+  },
+  "architectures": [
+    {
+      "size": 2,
+      "links": [
+        {
+          "src": 0,
+          "dst": 1,
+          "sp": 3,
+          "dp": 2,
+          "enabled": 1
+        },
+        {
+          "src": 1,
+          "dst": 0,
+          "sp": 2,
+          "dp": 3,
+          "enabled": 1
+        },
+        {
+          "src": 2,
+          "dst": 3,
+          "sp": 3,
+          "dp": 2,
+          "enabled": 1
+        },
+        {
+          "src": 3,
+          "dst": 2,
+          "sp": 2,
+          "dp": 3,
+          "enabled": 1
+        },
+        {
+          "src": 0,
+          "dst": 2,
+          "sp": 0,
+          "dp": 1,
+          "enabled": 1
+        },
+        {
+          "src": 2,
+          "dst": 0,
+          "sp": 1,
+          "dp": 0,
+          "enabled": 1
+        },
+        {
+          "src": 1,
+          "dst": 3,
+          "sp": 0,
+          "dp": 1,
+          "enabled": 1
+        },
+        {
+          "src": 3,
+          "dst": 1,
+          "sp": 1,
+          "dp": 0,
+          "enabled": 1
+        },
+        {
+          "src": 0,
+          "dst": 3,
+          "sp": 5,
+          "dp": 7,
+          "enabled": 0
+        },
+        {
+          "src": 3,
+          "dst": 0,
+          "sp": 7,
+          "dp": 5,
+          "enabled": 1
+        },
+        {
+          "src": 1,
+          "dst": 2,
+          "sp": 4,
+          "dp": 6,
+          "enabled": 1
+        },
+        {
+          "src": 2,
+          "dst": 1,
+          "sp": 6,
+          "dp": 4,
+          "enabled": 1
+        }
+      ],
+      "read_ports": [
+        0,
+        2,
+        1,
+        4294967295,
+        4294967295
+      ],
+      "write_ports": [
+        0,
+        2,
+        1,
+        4294967295,
+        4294967295
+      ],
+      "boundary_in": [
+        0,
+        8,
+        1,
+        9,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "boundary_out": [
+        0,
+        8,
+        1,
+        9,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fu_names": [
+        [
+          "AdderRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ],
+        [
+          "AdderRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ],
+        [
+          "AdderRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ],
+        [
+          "AdderRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ]
+      ]
+    },
+    {
+      "size": 3,
+      "links": [
+        {
+          "src": 0,
+          "dst": 1,
+          "sp": 3,
+          "dp": 2,
+          "enabled": 1
+        },
+        {
+          "src": 1,
+          "dst": 0,
+          "sp": 2,
+          "dp": 3,
+          "enabled": 1
+        },
+        {
+          "src": 1,
+          "dst": 2,
+          "sp": 3,
+          "dp": 2,
+          "enabled": 1
+        },
+        {
+          "src": 2,
+          "dst": 1,
+          "sp": 2,
+          "dp": 3,
+          "enabled": 1
+        },
+        {
+          "src": 3,
+          "dst": 4,
+          "sp": 3,
+          "dp": 2,
+          "enabled": 1
+        },
+        {
+          "src": 4,
+          "dst": 3,
+          "sp": 2,
+          "dp": 3,
+          "enabled": 1
+        },
+        {
+          "src": 4,
+          "dst": 5,
+          "sp": 3,
+          "dp": 2,
+          "enabled": 1
+        },
+        {
+          "src": 5,
+          "dst": 4,
+          "sp": 2,
+          "dp": 3,
+          "enabled": 1
+        },
+        {
+          "src": 6,
+          "dst": 7,
+          "sp": 3,
+          "dp": 2,
+          "enabled": 1
+        },
+        {
+          "src": 7,
+          "dst": 6,
+          "sp": 2,
+          "dp": 3,
+          "enabled": 1
+        },
+        {
+          "src": 7,
+          "dst": 8,
+          "sp": 3,
+          "dp": 2,
+          "enabled": 1
+        },
+        {
+          "src": 8,
+          "dst": 7,
+          "sp": 2,
+          "dp": 3,
+          "enabled": 1
+        },
+        {
+          "src": 0,
+          "dst": 3,
+          "sp": 0,
+          "dp": 1,
+          "enabled": 1
+        },
+        {
+          "src": 3,
+          "dst": 0,
+          "sp": 1,
+          "dp": 0,
+          "enabled": 1
+        },
+        {
+          "src": 1,
+          "dst": 4,
+          "sp": 0,
+          "dp": 1,
+          "enabled": 1
+        },
+        {
+          "src": 4,
+          "dst": 1,
+          "sp": 1,
+          "dp": 0,
+          "enabled": 1
+        },
+        {
+          "src": 2,
+          "dst": 5,
+          "sp": 0,
+          "dp": 1,
+          "enabled": 1
+        },
+        {
+          "src": 5,
+          "dst": 2,
+          "sp": 1,
+          "dp": 0,
+          "enabled": 1
+        },
+        {
+          "src": 3,
+          "dst": 6,
+          "sp": 0,
+          "dp": 1,
+          "enabled": 1
+        },
+        {
+          "src": 6,
+          "dst": 3,
+          "sp": 1,
+          "dp": 0,
+          "enabled": 1
+        },
+        {
+          "src": 4,
+          "dst": 7,
+          "sp": 0,
+          "dp": 1,
+          "enabled": 1
+        },
+        {
+          "src": 7,
+          "dst": 4,
+          "sp": 1,
+          "dp": 0,
+          "enabled": 1
+        },
+        {
+          "src": 5,
+          "dst": 8,
+          "sp": 0,
+          "dp": 1,
+          "enabled": 1
+        },
+        {
+          "src": 8,
+          "dst": 5,
+          "sp": 1,
+          "dp": 0,
+          "enabled": 1
+        },
+        {
+          "src": 0,
+          "dst": 4,
+          "sp": 5,
+          "dp": 7,
+          "enabled": 0
+        },
+        {
+          "src": 4,
+          "dst": 0,
+          "sp": 7,
+          "dp": 5,
+          "enabled": 1
+        },
+        {
+          "src": 1,
+          "dst": 3,
+          "sp": 4,
+          "dp": 6,
+          "enabled": 1
+        },
+        {
+          "src": 3,
+          "dst": 1,
+          "sp": 6,
+          "dp": 4,
+          "enabled": 1
+        },
+        {
+          "src": 1,
+          "dst": 5,
+          "sp": 5,
+          "dp": 7,
+          "enabled": 0
+        },
+        {
+          "src": 5,
+          "dst": 1,
+          "sp": 7,
+          "dp": 5,
+          "enabled": 1
+        },
+        {
+          "src": 2,
+          "dst": 4,
+          "sp": 4,
+          "dp": 6,
+          "enabled": 1
+        },
+        {
+          "src": 4,
+          "dst": 2,
+          "sp": 6,
+          "dp": 4,
+          "enabled": 1
+        },
+        {
+          "src": 3,
+          "dst": 7,
+          "sp": 5,
+          "dp": 7,
+          "enabled": 0
+        },
+        {
+          "src": 7,
+          "dst": 3,
+          "sp": 7,
+          "dp": 5,
+          "enabled": 1
+        },
+        {
+          "src": 4,
+          "dst": 6,
+          "sp": 4,
+          "dp": 6,
+          "enabled": 1
+        },
+        {
+          "src": 6,
+          "dst": 4,
+          "sp": 6,
+          "dp": 4,
+          "enabled": 1
+        },
+        {
+          "src": 4,
+          "dst": 8,
+          "sp": 5,
+          "dp": 7,
+          "enabled": 0
+        },
+        {
+          "src": 8,
+          "dst": 4,
+          "sp": 7,
+          "dp": 5,
+          "enabled": 1
+        },
+        {
+          "src": 5,
+          "dst": 7,
+          "sp": 4,
+          "dp": 6,
+          "enabled": 1
+        },
+        {
+          "src": 7,
+          "dst": 5,
+          "sp": 6,
+          "dp": 4,
+          "enabled": 1
+        }
+      ],
+      "read_ports": [
+        0,
+        3,
+        6,
+        1,
+        2
+      ],
+      "write_ports": [
+        0,
+        3,
+        6,
+        1,
+        2
+      ],
+      "boundary_in": [
+        4,
+        0,
+        0,
+        4,
+        0,
+        0,
+        5,
+        1,
+        0
+      ],
+      "boundary_out": [
+        4,
+        0,
+        0,
+        4,
+        0,
+        0,
+        5,
+        1,
+        0
+      ],
+      "fu_names": [
+        [
+          "AdderRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ],
+        [
+          "AdderRTL",
+          "LogicRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ],
+        [
+          "AdderRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ],
+        [
+          "AdderRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ],
+        [
+          "AdderRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ],
+        [
+          "AdderRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ],
+        [
+          "AdderRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ],
+        [
+          "AdderRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ],
+        [
+          "AdderRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ]
+      ]
+    },
+    {
+      "size": 2,
+      "links": [
+        {
+          "src": 0,
+          "dst": 1,
+          "sp": 3,
+          "dp": 2,
+          "enabled": 1
+        },
+        {
+          "src": 1,
+          "dst": 0,
+          "sp": 2,
+          "dp": 3,
+          "enabled": 1
+        },
+        {
+          "src": 2,
+          "dst": 3,
+          "sp": 3,
+          "dp": 2,
+          "enabled": 1
+        },
+        {
+          "src": 3,
+          "dst": 2,
+          "sp": 2,
+          "dp": 3,
+          "enabled": 1
+        },
+        {
+          "src": 0,
+          "dst": 2,
+          "sp": 0,
+          "dp": 1,
+          "enabled": 1
+        },
+        {
+          "src": 2,
+          "dst": 0,
+          "sp": 1,
+          "dp": 0,
+          "enabled": 1
+        },
+        {
+          "src": 1,
+          "dst": 3,
+          "sp": 0,
+          "dp": 1,
+          "enabled": 1
+        },
+        {
+          "src": 3,
+          "dst": 1,
+          "sp": 1,
+          "dp": 0,
+          "enabled": 1
+        },
+        {
+          "src": 0,
+          "dst": 3,
+          "sp": 5,
+          "dp": 7,
+          "enabled": 0
+        },
+        {
+          "src": 3,
+          "dst": 0,
+          "sp": 7,
+          "dp": 5,
+          "enabled": 1
+        },
+        {
+          "src": 1,
+          "dst": 2,
+          "sp": 4,
+          "dp": 6,
+          "enabled": 1
+        },
+        {
+          "src": 2,
+          "dst": 1,
+          "sp": 6,
+          "dp": 4,
+          "enabled": 1
+        }
+      ],
+      "read_ports": [
+        0,
+        2,
+        1,
+        4294967295,
+        4294967295
+      ],
+      "write_ports": [
+        0,
+        2,
+        1,
+        4294967295,
+        4294967295
+      ],
+      "boundary_in": [
+        2,
+        10,
+        0,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "boundary_out": [
+        2,
+        10,
+        0,
+        8,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fu_names": [
+        [
+          "AdderRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ],
+        [
+          "AdderRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ],
+        [
+          "AdderRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ],
+        [
+          "AdderRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ]
+      ]
+    },
+    {
+      "size": 2,
+      "links": [
+        {
+          "src": 0,
+          "dst": 1,
+          "sp": 3,
+          "dp": 2,
+          "enabled": 1
+        },
+        {
+          "src": 1,
+          "dst": 0,
+          "sp": 2,
+          "dp": 3,
+          "enabled": 1
+        },
+        {
+          "src": 2,
+          "dst": 3,
+          "sp": 3,
+          "dp": 2,
+          "enabled": 1
+        },
+        {
+          "src": 3,
+          "dst": 2,
+          "sp": 2,
+          "dp": 3,
+          "enabled": 1
+        },
+        {
+          "src": 0,
+          "dst": 2,
+          "sp": 0,
+          "dp": 1,
+          "enabled": 1
+        },
+        {
+          "src": 2,
+          "dst": 0,
+          "sp": 1,
+          "dp": 0,
+          "enabled": 1
+        },
+        {
+          "src": 1,
+          "dst": 3,
+          "sp": 0,
+          "dp": 1,
+          "enabled": 1
+        },
+        {
+          "src": 3,
+          "dst": 1,
+          "sp": 1,
+          "dp": 0,
+          "enabled": 1
+        },
+        {
+          "src": 0,
+          "dst": 3,
+          "sp": 5,
+          "dp": 7,
+          "enabled": 0
+        },
+        {
+          "src": 3,
+          "dst": 0,
+          "sp": 7,
+          "dp": 5,
+          "enabled": 1
+        },
+        {
+          "src": 1,
+          "dst": 2,
+          "sp": 4,
+          "dp": 6,
+          "enabled": 1
+        },
+        {
+          "src": 2,
+          "dst": 1,
+          "sp": 6,
+          "dp": 4,
+          "enabled": 1
+        }
+      ],
+      "read_ports": [
+        0,
+        2,
+        1,
+        4294967295,
+        4294967295
+      ],
+      "write_ports": [
+        0,
+        2,
+        1,
+        4294967295,
+        4294967295
+      ],
+      "boundary_in": [
+        6,
+        2,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "boundary_out": [
+        6,
+        2,
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "fu_names": [
+        [
+          "AdderRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ],
+        [
+          "AdderRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ],
+        [
+          "AdderRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ],
+        [
+          "AdderRTL",
+          "MemUnitRTL",
+          "MulRTL",
+          "NahRTL"
+        ]
+      ]
+    }
+  ]
+}

@@ -2,15 +2,27 @@
 `include "cgra_profile_defs.svh"
 module tb_native_template #(`CGRA_PROFILE_PARAMETERS);
   `include "cgra_profile.svh"
+`ifdef CGRA_GENERATED_ARCH
+  `include "architecture.svh"
+`else
   `include "heterogeneous/architecture.svh"
+`endif
   logic clk=0,reset=0;
   logic [HOST_BITS-1:0] recv_from_cpu_pkt__msg,send_to_cpu_pkt__msg;
   logic recv_from_cpu_pkt__val,recv_from_cpu_pkt__rdy,send_to_cpu_pkt__val,send_to_cpu_pkt__rdy;
+`ifdef CGRA_GENERATED_ARCH
+  cgra_multi_template #(
+    `include "bindings.svh"
+  ) dut(.*);
+  initial if(HOST_BITS!=CFG_HOST_BITS || NOC_BITS!=CFG_NOC_BITS)
+    $fatal(1,"Generated architecture packet geometry mismatch");
+`else
   cgra_multi_template #(`CGRA_PROFILE_BIND,.FU_COUNT(5),.CGRA_COLS(ARCH_SIZES),.CGRA_ROWS(ARCH_SIZES),
     .TILE_FU_COUNTS(ARCH_COUNTS),.TILE_FU_KINDS(ARCH_FUS),.CUSTOM_TOPOLOGY(4'hf),
     .LINK_COUNT(ARCH_LINKS),.LINK_ENABLED(ARCH_ENABLED),.LINK_SRC_TILE(ARCH_SRC_TILE),.LINK_SRC_PORT(ARCH_SRC_PORT),
     .LINK_DST_TILE(ARCH_DST_TILE),.LINK_DST_PORT(ARCH_DST_PORT),.READ_PORT_TILE(ARCH_READ),.WRITE_PORT_TILE(ARCH_WRITE),
     .BOUNDARY_IN_ENABLE(ARCH_BIN),.BOUNDARY_OUT_ENABLE(ARCH_BOUT)) dut(.*);
+`endif
   bit complete[0:3][0:8];
   int completions=0,reads=0,stalls=0,remote_requests=0,disabled_links=0;
   noc_packet_t outgoing[0:3];

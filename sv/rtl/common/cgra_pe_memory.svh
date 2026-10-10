@@ -18,6 +18,10 @@
     assign from_mem_rdata__rdy=1'b0;
   end
   for(genvar slot=0;slot<FU_COUNT;slot++) begin : memory_slots
+    initial if((FU_KINDS[8*slot+:8]==`CGRA_FU_MEM ||
+                FU_KINDS[8*slot+:8]==`CGRA_FU_STREAMING_MEM) &&
+               FU_KINDS[8*slot+:8]!=PE_MEMORY_KIND)
+      $fatal(1,"PE_MEMORY_VARIANT: memory FU kind does not match the PE variant");
     if(FU_KINDS[8*slot+:8]==PE_MEMORY_KIND) begin : attached
       assign to_mem_raddr__msg=element__to_mem_raddr__msg[slot];
       assign to_mem_raddr__val=element__to_mem_raddr__val[slot];

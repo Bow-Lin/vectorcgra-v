@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "top": "system",
+  "variant": "streaming",
+  "parameters": {
+    "TILE_PORTS": 8
+  },
+  "architectures": [
+    {
+      "size": 2
+    }
+  ]
+}

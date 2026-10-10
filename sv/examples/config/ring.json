@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "top": "multi",
+  "topology": "ring",
+  "parameters": {
+    "MULTI_COLS": 4,
+    "MULTI_ROWS": 1
+  },
+  "architectures": [
+    {
+      "cols": 2,
+      "rows": 2
+    },
+    {
+      "cols": 2,
+      "rows": 2
+    },
+    {
+      "cols": 2,
+      "rows": 2
+    },
+    {
+      "cols": 2,
+      "rows": 2
+    }
+  ],
+  "address_map": [
+    2,
+    0,
+    3,
+    1
+  ]
+}
