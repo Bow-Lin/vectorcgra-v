@@ -34,10 +34,6 @@ module cgra_ring_route #(
   always_comb begin
     direction = 0;
     routed_msg = recv_msg;
-    for (int o = 0; o < 3; o++) begin
-      send_val[o] = 0;
-      send_msg[o] = recv_msg;
-    end
     if (recv_val) begin
       if (pos == destination) direction = 2;
       else if (left_dist < right_dist) direction = 0;
@@ -45,9 +41,13 @@ module cgra_ring_route #(
       if (((pos == POS_WIDTH'(NODES-1)) && direction == 1) ||
           ((pos == 0) && direction == 0))
         routed_msg[VC_LSB +: VC_WIDTH] = VC_WIDTH'(1);
-      send_val[direction] = 1;
-      send_msg[direction] = routed_msg;
     end
+  end
+  // Static output slices avoid a wide variable part-select after sv2v.
+  // Preserve the original invalid-message value on every unselected output.
+  for (genvar o = 0; o < 3; o++) begin : outputs
+    assign send_val[o] = recv_val && (direction == 2'(o));
+    assign send_msg[o] = send_val[o] ? routed_msg : recv_msg;
   end
   assign recv_rdy = send_rdy[direction];
 endmodule

@@ -305,3 +305,14 @@
 - 收尾审查发现 Verilator 对生成网表的不同位别名／拼接报 UNOPTFLAT；没有将功能通过写成零告警。逐份重新读入 18 份实际网表并运行 check -assert、scc -expect 0，均为零问题、零位级组合环；检查已接入综合网表 runner，证据保留每份日志及告警计数。
 - 23 个冻结文件在独立目录重新生成后逐字节一致，274 个原项目 Python SHA 未变。新增 Make、PowerShell、regression 与 CI 仿真入口；native 文件列表对既有 PE 测试台 lint/elaboration 通过。Shell 语法与 Make 入口检查通过；PowerShell 未在本 Linux 环境执行。
 - 验收摘要、源码／参考／网表与日志 SHA 独立保存为 `reference/current/static_memory/validation.json`；M23／M24 证据保持不变。本批未重跑系统内核，不声明新系统集成、PPA 或全迁移完成。验收时未提交／推送，也无本批远端 CI 结果；下一项为 RingMultiCtrlMem 独立接口。
+
+## M26：独立 RingMultiCtrlMem 动态控制环（2026-10-10）
+
+- 从已提交并推送的 `6ea3eb9948948b12cd2f33abfbffd13248caa95f` 继续；未创建子智能体，未修改原项目 Python 或旧参考。新增独立顶层、控制字适配层及专用类型，复用已有控制存储状态机，没有增加 PE／阵列集成。
+- 未修改 Python 即复现 dummy FU 输入持续 valid=1 导致 cmd=0 返回优先、COMPLETE 饥饿，以及返回 VC 仲裁在背压时切换的问题。原测试原样运行通过；取证版本仅改 runner 采样，保留原 Source/Sink 断言。原生关闭虚假输入、增加单项返回队列；显式兼容模式保留原行为。
+- 原测试加四组扩展轨迹共 1816 周期／744012 个输出位，每种实现全部逐位对照，包括 27 个 reset 周期及无效消息。15 个冻结文件再生成后逐字节一致；274 个原 Python SHA 未变。四组原生每种实现共 4470 项检查，覆盖完整字段、窗口、prologue、有限／无限执行、COMPLETE、终止恢复、START、复位与 credit／VC 背压。
+- 初次完整环综合发现 sv2v 动态数组写入与读取生成大量宽选择逻辑；停止耗时的平坦化试验，层次化试验在展开时被系统终止（exit 137），这些运行不计入通过证据。将共享 ring route 和 switch 改为静态逐端口连接／选择后重新验收，保留所有仲裁、无效消息及原参考。
+- 四参数点 × 原生／兼容模式的 RTL 与 8 份真实综合网表全部通过；完整 synth、优化前后 check 及实际网表重读后的 check／零 SCC 均通过。18 个错误期望、8 个旧 dummy 缺陷、3 个非法地址／目的／参数负控均检出预期错误。编译告警计数保留；CXXFLAGS=-O0 仅加速部分生成 C++ 的编译，Verilator RTL 优化和全部比较仍启用。
+- 共享 NoC 500 周期、7／17 节点环各 800 周期重新逐位匹配旧 HDL，包括 invalid 消息；361／786／800 包分别全部收发守恒。native 文件列表对既有 PE 台架 lint/elaboration 通过。未重跑系统内核，不声称新的系统级验收或 PPA。
+- 明确参数范围：FU 输入 1…4、输出固定 2、Tile 输入／输出各 1…8；实际验收四组参数，不声称覆盖任意 Python 类型。动态存储 reset 保留程序，运行中配置没有隔离；Context／Streaming 和其它 FU sideband 未暴露。返回队列最低增加一拍、峰值每两拍一条。
+- Make、PowerShell、regression 和 CI 仿真入口已加入；shell 语法和 Make 入口检查通过，PowerShell 未在 Linux 执行。证据独立存入 `reference/current/ring_ctrl_memory/validation.json`，旧批次记录保留。验收记录生成时尚未提交／推送，也没有本批远端 CI 结果；实际 Git 状态为准。下一项是独立 DataMem／DataMemScalable API。

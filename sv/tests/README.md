@@ -5,6 +5,11 @@ and `make -C sv current-static-memory-synth`. They cover frozen Python compatibi
 native handshake/reset corrections, negative controls, and real synthesized netlists.
 See [STATIC_MEMORY_API.md](../STATIC_MEMORY_API.md) for the API and evidence scope.
 
+The standalone ring/memory wrapper runs with `make -C sv current-ring-ctrl-memory`
+and `make -C sv current-ring-ctrl-memory-synth`. Four parameter profiles cover
+legacy Python replay and native completion/backpressure checks; see
+[RING_CTRL_MEMORY_API.md](../RING_CTRL_MEMORY_API.md).
+
 Stage 3 tests are under [`phase3/`](phase3/system/README.md): scalar,
 vector/composite, floating-point, Tile variants and six complete single-CGRA
 profiles. Run `sv/scripts/run.ps1 -Task phase3` with the documented tool paths,

@@ -1,0 +1,54 @@
+{
+  "parameters": {
+    "COLS": 2,
+    "ROWS": 2,
+    "DATA_W": 16,
+    "DATA_ADDR_W": 4,
+    "CTRL_DEPTH": 16,
+    "REG_DEPTH": 16,
+    "NUM_CTRL": 12,
+    "TOTAL_STEPS": 12,
+    "FU_INPUTS": 2,
+    "FU_OUTPUTS": 2,
+    "TILE_INPUTS": 4,
+    "TILE_OUTPUTS": 4
+  },
+  "cycles": 467,
+  "input_bits": 130,
+  "output_bits": 405,
+  "ctrl_bits": 69,
+  "reset_samples": 6,
+  "packet_bits": 123,
+  "stats": {
+    "ctrl_transfers": [
+      8,
+      5,
+      5,
+      5
+    ],
+    "return_commands": {
+      "0": 207,
+      "12": 1
+    },
+    "held_return_changes": 143,
+    "source_stalls": 0
+  },
+  "notes": [
+    "Unmodified Python wrapper; no adapter or monkey-patch of hardware.",
+    "Dummy zero events starve COMPLETE despite exactly five retired controls per node.",
+    "Runtime reset preserves program storage; cancels ring traffic and execution metadata."
+  ],
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "generator_sha256": "9293bd24a21e600aa74ec9656c94bfc6b972b16e1025418268bbbe3fceceb151",
+  "vectors_sha256": "6f87545d62aecce6068c90f586be8f70df915895be1a4769d9db53a7a21b6bf2",
+  "source_sha256": {
+    "mem/ctrl/RingMultiCtrlMemDynamicRTL.py": "8698dd5cd39dbab497dbcef64ca248c5165a7cb72367e4940224268ae6b54c54",
+    "mem/ctrl/CtrlMemDynamicRTL.py": "54bfc632194d673d0d58c1e59f252dca8f0aa0de1ad37d7463a2ab3fd786f21c",
+    "mem/ctrl/test/RingCtrlMemDynamicRTL_test.py": "47487710cff086d723d4aa44040d37bf4ed67426ef5b7588eca5a8bb05d14000",
+    "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf",
+    "lib/basic/val_rdy/queues.py": "547ef3175064e52759037cac8e0dfb037450ad3c1d8d22cf1d207e1a5e1fa909"
+  },
+  "submodule_commits": {
+    "noc/PyOCN": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+  }
+}

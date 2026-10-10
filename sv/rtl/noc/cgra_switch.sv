@@ -27,7 +27,13 @@ module cgra_switch #(
       for (int i = 0; i < INPUTS; i++)
         if (grants[i]) selected = SELECT_WIDTH'(i);
     end
-    assign send_msg = recv_msg[selected];
+    // Keep each data slice static when sv2v flattens the unpacked port array.
+    // selected is always an encoded grant or zero when there are no grants.
+    always_comb begin
+      send_msg = recv_msg[0];
+      for (int i = 1; i < INPUTS; i++)
+        if (selected == SELECT_WIDTH'(i)) send_msg = recv_msg[i];
+    end
     assign send_val = grants != 0;
     for (genvar i = 0; i < INPUTS; i++)
       assign recv_rdy[i] = send_rdy & (selected == SELECT_WIDTH'(i));

@@ -65,6 +65,11 @@ current-static-memory:
 	bash tests/current/run_static_memory.sh
 current-static-memory-synth:
 	bash tests/current/run_static_memory.sh synth
+.PHONY: current-ring-ctrl-memory current-ring-ctrl-memory-synth
+current-ring-ctrl-memory:
+	bash tests/current/run_ring_ctrl_memory.sh
+current-ring-ctrl-memory-synth:
+	bash tests/current/run_ring_ctrl_memory.sh synth
 baseline:
 	bash scripts/run_baseline.sh all
 
@@ -97,7 +102,7 @@ phase3-system:
 
 # Stage 4 compiles maintained SV and frozen HDL/text assets directly.
 .PHONY: regression phase4 phase4-noc phase4-system phase4-template phase4-migration phase4-peripheral phase4-memory
-regression: current current-synth current-post-synth current-kernels current-prefixes native-kernels native-math native-multi native-template current-migration current-loop-controller current-loop-controller-synth current-static-memory current-static-memory-synth baseline
+regression: current current-synth current-post-synth current-kernels current-prefixes native-kernels native-math native-multi native-template current-migration current-loop-controller current-loop-controller-synth current-static-memory current-static-memory-synth current-ring-ctrl-memory current-ring-ctrl-memory-synth baseline
 phase4: phase4-noc phase4-system phase4-template phase4-migration phase4-peripheral phase4-memory
 phase4-noc:
 	bash tests/phase4/noc/run.sh

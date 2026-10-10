@@ -7,6 +7,11 @@ freezes the standalone static CtrlMem/ConstQueue APIs and records original Pytho
 failures separately. CtrlMem uses an explicitly documented field-name adapter;
 see [STATIC_MEMORY_API.md](../STATIC_MEMORY_API.md). No original Python is edited.
 
+`current_ring_ctrl_memory.py --output-root <directory>` freezes the unchanged
+RingMultiCtrlMemDynamicRTL wrapper and its original test. It retains the dummy
+event and stalled-return defects; native repairs are verified separately by HDL
+protocol tests. See [RING_CTRL_MEMORY_API.md](../RING_CTRL_MEMORY_API.md).
+
 These scripts freeze the unmodified Python RTL at
 `ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b`. They are optional migration tools;
 the normal SystemVerilog build uses checked-in RTL and vectors without importing

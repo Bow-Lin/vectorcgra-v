@@ -21,6 +21,8 @@ jobs:
         run: make -C sv current-loop-controller JOBS=2
       - name: Standalone static control memory and constant ROM APIs
         run: make -C sv current-static-memory JOBS=2
+      - name: Standalone control ring and dynamic memories
+        run: make -C sv current-ring-ctrl-memory JOBS=2
       - name: Current YAML system programs
         run: make -C sv current-kernels JOBS=2
       - name: Independent native arithmetic and repaired programs

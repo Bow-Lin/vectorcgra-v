@@ -16,6 +16,8 @@ M24 新增独立 [LoopController API](LOOP_CONTROLLER_API.md)，完成 Python �
 
 M25 补齐独立 [静态 CtrlMem / ConstQueue API](STATIC_MEMORY_API.md)，默认修正握手计数、配置配对与复位，显式兼容模式复核历史行为。18 个配置的 RTL／综合网表验证通过，入口为 `make -C sv current-static-memory current-static-memory-synth`；未替换 PE 内动态存储。
 
+M26 补齐独立 [RingMultiCtrlMem API](RING_CTRL_MEMORY_API.md)，原生修正 COMPLETE 饥饿和返回背压稳定性；四组参数的 Python 对照、RTL／实际综合网表及共享 NoC 回归通过。入口为 `make -C sv current-ring-ctrl-memory current-ring-ctrl-memory-synth`；下一项为独立 DataMem 系列。
+
 ## 当前实现
 
 - 参数化顶层：[`cgra_scalar`](rtl/cgra/cgra_scalar.sv)，通过 `COLS`、`ROWS`、`DATA_W`、存储深度等参数构造硬件；Tile、bank 和控制环由 SV 的 generate 生成。
