@@ -226,12 +226,12 @@ module tile_flexible_fu_configurable #(
       );
     end
     else if(KIND==`CGRA_FU_VECTOR_ADDER) begin : kind_vector_adder
-      tile_vector_adder_combo #(`CGRA_PROFILE_BIND, .LANES(VECTOR_LANES), .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER)) fu (
+      tile_vector_adder_combo #(`CGRA_PROFILE_BIND, .LANES(VECTOR_LANES), .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER), .LEGACY_PYTHON(VECTOR_LEGACY_PYTHON)) fu (
         `CGRA_FU_SLOT_PORTS
       );
     end
     else if(KIND==`CGRA_FU_VECTOR_MUL) begin : kind_vector_mul
-      tile_vector_mul_combo #(`CGRA_PROFILE_BIND, .LANES(VECTOR_LANES), .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER)) fu (
+      tile_vector_mul_combo #(`CGRA_PROFILE_BIND, .LANES(VECTOR_LANES), .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER), .LEGACY_PYTHON(VECTOR_LEGACY_PYTHON)) fu (
         `CGRA_FU_SLOT_PORTS
       );
     end

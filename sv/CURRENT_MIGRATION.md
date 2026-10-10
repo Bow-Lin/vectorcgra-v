@@ -310,3 +310,19 @@ Verilator 5.029 的文件驱动 while 循环会错误常量折叠循环外的计
 - 详见 `VECTOR_REDUCE_API.md` 和 `reference/current/vector_reduce/validation.json`。
   保留单批次、最多一个未完成 FU 请求及远端无取消协议的限制；不声称完成全部系统
   回归或系统网表验收。下一项：组合常量进位与 VectorMul lane 数边界。
+
+## 向量组合进位和乘法参数边界（2026-10-10）
+
+- 默认修复 opcode 72 跨 lane 进位；`VECTOR_LEGACY_PYTHON=1` 保留源模型缺陷。
+  显式驱动 carry 高位、未用操作数／控制位／输出元数据，匹配 PyMTL 零值语义。
+- VectorMul 原生模式只允许四 lane，RTL 和综合参数检查均拒绝八 lane；兼容模式
+  保留原高 lane 漏路由用于对照。保留 Python 的完整乘积偏移求和及低半字组合乘法，
+  不恢复已修复的旧 HDL 移位截断。
+- 两项原始 Source/Sink 测试通过。六组新冻结轨迹共 1,920 周期、704,640 位／实现、
+  36 个 reset 采样；274 个原 Python 文件哈希不变。五组原生数学每种实现 33,096 项
+  检查；十一份实际综合网表重新读取检查通过，零 SCC。八组旧加法 HDL 对照通过。
+- Base／Context／Streaming PE 各跑原生与兼容模式，通过公开配置包检验组合常量
+  运算、八周期背压和一次性输入／结果／完成；所有模式有错误结果负控。
+- 详见 `VECTOR_ARITHMETIC_API.md` 和 `reference/current/vector_arithmetic/validation.json`。
+  本项保持旧 reset／clear 和乘法控制 ready 语义，后续统一审查；未声称完整系统网表
+  或任意 lane 乘法已完成。下一项为 LoopController 仲裁、并发完成及父／完成契约。

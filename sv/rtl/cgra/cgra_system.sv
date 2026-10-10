@@ -261,7 +261,7 @@ module cgra_system #(
         .FU_KINDS(TILE_FU_KINDS[t][TILE_FU_COUNTS[t]*8-1:0]),
         .VECTOR_LANES(VECTOR_LANES), .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER),
         .FP_EXP_W(FP_EXP_W), .FP_SIG_W(FP_SIG_W),
-        .REDUCE_LEGACY_PYTHON(REDUCE_LEGACY_PYTHON)) tile (
+        .REDUCE_LEGACY_PYTHON(REDUCE_LEGACY_PYTHON),.VECTOR_LEGACY_PYTHON(VECTOR_LEGACY_PYTHON)) tile (
       .clk, .reset, .cgra_id, .tile_id(TILE_ID_W'(t)),
       .recv_data__msg(tile_recv_msg[t]), .recv_data__val(tile_recv_val[t]), .recv_data__rdy(tile_recv_rdy[t]),
       .send_data__msg(tile_send_msg[t]), .send_data__val(tile_send_val[t]), .send_data__rdy(tile_send_rdy[t]),

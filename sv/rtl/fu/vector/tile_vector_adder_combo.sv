@@ -1,8 +1,9 @@
 `include "cgra_profile_defs.svh"
-// ac96 behavior preserved, including undriven fields and original handshake rules.
+// Lane arithmetic with native combined-constant carry and explicit compatibility.
 module tile_vector_adder_combo #(
   `CGRA_PROFILE_PARAMETERS,
-  parameter int LANES = 4, VECTOR_FACTOR_POWER = 0
+  parameter int LANES = 4, VECTOR_FACTOR_POWER = 0,
+  parameter bit LEGACY_PYTHON = 0
 ) (
   input  logic [0:0] clear ,
   input  logic [0:0] clk ,
@@ -71,22 +72,23 @@ module tile_vector_adder_combo #(
     logic operand_val [0:3];
     ctrl_t control;
     logic combine;
-    // The original connects these slices only. Extra operand/carry bits and
-    // unused control fields are not silently zero-filled by this migration.
-    assign operands[0][LANE_W-1:0] = p_recv_in__msg[0].payload[n*LANE_W+:LANE_W];
-    assign operands[1][LANE_W-1:0] = p_recv_in__msg[1].payload[n*LANE_W+:LANE_W];
-    assign constant[LANE_W-1:0] = p_recv_const__msg.payload[n*LANE_W+:LANE_W];
+    // Explicit zero extension matches the source simulator's undriven zeros.
+    assign operands[0] = {1'b0,p_recv_in__msg[0].payload[n*LANE_W+:LANE_W]};
+    assign operands[1] = {1'b0,p_recv_in__msg[1].payload[n*LANE_W+:LANE_W]};
+    assign operands[2] = '0; assign operands[3] = '0;
+    assign constant = {1'b0,p_recv_const__msg.payload[n*LANE_W+:LANE_W]};
     assign operand_val[0] = recv_in__val[0];
     assign operand_val[1] = recv_in__val[1];
+    assign operand_val[2] = 0; assign operand_val[3] = 0;
     assign p_send_out__msg[0].payload[n*LANE_W+:LANE_W] = lane_output[n][0][LANE_W-1:0];
     always_comb begin
-      control.fu_in[0]=1;control.fu_in[1]=2;
+      control='0;control.fu_in[0]=1;control.fu_in[1]=2;
       control.operation=7'd1;combine=0;
       case(p_recv_opt__msg.operation)
         51,71: begin control.operation=2;combine=(p_recv_opt__msg.operation==71);end
         53,73: begin control.operation=4;combine=(p_recv_opt__msg.operation==73);end
-        // ac96 tests ADD_COMBINED here, not ADD_CONST_COMBINED; retain it.
-        52,72: begin control.operation=25;combine=(p_recv_opt__msg.operation==71);end
+        // Source compares opcode 71 here, disabling carry for opcode 72.
+        52,72: begin control.operation=25;combine=!LEGACY_PYTHON && (p_recv_opt__msg.operation==72);end
         54,74: begin control.operation=36;combine=(p_recv_opt__msg.operation==74);end
         default: begin end
       endcase
@@ -102,6 +104,10 @@ module tile_vector_adder_combo #(
   assign recv_in__rdy[1]=lane_in_rdy[0][1];
   assign recv_const__rdy=lane_const_rdy[0];
   assign recv_opt__rdy=lane_ctrl_rdy[0];
+  assign recv_in__rdy[2]=0;assign recv_in__rdy[3]=0;
+  assign p_send_out__msg[0].bypass=0;assign p_send_out__msg[0].delay=0;
+  assign p_send_out__msg[1].payload='0;
+  assign p_send_out__msg[1].bypass=0;assign p_send_out__msg[1].delay=0;
   always_comb begin
     send_out__val[0]=lane_out_val[0][0]&recv_opt__val;
     send_out__val[1]=0;

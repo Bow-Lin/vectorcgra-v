@@ -127,3 +127,5 @@ are described in `../PHASE2_REPORT.md`.
 `current_pipe_queue.py` 直接驱动未修改的项目 PipeQueue，覆盖深度 1／2／3／5，记录 invalid 消息和 reset 周期写入。
 
 `current_vector_reduce.py` 运行原 VectorAllReduce Source/Sink 测试并冻结四组完整位级轨迹，包括 reset、invalid 输出及原模型缺陷；不在日常回归调用。
+
+`current_vector_arithmetic.py` 冻结未修改组合加／乘法及原始测试，使用 `current_vector_reduce.py` 的公共接口打包辅助函数。

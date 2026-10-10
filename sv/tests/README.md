@@ -93,3 +93,5 @@ RTL package against nonzero PyMTL packing samples.
 `current-pipe-queue` / `current-pipe-queue-synth` 检查 Python 逐位兼容、独立 FIFO 守恒及连续满替换；Normal Queue 替换负控必须失败。
 
 `current-vector-reduce` / `current-vector-reduce-synth` 检查归约的原生数学、事务守恒和原 Python 缺陷兼容；`native-global-reduce` 验收四 CGRA 全局加／乘法。
+
+`current-vector-arithmetic` / `current-vector-arithmetic-synth` 检查组合常量进位、独立加／乘法数学、完整 Python 轨迹，以及原生八 lane 乘法拒绝。
