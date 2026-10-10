@@ -153,7 +153,7 @@ module cgra_system #(
       .send_msg(loop_out_msg), .send_val(loop_out_val), .send_rdy(loop_out_rdy), .count()
     );
   end
-  cgra_credit_ring #(.WIDTH(HOST_BITS), .NODES(MAX_TILES+1), .DST_LSB(HOST_DST_LSB),
+  cgra_credit_ring #(.LEGACY_PYTHON(NOC_LEGACY_PYTHON),.WIDTH(HOST_BITS), .NODES(MAX_TILES+1), .DST_LSB(HOST_DST_LSB),
                      .DST_WIDTH(TILE_ID_W), .VC_LSB(PAYLOAD_BITS)) ctrl_ring (
     .clk, .reset, .recv_msg(ring_recv_msg), .recv_val(ring_recv_val), .recv_rdy(ring_recv_rdy),
     .send_msg(ring_send_msg), .send_val(ring_send_val), .send_rdy(ring_send_rdy)

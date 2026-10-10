@@ -1,0 +1,2172 @@
+{
+  "task": "Stable NoC arbitration, dateline VC normalization, credit/reset contracts and emitted-network SCC checks",
+  "status": "passed",
+  "date": "2026-10-10",
+  "base_commit": "207dc2d86eecaf887cd7a817bf903600572d5365",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "pinned_python_unchanged": 274,
+  "positive_runs": [
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_2x2_l0_w32-legacy0/run.log",
+      "sha256": "310307f6b6196721562987b198e8d8d5eade631be9549b70e43da452a190be72",
+      "results": [
+        "NOC_MODE_PASS legacy=0 stable_samples=1158",
+        "PHASE4_NOC_PASS label=mesh_2x2_l0_w32 cycles=2081 packets=512 raw_bits=792"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_2x2_l0_w32-legacy1/run.log",
+      "sha256": "97efa55dbf7f5164c29d4b501f5bd1a0c8fdc873cba263703f3038bd66e6b09f",
+      "results": [
+        "NOC_MODE_PASS legacy=1 stable_samples=0",
+        "PHASE4_NOC_PASS label=mesh_2x2_l0_w32 cycles=2081 packets=512 raw_bits=792"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_2x2_l1_w32-legacy0/run.log",
+      "sha256": "e32926f578412c6d4102e73c4b12454310dae07a1e1bfed1284e9b225853b716",
+      "results": [
+        "NOC_MODE_PASS legacy=0 stable_samples=1148",
+        "PHASE4_NOC_PASS label=mesh_2x2_l1_w32 cycles=2081 packets=512 raw_bits=792"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_2x2_l1_w32-legacy1/run.log",
+      "sha256": "685406d5901afdf65f891095df2b01e87fdede8dd9209a522901ea1d52ec850f",
+      "results": [
+        "NOC_MODE_PASS legacy=1 stable_samples=0",
+        "NOC_RAW_POLICY legacy=1 compare_invalid_messages=1 invalid_message_differences=0",
+        "PHASE4_NOC_PASS label=mesh_2x2_l1_w32 cycles=2081 packets=512 raw_bits=792"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_2x2_l2_w32-legacy0/run.log",
+      "sha256": "1b8aa665982bbf484cea212f72060e715dd8e926b49ac44d817e8ae714db039c",
+      "results": [
+        "NOC_MODE_PASS legacy=0 stable_samples=1170",
+        "PHASE4_NOC_PASS label=mesh_2x2_l2_w32 cycles=2081 packets=512 raw_bits=792"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_2x2_l2_w32-legacy1/run.log",
+      "sha256": "5d3ac7a1d7a8579fa160ba75d2a4cc843e276b2b17e9f4697c992b32e6937704",
+      "results": [
+        "NOC_MODE_PASS legacy=1 stable_samples=0",
+        "PHASE4_NOC_PASS label=mesh_2x2_l2_w32 cycles=2081 packets=512 raw_bits=792"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_3x2_l1_w64-legacy0/run.log",
+      "sha256": "14afbe8b607c59209f500a9a1ed91a8872cabcd1ea37082e0dc65f2dbd88c488",
+      "results": [
+        "NOC_MODE_PASS legacy=0 stable_samples=1720",
+        "PHASE4_NOC_PASS label=mesh_3x2_l1_w64 cycles=2081 packets=768 raw_bits=1404"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_3x2_l1_w64-legacy1/run.log",
+      "sha256": "7b3af3d6332628c6124eb03dc38bf17df436f22472c10f6f422c4b27f2294e31",
+      "results": [
+        "NOC_MODE_PASS legacy=1 stable_samples=0",
+        "PHASE4_NOC_PASS label=mesh_3x2_l1_w64 cycles=2081 packets=768 raw_bits=1404"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_2_l1_w32-legacy0/run.log",
+      "sha256": "45fb0a117fab2e328a9e1b2b37315789dc9d19ffc2c65be098f16260ae4a298b",
+      "results": [
+        "NOC_MODE_PASS legacy=0 stable_samples=576",
+        "PHASE4_NOC_PASS label=ring_2_l1_w32 cycles=2081 packets=256 raw_bits=392"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_2_l1_w32-legacy1/run.log",
+      "sha256": "c7ee03f4f46936b08167547a636b2015b6730187f73f6e1c242d30fc3806a419",
+      "results": [
+        "NOC_MODE_PASS legacy=1 stable_samples=0",
+        "PHASE4_NOC_PASS label=ring_2_l1_w32 cycles=2081 packets=256 raw_bits=392"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_3_l1_w32-legacy0/run.log",
+      "sha256": "c4a4395ce46afa93b21ee2bb4ab3e9dc28589ba15972b6d62b0f9b44ee798cbf",
+      "results": [
+        "NOC_MODE_PASS legacy=0 stable_samples=829",
+        "PHASE4_NOC_PASS label=ring_3_l1_w32 cycles=2081 packets=384 raw_bits=600"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_3_l1_w32-legacy1/run.log",
+      "sha256": "727d9d2b4e38114e2d3c935a1b2920a76692b1fabb0efdbf2d023991b77b76ff",
+      "results": [
+        "NOC_MODE_PASS legacy=1 stable_samples=0",
+        "PHASE4_NOC_PASS label=ring_3_l1_w32 cycles=2081 packets=384 raw_bits=600"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_4_l0_w32-legacy0/run.log",
+      "sha256": "b2066ebae5c9f20b0336764bf9abc269b8d18b04987ad44d7c2f3930a62e9eed",
+      "results": [
+        "NOC_MODE_PASS legacy=0 stable_samples=1196",
+        "PHASE4_NOC_PASS label=ring_4_l0_w32 cycles=2081 packets=512 raw_bits=800"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_4_l0_w32-legacy1/run.log",
+      "sha256": "06a047b0d19ce29b59450b81969ea4456c8c32a0f4d3cb8712ace8bfc28318ad",
+      "results": [
+        "NOC_MODE_PASS legacy=1 stable_samples=0",
+        "PHASE4_NOC_PASS label=ring_4_l0_w32 cycles=2081 packets=512 raw_bits=800"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_4_l1_w32-legacy0/run.log",
+      "sha256": "309143bbfd195ca5fe53ba448447b469fcac342b5b8eb0993eadb4cdc16d78a2",
+      "results": [
+        "NOC_MODE_PASS legacy=0 stable_samples=1196",
+        "PHASE4_NOC_PASS label=ring_4_l1_w32 cycles=2081 packets=512 raw_bits=800"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_4_l1_w32-legacy1/run.log",
+      "sha256": "52b492836b43defc38d879845a100943afb0307f07129a178b103f3259cbe70e",
+      "results": [
+        "NOC_MODE_PASS legacy=1 stable_samples=0",
+        "PHASE4_NOC_PASS label=ring_4_l1_w32 cycles=2081 packets=512 raw_bits=800"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_6_l1_w64-legacy0/run.log",
+      "sha256": "fe4ba1f51a7c09330518799e21bc575086c1285dda56b5095e9837daa63f9113",
+      "results": [
+        "NOC_MODE_PASS legacy=0 stable_samples=1678",
+        "PHASE4_NOC_PASS label=ring_6_l1_w64 cycles=2081 packets=768 raw_bits=1416"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_6_l1_w64-legacy1/run.log",
+      "sha256": "133d6f9440c22cfbf10485e6bc96c9fca0a545bac20868d69a5cf9f535f24ee2",
+      "results": [
+        "NOC_MODE_PASS legacy=1 stable_samples=0",
+        "PHASE4_NOC_PASS label=ring_6_l1_w64 cycles=2081 packets=768 raw_bits=1416"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/mesh_2x2_l0_w32-legacy0/run.log",
+      "sha256": "c2c3fe6c03720bb8849738d7c09c2f38326f1566b70eb89b153ebf24970a2472",
+      "results": [
+        "NOC_MODE_PASS legacy=0 stable_samples=1158",
+        "PHASE4_NOC_PASS label=mesh_2x2_l0_w32 cycles=2081 packets=512 raw_bits=792"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/mesh_2x2_l1_w32-legacy1/run.log",
+      "sha256": "5d537e63d5833abf460007c358454ba4935a0d2a160ef49fa1f83b105635ae7f",
+      "results": [
+        "NOC_MODE_PASS legacy=1 stable_samples=0",
+        "NOC_RAW_POLICY legacy=1 compare_invalid_messages=0 invalid_message_differences=3339",
+        "PHASE4_NOC_PASS label=mesh_2x2_l1_w32 cycles=2081 packets=512 raw_bits=792"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/mesh_3x2_l1_w64-legacy0/run.log",
+      "sha256": "6789b786267d22370f4418885c121ecaa43424f988a543a71e683cb27bb986df",
+      "results": [
+        "NOC_MODE_PASS legacy=0 stable_samples=1720",
+        "PHASE4_NOC_PASS label=mesh_3x2_l1_w64 cycles=2081 packets=768 raw_bits=1404"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/ring_3_l1_w32-legacy0/run.log",
+      "sha256": "e510f7050061d93e500ec97e02bfc3ca2996b368986b6bf4ffb4273b80b9f0b8",
+      "results": [
+        "NOC_MODE_PASS legacy=0 stable_samples=829",
+        "PHASE4_NOC_PASS label=ring_3_l1_w32 cycles=2081 packets=384 raw_bits=600"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/ring_4_l1_w32-legacy1/run.log",
+      "sha256": "d34a66404d56cfd2377f40d068b253ba0225dee8103b6296ab5410a120e2cc57",
+      "results": [
+        "NOC_MODE_PASS legacy=1 stable_samples=0",
+        "NOC_RAW_POLICY legacy=1 compare_invalid_messages=0 invalid_message_differences=0",
+        "PHASE4_NOC_PASS label=ring_4_l1_w32 cycles=2081 packets=512 raw_bits=800"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/ring_6_l1_w64-legacy0/run.log",
+      "sha256": "a381d89af5c498b37e1dcb7bee0ca6f0f2d9c857bf03ec716bc12692a98f26fc",
+      "results": [
+        "NOC_MODE_PASS legacy=0 stable_samples=1678",
+        "PHASE4_NOC_PASS label=ring_6_l1_w64 cycles=2081 packets=768 raw_bits=1416"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/primitives/switch1/run.log",
+      "sha256": "184db61bd448943927d80e1a6dd8e5cd56d3b030ab1dbf07bf7df2f9b80394c5",
+      "results": [
+        "NOC_SWITCH_PASS inputs=1 accepted=5 stalls=5"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/primitives/switch2/run.log",
+      "sha256": "5ddf0943241320e0683dec6859e0000b7f52f97ca6e901fc0e99eb29784af18b",
+      "results": [
+        "NOC_SWITCH_PASS inputs=2 accepted=8 stalls=5"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/primitives/switch3/run.log",
+      "sha256": "a956e50c3eedd9cc15d493fbc0ce84833f4c742aedad13c714ee8aebcd08cd33",
+      "results": [
+        "NOC_SWITCH_PASS inputs=3 accepted=11 stalls=5"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/primitives/switch5/run.log",
+      "sha256": "c2ef90f2706524084b7934c0fd22a5a5b97795e5aae3206fab6b5f7b28799db9",
+      "results": [
+        "NOC_SWITCH_PASS inputs=5 accepted=17 stalls=5"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/primitives/credit/run.log",
+      "sha256": "46b0d0a5efa570e71622c5ec5d730ecc1037928556e7e00c4be58bd52444e061",
+      "results": [
+        "NOC_CREDIT_PASS cycles=169 stalls=21 simultaneous=6 invalid_vcs=2"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/router-credit/run.log",
+      "sha256": "3b2756a04ba80bb04cfada5fe8f5649f01597b374215fad37830b5bf4943c15c",
+      "results": [
+        "NOC_ROUTER_CREDIT_PASS cycles=18 delivered=4"
+      ]
+    },
+    {
+      "path": "sv/build/native_noc/run.log",
+      "sha256": "25cc9c91f19d70d665a8b439293f3a27c17aa8f90ceb1662026b3e6e79a0b8b0",
+      "results": [
+        "NATIVE_NOC_PASS cycles=500 seed=31415926 ring_accepted=361 ring_delivered=361 full_invalid_msg_comparison=1"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/original/legacy0/run.log",
+      "sha256": "91078f36b7ba5d2abcf9988519fb16645fef5821b0cbefc0cfec499592842f27",
+      "results": [
+        "RING_CTRL_NATIVE_PASS tiles=4 ctrl_bits=69 packet_bits=123 cycles=900 checks=1721 input_stalls=113 output_stalls=163 loopbacks=20"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/original/legacy1/run.log",
+      "sha256": "6152300466de10079d39b2093648dd5761bed2fde28945a42998bd9a507351ec",
+      "results": [
+        "RING_CTRL_REPLAY_PASS samples=467 output_bits=405"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/original/legacy1/original-test.log",
+      "sha256": "64ea08111773f260135ffa5859a16f3924f288c935305ad37b16e3605e482fd8",
+      "results": [
+        "RING_CTRL_REPLAY_PASS samples=26 output_bits=405"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/nonpower/legacy0/run.log",
+      "sha256": "8f708a724100b5a6051febd9e56f5869fc8fa8fe138c3ad09db6d5d1e2c2366d",
+      "results": [
+        "RING_CTRL_NATIVE_PASS tiles=3 ctrl_bits=111 packet_bits=181 cycles=870 checks=1291 input_stalls=112 output_stalls=163 loopbacks=20"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/nonpower/legacy1/run.log",
+      "sha256": "066a38b6876c1e17d489fa33bd10f829da783ec61159640178e6f0d3451bea7d",
+      "results": [
+        "RING_CTRL_REPLAY_PASS samples=454 output_bits=519"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r1-w3-d32-c0-dma0/run.log",
+      "sha256": "bcb5d6164a3bb8b2b771cc960b3bc994c44e4d85ce7b30580f2bd1ad3cfbf2e0",
+      "results": [
+        "MEMORY_BOUNDARIES_PASS reads=1 writes=3 width=32 combinational=0 dma=0 cycles=904 checks=635"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r1-w3-d64-c1-dma0/run.log",
+      "sha256": "0a9fef4ae2413b6138bdaf0ba37ec755dd04de6e397e4b6aa6be5824781fbcdf",
+      "results": [
+        "MEMORY_BOUNDARIES_PASS reads=1 writes=3 width=64 combinational=1 dma=0 cycles=904 checks=713"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r2-w2-d32-c0-dma1/run.log",
+      "sha256": "e781f4de7ecd39ca0d59b0d45bcd2760fdaac760e66056cf2b11f57163015b72",
+      "results": [
+        "MEMORY_BOUNDARIES_PASS reads=2 writes=2 width=32 combinational=0 dma=1 cycles=1161 checks=857"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r2-w2-d32-c1-dma1/run.log",
+      "sha256": "bc2087da7fa9e3120b6fd358bcbbdb9dcc5fb906bbab1936e2c5a3b4d2a17b1b",
+      "results": [
+        "MEMORY_BOUNDARIES_PASS reads=2 writes=2 width=32 combinational=1 dma=1 cycles=1161 checks=965"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r2-w2-d64-c0-dma1/run.log",
+      "sha256": "9e47f67ee04e83cfabe6fc7d64f431acd1e838f43b9211a60e6a818364c7aef2",
+      "results": [
+        "MEMORY_BOUNDARIES_PASS reads=2 writes=2 width=64 combinational=0 dma=1 cycles=1161 checks=857"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r3-w1-d32-c1-dma0/run.log",
+      "sha256": "caf8655ec58be469220ea784ca67bc2ef51616b2b3e5044752e182c83e9ec6dc",
+      "results": [
+        "MEMORY_BOUNDARIES_PASS reads=3 writes=1 width=32 combinational=1 dma=0 cycles=1375 checks=1187"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r3-w1-d64-c0-dma0/run.log",
+      "sha256": "d8a3c2df16b07de81e8a1828efd030525468819c4da359ffbc2e539602e97a78",
+      "results": [
+        "MEMORY_BOUNDARIES_PASS reads=3 writes=1 width=64 combinational=0 dma=0 cycles=1375 checks=1053"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-compat-rtl/r3w1/run.log",
+      "sha256": "b540d803c29cc15712f21d926ee05975e626253dc8f5515965eab78256ea8c5c",
+      "results": [
+        "MEMORY_REPLAY_PASS samples=440 output_bits=742"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-compat-rtl/r1w3/run.log",
+      "sha256": "abf6625c1b22424e41626350f40386b595b8de10f2294f112aeb0edb88382460",
+      "results": [
+        "PHASE4_MEMORY_PASS cycles=464 stalls=83"
+      ]
+    },
+    {
+      "path": "sv/build/native/multi/mesh/run.log",
+      "sha256": "6213c1ba030f6e15dd451ca4a195b72713a40d5550f09a9d35f35113da2787de",
+      "results": [
+        "MULTI_SCENARIO_PASS id=0 cycles=189 completions=16 reads=8",
+        "MULTI_SCENARIO_PASS id=1 cycles=189 completions=16 reads=8",
+        "NATIVE_MULTI_PASS samples=384 bits=195 completions=32 reads=16 remote_requests=40 remote_responses=20 host_stalls=44",
+        "NATIVE_MULTI_ORACLE independent_math=1"
+      ]
+    },
+    {
+      "path": "sv/build/native/multi/ring/run.log",
+      "sha256": "e44d5f89a41b8bc8e0cddf2cd8b2bec1bdd2163424e6796e67f9b0dfca8ca4e8",
+      "results": [
+        "MULTI_SCENARIO_PASS id=0 cycles=170 completions=16 reads=8",
+        "MULTI_SCENARIO_PASS id=1 cycles=170 completions=16 reads=8",
+        "NATIVE_MULTI_PASS samples=346 bits=197 completions=32 reads=16 remote_requests=40 remote_responses=20 host_stalls=32",
+        "NATIVE_MULTI_ORACLE independent_math=1"
+      ]
+    }
+  ],
+  "negative_runs": [
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_2x2_l0_w32-legacy0/negative.log",
+      "sha256": "15646782aecf2bd27a98c9e73b61d083c2ac0e03bcc0a49c5f0ba1e092ed11d1",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:124: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=0 expected=00b7093a0000000071b797255934ad14ce5058a5ddd8e0f3b actual=00b7093a0000000071b797255934ad14ce5058a5ddd8e0f3a"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_2x2_l0_w32-legacy1/negative.log",
+      "sha256": "03a9633e29966351952be5527ede741f2dc9fadd7910d2baf386a67a813411ad",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:124: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=64 expected=5a22753e00000040d423032d6c930cc83c4b85eb322a57985 actual=5a22753e00000040d423032d6c930cc83c4b85eb322a57984"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_2x2_l1_w32-legacy0/negative.log",
+      "sha256": "0c1d17a35a5c67d4450c7a40cc34d9bfc50ae327162416ceb15a5d5141a657f7",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:124: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=0 expected=008ddc030000000069e0a23199744ab8d449458773cc128fb actual=008ddc030000000069e0a23199744ab8d449458773cc128fa"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_2x2_l1_w32-legacy1/negative.log",
+      "sha256": "b332a0a87f2303ccfbb84323e1967c3236ff49267a4388e12f0642bc7b879664",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:146: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=64 expected=5a22753e00000040d423032d6c930cc83c4b85eb322a57985 actual=5a22753e00000040d423032d6c930cc83c4b85eb322a57984"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_2x2_l2_w32-legacy0/negative.log",
+      "sha256": "733250139567d667818664d6d2c40964286ad6b2ac789fae11fcd822d3f32fce",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:139: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=0 expected=00aa4d3200000000d8fb534d10ccf088656287349506e9248 actual=00aa4d3200000000d8fb534d10ccf088656287349506e9249"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_2x2_l2_w32-legacy1/negative.log",
+      "sha256": "cb8718cb0fbf1c7e8543389cec219db294f7e6b193ae4f0135ff5f2aba67d86b",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:139: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=64 expected=5a22753e00000040d423032d6c930cc83c4b85eb322a57985 actual=5a22753e00000040d423032d6c930cc83c4b85eb322a57984"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_3x2_l1_w64-legacy0/negative.log",
+      "sha256": "194f5126d96c6b505fcde06ccdfd92944a8891ec33166a262ff739c81d15c91c",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:139: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=0 expected=000b93911cbf3b690000000009c894e04ec73c4a0081f1cafead648388 actual=000b93911cbf3b690000000009c894e04ec73c4a0081f1cafead648389"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_3x2_l1_w64-legacy1/negative.log",
+      "sha256": "d5344a135ae551d90310f6143823a8ff040d538fb66ce37342de5cc93e194441",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:139: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=0 expected=0008a420d50a6417400000000c98a7ef53ccfa03551e8c46bd5d2e1f91 actual=0008a420d50a6417400000000c98a7ef53ccfa03551e8c46bd5d2e1f90"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_2_l1_w32-legacy0/negative.log",
+      "sha256": "208566f97149d5c347d5b119e8369c95b03cb2c46daa9553b62535bd40c7bdba",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:139: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=64 expected=3a943a0a0000004023eba9d05ce5b7a88804f6badca655b31 actual=3a943a0a0000004023eba9d05ce5b7a88804f6badca655b30"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_2_l1_w32-legacy1/negative.log",
+      "sha256": "1ad146083a97cfd03f43b5223829c7a1470bcb1c3c2d618154368fd3b96471fb",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:139: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=65 expected=3a4eb456000000414e9022b0b2000ba7adeb3da7d1a7938e2 actual=3a4eb456000000414e9022b0b2000ba7adeb3da7d1a7938e3"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_3_l1_w32-legacy0/negative.log",
+      "sha256": "9961b19b6c1dfcd3d70faeb2301c7a72fb69d2f7a498334dc678be1a8e4007f6",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:139: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=0 expected=00008d10f000000003ede32f8c8a4f9b255c4bf1b06dc1f14f actual=00008d10f000000003ede32f8c8a4f9b255c4bf1b06dc1f14e"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_3_l1_w32-legacy1/negative.log",
+      "sha256": "ec0c2a4bedf3fff71956374da4e0e8db15d6c4e7ed00ec0bab14f851e89506f4",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:139: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=1 expected=0008d21720000000183666399cdbede7f685719b9f7646335f actual=0008d21720000000183666399cdbede7f685719b9f7646335e"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_4_l0_w32-legacy0/negative.log",
+      "sha256": "33cb539e57240c59c64a4da6ef98083c15bb93212787ce20f217245394859ecd",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:139: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=0 expected=00035322900000000d562c9e187810610ff206d9f70e3d800a actual=00035322900000000d562c9e187810610ff206d9f70e3d800b"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_4_l0_w32-legacy1/negative.log",
+      "sha256": "cfb2443b7c28f2e07d4280dfe4fe43f16e1b84c2ab2b327820795bf006957fd6",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:139: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=1 expected=0007ec275000000014766ac5f8f46f80d28acd9fe81f20ed71 actual=0007ec275000000014766ac5f8f46f80d28acd9fe81f20ed70"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_4_l1_w32-legacy0/negative.log",
+      "sha256": "33cb539e57240c59c64a4da6ef98083c15bb93212787ce20f217245394859ecd",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:139: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=0 expected=00035322900000000d562c9e187810610ff206d9f70e3d800a actual=00035322900000000d562c9e187810610ff206d9f70e3d800b"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_4_l1_w32-legacy1/negative.log",
+      "sha256": "cfb2443b7c28f2e07d4280dfe4fe43f16e1b84c2ab2b327820795bf006957fd6",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:139: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=1 expected=0007ec275000000014766ac5f8f46f80d28acd9fe81f20ed71 actual=0007ec275000000014766ac5f8f46f80d28acd9fe81f20ed70"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_6_l1_w64-legacy0/negative.log",
+      "sha256": "d5d80acc59b5ddea151dc3bbc4d1ebbc4d5662c8759a75d21653d1594b718347",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:139: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=64 expected=09222fee26a394bff900000040ff05618fa5a616a9e9160b1e76cde5b68 actual=09222fee26a394bff900000040ff05618fa5a616a9e9160b1e76cde5b69"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_6_l1_w64-legacy1/negative.log",
+      "sha256": "4e11e4815ea372edbe4a07901d60263350312a1f67ef5241325b00c0ae60cec7",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:139: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=1 expected=000069094b9157aa53000000014647d27f3d0e7d1f271e9175e335d253e actual=000069094b9157aa53000000014647d27f3d0e7d1f271e9175e335d253f"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/mesh_2x2_l0_w32-legacy0/negative.log",
+      "sha256": "901740510a10d7c201a99d3a4b3097fbb33fb871053938caeb17786898e61912",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:139: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=0 expected=00b7093a0000000071b797255934ad14ce5058a5ddd8e0f3b actual=00b7093a0000000071b797255934ad14ce5058a5ddd8e0f3a"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/mesh_2x2_l1_w32-legacy1/negative.log",
+      "sha256": "b332a0a87f2303ccfbb84323e1967c3236ff49267a4388e12f0642bc7b879664",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:146: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=64 expected=5a22753e00000040d423032d6c930cc83c4b85eb322a57985 actual=5a22753e00000040d423032d6c930cc83c4b85eb322a57984"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/mesh_3x2_l1_w64-legacy0/negative.log",
+      "sha256": "194f5126d96c6b505fcde06ccdfd92944a8891ec33166a262ff739c81d15c91c",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:139: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=0 expected=000b93911cbf3b690000000009c894e04ec73c4a0081f1cafead648388 actual=000b93911cbf3b690000000009c894e04ec73c4a0081f1cafead648389"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/ring_3_l1_w32-legacy0/negative.log",
+      "sha256": "9961b19b6c1dfcd3d70faeb2301c7a72fb69d2f7a498334dc678be1a8e4007f6",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:139: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=0 expected=00008d10f000000003ede32f8c8a4f9b255c4bf1b06dc1f14f actual=00008d10f000000003ede32f8c8a4f9b255c4bf1b06dc1f14e"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/ring_4_l1_w32-legacy1/negative.log",
+      "sha256": "cb9dda586652299a371eed6ccf2b7b851977aa00ceab4553f98861680175a33f",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:146: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=1 expected=0007ec275000000014766ac5f8f46f80d28acd9fe81f20ed71 actual=0007ec275000000014766ac5f8f46f80d28acd9fe81f20ed70"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/ring_6_l1_w64-legacy0/negative.log",
+      "sha256": "d5d80acc59b5ddea151dc3bbc4d1ebbc4d5662c8759a75d21653d1594b718347",
+      "results": [
+        "[1205000] %Fatal: tb_inter_cgra_noc.sv:139: Assertion failed in TOP.tb_inter_cgra_noc.check_packets.unnamedblk5.unnamedblk6: NOC_PACKET_MISMATCH scenario=0 id=64 expected=09222fee26a394bff900000040ff05618fa5a616a9e9160b1e76cde5b68 actual=09222fee26a394bff900000040ff05618fa5a616a9e9160b1e76cde5b69"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/primitives/switch1/negative.log",
+      "sha256": "e215fb45cb0198cfc7108950035538025a6ddc82b95ea281624e842a54bf49b9",
+      "results": [
+        "[11000] %Fatal: tb_noc_switch.sv:12: Assertion failed in TOP.tb_noc_switch.check: NOC_SWITCH_RESULT port=0 got=00000064"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/primitives/switch2/negative.log",
+      "sha256": "27591a71b5a161a7d533114e6de17d1111f97da24d148dfeb5f9950d28bd7e6b",
+      "results": [
+        "[11000] %Fatal: tb_noc_switch.sv:12: Assertion failed in TOP.tb_noc_switch.check: NOC_SWITCH_RESULT port=1 got=00000065"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/primitives/switch3/negative.log",
+      "sha256": "024aec5b76dba08c72cf0976caa0a84a397da8dc48b3c4def1d30981b477eca4",
+      "results": [
+        "[11000] %Fatal: tb_noc_switch.sv:12: Assertion failed in TOP.tb_noc_switch.check: NOC_SWITCH_RESULT port=2 got=00000066"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/primitives/switch5/negative.log",
+      "sha256": "a7594162fd9e9993aab7f79e3d07d13701f1d86e1c745ef93530caf7e3b66238",
+      "results": [
+        "[11000] %Fatal: tb_noc_switch.sv:12: Assertion failed in TOP.tb_noc_switch.check: NOC_SWITCH_RESULT port=4 got=00000068"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/primitives/credit/negative.log",
+      "sha256": "fc0c6d9f64ca84c13b6b139d3f8f72df706e617c65f2ce09a67400fb9d42c347",
+      "results": [
+        "[196000] %Fatal: tb_noc_credit.sv:39: Assertion failed in TOP.tb_noc_credit.tick.unnamedblk2: NOC_CREDIT_RESULT expected=08000000 got=08000000"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/primitives/switch-legacy/stall-defect.log",
+      "sha256": "a2313356149a484fe369b3ccd8f32aed44514ad22ea15766a50b5f407fab9901",
+      "results": [
+        "[22000] %Fatal: tb_noc_switch.sv:12: Assertion failed in TOP.tb_noc_switch.check: NOC_SWITCH_RESULT port=2 got=00000064"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/primitives/credit-legacy/stall-defect.log",
+      "sha256": "63485056868b6c2fbe533b0cee082fc58c442e59c3a4bf623bc41aefc9534dd1",
+      "results": [
+        "[22000] %Fatal: tb_noc_credit.sv:26: Assertion failed in TOP.tb_noc_credit.tick: NOC_CREDIT_STALL_CHANGED"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/primitives/credit/overflow.log",
+      "sha256": "99ad6205223e20f2255bc91595b6b73c686984122c305cfcd0b91a12c5ed50d5",
+      "results": [
+        "[15000] %Fatal: cgra_credit_send.sv:42: Assertion failed in TOP.tb_noc_credit.source.vcs[0]: NOC_CREDIT_OVERFLOW vc=0"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/router-credit/negative.log",
+      "sha256": "5121318ab620f2ed0e1c9f0601663cd35d96a1aedde66eadbdc586a6868fec02",
+      "results": [
+        "[22000] %Fatal: tb_noc_router_credit.sv:26: Assertion failed in TOP.tb_noc_router_credit.tick.unnamedblk1.unnamedblk2: NOC_ROUTER_RESULT index=0 expected=000000a4 got=000000a4"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/guards/receiver0/invalid-vc.log",
+      "sha256": "fb620b52a81acd1116f517f2a8477f46c11ecab79d8ce738191e865dab7a384d",
+      "results": [
+        "[15000] %Fatal: cgra_credit_input.sv:23: Assertion failed in TOP.tb_noc_credit_guard.genblk1.dut: NOC_INVALID_CREDIT_VC"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/guards/receiver0/overflow.log",
+      "sha256": "e9b346719cd92d77b71f137729a7282b60f8ebf738947afc09f2ea1f654c7e91",
+      "results": [
+        "[35000] %Fatal: cgra_credit_input.sv:32: Assertion failed in TOP.tb_noc_credit_guard.genblk1.dut.vcs[0]: NOC_CREDIT_INPUT_OVERFLOW vc=0"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/guards/receiver1/invalid-vc.log",
+      "sha256": "df1d0b51a55bc85c752f2a8391f3a717ae4af7a7d5b94fdcef317a0a4837ff34",
+      "results": [
+        "[15000] %Fatal: cgra_credit_recv.sv:25: Assertion failed in TOP.tb_noc_credit_guard.genblk1.dut: NOC_INVALID_CREDIT_VC"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/guards/receiver1/overflow.log",
+      "sha256": "53ea1922ca7bb73706f7b7b66580a3f3735165104d68b8aa5ad0ca5d39dafaee",
+      "results": [
+        "[35000] %Fatal: cgra_credit_recv.sv:38: Assertion failed in TOP.tb_noc_credit_guard.genblk1.dut.vcs[0]: NOC_CREDIT_INPUT_OVERFLOW vc=0"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/guards/ring-vcs/invalid-profile.log",
+      "sha256": "8cf179a4f56ecec86b823de565e3ba663d1a420f6706434bf00520e23cefa994",
+      "results": [
+        "[0] %Fatal: cgra_credit_ring.sv:37: Assertion failed in TOP.tb_noc_ring_guard.dut: ac96 ring profile requires VCS=2 and CREDITS=2"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/guards/ring-credits/invalid-profile.log",
+      "sha256": "8cf179a4f56ecec86b823de565e3ba663d1a420f6706434bf00520e23cefa994",
+      "results": [
+        "[0] %Fatal: cgra_credit_ring.sv:37: Assertion failed in TOP.tb_noc_ring_guard.dut: ac96 ring profile requires VCS=2 and CREDITS=2"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/original/legacy0/negative.log",
+      "sha256": "2962843a7d059469e7d024987c6ebce522200c75359654d375f76c514fb67b98",
+      "results": [
+        "[181000] %Fatal: tb_ring_ctrl_memory.sv:45: Assertion failed in TOP.tb_ring_ctrl_memory.require: RING_CTRL_CHECK complete control word / FU prologue / bounds cycle=26 checks=2"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/original/legacy0/invalid-dest.log",
+      "sha256": "68fd35854571ed5dec9102db9815dc39ed44c1c5992515b8b6335ded85ac9028",
+      "results": [
+        "[22000] %Fatal: cgra_ring_multi_ctrl_mem.sv:60: Assertion failed in TOP.tb_ring_ctrl_memory.dut: RING_CTRL_DESTINATION"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/original/legacy1/negative.log",
+      "sha256": "11db544bfc2abe606d99716d0fbf64d8c7cd87bf1663d2942047d91a444c6f71",
+      "results": [
+        "[57000] %Fatal: tb_ring_ctrl_memory.sv:243: Assertion failed in TOP.tb_ring_ctrl_memory.replay: RING_CTRL_REPLAY_MISMATCH cycle=8 got=100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 expected=100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/original/legacy1/dummy-defect.log",
+      "sha256": "2048d0e0af51bb559078decb59d4ba8110f9a761181b9a499fe2b12e3a13b485",
+      "results": [
+        "[195000] %Fatal: tb_ring_ctrl_memory.sv:119: Assertion failed in TOP.tb_ring_ctrl_memory.observe: RING_CTRL_UNEXPECTED_RETURN cmd=0 cycle=28"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/original/legacy1/original-negative.log",
+      "sha256": "987a4e3485bd9d1b0b15e4f79a13cbaeebf0a6a686471d0f076cc687eae54df1",
+      "results": [
+        "[57000] %Fatal: tb_ring_ctrl_memory.sv:243: Assertion failed in TOP.tb_ring_ctrl_memory.replay: RING_CTRL_REPLAY_MISMATCH cycle=8 got=100000000000000000000000000000000290000000000000000000000000000000000000000000000000000000000000000000 expected=100000000000000000000000000000000290000000000000000000000000000000000000000000000000000000000000000001"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/nonpower/legacy0/negative.log",
+      "sha256": "c09e6ff244f082b4d3f5434f86d66b91323645225cae2c8805818af77d37ced9",
+      "results": [
+        "[153000] %Fatal: tb_ring_ctrl_memory.sv:45: Assertion failed in TOP.tb_ring_ctrl_memory.require: RING_CTRL_CHECK complete control word / FU prologue / bounds cycle=22 checks=2"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/nonpower/legacy0/invalid-address.log",
+      "sha256": "fdcfe30e916cb074d86ea9da4bfb904ceea76a4c9b69ade48b97b3325f36d03a",
+      "results": [
+        "[22000] %Fatal: cgra_ring_multi_ctrl_mem.sv:62: Assertion failed in TOP.tb_ring_ctrl_memory.dut: RING_CTRL_ADDRESS"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/nonpower/legacy1/negative.log",
+      "sha256": "9b1484d3fc53e3adf2d66c7ea7340a07fdf89d45d09c737a80e96e97e597f5b1",
+      "results": [
+        "[57000] %Fatal: tb_ring_ctrl_memory.sv:243: Assertion failed in TOP.tb_ring_ctrl_memory.replay: RING_CTRL_REPLAY_MISMATCH cycle=8 got=4000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 expected=4000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/nonpower/legacy1/dummy-defect.log",
+      "sha256": "616b07589d0b98f6d5a5649a95367480ee4ddca3d3ab6f6523ef73a1409124dc",
+      "results": [
+        "[167000] %Fatal: tb_ring_ctrl_memory.sv:119: Assertion failed in TOP.tb_ring_ctrl_memory.observe: RING_CTRL_UNEXPECTED_RETURN cmd=0 cycle=24"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r1-w3-d32-c0-dma0/negative.log",
+      "sha256": "6e0b271869d7c6704eb5e92fcba0857ef8bb7646fdfa213d4e8862fa9d50e52a",
+      "results": [
+        "[1906000] %Fatal: tb_memory_boundaries.sv:130: Assertion failed in TOP.tb_memory_boundaries.read_word: MEM_WORD_MISMATCH port=0 addr=0 got=400080000 expected=400080000"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r1-w3-d64-c1-dma0/negative.log",
+      "sha256": "126baebc60415375437e6c1f3c9c5d4e81c7d6f737e0245a17fb724601998e3a",
+      "results": [
+        "[1897000] %Fatal: tb_memory_boundaries.sv:130: Assertion failed in TOP.tb_memory_boundaries.read_word: MEM_WORD_MISMATCH port=0 addr=0 got=00000000400080000 expected=00000000400080000"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r2-w2-d32-c0-dma1/negative.log",
+      "sha256": "6e0b271869d7c6704eb5e92fcba0857ef8bb7646fdfa213d4e8862fa9d50e52a",
+      "results": [
+        "[1906000] %Fatal: tb_memory_boundaries.sv:130: Assertion failed in TOP.tb_memory_boundaries.read_word: MEM_WORD_MISMATCH port=0 addr=0 got=400080000 expected=400080000"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r2-w2-d32-c0-dma1/invalid-mask.log",
+      "sha256": "3d74ceb949ab584a19139915973ef9afc37a04212ba3fd1687b77003d7d9be3d",
+      "results": [
+        "[22000] %Fatal: cgra_data_memory.sv:60: Assertion failed in TOP.tb_memory_boundaries.dut: MEM_DMA_MASK: the banked SPM interface accepts full 32-bit words"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r2-w2-d32-c1-dma1/negative.log",
+      "sha256": "cb151871b9cbda4b69b66728e5dfcddcda0fc7162d7e360f25162943caa7d784",
+      "results": [
+        "[1897000] %Fatal: tb_memory_boundaries.sv:130: Assertion failed in TOP.tb_memory_boundaries.read_word: MEM_WORD_MISMATCH port=0 addr=0 got=400080000 expected=400080000"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r2-w2-d32-c1-dma1/invalid-mask.log",
+      "sha256": "3d74ceb949ab584a19139915973ef9afc37a04212ba3fd1687b77003d7d9be3d",
+      "results": [
+        "[22000] %Fatal: cgra_data_memory.sv:60: Assertion failed in TOP.tb_memory_boundaries.dut: MEM_DMA_MASK: the banked SPM interface accepts full 32-bit words"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r2-w2-d64-c0-dma1/negative.log",
+      "sha256": "de64787d1f50277942f1615ea5539a96be2b28896ba332d3603cdb9c5bde9203",
+      "results": [
+        "[1906000] %Fatal: tb_memory_boundaries.sv:130: Assertion failed in TOP.tb_memory_boundaries.read_word: MEM_WORD_MISMATCH port=0 addr=0 got=00000000400080000 expected=00000000400080000"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r2-w2-d64-c0-dma1/invalid-mask.log",
+      "sha256": "3d74ceb949ab584a19139915973ef9afc37a04212ba3fd1687b77003d7d9be3d",
+      "results": [
+        "[22000] %Fatal: cgra_data_memory.sv:60: Assertion failed in TOP.tb_memory_boundaries.dut: MEM_DMA_MASK: the banked SPM interface accepts full 32-bit words"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r3-w1-d32-c1-dma0/negative.log",
+      "sha256": "cb151871b9cbda4b69b66728e5dfcddcda0fc7162d7e360f25162943caa7d784",
+      "results": [
+        "[1897000] %Fatal: tb_memory_boundaries.sv:130: Assertion failed in TOP.tb_memory_boundaries.read_word: MEM_WORD_MISMATCH port=0 addr=0 got=400080000 expected=400080000"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r3-w1-d64-c0-dma0/negative.log",
+      "sha256": "de64787d1f50277942f1615ea5539a96be2b28896ba332d3603cdb9c5bde9203",
+      "results": [
+        "[1906000] %Fatal: tb_memory_boundaries.sv:130: Assertion failed in TOP.tb_memory_boundaries.read_word: MEM_WORD_MISMATCH port=0 addr=0 got=00000000400080000 expected=00000000400080000"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-compat-rtl/r3w1/negative.log",
+      "sha256": "6f62dd635ed41001a969009ba4057295b005e421f0ed7e10688899c55d479267",
+      "results": [
+        "[72000] %Fatal: tb_memory_boundary_replay.sv:91: Assertion failed in TOP.tb_memory_boundary_replay: MEM_REPLAY_MISMATCH sample=7 got=07f0000000018f4a8cc0900000000000000000000000050000000004a00000000000000000000000000000040000002c0000000006000000000000000000000000000000000000019c99c02b0f90000000000000000000000000000000 expected=07f0000000018f4a8cc0900000000000000000000000050000000004a00000000000000000000000000000040000002c0000000006000000000000000000000000000000000000019c99c02b0f90000000000000000000000000000001"
+      ]
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-compat-rtl/r1w3/negative.log",
+      "sha256": "0eff1ed490c9975298a3e393f543d2c5c582daa257f0bb858c2b8a9fa5dc3201",
+      "results": [
+        "[184000] %Fatal: tb_memory_boundary_compat.sv:154: Assertion failed in TOP.tb_memory_boundary_compat.read_local: MEM_MATH_MISMATCH intentional negative control addr=0 value=000000804 expected=257"
+      ]
+    },
+    {
+      "path": "sv/build/native/multi/mesh/negative.log",
+      "sha256": "c86532f726147ee509fac2a53958443266372913700823df4a361a39775821bb",
+      "results": [
+        "[1621000] %Fatal: tb_native_multi.sv:131: Assertion failed in TOP.tb_native_multi.unnamedblk3.unnamedblk8: Independent result/owner failure addr=16 value=0000001c expected=0000001d"
+      ]
+    },
+    {
+      "path": "sv/build/native/multi/mesh/timeout-negative.log",
+      "sha256": "2f550d11d47b53f4c40116f8a15455b2970c4ed3b4970a1f656f310990b8e7df",
+      "results": [
+        "[15030000] %Fatal: tb_native_multi.sv:148: Assertion failed in TOP.tb_native_multi.unnamedblk3.unnamedblk8: TIMEOUT multi-CGRA"
+      ]
+    },
+    {
+      "path": "sv/build/native/multi/ring/negative.log",
+      "sha256": "edbc8d71764ac6d338868ff1233924f5d8b531b2287fc53154a9678c348f4afa",
+      "results": [
+        "[1521000] %Fatal: tb_native_multi.sv:131: Assertion failed in TOP.tb_native_multi.unnamedblk3.unnamedblk8: Independent result/owner failure addr=16 value=0000001c expected=0000001d"
+      ]
+    },
+    {
+      "path": "sv/build/native/multi/ring/timeout-negative.log",
+      "sha256": "2f550d11d47b53f4c40116f8a15455b2970c4ed3b4970a1f656f310990b8e7df",
+      "results": [
+        "[15030000] %Fatal: tb_native_multi.sv:148: Assertion failed in TOP.tb_native_multi.unnamedblk3.unnamedblk8: TIMEOUT multi-CGRA"
+      ]
+    }
+  ],
+  "netlists": [
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/mesh_2x2_l0_w32-legacy0/netlist.v",
+      "sha256": "0b982664b4d9e726c3e9242d95335bd3b20e33ced39ecc74842ce96adb23800c",
+      "synthesis": {
+        "path": "sv/build/current/noc-handshakes/network-synth/mesh_2x2_l0_w32-legacy0/yosys.log",
+        "sha256": "a6f60cb050d1870128e6e19e1e5ed90648a0f710be903a548ed1d2f19d60d54c",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/noc-handshakes/network-synth/mesh_2x2_l0_w32-legacy0/reread.log",
+        "sha256": "4a56911b7f6a60837f912c4f79effe2c7239a3fea1e2d6314e6e326593e0040d",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/mesh_2x2_l1_w32-legacy1/netlist.v",
+      "sha256": "d6d8e9bcf7b90d5d43b948759cebb381a127de2e9f31b797c62d668230c50ce4",
+      "synthesis": {
+        "path": "sv/build/current/noc-handshakes/network-synth/mesh_2x2_l1_w32-legacy1/yosys.log",
+        "sha256": "5d50f24bc98b86c2afdb6d6ed3f2f10b1a8dd65ba67c92ac6c19f1427bd52205",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/noc-handshakes/network-synth/mesh_2x2_l1_w32-legacy1/reread.log",
+        "sha256": "ac15b931aff44331f5c8259ab0a0e967f0b6b342310fcc18f25495d4e237af38",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/mesh_3x2_l1_w64-legacy0/netlist.v",
+      "sha256": "452c2f4c59ad67c71d6452759f324cb9f3d6889baf0fcd3aef16298be6330781",
+      "synthesis": {
+        "path": "sv/build/current/noc-handshakes/network-synth/mesh_3x2_l1_w64-legacy0/yosys.log",
+        "sha256": "95eef064a68c22b2880b0751a2641b2eb1ce5ba6b198e4d695a1f0b9cc2cf9b3",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/noc-handshakes/network-synth/mesh_3x2_l1_w64-legacy0/reread.log",
+        "sha256": "cb8dbc6c65041ec629eb662df7a2ae612ac6cedbe23739e8d7942f470dc7c8eb",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/ring_3_l1_w32-legacy0/netlist.v",
+      "sha256": "0d16c30010fbd0e5d8b894c40bb343e55cb0f541c5b8d82ca0e1ed264754ebdb",
+      "synthesis": {
+        "path": "sv/build/current/noc-handshakes/network-synth/ring_3_l1_w32-legacy0/yosys.log",
+        "sha256": "ccbedc512499ab29ba7f21b7ae8aeb55a5d78de0214974494196a7cac87011c2",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/noc-handshakes/network-synth/ring_3_l1_w32-legacy0/reread.log",
+        "sha256": "a2a87050f22c1b171b888b676455b77b62136c48caa98d425f6cccc289d69125",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/ring_4_l1_w32-legacy1/netlist.v",
+      "sha256": "0d0d586daeec39d34c752421af54a441c699ccc5ece2bf379ddce655d8668f1f",
+      "synthesis": {
+        "path": "sv/build/current/noc-handshakes/network-synth/ring_4_l1_w32-legacy1/yosys.log",
+        "sha256": "7cc9b0a057e09539b7698bdcf98f02918160b8e28f6c162498894bb865612013",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/noc-handshakes/network-synth/ring_4_l1_w32-legacy1/reread.log",
+        "sha256": "533194ff4d45a405b372131632681d814ae44423aa11b2bb83bb4d45adee6e56",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/ring_6_l1_w64-legacy0/netlist.v",
+      "sha256": "3e198122e903a08c58e8c36b22309eddc1976f616a12af0de126a3814d09cefe",
+      "synthesis": {
+        "path": "sv/build/current/noc-handshakes/network-synth/ring_6_l1_w64-legacy0/yosys.log",
+        "sha256": "9d10cc0bda302c2256dc81f69c40dcea792f1e80da7ac3d2bd307a0fecc9fb6d",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/noc-handshakes/network-synth/ring_6_l1_w64-legacy0/reread.log",
+        "sha256": "8b5a0cb761ce3db29c55a482b81ed4a71c4fc14f0132d54cd34052ebbc7dc222",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    }
+  ],
+  "network_profiles": [
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 196,
+      "nodes": 4,
+      "accepted": 512,
+      "delivered": 512,
+      "blocked_samples": 1646,
+      "output_stalls": 1076,
+      "dateline_packets": 0,
+      "invalid_vc_checks": 0,
+      "seed": "4c03a271",
+      "profile": "mesh_2x2_l0_w32-legacy0",
+      "mode": "network",
+      "oracle": "independent packets and held-output stability"
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 196,
+      "nodes": 4,
+      "accepted": 512,
+      "delivered": 512,
+      "blocked_samples": 1761,
+      "output_stalls": 1125,
+      "dateline_packets": 0,
+      "invalid_vc_checks": 0,
+      "seed": "4c03a271",
+      "profile": "mesh_2x2_l0_w32-legacy1",
+      "mode": "network",
+      "oracle": "raw RTL and independent packets",
+      "raw_bits_per_cycle": 792
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 196,
+      "nodes": 4,
+      "accepted": 512,
+      "delivered": 512,
+      "blocked_samples": 1548,
+      "output_stalls": 1072,
+      "dateline_packets": 0,
+      "invalid_vc_checks": 0,
+      "seed": "4c03a271",
+      "profile": "mesh_2x2_l1_w32-legacy0",
+      "mode": "network",
+      "oracle": "independent packets and held-output stability"
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 196,
+      "nodes": 4,
+      "accepted": 512,
+      "delivered": 512,
+      "blocked_samples": 1546,
+      "output_stalls": 1066,
+      "dateline_packets": 0,
+      "invalid_vc_checks": 0,
+      "seed": "4c03a271",
+      "profile": "mesh_2x2_l1_w32-legacy1",
+      "mode": "network",
+      "oracle": "raw RTL and independent packets",
+      "raw_bits_per_cycle": 792
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 196,
+      "nodes": 4,
+      "accepted": 512,
+      "delivered": 512,
+      "blocked_samples": 1572,
+      "output_stalls": 1100,
+      "dateline_packets": 0,
+      "invalid_vc_checks": 0,
+      "seed": "4c03a271",
+      "profile": "mesh_2x2_l2_w32-legacy0",
+      "mode": "network",
+      "oracle": "independent packets and held-output stability"
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 196,
+      "nodes": 4,
+      "accepted": 512,
+      "delivered": 512,
+      "blocked_samples": 1536,
+      "output_stalls": 1065,
+      "dateline_packets": 0,
+      "invalid_vc_checks": 0,
+      "seed": "4c03a271",
+      "profile": "mesh_2x2_l2_w32-legacy1",
+      "mode": "network",
+      "oracle": "raw RTL and independent packets",
+      "raw_bits_per_cycle": 792
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 232,
+      "nodes": 6,
+      "accepted": 768,
+      "delivered": 768,
+      "blocked_samples": 2692,
+      "output_stalls": 1608,
+      "dateline_packets": 0,
+      "invalid_vc_checks": 0,
+      "seed": "4c03a271",
+      "profile": "mesh_3x2_l1_w64-legacy0",
+      "mode": "network",
+      "oracle": "independent packets and held-output stability"
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 232,
+      "nodes": 6,
+      "accepted": 768,
+      "delivered": 768,
+      "blocked_samples": 2781,
+      "output_stalls": 1586,
+      "dateline_packets": 0,
+      "invalid_vc_checks": 0,
+      "seed": "4c03a271",
+      "profile": "mesh_3x2_l1_w64-legacy1",
+      "mode": "network",
+      "oracle": "raw RTL and independent packets",
+      "raw_bits_per_cycle": 1404
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 194,
+      "nodes": 2,
+      "accepted": 256,
+      "delivered": 256,
+      "blocked_samples": 752,
+      "output_stalls": 534,
+      "dateline_packets": 72,
+      "invalid_vc_checks": 128,
+      "seed": "4c03a271",
+      "profile": "ring_2_l1_w32-legacy0",
+      "mode": "network",
+      "oracle": "independent packets and held-output stability"
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 194,
+      "nodes": 2,
+      "accepted": 256,
+      "delivered": 256,
+      "blocked_samples": 725,
+      "output_stalls": 549,
+      "dateline_packets": 72,
+      "invalid_vc_checks": 128,
+      "seed": "4c03a271",
+      "profile": "ring_2_l1_w32-legacy1",
+      "mode": "network",
+      "oracle": "raw RTL and independent packets",
+      "raw_bits_per_cycle": 392
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 198,
+      "nodes": 3,
+      "accepted": 384,
+      "delivered": 384,
+      "blocked_samples": 1077,
+      "output_stalls": 766,
+      "dateline_packets": 84,
+      "invalid_vc_checks": 192,
+      "seed": "4c03a271",
+      "profile": "ring_3_l1_w32-legacy0",
+      "mode": "network",
+      "oracle": "independent packets and held-output stability"
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 198,
+      "nodes": 3,
+      "accepted": 384,
+      "delivered": 384,
+      "blocked_samples": 1125,
+      "output_stalls": 784,
+      "dateline_packets": 84,
+      "invalid_vc_checks": 192,
+      "seed": "4c03a271",
+      "profile": "ring_3_l1_w32-legacy1",
+      "mode": "network",
+      "oracle": "raw RTL and independent packets",
+      "raw_bits_per_cycle": 600
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 198,
+      "nodes": 4,
+      "accepted": 512,
+      "delivered": 512,
+      "blocked_samples": 1820,
+      "output_stalls": 1112,
+      "dateline_packets": 144,
+      "invalid_vc_checks": 256,
+      "seed": "4c03a271",
+      "profile": "ring_4_l0_w32-legacy0",
+      "mode": "network",
+      "oracle": "independent packets and held-output stability"
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 198,
+      "nodes": 4,
+      "accepted": 512,
+      "delivered": 512,
+      "blocked_samples": 1685,
+      "output_stalls": 1055,
+      "dateline_packets": 144,
+      "invalid_vc_checks": 256,
+      "seed": "4c03a271",
+      "profile": "ring_4_l0_w32-legacy1",
+      "mode": "network",
+      "oracle": "raw RTL and independent packets",
+      "raw_bits_per_cycle": 800
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 198,
+      "nodes": 4,
+      "accepted": 512,
+      "delivered": 512,
+      "blocked_samples": 1820,
+      "output_stalls": 1112,
+      "dateline_packets": 144,
+      "invalid_vc_checks": 256,
+      "seed": "4c03a271",
+      "profile": "ring_4_l1_w32-legacy0",
+      "mode": "network",
+      "oracle": "independent packets and held-output stability"
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 198,
+      "nodes": 4,
+      "accepted": 512,
+      "delivered": 512,
+      "blocked_samples": 1685,
+      "output_stalls": 1055,
+      "dateline_packets": 144,
+      "invalid_vc_checks": 256,
+      "seed": "4c03a271",
+      "profile": "ring_4_l1_w32-legacy1",
+      "mode": "network",
+      "oracle": "raw RTL and independent packets",
+      "raw_bits_per_cycle": 800
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 234,
+      "nodes": 6,
+      "accepted": 768,
+      "delivered": 768,
+      "blocked_samples": 3414,
+      "output_stalls": 1552,
+      "dateline_packets": 216,
+      "invalid_vc_checks": 384,
+      "seed": "4c03a271",
+      "profile": "ring_6_l1_w64-legacy0",
+      "mode": "network",
+      "oracle": "independent packets and held-output stability"
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 234,
+      "nodes": 6,
+      "accepted": 768,
+      "delivered": 768,
+      "blocked_samples": 3193,
+      "output_stalls": 1564,
+      "dateline_packets": 216,
+      "invalid_vc_checks": 384,
+      "seed": "4c03a271",
+      "profile": "ring_6_l1_w64-legacy1",
+      "mode": "network",
+      "oracle": "raw RTL and independent packets",
+      "raw_bits_per_cycle": 1416
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 196,
+      "nodes": 4,
+      "accepted": 512,
+      "delivered": 512,
+      "blocked_samples": 1646,
+      "output_stalls": 1076,
+      "dateline_packets": 0,
+      "invalid_vc_checks": 0,
+      "seed": "4c03a271",
+      "profile": "mesh_2x2_l0_w32-legacy0",
+      "mode": "network-synth",
+      "oracle": "independent packets and held-output stability"
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 196,
+      "nodes": 4,
+      "accepted": 512,
+      "delivered": 512,
+      "blocked_samples": 1546,
+      "output_stalls": 1066,
+      "dateline_packets": 0,
+      "invalid_vc_checks": 0,
+      "seed": "4c03a271",
+      "profile": "mesh_2x2_l1_w32-legacy1",
+      "mode": "network-synth",
+      "oracle": "cycle ready/valid, valid messages and independent packets"
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 232,
+      "nodes": 6,
+      "accepted": 768,
+      "delivered": 768,
+      "blocked_samples": 2692,
+      "output_stalls": 1608,
+      "dateline_packets": 0,
+      "invalid_vc_checks": 0,
+      "seed": "4c03a271",
+      "profile": "mesh_3x2_l1_w64-legacy0",
+      "mode": "network-synth",
+      "oracle": "independent packets and held-output stability"
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 198,
+      "nodes": 3,
+      "accepted": 384,
+      "delivered": 384,
+      "blocked_samples": 1077,
+      "output_stalls": 766,
+      "dateline_packets": 84,
+      "invalid_vc_checks": 192,
+      "seed": "4c03a271",
+      "profile": "ring_3_l1_w32-legacy0",
+      "mode": "network-synth",
+      "oracle": "independent packets and held-output stability"
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 198,
+      "nodes": 4,
+      "accepted": 512,
+      "delivered": 512,
+      "blocked_samples": 1685,
+      "output_stalls": 1055,
+      "dateline_packets": 144,
+      "invalid_vc_checks": 256,
+      "seed": "4c03a271",
+      "profile": "ring_4_l1_w32-legacy1",
+      "mode": "network-synth",
+      "oracle": "cycle ready/valid, valid messages and independent packets"
+    },
+    {
+      "status": "pass",
+      "cycles": 2081,
+      "scenarios": 2,
+      "width": 234,
+      "nodes": 6,
+      "accepted": 768,
+      "delivered": 768,
+      "blocked_samples": 3414,
+      "output_stalls": 1552,
+      "dateline_packets": 216,
+      "invalid_vc_checks": 384,
+      "seed": "4c03a271",
+      "profile": "ring_6_l1_w64-legacy0",
+      "mode": "network-synth",
+      "oracle": "independent packets and held-output stability"
+    }
+  ],
+  "compile_diagnostics": [
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_2x2_l0_w32-legacy0/compile.log",
+      "sha256": "5ddbde372ca964d13331307cac18bb48f5c79c3dff03d53d989c31510000624d",
+      "warnings": {
+        "TIMESCALEMOD": 29
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_2x2_l0_w32-legacy1/compile.log",
+      "sha256": "8398e64e339e29a9b0612d16fb3d01924de0ac07bccccdbbf42fb659044d3ab5",
+      "warnings": {
+        "TIMESCALEMOD": 29,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 8
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_2x2_l1_w32-legacy0/compile.log",
+      "sha256": "d29458f8d885b3977577e8142a9e2258b4cd68f3e431280724860030f62b526c",
+      "warnings": {
+        "TIMESCALEMOD": 29
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_2x2_l1_w32-legacy1/compile.log",
+      "sha256": "eac145884b3376271a4b1ea3d12ee34f7c8d1f96245c5ce6471f8b7fb6fbcb89",
+      "warnings": {
+        "TIMESCALEMOD": 29,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 8
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_2x2_l2_w32-legacy0/compile.log",
+      "sha256": "4bddc24e99e196a6a8a977849985736e22bc560e395093f0f3be7725b66c3749",
+      "warnings": {
+        "TIMESCALEMOD": 29
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_2x2_l2_w32-legacy1/compile.log",
+      "sha256": "97ceff2e28d46f1d25e84b572f4bb9c8e35a0d094400b69242dfcffdce8e4817",
+      "warnings": {
+        "TIMESCALEMOD": 29,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 8
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_3x2_l1_w64-legacy0/compile.log",
+      "sha256": "df9160106dc29d9ba03ad7e4f63964d9221790109f33446b6529e169639a2e1d",
+      "warnings": {
+        "TIMESCALEMOD": 29
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/mesh_3x2_l1_w64-legacy1/compile.log",
+      "sha256": "c394f989cacc3493084fc2c90be74e72e4fa421e0d8efb3b58ffe193d919af56",
+      "warnings": {
+        "TIMESCALEMOD": 29,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 8
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_2_l1_w32-legacy0/compile.log",
+      "sha256": "2070d972db570d95244960836931142fc4597cb727473752f3aed4277f7600a5",
+      "warnings": {
+        "TIMESCALEMOD": 38
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_2_l1_w32-legacy1/compile.log",
+      "sha256": "17cf135ec6a8a3d351242ad59ded0a816398fbdcf90e24653b089185c780fe9e",
+      "warnings": {
+        "TIMESCALEMOD": 38,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 23
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_3_l1_w32-legacy0/compile.log",
+      "sha256": "923398b4a683bac4f1d2b8a1177685c0a6c5d5443f76172e25032ed295f38acc",
+      "warnings": {
+        "TIMESCALEMOD": 38
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_3_l1_w32-legacy1/compile.log",
+      "sha256": "d609ed18273eedf3939a45b247c4ea7676953f9c2cf1d3233e4cd38a783c674d",
+      "warnings": {
+        "TIMESCALEMOD": 38,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 23
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_4_l0_w32-legacy0/compile.log",
+      "sha256": "fe8835395b9763729396def9bb1d924986d71410f5e409627865ca6272b00b4f",
+      "warnings": {
+        "TIMESCALEMOD": 38
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_4_l0_w32-legacy1/compile.log",
+      "sha256": "8b872b45ae30eebe8616e57011fb004c98d07e7cea86bc05ad173be85450cb95",
+      "warnings": {
+        "TIMESCALEMOD": 38,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 23
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_4_l1_w32-legacy0/compile.log",
+      "sha256": "e8c84ca886f14d72a1cf49f33ffff46a020a526bfcb98aceb0c2123c100aa216",
+      "warnings": {
+        "TIMESCALEMOD": 38
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_4_l1_w32-legacy1/compile.log",
+      "sha256": "867e1f9d6d75120e1ba50a29f0e1166f311a1224b4e7eeff75565df252e357dc",
+      "warnings": {
+        "TIMESCALEMOD": 38,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 23
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_6_l1_w64-legacy0/compile.log",
+      "sha256": "d4a528faa31529549315f87d89101ac818e4539d40453f6e2cc77095d646e7a1",
+      "warnings": {}
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network/ring_6_l1_w64-legacy1/compile.log",
+      "sha256": "96689c1a68c8b94500cc1286f329659f6fab40f9cbd24b805661347dd5fe9dde",
+      "warnings": {}
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/mesh_2x2_l0_w32-legacy0/compile.log",
+      "sha256": "08a2cd9dd24c090ab516620b2df72a6d0e86fc2059b24d5d54be8434b08c2572",
+      "warnings": {
+        "TIMESCALEMOD": 16,
+        "ASCRANGE": 4
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/mesh_2x2_l1_w32-legacy1/compile.log",
+      "sha256": "a951f1fcf6c49b519c972d368c196f9f752113235b9e3b773efe0fba2bb5fdff",
+      "warnings": {
+        "TIMESCALEMOD": 16,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 8,
+        "ASCRANGE": 4
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/mesh_3x2_l1_w64-legacy0/compile.log",
+      "sha256": "1d5d3dbeaa5ce7358775637f139e2dbbcb62acdc561939c78fa805f0802b7532",
+      "warnings": {
+        "TIMESCALEMOD": 16,
+        "ASCRANGE": 4
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/ring_3_l1_w32-legacy0/compile.log",
+      "sha256": "7c6cc2ed9a170c00d0530e0f397e75e7e17fe381c2a145562ed9d69a40243dee",
+      "warnings": {
+        "TIMESCALEMOD": 25,
+        "ASCRANGE": 4
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/ring_4_l1_w32-legacy1/compile.log",
+      "sha256": "8a0a4130ddc79e820b9de52061e3aa664a25f036775d144dac58e822dee07745",
+      "warnings": {
+        "TIMESCALEMOD": 25,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 23,
+        "ASCRANGE": 4
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/network-synth/ring_6_l1_w64-legacy0/compile.log",
+      "sha256": "f409b87466038c29d43f8c0f7eb9b79471a8f94df7ffe90f79062e3a3b76938c",
+      "warnings": {
+        "TIMESCALEMOD": 25,
+        "ASCRANGE": 4
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/primitives/switch1/compile.log",
+      "sha256": "9b8496f25217bab3f1e1b60ee4c87b49bf407477132586eae7d1efc3e62a9bcc",
+      "warnings": {
+        "TIMESCALEMOD": 5
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/primitives/switch2/compile.log",
+      "sha256": "d481f959316a6cec4b63f0d11d59edc013bd679439e2df440742cf9b40e03bc6",
+      "warnings": {
+        "TIMESCALEMOD": 5
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/primitives/switch3/compile.log",
+      "sha256": "c95e9812266fce92e6f5ade56d0c60458d5b28692eebac82beb4bfb9134e37ba",
+      "warnings": {
+        "TIMESCALEMOD": 5
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/primitives/switch5/compile.log",
+      "sha256": "72a500e7cc08abf0a92ad200965dddebd06e838f1a8ced3122190a1f807a8483",
+      "warnings": {
+        "TIMESCALEMOD": 5
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/primitives/credit/compile.log",
+      "sha256": "fa86f5a962d0e51b33c4bf428fa1c8d94aba3fa29bd0da409e42d5c6ba062bf0",
+      "warnings": {
+        "TIMESCALEMOD": 5
+      }
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/router-credit/compile.log",
+      "sha256": "4719fa9ba367a38720093044640449af22ecd9763a7f1615626413172901e5cd",
+      "warnings": {
+        "TIMESCALEMOD": 14
+      }
+    },
+    {
+      "path": "sv/build/native_noc/compile.log",
+      "sha256": "7ba77ee1371c57a24e7e273b29f5b643c5d2f66ea70b16478954e1e08203a7a7",
+      "warnings": {}
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/original/legacy0/compile.log",
+      "sha256": "25d575fe66401c24f710ee976293584445b8cd9a866aa43a6ed5e20cab7fdcdb",
+      "warnings": {
+        "TIMESCALEMOD": 13,
+        "WIDTHEXPAND": 7,
+        "WIDTHTRUNC": 6
+      }
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/original/legacy1/compile.log",
+      "sha256": "c61c24423ce35191ce5ee357f03275c925860f3e564f236ad4c65a635396b96b",
+      "warnings": {
+        "TIMESCALEMOD": 13,
+        "WIDTHTRUNC": 7,
+        "WIDTHEXPAND": 7
+      }
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/nonpower/legacy0/compile.log",
+      "sha256": "646c23a0c973fc34f5b50616e1dc2199ed98c25eda7319fe68ef392ca254b410",
+      "warnings": {
+        "TIMESCALEMOD": 13,
+        "WIDTHEXPAND": 5,
+        "WIDTHTRUNC": 3
+      }
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/nonpower/legacy1/compile.log",
+      "sha256": "ecb70752665f5e75bef89928a46e2613521d9b4a56abf531e6fbd911c16e42d3",
+      "warnings": {
+        "TIMESCALEMOD": 13,
+        "WIDTHTRUNC": 4,
+        "WIDTHEXPAND": 5
+      }
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r1-w3-d32-c0-dma0/compile.log",
+      "sha256": "6588a06c6a6cd6bf2e3c3af770cb509c5ee1ce77eb6daed1158875b15b5f1d1e",
+      "warnings": {
+        "TIMESCALEMOD": 7,
+        "WIDTHEXPAND": 22,
+        "WIDTHTRUNC": 4
+      }
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r1-w3-d64-c1-dma0/compile.log",
+      "sha256": "3b04b924d73683d9d126ad50124ec39d16f1ea3d3e3be0a3f1c795a7f0de6d03",
+      "warnings": {
+        "TIMESCALEMOD": 7,
+        "WIDTHTRUNC": 7,
+        "WIDTHEXPAND": 23
+      }
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r2-w2-d32-c0-dma1/compile.log",
+      "sha256": "96fa223854677b1f3ead16b1506486e998205ac3d7b06cfcdad5a122c4b2e335",
+      "warnings": {
+        "TIMESCALEMOD": 7,
+        "WIDTHTRUNC": 5,
+        "WIDTHEXPAND": 22
+      }
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r2-w2-d32-c1-dma1/compile.log",
+      "sha256": "775f1f9d28d1378b330dabcdc90c869e3f6a0f80e5061e6c3ebd6d7672f5cd8a",
+      "warnings": {
+        "TIMESCALEMOD": 7,
+        "WIDTHTRUNC": 6,
+        "WIDTHEXPAND": 22
+      }
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r2-w2-d64-c0-dma1/compile.log",
+      "sha256": "bda93d22b257e55b08b969b790416d00c231efd44e15737d3de73cdcc1825899",
+      "warnings": {
+        "TIMESCALEMOD": 7,
+        "WIDTHTRUNC": 7,
+        "WIDTHEXPAND": 23
+      }
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r3-w1-d32-c1-dma0/compile.log",
+      "sha256": "bfb0b2b3de38d0eb3452e04a1706947a1e61fbc8174614b37efb6d93426d40b6",
+      "warnings": {
+        "TIMESCALEMOD": 7,
+        "WIDTHTRUNC": 5,
+        "WIDTHEXPAND": 22
+      }
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-rtl/r3-w1-d64-c0-dma0/compile.log",
+      "sha256": "e22cb992f02c24fce2dc6953c73af174ff371906b9d1c0a724a914316bec9794",
+      "warnings": {
+        "TIMESCALEMOD": 7,
+        "WIDTHEXPAND": 23,
+        "WIDTHTRUNC": 6
+      }
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-compat-rtl/r3w1/compile.log",
+      "sha256": "276db97127d9100fe049dd5a85cf89e04c3befba717457f9929aedb24771f038",
+      "warnings": {
+        "TIMESCALEMOD": 7,
+        "WIDTHTRUNC": 2,
+        "WIDTHEXPAND": 19
+      }
+    },
+    {
+      "path": "sv/build/current/memory-boundaries/controller-compat-rtl/r1w3/compile.log",
+      "sha256": "cf080729c7d4cbb137eb713424009ad257f066b452df7df55504182846ff6bf4",
+      "warnings": {
+        "TIMESCALEMOD": 51,
+        "WIDTHEXPAND": 57,
+        "WIDTHTRUNC": 21
+      }
+    },
+    {
+      "path": "sv/build/native/multi/mesh/compile.log",
+      "sha256": "69fd4dba3b2b5966761a98d40cea7c5453066c7f728c9e6f4822fc66095b661c",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 58,
+        "WIDTHCONCAT": 1,
+        "WIDTHTRUNC": 5,
+        "SIDEEFFECT": 2,
+        "UNOPTFLAT": 8
+      }
+    },
+    {
+      "path": "sv/build/native/multi/ring/compile.log",
+      "sha256": "e4c25d220a5db14cd1d355a2d3c3bd43b968aead194ae23282198e8e686d62a5",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 58,
+        "WIDTHCONCAT": 1,
+        "WIDTHTRUNC": 5,
+        "SIDEEFFECT": 2,
+        "UNOPTFLAT": 8
+      }
+    }
+  ],
+  "input_sha256": {
+    "sv/MIGRATION_TASKS.md": "fca7c9d74eef2abcd050fbdb89906065c57034d91566673a036b2ec4202118a7",
+    "sv/Makefile": "ededda942b71c93492ea4c6983349a85200f7627b2cc1966edf16bdf18cf2315",
+    "sv/NOC_HANDSHAKES.md": "8c435767c8131010b8ca60d7921957a5c1d0e06a53d316edfdace16b89baaa5f",
+    "sv/filelists/native.f": "e5643e6684afb0e23bdc4464e109567ac6f6b4dbe3750027b428523d4aaf3011",
+    "sv/filelists/phase3.f": "acaba58ee82109324d1b9ab0820c32aa47228d907fd00e184466ad7d37fe03fc",
+    "sv/filelists/phase3_float.f": "3a1b67882cfd42d3a4a30ef26e8c1f9ea2e280a57097fe8cd8e2d56f70d73631",
+    "sv/filelists/phase4.f": "48e3fb1ddfd25b7f278a1ab52de54f9af9b8c020bbd8695e1e601bd04f7d1f9e",
+    "sv/filelists/phase4_noc.f": "9f364380d291dfdb047e2096b33f9275d3f443cc465700ac0d8e834edefbb8c0",
+    "sv/filelists/phase4_peripheral.f": "d2d4de1661787510a0d77d381aafdf07c8d6a987a6cb5504146cc81ee854cef8",
+    "sv/filelists/ring_ctrl_memory.f": "930578aadf49d7e44a685af00865aa739e96c10f9f85c0e3926afe1727032c63",
+    "sv/filelists/rtl.f": "b513558b37f1f44761a15e0ce5c8be46979226d99d126968b62a73cfabc8f51a",
+    "sv/filelists/sim.f": "5a38683f86100f5d985456c5a70740fdc9b5118f4744faaccd7fc50f5ee9c0f8",
+    "sv/reference/VectorCGRA2x2Reference.v": "f7d4479abe7b2305f21875a4ba82d685cb20d61275abbf4114786c57185487aa",
+    "sv/reference/current/memory_boundaries/asymmetric_python_probe.json": "b39f51a14cef077dc3ad89f67bb87701b44b6f377b4bc52dec55a2babfe5d4d3",
+    "sv/reference/current/memory_boundaries/controller_r3w1/labels.json": "30d0d4386c7176f0e8db3f76b84aee0f1aa2ccb9f9c78ddeedc08fdfb62e24b3",
+    "sv/reference/current/memory_boundaries/controller_r3w1/manifest.json": "d75c78cd32b362ce94e09dcd7e5f24badf97a394446280e46d09006b13236d91",
+    "sv/reference/current/memory_boundaries/controller_r3w1/vectors.txt": "0f94ecfeb7e0be4db411341420ee6f0205b2931c677e341f49b3a288edc2e311",
+    "sv/reference/current/memory_boundaries/dma_w128/labels.json": "5464fa4afb9bc21d9cc49bd3c7e218ca2a689346dcad7a2f24aaa7032dc76d22",
+    "sv/reference/current/memory_boundaries/dma_w128/manifest.json": "7d8a5e32dd314fd5e199d22af2753935c16d69ca34e5a947fb1d6afafa798679",
+    "sv/reference/current/memory_boundaries/dma_w128/vectors.txt": "07343443651e2c79b590195186bd721ab5bcbbf61df77cbc58cd4c0d54a878e7",
+    "sv/reference/current/memory_boundaries/dma_w256/labels.json": "5464fa4afb9bc21d9cc49bd3c7e218ca2a689346dcad7a2f24aaa7032dc76d22",
+    "sv/reference/current/memory_boundaries/dma_w256/manifest.json": "a16d6c167a7a51327d2184b84c76ceb79f9d911cf39999e5d7f1c4ab71c253ae",
+    "sv/reference/current/memory_boundaries/dma_w256/vectors.txt": "860e534be53c1e8ac850502e7ff9c8ea3cc58680a0c7ce4eb2e673fafde9332e",
+    "sv/reference/current/memory_boundaries/dma_w32/labels.json": "5464fa4afb9bc21d9cc49bd3c7e218ca2a689346dcad7a2f24aaa7032dc76d22",
+    "sv/reference/current/memory_boundaries/dma_w32/manifest.json": "9a96872635ac97b0c474d51c1f73afaeb43c6c2f285431bc8e54c8b78a422a6b",
+    "sv/reference/current/memory_boundaries/dma_w32/vectors.txt": "4774f673beb4abc2a3c6925fece614ade1188a610565529c05d510c57d2b9117",
+    "sv/reference/current/memory_boundaries/dma_w96/labels.json": "5464fa4afb9bc21d9cc49bd3c7e218ca2a689346dcad7a2f24aaa7032dc76d22",
+    "sv/reference/current/memory_boundaries/dma_w96/manifest.json": "20f57244205cd0c7886630b39ab0608002e6dce7cada1344cfb30fbf8f90df09",
+    "sv/reference/current/memory_boundaries/dma_w96/vectors.txt": "6c76e85f646112b14749317819892fe7314cb4bc47cb9170c78796f7e397ecef",
+    "sv/reference/current/memory_boundaries/im2col_w32_d64/labels.json": "4e0ff27eb3b35bbfd6f5d05824afaded5fe4541d6533d0da4dab718fbdb4b920",
+    "sv/reference/current/memory_boundaries/im2col_w32_d64/manifest.json": "8cec6ab529aa49fe129d64b0ef5b6ff405b6816af07395e5069f314f4da278a2",
+    "sv/reference/current/memory_boundaries/im2col_w32_d64/vectors.txt": "c41df549bc7ea7fb9d95358cc57183340292004bef584614c2072aa11f9e0233",
+    "sv/reference/current/memory_boundaries/im2col_w64_d32/labels.json": "4e0ff27eb3b35bbfd6f5d05824afaded5fe4541d6533d0da4dab718fbdb4b920",
+    "sv/reference/current/memory_boundaries/im2col_w64_d32/manifest.json": "80e73afb1dd07ad38bf4d493d638d86665ae92f83e275919540f11836355728f",
+    "sv/reference/current/memory_boundaries/im2col_w64_d32/vectors.txt": "e6feeba18a16671196254b093241ab8961fcf28e5179ee9aa20e574e999e32b1",
+    "sv/reference/current/memory_boundaries/original_tests.json": "b5b802dd4418f017fc804bd4e76d41cc7231e9a9b9198a9688d67d546d026bc4",
+    "sv/reference/current/memory_boundaries/r1w3_reference.v": "dfaa3fda7df49f9530d4281ef0c707254d26d4e30b5b32ab1e8604850c6958b9",
+    "sv/reference/current/memory_boundaries/validation.json": "9e570afcbcb37228d5ba02c357e2b3c25494ff2fe85281fda4a3f7e3e7471d49",
+    "sv/reference/current/ring_ctrl_memory/nonpower/labels.json": "454b41e5ecf9bcb7ba6d6f5cc2f3fd414b0cd822a2c8716a895be585007f136b",
+    "sv/reference/current/ring_ctrl_memory/nonpower/manifest.json": "7305c5287f8280cd7a9b4a4350d1ef9141636e3ac83cc8a98475901da003097e",
+    "sv/reference/current/ring_ctrl_memory/nonpower/vectors.txt": "c994913373124789ca30470716576203abb720b4a3133e5d584929a1554adb67",
+    "sv/reference/current/ring_ctrl_memory/original/labels.json": "17d87577f6cd386b8bf44c966842e0f19dd161e848bf24ecc0b96d4471562ff3",
+    "sv/reference/current/ring_ctrl_memory/original/manifest.json": "38e7ddc94f7b6cc3bea3538bb7cf731a5d700fbb530b2ff3c555f268edace466",
+    "sv/reference/current/ring_ctrl_memory/original/vectors.txt": "6f87545d62aecce6068c90f586be8f70df915895be1a4769d9db53a7a21b6bf2",
+    "sv/reference/current/ring_ctrl_memory/original_test/labels.json": "93695c9b63384b39ec1cb1094be78b41bff7c31f6a5ef5c434985f5bacba9b92",
+    "sv/reference/current/ring_ctrl_memory/original_test/manifest.json": "2fc64d1596be739b228c95d049184aa8bcea318d666e56babb5ac02dc4e45ef9",
+    "sv/reference/current/ring_ctrl_memory/original_test/vectors.txt": "ce466e749ab34b0ffd75b4b2a17a4fd39b29f896d24747a9195827d2c432289a",
+    "sv/reference/current/ring_ctrl_memory/single/labels.json": "ac779ba7cdaa11e411cc84b6a02bbaa6736e80b4faea6f6b52db21eb3f1e0678",
+    "sv/reference/current/ring_ctrl_memory/single/manifest.json": "921a3fba2df22bb5d0d8ee3b95850d434b618b60f6d829f07acb5a3e5301317b",
+    "sv/reference/current/ring_ctrl_memory/single/vectors.txt": "2e2277de9b7dca344d6229be0744ab1eb476e5d6395f70aa21a658f13c0ea6b3",
+    "sv/reference/current/ring_ctrl_memory/validation.json": "4cb52fc9182cce54d92e66e7fe946cba0622a188111fc25eb65726c66a22ab60",
+    "sv/reference/current/ring_ctrl_memory/wide/labels.json": "ce6a33cdd5c854748968eab03b45ce7eccdaf289dafd7337d34e35e62f320988",
+    "sv/reference/current/ring_ctrl_memory/wide/manifest.json": "ad9320041e00aff1bdcfaa16edcd5670d25d62d41700872d6b573995cc81a102",
+    "sv/reference/current/ring_ctrl_memory/wide/vectors.txt": "7f11a5f99b99fb8c9d4ca0d189a02a4098a66e399b3d101ec299d6a50768225e",
+    "sv/reference/current/target.json": "c560f1ccf61706ed50c871a2987ea2c2837c6ae14b942f1216b275a201de14aa",
+    "sv/reference/phase4/noc/mesh_1x2_l1_w32/exporter_snapshot.py": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+    "sv/reference/phase4/noc/mesh_1x2_l1_w32/manifest.json": "21e6c05b1dc8fc0ce5116caf7d20bef8ec96d59e4d61ef14c2179aba81805b50",
+    "sv/reference/phase4/noc/mesh_2x1_l1_w32/exporter_snapshot.py": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+    "sv/reference/phase4/noc/mesh_2x1_l1_w32/manifest.json": "47a262a1cd1ca7e216cd9b5e11097d1c58bcc12beefd329ab6d7d4b2fc4d2369",
+    "sv/reference/phase4/noc/mesh_2x2_l0_w32/exporter_snapshot.py": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+    "sv/reference/phase4/noc/mesh_2x2_l0_w32/manifest.json": "224bc7065e336798cd8e709bcd4e6b8e462f4d42786618157cbbc59426832932",
+    "sv/reference/phase4/noc/mesh_2x2_l0_w32/reference.v": "d8675b73600749e9993e9e1eb3044655dd97bf0264294d64589f0e9d4fe13d1f",
+    "sv/reference/phase4/noc/mesh_2x2_l1_w32/exporter_snapshot.py": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+    "sv/reference/phase4/noc/mesh_2x2_l1_w32/manifest.json": "c52ee289361d3d354031185bd4ee58ed99317483ff56c2b1bed676aeaaa4b1ce",
+    "sv/reference/phase4/noc/mesh_2x2_l1_w32/reference.v": "4f461d89d6f7086d3d4235e794c0ce219185efa19362740642e3fce5bbb3a4cd",
+    "sv/reference/phase4/noc/mesh_2x2_l2_w32/exporter_snapshot.py": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+    "sv/reference/phase4/noc/mesh_2x2_l2_w32/manifest.json": "2b5064f6869d353268092101b3ffca12484766e0456590f7948cb16fd7ec80b4",
+    "sv/reference/phase4/noc/mesh_2x2_l2_w32/reference.v": "1f3c6b746d35cd5c5774b84648afa6eba6bb604657118e5cc2b03821f8bc3661",
+    "sv/reference/phase4/noc/mesh_3x2_l1_w64/exporter_snapshot.py": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+    "sv/reference/phase4/noc/mesh_3x2_l1_w64/manifest.json": "dd81e51d03e27ae5efa45f25a6ad50a90402d3769c6554277574c01861eb1a02",
+    "sv/reference/phase4/noc/mesh_3x2_l1_w64/reference.v": "1d722b8bf8f6f21fe2280a93c072db5c9dc65e0c6c5971fc531f26dd3fa64d1d",
+    "sv/reference/phase4/noc/ring_2_l1_w32/exporter_snapshot.py": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+    "sv/reference/phase4/noc/ring_2_l1_w32/manifest.json": "4b37e26b82db83436cbd8fe98442334d396951a596a640f418c3e69e340b9480",
+    "sv/reference/phase4/noc/ring_2_l1_w32/reference.v": "7f91ce8a3bc1ba9c48cb4c381f3f79cdab0e760ad94fc05b8a3beabd8fdb847e",
+    "sv/reference/phase4/noc/ring_3_l1_w32/exporter_snapshot.py": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+    "sv/reference/phase4/noc/ring_3_l1_w32/manifest.json": "be0cae84a64375edfc2db3f10e86706f46900402f3791f8f91528cd275d1eade",
+    "sv/reference/phase4/noc/ring_3_l1_w32/reference.v": "5656d8703d22a47f38bbfae9968fb7f71a03b9f35ffb15215f45d0a10c602419",
+    "sv/reference/phase4/noc/ring_4_l0_w32/exporter_snapshot.py": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+    "sv/reference/phase4/noc/ring_4_l0_w32/manifest.json": "8bc2802a3bd3fa355dd2d0b6f522e1e75c2551b373529c59ba3a2ff5b4e34705",
+    "sv/reference/phase4/noc/ring_4_l0_w32/reference.v": "e8fad577a8597797099ed6ed6eb48293a2e119cba5f950b41365a9b0b0099aaf",
+    "sv/reference/phase4/noc/ring_4_l1_w32/exporter_snapshot.py": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+    "sv/reference/phase4/noc/ring_4_l1_w32/manifest.json": "b4dd15fdae99354648f86e81b1ca9848c5aa754dd408973ecd114b04dc7167cc",
+    "sv/reference/phase4/noc/ring_4_l1_w32/reference.v": "8473fd696c561140c84ac04a3008bcb3b8ca904e9217386588a96375fe2db287",
+    "sv/reference/phase4/noc/ring_6_l1_w64/exporter_snapshot.py": "ea8cf7c4ab553b479585b490682f0e1c77caeb54aed68ae0393689b54a18e6ae",
+    "sv/reference/phase4/noc/ring_6_l1_w64/manifest.json": "12af2c6fa9d385443f6ded3c3030a697fec9f286ac218f4d130cf1c9cae5c820",
+    "sv/reference/phase4/noc/ring_6_l1_w64/reference.v": "54c0b542f39d2003946a78a1adee4097964806e9aa839f5befec63c0df0dac51",
+    "sv/rtl/cgra/cgra_2x2.sv": "594608753066235c2f563460323109b82f685aabe763da40e005b7cb40975f9a",
+    "sv/rtl/cgra/cgra_multi.sv": "c22ffdf311ffb837e9994f38da105f1489e5016293a5ffe6ba398fc3e0f196ad",
+    "sv/rtl/cgra/cgra_multi_template.sv": "c6c30511183969ed5c3cd0686636cc91a321c50195f6ab11e462617b4fc86e10",
+    "sv/rtl/cgra/cgra_programmable.sv": "d2965f2573b7efeef4beba8dad875763f1cd9e02393b5972de15299dbb87baa0",
+    "sv/rtl/cgra/cgra_scalar.sv": "227ea3f81cca38acb6f90d4889a4639b5200fcffd68764c52df40cb984a5c684",
+    "sv/rtl/cgra/cgra_system.sv": "56fb6f976e84dcda9d3abaf314bbe12ce9ddd68a595472c3da1e6d46dfa81b77",
+    "sv/rtl/common/cgra_channel.sv": "0f2d6a0be4202910ffa8ebf3fbed6ed2c08d947ffaf8a11e50e1c195ffa8bf34",
+    "sv/rtl/common/cgra_fu_catalog.svh": "3a438230aa71381d6bdc4856f31f46783b8512212699b8d9f6fbbb3d1e2320bb",
+    "sv/rtl/common/cgra_native_extensions.svh": "a632d6eba711393e681bd5b2473b586ab66f99fb5bc796bb930ba017dd3ae080",
+    "sv/rtl/common/cgra_opcodes.svh": "aaf5c876081d1fb066af8cdc01e7cae2a35afebaedfeb6e5a8889e3d0375bede",
+    "sv/rtl/common/cgra_pe_memory.svh": "e72d4aab3258febbccc2073083c04cea90c90b14c379e2aa5450162714732ebc",
+    "sv/rtl/common/cgra_pe_ports.svh": "3403bcb7c5fc1a760ed07a29af25605ed9e879cfcd634ff9a54c93542cee0b5b",
+    "sv/rtl/common/cgra_pipe_queue.sv": "c1efc55e6a1911d3886e6575a82f1cd1ebc0ab8275e3706585548a9498a7855c",
+    "sv/rtl/common/cgra_profile.svh": "8a360c5a38dc98087d9cbd89c9508bd6b2c6d428bc4cc90bba357e36de168eec",
+    "sv/rtl/common/cgra_profile_defs.svh": "dbd20bfaa83506e76e87ac960af7377137aeab0b31b274af4768657f19d20cd0",
+    "sv/rtl/common/cgra_queue.sv": "87e03f556141d8c2c0abe26168ef567ce4b5e456a9f090f9f797aed51a4c4761",
+    "sv/rtl/common/cgra_register_file.sv": "13856021bc1acb361a12a96870a501dea98856aec5c301dd503b41327323d41d",
+    "sv/rtl/common/cgra_ring_ctrl_defs.svh": "f27e2bfd700ec4dcc068aaaef03f550780ee47c89b6e4084038810d35dbdb69d",
+    "sv/rtl/common/cgra_ring_ctrl_types.svh": "de18f9bea5b5944bb0b230bd9d24f20f1b50e10fdb7753c6ec62da56dba4e3d6",
+    "sv/rtl/common/cgra_round_robin.sv": "294d46b6394c205ea67577ef8f4f51b6cc220072051c6a42b3280c5b7ef4b93d",
+    "sv/rtl/common/cgra_types_pkg.sv": "b156167206aef4146c68e95693ac57926310d9f5a7ed60076b71b8d5480c9c16",
+    "sv/rtl/controller/cgra_controller.sv": "f19a4e56c14e0295f270ee8db588faa1b1d600da7ddbb5b24d5a60a6812fd830",
+    "sv/rtl/controller/cgra_global_reduce.sv": "09cec6468cc53aff676cca857c06cb2593e7dcfe25f4f49b10bdfe2bbdf27d8f",
+    "sv/rtl/controller/cgra_loop_controller.sv": "9591b36ba8ee0830363232415cf7f5fdfe58d8e262b96e301c057fff4332995f",
+    "sv/rtl/controller/cgra_loop_controller_legacy.sv": "49d61bd7af7e66468302de10ec822cbdc916fdf34d89daa91a16e99a966d8baf",
+    "sv/rtl/controller/cgra_loop_controller_native.sv": "d835fe2995fddf56404347637888f1db437f5d79ae9ddaa45ef204a297afc354",
+    "sv/rtl/fixed/cgra_2x2_core.sv": "6be4c3471c14ea66bf14dea87c15c11fe7d5c327bcb741a4ca949e23ab1bf780",
+    "sv/rtl/fu/combo/cgra_alu_gen_mac.sv": "2a3c4543a4da07afdda54f2b98ce79f6b619d0e86da03d13a0b48e0f95128fa2",
+    "sv/rtl/fu/combo/cgra_alu_gen_mac_core.sv": "fcd99e36be14e96e51af9006afd03c1d5d8d0b0b6d5d1048f520e0ec1232afbc",
+    "sv/rtl/fu/combo/cgra_multp.sv": "855e5c180f10e01be38d012d4c539fa8ef9e497e91a7be846d78f548a9be588b",
+    "sv/rtl/fu/combo/tile_alu_gen_mac.sv": "cf3653711209242196f24dfd38d4f2657de6dedd32731fa31913352c1541b8f4",
+    "sv/rtl/fu/combo/tile_four_inc_cmp_not_grant.sv": "f07e9725770f6035bddf88a0db8b423dd4109cb874914b08709bb7ac104b50ae",
+    "sv/rtl/fu/combo/tile_prl_mul_adder.sv": "463a6413f39a31562380a0e83d4b4abe6693afbadd1bef97a2ba80923803f506",
+    "sv/rtl/fu/combo/tile_seq_mul_adder.sv": "e5b32d0d27635866de133f8af720aa62bbb04b7def014864b9f7f92ec6688349",
+    "sv/rtl/fu/combo/tile_seq_mul_shifter.sv": "0d9ae72d7eeb7ff3c2e8d8292d50545f6bd63d943896468c161312a0093287e4",
+    "sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv": "46b15a4038d546c02e91ef2ca17c47e2fcfc30803fcb1cccad11c8628154ec36",
+    "sv/rtl/fu/combo/vendor/README.md": "3b6e2224d5614cf1dd3856bec4563ec7da6ef25a0cf53b8bf66b055f76c3e16c",
+    "sv/rtl/fu/combo/vendor/dp_fpfma/DW02_multp.v": "a9d9bb4b4b5fa032e5626e3dd32d069cf39d45765c398530bb41bb3a541b4515",
+    "sv/rtl/fu/combo/vendor/svsrc/ALUgenMAC.sv": "a279b80f648394ed7b15c955360a8d803ec9a597105f0a5bd17dc32b982565a6",
+    "sv/rtl/fu/float/cgra_hardfloat_fn.sv": "fc52932df3a81ecfc90edd1d2c51c991e344213db5165d910700ab1205392d4d",
+    "sv/rtl/fu/float/tile_fp_add.sv": "164243f24ddc1582c1ad974d10b274b859ef25fe913709027b8b7ce7f59573f8",
+    "sv/rtl/fu/float/tile_fp_fu.sv": "911e3d4379224b82085c08d01ae9991a51eb8a98b6e7b60a4fba16e78c6ad7de",
+    "sv/rtl/fu/float/tile_fp_mul.sv": "c1f70d1ba0a6c92a4dfebb97fffb48e09bc4d455a5f220d06f088941070b504c",
+    "sv/rtl/fu/scalar/scalar_comp.sv": "af04f3f0eeb55fa116834ace8f3c7db6041641832e8c77c7d050c330859979e0",
+    "sv/rtl/fu/scalar/scalar_const.sv": "2d2020a3aae93d89d2271642d26a87ae8252498c1a53a720c8360b43ce9e21d5",
+    "sv/rtl/fu/scalar/scalar_div.sv": "bbdc94f43b3e6351b61d4dbae0dd5f65e0810063e6ea9de00d3e88cff01ccab4",
+    "sv/rtl/fu/scalar/scalar_div_native.sv": "f1b8b0ee91441b19801b1f70d689d0cfbfb6fbc77fbfc52791e9eaf85d4e5844",
+    "sv/rtl/fu/scalar/scalar_div_pipeline.sv": "2930cacb0918951bf85493bd16d7e087e25603e0c7ccde5ad77001f192471fd6",
+    "sv/rtl/fu/scalar/scalar_exclusive_div.sv": "f35e97139d2780e115be546a7fa7947474ee99486dbb90f2cbf9d6d4f4b4d2c0",
+    "sv/rtl/fu/scalar/scalar_extract_predicate.sv": "114b1394007b9f304e542c3bb8a49a74559fb0cb8ef741d5cc1d2f317d29a391",
+    "sv/rtl/fu/scalar/scalar_gep.sv": "050d2349f1a3dcae059fc2a4caf7ab42459e9906b40e8a81949fdb2e9e3a6fb7",
+    "sv/rtl/fu/scalar/scalar_grant.sv": "0e6592d3ee731cc1d3d0a243385022cef487c45b1001ad6c7a577aea9df090af",
+    "sv/rtl/fu/scalar/scalar_inclusive_div.sv": "2df8f4ec03d5a2945d7c998653d80fd0cad52f7e069d0dd0d0f085f83bd2537c",
+    "sv/rtl/fu/scalar/scalar_logic.sv": "1293c8e9d947dcd641bc450e57a0e91cbddf4e7fc783da775e419899513617a7",
+    "sv/rtl/fu/scalar/scalar_loop_control.sv": "cc1a3d06a0a0c123a7024f8ceee0bb8917732a1900ea83f674efa7f15993fd30",
+    "sv/rtl/fu/scalar/scalar_loop_control_native.sv": "04e4860c9008190c71b49d008a54533d6c97a62c0048a809d6406bd548c0d6a3",
+    "sv/rtl/fu/scalar/scalar_loop_counter.sv": "d3c45bdbd3469e8e841d6ffe588e7028fecbf4883dc47094f218000dc06f6d65",
+    "sv/rtl/fu/scalar/scalar_phi.sv": "4566ee6e2725c687c415a2a69f1a558061aa8129e436a8a0390274cca577fdb1",
+    "sv/rtl/fu/scalar/scalar_ret.sv": "b15eb77f8ac4e8363ad37c000d316d9edda2b75667f7df2bdf8314f832c92e8e",
+    "sv/rtl/fu/scalar/scalar_sel.sv": "a3d0468b73a4f9224d9cb7d616d075a9a295656bc2c129592034ea50d89844ac",
+    "sv/rtl/fu/scalar/scalar_shifter.sv": "253ca1dbe51e6fd1330da1b4ab75367f9c26809cfbe4d2027aee169f056c61d1",
+    "sv/rtl/fu/streaming/tile_streaming_memory_fu.sv": "75e24ef6b0fd9be2bddb85ce27541f56efb220bebdbba0167e3d1cefafe3cadf",
+    "sv/rtl/fu/tile_adder.sv": "45543a691c42cc9d0ce3b5197ff8f4413cc2f8035c84b2e5a5e86e87b3893302",
+    "sv/rtl/fu/tile_flexible_fu.sv": "914d1c7978325abd19d524680db6c7f4183fd559b026c000b01a14f66bce51ed",
+    "sv/rtl/fu/tile_flexible_fu_configurable.sv": "ba855c558f2b7ca95b5430219a5f90a790bf15831432b7c06a5598b0b249cf57",
+    "sv/rtl/fu/tile_memory_fu.sv": "14cc78c90c4633c4ec7a60655573fc1e6854b41c278f536586a7315bf83f7655",
+    "sv/rtl/fu/tile_multiplier.sv": "75eb93fb510f442adba6a6ab978855141f0600aa2cd76f7fc24926bac56d8c5f",
+    "sv/rtl/fu/tile_nah.sv": "90cab29e133b0a51389c01123d75b92104c8f935824dac6a31b2069a343b616c",
+    "sv/rtl/fu/vector/cgra_vector_adder.sv": "abdfd80381c515c13f9f541636ddd39f47fd676e9bed15c81952bb384e17ee2e",
+    "sv/rtl/fu/vector/cgra_vector_mul.sv": "67855b8b2003f586d54aace6d3e4350a0a7b701dd4e08a310fb80b8a1c393127",
+    "sv/rtl/fu/vector/tile_vector_adder_combo.sv": "1a9c65fb75968035095cc979bf4fd453466c7dde27f93bfe5b854823daf0c5a6",
+    "sv/rtl/fu/vector/tile_vector_all_reduce.sv": "61eeb25f5c679791a4e0d90054adee1a13708fe9c5ad621e75ecbcd5190ff4a7",
+    "sv/rtl/fu/vector/tile_vector_mul_combo.sv": "94eb6a5272ceba17b1a7d5eab04cb15ea4c59320b49ecefd378cacad88ca60b0",
+    "sv/rtl/mem/cgra_data_bank.sv": "fe056aabe4ab86e14fe7b7adbe83b063758aaaf2ee9a85f5a47330172249be13",
+    "sv/rtl/mem/cgra_data_mem.sv": "29bf69381bd007711ba3d7af5bcf04811741826dda6cc60f058bcf010ef4a1bb",
+    "sv/rtl/mem/cgra_data_mem_scalable.sv": "8d071e7c7bc9965595873877e94d1afc2d66a16bb0a9f00cb9ea5d583fae97e1",
+    "sv/rtl/mem/cgra_data_memory.sv": "eb452816a1793fbbe75729cfa182039cf6ad6424259012658ed83fca5bc0337d",
+    "sv/rtl/mem/cgra_ring_ctrl_node.sv": "c4cb34ecc70fd6114ccf39e70dce4dc13c167eef7789468c91da93881a96771a",
+    "sv/rtl/mem/cgra_ring_multi_ctrl_mem.sv": "54fec2007ed74de94b426a5d5918be5e98d8aeb683d711ac5b5e51238e49f89f",
+    "sv/rtl/mem/cgra_static_const_queue.sv": "7bc17ad13815330830858426c1795ab1fed78f81fffba28511b1aa8c07265316",
+    "sv/rtl/mem/cgra_static_ctrl_mem.sv": "59371c9567c9da2604fbf9704d1eaed435fe2d89e1ecb36348876a41b80e20a2",
+    "sv/rtl/mem/const_queue.sv": "74c8757759528421f5949be67e0cf1e8b364fcb7c2571bd13a61a782f8797c83",
+    "sv/rtl/mem/ctrl_mem.sv": "75ba6aa4d89b59aec49bf3844eff4b52b5937d77c2172f4512a616008e28bdd0",
+    "sv/rtl/mem/register_bank.sv": "18b60aa21e281939510a3c81bf2a0c115312a5736a38064529e12f38ea3670b2",
+    "sv/rtl/mem/register_cluster.sv": "1db346700060eaa4f5d9f960c1e9ae556ff589aabaf0197aea109f17831d9e4c",
+    "sv/rtl/noc/cgra_credit_input.sv": "c70a6188a78373c7b1b817b4cc6ea2b44fa06ca4b489b73dde61481aeb8a1f5d",
+    "sv/rtl/noc/cgra_credit_recv.sv": "181ac5ed8e66869375eec7668ceb58e6b1f3ae422045d3736c7472f58a550f07",
+    "sv/rtl/noc/cgra_credit_ring.sv": "1261785a4eeb013f1047c5855b5350f1195d0ccfa67226336c27b6affb2634e0",
+    "sv/rtl/noc/cgra_credit_send.sv": "03171c6c933efe24717ed7d0df5b484f20312019421cba45e56de7e8fa712512",
+    "sv/rtl/noc/cgra_or_link.sv": "bc815b089ab81e08631b3e7aaaec8c0801cab56b3994c2370578ae685d735fbf",
+    "sv/rtl/noc/cgra_ring_route.sv": "30ddabd82453381cc3ae7e686bbb5e0497c7b9d3b41dd27c83d9496464840cbf",
+    "sv/rtl/noc/cgra_ring_router.sv": "6e5b799e25ca4820e6ff2b927e430d9243cf6658bd1459a94bc064aa857617ff",
+    "sv/rtl/noc/cgra_selector.sv": "9273142c3eeba043de9673658bffb397a95fe19b4ba018a767e0eb692cc95a12",
+    "sv/rtl/noc/cgra_switch.sv": "b240bd16d346ebe037705caff67bb0d6c4c536f69c9e505e8503add1bf6005a4",
+    "sv/rtl/noc/cgra_xbar.sv": "f55b550f4c8fad03256080e27018bbfcac7fc6f563f3410a1ac0908fd8b6cd9e",
+    "sv/rtl/noc/inter_cgra/cgra_inter_mesh.sv": "654816b77d98a7f8603e2a4448ca29e1136243adc3a2c7cb562d008445c9238b",
+    "sv/rtl/noc/inter_cgra/cgra_inter_mesh_route.sv": "e1b31e0e6cae251fba0c910d835270c76dc9d39ac4de9ef1a96de056f9a02963",
+    "sv/rtl/noc/inter_cgra/cgra_inter_mesh_router.sv": "b0559e00361d605e55016341088a9ab64d883669ddd3efc73234fade08b7c3cc",
+    "sv/rtl/noc/inter_cgra/cgra_inter_ring.sv": "df60e28016a9a6e907679f069dcac38bfa5de5cd423446a6b1c8befe28992c65",
+    "sv/rtl/peripheral/cgra_dma_engine.sv": "a75bf533d584a887e5444afbf0099a24470b5c3983d7bebb7d2105595e7fc48c",
+    "sv/rtl/peripheral/cgra_im2col_engine.sv": "cf2e474559424a17cb30b2d4f696bb14c6bd965f966d2a01b2359acdfa3444d5",
+    "sv/rtl/peripheral/cgra_integrated_dma.sv": "58adf917214dccbc29ea16a73b4d96fec7240acf09e9eb978ae3407b4e3374e5",
+    "sv/rtl/peripheral/cgra_integrated_im2col.sv": "b76394df3dec6acf136b0480c1342ff78649d50ccac205695e426904c3d0c71d",
+    "sv/rtl/tile/cgra_pe.sv": "53b14b836c28829cc8bdd724d69c88d2b930fa7895a79ff9e9677210643780d1",
+    "sv/rtl/tile/tile_core.sv": "48c50c2a50a19493bb81133bd1ca25868094ee8f42a7c523f1c3ae545425a4a7",
+    "sv/rtl/tile/tile_link_or.sv": "b86b2471c44d0e6522d20d4e228e5463721bad6225df4a0f0a315084cf2147bc",
+    "sv/rtl/tile/tile_programmable.sv": "663f7046fdc98e19ba48030356ec5f5f6e959122cd46f99190696a935eeca448",
+    "sv/rtl/tile/tile_static_crossbar.sv": "e34d871318d89453d0f2e9cd494060c7bc9d98baeb855eedbfefd3fb56d6bd40",
+    "sv/rtl/tile/variants/tile_context.sv": "18e26360f8150740c46ca3da886c0868210eb52a645747643651fc6789d9d322",
+    "sv/rtl/tile/variants/tile_context_switch.sv": "0296f8460b31d8c4d319e7f5aaef7ee475d5e52330fe883c5b99926282126bcc",
+    "sv/rtl/tile/variants/tile_streaming.sv": "75f8a8a8929ea7d3ab45f1933d55bc7aedd3d830be580a1679dc291f2c27cf85",
+    "sv/rtl/tile/variants/tile_variant_const_queue.sv": "6ce5f5f25674f291c6118a5fd7adfcac18a7524d28ee77b27eedb710ada3ccea",
+    "sv/rtl/tile/variants/tile_variant_core.sv": "a7b69390881c6357e4591d9b41f59c9d2c2afdea58fd5e8b5610f0c58b8fc07e",
+    "sv/rtl/tile/variants/tile_variant_crossbar.sv": "a65b277c3c27babecac47f2b4f567ba24981b216495d6ef99a0308ec7e681ce4",
+    "sv/rtl/tile/variants/tile_variant_ctrl_mem.sv": "6465118774647a3709c42af6c3ed43d72e1eb61308b07bc7c006bc41173ed6ca",
+    "sv/rtl/vendor/hardfloat/COPYING.txt": "c791a6bdcef33feddaa0cb7ab99c233fb63d93bb385f06d58f9f1b9a8182b418",
+    "sv/rtl/vendor/hardfloat/HardFloat_consts.vi": "ff7168d2e1bcce237ee6ac0789d58588705063a3d14c9137ee4abba839822b40",
+    "sv/rtl/vendor/hardfloat/HardFloat_localFuncs.vi": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50",
+    "sv/rtl/vendor/hardfloat/HardFloat_primitives.v": "3273444d956fe82b01ba074ed6c22441d957dc7be02990133dd7a83efb07845d",
+    "sv/rtl/vendor/hardfloat/HardFloat_rawFN.v": "f219b1594ce25df5790af748bf2bcfdb6ff8a2ad4806c447b1dbeffcdecc071a",
+    "sv/rtl/vendor/hardfloat/HardFloat_specialize.vi": "c231a6ec6c62a9c01c3c2962cf43ea9ec92a7c1c115a8102959d89425803c890",
+    "sv/rtl/vendor/hardfloat/RISCV/HardFloat_specialize.vi": "9c12592b78732e7331f4f506c50e84ad15c120507d73e1f9e511fd95ed30448e",
+    "sv/rtl/vendor/hardfloat/addRecFN.v": "8e299e624d7f20c752bb3f59b6ae1ae94685244df20fe2ac274b86f93d87e488",
+    "sv/rtl/vendor/hardfloat/fNToRecFN.v": "146e50014d986df605ed59a69425cd6dc19750df3acdd083f61bff7cf51ac6a3",
+    "sv/rtl/vendor/hardfloat/isSigNaNRecFN.v": "dfec25b11b197b767d15b0e28d56b4742c7329668239cdf14d324ddac0950439",
+    "sv/rtl/vendor/hardfloat/mulRecFN.v": "bff24e22929c49d0f50f70511a93388c784faae9a578cfc79e8fe322cf60cf5a",
+    "sv/rtl/vendor/hardfloat/provenance.json": "6d31d80df7db1a31cac285fe922928a21bef42f4f64a1ff32d05785ccb3de403",
+    "sv/rtl/vendor/hardfloat/recFNToFN.v": "9a1cb98579a715965aebf9faab6cb5851154e8284d6af7ace594a0d6cc87adf8",
+    "sv/scripts/run.ps1": "dc34105030831c328334857e0d39c4c4d995e86b8c3f94b0b5893fc7644886cc",
+    "sv/scripts/toolchain.sh": "11b934d6f4ee1f19027faaece45b5a025a20ed2c1eed45dcba24ae7a4b33a0b4",
+    "sv/tests/current/arithmetic_combo_netlist_adapter.sv": "447e82b745e5248119690e34272a5bceff09c461ad0d883ac83bf4530dfa6694",
+    "sv/tests/current/current_pe_synth_adapter.sv": "632cb44c6a5b3e86f2306ec106709f1238bdc9d9a39113a828c4160c659a3461",
+    "sv/tests/current/data_mem_fixture.svh": "0cfc103659db4b6bef7c4c05d9dbf6ce705538f47f474bb5ed6b341ac06a1e02",
+    "sv/tests/current/data_mem_scalable_synth.sv": "40f28a4c5dc3a72afe8b7bee2ffed447e9c31f3fa66842fb9e59304fa19b3a7e",
+    "sv/tests/current/data_mem_synth.sv": "7143abf3e059b5fe8225f9926f600c829b5fa127672e43708c9ff260e87f54d6",
+    "sv/tests/current/im2col_boundary_fixture.svh": "e9c66f5e28fd20c44cb3bbcfd7ca942122f9c5902d80a6a8ab9f13bd4124bc38",
+    "sv/tests/current/im2col_boundary_synth.sv": "1561733d1bdd3108be4c46ef7d6611fec087c9586279d086b862d7da4139384b",
+    "sv/tests/current/migration/dynamic_fir/replay_counts.txt": "167918ace289465acd4dd6ab6587fe10bfe54bc475ad8074b049ac358f98f9e2",
+    "sv/tests/current/migration/dynamic_fir/tb_multi_migration.sv": "33f51dda535b72571298c1b471053b67a5a86257547a604c04906602b4c75ada",
+    "sv/tests/current/migration/dynamic_fir/test_profile.json": "4e2df0a53d860bac99e78feb2cac6ade489129ebc80dfac98bf890c61efa372a",
+    "sv/tests/current/migration/global_add/replay_counts.txt": "0433e993a3dbc505d6e5cad972a1df0ab189cfe7ceece5e94fd47ca9a074370f",
+    "sv/tests/current/migration/global_add/tb_multi_migration.sv": "44d003be08a2cd5d950b0c9707711516818e02fa98b89f3b16a408554020167f",
+    "sv/tests/current/migration/global_add/test_profile.json": "2706bc5c6e619d8f0eb0636b6096abc2f66ca932a6c9e9fc2d01fdf8ff2431fc",
+    "sv/tests/current/run.sh": "210b10e08131730108424bfa00027bfa32386844ff4b7cb9953c758b0d80dab9",
+    "sv/tests/current/run_arithmetic_boundaries.sh": "57c3b104c6b1bd744a25620731f329af5c555e4f279022fd89d570970049274c",
+    "sv/tests/current/run_arithmetic_boundaries_pe.sh": "b8a3b372503a5915609ee2997061560c7c2c9b0471a0e29062648977468d7e6c",
+    "sv/tests/current/run_arithmetic_compat.sh": "30a3c7e2e8a3182677e4d6361d114201d6076754e5ea40761f47c1407cae9c8d",
+    "sv/tests/current/run_arithmetic_guards.sh": "b012a69775aaa6a27666820b87b5231567a1b66fb87b191eb4cf7088f0ef8b95",
+    "sv/tests/current/run_data_memory.sh": "f90d3e1c6130c0d25e9661343a377765839a96b26d27c3d82cb80b6b03960b43",
+    "sv/tests/current/run_dma_boundaries.sh": "6cecca9ffa5336c538addc026ae730b3a109453cc6e99f693f18853717a5715c",
+    "sv/tests/current/run_fp_compat.sh": "08acba8eb9850985d67346d9dabea129d529897930d2ed15fd3527e6211478f8",
+    "sv/tests/current/run_fu_reset.sh": "c0bb3638ea2ff63cdeb3e79b8617a5254204be9d8d350561dabbc3d4ad22893e",
+    "sv/tests/current/run_im2col_boundaries.sh": "f71c135b03aa13705b877d4c02ffa0af28115bd68aa2210843b1eef069990c6a",
+    "sv/tests/current/run_im2col_boundary_system_synth.sh": "f982bc5ddc1309d3b9477b05580798dc8abb25436412d99ad08d71fe22b80ad2",
+    "sv/tests/current/run_kernels.sh": "e38f8f5f47fb0223816d8b60811ec911f85ecb66fbf6ff0430ded3aadba8ce18",
+    "sv/tests/current/run_loop_controller.sh": "6bfb0fdc7abda59a79da52cacc8db9ba92b6bf169363be40ad55000e7e4f068c",
+    "sv/tests/current/run_memory_boundaries.sh": "4d2d13aa9cf1c4c64ac276f3f9e42c418cfff6d65846aa8fb5752d8592f9b9a6",
+    "sv/tests/current/run_memory_boundaries_compat.sh": "e6fd1a05d8be0aa0c1b9e5a7c017c006bc8443fdb04a4738b746d3e7de2df396",
+    "sv/tests/current/run_memory_boundary_systems.sh": "edafab11a1cbeffe83f0634530ec2b6e9e2065733cc5a6ebb8faff74c771f700",
+    "sv/tests/current/run_migration.sh": "a8740b7aba5959dcb5395c3737103d90c8aef7c284dd1a75ce9c0dc2060346c8",
+    "sv/tests/current/run_native_global_reduce.sh": "d6dd6e30c7f23e3280dbb01a54103faa08311796a4bb89934bc20d3a7ce8c03e",
+    "sv/tests/current/run_native_kernels.sh": "8794e98320ef24d40544a422359f78d135bfa38b5c1f7c6f7e7a6502844ecd70",
+    "sv/tests/current/run_native_math.sh": "be448d2ab36ee35a80c7fb09b94ca256eeeca9ada44836ca4434fe0253207b09",
+    "sv/tests/current/run_native_multi.sh": "a27029d55d65dca617ee29059418044a23b2217b4b540175473e60f303f1bacc",
+    "sv/tests/current/run_native_template.sh": "9b547df08fbfb3ca819c7f44a213a3f232b66f2159524cab355ee3da02238c13",
+    "sv/tests/current/run_noc_guards.sh": "04b357e2951ab943761877ffb0d50bc1aa1c70100178db3a6661795715d0f646",
+    "sv/tests/current/run_noc_networks.sh": "3d117366e9401da11efc3e6f312b8f77eb4c698c8b68f7c8ae5c322413a3f61b",
+    "sv/tests/current/run_noc_networks_synth.sh": "322a5b5f26029ea9359011d649dc4668a950f46e557f7be99b71d5f119ecab9e",
+    "sv/tests/current/run_noc_primitives.sh": "e41a0d6cf40725b59056f555c50c513c6c1fac23a0be902b35082362ee9083e6",
+    "sv/tests/current/run_noc_router_credit.sh": "a0609f9c42432d9642cc4644c3a1e08aad5153cb297cdf297bc8fd3e580cdeb4",
+    "sv/tests/current/run_or_link.sh": "a8deb4baed2b1efabb761cb2469772d230456f2f924289ffd2159901caa45420",
+    "sv/tests/current/run_pe_attachment.sh": "e2a5c9cece6b83a60d272d6f62a2fce520ef869c2b90c81ceadd10bea31a8642",
+    "sv/tests/current/run_pe_interfaces.sh": "235563a0f32462bd0c922517d3537214132dbd05583c264d654eed3d2b3f64a9",
+    "sv/tests/current/run_pipe_queue.sh": "2041460015ca8d80ca58f3e50fabc4bf521267935929c6273c7d9358583af9fb",
+    "sv/tests/current/run_prefixes.sh": "7878c0a69af58b86e476d6cbfaf0c7de22a692d8a6cd54614572a6aeeebebeda",
+    "sv/tests/current/run_ring_ctrl_memory.sh": "f0dc7f0c6865e571d4b5cad3994846c4d0e50bb0f9e63250df0b3e4711344401",
+    "sv/tests/current/run_selector.sh": "48ff9b6faf140efae7e58167b0896d08eb05cc6ef1e5bf6d5cb7a398b5cdf0f1",
+    "sv/tests/current/run_static_memory.sh": "f1c89de6fe6c4be9baaf1d9bc3349bdda514b35cd7acb69ba771f1f716c891d2",
+    "sv/tests/current/run_synth_pe.sh": "63d0bdfcea16145c1bc2341fabf6a6ba4877a098b547291f7d404aa18b8d3026",
+    "sv/tests/current/run_synth_phi.sh": "e2c4111ab0e3d0ba4be767777b3000337c1901e348b948f9254d123da0cc4fa6",
+    "sv/tests/current/run_vector_arithmetic.sh": "7d8264165cc3b3708986884dd5444576b9ea62ac1c2f7c7c5bd22d754ce2c888",
+    "sv/tests/current/run_vector_arithmetic_pe.sh": "bb9bd5e32ee3aed7043536f373e0288c29ad6af4d4aa4094a45ca95c9075ae8c",
+    "sv/tests/current/run_vector_reduce.sh": "79e98cb954c1c896d5f80db17579cad382baf9d36d62f6391f0858d9544e0963",
+    "sv/tests/current/static_const_fixture.svh": "512252cc7579fe61aec19ebfab65dc205a0bd4f38c7d7bb38043bf562cce21ba",
+    "sv/tests/current/static_const_synth.sv": "b88dd27cefd7ad9ad6d26da0108ddcc16e37d3a9f9b92e6078bf2789b4dc5886",
+    "sv/tests/current/tb_arithmetic_boundaries.sv": "64be36a13b285102482b5932cdec75faa25c3f4a21ae7350f9151900a5012b4a",
+    "sv/tests/current/tb_arithmetic_boundaries_pe.sv": "6bbc42fcd668f1980aff66099435c00b78f06174ff63df7463f6ccbf436d1c14",
+    "sv/tests/current/tb_arithmetic_defects.sv": "d1618ed3e7d8ff1b0893f586e81478024550ad54d520a8bd1053c3ed23a8b51f",
+    "sv/tests/current/tb_const_logic.sv": "5978ff3f18386e4e35d1ef91cae4eb2b4e016f0365b25385cf2dcbc941f39a7d",
+    "sv/tests/current/tb_current_dma.sv": "796ed6c594017f1f18519be324e05c15542962185b45593de1c987dc1b3cd342",
+    "sv/tests/current/tb_current_dma_system.sv": "6d4d1506175d88559f5ad7b715e3977846c7b3771655290225bb1da2657465d3",
+    "sv/tests/current/tb_current_fu.sv": "6e5eaa1e83e6f49f4b420668bbd2887f61b8bafc2ecb127ae97699ce45809f6d",
+    "sv/tests/current/tb_current_pe.sv": "69b1c702c48f9476405da8e8d4a64512fd25d3e8d10ae0974a6842e761c306fe",
+    "sv/tests/current/tb_current_state.sv": "52457318cbb300cfefddbc7d11b273af66b2d92bae3794b90f8ac4eae849b62a",
+    "sv/tests/current/tb_current_stream_load.sv": "28f197aed39892fe0f601eeaff589ac7d64ade866ba48367dea5b0ec07b012b8",
+    "sv/tests/current/tb_data_mem.sv": "664fe08dfba9e61d2e96bfeb1eb8d87794537afb8ea1b14d77e33fdc6abcb868",
+    "sv/tests/current/tb_data_mem_invalid.sv": "f82bb609b41c055967071770d2fae465b2aacb05cda0c79f42744316c241ae49",
+    "sv/tests/current/tb_dma_boundaries.sv": "42929006a09c03b8b6d2d51a8dbc372541226a4d13ff43928f263dd31832f2ee",
+    "sv/tests/current/tb_fp_compat.sv": "d12f07a1e8d6c8617933f475e9446c0c0a846d4501b17f5b9a7e6c63b99580ae",
+    "sv/tests/current/tb_fu_reset.sv": "ab5edc22d68e8bff87c87a003c76c3d542aeff727e00269b389a73e84e6193ea",
+    "sv/tests/current/tb_im2col_boundaries.sv": "3656f0dade512cea11786b1ca50306541c0fef2fa37cd4f23135edbd21381237",
+    "sv/tests/current/tb_im2col_boundary_system.sv": "fbc6f99e3cc06dad049ebfc8092e5ca5e46e50df6aaed23d70221888f289163f",
+    "sv/tests/current/tb_loop_controller.sv": "4049b847dd06e001ddf2d4251fc8a9fa2fd213be431c9bc66ba4f23485c70a31",
+    "sv/tests/current/tb_loop_controller_native.sv": "e4ad9d5b92fbca44171258d79a41b095a4129063315ea1a8f78bdf76abad0a1c",
+    "sv/tests/current/tb_loop_counter_compat.sv": "fdd780d15c79fdcb97523cfa5cc0fc60416ae2078a9b5a2483f88e49fd5534fb",
+    "sv/tests/current/tb_memory_boundaries.sv": "740828759a1cb313f2acf86c7633278a2710b58c9fdb45a9914116b2275f3098",
+    "sv/tests/current/tb_memory_boundary_compat.sv": "be175a48491d796f8546c53a52642551eb225a90249391faf5de3a5cff9ca2af",
+    "sv/tests/current/tb_memory_boundary_replay.sv": "c6e2416760cec33dd8c87c70f48e58101381cd2cb87276cc8b438b0e096e745a",
+    "sv/tests/current/tb_native_fp.sv": "2c75b998c929cfb2182d2b29df0aebbe1dcfe78e8e2b535fc5b6b5116dc02309",
+    "sv/tests/current/tb_native_global_reduce.sv": "eb50c3ac441fe3f6776b03bae154332d0dd378f7bec4a2b87a5f8390cf92b635",
+    "sv/tests/current/tb_native_kernel.sv": "5408fb152d8985f6fc3dbdd50224314d2868a1fe62e82649be127ce7659dcd74",
+    "sv/tests/current/tb_native_multi.sv": "8566b26dd8bc1abc2f2973153309f34bfc0b58c108361aebdf5a7668fb651427",
+    "sv/tests/current/tb_native_phi.sv": "53357a044ce95ca65bffd0bbb0716524630acc522f201f6315241a377f5296a5",
+    "sv/tests/current/tb_native_template.sv": "ecc6272550423c5672b7a624137d48bb210fe15fece843711c3a9e9a1cb718c9",
+    "sv/tests/current/tb_noc_credit.sv": "dbe699818ec31db717cc5973a9caf17114617419c8c0ee3bb1f1a229f089cbfa",
+    "sv/tests/current/tb_noc_credit_guard.sv": "11bb9e17d81ab9c00192f74c014ab354bd0fbcbdce81bc7ea8ec7cabbeb9866e",
+    "sv/tests/current/tb_noc_ring_guard.sv": "82bc629e28db4dda5d8f980222d9cbb84704640d29e26e1c8c6a61672fcf7250",
+    "sv/tests/current/tb_noc_router_credit.sv": "18fcf7ae4d9abea337838d4de3763eab882e88bc63b31eb0c8f03346c14d293b",
+    "sv/tests/current/tb_noc_switch.sv": "cf274fa3803cfcdf58ec7bd1c8e40b3f3fa2a95da6b94d5646fc40bbf6c4a74e",
+    "sv/tests/current/tb_or_link.sv": "d403433cf7eb6f4aa29d712dc2e57432e57fcd3dc4051412f81d8ea3d65fd38a",
+    "sv/tests/current/tb_pe_fp_system.sv": "a7f7eabebe1c4801cbce7f6b2bc60f66c9698daaa474f7aee9d1274ea20db092",
+    "sv/tests/current/tb_pe_memory.sv": "275f6c96c28ac612b64986feb864bfefa92549c9da7f20fc9c634dadad470c60",
+    "sv/tests/current/tb_pipe_queue.sv": "0b807244ddce2952995b09d74c69048646628afc04d02480da1d590192145e9a",
+    "sv/tests/current/tb_ring_ctrl_memory.sv": "c0400971189a1d1df6af3bd5399409c84e223c8f2d977b5e86f7cbfe9a0fd1f5",
+    "sv/tests/current/tb_selector.sv": "4e725f568b393e66792fc51d4954cb9c496aa3172270cd125db763a592a65353",
+    "sv/tests/current/tb_static_const_queue.sv": "bde6ae45d56763b55f7f2199d36ce4d2af53d400111250995a847ef0ec794341",
+    "sv/tests/current/tb_static_ctrl_mem.sv": "bfd9585ee7a9e6da07e442349a4a188cc3a225941f177d8683cdfbd78a1df768",
+    "sv/tests/current/tb_static_invalid.sv": "629c14bc7ac9135530949c7048b6e92e773898052fede291f9f5f6dbb42f7201",
+    "sv/tests/current/tb_sub_const.sv": "da5650c3a895944f39549f3172dc7179dc03c0cc90155fdff51b4a49df657010",
+    "sv/tests/current/tb_unsigned_comp.sv": "a1165df4cf1a4dd6225356e963bd8abe4520213889e285a1a5084567bef2aa13",
+    "sv/tests/current/tb_vector_arithmetic.sv": "d75ed0c3c0bee48fe576ca8b82ebc3e99bbcb37d3a797cbe77bafe2960cdc90c",
+    "sv/tests/current/tb_vector_arithmetic_pe.sv": "c23a77e35074cf42d1b4e78125e3eda819e0146d49d65d57d9182dddbf22538b",
+    "sv/tests/current/tb_vector_reduce.sv": "af1fd638b1911a40307e360590debc45dd99d32dfd15e3475a21656523b07bfe",
+    "sv/tests/current/vector_reduce_ports.svh": "4578a1eb2e722bab5ef7ec3e8be1d0f574d6170bf195476f05192ed63b4db7f8",
+    "sv/tests/current/vector_reduce_program.mem": "87acca7fbf16a503b712e45dfeb4a6583ba88713a47fa809b5b90f53b1db8cb7",
+    "sv/tests/phase4/noc/README.md": "6a13e45f9e13248eb8104134b0b5b76c1fa418d63b082f05a540c3cd43cb913a",
+    "sv/tests/phase4/noc/WORK_LOG.md": "aef8f2b62e0625cd5f4e2d78f096de6f366bad09e8fb084dbe5ff2469691b25f",
+    "sv/tests/phase4/noc/check_synthesis.ps1": "eb27ab51dfe392bbf44e4f5601a6666d69e9a26835dc19fb67ca59ed7b981e31",
+    "sv/tests/phase4/noc/mesh_2x2_l0_w32/profile.json": "1c511bdc7e24b4456cc5c6cf68ca42b1aa85fa22abbdf29e4a28b46e5d4c402b",
+    "sv/tests/phase4/noc/mesh_2x2_l0_w32/profile.svh": "1ba570179da6b17d017d8736f2c2fb077b54a3e3cf635690b186025ca57e7f69",
+    "sv/tests/phase4/noc/mesh_2x2_l1_w32/profile.json": "a0f558332bd34f7b7e851ab8db45bd3016e6e3bbc513180f319e092ea838f1e0",
+    "sv/tests/phase4/noc/mesh_2x2_l1_w32/profile.svh": "4d0b3249cf8b4d4c1ebc4c37bc0ccd321369a943906fc52879db2dcdbf5e683f",
+    "sv/tests/phase4/noc/mesh_2x2_l2_w32/profile.json": "74c78e11bacd3147430fac8b22000b0ea3c16845b15bc3525d9a160337e5da80",
+    "sv/tests/phase4/noc/mesh_2x2_l2_w32/profile.svh": "c2ca025d17f37712845802f2d39868ae2f3a5639e7ecefc394274f6af91e2671",
+    "sv/tests/phase4/noc/mesh_3x2_l1_w64/profile.json": "533a9b69544e08ce05adca3f1cf54f2b1fefe9f74e7cb0d0f68e69128add9e6c",
+    "sv/tests/phase4/noc/mesh_3x2_l1_w64/profile.svh": "6c1fa50aa38d63c986d3c1d9917b2fac499bf9a28755eef1db234ce809d5da31",
+    "sv/tests/phase4/noc/ring_2_l1_w32/profile.json": "dbd926894d83212550f30091c511760d4160615d30214d14febded1b9d3fc5fb",
+    "sv/tests/phase4/noc/ring_2_l1_w32/profile.svh": "356522fabfd52e355eb9752ad88cb9a06e70e0bbcdb9b4031f043d52bfd8b17e",
+    "sv/tests/phase4/noc/ring_3_l1_w32/profile.json": "e4dc37b14874f33bb07beb361a6321678e7ed4e6a9f39a29a8f341f9ebc33537",
+    "sv/tests/phase4/noc/ring_3_l1_w32/profile.svh": "8e578bde5846b0ce1577730527f70d13a1f0896c63c50132152bc884d2403d36",
+    "sv/tests/phase4/noc/ring_4_l0_w32/profile.json": "2f4c6f4e52506086be3f8ed0436598481bfa92396f6f782c51dbef370b7f46b0",
+    "sv/tests/phase4/noc/ring_4_l0_w32/profile.svh": "c96c9ef498c770556cdf8d25b3303c98b138061e36f1cc41624194274fb86db5",
+    "sv/tests/phase4/noc/ring_4_l1_w32/profile.json": "38e421e14ef3e0e5123213d6016d6fb5907cdce9abd08c2001196d9a0b2f5717",
+    "sv/tests/phase4/noc/ring_4_l1_w32/profile.svh": "9b134bda5eb557baf3e39784cc5646e1365c726f0af3492b44d77b3ff8cad6d6",
+    "sv/tests/phase4/noc/ring_6_l1_w64/profile.json": "4e5548babc46eb1254e338e178395666697cf125c01a16ce081621add2f725b9",
+    "sv/tests/phase4/noc/ring_6_l1_w64/profile.svh": "16a0273bcda76115d684ab99ef8e0bd8a3e49f4eb6163aeacb940f802e08a061",
+    "sv/tests/phase4/noc/run.sh": "51152758cc55867fdd1fbb485b7436f590bbfac4597551f7d471798f8c216190",
+    "sv/tests/phase4/noc/run_negative.sh": "5ccbedd308946916f6b3268853e05582194949429a62422107e74324cdf2d1d6",
+    "sv/tests/phase4/noc/simulation_results.json": "f4fc3071dce5f559a3481e06254a42f1168cfdacfc3b09b515da963e4a94ca2c",
+    "sv/tests/phase4/noc/synthesis_results.json": "b6ebc4ebc365c94b4f009440934a05d761cc7b90c47eea085879c31bca5a8f4b",
+    "sv/tests/phase4/noc/tb_inter_cgra_noc.sv": "002e07627c7458700729dd039174fcb33007f1b77baded9acbb4be1faba4808a",
+    "sv/tests/run_native_noc.sh": "4da74135255456309bbc9ca73a0f115a07068dab3389d0ad2caa798b2f8c4b13",
+    "sv/tests/tb_native_noc.sv": "99c1cb826960b8f10441d8051e7176972fcfb2983d1e0e5ddd33af96eb66f2e1"
+  },
+  "tools": {
+    "verilator": "5.029 devel",
+    "yosys": "0.45+139",
+    "sv2v": "0.0.13"
+  },
+  "investigations": [
+    {
+      "path": "/workspace/work/noc-handshakes/before-switch/run.log",
+      "sha256": "92e2138914e568e8d9cc0025f065084d2efb4e076bc245f7e2a82f0fc39f03a4",
+      "results": [
+        "[22000] %Fatal: tb_switch_stall_before.sv:15: Assertion failed in TOP.tb_switch_stall_before: NOC_SWITCH_STALL_UNSTABLE expected=102 got=100",
+        "%Error: /workspace/work/noc-handshakes/tb_switch_stall_before.sv:15: Verilog $stop"
+      ]
+    },
+    {
+      "path": "sv/build/current/noc-handshakes/ring-debug/run.log",
+      "sha256": "3b99cef62f40353de16f2c95793b29aae6a1ed067d2cdfb99d1fd4ac18df6807",
+      "results": [
+        "DEBUG_ROUTER node=0 output=0 credits=11 selected_val=0 ready=0 locked=0",
+        "DEBUG_ROUTER node=0 output=1 credits=01 selected_val=0 ready=0 locked=0",
+        "DEBUG_ROUTER node=0 output=2 credits=11 selected_val=0 ready=0 locked=0",
+        "DEBUG_ROUTER node=1 output=0 credits=11 selected_val=0 ready=0 locked=0",
+        "DEBUG_ROUTER node=1 output=1 credits=01 selected_val=0 ready=0 locked=0",
+        "DEBUG_ROUTER node=1 output=2 credits=11 selected_val=0 ready=0 locked=0",
+        "DEBUG_ROUTER node=2 output=0 credits=11 selected_val=0 ready=0 locked=0",
+        "DEBUG_ROUTER node=2 output=1 credits=01 selected_val=0 ready=0 locked=0",
+        "DEBUG_ROUTER node=2 output=2 credits=11 selected_val=0 ready=0 locked=0",
+        "DEBUG_ROUTER node=3 output=0 credits=11 selected_val=0 ready=0 locked=0",
+        "DEBUG_ROUTER node=3 output=1 credits=00 selected_val=0 ready=0 locked=0",
+        "DEBUG_ROUTER node=3 output=2 credits=11 selected_val=0 ready=0 locked=0",
+        "DEBUG_ROUTER node=4 output=0 credits=11 selected_val=0 ready=0 locked=0",
+        "DEBUG_ROUTER node=4 output=1 credits=00 selected_val=0 ready=0 locked=0",
+        "DEBUG_ROUTER node=4 output=2 credits=11 selected_val=0 ready=0 locked=0",
+        "DEBUG_ROUTER node=5 output=0 credits=11 selected_val=0 ready=0 locked=0",
+        "DEBUG_ROUTER node=5 output=1 credits=01 selected_val=0 ready=0 locked=0",
+        "DEBUG_ROUTER node=5 output=2 credits=11 selected_val=0 ready=0 locked=0",
+        "[9300000] %Fatal: tb_ring_debug.sv:195: Assertion failed in TOP.tb_inter_cgra_noc.run_scenario.unnamedblk12.unnamedblk13: Traffic did not drain before invalid-VC phase accepted=237 delivered=206 total=384"
+      ]
+    },
+    {
+      "path": "/workspace/work/noc-handshakes/legacy-synth-invalid/strict-run.log",
+      "sha256": "cef0701fac7748f8963c14dc6eba1b716bfd41c63b45292faf55d9fbcd9b2d7a",
+      "results": [
+        "[285000] %Fatal: tb_inter_cgra_noc.sv:97: Assertion failed in TOP.tb_inter_cgra_noc.compare_raw.unnamedblk2: NOC_DIFF cycle=28 msg node=3 native=69943a0a0000004423eba9d05ce5b7a88804f6badca655b30 gold=0000000000000000000000000000000000000000000000000"
+      ]
+    }
+  ],
+  "notes": [
+    "Native mode locks a stalled switch choice until transfer and advances fairness only on transfer. Explicit legacy mode preserves frozen PyOCN RTL behavior.",
+    "Native ring output candidates are filtered by registered available credit for their routed VC; no selected-ready feedback is introduced.",
+    "The intermediate native Ring6 failure was a complete clockwise VC1 credit cycle, with all arbiter locks clear and local ejection credits available. The legacy tested schedule passed. Normalizing new native injections to physical VC0 fixes this case; an internal bit restores original public VC tag OR dateline rewrite at ejection.",
+    "Native Ring injection capacity/timing changes to sharing the two physical VC0 credits. Public message width and field contents are unchanged. VCS=2 and CREDITS=2 remain the only ring profile; incoming VC2/3 are rejected.",
+    "RTL legacy profiles compare all raw bits, including invalid messages. Synthesized legacy profiles compare every cycle of ready/valid and every valid message, including stalls. Unreset empty/boundary queue invalid data may be optimized; strict invalid-bit comparison failed at Mesh cycle 28 and is retained as a limitation, not counted as a raw-equivalence pass.",
+    "The historical bench raw_bits_per_cycle field is omitted for native/conditional comparisons in this evidence; only strict legacy RTL has a fixed all-bits count. Native uses independent identity/content/count/per-original-VC order/dateline and stall/reset checks.",
+    "Early RTL and native-netlist builds precede the explicit synthesized-invalid-message comparison option and diagnostic print additions; those changes are inactive in those configurations and leave their checked behavior unchanged. The final Mesh2x2 latency1 legacy RTL bench was also rebuilt with strict invalid-bit comparison enabled.",
+    "Protocol violation guards are RTL simulation diagnostics, not synthesized hardware recovery. Endpoints and links must reset together; no epoch protocol exists.",
+    "Six actual emitted Mesh/Ring netlists were reread, checked for zero structural errors and zero SCCs, and simulated with the public-interface traffic bench. This is not proof for arbitrary networks or adversarial infinite traffic.",
+    "Independent native multi-CGRA mesh/ring programs, standalone ring-control native/legacy, original raw NoC and asymmetric/DMA memory regressions passed. The broader full-current-source refresh remains a separate task.",
+    "No original Python source or frozen historical reference was changed. Verilator RTL optimization is enabled; CXXFLAGS=-O0 controls only generated C++ compilation."
+  ]
+}

@@ -1,5 +1,5 @@
 `timescale 1ns/1ps
-module tb_inter_cgra_noc;
+module tb_inter_cgra_noc #(parameter bit LEGACY=1, parameter bit RAW_INVALID_MESSAGES=1);
   `include "profile.svh"
   localparam int PACKETS=64,TOTAL=NODES*PACKETS,SCENARIO_CYCLES=1024;
   logic clk=0;
@@ -8,17 +8,43 @@ module tb_inter_cgra_noc;
   logic [WIDTH-1:0] recv_msg [0:NODES-1],send_msg [0:NODES-1],gold_msg [0:NODES-1];
   logic recv_val [0:NODES-1],recv_rdy [0:NODES-1],gold_rdy [0:NODES-1];
   logic send_val [0:NODES-1],send_rdy [0:NODES-1],gold_val [0:NODES-1];
+`ifdef NOC_POST_SYNTH
+  logic [NODES*WIDTH-1:0] recv_flat,send_flat;
+  logic [NODES-1:0] recv_val_flat,recv_rdy_flat,send_val_flat,send_rdy_flat;
+  for(genvar n=0;n<NODES;n++)begin : flat_ports
+    assign recv_flat[(NODES-n)*WIDTH-1-:WIDTH]=recv_msg[n];
+    assign send_msg[n]=send_flat[(NODES-n)*WIDTH-1-:WIDTH];
+    assign recv_val_flat[NODES-1-n]=recv_val[n];
+    assign recv_rdy[n]=recv_rdy_flat[NODES-1-n];
+    assign send_val[n]=send_val_flat[NODES-1-n];
+    assign send_rdy_flat[NODES-1-n]=send_rdy[n];
+  end
+  noc_network_netlist dut(.clk,.reset,.recv_msg(recv_flat),.recv_val(recv_val_flat),.recv_rdy(recv_rdy_flat),
+    .send_msg(send_flat),.send_val(send_val_flat),.send_rdy(send_rdy_flat));
+`else
   if(IS_RING)begin : ring_dut
-    cgra_inter_ring #(.WIDTH(WIDTH),.NODES(NODES),.DST_LSB(DST_LSB),.DST_WIDTH(DST_WIDTH),
+    cgra_inter_ring #(.LEGACY_PYTHON(LEGACY),.WIDTH(WIDTH),.NODES(NODES),.DST_LSB(DST_LSB),.DST_WIDTH(DST_WIDTH),
       .VC_LSB(VC_LSB),.VC_WIDTH(VC_WIDTH),.CHANNEL_LATENCY(CHANNEL_LATENCY)) dut (
       .clk,.reset,.recv_msg,.recv_val,.recv_rdy,.send_msg,.send_val,.send_rdy);
   end else begin : mesh_dut
-    cgra_inter_mesh #(.WIDTH(WIDTH),.COLS(COLS),.ROWS(ROWS),.X_WIDTH(X_WIDTH),.Y_WIDTH(Y_WIDTH),
+    cgra_inter_mesh #(.LEGACY_PYTHON(LEGACY),.WIDTH(WIDTH),.COLS(COLS),.ROWS(ROWS),.X_WIDTH(X_WIDTH),.Y_WIDTH(Y_WIDTH),
       .DST_X_LSB(DST_X_LSB),.DST_Y_LSB(DST_Y_LSB),.CHANNEL_LATENCY(CHANNEL_LATENCY)) dut (
       .clk,.reset,.recv_msg,.recv_val,.recv_rdy,.send_msg,.send_val,.send_rdy);
   end
+`endif
+  if(LEGACY) begin : reference_model
   `PHASE4_NOC_GOLD gold (.clk,.reset,.recv__msg(recv_msg),.recv__val(recv_val),.recv__rdy(gold_rdy),
     .send__msg(gold_msg),.send__val(gold_val),.send__rdy(send_rdy));
+  end else begin : no_reference
+    for(genvar i=0;i<NODES;i++)begin
+      assign gold_msg[i]='0;assign gold_val[i]=0;assign gold_rdy[i]=0;
+    end
+  end
+  logic [WIDTH-1:0] held_msg[0:NODES-1];
+  bit held[0:NODES-1];
+  int stable_samples=0;
+  int invalid_message_differences=0;
+
 
   logic [31:0] rng=32'h4c03a271;
   function automatic logic [31:0] random_word();
@@ -66,10 +92,16 @@ module tb_inter_cgra_noc;
   integer result_fd;
 
   task automatic compare_raw;
-    for(int node=0;node<NODES;node++)begin
+    if(LEGACY) for(int node=0;node<NODES;node++)begin
       if(recv_rdy[node]!==gold_rdy[node])$fatal(1,"NOC_DIFF cycle=%0d recv_rdy node=%0d native=%b gold=%b",all_cycles,node,recv_rdy[node],gold_rdy[node]);
       if(send_val[node]!==gold_val[node])$fatal(1,"NOC_DIFF cycle=%0d send_val node=%0d",all_cycles,node);
-      if(send_msg[node]!==gold_msg[node])$fatal(1,"NOC_DIFF cycle=%0d msg node=%0d native=%h gold=%h",all_cycles,node,send_msg[node],gold_msg[node]);
+      if(send_msg[node]!==gold_msg[node])begin
+        // Unreset empty-queue storage is unspecified hardware state. Synthesis
+        // may optimize it; RTL compatibility still compares every raw bit.
+        if(RAW_INVALID_MESSAGES || send_val[node])
+          $fatal(1,"NOC_DIFF cycle=%0d msg node=%0d val=%b native=%h gold=%h",all_cycles,node,send_val[node],send_msg[node],gold_msg[node]);
+        invalid_message_differences++;
+      end
     end
     all_cycles++;
   endtask
@@ -124,6 +156,18 @@ module tb_inter_cgra_noc;
   task automatic tick(input bit scoreboard=0);
     @(posedge clk);
     compare_raw();
+    if(!LEGACY)for(int n=0;n<NODES;n++)begin
+      if(reset)begin
+        held[n]=0;
+        if(recv_rdy[n] || send_val[n])$fatal(1,"NOC_RESET_HANDSHAKE node=%0d",n);
+      end else begin
+        if(held[n])begin
+          if(!send_val[n] || send_msg[n]!==held_msg[n])$fatal(1,"NOC_OUTPUT_CHANGED_UNDER_STALL node=%0d",n);
+          stable_samples++;
+        end
+        held[n]=send_val[n] && !send_rdy[n];held_msg[n]=send_msg[n];
+      end
+    end
     if(scoreboard)check_packets();
     @(negedge clk);
   endtask
@@ -155,7 +199,7 @@ module tb_inter_cgra_noc;
           end
         end
         if(IS_RING&&cycle>=900&&cycle<932)begin
-          if(accepted_count!=TOTAL||delivered_count!=TOTAL)$fatal(1,"Traffic did not drain before invalid-VC phase");
+          if(accepted_count!=TOTAL||delivered_count!=TOTAL)$fatal(1,"Traffic did not drain before invalid-VC phase accepted=%0d delivered=%0d total=%0d",accepted_count,delivered_count,TOTAL);
           recv_msg[node]=packet_for(node,node,0,2+(cycle%2));
           recv_val[node]=1;
         end
@@ -184,9 +228,13 @@ module tb_inter_cgra_noc;
     // scenarios start fresh while comparing preserved, unreset storage bits.
     for(int warmup=0;warmup<24;warmup++)begin
       for(int node=0;node<NODES;node++)begin
-        recv_val[node]=1;recv_msg[node]=packet_for(node,(node+1)%NODES,warmup,0);send_rdy[node]=0;
+        if(LEGACY || !recv_val[node])begin recv_val[node]=1;recv_msg[node]=packet_for(node,(node+1)%NODES,warmup,0);end
+        send_rdy[node]=0;
       end
+      #1;
+      for(int node=0;node<NODES;node++)input_fire[node]=recv_val[node]&&recv_rdy[node];
       tick();
+      if(!LEGACY)for(int node=0;node<NODES;node++)if(input_fire[node])recv_val[node]=0;
     end
     run_scenario(0);
     run_scenario(1);
@@ -195,6 +243,9 @@ module tb_inter_cgra_noc;
     result_fd=$fopen(result_path,"w");if(result_fd==0)$fatal(1,"Cannot write result JSON");
     $fwrite(result_fd,"{\"status\":\"pass\",\"cycles\":%0d,\"scenarios\":2,\"width\":%0d,\"nodes\":%0d,\"raw_bits_per_cycle\":%0d,\"accepted\":%0d,\"delivered\":%0d,\"blocked_samples\":%0d,\"output_stalls\":%0d,\"dateline_packets\":%0d,\"invalid_vc_checks\":%0d,\"seed\":\"4c03a271\"}\n",all_cycles,WIDTH,NODES,NODES*(WIDTH+2),all_accepted,all_delivered,all_blocked,all_stalled,all_datelines,all_invalid_vc);
     $fclose(result_fd);
+    if(!LEGACY && stable_samples==0)$fatal(1,"NOC_STABILITY_NOT_EXERCISED");
+    $display("NOC_MODE_PASS legacy=%0d stable_samples=%0d",LEGACY,stable_samples);
+    $display("NOC_RAW_POLICY legacy=%0d compare_invalid_messages=%0d invalid_message_differences=%0d",LEGACY,RAW_INVALID_MESSAGES,invalid_message_differences);
     $display("PHASE4_NOC_PASS label=%s cycles=%0d packets=%0d raw_bits=%0d",PROFILE_LABEL,all_cycles,all_delivered,NODES*(WIDTH+2));
     $finish;
   end

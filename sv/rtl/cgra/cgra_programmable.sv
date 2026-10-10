@@ -106,7 +106,7 @@ module cgra_programmable #(
     .clk, .reset, .clear(1'b0), .recv_msg(loop_in_msg), .recv_val(loop_in_val), .recv_rdy(loop_in_rdy),
     .send_msg(loop_out_msg), .send_val(loop_out_val), .send_rdy(loop_out_rdy), .count()
   );
-  cgra_credit_ring #(.WIDTH(HOST_BITS), .NODES(NUM_TILES+1), .DST_LSB(PAYLOAD_BITS+15),
+  cgra_credit_ring #(.LEGACY_PYTHON(NOC_LEGACY_PYTHON),.WIDTH(HOST_BITS), .NODES(NUM_TILES+1), .DST_LSB(PAYLOAD_BITS+15),
                      .DST_WIDTH(TILE_ID_W), .VC_LSB(PAYLOAD_BITS)) ctrl_ring (
     .clk, .reset, .recv_msg(ring_recv_msg), .recv_val(ring_recv_val), .recv_rdy(ring_recv_rdy),
     .send_msg(ring_send_msg), .send_val(ring_send_val), .send_rdy(ring_send_rdy)

@@ -108,7 +108,7 @@ module cgra_data_memory #(
   logic [0:0] read_crossbar__send__rdy [0:NUM_BANKS];
   logic [0:0] read_crossbar__send__val [0:NUM_BANKS];
 
-  cgra_xbar #(.WIDTH(MEM_BITS), .INPUTS(XBAR_MEM_PORTS), .OUTPUTS(NUM_BANKS+1), .DST_LSB(MEM_BITS-XBAR_MEM_PORT_W-BANK_PORT_W), .DST_WIDTH(BANK_PORT_W), .INPUT_BYPASS(1)) read_crossbar (
+  cgra_xbar #(.LEGACY_PYTHON(MEMORY_LEGACY_PYTHON || NOC_LEGACY_PYTHON),.WIDTH(MEM_BITS), .INPUTS(XBAR_MEM_PORTS), .OUTPUTS(NUM_BANKS+1), .DST_LSB(MEM_BITS-XBAR_MEM_PORT_W-BANK_PORT_W), .DST_WIDTH(BANK_PORT_W), .INPUT_BYPASS(1)) read_crossbar (
     .clk(read_crossbar__clk),
     .reset(read_crossbar__reset),
     .recv_msg(read_crossbar__recv__msg),
@@ -128,7 +128,7 @@ module cgra_data_memory #(
   logic [0:0] response_crossbar__send__rdy [0:XBAR_MEM_PORTS-1];
   logic [0:0] response_crossbar__send__val [0:XBAR_MEM_PORTS-1];
 
-  cgra_xbar #(.WIDTH(MEM_BITS), .INPUTS(NUM_BANKS+1), .OUTPUTS(XBAR_MEM_PORTS), .DST_LSB(MEM_BITS-BANK_PORT_W-XBAR_MEM_PORT_W), .DST_WIDTH(XBAR_MEM_PORT_W), .INPUT_BYPASS(1)) response_crossbar (
+  cgra_xbar #(.LEGACY_PYTHON(MEMORY_LEGACY_PYTHON || NOC_LEGACY_PYTHON),.WIDTH(MEM_BITS), .INPUTS(NUM_BANKS+1), .OUTPUTS(XBAR_MEM_PORTS), .DST_LSB(MEM_BITS-BANK_PORT_W-XBAR_MEM_PORT_W), .DST_WIDTH(XBAR_MEM_PORT_W), .INPUT_BYPASS(1)) response_crossbar (
     .clk(response_crossbar__clk),
     .reset(response_crossbar__reset),
     .recv_msg(response_crossbar__recv__msg),
@@ -148,7 +148,7 @@ module cgra_data_memory #(
   logic [0:0] write_crossbar__send__rdy [0:NUM_BANKS];
   logic [0:0] write_crossbar__send__val [0:NUM_BANKS];
 
-  cgra_xbar #(.WIDTH(WR_MEM_BITS), .INPUTS(XBAR_WR_MEM_PORTS), .OUTPUTS(NUM_BANKS+1), .DST_LSB(WR_MEM_BITS-XBAR_WR_MEM_PORT_W-BANK_PORT_W), .DST_WIDTH(BANK_PORT_W), .INPUT_BYPASS(1)) write_crossbar (
+  cgra_xbar #(.LEGACY_PYTHON(MEMORY_LEGACY_PYTHON || NOC_LEGACY_PYTHON),.WIDTH(WR_MEM_BITS), .INPUTS(XBAR_WR_MEM_PORTS), .OUTPUTS(NUM_BANKS+1), .DST_LSB(WR_MEM_BITS-XBAR_WR_MEM_PORT_W-BANK_PORT_W), .DST_WIDTH(BANK_PORT_W), .INPUT_BYPASS(1)) write_crossbar (
     .clk(write_crossbar__clk),
     .reset(write_crossbar__reset),
     .recv_msg(write_crossbar__recv__msg),

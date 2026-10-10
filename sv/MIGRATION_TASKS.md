@@ -17,7 +17,7 @@
 | 9 | 复位、未驱动／锁存、除零及 MAC 有符号边界 | 已完成；见 ARITHMETIC_BOUNDARIES.md、46 份网表及 21 个原生 PE 用例 |
 | 10 | im2col／DataMem、非对称端口、DMA 长度及重启边界 | 已完成；见 MEMORY_BOUNDARIES.md、22 份网表及 CPU／SPM 集成回读 |
 | 11 | Base／Context／Streaming PE 公共参数、类型及重复逻辑整理 | 已完成；见 PE_INTERFACES.md、五份 PE 网表及异构浮点系统反例 |
-| 12 | NoC 剩余握手、VC／credit 及实际组合环检查 | 待执行 |
+| 12 | NoC 剩余握手、VC／credit 及实际组合环检查 | 已完成；见 NOC_HANDSHAKES.md、18 组 RTL 流量及六份实际网络网表 |
 | 13 | 不依赖项目 Python 的架构配置工具 | 待执行 |
 | 14 | 不依赖项目 Python 的程序／常量／预加载／命令生成工具 | 待执行 |
 | 15 | 全模块／功能／opcode 与原始 274 文件覆盖清单 | 待执行 |

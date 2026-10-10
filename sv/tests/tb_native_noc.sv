@@ -60,7 +60,7 @@ module tb_native_noc;
 
   logic [194:0] x_input [0:6], x_msg [0:0], x_gold_msg [0:0];
   logic x_val [0:6],x_rdy [0:6],x_gold_rdy [0:6],x_outval [0:0],x_gold_val [0:0],x_ready [0:0];
-  cgra_xbar #(.WIDTH(195),.INPUTS(7),.OUTPUTS(1),.DST_LSB(194),.DST_WIDTH(1)) xbar (
+  cgra_xbar #(.LEGACY_PYTHON(1),.WIDTH(195),.INPUTS(7),.OUTPUTS(1),.DST_LSB(194),.DST_WIDTH(1)) xbar (
     .clk,.reset,.recv_msg(x_input),.recv_val(x_val),.recv_rdy(x_rdy),
     .send_msg(x_msg),.send_val(x_outval),.send_rdy(x_ready));
   XbarRTL__b5022c8fd1dc7623 xbar_gold (
@@ -69,7 +69,7 @@ module tb_native_noc;
 
   logic [51:0] bx_input [0:2], bx_msg [0:3], bx_gold_msg [0:3];
   logic bx_val [0:2],bx_rdy [0:2],bx_gold_rdy [0:2],bx_outval [0:3],bx_gold_val [0:3],bx_ready [0:3];
-  cgra_xbar #(.WIDTH(52),.INPUTS(3),.OUTPUTS(4),.DST_LSB(48),.DST_WIDTH(2),.INPUT_BYPASS(1)) bxbar (
+  cgra_xbar #(.LEGACY_PYTHON(1),.WIDTH(52),.INPUTS(3),.OUTPUTS(4),.DST_LSB(48),.DST_WIDTH(2),.INPUT_BYPASS(1)) bxbar (
     .clk,.reset,.recv_msg(bx_input),.recv_val(bx_val),.recv_rdy(bx_rdy),
     .send_msg(bx_msg),.send_val(bx_outval),.send_rdy(bx_ready));
   XbarBypassQueueRTL__8ef00c39f57f0208 bxbar_gold (
@@ -79,7 +79,7 @@ module tb_native_noc;
   logic [190:0] ring_input [0:4],ring_msg [0:4],ring_gold_msg [0:4];
   logic ring_val [0:4],ring_rdy [0:4],ring_gold_rdy [0:4],ring_outval [0:4],ring_gold_val [0:4],ring_ready [0:4];
   int ring_accepted=0,ring_delivered=0;
-  cgra_credit_ring ring (
+  cgra_credit_ring #(.LEGACY_PYTHON(1)) ring (
     .clk,.reset,.recv_msg(ring_input),.recv_val(ring_val),.recv_rdy(ring_rdy),
     .send_msg(ring_msg),.send_val(ring_outval),.send_rdy(ring_ready));
   RingNetworkRTL__06419ffd7f2ed639 ring_gold (

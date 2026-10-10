@@ -24,8 +24,8 @@ module cgra_ring_multi_ctrl_mem #(`CGRA_RING_CTRL_PARAMETERS)(
     assign send_to_controller_pkt__val=ring_send_val[NUM_TILES];
     assign ring_send_rdy[NUM_TILES]=send_to_controller_pkt__rdy;
   end else begin : native_output
-    // The inherited VC arbiter may change selection while stalled. Register
-    // the chosen packet so the public val/rdy output remains stable.
+    // Retain the API's existing one-entry response buffer and latency.
+    // The native ring arbiter itself also holds its selected packet.
     cgra_queue #(.WIDTH(PACKET_BITS),.DEPTH(1)) hold_packet (
       .clk,.reset,.clear(1'b0),.recv_msg(ring_send_msg[NUM_TILES]),
       .recv_val(ring_send_val[NUM_TILES]),.recv_rdy(ring_send_rdy[NUM_TILES]),
@@ -33,7 +33,7 @@ module cgra_ring_multi_ctrl_mem #(`CGRA_RING_CTRL_PARAMETERS)(
       .send_rdy(send_to_controller_pkt__rdy),.count()
     );
   end
-  cgra_credit_ring #(.WIDTH(PACKET_BITS),.NODES(NUM_TILES+1),
+  cgra_credit_ring #(.LEGACY_PYTHON(LEGACY_PYTHON),.WIDTH(PACKET_BITS),.NODES(NUM_TILES+1),
     .DST_LSB(PAYLOAD_BITS+15),.DST_WIDTH(ID_W),.VC_LSB(PAYLOAD_BITS)) ring_network (
     .clk,.reset,.recv_msg(ring_recv_msg),.recv_val(ring_recv_val),.recv_rdy(ring_recv_rdy),
     .send_msg(ring_send_msg),.send_val(ring_send_val),.send_rdy(ring_send_rdy)
