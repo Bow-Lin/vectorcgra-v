@@ -32,7 +32,12 @@ module tb_current_stream_load;
   logic [DATA_BITS-1:0] to_mem_wdata__msg ;
   logic [0:0] to_mem_wdata__rdy ;
   logic [0:0] to_mem_wdata__val ;
-  cgra_pe #(.VARIANT(2),.TILE_PORTS(8),.NUM_CTRL(2),.TOTAL_STEPS(2),.FU_COUNT(4),.FU_KINDS({8'd3,8'd32,8'd1,8'd0})) dut(.*);
+`ifdef CURRENT_POST_SYNTH
+  current_pe_synth_adapter #(
+`else
+  cgra_pe #(
+`endif
+    .VARIANT(2),.TILE_PORTS(8),.NUM_CTRL(2),.TOTAL_STEPS(2),.FU_COUNT(4),.FU_KINDS({8'd3,8'd32,8'd1,8'd0})) dut(.*);
   logic [556:0] stimulus;
   logic [565:0] expected, actual;
   integer fd, rc, cycle=0, outputs_seen=0, completions=0, requests=0;

@@ -2,7 +2,7 @@
 
 目标 Python 固定为 `cd7aad878915e389cecf8cc01ff6987d156bd019`。该提交导入 SV；Python 内容来自父提交 `e3caf6928a4e8c97e6be36574af2520ec92083b9`。原始迁移基线仍为 `ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b`。`reference/current/target.json` 记录所有 274 个原项目 Python 文件的 SHA-256；本批没有修改这些文件。
 
-本轮按 `MIGRATION_TASKS.md` 的已授权顺序推进，独立存储／链路／队列、向量归约、向量组合与 LoopController 已完成。第 9 项算术边界、复位及组合逻辑已通过组件、PE 和网表检查，记录见本文末尾及 `ARITHMETIC_BOUNDARIES.md`。第 10 项内存及外设边界已完成，见 `MEMORY_BOUNDARIES.md`；下一项整理三种 PE 的公共参数、类型和重复逻辑。验收中的提交、推送及远端 CI 状态是记录生成时的快照，实际以 Git 为准。
+本轮按 `MIGRATION_TASKS.md` 的已授权顺序推进，独立存储／链路／队列、向量归约、向量组合与 LoopController 已完成。第 9 项算术边界、复位及组合逻辑已通过组件、PE 和网表检查，记录见本文末尾及 `ARITHMETIC_BOUNDARIES.md`。第 10 项内存及外设边界已完成，见 `MEMORY_BOUNDARIES.md`；第 11 项公共 PE 接口、内存接线及异构浮点参数透传已完成，见 `PE_INTERFACES.md`；下一项检查 NoC 握手、credit 与组合环。验收中的提交、推送及远端 CI 状态是记录生成时的快照，实际以 Git 为准。
 
 ## 已实现
 
@@ -382,3 +382,13 @@ LoopControl 使用新冻结的当前 Python 轨迹；历史文件未被改写。
 - 集成 im2col 的启动封锁改在 CPU 接受启动时生效，修复紧随启动的 CPU 读请求抢先读到旧值。持续 DONE 下直接重启及执行中全局复位也纳入集成验证。
 - 14 个原始测试、24 个独立重生成文件、七组当前 Python 原始采样及原始非对称 HDL 比较均保留来源。3 读／1 写原 Python 可仿真但不能翻译；1 读／3 写可翻译但纯仿真位宽失败，二者明确区分。
 - 22 份综合网表（含完整 im2col 系统）通过结构检查、零 SCC 及同一独立数学／源行为测试。单 CGRA 模式的未使用外部 NoC 输出显式接零。更广 DMA 格式、任意 NoC 协议与平台实现验收仍按后续范围处理。详见 `MEMORY_BOUNDARIES.md` 与 `reference/current/memory_boundaries/validation.json`。
+
+## 公共 PE 接口与异构参数透传
+
+三种 PE 共用外部端口声明和静态内存 FU 接线；Context／Streaming 的
+任务、寄存器和重放语义继续分别保留。异构系统修复了遗漏透传
+`FP_LEGACY_PYTHON` 的问题，修改前源码已在相同输入下复现错误编码。
+验收包含 18 次正向执行、9 次负向检查和 5 份重新读入检查／SCC 为零的
+综合网表；原始 274 个 Python 文件不变。Streaming 保留源模型的 13 位
+控制包锁存，相关警告及 Context 64 位编译的内存限制重试均已记录。
+详见 `PE_INTERFACES.md` 与 `reference/current/pe_interfaces/validation.json`。

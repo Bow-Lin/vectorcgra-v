@@ -1,0 +1,659 @@
+{
+  "task": "Shared PE interfaces, static memory attachment and heterogeneous FU option forwarding",
+  "status": "passed",
+  "date": "2026-10-10",
+  "base_commit": "c184af2f1a902f3b42f133d03e3357d3edf3aa89",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "pinned_python_unchanged": 274,
+  "positive_runs": [
+    {
+      "path": "sv/build/current/pe-interfaces/rtl/base/run.log",
+      "sha256": "4b54d679328b101e8535512b63a5fea6e5a58063fcba9136301f3c676c5947be",
+      "results": [
+        "CURRENT_PE_PASS variant=0 ports=4 data=32 ctrl=8 reg=16 cycles=64"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/rtl/base64/run.log",
+      "sha256": "0532354a1dd34704eba7dc11a3422b811edc123b60737d8ab716a5a0fe00700c",
+      "results": [
+        "CURRENT_PE_PASS variant=0 ports=4 data=64 ctrl=16 reg=8 cycles=64"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/rtl/base8/run.log",
+      "sha256": "476792d44c935c6353ccef54caa22c46778c104ec43dec74e8d3ece14f11fd87",
+      "results": [
+        "CURRENT_PE_PASS variant=0 ports=8 data=32 ctrl=8 reg=16 cycles=64"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/rtl/context/run.log",
+      "sha256": "dfa5491be0f3db586b919c1983f30d50a2ca48330edb06f7a53b4b5bc52da6bc",
+      "results": [
+        "CURRENT_PE_PASS variant=1 ports=4 data=32 ctrl=8 reg=16 cycles=83"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/rtl/context8/run.log",
+      "sha256": "73a2fefb66c77de0a57952b805a817a13ebb1f8ea15be6f8e5689d68f10121c9",
+      "results": [
+        "CURRENT_PE_PASS variant=1 ports=8 data=32 ctrl=8 reg=16 cycles=83"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/rtl/streaming/run.log",
+      "sha256": "b96e4c8907e0c4cb2fecb96bbe60ecd3755e374e5c4415dff56c9337aad6b6d7",
+      "results": [
+        "CURRENT_PE_PASS variant=2 ports=8 data=32 ctrl=8 reg=16 cycles=64"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/rtl/stream-load/run.log",
+      "sha256": "8a070baca35385ed48f776caaf1e99cd77231aafca56d56c5c37b572222888f6",
+      "results": [
+        "CURRENT_STREAM_LOAD_PASS cycles=190 outputs=10 complete=2 requests=10"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/attachment/mem-base/run.log",
+      "sha256": "541671565695268f6252a5b4e98ee8a4dba3e1e29b8cd5868ac890e7990d2de9",
+      "results": [
+        "PE_MEMORY_PASS variant=0 ports=4 width=32 slot=0 cycles=70 blocked=8"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/attachment/mem-base-last/run.log",
+      "sha256": "8ecc029499a6462022ec871e7e5549fa394bddfe061c84661b3094b7b20b75b9",
+      "results": [
+        "PE_MEMORY_PASS variant=0 ports=8 width=32 slot=2 cycles=70 blocked=8"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/attachment/mem-context/run.log",
+      "sha256": "31f88966a340d1b57f68e51e82204ee8a6c57762b64daf8cfd0c0bcb24bbe0a1",
+      "results": [
+        "PE_MEMORY_PASS variant=1 ports=4 width=32 slot=0 cycles=70 blocked=8"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/attachment/mem-context64/run.log",
+      "sha256": "a94a7b0f84d3f28f3f100fe0c9e06096dfabf8bf849e095d354deec6fa1544fa",
+      "results": [
+        "PE_MEMORY_PASS variant=1 ports=8 width=64 slot=2 cycles=70 blocked=8"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/attachment/fp-native/run.log",
+      "sha256": "c2a1f65b9006b14fa85b0aa749793541d26a1f2355e5c6588a28b82fee03a2e8",
+      "results": [
+        "PE_FP_SYSTEM_PASS legacy=0 result=40400000 cycles=57 stalls=33"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/attachment/fp-legacy/run.log",
+      "sha256": "4bd97ac9a579f375637fbe069d7a9b6f1aedc475d09bed68072b4584307c4e94",
+      "results": [
+        "PE_FP_SYSTEM_PASS legacy=1 result=40000000 cycles=57 stalls=33"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/synth/base/run.log",
+      "sha256": "7d2a5c09adc0bf5d02ba606793401c094b5cc49226079461bf8326cf67856333",
+      "results": [
+        "CURRENT_PE_PASS variant=0 ports=4 data=32 ctrl=8 reg=16 cycles=64"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/synth/context8/run.log",
+      "sha256": "7487d395f4a1723c0fdb15d53fcd72506b56f3c70de04f50756e487c6d750823",
+      "results": [
+        "CURRENT_PE_PASS variant=1 ports=8 data=32 ctrl=8 reg=16 cycles=83"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/synth/stream-load/run.log",
+      "sha256": "7e454de89134fc68e04596e1979c1774e4645b3666ac2a271103a3eb63ea4abd",
+      "results": [
+        "CURRENT_STREAM_LOAD_PASS cycles=190 outputs=10 complete=2 requests=10"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/synth/mem-base-last/run.log",
+      "sha256": "d77c478a340b08ad907354add261e64c345c745bb62feb26b122b88575632446",
+      "results": [
+        "PE_MEMORY_PASS variant=0 ports=8 width=32 slot=2 cycles=70 blocked=8"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/synth/mem-context64/run.log",
+      "sha256": "1d34c9f3c352a260141d996dc978ecd0b818864a6f3ab9267d533b1b977257a8",
+      "results": [
+        "PE_MEMORY_PASS variant=1 ports=8 width=64 slot=2 cycles=70 blocked=8"
+      ]
+    }
+  ],
+  "negative_runs": [
+    {
+      "path": "sv/build/current/pe-interfaces/attachment/mem-base/negative.log",
+      "sha256": "cfa6772b9dbe0dfd0ff60fbf5f6be75551bcbccca62bab8f5daf611ab5096c95",
+      "results": [
+        "[724000] %Fatal: tb_pe_memory.sv:98: Assertion failed in TOP.tb_pe_memory.unnamedblk2.unnamedblk3: PE_MEMORY_RESULT"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/attachment/mem-base-last/negative.log",
+      "sha256": "cfa6772b9dbe0dfd0ff60fbf5f6be75551bcbccca62bab8f5daf611ab5096c95",
+      "results": [
+        "[724000] %Fatal: tb_pe_memory.sv:98: Assertion failed in TOP.tb_pe_memory.unnamedblk2.unnamedblk3: PE_MEMORY_RESULT"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/attachment/mem-context/negative.log",
+      "sha256": "cfa6772b9dbe0dfd0ff60fbf5f6be75551bcbccca62bab8f5daf611ab5096c95",
+      "results": [
+        "[724000] %Fatal: tb_pe_memory.sv:98: Assertion failed in TOP.tb_pe_memory.unnamedblk2.unnamedblk3: PE_MEMORY_RESULT"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/attachment/mem-context64/negative.log",
+      "sha256": "cfa6772b9dbe0dfd0ff60fbf5f6be75551bcbccca62bab8f5daf611ab5096c95",
+      "results": [
+        "[724000] %Fatal: tb_pe_memory.sv:98: Assertion failed in TOP.tb_pe_memory.unnamedblk2.unnamedblk3: PE_MEMORY_RESULT"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/attachment/fp-native/negative.log",
+      "sha256": "67330fc0df2d76e5a67b56739036eca600072f08e62d441d246e568087d8975e",
+      "results": [
+        "[147000] %Fatal: tb_pe_fp_system.sv:134: Assertion failed in TOP.tb_pe_fp_system: PE_FP_SYSTEM_RESULT legacy=0 expected=40400000 got=40400000"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/attachment/fp-legacy/negative.log",
+      "sha256": "a316ed10ed99dc19d5c1b0b9f97401af28b3fe9189b759056fd45fdbeffdba91",
+      "results": [
+        "[147000] %Fatal: tb_pe_fp_system.sv:134: Assertion failed in TOP.tb_pe_fp_system: PE_FP_SYSTEM_RESULT legacy=1 expected=40000000 got=40000000"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/synth/mem-base-last/negative.log",
+      "sha256": "cfa6772b9dbe0dfd0ff60fbf5f6be75551bcbccca62bab8f5daf611ab5096c95",
+      "results": [
+        "[724000] %Fatal: tb_pe_memory.sv:98: Assertion failed in TOP.tb_pe_memory.unnamedblk2.unnamedblk3: PE_MEMORY_RESULT"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/synth/mem-context64/negative.log",
+      "sha256": "cfa6772b9dbe0dfd0ff60fbf5f6be75551bcbccca62bab8f5daf611ab5096c95",
+      "results": [
+        "[724000] %Fatal: tb_pe_memory.sv:98: Assertion failed in TOP.tb_pe_memory.unnamedblk2.unnamedblk3: PE_MEMORY_RESULT"
+      ]
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/before/fp-legacy/run.log",
+      "sha256": "627e2d4989ab25caf4ac74df7e17e0922af2bcb5e4b36d879518e62aef8288cf",
+      "results": [
+        "[147000] %Fatal: tb_pe_fp_system.sv:134: Assertion failed in TOP.tb_pe_fp_system: PE_FP_SYSTEM_RESULT legacy=1 expected=40000000 got=40400000"
+      ]
+    }
+  ],
+  "netlists": [
+    {
+      "path": "sv/build/current/pe-interfaces/synth/base/netlist.v",
+      "sha256": "be38c2dc8913ac9774b6cb829f0a3e699ac6ee2c6b622f1b2275dcf59f487ce8",
+      "synthesis": {
+        "path": "sv/build/current/pe-interfaces/synth/base/yosys.log",
+        "sha256": "b0f3027cfbc7da8c82059de8a61ebc23e1c7fd27566104eda0f0ee854ce18eed",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/pe-interfaces/synth/base/reread.log",
+        "sha256": "62af8d7fcbea679a88df2b127ed8aa75c581490f211d9f92678d2ba83e13c8c1",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/synth/context8/netlist.v",
+      "sha256": "e89825e5776660c265ef287d261a2e0148d0a493b37193f53e4c34b2c87b22de",
+      "synthesis": {
+        "path": "sv/build/current/pe-interfaces/synth/context8/yosys.log",
+        "sha256": "a171df92c3beb9a143a80369e470effd199976b4578483b134c3473a8be91b5e",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/pe-interfaces/synth/context8/reread.log",
+        "sha256": "3d666819ba33883dc696007ca40f8eaf6b7580e488d373504cf7e4df83fc1d15",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/synth/stream-load/netlist.v",
+      "sha256": "cc90bd7156d4cb502a2ab5fbc82af9f40fecefdbd5e3bc8832b4c9f75b76483e",
+      "synthesis": {
+        "path": "sv/build/current/pe-interfaces/synth/stream-load/yosys.log",
+        "sha256": "4703ec2e702b691a47aea36fc7b1ff0e1fe05396ccd0c47fac14a5524bd5e1db",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/pe-interfaces/synth/stream-load/reread.log",
+        "sha256": "016760a5ffde2e829180e3999cbf8d0cb7a84c2f596252bbc4f2789190eff27a",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/synth/mem-base-last/netlist.v",
+      "sha256": "f6ced187e41da886879bb5aaef089815164d3555a818e185af5c0f4a44f70a73",
+      "synthesis": {
+        "path": "sv/build/current/pe-interfaces/synth/mem-base-last/yosys.log",
+        "sha256": "c9f90e80f6ff6d3d7689e5edc9c7fdfa4775eda024f975ee24a48b2c8e2f136f",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/pe-interfaces/synth/mem-base-last/reread.log",
+        "sha256": "1b4159b3454da8bf4c2317b5a99b828bcf5e46de1cbcafbe7a8d2213bc43faab",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/synth/mem-context64/netlist.v",
+      "sha256": "2c9265d1bea3a63155c81da079410bc90ee129c1e5c9e8c4831123a286f062b9",
+      "synthesis": {
+        "path": "sv/build/current/pe-interfaces/synth/mem-context64/yosys.log",
+        "sha256": "54d52dcf73725eeecfa794bef021ad40dd9d249cb75730e6a79039016ae952b9",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/pe-interfaces/synth/mem-context64/reread.log",
+        "sha256": "3e639bc383c1e6b27a6cc2f0cc015b5475a01f1cc3981904221d762bff2501ae",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    }
+  ],
+  "compile_diagnostics": [
+    {
+      "path": "sv/build/current/pe-interfaces/rtl/base/compile.log",
+      "sha256": "42f36fb9acebe2ac758433666e12ce97de4a494b95c22638105de66b2f5e39ad",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 44,
+        "WIDTHTRUNC": 1,
+        "UNOPTFLAT": 5
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/rtl/base64/compile.log",
+      "sha256": "b208d7aa03d5c6515815004b48c9f49657d7e6a347829194ead2be9d5502faf2",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 48,
+        "WIDTHTRUNC": 1,
+        "UNOPTFLAT": 5
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/rtl/base8/compile.log",
+      "sha256": "97d799e4aade3a8688238e9abbdcbfa833ee30c80a98e6f4db382591fd4be5cc",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 44,
+        "UNOPTFLAT": 5
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/rtl/context/compile.log",
+      "sha256": "d17e6d2479daa15136419fd03e24c27771ed5f2e230f7bab5db0e5f3a1e8d9ce",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 48,
+        "UNOPTFLAT": 4
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/rtl/context8/compile.log",
+      "sha256": "ec06d3af3a5ed73dd54107a39ab378a642b004b7fa2b7d7dc6574c7684a24ce6",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 48,
+        "UNOPTFLAT": 4
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/rtl/streaming/compile.log",
+      "sha256": "3a0a40b962d34f70da70da9fe1fe387e165d1f461f5371547bf040a46114e877",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 46,
+        "UNOPTFLAT": 4
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/rtl/stream-load/compile.log",
+      "sha256": "0832c9fad00652f969c70bba6e8baca9ef7e9383e6b844567410647fb2b34c6a",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 34,
+        "WIDTHTRUNC": 1,
+        "UNOPTFLAT": 3
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/attachment/mem-base/compile.log",
+      "sha256": "d02c82070c3548ff77a0f0b3f3bdf5a5a11e1b5ec5e5cfb48dc40fada484c8fa",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 31,
+        "WIDTHTRUNC": 8,
+        "UNOPTFLAT": 5
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/attachment/mem-base-last/compile.log",
+      "sha256": "b3ccd17643952c890e7d449341974e6fa395d209d504465841e7598471a948a2",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 31,
+        "WIDTHTRUNC": 7,
+        "UNOPTFLAT": 5
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/attachment/mem-context/compile.log",
+      "sha256": "7345078e3bed9d32c83068460008cff2ca172c52dd6adb4480c31b5b244466ec",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 35,
+        "WIDTHTRUNC": 7,
+        "UNOPTFLAT": 4
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/attachment/mem-context64/compile.log",
+      "sha256": "15a1b3c0f67cb5e60ac073af0a838cd9c0074665385ca27f02b9705cdcdb9f6c",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 37,
+        "WIDTHTRUNC": 7,
+        "UNOPTFLAT": 4
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/attachment/fp-native/compile.log",
+      "sha256": "ea315508316dd7551d3aadd898ee3ab3a941876e342430ad35e157898f3e617f",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 79,
+        "WIDTHTRUNC": 20,
+        "UNOPTFLAT": 11
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/attachment/fp-legacy/compile.log",
+      "sha256": "f111d5a7f6713918d9b600bc90979effb161d02fedc0276e72d91fd047308ee1",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 80,
+        "WIDTHTRUNC": 21,
+        "UNOPTFLAT": 11
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/synth/base/compile.log",
+      "sha256": "38d71fc72e0f717d37164ac031eeea2351bef07c4c889e3e81457b52790a3d14",
+      "warnings": {
+        "TIMESCALEMOD": 2,
+        "WIDTHEXPAND": 4
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/synth/context8/compile.log",
+      "sha256": "31d5d8b7d62f85f878e40abe42c90c1f8729f3a53d8b85161e23a8266f723240",
+      "warnings": {
+        "TIMESCALEMOD": 2,
+        "WIDTHEXPAND": 4
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/synth/stream-load/compile.log",
+      "sha256": "b1bd5dc06f02b7ae4190085b4874165b2d6d27631d40327f1a7c96c668a5933f",
+      "warnings": {
+        "TIMESCALEMOD": 2,
+        "WIDTHEXPAND": 3,
+        "WIDTHTRUNC": 1,
+        "LATCH": 13
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/synth/mem-base-last/compile.log",
+      "sha256": "11e97316726043cb8c4fbb1c9620fbe4e90f56add993b138d398221a7161e12d",
+      "warnings": {
+        "TIMESCALEMOD": 2,
+        "WIDTHEXPAND": 4,
+        "WIDTHTRUNC": 7
+      }
+    },
+    {
+      "path": "sv/build/current/pe-interfaces/synth/mem-context64/compile.log",
+      "sha256": "140714af9badd079139d4b9db0febe189eb9a8aff7e501ef0fae74ebd4ae4eaf",
+      "warnings": {
+        "TIMESCALEMOD": 2,
+        "WIDTHEXPAND": 4,
+        "WIDTHTRUNC": 7
+      }
+    }
+  ],
+  "input_sha256": {
+    "sv/CURRENT_MIGRATION.md": "e7c7143ec6ab28c63f0aa1fef8493cfc3e3f4252e7dd9b2a680ce8d879402939",
+    "sv/MIGRATION_TASKS.md": "875bbfda538927b0c6833e0f097bb02e9a1cba002fdd2aaefea2b9b16898b0dd",
+    "sv/Makefile": "2ee426ec9cc1e865e71be0abe8c296c78346ac432c68b03c3f1ea0f746bf13aa",
+    "sv/PE_INTERFACES.md": "20bdd701218f8a4473dbaf72851db89fe55bf686fec0935f4a7bd01e4f60a3bb",
+    "sv/filelists/native.f": "e5643e6684afb0e23bdc4464e109567ac6f6b4dbe3750027b428523d4aaf3011",
+    "sv/reference/current/target.json": "c560f1ccf61706ed50c871a2987ea2c2837c6ae14b942f1216b275a201de14aa",
+    "sv/reference/phase3/tile_variants/streaming-tile-pyreplay/cycles.txt": "93d9fb3a91df8f80de8b660be8ed23cb164201e086ddcd294b61e8e4c5cc8a4b",
+    "sv/rtl/cgra/cgra_2x2.sv": "594608753066235c2f563460323109b82f685aabe763da40e005b7cb40975f9a",
+    "sv/rtl/cgra/cgra_multi.sv": "8b6cf447299a65d80e474454a48f2c4567a7dc5e3b48d08ca72edf077f405da6",
+    "sv/rtl/cgra/cgra_multi_template.sv": "7a3413778d44b61f8619dc14f23d696d6fd25d203be95eae72e3509894012c85",
+    "sv/rtl/cgra/cgra_programmable.sv": "043b8f0bc88b5b4c7b626e895d46840ef5ecf3310ff4afb01f8464963d674944",
+    "sv/rtl/cgra/cgra_scalar.sv": "efaee3229228d7052bc79191300f8f0bb602f3310428bbd9c512b49fd57fa06e",
+    "sv/rtl/cgra/cgra_system.sv": "c1e4eb6507429ab7c5d91ff3fbb749f774c98eaa2c11de1a98308ecb81ebf33a",
+    "sv/rtl/common/cgra_channel.sv": "0f2d6a0be4202910ffa8ebf3fbed6ed2c08d947ffaf8a11e50e1c195ffa8bf34",
+    "sv/rtl/common/cgra_fu_catalog.svh": "3a438230aa71381d6bdc4856f31f46783b8512212699b8d9f6fbbb3d1e2320bb",
+    "sv/rtl/common/cgra_native_extensions.svh": "a632d6eba711393e681bd5b2473b586ab66f99fb5bc796bb930ba017dd3ae080",
+    "sv/rtl/common/cgra_opcodes.svh": "aaf5c876081d1fb066af8cdc01e7cae2a35afebaedfeb6e5a8889e3d0375bede",
+    "sv/rtl/common/cgra_pe_memory.svh": "e72d4aab3258febbccc2073083c04cea90c90b14c379e2aa5450162714732ebc",
+    "sv/rtl/common/cgra_pe_ports.svh": "3403bcb7c5fc1a760ed07a29af25605ed9e879cfcd634ff9a54c93542cee0b5b",
+    "sv/rtl/common/cgra_pipe_queue.sv": "c1efc55e6a1911d3886e6575a82f1cd1ebc0ab8275e3706585548a9498a7855c",
+    "sv/rtl/common/cgra_profile.svh": "8a360c5a38dc98087d9cbd89c9508bd6b2c6d428bc4cc90bba357e36de168eec",
+    "sv/rtl/common/cgra_profile_defs.svh": "3520d82a2990828070cd6e631f87f01e0f994a845d9729368468754f9531717d",
+    "sv/rtl/common/cgra_queue.sv": "87e03f556141d8c2c0abe26168ef567ce4b5e456a9f090f9f797aed51a4c4761",
+    "sv/rtl/common/cgra_register_file.sv": "13856021bc1acb361a12a96870a501dea98856aec5c301dd503b41327323d41d",
+    "sv/rtl/common/cgra_ring_ctrl_defs.svh": "f27e2bfd700ec4dcc068aaaef03f550780ee47c89b6e4084038810d35dbdb69d",
+    "sv/rtl/common/cgra_ring_ctrl_types.svh": "de18f9bea5b5944bb0b230bd9d24f20f1b50e10fdb7753c6ec62da56dba4e3d6",
+    "sv/rtl/common/cgra_round_robin.sv": "294d46b6394c205ea67577ef8f4f51b6cc220072051c6a42b3280c5b7ef4b93d",
+    "sv/rtl/common/cgra_types_pkg.sv": "b156167206aef4146c68e95693ac57926310d9f5a7ed60076b71b8d5480c9c16",
+    "sv/rtl/controller/cgra_controller.sv": "f19a4e56c14e0295f270ee8db588faa1b1d600da7ddbb5b24d5a60a6812fd830",
+    "sv/rtl/controller/cgra_global_reduce.sv": "09cec6468cc53aff676cca857c06cb2593e7dcfe25f4f49b10bdfe2bbdf27d8f",
+    "sv/rtl/controller/cgra_loop_controller.sv": "9591b36ba8ee0830363232415cf7f5fdfe58d8e262b96e301c057fff4332995f",
+    "sv/rtl/controller/cgra_loop_controller_legacy.sv": "49d61bd7af7e66468302de10ec822cbdc916fdf34d89daa91a16e99a966d8baf",
+    "sv/rtl/controller/cgra_loop_controller_native.sv": "d835fe2995fddf56404347637888f1db437f5d79ae9ddaa45ef204a297afc354",
+    "sv/rtl/fixed/cgra_2x2_core.sv": "6be4c3471c14ea66bf14dea87c15c11fe7d5c327bcb741a4ca949e23ab1bf780",
+    "sv/rtl/fu/combo/cgra_alu_gen_mac.sv": "2a3c4543a4da07afdda54f2b98ce79f6b619d0e86da03d13a0b48e0f95128fa2",
+    "sv/rtl/fu/combo/cgra_alu_gen_mac_core.sv": "fcd99e36be14e96e51af9006afd03c1d5d8d0b0b6d5d1048f520e0ec1232afbc",
+    "sv/rtl/fu/combo/cgra_multp.sv": "855e5c180f10e01be38d012d4c539fa8ef9e497e91a7be846d78f548a9be588b",
+    "sv/rtl/fu/combo/tile_alu_gen_mac.sv": "cf3653711209242196f24dfd38d4f2657de6dedd32731fa31913352c1541b8f4",
+    "sv/rtl/fu/combo/tile_four_inc_cmp_not_grant.sv": "f07e9725770f6035bddf88a0db8b423dd4109cb874914b08709bb7ac104b50ae",
+    "sv/rtl/fu/combo/tile_prl_mul_adder.sv": "463a6413f39a31562380a0e83d4b4abe6693afbadd1bef97a2ba80923803f506",
+    "sv/rtl/fu/combo/tile_seq_mul_adder.sv": "e5b32d0d27635866de133f8af720aa62bbb04b7def014864b9f7f92ec6688349",
+    "sv/rtl/fu/combo/tile_seq_mul_shifter.sv": "0d9ae72d7eeb7ff3c2e8d8292d50545f6bd63d943896468c161312a0093287e4",
+    "sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv": "46b15a4038d546c02e91ef2ca17c47e2fcfc30803fcb1cccad11c8628154ec36",
+    "sv/rtl/fu/combo/vendor/README.md": "3b6e2224d5614cf1dd3856bec4563ec7da6ef25a0cf53b8bf66b055f76c3e16c",
+    "sv/rtl/fu/combo/vendor/dp_fpfma/DW02_multp.v": "a9d9bb4b4b5fa032e5626e3dd32d069cf39d45765c398530bb41bb3a541b4515",
+    "sv/rtl/fu/combo/vendor/svsrc/ALUgenMAC.sv": "a279b80f648394ed7b15c955360a8d803ec9a597105f0a5bd17dc32b982565a6",
+    "sv/rtl/fu/float/cgra_hardfloat_fn.sv": "fc52932df3a81ecfc90edd1d2c51c991e344213db5165d910700ab1205392d4d",
+    "sv/rtl/fu/float/tile_fp_add.sv": "164243f24ddc1582c1ad974d10b274b859ef25fe913709027b8b7ce7f59573f8",
+    "sv/rtl/fu/float/tile_fp_fu.sv": "911e3d4379224b82085c08d01ae9991a51eb8a98b6e7b60a4fba16e78c6ad7de",
+    "sv/rtl/fu/float/tile_fp_mul.sv": "c1f70d1ba0a6c92a4dfebb97fffb48e09bc4d455a5f220d06f088941070b504c",
+    "sv/rtl/fu/scalar/scalar_comp.sv": "af04f3f0eeb55fa116834ace8f3c7db6041641832e8c77c7d050c330859979e0",
+    "sv/rtl/fu/scalar/scalar_const.sv": "2d2020a3aae93d89d2271642d26a87ae8252498c1a53a720c8360b43ce9e21d5",
+    "sv/rtl/fu/scalar/scalar_div.sv": "bbdc94f43b3e6351b61d4dbae0dd5f65e0810063e6ea9de00d3e88cff01ccab4",
+    "sv/rtl/fu/scalar/scalar_div_native.sv": "f1b8b0ee91441b19801b1f70d689d0cfbfb6fbc77fbfc52791e9eaf85d4e5844",
+    "sv/rtl/fu/scalar/scalar_div_pipeline.sv": "2930cacb0918951bf85493bd16d7e087e25603e0c7ccde5ad77001f192471fd6",
+    "sv/rtl/fu/scalar/scalar_exclusive_div.sv": "f35e97139d2780e115be546a7fa7947474ee99486dbb90f2cbf9d6d4f4b4d2c0",
+    "sv/rtl/fu/scalar/scalar_extract_predicate.sv": "114b1394007b9f304e542c3bb8a49a74559fb0cb8ef741d5cc1d2f317d29a391",
+    "sv/rtl/fu/scalar/scalar_gep.sv": "050d2349f1a3dcae059fc2a4caf7ab42459e9906b40e8a81949fdb2e9e3a6fb7",
+    "sv/rtl/fu/scalar/scalar_grant.sv": "0e6592d3ee731cc1d3d0a243385022cef487c45b1001ad6c7a577aea9df090af",
+    "sv/rtl/fu/scalar/scalar_inclusive_div.sv": "2df8f4ec03d5a2945d7c998653d80fd0cad52f7e069d0dd0d0f085f83bd2537c",
+    "sv/rtl/fu/scalar/scalar_logic.sv": "1293c8e9d947dcd641bc450e57a0e91cbddf4e7fc783da775e419899513617a7",
+    "sv/rtl/fu/scalar/scalar_loop_control.sv": "cc1a3d06a0a0c123a7024f8ceee0bb8917732a1900ea83f674efa7f15993fd30",
+    "sv/rtl/fu/scalar/scalar_loop_control_native.sv": "04e4860c9008190c71b49d008a54533d6c97a62c0048a809d6406bd548c0d6a3",
+    "sv/rtl/fu/scalar/scalar_loop_counter.sv": "d3c45bdbd3469e8e841d6ffe588e7028fecbf4883dc47094f218000dc06f6d65",
+    "sv/rtl/fu/scalar/scalar_phi.sv": "4566ee6e2725c687c415a2a69f1a558061aa8129e436a8a0390274cca577fdb1",
+    "sv/rtl/fu/scalar/scalar_ret.sv": "b15eb77f8ac4e8363ad37c000d316d9edda2b75667f7df2bdf8314f832c92e8e",
+    "sv/rtl/fu/scalar/scalar_sel.sv": "a3d0468b73a4f9224d9cb7d616d075a9a295656bc2c129592034ea50d89844ac",
+    "sv/rtl/fu/scalar/scalar_shifter.sv": "253ca1dbe51e6fd1330da1b4ab75367f9c26809cfbe4d2027aee169f056c61d1",
+    "sv/rtl/fu/streaming/tile_streaming_memory_fu.sv": "75e24ef6b0fd9be2bddb85ce27541f56efb220bebdbba0167e3d1cefafe3cadf",
+    "sv/rtl/fu/tile_adder.sv": "45543a691c42cc9d0ce3b5197ff8f4413cc2f8035c84b2e5a5e86e87b3893302",
+    "sv/rtl/fu/tile_flexible_fu.sv": "914d1c7978325abd19d524680db6c7f4183fd559b026c000b01a14f66bce51ed",
+    "sv/rtl/fu/tile_flexible_fu_configurable.sv": "ba855c558f2b7ca95b5430219a5f90a790bf15831432b7c06a5598b0b249cf57",
+    "sv/rtl/fu/tile_memory_fu.sv": "14cc78c90c4633c4ec7a60655573fc1e6854b41c278f536586a7315bf83f7655",
+    "sv/rtl/fu/tile_multiplier.sv": "75eb93fb510f442adba6a6ab978855141f0600aa2cd76f7fc24926bac56d8c5f",
+    "sv/rtl/fu/tile_nah.sv": "90cab29e133b0a51389c01123d75b92104c8f935824dac6a31b2069a343b616c",
+    "sv/rtl/fu/vector/cgra_vector_adder.sv": "abdfd80381c515c13f9f541636ddd39f47fd676e9bed15c81952bb384e17ee2e",
+    "sv/rtl/fu/vector/cgra_vector_mul.sv": "67855b8b2003f586d54aace6d3e4350a0a7b701dd4e08a310fb80b8a1c393127",
+    "sv/rtl/fu/vector/tile_vector_adder_combo.sv": "1a9c65fb75968035095cc979bf4fd453466c7dde27f93bfe5b854823daf0c5a6",
+    "sv/rtl/fu/vector/tile_vector_all_reduce.sv": "61eeb25f5c679791a4e0d90054adee1a13708fe9c5ad621e75ecbcd5190ff4a7",
+    "sv/rtl/fu/vector/tile_vector_mul_combo.sv": "94eb6a5272ceba17b1a7d5eab04cb15ea4c59320b49ecefd378cacad88ca60b0",
+    "sv/rtl/mem/cgra_data_bank.sv": "fe056aabe4ab86e14fe7b7adbe83b063758aaaf2ee9a85f5a47330172249be13",
+    "sv/rtl/mem/cgra_data_mem.sv": "29bf69381bd007711ba3d7af5bcf04811741826dda6cc60f058bcf010ef4a1bb",
+    "sv/rtl/mem/cgra_data_mem_scalable.sv": "8d071e7c7bc9965595873877e94d1afc2d66a16bb0a9f00cb9ea5d583fae97e1",
+    "sv/rtl/mem/cgra_data_memory.sv": "500bb3f59d51bec65c7635858214462e50406d3df7c0fe50705b8f4bb35a87b3",
+    "sv/rtl/mem/cgra_ring_ctrl_node.sv": "c4cb34ecc70fd6114ccf39e70dce4dc13c167eef7789468c91da93881a96771a",
+    "sv/rtl/mem/cgra_ring_multi_ctrl_mem.sv": "30ebbed68b2122c073e10953d2cf2a5dd16e72d44915d6adb2f2820fe1a4ea80",
+    "sv/rtl/mem/cgra_static_const_queue.sv": "7bc17ad13815330830858426c1795ab1fed78f81fffba28511b1aa8c07265316",
+    "sv/rtl/mem/cgra_static_ctrl_mem.sv": "59371c9567c9da2604fbf9704d1eaed435fe2d89e1ecb36348876a41b80e20a2",
+    "sv/rtl/mem/const_queue.sv": "74c8757759528421f5949be67e0cf1e8b364fcb7c2571bd13a61a782f8797c83",
+    "sv/rtl/mem/ctrl_mem.sv": "75ba6aa4d89b59aec49bf3844eff4b52b5937d77c2172f4512a616008e28bdd0",
+    "sv/rtl/mem/register_bank.sv": "18b60aa21e281939510a3c81bf2a0c115312a5736a38064529e12f38ea3670b2",
+    "sv/rtl/mem/register_cluster.sv": "1db346700060eaa4f5d9f960c1e9ae556ff589aabaf0197aea109f17831d9e4c",
+    "sv/rtl/noc/cgra_credit_input.sv": "7d58169e0f7db7b484fa6fb9d3e926ba6de00a971b0cd4b513620a9b4fd8837b",
+    "sv/rtl/noc/cgra_credit_recv.sv": "f6c728e6ea42849f013328018204def97b764662ebd102cadebd5402b1aae0de",
+    "sv/rtl/noc/cgra_credit_ring.sv": "98213452e10b00072f872e0f81c869d744960d377cbd2735fe534beb7e1aaa70",
+    "sv/rtl/noc/cgra_credit_send.sv": "a13e8dc3a08906c46c4dc3675beea17ec13e61c729ac665b7a2c4de6dab5f7bd",
+    "sv/rtl/noc/cgra_or_link.sv": "bc815b089ab81e08631b3e7aaaec8c0801cab56b3994c2370578ae685d735fbf",
+    "sv/rtl/noc/cgra_ring_route.sv": "30ddabd82453381cc3ae7e686bbb5e0497c7b9d3b41dd27c83d9496464840cbf",
+    "sv/rtl/noc/cgra_ring_router.sv": "b15e9d00833d968e97213ea144d75a55ba34e927c8c58e02ffd7f1d94c938e4b",
+    "sv/rtl/noc/cgra_selector.sv": "9273142c3eeba043de9673658bffb397a95fe19b4ba018a767e0eb692cc95a12",
+    "sv/rtl/noc/cgra_switch.sv": "14ec2ae9108c947153b5ca4fc5ccf06c78d3cc29a870c7be74c86189c6eb5c18",
+    "sv/rtl/noc/cgra_xbar.sv": "ac048fe5d423b3b7bbbe01f34cfbffadd8859ef31df96fb4a9bce2cda3d26b64",
+    "sv/rtl/noc/inter_cgra/cgra_inter_mesh.sv": "99c6ab483bf52189c6d1bc086bf6632381096c6f71c808b858051860f4b51814",
+    "sv/rtl/noc/inter_cgra/cgra_inter_mesh_route.sv": "e1b31e0e6cae251fba0c910d835270c76dc9d39ac4de9ef1a96de056f9a02963",
+    "sv/rtl/noc/inter_cgra/cgra_inter_mesh_router.sv": "c6f2688c07d875b1960f37f6986d7e4ab53fea445f6832dc8b01d3966999edaa",
+    "sv/rtl/noc/inter_cgra/cgra_inter_ring.sv": "3d96672d77ef8574a0da06291a116aac3b655a1ef44f909d2368557cd6b884ea",
+    "sv/rtl/peripheral/cgra_dma_engine.sv": "a75bf533d584a887e5444afbf0099a24470b5c3983d7bebb7d2105595e7fc48c",
+    "sv/rtl/peripheral/cgra_im2col_engine.sv": "cf2e474559424a17cb30b2d4f696bb14c6bd965f966d2a01b2359acdfa3444d5",
+    "sv/rtl/peripheral/cgra_integrated_dma.sv": "58adf917214dccbc29ea16a73b4d96fec7240acf09e9eb978ae3407b4e3374e5",
+    "sv/rtl/peripheral/cgra_integrated_im2col.sv": "b76394df3dec6acf136b0480c1342ff78649d50ccac205695e426904c3d0c71d",
+    "sv/rtl/tile/cgra_pe.sv": "53b14b836c28829cc8bdd724d69c88d2b930fa7895a79ff9e9677210643780d1",
+    "sv/rtl/tile/tile_core.sv": "48c50c2a50a19493bb81133bd1ca25868094ee8f42a7c523f1c3ae545425a4a7",
+    "sv/rtl/tile/tile_link_or.sv": "b86b2471c44d0e6522d20d4e228e5463721bad6225df4a0f0a315084cf2147bc",
+    "sv/rtl/tile/tile_programmable.sv": "663f7046fdc98e19ba48030356ec5f5f6e959122cd46f99190696a935eeca448",
+    "sv/rtl/tile/tile_static_crossbar.sv": "e34d871318d89453d0f2e9cd494060c7bc9d98baeb855eedbfefd3fb56d6bd40",
+    "sv/rtl/tile/variants/tile_context.sv": "18e26360f8150740c46ca3da886c0868210eb52a645747643651fc6789d9d322",
+    "sv/rtl/tile/variants/tile_context_switch.sv": "0296f8460b31d8c4d319e7f5aaef7ee475d5e52330fe883c5b99926282126bcc",
+    "sv/rtl/tile/variants/tile_streaming.sv": "75f8a8a8929ea7d3ab45f1933d55bc7aedd3d830be580a1679dc291f2c27cf85",
+    "sv/rtl/tile/variants/tile_variant_const_queue.sv": "6ce5f5f25674f291c6118a5fd7adfcac18a7524d28ee77b27eedb710ada3ccea",
+    "sv/rtl/tile/variants/tile_variant_core.sv": "a7b69390881c6357e4591d9b41f59c9d2c2afdea58fd5e8b5610f0c58b8fc07e",
+    "sv/rtl/tile/variants/tile_variant_crossbar.sv": "a65b277c3c27babecac47f2b4f567ba24981b216495d6ef99a0308ec7e681ce4",
+    "sv/rtl/tile/variants/tile_variant_ctrl_mem.sv": "6465118774647a3709c42af6c3ed43d72e1eb61308b07bc7c006bc41173ed6ca",
+    "sv/rtl/vendor/hardfloat/COPYING.txt": "c791a6bdcef33feddaa0cb7ab99c233fb63d93bb385f06d58f9f1b9a8182b418",
+    "sv/rtl/vendor/hardfloat/HardFloat_consts.vi": "ff7168d2e1bcce237ee6ac0789d58588705063a3d14c9137ee4abba839822b40",
+    "sv/rtl/vendor/hardfloat/HardFloat_localFuncs.vi": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50",
+    "sv/rtl/vendor/hardfloat/HardFloat_primitives.v": "3273444d956fe82b01ba074ed6c22441d957dc7be02990133dd7a83efb07845d",
+    "sv/rtl/vendor/hardfloat/HardFloat_rawFN.v": "f219b1594ce25df5790af748bf2bcfdb6ff8a2ad4806c447b1dbeffcdecc071a",
+    "sv/rtl/vendor/hardfloat/HardFloat_specialize.vi": "c231a6ec6c62a9c01c3c2962cf43ea9ec92a7c1c115a8102959d89425803c890",
+    "sv/rtl/vendor/hardfloat/RISCV/HardFloat_specialize.vi": "9c12592b78732e7331f4f506c50e84ad15c120507d73e1f9e511fd95ed30448e",
+    "sv/rtl/vendor/hardfloat/addRecFN.v": "8e299e624d7f20c752bb3f59b6ae1ae94685244df20fe2ac274b86f93d87e488",
+    "sv/rtl/vendor/hardfloat/fNToRecFN.v": "146e50014d986df605ed59a69425cd6dc19750df3acdd083f61bff7cf51ac6a3",
+    "sv/rtl/vendor/hardfloat/isSigNaNRecFN.v": "dfec25b11b197b767d15b0e28d56b4742c7329668239cdf14d324ddac0950439",
+    "sv/rtl/vendor/hardfloat/mulRecFN.v": "bff24e22929c49d0f50f70511a93388c784faae9a578cfc79e8fe322cf60cf5a",
+    "sv/rtl/vendor/hardfloat/provenance.json": "6d31d80df7db1a31cac285fe922928a21bef42f4f64a1ff32d05785ccb3de403",
+    "sv/rtl/vendor/hardfloat/recFNToFN.v": "9a1cb98579a715965aebf9faab6cb5851154e8284d6af7ace594a0d6cc87adf8",
+    "sv/scripts/run.ps1": "4f5f7cebdf2524e48ae7037895e0e0ad45e245ad10bb1bd8ece3152016688ed3",
+    "sv/scripts/toolchain.sh": "11b934d6f4ee1f19027faaece45b5a025a20ed2c1eed45dcba24ae7a4b33a0b4",
+    "sv/tests/current/current_pe_synth_adapter.sv": "632cb44c6a5b3e86f2306ec106709f1238bdc9d9a39113a828c4160c659a3461",
+    "sv/tests/current/run_pe_attachment.sh": "e2a5c9cece6b83a60d272d6f62a2fce520ef869c2b90c81ceadd10bea31a8642",
+    "sv/tests/current/run_pe_interfaces.sh": "235563a0f32462bd0c922517d3537214132dbd05583c264d654eed3d2b3f64a9",
+    "sv/tests/current/tb_current_pe.sv": "69b1c702c48f9476405da8e8d4a64512fd25d3e8d10ae0974a6842e761c306fe",
+    "sv/tests/current/tb_current_stream_load.sv": "28f197aed39892fe0f601eeaff589ac7d64ade866ba48367dea5b0ec07b012b8",
+    "sv/tests/current/tb_pe_fp_system.sv": "a7f7eabebe1c4801cbce7f6b2bc60f66c9698daaa474f7aee9d1274ea20db092",
+    "sv/tests/current/tb_pe_memory.sv": "275f6c96c28ac612b64986feb864bfefa92549c9da7f20fc9c634dadad470c60"
+  },
+  "tools": {
+    "verilator": "5.029 devel",
+    "yosys": "0.45+139",
+    "sv2v": "0.0.13"
+  },
+  "resource_retry": {
+    "path": "sv/build/current/pe-interfaces/synth/mem-context64/compile-first-attempt.log",
+    "sha256": "037697819248be27c03a34fa7c85603ee02954a0705d72f76732ae00a44260be",
+    "results": [
+      "c++: fatal error: Killed signal terminated program cc1plus",
+      "%Error: make -C build/current/pe-interfaces/synth/mem-context64/obj -f Vtb_pe_memory.mk -j 2 CXX=c++ LINK=c++ exited with 2"
+    ]
+  },
+  "notes": [
+    "Five external PE declarations were normalized and compared before extraction; no public port layout changed.",
+    "No FU arithmetic, step-retirement, accepted-command, context-clear or Streaming retained-packet logic was merged or changed.",
+    "The heterogeneous system test distinguishes IEEE and legacy field encodings via actual host-programmed addition; the pre-change source fails its legacy expectation.",
+    "Four MEM RTL profiles exercise slot 0/2, Base/Context, 4/8 ports and 32/64 bits; write-address and write-data consumers accept as a pair.",
+    "The Streaming stimulus is historical input traffic with only STREAM_LD opcode remapped; expected addresses, payloads and counts are independent, not raw Python output equivalence.",
+    "The Streaming netlist retains exactly 13 intentional packet-latch bits (payload[6:0] and cmd[5:0]); their warnings are recorded and no other LATCH/UNDRIVEN/MULTIDRIVEN diagnostics are accepted. Zero SCC results apply to the five tested emitted PE netlists, not every fabric configuration.",
+    "The 16 GiB cgroup killed one C++ compiler when two large Context64 netlist functions were compiled concurrently. The runner failure tail is retained; the identical emitted netlist was retried with one C++ compilation job. No RTL optimization, SCC checks or assertions were disabled.",
+    "Verilator RTL optimization is enabled; CXXFLAGS=-O0 only controls generated C++ compilation."
+  ]
+}

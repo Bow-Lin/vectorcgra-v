@@ -136,6 +136,13 @@ current-memory-boundaries-synth:
 	bash tests/current/run_memory_boundaries_compat.sh synth
 	bash tests/current/run_im2col_boundary_system_synth.sh
 
+.PHONY: current-pe-interfaces current-pe-interfaces-synth
+current-pe-interfaces:
+	bash tests/current/run_pe_interfaces.sh rtl
+	bash tests/current/run_pe_attachment.sh
+current-pe-interfaces-synth:
+	bash tests/current/run_pe_interfaces.sh synth
+
 .PHONY: phase2 phase2-negative $(addprefix phase2-,$(PHASE2_GEOMETRIES))
 phase2: $(addprefix phase2-,$(PHASE2_GEOMETRIES)) phase2-negative
 
@@ -165,7 +172,7 @@ phase3-system:
 
 # Stage 4 compiles maintained SV and frozen HDL/text assets directly.
 .PHONY: regression phase4 phase4-noc phase4-system phase4-template phase4-migration phase4-peripheral phase4-memory
-regression: current current-synth current-post-synth current-kernels current-prefixes native-kernels native-math native-multi native-template current-migration current-loop-controller current-loop-controller-synth current-static-memory current-static-memory-synth current-ring-ctrl-memory current-ring-ctrl-memory-synth current-data-memory current-data-memory-synth current-scalable-memory current-scalable-memory-synth current-or-link current-or-link-synth current-selector current-selector-synth current-pipe-queue current-pipe-queue-synth current-vector-reduce current-vector-reduce-synth native-global-reduce current-vector-arithmetic current-vector-arithmetic-synth current-arithmetic-boundaries current-arithmetic-boundaries-synth current-memory-boundaries current-memory-boundaries-synth baseline
+regression: current current-synth current-post-synth current-kernels current-prefixes native-kernels native-math native-multi native-template current-migration current-loop-controller current-loop-controller-synth current-static-memory current-static-memory-synth current-ring-ctrl-memory current-ring-ctrl-memory-synth current-data-memory current-data-memory-synth current-scalable-memory current-scalable-memory-synth current-or-link current-or-link-synth current-selector current-selector-synth current-pipe-queue current-pipe-queue-synth current-vector-reduce current-vector-reduce-synth native-global-reduce current-vector-arithmetic current-vector-arithmetic-synth current-arithmetic-boundaries current-arithmetic-boundaries-synth current-memory-boundaries current-memory-boundaries-synth current-pe-interfaces current-pe-interfaces-synth baseline
 phase4: phase4-noc phase4-system phase4-template phase4-migration phase4-peripheral phase4-memory
 phase4-noc:
 	bash tests/phase4/noc/run.sh
