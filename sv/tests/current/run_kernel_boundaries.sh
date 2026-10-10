@@ -23,14 +23,20 @@ for kernel in "$@"; do
     build="$root/$kernel"; if [[ $mem == 0 ]]; then build="$build-memory0"; fi
     mkdir -p "$build"
     mapfile -t args < <(grep -v '^-GMEM_COMBINATIONAL=' "$root/fixtures/$kernel/verilator.args")
+    stamp_args=(--path "$build/build-stamp.json" --source tests/current/run_kernel_boundaries.sh
+      --source tests/current/tb_native_kernel.sv --source tests/current/gen_kernel_boundaries.py
+      --source "$root/fixtures/$kernel/verilator.args" --argument="MEM_COMBINATIONAL=$mem" --argument="COMPILER=$COMPILER")
+    for argument in "${args[@]}"; do stamp_args+=("--argument=$argument"); done
     if [[ $mode == all ]]; then
       { grep -v '^+' filelists/native.f | grep -v '^$'; printf '%s\n' tests/current/tb_native_kernel.sv; } | xargs sha256sum > "$build/compiled_sources.sha256"
       sha256sum rtl/common/*.svh >> "$build/compiled_sources.sha256"
       env -u LINK "$VERILATOR" --binary --timing --compiler "$COMPILER" -j "$JOBS" \
-        -MAKEFLAGS "CXX=$CXX LINK=$CXX" -CFLAGS -O0 --top-module tb_native_kernel \
+        -MAKEFLAGS "CXX=$CXX LINK=$CXX" -CFLAGS -O0 --output-split 10000 --output-split-cfuncs 2000 --top-module tb_native_kernel \
         --Mdir "$build/obj" -Wno-fatal -Irtl/common -f filelists/native.f "${args[@]}" -GMEM_COMBINATIONAL="$mem" \
         tests/current/tb_native_kernel.sv >"$build/compile.log" 2>&1 || { tail -n 35 "$build/compile.log"; exit 1; }
+      python3 scripts/build_stamp.py write "${stamp_args[@]}"
     else
+      python3 scripts/build_stamp.py check "${stamp_args[@]}"
       sha256sum --check --status "$build/compiled_sources.sha256"
     fi
     exe="$build/obj/Vtb_native_kernel${EXEEXT}"

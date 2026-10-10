@@ -56,10 +56,10 @@ EOF
     sources=(+define+CURRENT_POST_SYNTH "$build/netlist.v" tests/current/current_pe_synth_adapter.sv)
   fi
   compile_jobs=$JOBS
-  # Two large generated C++ functions exceed a 16 GiB host when built together.
+  # Bound parallel compilation as well as generated C++ function size.
   if [[ $mode == synth && $profile == mem-context64 ]];then compile_jobs=1;fi
   env -u LINK "$VERILATOR" --binary --timing --compiler "$COMPILER" -j "$compile_jobs" \
-    -MAKEFLAGS "CXX=$CXX LINK=$CXX" -Wno-fatal -Irtl/common --top-module "$top" --Mdir "$build/obj" \
+    -MAKEFLAGS "CXX=$CXX LINK=$CXX" -CFLAGS -O0 --output-split 10000 --output-split-cfuncs 2000 -Wno-fatal -Irtl/common --top-module "$top" --Mdir "$build/obj" \
     "${sources[@]}" "tests/current/$top.sv" "${args[@]}" >"$build/compile.log" 2>&1 || { tail -n 40 "$build/compile.log";exit 1; }
   "$build/obj/V$top${EXEEXT}" >"$build/run.log" 2>&1 || { cat "$build/run.log";exit 1; }
   grep -E 'CURRENT_(PE_PASS|STREAM_LOAD_PASS)|PE_MEMORY_PASS' "$build/run.log"

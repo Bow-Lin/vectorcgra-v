@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "platform": "linux-x86_64",
+  "oss_cad_suite": {
+    "release": "2024-09-20",
+    "url": "https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2024-09-20/oss-cad-suite-linux-x64-20240920.tgz",
+    "sha256": "a2e54ad3a55d41d66b7b4516daa629014d3ba7cdf02c07d3b72b3873950819ee",
+    "verilator": "5.029",
+    "yosys": "0.45+139"
+  },
+  "sv2v": {
+    "release": "v0.0.13",
+    "url": "https://github.com/zachjs/sv2v/releases/download/v0.0.13/sv2v-Linux.zip",
+    "sha256": "552799a1d76cd177b9b4cc63a3e77823a3d2a6eb4ec006569288abeff28e1ff8"
+  }
+}

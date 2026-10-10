@@ -1,0 +1,16 @@
+{
+  "commit": "3e09c11a7627df2ac47c08871323090e92c13f6b",
+  "run_id": 38061486732,
+  "job_id": 114240484934,
+  "status": "failure",
+  "url": "https://github.com/Bow-Lin/vectorcgra-v/actions/runs/38061486732",
+  "evidence": [
+    "2026-10-10T14:54:57.9381055Z Verilator 5.020 2024-01-01 rev (Debian 5.020-1)",
+    "2026-10-10T14:54:57.9466263Z g++ (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+    "2026-10-10T14:54:57.9504452Z ##[group]Run make -C sv current JOBS=2",
+    "2026-10-10T14:54:57.9504785Z \u001b[36;1mmake -C sv current JOBS=2\u001b[0m",
+    "2026-10-10T14:55:04.0410826Z [55000] %Fatal: tb_current_fu.sv:182: Assertion failed in TOP.tb_current_fu.unnamedblk1: CURRENT_FU_MISMATCH unit=Shifter cycle=5 actual=2880000012400000000100000000000000000000000000000000000000000000000000000000 expected=2880000006400000000100000000000000000000000000000000000000000000000000000000",
+    "2026-10-10T14:55:04.0413459Z %Error: tests/current/tb_current_fu.sv:182: Verilog $stop"
+  ],
+  "note": "Existing CI uses apt Verilator 5.020; local pinned 5.029 passes. Align toolchains and verify actual remote CI in task18; do not assume root cause without rerun."
+}

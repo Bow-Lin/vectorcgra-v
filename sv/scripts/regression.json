@@ -1,0 +1,88 @@
+{
+  "schema": 1,
+  "shards": {
+    "core": [
+      "current",
+      "current-synth",
+      "current-post-synth"
+    ],
+    "apis": [
+      "current-data-memory",
+      "current-data-memory-synth",
+      "current-scalable-memory",
+      "current-scalable-memory-synth",
+      "current-or-link",
+      "current-or-link-synth",
+      "current-selector",
+      "current-selector-synth",
+      "current-pipe-queue",
+      "current-pipe-queue-synth",
+      "current-reg-file",
+      "current-reg-file-synth"
+    ],
+    "control": [
+      "current-loop-controller",
+      "current-loop-controller-synth",
+      "current-static-memory",
+      "current-static-memory-synth",
+      "current-ring-ctrl-memory",
+      "current-ring-ctrl-memory-synth"
+    ],
+    "vectors": [
+      "current-vector-reduce",
+      "current-vector-reduce-synth",
+      "native-global-reduce",
+      "current-vector-arithmetic",
+      "current-vector-arithmetic-synth"
+    ],
+    "arithmetic": [
+      "current-arithmetic-boundaries",
+      "current-arithmetic-boundaries-synth",
+      "native-math"
+    ],
+    "memory": [
+      "current-memory-boundaries",
+      "current-memory-boundaries-synth"
+    ],
+    "pe": [
+      "current-pe-interfaces",
+      "current-pe-interfaces-synth"
+    ],
+    "noc": [
+      "current-noc-handshakes",
+      "current-noc-handshakes-synth"
+    ],
+    "tools": [
+      "config-tools",
+      "program-tools"
+    ],
+    "raw-kernels": [
+      "current-kernels",
+      "current-prefixes"
+    ],
+    "migration": [
+      "current-migration"
+    ],
+    "native-kernels": [
+      "native-kernels",
+      "native-kernel-boundaries",
+      "current-predicated-store",
+      "current-predicated-store-synth"
+    ],
+    "systems": [
+      "native-multi",
+      "native-template",
+      "current-system-synth"
+    ],
+    "baseline": [
+      "baseline"
+    ]
+  },
+  "source_audit": {
+    "target": "migration-inventory",
+    "requires_original_python_files": true
+  },
+  "excluded_aliases": {
+    "current-systems": "Subset alias; its individual targets are already assigned."
+  }
+}

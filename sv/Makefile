@@ -211,7 +211,8 @@ phase3-system:
 
 # Stage 4 compiles maintained SV and frozen HDL/text assets directly.
 .PHONY: regression phase4 phase4-noc phase4-system phase4-template phase4-migration phase4-peripheral phase4-memory
-regression: current current-synth current-post-synth current-kernels current-prefixes native-kernels native-math native-multi native-template current-migration current-loop-controller current-loop-controller-synth current-static-memory current-static-memory-synth current-ring-ctrl-memory current-ring-ctrl-memory-synth current-data-memory current-data-memory-synth current-scalable-memory current-scalable-memory-synth current-or-link current-or-link-synth current-selector current-selector-synth current-pipe-queue current-pipe-queue-synth current-vector-reduce current-vector-reduce-synth native-global-reduce current-vector-arithmetic current-vector-arithmetic-synth current-arithmetic-boundaries current-arithmetic-boundaries-synth current-memory-boundaries current-memory-boundaries-synth current-pe-interfaces current-pe-interfaces-synth current-noc-handshakes current-noc-handshakes-synth config-tools program-tools current-reg-file current-reg-file-synth native-kernel-boundaries current-predicated-store current-predicated-store-synth current-system-synth baseline
+regression:
+	python3 scripts/regression.py --all
 phase4: phase4-noc phase4-system phase4-template phase4-migration phase4-peripheral phase4-memory
 phase4-noc:
 	bash tests/phase4/noc/run.sh
