@@ -1,0 +1,18 @@
+{
+  "parameters": {
+    "DATA_BITS": 19,
+    "NUM_CONST": 3,
+    "CONST_WORDS_HEX": "f000220004c"
+  },
+  "cycles": 160,
+  "input_bits": 2,
+  "output_bits": 20,
+  "reset_samples": 6,
+  "notes": [
+    "Unmodified static ROM; all message metadata, invalid and reset samples compared."
+  ],
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_sha256": "f0409e7f86a50706a9449c8b0f178f71d3034106464c9d535b31f21a03fbb9c6",
+  "generator_sha256": "9e4a3b2c1426f1d51fd5d25dace30b0cc25bbf2409c841f17eae4d56f04dedab",
+  "vectors_sha256": "292ec58048c42edc32fed7794d78f91d0c8484fe3c68b5d1de8c82aa3dbc1f31"
+}

@@ -1,0 +1,32 @@
+{
+  "failures": [
+    {
+      "case": "modern_ctrl_field",
+      "exception": "VarNotDeclaredError",
+      "message": "\nIn file <ROOT>/mem/ctrl/CtrlMemRTL.py:53 in update_signal\n\n53          (s.reg_file.rdata[0].ctrl == OPT_START):\n\n^^^ Field \"ctrl\" of object \"s.reg_file.rdata[0]\" (class \"OutPort\") is accessed in block \"update_signal\",\n    but s.reg_file.rdata[0] does not have field \"ctrl\".\n(when constructing instance s of class \"CtrlMemRTL\" in the hierarchy)\n\nSuggestion: fix incorrect field access at line 53, or fix the declaration somewhere."
+    },
+    {
+      "case": "unlimited_steps",
+      "exception": "AssertionError",
+      "message": "We don't allow Bits0"
+    },
+    {
+      "case": "single_ctrl_slot",
+      "exception": "AssertionError",
+      "message": "We don't allow Bits0"
+    },
+    {
+      "case": "empty_constants",
+      "exception": "AssertionError",
+      "message": "We don't allow Bits0"
+    },
+    {
+      "case": "missing_constants",
+      "exception": "TypeError",
+      "message": "object of type 'NoneType' has no len()"
+    }
+  ],
+  "narrow_pc_zext": "depth=8/count=2 executes: custom PyMTL type-form zext accepts narrower type",
+  "original_const_test": "passed unmodified, original Source/Sink assertions active",
+  "deprecated_ctrl_tests": "not collected: deprecated files use obsolete constructors; not claimed passed"
+}

@@ -293,3 +293,15 @@
 - 新模块未接入系统，也没有增加 NoC 路由头。保留并记录 Python 的广播/匹配规则、同拍计数覆盖、未配置子 CCU 重启、非递归父通知、未锁定派发仲裁与 all_loops_complete 只观察 root 等边界，不将这些行为称作任意 DAG 调度正确性。
 - 新 Make/PowerShell/CI 和完整 regression 入口已接入；native 文件列表对已有 PE 测试台的 lint/elaboration 通过。没有重跑 M23 全系统或 PPA 验收；M23 记录保留，本批证据在 reference/current/loop_controller/validation.json。
 - 原项目 274 个 Python SHA 未变。验收记录生成时尚未提交或推送，也没有本批远端 CI 结果；实际提交与推送状态以 Git 为准。下一项：旧静态 CtrlMem/ConstQueue 接口与其 Python 缺陷边界。
+
+## M25：独立静态 CtrlMem / ConstQueue API（2026-10-10）
+
+- 从已提交并推送的 `008c2ecf5970c6b0ad0d1a3284e10a3f0707bbab` 继续；未创建子智能体，未修改原项目 Python 或历史参考。实现两个独立 API，没有替换 PE 内动态存储。
+- 原 CtrlMem 使用 `.ctrl`，直接配当前 `.operation` 类型会失败；冻结工具仅创建同位布局的旧字段名类型。复现 total_steps=0、单槽控制存储、空常量表的 Bits0 失败，以及缺省常量列表的 TypeError。检查自定义 PyMTL 的 zext 后确认 depth=8／period=2 可执行，未把初步疑点误记为缺陷。
+- 原静态 ConstQueue 测试原样运行并保留 Source/Sink 断言，结果通过；两个废弃 CtrlMem 测试依赖旧接口，没有宣称其通过。7 组直接模型轨迹共 1305 周期，包含 84 个 reset 周期；RTL 和网表均比较全部 104102 个输出位，无 valid 或 reset 掩码。
+- 原生 CtrlMem 同步复位程序、PC 和预算；仅实际握手推进；配置写入成对接受，保护背压中的当前字，同时允许其它槽写入及消费当拍替换。覆盖深度 1／3／4／8、有限和无限预算、107／119 位消息及自定义 opcode 位置。
+- 原生 ConstQueue 提供静态 ROM、按握手循环读取和复位回到首项；支持空表、单项、3／4 项以及 16／32／64 位 payload，所有 metadata 位一同验证。兼容模式以 initial 零初始化模拟 PyMTL 初始状态并忽略运行中 reset，不代表 ASIC 上电保证。
+- RTL 与真实 sv2v→Yosys 网表的 18 个配置分别通过；每种实现有 2635 项原生检查。18 份网表均通过优化前／综合后 check -assert。36 个错误期望、8 个旧行为缺陷、5 个非法地址／参数负向运行通过；相同缺陷输入在原生模式有 8 次通过记录。Verilator 计数器继续使用已记录的 public_flat_rw workaround，不移除比较或覆盖检查。
+- 收尾审查发现 Verilator 对生成网表的不同位别名／拼接报 UNOPTFLAT；没有将功能通过写成零告警。逐份重新读入 18 份实际网表并运行 check -assert、scc -expect 0，均为零问题、零位级组合环；检查已接入综合网表 runner，证据保留每份日志及告警计数。
+- 23 个冻结文件在独立目录重新生成后逐字节一致，274 个原项目 Python SHA 未变。新增 Make、PowerShell、regression 与 CI 仿真入口；native 文件列表对既有 PE 测试台 lint/elaboration 通过。Shell 语法与 Make 入口检查通过；PowerShell 未在本 Linux 环境执行。
+- 验收摘要、源码／参考／网表与日志 SHA 独立保存为 `reference/current/static_memory/validation.json`；M23／M24 证据保持不变。本批未重跑系统内核，不声明新系统集成、PPA 或全迁移完成。验收时未提交／推送，也无本批远端 CI 结果；下一项为 RingMultiCtrlMem 独立接口。

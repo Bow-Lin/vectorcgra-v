@@ -1,5 +1,12 @@
 # Migration-only reference export
 
+Current-target exporters (`current_*.py`) use the Python pinned in
+`sv/reference/current/target.json`; the historical tools described below retain
+the original ac96 baseline. `current_static_memory.py --output-root <directory>`
+freezes the standalone static CtrlMem/ConstQueue APIs and records original Python
+failures separately. CtrlMem uses an explicitly documented field-name adapter;
+see [STATIC_MEMORY_API.md](../STATIC_MEMORY_API.md). No original Python is edited.
+
 These scripts freeze the unmodified Python RTL at
 `ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b`. They are optional migration tools;
 the normal SystemVerilog build uses checked-in RTL and vectors without importing

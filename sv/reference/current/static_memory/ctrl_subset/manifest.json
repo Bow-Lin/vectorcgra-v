@@ -1,0 +1,21 @@
+{
+  "parameters": {
+    "CTRL_BITS": 119,
+    "DEPTH": 8,
+    "COUNT_PER_ITER": 2,
+    "TOTAL_STEPS": 13
+  },
+  "cycles": 224,
+  "input_bits": 126,
+  "output_bits": 122,
+  "reset_samples": 20,
+  "notes": [
+    "Type-only adapter renames operation to ctrl; identical packed field layout.",
+    "All outputs compared, including invalid messages and reset cycles.",
+    "Budget expires under stall; reset is ignored; unpaired writes are lost."
+  ],
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_sha256": "b2783f190c60da27e2a2d402c7ca2391222d65bba46097ae568bc5a2213a85f8",
+  "generator_sha256": "9e4a3b2c1426f1d51fd5d25dace30b0cc25bbf2409c841f17eae4d56f04dedab",
+  "vectors_sha256": "e7f927fa3e9031b2861e33f953cfc6f289155da664e7f115649e441b78215766"
+}

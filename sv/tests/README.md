@@ -1,5 +1,10 @@
 # Native SystemVerilog tests
 
+Current standalone static storage tests run with `make -C sv current-static-memory`
+and `make -C sv current-static-memory-synth`. They cover frozen Python compatibility,
+native handshake/reset corrections, negative controls, and real synthesized netlists.
+See [STATIC_MEMORY_API.md](../STATIC_MEMORY_API.md) for the API and evidence scope.
+
 Stage 3 tests are under [`phase3/`](phase3/system/README.md): scalar,
 vector/composite, floating-point, Tile variants and six complete single-CGRA
 profiles. Run `sv/scripts/run.ps1 -Task phase3` with the documented tool paths,

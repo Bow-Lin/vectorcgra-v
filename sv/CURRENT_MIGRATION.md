@@ -2,7 +2,7 @@
 
 目标 Python 固定为 `cd7aad878915e389cecf8cc01ff6987d156bd019`。该提交导入 SV；Python 内容来自父提交 `e3caf6928a4e8c97e6be36574af2520ec92083b9`。原始迁移基线仍为 `ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b`。`reference/current/target.json` 记录所有 274 个原项目 Python 文件的 SHA-256；本批没有修改这些文件。
 
-最新完成批次为 M24（2026-10-10）：补齐独立 LoopController 的 payload API，保留 Python 对照并修正原生满目标派发回绕。M23 的原 4×4 SPMV 限定范围验收继续保留。下一项是旧静态 CtrlMem/ConstQueue API，随后继续其余独立模块。验收记录中的提交、推送及远端 CI 状态均为记录生成时的快照；实际提交与推送状态以 Git 为准。
+最新完成批次为 M25（2026-10-10）：补齐独立静态 CtrlMem/ConstQueue API，保留旧 Python 对照，原生模式修正握手计数、配置配对和复位。M24 LoopController 与 M23 原 4×4 SPMV 的限定范围验收继续保留。下一项是独立 RingMultiCtrlMem 包装接口，随后继续其余独立模块。验收记录中的提交、推送及远端 CI 状态均为记录生成时的快照；实际提交与推送状态以 Git 为准。
 
 ## 已实现
 
@@ -39,6 +39,7 @@
 make -C sv current
 make -C sv current-synth current-post-synth
 make -C sv current-loop-controller current-loop-controller-synth
+make -C sv current-static-memory current-static-memory-synth
 make -C sv current-kernels
 make -C sv current-prefixes
 make -C sv native-kernels native-math
@@ -128,19 +129,19 @@ SPMV 在迁移工具的内存副本中补充 opcode 映射，并使用原生无�
 - VectorMul 的 LANES>4 仍有 Python 只连接前四路的边界，本批不将它扩展为任意 lane 算术。
 - DMA command 的 `nbytes >> 2` 仍遵循当前 Python。已验收的 SPM word 为 32 位、长度为 4 的倍数；其它 SPM 位宽/非对齐长度没有完整业务语义保证。
 - Mesh/Ring、注册存储、64 Tile 和异构程序使用当前 RTL 的独立数学验收；这些结果不等于当前 Python 的完整逐周期等价。当前跨 CGRA 归约和动态 FIR 另有新采集的原 Python 轨迹。历史 64-Tile Python 轨迹不完整的边界仍保留。
-- M24 已补齐独立 LoopController 的 payload API；尚未接入系统，没有新增目的路由、通用 DAG 或并发完成无损收集保证。旧静态 CtrlMem/ConstQueue、RingMultiCtrlMem、DataMem/DataMemScalable、OrLink/Selector/PipeQueue 仍待补齐；当前 PE/系统覆盖不能代替这些 API 的验收。
+- M24 已补齐独立 LoopController 的 payload API；尚未接入系统，没有新增目的路由、通用 DAG 或并发完成无损收集保证。M25 已补齐独立静态 CtrlMem/ConstQueue 的原生与兼容模式；未替换 PE 动态存储。RingMultiCtrlMem、DataMem/DataMemScalable、OrLink/Selector/PipeQueue 仍待补齐；当前 PE/系统覆盖不能代替这些 API 的验收。
 - ConstQueue/Crossbar 等变体内部的重复实现，以及 NoC 新版结构优化仍待后续集中重构；当前先以同一验收矩阵保持行为一致。
 - 当前工具链仍有 Verilator 的 UNOPTFLAT 诊断；修复未驱动位不表示已完成全部组合环、时序或 FPGA/ASIC 实现验收。
 
 ## 旧独立 API 的清单
 
-这些缺口不因当前 PE 或系统验收通过而自动关闭。M24 完成第一项独立模块，其余保持待迁移状态。
+这些缺口不因当前 PE 或系统验收通过而自动关闭。M24 完成 LoopController，M25 完成两个静态存储 API，其余保持待迁移状态。
 
 | Python 模块 | 当前 SV 边界与后续要求 |
 |---|---|
 | `controller/LoopControllerRTL.py` | M24：`cgra_loop_controller` 独立接口通过四组 RTL／网表验收；原生修正满目标派发回绕，Python 模式保留。路由 ID、并发事件和任意 DAG 限制见 [接口文档](LOOP_CONTROLLER_API.md)；尚未接入系统 |
-| `mem/ctrl/CtrlMemRTL.py` | 旧静态地址/控制写口，仍读取旧 `.ctrl` 字段，停顿周期也增加 times；不能直接用动态 CtrlMem 顶替 |
-| `mem/const/ConstQueueRTL.py` | 静态常量 ROM、循环读指针，原实现没有 reset 分支；当前动态常量队列不是同一 API |
+| `mem/ctrl/CtrlMemRTL.py` | M25：`cgra_static_ctrl_mem` 独立 API 已验收；类型字段名适配后对照未修改 Python；原生修正停顿计数、写入配对与复位，支持单槽和无限预算。见 [接口文档](STATIC_MEMORY_API.md) |
+| `mem/const/ConstQueueRTL.py` | M25：`cgra_static_const_queue` 静态 ROM 已验收；兼容模式保留忽略 reset，原生增加复位回绕和安全空表。尚未接入 PE |
 | `mem/ctrl/RingMultiCtrlMemDynamicRTL.py` | 独立 ring+控制存储组合包装层未补齐；系统内部 ctrl ring 覆盖不是接口级验收 |
 | `mem/data/DataMemRTL.py` | 独立多读写口、首次读懒预加载契约尚未移植；Python Im2colEngine 使用它，SV Im2col 内存需另作对应性验收 |
 | `mem/data/DataMemScalableRTL.py` | 额外 NoC 口在原 Python 中也全部系零；不能将其描述为已支持远程访问的缺失功能 |
@@ -160,6 +161,20 @@ SPMV 在迁移工具的内存副本中补充 opcode 映射，并使用原生无�
 - Make、PowerShell、完整 regression 和 CI 增加独立入口；当前 native 文件列表可正常 elaboration 既有 PE 测试台。本批的 SHA、日志摘要和范围独立记录在 `reference/current/loop_controller/validation.json`，此前 `reference/current/validation.json` 仍是 M23 快照。
 
 保留的重要原 API 限制：本地完成只按 ctrl_addr 匹配；远程完成广播给全部运行中 CCU；多个同拍完成可能只计一次；未锁定仲裁可抢占背压中的高编号消息；父通知只处理直接父 CCU；输出不含已配置的 tile／CGRA 路由 ID。这些不是本轮新实现的通用跨 CGRA 调度能力。
+
+## M25：独立静态 CtrlMem / ConstQueue
+
+新增 `rtl/mem/cgra_static_ctrl_mem.sv` 和 `cgra_static_const_queue.sv`。
+详细参数、配置加载顺序、复位和兼容边界见 [STATIC_MEMORY_API.md](STATIC_MEMORY_API.md)。
+
+- CtrlMem 默认仅在输出握手时消耗预算与推进 PC；配置地址和数据成对握手，保护背压中的当前指令；同步复位清空程序、PC 和预算。支持非二次幂深度、单槽、有限／无限执行以及自定义 opcode 位域。
+- ConstQueue 使用构造期固定 ROM，按独立输出握手循环读取，保留完整 payload／predicate／bypass／delay；默认复位回到第 0 项，空表输出无效零值。
+- 显式 `LEGACY_PYTHON=1` 复核历史行为。旧 CtrlMem 直接使用当前 `.operation` 类型失败，冻结工具仅将字段名适配为 `.ctrl`，位布局不变；原 Python 文件未改。兼容模式保留背压耗尽预算、未配对写入假握手及忽略 reset，并明确以 initial 零值模拟 PyMTL 上电状态，不声称 ASIC 上电保证。
+- 7 组冻结轨迹共 1305 周期、104102 个输出位，包含 84 个 reset 周期，全部逐位匹配；原 ConstQueue 测试原样通过，废弃 CtrlMem 测试不计作通过。5 个原 Python 参数／字段失败边界另存证据。
+- 11 组原生配置共 2635 项独立检查；加上 7 组兼容配置，共 18 个配置在 RTL 与真实综合网表各通过一次。18 份网表的优化前和综合后 `check -assert` 均通过。36 个错误期望、8 个历史缺陷复现和 5 个非法地址／参数负向运行均检出预期错误；同输入的 8 个原生缺陷修复检查通过。
+- Verilator 对网表位别名／拼接报告 UNOPTFLAT；重新读入 18 份实际网表后 `check -assert` 和 `scc -expect 0` 全部通过，未发现位级组合环。该检查已加入综合网表入口，编译告警仍保留。
+- 23 个冻结文件在独立目录再生成后逐字节一致；274 个原项目 Python SHA 未变。Make、PowerShell、完整 regression 与 CI 仿真入口已接入；native 文件列表对既有 PE 台架的 lint/elaboration 通过。
+- 本批尚未接入 PE／阵列，没有重跑 M23 系统或 PPA 验收。证据单独保存于 `reference/current/static_memory/validation.json`，旧批次记录保留。下一项是 RingMultiCtrlMem 独立包装层及其控制环／存储接口契约。
 
 ## 工具链证据
 
