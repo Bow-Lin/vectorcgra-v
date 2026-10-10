@@ -339,3 +339,23 @@
   按 [MIGRATION_TASKS.md](MIGRATION_TASKS.md) 顺序，下一项为 DataMemScalable API。
 
 验收记录在提交前生成；提交和推送状态以 Git 为准。
+
+## 独立 DataMemScalable API（2026-10-10）
+
+新增 `cgra_data_mem_scalable`，复用已验收的独立 DataMem 核心；
+原生／兼容本地契约相同。未修改的 Python 将 NoC 输出固定为零，
+因此新包装层同样不接收 NoC 数据、不产生远程请求；本批没有新增远程访存。
+接口与限制见 [DATA_MEMORY_API.md](DATA_MEMORY_API.md)。
+
+- 单独执行 Scalable 原测试和扩展轨迹，509 周期／91092 输出位（23 个 reset 周期）
+  在 RTL 与实际综合网表全部匹配；10 个冻结文件再生成一致，274 个原 Python SHA 未变。
+- 4 个原生／3 个兼容参数点各通过 RTL 和网表；每种实现 14279 项独立检查，
+  包括 NoC 输入持续变化下的零输出和本地存储正确性。23 次负控检出预期错误。
+- 7 份真实网表全部通过完整综合、优化前后 check、网表重读 check／零 SCC。
+  共享台架和 runner 扩展后，普通 DataMem 的多口及单词配置在 RTL／网表重跑通过。
+- Make、PowerShell、regression、CI 仿真和 native 文件列表已接入；既有 PE 台架
+  lint/elaboration 通过。没有新的系统内核、远程访问、PPA 或远端 CI 验收结论。
+- 独立证据 `reference/current/data_memory_scalable/validation.json`；
+  下一项按 [MIGRATION_TASKS.md](MIGRATION_TASKS.md) 补齐 N 输入 OrLink。
+
+提交前记录；实际提交／推送状态以 Git 为准。

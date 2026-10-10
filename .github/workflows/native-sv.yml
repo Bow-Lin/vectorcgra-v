@@ -25,6 +25,8 @@ jobs:
         run: make -C sv current-ring-ctrl-memory JOBS=2
       - name: Standalone data memory and write/read contracts
         run: make -C sv current-data-memory JOBS=2
+      - name: Standalone scalable memory and inactive NoC boundary
+        run: make -C sv current-scalable-memory JOBS=2
       - name: Current YAML system programs
         run: make -C sv current-kernels JOBS=2
       - name: Independent native arithmetic and repaired programs

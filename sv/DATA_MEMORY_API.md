@@ -69,3 +69,26 @@ python sv/migration_tools/current_data_memory.py --output-root /tmp/data-memory-
 `check -assert`；综合后及实际网表均检查 `scc -expect 0`。
 详见 `reference/current/data_memory/validation.json`，日志在
 `build/current/data-memory/`。不以组件验收代替系统内核回归或 PPA 验证。
+
+## DataMemScalable API
+
+`rtl/mem/cgra_data_mem_scalable.sv` 对应 `DataMemScalableRTL.py`，
+参数与本地读写接口完全相同，实例化上面的核心，不复制存储状态机。
+它增加 `recv_from_noc__{msg,val,rdy}`、`send_to_noc__{msg,val,rdy}`，
+消息宽度同为 DATA_BITS。
+
+原 Python 将三个 NoC 输出固定为零，尚无 miss／远程访存实现。
+本包装层在原生／兼容模式、正常运行／reset 时都保持：
+`recv_from_noc__rdy=0`、`send_to_noc__val=0`、`send_to_noc__msg=0`。
+NoC 输入任意变化不影响本地读写。无效本地地址仍按本地 API 边界报错，
+不会转换为远程请求。名称中的 scalable 不代表已支持真实多 CGRA 远程访存。
+
+```bash
+make -C sv current-scalable-memory current-scalable-memory-synth
+python sv/migration_tools/current_data_memory_scalable.py --output-root /tmp/scalable-reference
+```
+
+此 API 有独立的未修改 Python 轨迹，记录所有本地与 NoC 输入／输出位；
+原有 Scalable 测试保留 Source/Sink 断言。原生计分板同时切换 NoC 输入和 ready，
+逐拍检查三个 NoC 输出固定为零，并验证本地结果、背压和复位。
+证据为 `reference/current/data_memory_scalable/validation.json`。

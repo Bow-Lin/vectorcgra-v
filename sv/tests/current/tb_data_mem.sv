@@ -1,7 +1,7 @@
 `timescale 1ns/1ps
 module tb_data_mem #(
   parameter integer DATA_BITS=35, DEPTH=5, RD_PORTS=3, WR_PORTS=2,
-  parameter bit PRELOAD_ENABLE=1, ORIGINAL=0, LEGACY_PYTHON=0,
+  parameter bit PRELOAD_ENABLE=1, ORIGINAL=0, LEGACY_PYTHON=0, SCALABLE=0,
   parameter integer ADDR_W=(DEPTH>1)?$clog2(DEPTH):1
 );
   logic clk=0, reset=0;
@@ -16,8 +16,9 @@ module tb_data_mem #(
   logic [WR_PORTS-1:0] recv_waddr__rdy;
   logic [DATA_BITS-1:0] recv_wdata__msg [0:WR_PORTS-1];
   logic [WR_PORTS-1:0] recv_wdata__val;
-  logic [WR_PORTS-1:0] recv_wdata__rdy
-;
+  logic [WR_PORTS-1:0] recv_wdata__rdy;
+  logic [DATA_BITS-1:0] recv_from_noc__msg='0,send_to_noc__msg;
+  logic recv_from_noc__val=0,recv_from_noc__rdy,send_to_noc__val,send_to_noc__rdy=0;
   `include "data_mem_fixture.svh"
 `ifdef DATA_MEM_POST_SYNTH
   wire [RD_PORTS*ADDR_W-1:0] flat_raddr;
@@ -32,14 +33,27 @@ module tb_data_mem #(
     assign flat_waddr[(WR_PORTS-1-w)*ADDR_W +: ADDR_W]=recv_waddr__msg[w];
     assign flat_wdata[(WR_PORTS-1-w)*DATA_BITS +: DATA_BITS]=recv_wdata__msg[w];
   end
-  data_mem_netlist dut (.recv_raddr__msg(flat_raddr),.send_rdata__msg(flat_rdata),
-    .recv_waddr__msg(flat_waddr),.recv_wdata__msg(flat_wdata),.*);
+`ifdef DATA_MEM_SCALABLE_NETLIST
+    data_mem_netlist dut (.recv_raddr__msg(flat_raddr),.send_rdata__msg(flat_rdata),
+      .recv_waddr__msg(flat_waddr),.recv_wdata__msg(flat_wdata),
+      .recv_from_noc__msg(recv_from_noc__msg),.recv_from_noc__val(recv_from_noc__val),
+      .recv_from_noc__rdy(recv_from_noc__rdy),.send_to_noc__msg(send_to_noc__msg),
+      .send_to_noc__val(send_to_noc__val),.send_to_noc__rdy(send_to_noc__rdy),.*);
 `else
+    data_mem_netlist dut (.recv_raddr__msg(flat_raddr),.send_rdata__msg(flat_rdata),
+      .recv_waddr__msg(flat_waddr),.recv_wdata__msg(flat_wdata),.*);
+`endif
+`else
+  if (SCALABLE) begin : scalable_rtl
+    data_mem_scalable_synth #(.DATA_BITS(DATA_BITS),.DEPTH(DEPTH),.RD_PORTS(RD_PORTS),.WR_PORTS(WR_PORTS),
+      .PRELOAD_ENABLE(PRELOAD_ENABLE),.ORIGINAL(ORIGINAL),.LEGACY_PYTHON(LEGACY_PYTHON)) dut (.*);
+  end else begin : plain_rtl
   data_mem_synth #(.DATA_BITS(DATA_BITS),.DEPTH(DEPTH),.RD_PORTS(RD_PORTS),.WR_PORTS(WR_PORTS),
     .PRELOAD_ENABLE(PRELOAD_ENABLE),.ORIGINAL(ORIGINAL),.LEGACY_PYTHON(LEGACY_PYTHON)) dut (.*);
+  end
 `endif
-  localparam integer IN_BITS=1+RD_PORTS*(ADDR_W+2)+WR_PORTS*(ADDR_W+DATA_BITS+2);
-  localparam integer OUT_BITS=RD_PORTS*(DATA_BITS+2)+2*WR_PORTS;
+  localparam integer IN_BITS=1+RD_PORTS*(ADDR_W+2)+WR_PORTS*(ADDR_W+DATA_BITS+2)+(SCALABLE?DATA_BITS+2:0);
+  localparam integer OUT_BITS=RD_PORTS*(DATA_BITS+2)+2*WR_PORTS+(SCALABLE?DATA_BITS+2:0);
   integer samples /* verilator public_flat_rw */ =0;
   integer checks /* verilator public_flat_rw */ =0;
   integer reads /* verilator public_flat_rw */ =0;
@@ -93,11 +107,17 @@ module tb_data_mem #(
         recv_wdata__msg[w]=ins[pos -: DATA_BITS];pos-=DATA_BITS;
         recv_wdata__val[w]=ins[pos];pos--;
       end
+      if (SCALABLE) begin
+        recv_from_noc__msg=ins[pos -: DATA_BITS];pos-=DATA_BITS;
+        recv_from_noc__val=ins[pos];pos--;send_to_noc__rdy=ins[pos];pos--;
+      end
       #1;actual='0;
       for (integer r=0;r<RD_PORTS;r++)
         actual=(actual<<(DATA_BITS+2))|OUT_BITS'({recv_raddr__rdy[r],send_rdata__val[r],send_rdata__msg[r]});
       for (integer w=0;w<WR_PORTS;w++)
         actual=(actual<<2)|OUT_BITS'({recv_waddr__rdy[w],recv_wdata__rdy[w]});
+      if (SCALABLE) actual=(actual<<(DATA_BITS+2))|
+        OUT_BITS'({recv_from_noc__rdy,send_to_noc__val,send_to_noc__msg});
       if (wrong && samples==3) expected=expected^1;
       if (actual!==expected) $fatal(1,"DATA_MEM_REPLAY_MISMATCH sample=%0d got=%h expected=%h",samples,actual,expected);
       samples++;tick();
@@ -107,7 +127,10 @@ module tb_data_mem #(
   endtask
   task automatic check_native;
     logic [DATA_BITS-1:0] expected;
+    recv_from_noc__val=1'(samples);send_to_noc__rdy=1'(samples>>1);
+    recv_from_noc__msg=(DATA_BITS'(1)<<(DATA_BITS-1))|DATA_BITS'(samples);
     #1;
+    if (SCALABLE) require({recv_from_noc__rdy,send_to_noc__val,send_to_noc__msg}==='0,"inactive NoC ports");
     for (integer r=0;r<RD_PORTS;r++) begin
       require(recv_raddr__rdy[r]==(!reset && send_rdata__rdy[r]),"read acceptance");
       require(send_rdata__val[r]==(!reset && (pending[r] || recv_raddr__val[r])),"read valid");

@@ -1,0 +1,833 @@
+{
+  "task": "Standalone DataMemScalable API",
+  "status": "passed",
+  "date": "2026-10-10",
+  "base_commit": "746fd788070511b728a4ce485d97decced437a73",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "pinned_python_files_unchanged": 274,
+  "profiles": [
+    {
+      "name": "original",
+      "parameters": {
+        "DATA_BITS": 19,
+        "DEPTH": 20,
+        "RD_PORTS": 1,
+        "WR_PORTS": 1,
+        "PRELOAD_ENABLE": 1,
+        "ORIGINAL": 1
+      },
+      "cycles": 13,
+      "input_bits": 55,
+      "output_bits": 44,
+      "reset_samples": 3,
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "source_sha256": {
+        "mem/data/DataMemScalableRTL.py": "90edb3ae5d3775ddee8d3b1e9bb8e8fdf5949ec5da3d2a4dc808e3d83e1feca1",
+        "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf",
+        "mem/data/test/DataMemScalableRTL_test.py": "4ff1809a3557376d12f912f63576a89c6276e1397e3672fbe734e592bb41ed11"
+      },
+      "generator_sha256": "b8c4de3a3efb6e909a4a24914f2d2453c5411d90e5296e350aede01b907937a0",
+      "vectors_sha256": "88d1b50ebf0a21d01052935d893a7dbfdea55aed5f259e89ec15b2c39ca0bb3a",
+      "notes": [
+        "Original Python behavior, including invalid outputs and ignored reset.",
+        "Preload reads write even with val=0; write-enable latches when address valid falls.",
+        "Synthetic traffic intentionally separates address/data and changes stalled reads to expose source behavior."
+      ]
+    },
+    {
+      "name": "multi",
+      "parameters": {
+        "DATA_BITS": 35,
+        "DEPTH": 5,
+        "RD_PORTS": 3,
+        "WR_PORTS": 2,
+        "PRELOAD_ENABLE": 1,
+        "ORIGINAL": 0
+      },
+      "cycles": 248,
+      "input_bits": 133,
+      "output_bits": 152,
+      "reset_samples": 10,
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "source_sha256": {
+        "mem/data/DataMemScalableRTL.py": "90edb3ae5d3775ddee8d3b1e9bb8e8fdf5949ec5da3d2a4dc808e3d83e1feca1",
+        "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf",
+        "mem/data/test/DataMemScalableRTL_test.py": "4ff1809a3557376d12f912f63576a89c6276e1397e3672fbe734e592bb41ed11"
+      },
+      "generator_sha256": "b8c4de3a3efb6e909a4a24914f2d2453c5411d90e5296e350aede01b907937a0",
+      "vectors_sha256": "c4b12a2b3ac606b532f24b310ed4017416c6d7631d4c4db90f38d1d61b5668a6",
+      "notes": [
+        "Original Python behavior, including invalid outputs and ignored reset.",
+        "Preload reads write even with val=0; write-enable latches when address valid falls.",
+        "Synthetic traffic intentionally separates address/data and changes stalled reads to expose source behavior."
+      ]
+    },
+    {
+      "name": "wide",
+      "parameters": {
+        "DATA_BITS": 67,
+        "DEPTH": 3,
+        "RD_PORTS": 2,
+        "WR_PORTS": 3,
+        "PRELOAD_ENABLE": 0,
+        "ORIGINAL": 0
+      },
+      "cycles": 248,
+      "input_bits": 291,
+      "output_bits": 213,
+      "reset_samples": 10,
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "source_sha256": {
+        "mem/data/DataMemScalableRTL.py": "90edb3ae5d3775ddee8d3b1e9bb8e8fdf5949ec5da3d2a4dc808e3d83e1feca1",
+        "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf",
+        "mem/data/test/DataMemScalableRTL_test.py": "4ff1809a3557376d12f912f63576a89c6276e1397e3672fbe734e592bb41ed11"
+      },
+      "generator_sha256": "b8c4de3a3efb6e909a4a24914f2d2453c5411d90e5296e350aede01b907937a0",
+      "vectors_sha256": "70f7795ea5349ef134f0dd03dc6f1b8fafa93273857b649b0d9f8bdb3de413e5",
+      "notes": [
+        "Original Python behavior, including invalid outputs and ignored reset.",
+        "Preload reads write even with val=0; write-enable latches when address valid falls.",
+        "Synthetic traffic intentionally separates address/data and changes stalled reads to expose source behavior."
+      ]
+    }
+  ],
+  "compatibility_cycles": 509,
+  "compatibility_reset_cycles": 23,
+  "compatibility_output_bits_per_implementation": 91092,
+  "native_checks_per_implementation": 14279,
+  "positive_runs": [
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/original/legacy0/run.log",
+      "sha256": "8cb8af1e64bf61270728ee90289a197f3808f977120ef584db21a1ffe1403780",
+      "results": [
+        "DATA_MEM_NATIVE_PASS samples=380 checks=2281 reads=98 writes=142 stalls=192"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/original/legacy1/run.log",
+      "sha256": "f9cb5e53ed6cb95827373282523d5abbe3a86b56289ca026a91a2f374c095703",
+      "results": [
+        "DATA_MEM_REPLAY_PASS samples=13 output_bits=44"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/multi/legacy0/run.log",
+      "sha256": "44de5cfa0f5f97a5e10f61cac4a4810719f3ee5ccefa71a481af394e95d1945c",
+      "results": [
+        "DATA_MEM_NATIVE_PASS samples=365 checks=5111 reads=225 writes=253 stalls=652"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/multi/legacy0/defect-preload.log",
+      "sha256": "5d31541999da3da34f719873775aa0b30edf0b84d9df9c1703d1a431ccb2e7a6",
+      "results": [
+        "DATA_MEM_DEFECT_FIXED preload"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/multi/legacy0/defect-unpaired.log",
+      "sha256": "33e4a6bbcfd3c71c324d828a1325181fd0ff9534bad7c2fdb4b09ec8824e01e2",
+      "results": [
+        "DATA_MEM_DEFECT_FIXED unpaired"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/multi/legacy0/defect-held.log",
+      "sha256": "d7bcee647cffe30f76adbfb59349a2eac1c75f3c31ce71647ab49e11dd28aa60",
+      "results": [
+        "DATA_MEM_DEFECT_FIXED held"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/multi/legacy0/defect-reset.log",
+      "sha256": "3747a2cfde8fc0567a2631f6548dabcd54b8b1082a6ba52f0eb532433ade69c6",
+      "results": [
+        "DATA_MEM_DEFECT_FIXED reset"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/multi/legacy1/run.log",
+      "sha256": "19be41d044a258cb1aae12160c43538128874e1469e8f576af83a8f5aea72809",
+      "results": [
+        "DATA_MEM_REPLAY_PASS samples=248 output_bits=152"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/wide/legacy0/run.log",
+      "sha256": "f56cc1b80a4bba8be2669a3557bea7388b80a3881d1efe491721c7b850613623",
+      "results": [
+        "DATA_MEM_NATIVE_PASS samples=363 checks=4720 reads=152 writes=401 stalls=424"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/wide/legacy1/run.log",
+      "sha256": "c88aca9daa51bd5becbb81b20e1719a7691de82a60f5d0dd00521fb56583f528",
+      "results": [
+        "DATA_MEM_REPLAY_PASS samples=248 output_bits=213"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/single/legacy0/run.log",
+      "sha256": "ea25f2987fcaf22f177973b74f7416a0ad7bfb8cfd9a0ed4c333cb06a9826644",
+      "results": [
+        "DATA_MEM_NATIVE_PASS samples=361 checks=2167 reads=86 writes=133 stalls=201"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/original/legacy0/run.log",
+      "sha256": "d858e5a39e28af5098c7c181b5d61356da7a5d0dd7e41e66a8da19d7cefcdd13",
+      "results": [
+        "DATA_MEM_NATIVE_PASS samples=380 checks=2281 reads=98 writes=142 stalls=192"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/original/legacy1/run.log",
+      "sha256": "6251992f1534d65a79ed9856620208f89d2ee0e10750cd89a3dffb1b22fc3ef2",
+      "results": [
+        "DATA_MEM_REPLAY_PASS samples=13 output_bits=44"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/multi/legacy0/run.log",
+      "sha256": "54b68ae4d14a9a2338cdf44abff3ca12cb0469cfdf9fcb499481af2bdb13799b",
+      "results": [
+        "DATA_MEM_NATIVE_PASS samples=365 checks=5111 reads=225 writes=253 stalls=652"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/multi/legacy0/defect-preload.log",
+      "sha256": "f95022998b1624ac9aaf43295e7efbaa4b0732e9f7142a1b806980096a9624a4",
+      "results": [
+        "DATA_MEM_DEFECT_FIXED preload"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/multi/legacy0/defect-unpaired.log",
+      "sha256": "33c9e761c19cfc769350bedbf5676bbe80eeb88a4d79ada62da602939e7bb4a3",
+      "results": [
+        "DATA_MEM_DEFECT_FIXED unpaired"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/multi/legacy0/defect-held.log",
+      "sha256": "59b783bf0a797c66a98aaefe27efbec919652e412718e8ef9c190f24578d1bce",
+      "results": [
+        "DATA_MEM_DEFECT_FIXED held"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/multi/legacy0/defect-reset.log",
+      "sha256": "39d6b1e11cdc2bc40f947e21e71daf9f603d4202737680038950f39dd922379c",
+      "results": [
+        "DATA_MEM_DEFECT_FIXED reset"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/multi/legacy1/run.log",
+      "sha256": "208752833b97d7cda22d5c0da042b00d74b069fa09ebbd2735af27fd352cc7e3",
+      "results": [
+        "DATA_MEM_REPLAY_PASS samples=248 output_bits=152"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/wide/legacy0/run.log",
+      "sha256": "2cd39f379e80b0d6610b03df145bd12111f20f7b5cd908b480e62f2d47fc7a10",
+      "results": [
+        "DATA_MEM_NATIVE_PASS samples=363 checks=4720 reads=152 writes=401 stalls=424"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/wide/legacy1/run.log",
+      "sha256": "415475e671ec52b99f90899fd187687dbce5d591153ff58bbddef66d95ace29e",
+      "results": [
+        "DATA_MEM_REPLAY_PASS samples=248 output_bits=213"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/single/legacy0/run.log",
+      "sha256": "46f0d3a598005ce28482d9d0031d2eae88c3637589e92d14415f6e94192ba518",
+      "results": [
+        "DATA_MEM_NATIVE_PASS samples=361 checks=2167 reads=86 writes=133 stalls=201"
+      ]
+    }
+  ],
+  "negative_runs": [
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/original/legacy0/negative.log",
+      "sha256": "eb252670f09b7e8fccd584c5c9abd51529f527b000e838a4b128592575cc77d8",
+      "results": [
+        "[31000] %Fatal: tb_data_mem.sv:81: Assertion failed in TOP.tb_data_mem.require: DATA_MEM_CHECK read data / metadata / held snapshot sample=5 checks=34"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/original/legacy1/negative.log",
+      "sha256": "56839f5cb63474752869bd165ab9610b6d353d2ef95a6e6af0fd45584294a83e",
+      "results": [
+        "[19000] %Fatal: tb_data_mem.sv:122: Assertion failed in TOP.tb_data_mem.replay: DATA_MEM_REPLAY_MISMATCH sample=3 got=80002600000 expected=80002600001"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/multi/legacy0/negative.log",
+      "sha256": "aa961ea6d9a8bcc90988704d2cf2711d6bdf8ec0316c92cb8dcbc48272a3b26c",
+      "results": [
+        "[31000] %Fatal: tb_data_mem.sv:81: Assertion failed in TOP.tb_data_mem.require: DATA_MEM_CHECK read data / metadata / held snapshot sample=5 checks=74"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/multi/legacy0/invalid-address.log",
+      "sha256": "cffd89d6a45bc1c5f870bfb575389a1a978d987c045b757e2559ffb9667ee6e7",
+      "results": [
+        "[7000] %Fatal: cgra_data_mem.sv:115: Assertion failed in TOP.tb_data_mem.scalable_rtl.dut.dut.local_memory.unnamedblk6: DATA_MEM_ADDRESS read"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/multi/legacy1/negative.log",
+      "sha256": "84bc5d25bdec84ac3fa468f42d7e2f07186fdcacacd72e78d01873ac0dac5757",
+      "results": [
+        "[19000] %Fatal: tb_data_mem.sv:122: Assertion failed in TOP.tb_data_mem.replay: DATA_MEM_REPLAY_MISMATCH sample=3 got=00000002a80000001540000000abe000000000 expected=00000002a80000001540000000abe000000001"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/multi/legacy1/defect-preload.log",
+      "sha256": "afb36e41dca91eb68a4e443c0ede850bf6f81d74df1583056c1c570c0fdd0a3a",
+      "results": [
+        "[11000] %Fatal: tb_data_mem.sv:81: Assertion failed in TOP.tb_data_mem.require: DATA_MEM_CHECK DEFECT_PRELOAD sample=0 checks=1"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/multi/legacy1/defect-unpaired.log",
+      "sha256": "58f7621f7b743099a504c27e3854710442922a0012c4adc34a101d7a0a4f2d38",
+      "results": [
+        "[6000] %Fatal: tb_data_mem.sv:81: Assertion failed in TOP.tb_data_mem.require: DATA_MEM_CHECK DEFECT_UNPAIRED sample=0 checks=1"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/multi/legacy1/defect-held.log",
+      "sha256": "85f734b498200b72499f00c2da808b29579a2bd7f57fd9069c6c693bd14159b1",
+      "results": [
+        "[21000] %Fatal: tb_data_mem.sv:81: Assertion failed in TOP.tb_data_mem.require: DATA_MEM_CHECK DEFECT_HELD sample=0 checks=1"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/multi/legacy1/defect-reset.log",
+      "sha256": "ae21116c162377139cec711654615ade929f94d5a0e7255528275aa6ef088397",
+      "results": [
+        "[21000] %Fatal: tb_data_mem.sv:81: Assertion failed in TOP.tb_data_mem.require: DATA_MEM_CHECK DEFECT_RESET sample=0 checks=1"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/wide/legacy0/negative.log",
+      "sha256": "fa0d8109f809b435cf0d132c716cce1885809083f53099a6a136414f3ffef027",
+      "results": [
+        "[31000] %Fatal: tb_data_mem.sv:81: Assertion failed in TOP.tb_data_mem.require: DATA_MEM_CHECK read data / metadata / held snapshot sample=5 checks=69"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/wide/legacy1/negative.log",
+      "sha256": "20ce7c6ae9f6a79dd49e68837a5497cb055ef8eeb198746dedee56cab0f00841",
+      "results": [
+        "[19000] %Fatal: tb_data_mem.sv:122: Assertion failed in TOP.tb_data_mem.replay: DATA_MEM_REPLAY_MISMATCH sample=3 got=0000000000000000550000000000000002afe00000000000000000 expected=0000000000000000550000000000000002afe00000000000000001"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/single/legacy0/negative.log",
+      "sha256": "eb252670f09b7e8fccd584c5c9abd51529f527b000e838a4b128592575cc77d8",
+      "results": [
+        "[31000] %Fatal: tb_data_mem.sv:81: Assertion failed in TOP.tb_data_mem.require: DATA_MEM_CHECK read data / metadata / held snapshot sample=5 checks=34"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/original/legacy0/negative.log",
+      "sha256": "eb252670f09b7e8fccd584c5c9abd51529f527b000e838a4b128592575cc77d8",
+      "results": [
+        "[31000] %Fatal: tb_data_mem.sv:81: Assertion failed in TOP.tb_data_mem.require: DATA_MEM_CHECK read data / metadata / held snapshot sample=5 checks=34"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/original/legacy1/negative.log",
+      "sha256": "56839f5cb63474752869bd165ab9610b6d353d2ef95a6e6af0fd45584294a83e",
+      "results": [
+        "[19000] %Fatal: tb_data_mem.sv:122: Assertion failed in TOP.tb_data_mem.replay: DATA_MEM_REPLAY_MISMATCH sample=3 got=80002600000 expected=80002600001"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/multi/legacy0/negative.log",
+      "sha256": "aa961ea6d9a8bcc90988704d2cf2711d6bdf8ec0316c92cb8dcbc48272a3b26c",
+      "results": [
+        "[31000] %Fatal: tb_data_mem.sv:81: Assertion failed in TOP.tb_data_mem.require: DATA_MEM_CHECK read data / metadata / held snapshot sample=5 checks=74"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/multi/legacy1/negative.log",
+      "sha256": "84bc5d25bdec84ac3fa468f42d7e2f07186fdcacacd72e78d01873ac0dac5757",
+      "results": [
+        "[19000] %Fatal: tb_data_mem.sv:122: Assertion failed in TOP.tb_data_mem.replay: DATA_MEM_REPLAY_MISMATCH sample=3 got=00000002a80000001540000000abe000000000 expected=00000002a80000001540000000abe000000001"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/multi/legacy1/defect-preload.log",
+      "sha256": "afb36e41dca91eb68a4e443c0ede850bf6f81d74df1583056c1c570c0fdd0a3a",
+      "results": [
+        "[11000] %Fatal: tb_data_mem.sv:81: Assertion failed in TOP.tb_data_mem.require: DATA_MEM_CHECK DEFECT_PRELOAD sample=0 checks=1"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/multi/legacy1/defect-unpaired.log",
+      "sha256": "58f7621f7b743099a504c27e3854710442922a0012c4adc34a101d7a0a4f2d38",
+      "results": [
+        "[6000] %Fatal: tb_data_mem.sv:81: Assertion failed in TOP.tb_data_mem.require: DATA_MEM_CHECK DEFECT_UNPAIRED sample=0 checks=1"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/multi/legacy1/defect-held.log",
+      "sha256": "85f734b498200b72499f00c2da808b29579a2bd7f57fd9069c6c693bd14159b1",
+      "results": [
+        "[21000] %Fatal: tb_data_mem.sv:81: Assertion failed in TOP.tb_data_mem.require: DATA_MEM_CHECK DEFECT_HELD sample=0 checks=1"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/multi/legacy1/defect-reset.log",
+      "sha256": "ae21116c162377139cec711654615ade929f94d5a0e7255528275aa6ef088397",
+      "results": [
+        "[21000] %Fatal: tb_data_mem.sv:81: Assertion failed in TOP.tb_data_mem.require: DATA_MEM_CHECK DEFECT_RESET sample=0 checks=1"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/wide/legacy0/negative.log",
+      "sha256": "fa0d8109f809b435cf0d132c716cce1885809083f53099a6a136414f3ffef027",
+      "results": [
+        "[31000] %Fatal: tb_data_mem.sv:81: Assertion failed in TOP.tb_data_mem.require: DATA_MEM_CHECK read data / metadata / held snapshot sample=5 checks=69"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/wide/legacy1/negative.log",
+      "sha256": "20ce7c6ae9f6a79dd49e68837a5497cb055ef8eeb198746dedee56cab0f00841",
+      "results": [
+        "[19000] %Fatal: tb_data_mem.sv:122: Assertion failed in TOP.tb_data_mem.replay: DATA_MEM_REPLAY_MISMATCH sample=3 got=0000000000000000550000000000000002afe00000000000000000 expected=0000000000000000550000000000000002afe00000000000000001"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/single/legacy0/negative.log",
+      "sha256": "eb252670f09b7e8fccd584c5c9abd51529f527b000e838a4b128592575cc77d8",
+      "results": [
+        "[31000] %Fatal: tb_data_mem.sv:81: Assertion failed in TOP.tb_data_mem.require: DATA_MEM_CHECK read data / metadata / held snapshot sample=5 checks=34"
+      ]
+    }
+  ],
+  "netlists": [
+    {
+      "profile": "original",
+      "legacy": 0,
+      "netlist_sha256": "debe22be6cd44107b681ccdd362b963142c773c5a71afba2e6fd33e52e9578f6",
+      "synthesis": {
+        "path": "sv/build/current/data-memory-scalable/synth/original/legacy0/yosys.log",
+        "sha256": "c6d45b7d76395c7570805a31f138bdd302c5d781eb0421a927e273473616a199",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_netlist": {
+        "path": "sv/build/current/data-memory-scalable/synth/original/legacy0/scc.log",
+        "sha256": "8f7dfb9136923e430e46a5b0a80d1d7d3720e412aa0016d16ba3f8f81851d401",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "original",
+      "legacy": 1,
+      "netlist_sha256": "a1addf9debce45a9a1670bb97434633a6d36c54aa13ecac87854d8d3979dd404",
+      "synthesis": {
+        "path": "sv/build/current/data-memory-scalable/synth/original/legacy1/yosys.log",
+        "sha256": "733612e4aa8606dde29076db8e073d7b5c31eca97bf7d620779a0b9bb4024b4b",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_netlist": {
+        "path": "sv/build/current/data-memory-scalable/synth/original/legacy1/scc.log",
+        "sha256": "594698c66d3f3805f7fc978c9cbf4dc9f6f5fe0746ebb61308179ab857a1cb52",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "multi",
+      "legacy": 0,
+      "netlist_sha256": "4ba24ef35b6b25c2bd4087f1c2c456d2a156f70ac734bf66d6a5375d2f2e8bda",
+      "synthesis": {
+        "path": "sv/build/current/data-memory-scalable/synth/multi/legacy0/yosys.log",
+        "sha256": "25cc062761519e72b55f4cc32036c5bf634e2035beff861c543ed440d561fddb",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_netlist": {
+        "path": "sv/build/current/data-memory-scalable/synth/multi/legacy0/scc.log",
+        "sha256": "01b83a795461e2f7bf5595191d29125660dc3a670a56ae28210dba95941c0bc0",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "multi",
+      "legacy": 1,
+      "netlist_sha256": "85de357de1ceaf6679175d51862b23a383ea5769ca82f89f7cc5057c398295dc",
+      "synthesis": {
+        "path": "sv/build/current/data-memory-scalable/synth/multi/legacy1/yosys.log",
+        "sha256": "788bcb002abab5bcd33403bf5464bae422c9145dd7a1cc93c73a41086c520951",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_netlist": {
+        "path": "sv/build/current/data-memory-scalable/synth/multi/legacy1/scc.log",
+        "sha256": "90110c1df135ace8e92739c5965050793e3a90cbce431c233bcdc198e4252db9",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "wide",
+      "legacy": 0,
+      "netlist_sha256": "fa3230f1c2f60123b43d5912e64344a7b0ca369fadc057fcccca01c01a1a45c7",
+      "synthesis": {
+        "path": "sv/build/current/data-memory-scalable/synth/wide/legacy0/yosys.log",
+        "sha256": "0153ec05880c29e59dc2b41b9cf2090c8a959d0548cffb5163dfd9c743fabb8d",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_netlist": {
+        "path": "sv/build/current/data-memory-scalable/synth/wide/legacy0/scc.log",
+        "sha256": "0c3e8e366d9cf75693977fefca8274bb491059e271817e1a12f92c054d0ea504",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "wide",
+      "legacy": 1,
+      "netlist_sha256": "4e8e9b067d9aaa1680548a5d71b401cf7f15d796f5d46ce97fb79986227ade1a",
+      "synthesis": {
+        "path": "sv/build/current/data-memory-scalable/synth/wide/legacy1/yosys.log",
+        "sha256": "72f5e0a87d7d4a62d35408205858bbf73670d34f92373e0fe6b81d1e345d00de",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_netlist": {
+        "path": "sv/build/current/data-memory-scalable/synth/wide/legacy1/scc.log",
+        "sha256": "f19a538a04dcd97952945ee2b7fc6f9af9d16881d8f35d56f318e56a47429eaf",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "single",
+      "legacy": 0,
+      "netlist_sha256": "526dfbfee777e000ef7bb58d03f5b6ffbc393641fa518c4bec950283ecaff0fb",
+      "synthesis": {
+        "path": "sv/build/current/data-memory-scalable/synth/single/legacy0/yosys.log",
+        "sha256": "736b9a0524867b146f4a4c0c815ba340b3a1dead237c9f05c5fc8c1bfbff7800",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_netlist": {
+        "path": "sv/build/current/data-memory-scalable/synth/single/legacy0/scc.log",
+        "sha256": "8e7c6b0dce1f84a6e4ebf9ef2263c6973b951f393ba8daca7d5c0a074e0f8e87",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    }
+  ],
+  "frozen_files_sha256": {
+    "sv/reference/current/data_memory_scalable/multi/labels.json": "c5f6650fffe97454d7e541796a76d2c333dd8f944e319b1918a83bd5a2d29aa4",
+    "sv/reference/current/data_memory_scalable/multi/manifest.json": "8d5cb82650b453fc93e2b1f73a65cf53ba41fe08c6f4961f840a4d8a7acb6fc5",
+    "sv/reference/current/data_memory_scalable/multi/vectors.txt": "c4b12a2b3ac606b532f24b310ed4017416c6d7631d4c4db90f38d1d61b5668a6",
+    "sv/reference/current/data_memory_scalable/original/labels.json": "23da47af9fc1587f504891691e163fdadb8dbbf03ff009f5ed4e15be0c16517f",
+    "sv/reference/current/data_memory_scalable/original/manifest.json": "2a8bcf5f0257166a3e35a6006b1f5083b8bfdb5886a892c7e84001ad3c62e910",
+    "sv/reference/current/data_memory_scalable/original/vectors.txt": "88d1b50ebf0a21d01052935d893a7dbfdea55aed5f259e89ec15b2c39ca0bb3a",
+    "sv/reference/current/data_memory_scalable/python_boundaries.json": "2dc92dc52eed97fc981bdb4664c67e108623c5dc05fe0af56b15886298d49c18",
+    "sv/reference/current/data_memory_scalable/wide/labels.json": "c5f6650fffe97454d7e541796a76d2c333dd8f944e319b1918a83bd5a2d29aa4",
+    "sv/reference/current/data_memory_scalable/wide/manifest.json": "e9e289593b27152bbb710d93bd3d267198e0c2f28c8346ae9461992138dcf36f",
+    "sv/reference/current/data_memory_scalable/wide/vectors.txt": "70f7795ea5349ef134f0dd03dc6f1b8fafa93273857b649b0d9f8bdb3de413e5"
+  },
+  "regenerated_identical_files": 10,
+  "input_sha256": {
+    "sv/rtl/mem/cgra_data_mem_scalable.sv": "8d071e7c7bc9965595873877e94d1afc2d66a16bb0a9f00cb9ea5d583fae97e1",
+    "sv/tests/current/data_mem_scalable_synth.sv": "40f28a4c5dc3a72afe8b7bee2ffed447e9c31f3fa66842fb9e59304fa19b3a7e",
+    "sv/rtl/mem/cgra_data_mem.sv": "29bf69381bd007711ba3d7af5bcf04811741826dda6cc60f058bcf010ef4a1bb",
+    "sv/tests/current/tb_data_mem.sv": "664fe08dfba9e61d2e96bfeb1eb8d87794537afb8ea1b14d77e33fdc6abcb868",
+    "sv/tests/current/data_mem_synth.sv": "7143abf3e059b5fe8225f9926f600c829b5fa127672e43708c9ff260e87f54d6",
+    "sv/tests/current/data_mem_fixture.svh": "0cfc103659db4b6bef7c4c05d9dbf6ce705538f47f474bb5ed6b341ac06a1e02",
+    "sv/tests/current/tb_data_mem_invalid.sv": "f82bb609b41c055967071770d2fae465b2aacb05cda0c79f42744316c241ae49",
+    "sv/tests/current/run_data_memory.sh": "f90d3e1c6130c0d25e9661343a377765839a96b26d27c3d82cb80b6b03960b43",
+    "sv/migration_tools/current_data_memory_scalable.py": "b8c4de3a3efb6e909a4a24914f2d2453c5411d90e5296e350aede01b907937a0",
+    "sv/scripts/toolchain.sh": "11b934d6f4ee1f19027faaece45b5a025a20ed2c1eed45dcba24ae7a4b33a0b4",
+    "sv/Makefile": "b3bf50ef1da0467e191b4220d4cac040184fd2348c7f4bb2e215bcd7c7d9232d",
+    "sv/filelists/native.f": "f3c47135b4ab8d4a520f46660a36db8f5917f6a1e859aad583b10c8283c12b43",
+    "sv/scripts/run.ps1": "cf7fbabdc4349ce69f408f573569ed5668761b55a030eaee524ef60e5de49cf2",
+    ".github/workflows/native-sv.yml": "b1ebf05fb53d36a44ddbb9a19885ebf64647e95e62931f69932ebdf8c703bdac",
+    "sv/DATA_MEMORY_API.md": "83542ca9ff9c193026a261cd5902affad9f93859ca0c7a64271c23d8a379b797",
+    "sv/MIGRATION_TASKS.md": "3c3615ae8c0ae8f128137ed5f4fb24c4d96354044a8286c09250274f2579a052",
+    "sv/CURRENT_MIGRATION.md": "a1b2a06665f488958d3b939ed2bb4db48d59c626025bcfeeacec5cb515a80953",
+    "sv/MIGRATION_PROGRESS.md": "0c57304a6a1ae6349c437e32ef802385f6991eeb5c46d3621a9b9cebadc075c6",
+    "sv/EXPERIMENT_LOG.md": "b4f41ab90ad8f233b556c4435110362dd791ad87b0d24d2783a22be9ea32304f",
+    "sv/README.md": "6a41022bf95a0823dc7523b0fdcc39112f006c2be9a11405653a3ce0041cecac",
+    "sv/tests/README.md": "526ed31a9d24cc87fb88b4effb5f51a2813a6765364f5623fe479449a19ed5c4",
+    "sv/migration_tools/README.md": "4023e3be071af8d87572c419be7ad9a903415e041c8d9be6aa2746e8686a8659",
+    "sv/reference/current/target.json": "c560f1ccf61706ed50c871a2987ea2c2837c6ae14b942f1216b275a201de14aa"
+  },
+  "compile_diagnostics": [
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/original/legacy0/compile.log",
+      "sha256": "caaf5d37b4f71715abe95d5fc75fbe902783d4f15721b944044aebb4b6c04e18",
+      "warnings": {
+        "TIMESCALEMOD": 4,
+        "WIDTHTRUNC": 3,
+        "WIDTHEXPAND": 2
+      }
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/original/legacy1/compile.log",
+      "sha256": "e084ef07a19cb657fa5777bc3c82023ef2e06dcac53af652a74afade18e4545a",
+      "warnings": {
+        "TIMESCALEMOD": 4,
+        "WIDTHTRUNC": 4,
+        "WIDTHEXPAND": 2
+      }
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/multi/legacy0/compile.log",
+      "sha256": "a073b7d3a62b5a8157bc6ec89f98602de86f4d670afdf3b6395fc7bf52d7df67",
+      "warnings": {
+        "TIMESCALEMOD": 4,
+        "WIDTHTRUNC": 2,
+        "WIDTHEXPAND": 8
+      }
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/multi/legacy1/compile.log",
+      "sha256": "0260dfac02c019e09430488d417bdd62798035ba0eb06257f79e847885117f36",
+      "warnings": {
+        "TIMESCALEMOD": 4,
+        "WIDTHTRUNC": 3,
+        "WIDTHEXPAND": 8
+      }
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/wide/legacy0/compile.log",
+      "sha256": "a9b5ca132ca586e82e4ea63efd3d64cabefa92ee0bedb67adda4db8ad6e3c0ec",
+      "warnings": {
+        "TIMESCALEMOD": 4,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 10
+      }
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/wide/legacy1/compile.log",
+      "sha256": "0e7ccf8f0f119537965713e433600b27be5e5f756c71bf8ceb9b7caecd6ea764",
+      "warnings": {
+        "TIMESCALEMOD": 4,
+        "WIDTHTRUNC": 2,
+        "WIDTHEXPAND": 10
+      }
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/rtl/single/legacy0/compile.log",
+      "sha256": "83c0d0df2f3e6195a77aa1634d05579273431ad7306e8c9cc05b23e43f691230",
+      "warnings": {
+        "TIMESCALEMOD": 4,
+        "WIDTHTRUNC": 2,
+        "WIDTHEXPAND": 2
+      }
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/original/legacy0/compile.log",
+      "sha256": "6ca35341e4337cd5644a7558f6be4666943287a0d55b0286ae598770dc3e573b",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 3,
+        "UNOPTFLAT": 6
+      }
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/original/legacy1/compile.log",
+      "sha256": "f56390e51d5aa0ecfdcf7a40013dc6a4129b96c77cbeba16a8dc88c0c9a64a9e",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 4,
+        "LATCH": 25,
+        "UNOPTFLAT": 6
+      }
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/multi/legacy0/compile.log",
+      "sha256": "9b6f1a61a75bf552d3a035ffe53ec04052738346697668734ce23af5c141866c",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 2,
+        "WIDTHEXPAND": 5,
+        "UNOPTFLAT": 15
+      }
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/multi/legacy1/compile.log",
+      "sha256": "0b0fe1b282c644d1a18b877408b9f4cd3363e4e7a2a23ca0bf20e9e8de573ef7",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 3,
+        "WIDTHEXPAND": 5,
+        "LATCH": 78,
+        "UNOPTFLAT": 17
+      }
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/wide/legacy0/compile.log",
+      "sha256": "818776ebbe7e2124ea5971c99c065398b365838b56b477fd7a8893f631f337d5",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 6,
+        "UNOPTFLAT": 9
+      }
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/wide/legacy1/compile.log",
+      "sha256": "816cf030f4fec96f78e24a6c0e10877724f0a5cce5f56ac3ca70e63c812d9fb2",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 2,
+        "WIDTHEXPAND": 6
+      }
+    },
+    {
+      "path": "sv/build/current/data-memory-scalable/synth/single/legacy0/compile.log",
+      "sha256": "55d75e1ce5102cb17623bb09ad0b094f41fdcabe191472502c603b16a2e7241e",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 2,
+        "UNOPTFLAT": 3
+      }
+    }
+  ],
+  "native_filelist_lint": {
+    "path": "sv/build/current/data-memory-scalable/native-filelist-lint.log",
+    "sha256": "c72a364d8dae0d87cc75a24c7c0da541061512a0e4538b69185a37c4de6b3fd6",
+    "errors": 0
+  },
+  "tools": {
+    "verilator": "Verilator 5.029 devel rev v5.028-104-ge2041f745",
+    "sv2v": "sv2v v0.0.13",
+    "yosys": "Yosys 0.45+139 (git sha1 4d581a97d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)"
+  },
+  "checks": {
+    "shell_syntax": "passed",
+    "make_dry_run": "passed",
+    "powershell_runtime": "not run on Linux"
+  },
+  "notes": [
+    "Scalable local storage shares the DataMem core; NoC inputs deliberately vary while all NoC outputs must remain zero.",
+    "Legacy preload latches are intentional; native uses synchronous reset and read snapshots.",
+    "Verilator reports vector alias UNOPTFLAT on emitted netlists; all seven re-read netlists have zero bit-level SCC.",
+    "CXXFLAGS=-O0 only affects simulator C++ compilation; all Verilator RTL optimizations retained."
+  ],
+  "limitations": [
+    "Standalone API, not new PE/array integration; existing data bank/controller unchanged.",
+    "No remote access is implemented: original Scalable Python NoC ports are also inactive.",
+    "No new system kernel or PPA verification.",
+    "Native users must reset and hold each request until handshake; same-address write conflicts have highest-port priority.",
+    "Legacy initial values are a PyMTL simulation match, not a portable ASIC initialization contract.",
+    "Invalid parameter/address errors are RTL simulation diagnostics, not hardware error responses."
+  ],
+  "commit_and_push": "Generated before commit/push; Git is authoritative",
+  "remote_ci": "not observed",
+  "shared_plain_api_regression": [
+    {
+      "path": "sv/build/current/data-memory/rtl/multi/legacy0/run.log",
+      "sha256": "2ac03236006ff7a5854055a97445bb1de3fd6d2425341e10b44a13dc9bad83ca",
+      "results": [
+        "DATA_MEM_NATIVE_PASS samples=365 checks=4746 reads=225 writes=253 stalls=652"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory/rtl/multi/legacy1/run.log",
+      "sha256": "c95f612ce488a98fb885a1abddfa3fd90f5259768a0815509e5d0177b8321152",
+      "results": [
+        "DATA_MEM_REPLAY_PASS samples=248 output_bits=115"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory/rtl/single/legacy0/run.log",
+      "sha256": "01377335dbe787dc28db138310b3566f6d0a040c32611fceea511bbe173160fa",
+      "results": [
+        "DATA_MEM_NATIVE_PASS samples=361 checks=1806 reads=86 writes=133 stalls=201"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory/synth/multi/legacy0/run.log",
+      "sha256": "0866c3225dacf45e1f4668066323ad9d28e01f019490edc3570751500ecab199",
+      "results": [
+        "DATA_MEM_NATIVE_PASS samples=365 checks=4746 reads=225 writes=253 stalls=652"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory/synth/multi/legacy1/run.log",
+      "sha256": "1596dd69a9ad9d09cab4e7c2c172a74b3df28c753ceeb9caca11e3eeff113d6d",
+      "results": [
+        "DATA_MEM_REPLAY_PASS samples=248 output_bits=115"
+      ]
+    },
+    {
+      "path": "sv/build/current/data-memory/synth/single/legacy0/run.log",
+      "sha256": "78e37a5a1e8a08195d6c4c242635c4a834027d2282f9168fbd67c9d56807fbd3",
+      "results": [
+        "DATA_MEM_NATIVE_PASS samples=361 checks=1806 reads=86 writes=133 stalls=201"
+      ]
+    }
+  ]
+}

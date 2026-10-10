@@ -1,6 +1,6 @@
 **VectorCGRA 迁移进度与成果汇总**
 
-2026-10-10 更新：当前已继续执行迁移，新增参数化单 PE 入口、当前 Python 功能同步、语义修复和原生回归。本轮进一步完成五组 PE 网表验收、GEMM/GEMV 与独立 COO 回读、当前多 CGRA/动态迁移及算术修正；M23 已修复原 4×4 SPMV 映射，nnz=0…8 的原生数学及存储协议验收通过；未修改 Python 的配置生成仍失败。M24 已补齐独立 LoopController API，四组参数的 RTL／网表及原 Python 对照通过，系统集成仍未完成。M25 已补齐独立静态 CtrlMem/ConstQueue，18 个配置的 RTL／综合网表及原生修正检查通过，未替换 PE 动态存储。M26 已补齐独立 RingMultiCtrlMem，四组参数的原生／兼容 RTL 和网表通过，默认修正虚假返回和 COMPLETE 饥饿，系统集成范围未扩大。独立 DataMem 的原生／兼容接口及七份网表已验收，后续按 `MIGRATION_TASKS.md` 逐项检查和提交。最新结果及剩余问题见 [CURRENT_MIGRATION.md](CURRENT_MIGRATION.md)。以下统计保留为原第四阶段交付快照，其文件数量、测试结果及“等待指令”描述不适用于当前工作树。
+2026-10-10 更新：当前已继续执行迁移，新增参数化单 PE 入口、当前 Python 功能同步、语义修复和原生回归。本轮进一步完成五组 PE 网表验收、GEMM/GEMV 与独立 COO 回读、当前多 CGRA/动态迁移及算术修正；M23 已修复原 4×4 SPMV 映射，nnz=0…8 的原生数学及存储协议验收通过；未修改 Python 的配置生成仍失败。M24 已补齐独立 LoopController API，四组参数的 RTL／网表及原 Python 对照通过，系统集成仍未完成。M25 已补齐独立静态 CtrlMem/ConstQueue，18 个配置的 RTL／综合网表及原生修正检查通过，未替换 PE 动态存储。M26 已补齐独立 RingMultiCtrlMem，四组参数的原生／兼容 RTL 和网表通过，默认修正虚假返回和 COMPLETE 饥饿，系统集成范围未扩大。独立 DataMem 的原生／兼容接口及七份网表已验收，Scalable 包装层及占位 NoC 边界也已验收，后续按 `MIGRATION_TASKS.md` 逐项检查和提交。最新结果及剩余问题见 [CURRENT_MIGRATION.md](CURRENT_MIGRATION.md)。以下统计保留为原第四阶段交付快照，其文件数量、测试结果及“等待指令”描述不适用于当前工作树。
 
 统计版本：第四阶段交付分支 `codex/sv-migration-phase4`，代码提交 `c3184dc07ca3a0572a5e7e92fac7e2a5efb38ea6`。源码基线为 `ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b`。本次只整理已有成果，没有继续第五阶段迁移或修改硬件。
 

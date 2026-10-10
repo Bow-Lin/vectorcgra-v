@@ -117,3 +117,5 @@ maintained in the checked-in SystemVerilog. Final phase-2 coverage and evidence
 are described in `../PHASE2_REPORT.md`.
 
 `current_data_memory.py` 冻结未修改 DataMemRTL；原测试 Source/Sink 断言保留，附加多口位级轨迹及 Bits0 边界。日常回归不调用此工具。
+
+`current_data_memory_scalable.py` 单独实例化未修改 Scalable 模型，记录占位 NoC 端口及本地存储轨迹，不以普通 DataMem 轨迹代替。

@@ -1,0 +1,27 @@
+{
+  "parameters": {
+    "DATA_BITS": 19,
+    "DEPTH": 20,
+    "RD_PORTS": 1,
+    "WR_PORTS": 1,
+    "PRELOAD_ENABLE": 1,
+    "ORIGINAL": 1
+  },
+  "cycles": 13,
+  "input_bits": 55,
+  "output_bits": 44,
+  "reset_samples": 3,
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_sha256": {
+    "mem/data/DataMemScalableRTL.py": "90edb3ae5d3775ddee8d3b1e9bb8e8fdf5949ec5da3d2a4dc808e3d83e1feca1",
+    "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf",
+    "mem/data/test/DataMemScalableRTL_test.py": "4ff1809a3557376d12f912f63576a89c6276e1397e3672fbe734e592bb41ed11"
+  },
+  "generator_sha256": "b8c4de3a3efb6e909a4a24914f2d2453c5411d90e5296e350aede01b907937a0",
+  "vectors_sha256": "88d1b50ebf0a21d01052935d893a7dbfdea55aed5f259e89ec15b2c39ca0bb3a",
+  "notes": [
+    "Original Python behavior, including invalid outputs and ignored reset.",
+    "Preload reads write even with val=0; write-enable latches when address valid falls.",
+    "Synthetic traffic intentionally separates address/data and changes stalled reads to expose source behavior."
+  ]
+}

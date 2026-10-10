@@ -1,0 +1,6 @@
+{
+  "single_word_depth": "rejected by original mk_bits(clog2(1))",
+  "exception": "AssertionError",
+  "source_guard_count": 274,
+  "original_test": "passed with original Source/Sink assertions"
+}
