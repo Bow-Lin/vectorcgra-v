@@ -1,6 +1,6 @@
 # VectorCGRA 原生 SystemVerilog 迁移计划
 
-2026-10-10 更新：用户已授权继续迁移。本轮同步目标为当前 Python `cd7aad878915`，增加统一单 PE 入口并修复已确认语义差异。后续批次已完成结构综合修复、GEMM/GEMV 数学回读、当前系统重验及 SUB_CONST/FP 修正；M23 已完成原 4×4 SPMV 映射在 nnz=0…8 的原生修复验收；旧独立 API、更多数据/参数组合及物理实现验收仍未完成。实际实现、验收结果和未完成项以 [CURRENT_MIGRATION.md](CURRENT_MIGRATION.md) 为准；以下内容保留为 ac96 基线时期的计划，历史阶段完成不代表已通过当前 Python 的全部验收。
+2026-10-10 更新：用户已授权继续迁移。本轮同步目标为当前 Python `cd7aad878915`，增加统一单 PE 入口并修复已确认语义差异。后续批次已完成结构综合修复、GEMM/GEMV 数学回读、当前系统重验及 SUB_CONST/FP 修正；M23 已完成原 4×4 SPMV 映射在 nnz=0…8 的原生修复验收；M24 已补齐独立 LoopController API 并修正满目标派发边界，下一项为旧静态 CtrlMem/ConstQueue；其余独立 API、更多数据/参数组合及物理实现验收仍未完成。实际实现、验收结果和未完成项以 [CURRENT_MIGRATION.md](CURRENT_MIGRATION.md) 为准；以下内容保留为 ac96 基线时期的计划，历史阶段完成不代表已通过当前 Python 的全部验收。
 
 启动日期：2026-09-21。第四阶段交付分支：`codex/sv-migration-phase4`。
 

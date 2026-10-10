@@ -1,0 +1,789 @@
+{
+  "batch": "M24",
+  "date": "2026-10-10",
+  "base_commit": "620122e7aebb6bd5b9bee89b6f129d05d613f105",
+  "scope": "Standalone LoopController payload API; no system instantiation or routing-header integration",
+  "status": "passed",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "pinned_original_python_files_unchanged": 274,
+  "profiles": [
+    {
+      "name": "default",
+      "parameters": {
+        "DATA_W": 32,
+        "NUM_CCUS": 8,
+        "MAX_TARGETS": 4,
+        "CTRL_BITS": 107,
+        "DATA_ADDR_W": 3,
+        "CTRL_ADDR_W": 3
+      },
+      "cycles": 611,
+      "input_bits": 468,
+      "output_bits": 314,
+      "scenarios": [
+        {
+          "name": "test_3_layer_loop",
+          "cycles": 34,
+          "status": "original_test_passed"
+        },
+        {
+          "name": "test_basic_2_layer_loop",
+          "cycles": 17,
+          "status": "original_test_passed"
+        },
+        {
+          "name": "test_cross_cgra_2_layer_loop",
+          "cycles": 20,
+          "status": "original_test_passed"
+        },
+        {
+          "name": "test_sibling_barrier",
+          "cycles": 18,
+          "status": "original_test_passed"
+        },
+        {
+          "name": "mixed_events",
+          "status": "frozen_python_behavior",
+          "local_sends": 92,
+          "remote_sends": 90,
+          "simultaneous_events": 31,
+          "stalled_sends": 196
+        },
+        {
+          "name": "capacity",
+          "status": "frozen_python_behavior",
+          "local_sends": 19,
+          "remote_sends": 19,
+          "simultaneous_events": 0,
+          "stalled_sends": 10,
+          "python_dispatch_wrap_reproduced": true
+        }
+      ],
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "vectors_sha256": "bb44bfb5be113602a77edb8fc7c756f694fae9119264ffef8835c52fa3617fcb",
+      "generator_sha256": "db61c9902f48d66b673b0929021dc3edb94759e0b7b64f1cb275ddb193279aa7",
+      "source_sha256": "abb17411a687e65a1fd15da743bc62ec34ee3cf92f31b50d9c373828784702df",
+      "reset_samples": 6
+    },
+    {
+      "name": "wide",
+      "parameters": {
+        "DATA_W": 64,
+        "NUM_CCUS": 3,
+        "MAX_TARGETS": 3,
+        "CTRL_BITS": 119,
+        "DATA_ADDR_W": 3,
+        "CTRL_ADDR_W": 3
+      },
+      "cycles": 482,
+      "input_bits": 600,
+      "output_bits": 402,
+      "scenarios": [
+        {
+          "name": "mixed_events",
+          "status": "frozen_python_behavior",
+          "local_sends": 50,
+          "remote_sends": 50,
+          "simultaneous_events": 34,
+          "stalled_sends": 97
+        },
+        {
+          "name": "capacity",
+          "status": "frozen_python_behavior",
+          "local_sends": 2,
+          "remote_sends": 1,
+          "simultaneous_events": 0,
+          "stalled_sends": 1,
+          "python_dispatch_wrap_reproduced": false
+        }
+      ],
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "vectors_sha256": "ecc9dfd0900c04d6d8870554f58c08ea7b3f2116ec0b06cb46a2da9ad0a67b1f",
+      "generator_sha256": "db61c9902f48d66b673b0929021dc3edb94759e0b7b64f1cb275ddb193279aa7",
+      "source_sha256": "abb17411a687e65a1fd15da743bc62ec34ee3cf92f31b50d9c373828784702df",
+      "reset_samples": 2
+    },
+    {
+      "name": "single",
+      "parameters": {
+        "DATA_W": 32,
+        "NUM_CCUS": 1,
+        "MAX_TARGETS": 1,
+        "CTRL_BITS": 119,
+        "DATA_ADDR_W": 3,
+        "CTRL_ADDR_W": 1
+      },
+      "cycles": 465,
+      "input_bits": 498,
+      "output_bits": 334,
+      "scenarios": [
+        {
+          "name": "mixed_events",
+          "status": "frozen_python_behavior",
+          "local_sends": 18,
+          "remote_sends": 0,
+          "simultaneous_events": 25,
+          "stalled_sends": 28
+        },
+        {
+          "name": "capacity",
+          "status": "frozen_python_behavior",
+          "local_sends": 1,
+          "remote_sends": 0,
+          "simultaneous_events": 0,
+          "stalled_sends": 1,
+          "python_dispatch_wrap_reproduced": false
+        }
+      ],
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "vectors_sha256": "47f77444775dcf403e76c8de781712d97ad2b16ced9e5fc9c6825b5aea7fc86d",
+      "generator_sha256": "db61c9902f48d66b673b0929021dc3edb94759e0b7b64f1cb275ddb193279aa7",
+      "source_sha256": "abb17411a687e65a1fd15da743bc62ec34ee3cf92f31b50d9c373828784702df",
+      "reset_samples": 2
+    },
+    {
+      "name": "eight_targets",
+      "parameters": {
+        "DATA_W": 32,
+        "NUM_CCUS": 8,
+        "MAX_TARGETS": 8,
+        "CTRL_BITS": 119,
+        "DATA_ADDR_W": 3,
+        "CTRL_ADDR_W": 4
+      },
+      "cycles": 522,
+      "input_bits": 507,
+      "output_bits": 340,
+      "scenarios": [
+        {
+          "name": "mixed_events",
+          "status": "frozen_python_behavior",
+          "local_sends": 92,
+          "remote_sends": 90,
+          "simultaneous_events": 31,
+          "stalled_sends": 196
+        },
+        {
+          "name": "capacity",
+          "status": "frozen_python_behavior",
+          "local_sends": 19,
+          "remote_sends": 19,
+          "simultaneous_events": 0,
+          "stalled_sends": 10,
+          "python_dispatch_wrap_reproduced": true
+        }
+      ],
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "vectors_sha256": "e2367be75c966720466751d6510dc3392561efcaba005c6722ec83781726f06a",
+      "generator_sha256": "db61c9902f48d66b673b0929021dc3edb94759e0b7b64f1cb275ddb193279aa7",
+      "source_sha256": "abb17411a687e65a1fd15da743bc62ec34ee3cf92f31b50d9c373828784702df",
+      "reset_samples": 2
+    }
+  ],
+  "sample_cycles_per_implementation": 2080,
+  "compared_nonreset_cycles_per_implementation": 2068,
+  "compared_output_bits_per_implementation": 714372,
+  "independent_checks_per_implementation": 993,
+  "independent_dispatches_per_implementation": 57,
+  "positive_runs": [
+    {
+      "mode": "rtl",
+      "profile": "default",
+      "legacy": 0,
+      "result": "LOOP_NATIVE_PASS width=32 ccus=8 targets=4 checks=279 dispatches=16",
+      "log": {
+        "path": "build/current/loop-controller/rtl/default/legacy0/run.log",
+        "sha256": "105e5a9bea2afe7a43a698866b5caa9a329a0bd86b3edb99e3216108c5cc95e7"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "default",
+      "legacy": 1,
+      "result": "LOOP_REPLAY_PASS width=32 ccus=8 targets=4 samples=611 output_bits=314",
+      "log": {
+        "path": "build/current/loop-controller/rtl/default/legacy1/run.log",
+        "sha256": "d942fcae954a36642985b268b369dea8de9daa7e778a3a814299aec860c0eebc"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "wide",
+      "legacy": 0,
+      "result": "LOOP_NATIVE_PASS width=64 ccus=3 targets=3 checks=254 dispatches=14",
+      "log": {
+        "path": "build/current/loop-controller/rtl/wide/legacy0/run.log",
+        "sha256": "3c924ecf2279fcfe1925f264bc782324a6bbd86cb5a0750d98d55168f43d736e"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "wide",
+      "legacy": 1,
+      "result": "LOOP_REPLAY_PASS width=64 ccus=3 targets=3 samples=482 output_bits=402",
+      "log": {
+        "path": "build/current/loop-controller/rtl/wide/legacy1/run.log",
+        "sha256": "b019dd1a68240716eb3494486ddae8ea46e646b5f06a0eef5035a71a3904c13f"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "single",
+      "legacy": 0,
+      "result": "LOOP_NATIVE_PASS width=32 ccus=1 targets=1 checks=81 dispatches=3",
+      "log": {
+        "path": "build/current/loop-controller/rtl/single/legacy0/run.log",
+        "sha256": "c1fb35e66832522a7c624e62bc6f50a612796c69b001f63359d4abaf2373a6c9"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "single",
+      "legacy": 1,
+      "result": "LOOP_REPLAY_PASS width=32 ccus=1 targets=1 samples=465 output_bits=334",
+      "log": {
+        "path": "build/current/loop-controller/rtl/single/legacy1/run.log",
+        "sha256": "19708163eccc522aa1a44fe0a95e26b1cf99d36266a7318f6459c2fc45b17664"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "eight_targets",
+      "legacy": 0,
+      "result": "LOOP_NATIVE_PASS width=32 ccus=8 targets=8 checks=379 dispatches=24",
+      "log": {
+        "path": "build/current/loop-controller/rtl/eight_targets/legacy0/run.log",
+        "sha256": "d8be76d6422a8df729e3c54b2b3b84df6e2bf4b3e5e150da9c2ea5a995fbfa93"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "eight_targets",
+      "legacy": 1,
+      "result": "LOOP_REPLAY_PASS width=32 ccus=8 targets=8 samples=522 output_bits=340",
+      "log": {
+        "path": "build/current/loop-controller/rtl/eight_targets/legacy1/run.log",
+        "sha256": "e9c9c765e46d951ba1702c295bc2eab06574d0eae1a0c8700aa134dafc5aaa98"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "default",
+      "legacy": 0,
+      "result": "LOOP_NATIVE_PASS width=32 ccus=8 targets=4 checks=279 dispatches=16",
+      "log": {
+        "path": "build/current/loop-controller/synth/default/legacy0/run.log",
+        "sha256": "3834a298a58d15b2127c1cc204ca27d3404fced5f4d4174663c7200c379668c3"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "default",
+      "legacy": 1,
+      "result": "LOOP_REPLAY_PASS width=32 ccus=8 targets=4 samples=611 output_bits=314",
+      "log": {
+        "path": "build/current/loop-controller/synth/default/legacy1/run.log",
+        "sha256": "ed256b86dd6cc090f62cba5307d2a71471a4b0f76ff775b9f93c281950307cc7"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "wide",
+      "legacy": 0,
+      "result": "LOOP_NATIVE_PASS width=64 ccus=3 targets=3 checks=254 dispatches=14",
+      "log": {
+        "path": "build/current/loop-controller/synth/wide/legacy0/run.log",
+        "sha256": "144a34441f4976acf85274e869c0fb8c9c3c67505b67f93ae33d65cfd4889559"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "wide",
+      "legacy": 1,
+      "result": "LOOP_REPLAY_PASS width=64 ccus=3 targets=3 samples=482 output_bits=402",
+      "log": {
+        "path": "build/current/loop-controller/synth/wide/legacy1/run.log",
+        "sha256": "553bb00906ae80e4733e8dbff7bf10cd68df117336d37e88441faf912fd5e1a8"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "single",
+      "legacy": 0,
+      "result": "LOOP_NATIVE_PASS width=32 ccus=1 targets=1 checks=81 dispatches=3",
+      "log": {
+        "path": "build/current/loop-controller/synth/single/legacy0/run.log",
+        "sha256": "847cb47f7a4941fbc2bfd17b2425faa8b70e79efcbb36749172d5117cf677003"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "single",
+      "legacy": 1,
+      "result": "LOOP_REPLAY_PASS width=32 ccus=1 targets=1 samples=465 output_bits=334",
+      "log": {
+        "path": "build/current/loop-controller/synth/single/legacy1/run.log",
+        "sha256": "a85055fc4d517404ede42c981e49597263b3636536180b27ae7141e35184dd78"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "eight_targets",
+      "legacy": 0,
+      "result": "LOOP_NATIVE_PASS width=32 ccus=8 targets=8 checks=379 dispatches=24",
+      "log": {
+        "path": "build/current/loop-controller/synth/eight_targets/legacy0/run.log",
+        "sha256": "3172808585bb77cf1a0ebdd5e631c611cee06390a6d07e7fb79deff3d2644e5c"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "eight_targets",
+      "legacy": 1,
+      "result": "LOOP_REPLAY_PASS width=32 ccus=8 targets=8 samples=522 output_bits=340",
+      "log": {
+        "path": "build/current/loop-controller/synth/eight_targets/legacy1/run.log",
+        "sha256": "b251fd047bf1d041fed82dbb08a123b25997e7146a4c9cbd377e79058d0de0e4"
+      }
+    }
+  ],
+  "negative_runs": [
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "default",
+      "legacy": 0,
+      "log": {
+        "path": "build/current/loop-controller/rtl/default/legacy0/negative.log",
+        "sha256": "a30fe6661ac0d692b0709f96a04ac1116c1fd35ec5694c19bb915b93ef77f6af"
+      },
+      "error": "[97000] %Fatal: tb_loop_controller.sv:34: Assertion failed in TOP.tb_loop_controller.require: LOOP_CHECK dispatch payload / stable under backpressure checks=20"
+    },
+    {
+      "kind": "invalid_configuration",
+      "profile": "default",
+      "log": {
+        "path": "build/current/loop-controller/rtl/default/legacy0/invalid-target.log",
+        "sha256": "ed9831a1b503fdf12db9bd201cebc4bb40e4883141ecd25c3268cb2f0988668c"
+      },
+      "error": "[75000] %Fatal: cgra_loop_controller.sv:281: Assertion failed in TOP.tb_loop_controller.dut: LOOP_CONFIG_TARGET_CAPACITY"
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "default",
+      "legacy": 1,
+      "log": {
+        "path": "build/current/loop-controller/rtl/default/legacy1/negative.log",
+        "sha256": "53c2529a01000f92d8697966576d8589ae7e4e6ba818717ef08269f2af01ff18"
+      },
+      "error": "[15000] %Fatal: tb_loop_controller.sv:171: Assertion failed in TOP.tb_loop_controller.replay: LOOP_REPLAY_MISMATCH sample=1 actual=2000000000000000000000000000000000000000000000000000000000000000000000000000000 expected=2000000000000000000000000000000000000000000000000000000000000000000000000000001"
+    },
+    {
+      "kind": "legacy_wrap",
+      "mode": "rtl",
+      "profile": "default",
+      "legacy": 1,
+      "log": {
+        "path": "build/current/loop-controller/rtl/default/legacy1/wrap-defect.log",
+        "sha256": "02009c28769c28b4ef1c4efed0df97061eec805e3146147807202893bb9d1f75"
+      },
+      "error": "[205000] %Fatal: tb_loop_controller.sv:34: Assertion failed in TOP.tb_loop_controller.require: LOOP_CHECK all targets dispatched exactly once checks=67"
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "wide",
+      "legacy": 0,
+      "log": {
+        "path": "build/current/loop-controller/rtl/wide/legacy0/negative.log",
+        "sha256": "eb7d46c1865508a2a81fd7b0a97235e7ce7d43cbb7d3ead6301e42d78936c692"
+      },
+      "error": "[90000] %Fatal: tb_loop_controller.sv:34: Assertion failed in TOP.tb_loop_controller.require: LOOP_CHECK dispatch payload / stable under backpressure checks=19"
+    },
+    {
+      "kind": "invalid_configuration",
+      "profile": "wide",
+      "log": {
+        "path": "build/current/loop-controller/rtl/wide/legacy0/invalid-target.log",
+        "sha256": "91e7471c0a6c9e8e007c049533280633121ed4b1c8607364b80c9a1ef0626bba"
+      },
+      "error": "[68000] %Fatal: cgra_loop_controller.sv:281: Assertion failed in TOP.tb_loop_controller.dut: LOOP_CONFIG_TARGET_CAPACITY"
+    },
+    {
+      "kind": "invalid_configuration",
+      "profile": "wide",
+      "log": {
+        "path": "build/current/loop-controller/rtl/wide/legacy0/invalid-ccu.log",
+        "sha256": "0ec34433be16e6d11d375726f39e68f936932ca2c12f998002bcdc7d81fa3a4f"
+      },
+      "error": "[68000] %Fatal: cgra_loop_controller.sv:279: Assertion failed in TOP.tb_loop_controller.dut: LOOP_CONFIG_CCU"
+    },
+    {
+      "kind": "invalid_configuration",
+      "profile": "wide",
+      "log": {
+        "path": "build/current/loop-controller/rtl/wide/legacy0/invalid-parent.log",
+        "sha256": "b279868520fb4619ebf04103af211fadeceb948e727c8128140b9200fd8311c1"
+      },
+      "error": "[68000] %Fatal: cgra_loop_controller.sv:283: Assertion failed in TOP.tb_loop_controller.dut: LOOP_CONFIG_PARENT"
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "wide",
+      "legacy": 1,
+      "log": {
+        "path": "build/current/loop-controller/rtl/wide/legacy1/negative.log",
+        "sha256": "716f971e35f83dbb3abcf6b102e60eacacc16b0f6b930e57985bfb334b1cfff4"
+      },
+      "error": "[15000] %Fatal: tb_loop_controller.sv:171: Assertion failed in TOP.tb_loop_controller.replay: LOOP_REPLAY_MISMATCH sample=1 actual=30000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 expected=30000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "single",
+      "legacy": 0,
+      "log": {
+        "path": "build/current/loop-controller/rtl/single/legacy0/negative.log",
+        "sha256": "6133093311e9801b09780aacacd68113234bfb4d3b520ac5b1b541bfc3921d9c"
+      },
+      "error": "[76000] %Fatal: tb_loop_controller.sv:34: Assertion failed in TOP.tb_loop_controller.require: LOOP_CHECK dispatch payload / stable under backpressure checks=17"
+    },
+    {
+      "kind": "invalid_configuration",
+      "profile": "single",
+      "log": {
+        "path": "build/current/loop-controller/rtl/single/legacy0/invalid-target.log",
+        "sha256": "182a4cdebb55acdb00fd9c6e812dda16e60d4d9fc959835ad384b43b18d58b5a"
+      },
+      "error": "[54000] %Fatal: cgra_loop_controller.sv:281: Assertion failed in TOP.tb_loop_controller.dut: LOOP_CONFIG_TARGET_CAPACITY"
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "single",
+      "legacy": 1,
+      "log": {
+        "path": "build/current/loop-controller/rtl/single/legacy1/negative.log",
+        "sha256": "6b2d63c5db99f341e8105eb3886265f673a321777e248fe2d4703a002e8076d6"
+      },
+      "error": "[15000] %Fatal: tb_loop_controller.sv:171: Assertion failed in TOP.tb_loop_controller.replay: LOOP_REPLAY_MISMATCH sample=1 actual=300000000000000000000000000000000000000000000000000000000000000000000000000000000000 expected=300000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "eight_targets",
+      "legacy": 0,
+      "log": {
+        "path": "build/current/loop-controller/rtl/eight_targets/legacy0/negative.log",
+        "sha256": "608b2f3ae56d75e0f3feb350e4cf66b60682dd22bc5b489ab3e61a9437df2419"
+      },
+      "error": "[125000] %Fatal: tb_loop_controller.sv:34: Assertion failed in TOP.tb_loop_controller.require: LOOP_CHECK dispatch payload / stable under backpressure checks=24"
+    },
+    {
+      "kind": "invalid_configuration",
+      "profile": "eight_targets",
+      "log": {
+        "path": "build/current/loop-controller/rtl/eight_targets/legacy0/invalid-target.log",
+        "sha256": "80501effbe4e293a03705d49bbdb0d79b30cc55aade15df9592142c51e3576f3"
+      },
+      "error": "[103000] %Fatal: cgra_loop_controller.sv:281: Assertion failed in TOP.tb_loop_controller.dut: LOOP_CONFIG_TARGET_CAPACITY"
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "eight_targets",
+      "legacy": 1,
+      "log": {
+        "path": "build/current/loop-controller/rtl/eight_targets/legacy1/negative.log",
+        "sha256": "8b8b463e148be6a72ca95d58f482aa583e17793e8c9a196428dd991df2608535"
+      },
+      "error": "[15000] %Fatal: tb_loop_controller.sv:171: Assertion failed in TOP.tb_loop_controller.replay: LOOP_REPLAY_MISMATCH sample=1 actual=c000000000000000000000000000000000000000000000000000000000000000000000000000000000000 expected=c000000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+    },
+    {
+      "kind": "legacy_wrap",
+      "mode": "rtl",
+      "profile": "eight_targets",
+      "legacy": 1,
+      "log": {
+        "path": "build/current/loop-controller/rtl/eight_targets/legacy1/wrap-defect.log",
+        "sha256": "eb40a0371bbb4fa4886318c0407850b058f63f42fbcc6197c998bcdcf6c6e6f7"
+      },
+      "error": "[341000] %Fatal: tb_loop_controller.sv:34: Assertion failed in TOP.tb_loop_controller.require: LOOP_CHECK all targets dispatched exactly once checks=119"
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "default",
+      "legacy": 0,
+      "log": {
+        "path": "build/current/loop-controller/synth/default/legacy0/negative.log",
+        "sha256": "a30fe6661ac0d692b0709f96a04ac1116c1fd35ec5694c19bb915b93ef77f6af"
+      },
+      "error": "[97000] %Fatal: tb_loop_controller.sv:34: Assertion failed in TOP.tb_loop_controller.require: LOOP_CHECK dispatch payload / stable under backpressure checks=20"
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "default",
+      "legacy": 1,
+      "log": {
+        "path": "build/current/loop-controller/synth/default/legacy1/negative.log",
+        "sha256": "53c2529a01000f92d8697966576d8589ae7e4e6ba818717ef08269f2af01ff18"
+      },
+      "error": "[15000] %Fatal: tb_loop_controller.sv:171: Assertion failed in TOP.tb_loop_controller.replay: LOOP_REPLAY_MISMATCH sample=1 actual=2000000000000000000000000000000000000000000000000000000000000000000000000000000 expected=2000000000000000000000000000000000000000000000000000000000000000000000000000001"
+    },
+    {
+      "kind": "legacy_wrap",
+      "mode": "synth",
+      "profile": "default",
+      "legacy": 1,
+      "log": {
+        "path": "build/current/loop-controller/synth/default/legacy1/wrap-defect.log",
+        "sha256": "02009c28769c28b4ef1c4efed0df97061eec805e3146147807202893bb9d1f75"
+      },
+      "error": "[205000] %Fatal: tb_loop_controller.sv:34: Assertion failed in TOP.tb_loop_controller.require: LOOP_CHECK all targets dispatched exactly once checks=67"
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "wide",
+      "legacy": 0,
+      "log": {
+        "path": "build/current/loop-controller/synth/wide/legacy0/negative.log",
+        "sha256": "eb7d46c1865508a2a81fd7b0a97235e7ce7d43cbb7d3ead6301e42d78936c692"
+      },
+      "error": "[90000] %Fatal: tb_loop_controller.sv:34: Assertion failed in TOP.tb_loop_controller.require: LOOP_CHECK dispatch payload / stable under backpressure checks=19"
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "wide",
+      "legacy": 1,
+      "log": {
+        "path": "build/current/loop-controller/synth/wide/legacy1/negative.log",
+        "sha256": "716f971e35f83dbb3abcf6b102e60eacacc16b0f6b930e57985bfb334b1cfff4"
+      },
+      "error": "[15000] %Fatal: tb_loop_controller.sv:171: Assertion failed in TOP.tb_loop_controller.replay: LOOP_REPLAY_MISMATCH sample=1 actual=30000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 expected=30000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "single",
+      "legacy": 0,
+      "log": {
+        "path": "build/current/loop-controller/synth/single/legacy0/negative.log",
+        "sha256": "6133093311e9801b09780aacacd68113234bfb4d3b520ac5b1b541bfc3921d9c"
+      },
+      "error": "[76000] %Fatal: tb_loop_controller.sv:34: Assertion failed in TOP.tb_loop_controller.require: LOOP_CHECK dispatch payload / stable under backpressure checks=17"
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "single",
+      "legacy": 1,
+      "log": {
+        "path": "build/current/loop-controller/synth/single/legacy1/negative.log",
+        "sha256": "6b2d63c5db99f341e8105eb3886265f673a321777e248fe2d4703a002e8076d6"
+      },
+      "error": "[15000] %Fatal: tb_loop_controller.sv:171: Assertion failed in TOP.tb_loop_controller.replay: LOOP_REPLAY_MISMATCH sample=1 actual=300000000000000000000000000000000000000000000000000000000000000000000000000000000000 expected=300000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "eight_targets",
+      "legacy": 0,
+      "log": {
+        "path": "build/current/loop-controller/synth/eight_targets/legacy0/negative.log",
+        "sha256": "608b2f3ae56d75e0f3feb350e4cf66b60682dd22bc5b489ab3e61a9437df2419"
+      },
+      "error": "[125000] %Fatal: tb_loop_controller.sv:34: Assertion failed in TOP.tb_loop_controller.require: LOOP_CHECK dispatch payload / stable under backpressure checks=24"
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "eight_targets",
+      "legacy": 1,
+      "log": {
+        "path": "build/current/loop-controller/synth/eight_targets/legacy1/negative.log",
+        "sha256": "8b8b463e148be6a72ca95d58f482aa583e17793e8c9a196428dd991df2608535"
+      },
+      "error": "[15000] %Fatal: tb_loop_controller.sv:171: Assertion failed in TOP.tb_loop_controller.replay: LOOP_REPLAY_MISMATCH sample=1 actual=c000000000000000000000000000000000000000000000000000000000000000000000000000000000000 expected=c000000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+    },
+    {
+      "kind": "legacy_wrap",
+      "mode": "synth",
+      "profile": "eight_targets",
+      "legacy": 1,
+      "log": {
+        "path": "build/current/loop-controller/synth/eight_targets/legacy1/wrap-defect.log",
+        "sha256": "eb40a0371bbb4fa4886318c0407850b058f63f42fbcc6197c998bcdcf6c6e6f7"
+      },
+      "error": "[341000] %Fatal: tb_loop_controller.sv:34: Assertion failed in TOP.tb_loop_controller.require: LOOP_CHECK all targets dispatched exactly once checks=119"
+    }
+  ],
+  "synthesis": [
+    {
+      "profile": "default",
+      "legacy": 0,
+      "zero_problem_checks": 4,
+      "netlist": {
+        "path": "build/current/loop-controller/synth/default/legacy0/netlist.v",
+        "sha256": "387fc37d35421ab6b2955263bd35f865cbe0c227f3e4071c58e2faf319d918e7"
+      },
+      "log": {
+        "path": "build/current/loop-controller/synth/default/legacy0/yosys.log",
+        "sha256": "19693311b0316eb5877b3f27c86f4d6516812df974c344f004622b7e318b450f"
+      }
+    },
+    {
+      "profile": "default",
+      "legacy": 1,
+      "zero_problem_checks": 4,
+      "netlist": {
+        "path": "build/current/loop-controller/synth/default/legacy1/netlist.v",
+        "sha256": "a8627b0a639f67b5c0b7946c2037f60aa98c68c899dc4055545c54c34a4038ee"
+      },
+      "log": {
+        "path": "build/current/loop-controller/synth/default/legacy1/yosys.log",
+        "sha256": "76b093688524391893180757b97753fb3d1a7a8fb0d2f07e54ea1c8be5389b16"
+      }
+    },
+    {
+      "profile": "wide",
+      "legacy": 0,
+      "zero_problem_checks": 4,
+      "netlist": {
+        "path": "build/current/loop-controller/synth/wide/legacy0/netlist.v",
+        "sha256": "5313b189be23416bd1f655c8640adae3e0bd86e1f6d716f90ccb022603eb9294"
+      },
+      "log": {
+        "path": "build/current/loop-controller/synth/wide/legacy0/yosys.log",
+        "sha256": "5e0715204223d142661a0d1b99075775d15dbf71d20bbeca177229f626ee20d5"
+      }
+    },
+    {
+      "profile": "wide",
+      "legacy": 1,
+      "zero_problem_checks": 4,
+      "netlist": {
+        "path": "build/current/loop-controller/synth/wide/legacy1/netlist.v",
+        "sha256": "62ee84d1eaf7a56607837daf9dd76545b2d043f002d5291a9f0f729b738effdd"
+      },
+      "log": {
+        "path": "build/current/loop-controller/synth/wide/legacy1/yosys.log",
+        "sha256": "4f0c7a43dba7b9ff0a839ca1bcaf9bf68b28283c12f0b66e774d1592a740d8ef"
+      }
+    },
+    {
+      "profile": "single",
+      "legacy": 0,
+      "zero_problem_checks": 4,
+      "netlist": {
+        "path": "build/current/loop-controller/synth/single/legacy0/netlist.v",
+        "sha256": "2194afe09afaed1cb7351d3476709762f2d6589bc7b4090d281b0bef1e95689d"
+      },
+      "log": {
+        "path": "build/current/loop-controller/synth/single/legacy0/yosys.log",
+        "sha256": "bac852abc7f60c51ebdffbf1d06504ea28dc19154275ae4c46d42815164ba8c8"
+      }
+    },
+    {
+      "profile": "single",
+      "legacy": 1,
+      "zero_problem_checks": 4,
+      "netlist": {
+        "path": "build/current/loop-controller/synth/single/legacy1/netlist.v",
+        "sha256": "fa16d01fc663640480e315be1a071c5f055fb5a1ba134f56bd846ffc3f5efa33"
+      },
+      "log": {
+        "path": "build/current/loop-controller/synth/single/legacy1/yosys.log",
+        "sha256": "f734434864fbdebe2f4982a85358bcd2ac9928655dc17c634b06b1e908b22be4"
+      }
+    },
+    {
+      "profile": "eight_targets",
+      "legacy": 0,
+      "zero_problem_checks": 4,
+      "netlist": {
+        "path": "build/current/loop-controller/synth/eight_targets/legacy0/netlist.v",
+        "sha256": "aa69f35870d2d00e2aa4b1e429cf17dab859607723e3b7e890373e8ac88eb52b"
+      },
+      "log": {
+        "path": "build/current/loop-controller/synth/eight_targets/legacy0/yosys.log",
+        "sha256": "cde807d62c06e122885183e21a44fb45f76f21eef06da3045371f423c35b3541"
+      }
+    },
+    {
+      "profile": "eight_targets",
+      "legacy": 1,
+      "zero_problem_checks": 4,
+      "netlist": {
+        "path": "build/current/loop-controller/synth/eight_targets/legacy1/netlist.v",
+        "sha256": "36daefdfb4d958c75059a6b1e1998af6690d726091b7acf8c5e99c49d3b87c4a"
+      },
+      "log": {
+        "path": "build/current/loop-controller/synth/eight_targets/legacy1/yosys.log",
+        "sha256": "9d3a76c476a0c404c352ba2d5cfeb0a2403aefa226507e5d4968cc00ed28f031"
+      }
+    }
+  ],
+  "source_sha256": {
+    "rtl/controller/cgra_loop_controller.sv": "818017a2085404c6bc2499c43f5f4cf5776fb4f6c72327860b3eadaaad1d752f",
+    "tests/current/tb_loop_controller.sv": "1e308921a98dc92ff9ab7f56722f8bbb94624b89bd0522602a656e00d4f54971",
+    "tests/current/run_loop_controller.sh": "cf559172a2bed5db672bbe27b1e810959faaf85781612eb8f0e9434051732fa2",
+    "migration_tools/current_loop_controller.py": "db61c9902f48d66b673b0929021dc3edb94759e0b7b64f1cb275ddb193279aa7",
+    "Makefile": "a5067a95e6387d6f2a9af1b714f68e2a744cb012c250f78b7417a3053219330c",
+    "scripts/run.ps1": "ee2b3cedbda38f6ff73ecc64191bb1cf5afd8494c7c2fd89a1a1116d9d39e04a",
+    "filelists/native.f": "c5eefa6483c175a0f65c33ae469e1f0011dc013095ceda24d808dca0bfde61b3",
+    "LOOP_CONTROLLER_API.md": "a5b33be2d357da2fde24ba320cbb1adb4884df2c1aa6ba2ebf5e406e9340161a",
+    "CURRENT_MIGRATION.md": "01c3fcbeaa6e8a52ee2a70671d537f9be9248af628567f77e074d9125891a7b5"
+  },
+  "workflow_sha256": "e824a82accdee06ba86f3158c5382daf48259e1b52a9080ed0041d8ee9e0c882",
+  "reference_sha256": {
+    "default/labels.json": "6c3e7fc1c139d5b4e8846c6c7087dfcb98bd97a2af51cd470f02fef87f24f68c",
+    "default/manifest.json": "2b8b9ac086ac9488ded79b5a1f30c11b9b065b3783a923800c31a1ddce33e591",
+    "default/vectors.txt": "bb44bfb5be113602a77edb8fc7c756f694fae9119264ffef8835c52fa3617fcb",
+    "eight_targets/labels.json": "5bb2b43b1f8f86297b138fe08a5a44fa1f7e460f6efe924cfdd5cf9cd1d0d62e",
+    "eight_targets/manifest.json": "0aca9a72057a3eb722bd58005ceaed39040ebd2367ca6a0223491f6236ffa693",
+    "eight_targets/vectors.txt": "e2367be75c966720466751d6510dc3392561efcaba005c6722ec83781726f06a",
+    "single/labels.json": "4dd44a6a8fca0d86cfd69bfff39354478b8c9b0f2622de4e3100daad98f18270",
+    "single/manifest.json": "5247610385913888327ccfa0206e2cc63e461d627c8b5fd3f4b3cbc181f6c876",
+    "single/vectors.txt": "47f77444775dcf403e76c8de781712d97ad2b16ced9e5fc9c6825b5aea7fc86d",
+    "wide/labels.json": "57b3fa59c3c130853a27ab24939d34c7e792ca6d0869b27fc640774827bebfa6",
+    "wide/manifest.json": "9db50ac6a07f51d568736db590cccaa17927a3ac19ab8478b750646d77295f58",
+    "wide/vectors.txt": "ecc9dfd0900c04d6d8870554f58c08ea7b3f2116ec0b06cb46a2da9ad0a67b1f"
+  },
+  "reference_reproduction": "12 files byte-identical in independent output directory",
+  "native_filelist_existing_pe_elaboration": {
+    "path": "build/current/loop-controller/integration/pe-lint.log",
+    "sha256": "0b9f7941a1fe57f97506a2e395dde526d000196d9ca9e34c560d56c4123312e6"
+  },
+  "tools": {
+    "verilator": "5.029 devel rev v5.028-104-ge2041f745",
+    "sv2v": "v0.0.13",
+    "yosys": "0.45+139 (git sha1 4d581a97d)"
+  },
+  "existing_system_regressions": "M23 results retained; not rerun in M24 because active system RTL unchanged",
+  "native_change": "Widen next dispatch index before termination comparison; LEGACY_DISPATCH_WRAP=1 preserves original Python defect",
+  "retained_python_boundaries": [
+    "local completions match ctrl_addr only",
+    "remote completions broadcast to every RUNNING CCU",
+    "same-cycle completion updates can overwrite rather than accumulate",
+    "unlocked lowest-index arbitration can preempt a stalled higher-index output",
+    "parent notification is only one level and only on local-event path",
+    "dispatch completion also restarts unconfigured nonroot children with matching default parent",
+    "all_loops_complete observes root state only",
+    "configured tile/cgra IDs do not reach the payload-only outputs"
+  ],
+  "python_arbitration_probe": {
+    "status": "reproduced_on_unmodified_python",
+    "setup": "two roots 0/1, lower 0 upper 3 step 1 child_count 1, local targets ctrl_addr 0/1; launch; hold both outputs not ready",
+    "events": "local LEAF_COMPLETE ctrl_addr 1, then ctrl_addr 0",
+    "observation": "send_to_tile stays val=1/rdy=0 while ctrl_addr changes 1 to 0"
+  },
+  "next_task": "Legacy static CtrlMem / ConstQueue APIs; other standalone APIs remain pending",
+  "remote_ci_run_for_this_batch": false,
+  "committed_or_pushed_at_record_time": false
+}

@@ -2,7 +2,7 @@
 
 目标 Python 固定为 `cd7aad878915e389cecf8cc01ff6987d156bd019`。该提交导入 SV；Python 内容来自父提交 `e3caf6928a4e8c97e6be36574af2520ec92083b9`。原始迁移基线仍为 `ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b`。`reference/current/target.json` 记录所有 274 个原项目 Python 文件的 SHA-256；本批没有修改这些文件。
 
-最新完成批次为 M23（2026-10-10）：原 4×4 SPMV 映射的原生修复配置通过下述限定范围验收。下一项仍是旧独立 API 的补齐。验收记录中的提交、推送及远端 CI 状态均为记录生成时的快照；实际提交与推送状态以 Git 为准。
+最新完成批次为 M24（2026-10-10）：补齐独立 LoopController 的 payload API，保留 Python 对照并修正原生满目标派发回绕。M23 的原 4×4 SPMV 限定范围验收继续保留。下一项是旧静态 CtrlMem/ConstQueue API，随后继续其余独立模块。验收记录中的提交、推送及远端 CI 状态均为记录生成时的快照；实际提交与推送状态以 Git 为准。
 
 ## 已实现
 
@@ -38,6 +38,7 @@
 ```bash
 make -C sv current
 make -C sv current-synth current-post-synth
+make -C sv current-loop-controller current-loop-controller-synth
 make -C sv current-kernels
 make -C sv current-prefixes
 make -C sv native-kernels native-math
@@ -47,7 +48,7 @@ bash sv/scripts/run_baseline.sh all
 
 设置工具路径时使用环境变量或 Make 变量。构建产物和日志位于 `sv/build/current/`；历史回归位于 `sv/build/baseline-cd7aad878915/`。`regression` 包含上列当前验收入口与旧基线 all。历史 phase2/3/4 请通过 `run_baseline.sh` 运行。GitHub Actions 增加原生算术、修复后的 kernel、多 CGRA、异构及当前迁移重放；远端 CI 尚未执行。
 
-本批验收包括：
+M21–M23 的 PE／系统验收包括：
 
 - 8 个 FU × 539 周期，比较全部 303 位输出（包括无效周期消息；Adder 显式启用 SUB_CONST 的旧 Python 兼容模式），覆盖新编码、predicate、背压、Grant 槽状态、GEP stride 和 VectorMul。
 - 故意破坏期望值的负向测试，确认比较器能够检出错误。
@@ -127,17 +128,17 @@ SPMV 在迁移工具的内存副本中补充 opcode 映射，并使用原生无�
 - VectorMul 的 LANES>4 仍有 Python 只连接前四路的边界，本批不将它扩展为任意 lane 算术。
 - DMA command 的 `nbytes >> 2` 仍遵循当前 Python。已验收的 SPM word 为 32 位、长度为 4 的倍数；其它 SPM 位宽/非对齐长度没有完整业务语义保证。
 - Mesh/Ring、注册存储、64 Tile 和异构程序使用当前 RTL 的独立数学验收；这些结果不等于当前 Python 的完整逐周期等价。当前跨 CGRA 归约和动态 FIR 另有新采集的原 Python 轨迹。历史 64-Tile Python 轨迹不完整的边界仍保留。
-- 独立 LoopController、旧静态 CtrlMem/ConstQueue、RingMultiCtrlMem、DataMem/DataMemScalable、OrLink/Selector/PipeQueue 等完整旧 API 的补齐仍是后续批次；当前 PE/系统功能覆盖不能代替这些独立模块的验收。
+- M24 已补齐独立 LoopController 的 payload API；尚未接入系统，没有新增目的路由、通用 DAG 或并发完成无损收集保证。旧静态 CtrlMem/ConstQueue、RingMultiCtrlMem、DataMem/DataMemScalable、OrLink/Selector/PipeQueue 仍待补齐；当前 PE/系统覆盖不能代替这些 API 的验收。
 - ConstQueue/Crossbar 等变体内部的重复实现，以及 NoC 新版结构优化仍待后续集中重构；当前先以同一验收矩阵保持行为一致。
 - 当前工具链仍有 Verilator 的 UNOPTFLAT 诊断；修复未驱动位不表示已完成全部组合环、时序或 FPGA/ASIC 实现验收。
 
 ## 旧独立 API 的清单
 
-这些缺口不因当前 PE 或系统验收通过而自动关闭。本轮完成接口盘点，未将旧 API 批量改写成包装器。
+这些缺口不因当前 PE 或系统验收通过而自动关闭。M24 完成第一项独立模块，其余保持待迁移状态。
 
 | Python 模块 | 当前 SV 边界与后续要求 |
 |---|---|
-| `controller/LoopControllerRTL.py` | 独立多 CCU、父子完成计数及本地/远程 reset/shadow 广播接口尚未移植；已有 LoopCounter/LoopControl FU 不等价 |
+| `controller/LoopControllerRTL.py` | M24：`cgra_loop_controller` 独立接口通过四组 RTL／网表验收；原生修正满目标派发回绕，Python 模式保留。路由 ID、并发事件和任意 DAG 限制见 [接口文档](LOOP_CONTROLLER_API.md)；尚未接入系统 |
 | `mem/ctrl/CtrlMemRTL.py` | 旧静态地址/控制写口，仍读取旧 `.ctrl` 字段，停顿周期也增加 times；不能直接用动态 CtrlMem 顶替 |
 | `mem/const/ConstQueueRTL.py` | 静态常量 ROM、循环读指针，原实现没有 reset 分支；当前动态常量队列不是同一 API |
 | `mem/ctrl/RingMultiCtrlMemDynamicRTL.py` | 独立 ring+控制存储组合包装层未补齐；系统内部 ctrl ring 覆盖不是接口级验收 |
@@ -146,6 +147,19 @@ SPMV 在迁移工具的内存副本中补充 opcode 映射，并使用原生无�
 | `noc/OrLinkRTL.py` | 原 API 为 N 输入，OR 所有消息的 payload/predicate，不按 valid 屏蔽；SV `tile_link_or` 只覆盖两输入内部接口 |
 | `noc/SelectorRTL.py` | 原 Python 仅给选中输入赋 ready，其余没有默认值；后续必须先明确修正契约再验收 |
 | `lib/basic/val_rdy/queues.py::PipeQueueRTL` | 满队列同周期出队可替换入队；当前 `cgra_queue` 的 Normal/Bypass 模式不提供这一语义 |
+
+## M24：独立 LoopController
+
+新增 `rtl/controller/cgra_loop_controller.sv`，使用原 payload 配置与事件接口，支持参数化 CCU 数、目标数、数据／控制／地址宽度。它独立于现有循环 FU，尚未实例化到 PE 或阵列。详细编码、握手和限制见 [LOOP_CONTROLLER_API.md](LOOP_CONTROLLER_API.md)。
+
+- 默认原生模式先扩宽下一派发索引再判断结束，修复原 Python 在 4／8 目标填满时重复派发的问题；`LEGACY_DISPATCH_WRAP=1` 用于原样对照，不改变其它事件规则。
+- 四组参数为 32 位／8 CCU／4 目标、64 位／3 CCU／3 目标、32 位／1 CCU／1 目标、32 位／8 CCU／8 目标。原四个 Python 测试及扩展事件轨迹合计 2080 个采样周期，除 12 个场景复位周期外，2068 个周期的全部顶层输出逐位匹配。
+- 原生模式四组共 993 项独立检查、57 次派发握手，覆盖屏障、父子重启、远程 shadow、64 位高位数值、仲裁、背压、重新启动、中途复位，以及终止后无多余派发。
+- 同四组参数的兼容模式和原生模式分别在真实综合网表重跑，总计 8 个网表配置；优化前和综合后 `check -assert` 均通过。16 个错误期望、4 个恢复回绕、6 个非法配置负向运行均按预期失败。
+- 参考工具只调用固定的未修改 Python；12 个参考文件重新生成后逐字节一致。原项目 274 个 Python 文件保持不变；M23 系统回归未在本批重跑，不能将本批独立模块结果当作新的系统集成验收。
+- Make、PowerShell、完整 regression 和 CI 增加独立入口；当前 native 文件列表可正常 elaboration 既有 PE 测试台。本批的 SHA、日志摘要和范围独立记录在 `reference/current/loop_controller/validation.json`，此前 `reference/current/validation.json` 仍是 M23 快照。
+
+保留的重要原 API 限制：本地完成只按 ctrl_addr 匹配；远程完成广播给全部运行中 CCU；多个同拍完成可能只计一次；未锁定仲裁可抢占背压中的高编号消息；父通知只处理直接父 CCU；输出不含已配置的 tile／CGRA 路由 ID。这些不是本轮新实现的通用跨 CGRA 调度能力。
 
 ## 工具链证据
 

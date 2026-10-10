@@ -12,6 +12,8 @@ Linux / MSYS2 原生入口：`make -C sv current`、`make -C sv current-synth`�
 
 当前已消除 PE 的 497 个未驱动位，完成五组综合网表功能验收、GEMM/GEMV 全内存数学回读，以及当前归约/动态迁移和多 CGRA/异构验收。M23 修复原 4×4 SPMV 映射的控制和存储完成依赖，`nnz=0…8` 的数学、写入协议及主机背压检查通过；它属于原生修复配置，原 Python 等价状态仍是配置生成失败。详细边界与复现入口见上述当前迁移记录。
 
+M24 新增独立 [LoopController API](LOOP_CONTROLLER_API.md)，完成 Python 对照、满目标派发修正及四组参数的 RTL／网表验证。入口为 `make -C sv current-loop-controller current-loop-controller-synth`；尚未接入系统。
+
 ## 当前实现
 
 - 参数化顶层：[`cgra_scalar`](rtl/cgra/cgra_scalar.sv)，通过 `COLS`、`ROWS`、`DATA_W`、存储深度等参数构造硬件；Tile、bank 和控制环由 SV 的 generate 生成。
