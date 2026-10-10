@@ -1,6 +1,7 @@
 # 当前 Python → SystemVerilog 升级
 
 > 完整分类、opcode 与命令可达性请先看 [迁移清单](MIGRATION_INVENTORY.md)；下文保留各历史批次的边界与结果。
+> 最新内核数学回读与完成顺序修复见 [内核边界验收](KERNEL_BOUNDARIES.md)。
 
 目标 Python 固定为 `cd7aad878915e389cecf8cc01ff6987d156bd019`。该提交导入 SV；Python 内容来自父提交 `e3caf6928a4e8c97e6be36574af2520ec92083b9`。原始迁移基线仍为 `ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b`。`reference/current/target.json` 记录所有 274 个原项目 Python 文件的 SHA-256；本批没有修改这些文件。
 

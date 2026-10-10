@@ -108,7 +108,7 @@ module tile_memory_fu #(
     to_mem_raddr__val = 1'd0;
     to_mem_raddr__msg = 7'd0;
     from_mem_rdata__rdy = 1'd0;
-    if ( recv_opt__val ) begin
+    if ( recv_opt__val && (MEMORY_LEGACY_PYTHON || (!reset && !clear)) ) begin
       if ( recv_opt__msg_typed.operation == 7'( OPT_LD ) ) begin
         recv_all_val = recv_in__val[in0_idx];
         recv_in__rdy[in0_idx] = recv_all_val & to_mem_raddr__rdy;
@@ -176,6 +176,13 @@ module tile_memory_fu #(
         to_mem_wdata__val = recv_all_val & recv_in__msg_typed[in0_idx].predicate & recv_in__msg_typed[in1_idx].predicate;
         send_out__val[1'd0] = 1'd0;
         recv_opt__rdy = ( recv_all_val & to_mem_waddr__rdy ) & to_mem_wdata__rdy;
+        // A predicated-off store has no memory transaction to wait for.
+        // Paired memory ports may legally keep ready low while valid is low.
+        if (!MEMORY_LEGACY_PYTHON && !(recv_in__msg_typed[in0_idx].predicate && recv_in__msg_typed[in1_idx].predicate)) begin
+          recv_opt__rdy = recv_all_val;
+          recv_in__rdy[in0_idx] = recv_all_val;
+          recv_in__rdy[in1_idx] = recv_all_val;
+        end
       end
       else if ( recv_opt__msg_typed.operation == 7'( OPT_STR_CONST ) ) begin
         recv_all_val = recv_in__val[in0_idx] & recv_const__val;
@@ -188,6 +195,13 @@ module tile_memory_fu #(
         to_mem_wdata__val = ( recv_all_val & recv_in__msg_typed[in0_idx].predicate ) & recv_const__msg_typed.predicate;
         send_out__val[1'd0] = 1'd0;
         recv_opt__rdy = ( recv_all_val & to_mem_waddr__rdy ) & to_mem_wdata__rdy;
+        // A predicated-off store has no memory transaction to wait for.
+        // Paired memory ports may legally keep ready low while valid is low.
+        if (!MEMORY_LEGACY_PYTHON && !(recv_in__msg_typed[in0_idx].predicate && recv_const__msg_typed.predicate)) begin
+          recv_opt__rdy = recv_all_val;
+          recv_in__rdy[in0_idx] = recv_all_val;
+          recv_const__rdy = recv_all_val;
+        end
       end
       else begin
         for ( int unsigned j = 0; j < 2'( num_outports_at_comb_logic ); j++ )

@@ -1,0 +1,9 @@
+{
+  "base_commit": "34a6027bcd89c33a34aaf2606e070abd47c8fd2e",
+  "bench_sha256": "87b24751f584c6a4b14157d967b842db082cea55665563b7869fa11577ec14b1",
+  "reason": "Previously repaired native GEMV stalls: false-predicate STORE waits for ready while paired memory waits for valid.",
+  "result": "expected_failure",
+  "files_sha256": {
+    "failure.log": "78a56e01e69a7e62c3eff1238e99700bf06c09d00f17984fa32f49ff71ffd615"
+  }
+}
