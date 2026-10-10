@@ -58,6 +58,8 @@ module tile_vector_adder_combo #(
   data_t p_to_mem_wdata__msg ;
   assign to_mem_wdata__msg = p_to_mem_wdata__msg;
 
+  logic active_control;
+  assign active_control=recv_opt__val && (LEGACY_PYTHON || (!reset && !clear));
   localparam int LANE_W = DATA_W / LANES;
   initial if (LANES < 1 || DATA_W % LANES != 0) $fatal(1,"VectorAdderCombo lane width must divide DATA_W");
   // VECTOR_FACTOR_POWER was unused in ac96. Do not add a replay counter.
@@ -97,7 +99,7 @@ module tile_vector_adder_combo #(
       .clk,.reset,.carry_in(carry[n]),.carry_out(carry[n+1]),.combine_adder(combine),
       .recv_in__msg(operands),.recv_in__val(operand_val),.recv_in__rdy(lane_in_rdy[n]),
       .recv_const__msg(constant),.recv_const__val,.recv_const__rdy(lane_const_rdy[n]),
-      .recv_opt__msg(control),.recv_opt__val,.recv_opt__rdy(lane_ctrl_rdy[n]),
+      .recv_opt__msg(control),.recv_opt__val(active_control),.recv_opt__rdy(lane_ctrl_rdy[n]),
       .send_out__msg(lane_output[n]),.send_out__val(lane_out_val[n]),.send_out__rdy);
   end
   assign recv_in__rdy[0]=lane_in_rdy[0][0];

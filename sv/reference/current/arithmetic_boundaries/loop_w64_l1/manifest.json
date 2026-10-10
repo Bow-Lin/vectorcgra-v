@@ -1,0 +1,210 @@
+{
+  "kind": "loop",
+  "parameters": {
+    "DATA_W": 64,
+    "LATENCY": 1
+  },
+  "cycles": 360,
+  "reset_samples": 6,
+  "inputs": [
+    [
+      "clear",
+      1
+    ],
+    [
+      "reset",
+      1
+    ],
+    [
+      "ctrl_addr_inport",
+      3
+    ],
+    [
+      "from_mem_rdata__msg",
+      67
+    ],
+    [
+      "from_mem_rdata__val",
+      1
+    ],
+    [
+      "recv_const__msg",
+      67
+    ],
+    [
+      "recv_const__val",
+      1
+    ],
+    [
+      "recv_from_ctrl_mem__msg",
+      202
+    ],
+    [
+      "recv_from_ctrl_mem__val",
+      1
+    ],
+    [
+      "recv_in__msg[0]",
+      67
+    ],
+    [
+      "recv_in__msg[1]",
+      67
+    ],
+    [
+      "recv_in__msg[2]",
+      67
+    ],
+    [
+      "recv_in__msg[3]",
+      67
+    ],
+    [
+      "recv_in__val[0]",
+      1
+    ],
+    [
+      "recv_in__val[1]",
+      1
+    ],
+    [
+      "recv_in__val[2]",
+      1
+    ],
+    [
+      "recv_in__val[3]",
+      1
+    ],
+    [
+      "recv_opt__msg",
+      119
+    ],
+    [
+      "recv_opt__val",
+      1
+    ],
+    [
+      "send_out__rdy[0]",
+      1
+    ],
+    [
+      "send_out__rdy[1]",
+      1
+    ],
+    [
+      "send_to_ctrl_mem__rdy",
+      1
+    ],
+    [
+      "to_mem_raddr__rdy",
+      1
+    ],
+    [
+      "to_mem_waddr__rdy",
+      1
+    ],
+    [
+      "to_mem_wdata__rdy",
+      1
+    ]
+  ],
+  "outputs": [
+    [
+      "from_mem_rdata__rdy",
+      1
+    ],
+    [
+      "recv_const__rdy",
+      1
+    ],
+    [
+      "recv_from_ctrl_mem__rdy",
+      1
+    ],
+    [
+      "recv_in__rdy[0]",
+      1
+    ],
+    [
+      "recv_in__rdy[1]",
+      1
+    ],
+    [
+      "recv_in__rdy[2]",
+      1
+    ],
+    [
+      "recv_in__rdy[3]",
+      1
+    ],
+    [
+      "recv_opt__rdy",
+      1
+    ],
+    [
+      "send_out__msg[0]",
+      67
+    ],
+    [
+      "send_out__msg[1]",
+      67
+    ],
+    [
+      "send_out__val[0]",
+      1
+    ],
+    [
+      "send_out__val[1]",
+      1
+    ],
+    [
+      "send_to_ctrl_mem__msg",
+      202
+    ],
+    [
+      "send_to_ctrl_mem__val",
+      1
+    ],
+    [
+      "to_mem_raddr__msg",
+      7
+    ],
+    [
+      "to_mem_raddr__val",
+      1
+    ],
+    [
+      "to_mem_waddr__msg",
+      7
+    ],
+    [
+      "to_mem_waddr__val",
+      1
+    ],
+    [
+      "to_mem_wdata__msg",
+      67
+    ],
+    [
+      "to_mem_wdata__val",
+      1
+    ]
+  ],
+  "input_bits": 742,
+  "output_bits": 431,
+  "source_sha256": {
+    "fu/single/LoopControlRTL.py": "700e06fe0beddb22f9d846892b60a44a649eca24ec7466a6549140219b5b1918",
+    "fu/single/test/LoopControlRTL_test.py": "dec1d2244a107dc655a92ed2d322d9463ef36e3694fb3a87eea76ecaeaa05fe8",
+    "fu/basic/Fu.py": "0c981a2ac2b0632b2c357e49db1cb90378d3ddad1875b712c9d94fa5f905d2f7",
+    "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf"
+  },
+  "generator_sha256": "4b7ff93cd871cac2bd503b922e8d5b6feb7d8fab6309193e704a4171481e080a",
+  "helper_sha256": "97b3471b7294d1cbec2e25fd454a500c557d417af44321ad6b44577f4786277b",
+  "vectors_sha256": "f733fd7905d032f7ee5b60686c423c5e0b8017c27b32eee15fc811de5b45006a",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "notes": [
+    "Original Python behavior; InclusiveDiv/ExclusiveDiv import original division.v with Verilator 4.036.",
+    "All outputs including invalid data/reset compared. Divisors are nonzero; zero is separately a native contract.",
+    "Legacy latency-three pipeline deliberately retains missing restoring iterations."
+  ]
+}

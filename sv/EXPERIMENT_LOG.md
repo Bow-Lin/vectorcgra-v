@@ -470,3 +470,34 @@ ready 广播。未替换已有双来源 `tile_link_or`，详细契约见 [LINK_A
 零 SCC 验收；没有 undef 补值。测试曾因 `$test$plusargs` 的前缀匹配把不同非法 parent
 用例混淆，已改成精确 `+INVALID=<名称>` 后完整重跑。最终八份网表只含正沿寄存器，
 临时循环变量推断的锁存在优化后消失。旧 `loop_controller/validation.json` 保留不改。
+
+## 算术边界、复位和组合逻辑（2026-10-10）
+
+- 原生除法定义零除数结果，补齐 32 位／3 级流水线丢失的最后两次迭代。
+  ExclusiveDiv 只在操作数齐备时启动、握手完成才退役；InclusiveDiv 增加容量为
+  LATENCY 的结果跟踪，保留 START／END 突发与输入 1 永不消费的源协议。
+- MAC 原生有符号比较修正减法溢出，操作数选择不依赖输出 ready；仍固定 16 位，
+  所有八种运算保留三输入 valid／predicate，向量因子不改变 predicate。
+  LoopControl 等两个输出均交付再推进索引，LoopCounter 仅补全未用临时变量默认值。
+- 公共 FU 复位屏蔽控制、数据、内存和原始控制器包握手；五种组合 FU 的未驱动
+  子接口接零；向量组合原生 reset／clear 和乘法提前控制 ready 修正。
+  合法 32 位目录及 16 位 MAC 的 lint 没有 LATCH／UNDRIVEN。
+- 11 项原始 Python 测试通过，2 项普通除零探针确认原模型抛异常；12 组轨迹共
+  4,320 周期、1,378,080 输出位／实现，包括全部 72 个复位采样。
+  41 个文件独立再生成逐字节一致，274 个原始 Python 文件哈希不变。
+- RTL 与实际综合网表各通过 53,160 项主要原生检查；向量组合复查每种实现
+  32,976 项。25 份主模块、11 份向量组合和 10 份标量组合网表，共 46 份，
+  重读 check 和零 SCC 均通过。LoopCounter 两位宽共 5,986 周期／2,189,463 位
+  对照原 Python；十组标量组合与两组 MAC 另对照冻结 HDL。
+- Base／Context／Streaming 共 21 个原生 PE 配置检查公开数据、配置、完成、
+  缺操作数、背压及精确次数；另一个旧向量 PE 兼容探针也通过，不能冒称缺陷失败。
+  除法分段和 MAC 溢出有原生通过／兼容失败见证；非法参数在 RTL／综合均被拒绝。
+- 详见 `ARITHMETIC_BOUNDARIES.md` 和 `reference/current/arithmetic_boundaries/validation.json`。
+  原生与旧 Python 周期契约分开，InclusiveDiv 队列改变延迟；公共 reset 保证不能
+  推广为所有独立历史 FU 的 clear 语义。下一项为 im2col、非对称存储端口及 DMA 边界。
+
+32 位普通除法的首份网表通过位级 SCC，但 Verilator 因字级别名关系不收敛；
+使用 splitnets／opt_clean 后在默认收敛上限通过同一数学台架，无 RTL 优化关闭。
+首次 PE 台架颠倒配置命令 7／8，已修正并重跑完整矩阵。旧 ac96 标量整组台架不适用
+当前 Grant／GEP 语义，因此只对保持不变的 LoopCounter 使用其旧向量，除法和
+LoopControl 使用新冻结的当前 Python 轨迹；历史文件未被改写。

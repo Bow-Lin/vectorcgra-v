@@ -58,6 +58,8 @@ module tile_vector_mul_combo #(
   data_t p_to_mem_wdata__msg ;
   assign to_mem_wdata__msg = p_to_mem_wdata__msg;
 
+  logic active_control;
+  assign active_control=recv_opt__val && (LEGACY_PYTHON || (!reset && !clear));
   localparam int LANE_W = DATA_W / LANES;
   // Full-width integer shifts implement the Python arithmetic contract.
   localparam int SHIFT_TWO = LANE_W*2;
@@ -99,13 +101,13 @@ module tile_vector_mul_combo #(
     cgra_vector_mul #(`CGRA_PROFILE_BIND,.LANE_W(LANE_W)) arithmetic (
       .clk,.reset,.recv_in__msg(operands),.recv_in__val(operand_val),.recv_in__rdy(lane_in_rdy[n]),
       .recv_const__msg(constant),.recv_const__val,.recv_const__rdy(lane_const_rdy[n]),
-      .recv_opt__msg(control),.recv_opt__val,.recv_opt__rdy(lane_ctrl_rdy[n]),
+      .recv_opt__msg(control),.recv_opt__val(active_control),.recv_opt__rdy(lane_ctrl_rdy[n]),
       .send_out__msg(lane_output[n]),.send_out__val(lane_out_val[n]),.send_out__rdy);
   end
   assign recv_in__rdy[0]=lane_in_rdy[0][0];
   assign recv_in__rdy[1]=lane_in_rdy[0][1];
   assign recv_const__rdy=lane_const_rdy[0];
-  assign recv_opt__rdy=send_out__rdy[0];
+  assign recv_opt__rdy=LEGACY_PYTHON ? send_out__rdy[0] : (send_out__val[0] && send_out__rdy[0]);
   assign recv_in__rdy[2]=0;assign recv_in__rdy[3]=0;
   assign p_send_out__msg[0].bypass=0;assign p_send_out__msg[0].delay=0;
   assign p_send_out__msg[1]='0;

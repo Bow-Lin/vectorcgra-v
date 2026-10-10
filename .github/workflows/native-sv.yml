@@ -37,6 +37,8 @@ jobs:
         run: make -C sv current-vector-reduce native-global-reduce JOBS=2
       - name: Combined vector constant carry and multiplier lane boundary
         run: make -C sv current-vector-arithmetic JOBS=2
+      - name: Arithmetic boundaries, reset isolation and Python compatibility
+        run: make -C sv current-arithmetic-boundaries JOBS=2
       - name: Current YAML system programs
         run: make -C sv current-kernels JOBS=2
       - name: Independent native arithmetic and repaired programs

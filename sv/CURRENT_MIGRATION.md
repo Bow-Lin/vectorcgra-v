@@ -2,7 +2,7 @@
 
 目标 Python 固定为 `cd7aad878915e389cecf8cc01ff6987d156bd019`。该提交导入 SV；Python 内容来自父提交 `e3caf6928a4e8c97e6be36574af2520ec92083b9`。原始迁移基线仍为 `ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b`。`reference/current/target.json` 记录所有 274 个原项目 Python 文件的 SHA-256；本批没有修改这些文件。
 
-最新完成批次为 M26（2026-10-10）：补齐独立 RingMultiCtrlMem 动态控制环 API，保留原 Python 对照，原生修正虚假返回源导致的 COMPLETE 饥饿和返回口背压稳定性。M24／M25 独立 API 与 M23 原 4×4 SPMV 的限定范围验收继续保留。下一项是独立 DataMem／DataMemScalable。验收记录中的提交、推送及远端 CI 状态均为记录生成时的快照；实际提交与推送状态以 Git 为准。
+本轮按 `MIGRATION_TASKS.md` 的已授权顺序推进，独立存储／链路／队列、向量归约、向量组合与 LoopController 已完成。第 9 项算术边界、复位及组合逻辑已通过组件、PE 和网表检查，记录见本文末尾及 `ARITHMETIC_BOUNDARIES.md`。下一项是 im2col、非对称存储端口和 DMA 长度／重启边界。验收中的提交、推送及远端 CI 状态是记录生成时的快照，实际以 Git 为准。
 
 ## 已实现
 
@@ -130,13 +130,13 @@ SPMV 在迁移工具的内存副本中补充 opcode 映射，并使用原生无�
 - VectorMul 的 LANES>4 仍有 Python 只连接前四路的边界，本批不将它扩展为任意 lane 算术。
 - DMA command 的 `nbytes >> 2` 仍遵循当前 Python。已验收的 SPM word 为 32 位、长度为 4 的倍数；其它 SPM 位宽/非对齐长度没有完整业务语义保证。
 - Mesh/Ring、注册存储、64 Tile 和异构程序使用当前 RTL 的独立数学验收；这些结果不等于当前 Python 的完整逐周期等价。当前跨 CGRA 归约和动态 FIR 另有新采集的原 Python 轨迹。历史 64-Tile Python 轨迹不完整的边界仍保留。
-- M24 已补齐独立 LoopController 的 payload API；尚未接入系统，没有新增目的路由、通用 DAG 或并发完成无损收集保证。M25 已补齐独立静态 CtrlMem/ConstQueue 的原生与兼容模式；未替换 PE 动态存储。M26 已补齐独立 RingMultiCtrlMem，未增加 Context／Streaming／FU sideband 能力。DataMem/DataMemScalable、OrLink/Selector/PipeQueue 仍待补齐；当前 PE/系统覆盖不能代替这些 API 的验收。
+- 独立 LoopController 的 payload API、稳定派发及计数型父通知已完成；尚未接入系统路由，不支持通用 DAG 或带身份／epoch 的去重协议。静态 CtrlMem/ConstQueue 和 RingMultiCtrlMem API 已补齐，未扩大其 PE 变体／FU sideband 集成范围。DataMem/DataMemScalable、OrLink/Selector/PipeQueue 现均有独立接口及网表验收，不能据此推断所有系统组合已完成验证。
 - ConstQueue/Crossbar 等变体内部的重复实现，以及 NoC 新版结构优化仍待后续集中重构；当前先以同一验收矩阵保持行为一致。
 - 当前工具链仍有 Verilator 的 UNOPTFLAT 诊断；修复未驱动位不表示已完成全部组合环、时序或 FPGA/ASIC 实现验收。
 
 ## 旧独立 API 的清单
 
-这些缺口不因当前 PE 或系统验收通过而自动关闭。M24 完成 LoopController，M25 完成两个静态存储 API，M26 完成 RingMultiCtrlMem；其余保持待迁移状态。
+以下 API 已分别建立独立契约和验收；系统集成范围以各接口文档为准，不能由组件通过自动推断。
 
 | Python 模块 | 当前 SV 边界与后续要求 |
 |---|---|
@@ -144,11 +144,11 @@ SPMV 在迁移工具的内存副本中补充 opcode 映射，并使用原生无�
 | `mem/ctrl/CtrlMemRTL.py` | M25：`cgra_static_ctrl_mem` 独立 API 已验收；类型字段名适配后对照未修改 Python；原生修正停顿计数、写入配对与复位，支持单槽和无限预算。见 [接口文档](STATIC_MEMORY_API.md) |
 | `mem/const/ConstQueueRTL.py` | M25：`cgra_static_const_queue` 静态 ROM 已验收；兼容模式保留忽略 reset，原生增加复位回绕和安全空表。尚未接入 PE |
 | `mem/ctrl/RingMultiCtrlMemDynamicRTL.py` | M26：`cgra_ring_multi_ctrl_mem` 独立 API 已验收；原生关闭 dummy 返回源并锁存背压包，兼容模式对照未修改 Python。四组 RTL／网表通过；范围见 [接口文档](RING_CTRL_MEMORY_API.md) |
-| `mem/data/DataMemRTL.py` | 独立多读写口、首次读懒预加载契约尚未移植；Python Im2colEngine 使用它，SV Im2col 内存需另作对应性验收 |
-| `mem/data/DataMemScalableRTL.py` | 额外 NoC 口在原 Python 中也全部系零；不能将其描述为已支持远程访问的缺失功能 |
-| `noc/OrLinkRTL.py` | 原 API 为 N 输入，OR 所有消息的 payload/predicate，不按 valid 屏蔽；SV `tile_link_or` 只覆盖两输入内部接口 |
-| `noc/SelectorRTL.py` | 原 Python 仅给选中输入赋 ready，其余没有默认值；后续必须先明确修正契约再验收 |
-| `lib/basic/val_rdy/queues.py::PipeQueueRTL` | 满队列同周期出队可替换入队；当前 `cgra_queue` 的 Normal/Bypass 模式不提供这一语义 |
+| `mem/data/DataMemRTL.py` | 独立多读写口、懒预加载及原生复位／冲突契约已验收，见 [DATA_MEMORY_API.md](DATA_MEMORY_API.md)；Im2col 集成对应性为下一项 |
+| `mem/data/DataMemScalableRTL.py` | 独立包装 API 已验收；额外 NoC 口在原 Python 中也全部系零，未新增远程访问 |
+| `noc/OrLinkRTL.py` | N 输入独立 API 已验收，保留所有消息 payload/predicate 的 OR 和不按 valid 屏蔽的契约；见 [LINK_APIS.md](LINK_APIS.md) |
+| `noc/SelectorRTL.py` | 独立 API 已验收，原生只向选中输入传播 ready，兼容模式保留旧行为；见 [LINK_APIS.md](LINK_APIS.md) |
+| `lib/basic/val_rdy/queues.py::PipeQueueRTL` | 独立 `cgra_pipe_queue` 满队列同拍替换已验收；与 Normal/Bypass 模式分开，见 [PIPE_QUEUE_API.md](PIPE_QUEUE_API.md) |
 
 ## M24：独立 LoopController
 
@@ -343,3 +343,34 @@ Verilator 5.029 的文件驱动 while 循环会错误常量折叠循环外的计
 - 详见 `LOOP_CONTROLLER_API.md` 与 `reference/current/loop_controller_semantics/validation.json`。
   仍是计数型、无身份／epoch 的有根森林协议，非法配置诊断不是硬件错误响应。
   下一项为复位、未驱动／锁存、除零及 MAC 有符号边界。
+
+## 算术边界、复位和组合逻辑（2026-10-10）
+
+- 原生除法定义零除数结果，补齐 32 位／3 级流水线丢失的最后两次迭代。
+  ExclusiveDiv 只在操作数齐备时启动、握手完成才退役；InclusiveDiv 增加容量为
+  LATENCY 的结果跟踪，保留 START／END 突发与输入 1 永不消费的源协议。
+- MAC 原生有符号比较修正减法溢出，操作数选择不依赖输出 ready；仍固定 16 位，
+  所有八种运算保留三输入 valid／predicate，向量因子不改变 predicate。
+  LoopControl 等两个输出均交付再推进索引，LoopCounter 仅补全未用临时变量默认值。
+- 公共 FU 复位屏蔽控制、数据、内存和原始控制器包握手；五种组合 FU 的未驱动
+  子接口接零；向量组合原生 reset／clear 和乘法提前控制 ready 修正。
+  合法 32 位目录及 16 位 MAC 的 lint 没有 LATCH／UNDRIVEN。
+- 11 项原始 Python 测试通过，2 项普通除零探针确认原模型抛异常；12 组轨迹共
+  4,320 周期、1,378,080 输出位／实现，包括全部 72 个复位采样。
+  41 个文件独立再生成逐字节一致，274 个原始 Python 文件哈希不变。
+- RTL 与实际综合网表各通过 53,160 项主要原生检查；向量组合复查每种实现
+  32,976 项。25 份主模块、11 份向量组合和 10 份标量组合网表，共 46 份，
+  重读 check 和零 SCC 均通过。LoopCounter 两位宽共 5,986 周期／2,189,463 位
+  对照原 Python；十组标量组合与两组 MAC 另对照冻结 HDL。
+- Base／Context／Streaming 共 21 个原生 PE 配置检查公开数据、配置、完成、
+  缺操作数、背压及精确次数；另一个旧向量 PE 兼容探针也通过，不能冒称缺陷失败。
+  除法分段和 MAC 溢出有原生通过／兼容失败见证；非法参数在 RTL／综合均被拒绝。
+- 详见 `ARITHMETIC_BOUNDARIES.md` 和 `reference/current/arithmetic_boundaries/validation.json`。
+  原生与旧 Python 周期契约分开，InclusiveDiv 队列改变延迟；公共 reset 保证不能
+  推广为所有独立历史 FU 的 clear 语义。下一项为 im2col、非对称存储端口及 DMA 边界。
+
+32 位普通除法的首份网表通过位级 SCC，但 Verilator 因字级别名关系不收敛；
+使用 splitnets／opt_clean 后在默认收敛上限通过同一数学台架，无 RTL 优化关闭。
+首次 PE 台架颠倒配置命令 7／8，已修正并重跑完整矩阵。旧 ac96 标量整组台架不适用
+当前 Grant／GEP 语义，因此只对保持不变的 LoopCounter 使用其旧向量，除法和
+LoopControl 使用新冻结的当前 Python 轨迹；历史文件未被改写。

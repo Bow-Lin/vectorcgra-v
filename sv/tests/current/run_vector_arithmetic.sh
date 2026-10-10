@@ -4,7 +4,7 @@ cd "$(dirname "$0")/../.."
 source scripts/toolchain.sh
 mode=${1:-rtl}
 case "$mode" in rtl|synth) ;; *) echo 'usage: run_vector_arithmetic.sh [rtl|synth]';exit 2;;esac
-root=build/current/vector-arithmetic/$mode;mkdir -p "$root"
+root=${VECTOR_ARITHMETIC_BUILD_ROOT:-build/current/vector-arithmetic}/$mode;mkdir -p "$root"
 negative() {
   local marker=$1 log=$2
   shift 2

@@ -46,6 +46,7 @@ rtl/fu/float/tile_fp_mul.sv
 rtl/fu/scalar/scalar_comp.sv
 rtl/fu/scalar/scalar_const.sv
 rtl/fu/scalar/scalar_div_pipeline.sv
+rtl/fu/scalar/scalar_div_native.sv
 rtl/fu/scalar/scalar_div.sv
 rtl/fu/scalar/scalar_exclusive_div.sv
 rtl/fu/scalar/scalar_extract_predicate.sv
@@ -53,6 +54,7 @@ rtl/fu/scalar/scalar_gep.sv
 rtl/fu/scalar/scalar_grant.sv
 rtl/fu/scalar/scalar_inclusive_div.sv
 rtl/fu/scalar/scalar_logic.sv
+rtl/fu/scalar/scalar_loop_control_native.sv
 rtl/fu/scalar/scalar_loop_control.sv
 rtl/fu/scalar/scalar_loop_counter.sv
 rtl/fu/scalar/scalar_phi.sv

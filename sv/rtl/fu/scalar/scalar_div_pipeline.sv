@@ -53,7 +53,8 @@ endmodule
 
 module scalar_div_pipeline #(
     parameter WIDTH = 32,
-    parameter CYCLE = 8
+    parameter CYCLE = 8,
+    parameter bit LEGACY_PARTITION = 0
 ) (
     input  clk,
     input  reset,
@@ -62,6 +63,9 @@ module scalar_div_pipeline #(
     output [WIDTH-1:0] quotient,
     output [WIDTH-1:0] remainder
 );
+
+    initial if (WIDTH < 1 || CYCLE < 1 || (!LEGACY_PARTITION && CYCLE > WIDTH))
+        $fatal(1,"DIV_PIPELINE_PARAMETERS: 1 <= CYCLE <= WIDTH");
 
     parameter num_div = WIDTH / CYCLE;
     parameter res_div = WIDTH - CYCLE * num_div;
@@ -110,8 +114,8 @@ module scalar_div_pipeline #(
         for (i = 0; i < CYCLE; i++) begin
             scalar_div_stage #(
                 .WIDTH(WIDTH),
-                .ITER_BEGIN(i * num_div),
-                .ITER_END((i + 1) * num_div)
+                .ITER_BEGIN(LEGACY_PARTITION ? i * num_div : i * WIDTH / CYCLE),
+                .ITER_END(LEGACY_PARTITION ? (i + 1) * num_div : (i + 1) * WIDTH / CYCLE)
             ) u0 (
                 .dividend(dividend_reg[i]),
                 .divisor(divisor_reg[i]),

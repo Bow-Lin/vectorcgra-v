@@ -295,6 +295,9 @@ module tile_three_mul_adder_shifter #(
   end
 
   always_comb begin : update_opt
+    Fu2__recv_opt__msg='0;
+    Fu1__recv_opt__msg='0;
+    Fu0__recv_opt__msg='0;
     Fu0__recv_opt__msg.fu_in[2'd0] = 3'd1;
     Fu0__recv_opt__msg.fu_in[2'd1] = 3'd2;
     Fu1__recv_opt__msg.fu_in[2'd0] = 3'd1;
@@ -365,4 +368,58 @@ module tile_three_mul_adder_shifter #(
   assign p_send_out__msg[0] = Fu2__send_out__msg[0];
   assign p_send_out__msg[1] = Fu2__send_out__msg[0];
 
+  // Unused interfaces and array elements are defined zeros.
+  assign recv_const__rdy='0;
+  assign Fu0__clear='0;
+  assign Fu0__ctrl_addr_inport='0;
+  assign Fu0__from_mem_rdata__msg='0;
+  assign Fu0__from_mem_rdata__val='0;
+  assign Fu0__recv_const__msg='0;
+  assign Fu0__recv_const__val='0;
+  assign Fu0__recv_from_ctrl_mem__msg='0;
+  assign Fu0__recv_from_ctrl_mem__val='0;
+  assign Fu0__send_to_ctrl_mem__rdy='0;
+  assign Fu0__to_mem_raddr__rdy='0;
+  assign Fu0__to_mem_waddr__rdy='0;
+  assign Fu0__to_mem_wdata__rdy='0;
+  assign Fu1__clear='0;
+  assign Fu1__ctrl_addr_inport='0;
+  assign Fu1__from_mem_rdata__msg='0;
+  assign Fu1__from_mem_rdata__val='0;
+  assign Fu1__recv_const__msg='0;
+  assign Fu1__recv_const__val='0;
+  assign Fu1__recv_from_ctrl_mem__msg='0;
+  assign Fu1__recv_from_ctrl_mem__val='0;
+  assign Fu1__send_to_ctrl_mem__rdy='0;
+  assign Fu1__to_mem_raddr__rdy='0;
+  assign Fu1__to_mem_waddr__rdy='0;
+  assign Fu1__to_mem_wdata__rdy='0;
+  assign Fu2__clear='0;
+  assign Fu2__ctrl_addr_inport='0;
+  assign Fu2__from_mem_rdata__msg='0;
+  assign Fu2__from_mem_rdata__val='0;
+  assign Fu2__recv_const__msg='0;
+  assign Fu2__recv_const__val='0;
+  assign Fu2__recv_from_ctrl_mem__msg='0;
+  assign Fu2__recv_from_ctrl_mem__val='0;
+  assign Fu2__send_to_ctrl_mem__rdy='0;
+  assign Fu2__to_mem_raddr__rdy='0;
+  assign Fu2__to_mem_waddr__rdy='0;
+  assign Fu2__to_mem_wdata__rdy='0;
+  assign send_out__val[1]='0;
+  assign Fu0__recv_in__msg[2]='0;
+  assign Fu0__recv_in__msg[3]='0;
+  assign Fu0__recv_in__val[2]='0;
+  assign Fu0__recv_in__val[3]='0;
+  assign Fu0__send_out__rdy[1]='0;
+  assign Fu1__recv_in__msg[2]='0;
+  assign Fu1__recv_in__msg[3]='0;
+  assign Fu1__recv_in__val[2]='0;
+  assign Fu1__recv_in__val[3]='0;
+  assign Fu1__send_out__rdy[1]='0;
+  assign Fu2__recv_in__msg[2]='0;
+  assign Fu2__recv_in__msg[3]='0;
+  assign Fu2__recv_in__val[2]='0;
+  assign Fu2__recv_in__val[3]='0;
+  assign Fu2__send_out__rdy[1]='0;
 endmodule

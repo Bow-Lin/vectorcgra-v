@@ -1,0 +1,13 @@
+{
+  "cases": [
+    {
+      "opcode": 26,
+      "result": "ZeroDivisionError"
+    },
+    {
+      "opcode": 65,
+      "result": "ZeroDivisionError"
+    }
+  ],
+  "source_sha256": "3c0c4b3845163c4cd75fcbd3b52b0cbcefccec78be955ec2fbac1715bc32d95a"
+}

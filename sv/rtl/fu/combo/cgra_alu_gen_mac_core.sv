@@ -1,7 +1,8 @@
-// The original fixed 16-bit ALUgenMAC equations with cgra_multp replacing its
-// simulation-only DW dependency. Original Genesis2 notice is preserved in
+// Fixed 16-bit ALUgenMAC with native signed comparisons and cgra_multp replacing
+// its simulation-only DW dependency; LEGACY_PYTHON retains the original equations.
+// Original Genesis2 notice is preserved in
 // vendor/svsrc/ALUgenMAC.sv; this migration does not change its license terms.
-module cgra_alu_gen_mac_core (
+module cgra_alu_gen_mac_core #(parameter bit LEGACY_PYTHON=0) (
   input logic [15:0] rhs_0, rhs_1, rhs_1b,
   input logic [5:0] rhs_2,
   output logic [15:0] lhs_0
@@ -24,5 +25,14 @@ module cgra_alu_gen_mac_core (
   assign adder_b=rhs_2[4]?carry_bits[15:0]:({16{rhs_2[0]}}^rhs_1);
   assign carry_in=rhs_2[0]|rhs_2[3];
   assign adder_result=adder_a+adder_b+carry_in;
-  assign lhs_0=rhs_2[1]?{15'b0,(rhs_2[2]^adder_result[15])}:adder_result;
+  always_comb begin
+    lhs_0=rhs_2[1]?{15'b0,(rhs_2[2]^adder_result[15])}:adder_result;
+    if (!LEGACY_PYTHON) case(rhs_2)
+      6'd3: lhs_0={15'b0,($signed(rhs_0)<$signed(rhs_1))};
+      6'd7: lhs_0={15'b0,($signed(rhs_0)>=$signed(rhs_1))};
+      6'd10:lhs_0={15'b0,($signed(rhs_0)>$signed(rhs_1))};
+      6'd14:lhs_0={15'b0,($signed(rhs_0)<=$signed(rhs_1))};
+      default:begin end
+    endcase
+  end
 endmodule

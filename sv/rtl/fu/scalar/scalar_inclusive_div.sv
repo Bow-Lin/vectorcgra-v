@@ -1,10 +1,11 @@
 `include "cgra_opcodes.svh"
 `include "cgra_profile_defs.svh"
-// Native InclusiveDivRTL migration from ac96; original state/handshake semantics.
+// Corrected native transactions by default; LEGACY_PYTHON reproduces the pinned source.
 module scalar_inclusive_div #(
   `CGRA_PROFILE_PARAMETERS,
   parameter int VECTOR_FACTOR_POWER = 0,
-  parameter int LATENCY = 2
+  parameter int LATENCY = 2,
+  parameter bit LEGACY_PYTHON = 0
 ) (
   input  logic [0:0] clear ,
   input  logic [0:0] clk ,
@@ -41,6 +42,8 @@ module scalar_inclusive_div #(
   input logic [0:0] to_mem_wdata__rdy  ,
   output logic [0:0] to_mem_wdata__val
 );
+  if (LEGACY_PYTHON) begin : legacy
+
   `include "cgra_profile.svh"
   localparam int CTRL_SLOTS = 1 << CTRL_ADDR_W;
   initial if (DATA_W != 32 || LATENCY < 1) $fatal(1, "ac96 pipeline divider requires DATA_W=32 and positive LATENCY");
@@ -87,7 +90,7 @@ module scalar_inclusive_div #(
   logic [DATA_W-1:0] div_remainder;
   logic [0:0] div_reset;
 
-  scalar_div_pipeline #(.WIDTH(32), .CYCLE(LATENCY)) div (
+  scalar_div_pipeline #(.WIDTH(32), .CYCLE(LATENCY), .LEGACY_PARTITION(1)) div (
     .clk( div_clk ),
     .dividend( div_dividend ),
     .divisor( div_divisor ),
@@ -200,4 +203,8 @@ module scalar_inclusive_div #(
   assign in0_idx = in0[1:0];
   assign in1_idx = in1[1:0];
 
+  end else begin : native_mode
+    scalar_div_native #(`CGRA_PROFILE_BIND, .MODE(2), .LATENCY(LATENCY),
+      .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER)) core(.*);
+  end
 endmodule

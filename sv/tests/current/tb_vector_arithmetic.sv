@@ -135,19 +135,19 @@ module tb_vector_arithmetic #(
         recv_in__val[0]=1'(n);recv_in__val[1]=1'(n>>1);recv_const__val=1'(n>>2);
         recv_in__val[2]=1;recv_in__val[3]=1;recv_in__msg[2]='1;recv_in__msg[3]='1;
         send_out__rdy[0]=(n%3!=0);send_out__rdy[1]=1'(n);
-        // Stateless source reset/clear semantics are retained by this arithmetic change.
+        // Native reset/clear suppress all transactions; legacy replay remains unchanged.
         reset=(n%37==0);clear=(n%31==0);
         #2;
-        expected=recv_opt__val?arithmetic(op,a,b,k):DATA_W'(0);
+        expected=(recv_opt__val && !reset && !clear)?arithmetic(op,a,b,k):DATA_W'(0);
         if (wrong && n==3) expected=expected^1;
-        active=recv_opt__val && recv_in__val[0] && (constant_op?recv_const__val:recv_in__val[1]);
+        active=recv_opt__val && !reset && !clear && recv_in__val[0] && (constant_op?recv_const__val:recv_in__val[1]);
         pred=1'(n) && (constant_op || 1'(n>>1));ready=active && send_out__rdy[0];
         require(result_data.payload===expected,"independent modular arithmetic");
         require(result_data.predicate===pred,"predicate contract");
         require(send_out__val[0]===active,"atomic valid");
         require(recv_in__rdy[0]===ready && recv_in__rdy[1]===(ready && !constant_op),"operand readiness");
         require(recv_const__rdy===(ready && constant_op),"constant readiness");
-        require(recv_opt__rdy===(KIND==0?ready:send_out__rdy[0]),"source control ready contract");
+        require(recv_opt__rdy===ready,"native control retirement");
         require(!recv_in__rdy[2] && !recv_in__rdy[3] && !send_out__val[1] && send_out__msg[1]=='0,"unused ports");
         require(!result_data.bypass && !result_data.delay,"metadata");
         require({send_to_ctrl_mem__val,send_to_ctrl_mem__msg,recv_from_ctrl_mem__rdy,

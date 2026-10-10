@@ -26,9 +26,10 @@ PE 和系统用 `VECTOR_LEGACY_PYTHON` 统一传递加法／乘法的兼容开�
 
 两模块仍固定使用输入 0／1、输出 0，不使用 `fu_in` 动态选择；
 `VECTOR_FACTOR_POWER` 沿用源模型忽略行为，组合 FU 入口仍要求该参数为零。
-本项保持原无状态 reset／clear 和握手行为，包括乘法 `recv_opt.rdy` 直接跟随
-输出 ready。复位／握手的后续统一审查见 `MIGRATION_TASKS.md` 第 9 项，
-不能把本次数学检查当成该语义已经修复。
+后续第 9 项已为原生模式加入 reset／clear 事务屏蔽，并使乘法控制 ready 要求
+有效结果，避免缺操作数时提前退役；兼容模式保留旧行为。具体契约与该次独立
+验证见 [ARITHMETIC_BOUNDARIES.md](ARITHMETIC_BOUNDARIES.md)。下述第 7 项历史
+证据保留原样，第 9 项证据另存。
 
 ```sh
 make -C sv current-vector-arithmetic current-vector-arithmetic-synth
