@@ -1,0 +1,16 @@
+{
+  "base_commit": "3e09c11a7627df2ac47c08871323090e92c13f6b",
+  "controller_sha256": "f19a4e56c14e0295f270ee8db588faa1b1d600da7ddbb5b24d5a60a6812fd830",
+  "full_log_sha256": "d8df1b1af98f6e6eef20d129da88e371dcc77042c540d4e490928135c6937008",
+  "excerpt_sha256": "54e6b0aeaefe72ca5c9f7c055fd125bf7de2aca90c6deb98b611d34711fb264f",
+  "failure": "proc; opt; check -assert finds recv_from_im2col_pkt__rdy undriven with HAS_IM2COL=0",
+  "profile": {
+    "top": "cgra_multi",
+    "MULTI_COLS": 2,
+    "MULTI_ROWS": 2,
+    "CTRL_DEPTH": 2,
+    "REG_DEPTH": 2,
+    "NUM_CTRL": 2,
+    "TOTAL_STEPS": 2
+  }
+}

@@ -696,5 +696,6 @@ module cgra_controller #(
   assign recv_from_im2col_pkt_queue__recv__val = HAS_IM2COL ? recv_from_im2col_pkt__val : 1'b0;
   assign recv_from_im2col_pkt_queue__recv__msg = HAS_IM2COL ? recv_from_im2col_pkt__msg : '0;
   if (HAS_IM2COL) assign recv_from_im2col_pkt__rdy = recv_from_im2col_pkt_queue__recv__rdy;
+  else assign recv_from_im2col_pkt__rdy = 1'b0;
 
 endmodule

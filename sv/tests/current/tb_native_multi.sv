@@ -10,7 +10,11 @@ module tb_native_multi #(`CGRA_PROFILE_PARAMETERS, parameter int TOPOLOGY=0);
   logic clk=0,reset=0;
   logic [HOST_BITS-1:0] recv_from_cpu_pkt__msg,send_to_cpu_pkt__msg;
   logic recv_from_cpu_pkt__val,recv_from_cpu_pkt__rdy,send_to_cpu_pkt__val,send_to_cpu_pkt__rdy;
+`ifdef NATIVE_MULTI_POST_SYNTH
+  cgra_multi_netlist dut(.*);
+`else
   cgra_multi #(`CGRA_PROFILE_BIND,.TOPOLOGY(TOPOLOGY)) dut(.*);
+`endif
   host_packet_t program_packets[$],query_packets[$],p;
   int chain[0:NUM_TILES-1];
   bit completed[0:NUM_CGRAS-1][0:NUM_TILES-1];
@@ -56,6 +60,7 @@ module tb_native_multi #(`CGRA_PROFILE_PARAMETERS, parameter int TOPOLOGY=0);
   task automatic tick();
     #4;clk=1;#5;clk=0;
   endtask
+`ifndef NATIVE_MULTI_POST_SYNTH
   for(genvar i=0;i<NUM_CGRAS;i++) begin : network_monitors
     noc_packet_t outgoing;
     assign outgoing=dut.noc_recv_msg[i];
@@ -64,6 +69,7 @@ module tb_native_multi #(`CGRA_PROFILE_PARAMETERS, parameter int TOPOLOGY=0);
       if(outgoing.payload.cmd==11) remote_responses++;
     end
   end
+`endif
   initial begin
     int k,pi,qi,hold,count,reads,done_cycle,owner,tile,addr;
     bit querying,active;
@@ -148,8 +154,15 @@ module tb_native_multi #(`CGRA_PROFILE_PARAMETERS, parameter int TOPOLOGY=0);
       if(cycle_count>=1500) $fatal(1,"TIMEOUT multi-CGRA");
       $display("MULTI_SCENARIO_PASS id=%0d cycles=%0d completions=%0d reads=%0d",scenario,cycle_count+1,count,reads);
     end
-    if(host_stalls<16 || remote_requests<8 || remote_responses<8)
-      $fatal(1,"Missing cycle/backpressure/remote coverage");
+    if(host_stalls<16) $fatal(1,"Missing host backpressure coverage");
+`ifndef NATIVE_MULTI_POST_SYNTH
+    if(remote_requests<8 || remote_responses<8) $fatal(1,"Missing internal remote coverage");
+    $display("NATIVE_MULTI_INTERNAL_MONITORS enabled=1");
+`else
+    // The emitted netlist has no preserved internal signals. Public remote
+    // address/owner/data checks above still exercise the complete fabric.
+    $display("NATIVE_MULTI_INTERNAL_MONITORS enabled=0 public_remote_checks=1");
+`endif
     $display("NATIVE_MULTI_PASS samples=%0d bits=%0d completions=%0d reads=%0d remote_requests=%0d remote_responses=%0d host_stalls=%0d",sample_count,HOST_BITS+2,total_completions,total_reads,remote_requests,remote_responses,host_stalls);
     $display("NATIVE_MULTI_ORACLE independent_math=1");
     $finish;
