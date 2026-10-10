@@ -411,3 +411,19 @@ ready 广播。未替换已有双来源 `tile_link_or`，详细契约见 [LINK_A
 - Make、PowerShell、regression、CI、native 文件列表接入；既有 PE lint 通过。
   此队列不隔断 ready 组合路径，无新系统或 PPA 验收。
   证据 `reference/current/pipe_queue/validation.json`；接下来修复 VectorAllReduce 原生语义。
+
+## VectorAllReduce 原生语义（2026-10-10）
+
+- 默认修复全局乘法请求数据、控制有效与重复请求保护、base ready／捕获、predicate、
+  控制退役及响应背压。reset 屏蔽事务；clear 后排空旧响应，再开始新请求。
+- 端到端验收发现并修复控制器漏分发乘法命令 19；Python 同样存在此缺陷。
+  `REDUCE_LEGACY_PYTHON=1` 保留原分发和 FU 行为，原始 274 文件未修改。
+- 四组未修改 Python 组件轨迹共 1,440 周期、459,360 位／实现，原始 Source/Sink
+  测试通过；RTL 与八份实际综合网表通过原生计分板，各实现合计 33,360 项检查。
+  网表重新读入后检查无错误、零 SCC；八项缺陷定向检查在兼容模式必须失败。
+- 原有三组组件 HDL 对照通过；完整四 CGRA Python 全局加法重播 91 周期通过。
+  新原生端到端加／乘法各检查两个请求、两个返回、六个完成包和两个数学结果，
+  并包含主机背压及错误最终结果负控。
+- 详见 `VECTOR_REDUCE_API.md` 和 `reference/current/vector_reduce/validation.json`。
+  保留单批次、最多一个未完成 FU 请求及远端无取消协议的限制；不声称完成全部系统
+  回归或系统网表验收。下一项：组合常量进位与 VectorMul lane 数边界。

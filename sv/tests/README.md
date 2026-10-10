@@ -91,3 +91,5 @@ RTL package against nonzero PyMTL packing samples.
 `current-selector` / `current-selector-synth` 检查全部选择口和 valid 掩码，原生模式隔离未选口 ready；兼容模式逐位复现 Python 的 ready 锁存缺陷。
 
 `current-pipe-queue` / `current-pipe-queue-synth` 检查 Python 逐位兼容、独立 FIFO 守恒及连续满替换；Normal Queue 替换负控必须失败。
+
+`current-vector-reduce` / `current-vector-reduce-synth` 检查归约的原生数学、事务守恒和原 Python 缺陷兼容；`native-global-reduce` 验收四 CGRA 全局加／乘法。

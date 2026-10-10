@@ -147,3 +147,5 @@ Nangate45 typical 条件下，第一阶段固定设计的标准单元总面积�
 独立 N 输入 OrLink 的完整 OR／ready 语义见 [LINK_APIS.md](LINK_APIS.md)。
 
 独立 PipeQueue 的满队列同拍替换与复位契约见 [PIPE_QUEUE_API.md](PIPE_QUEUE_API.md)。
+
+VectorAllReduce 的原生／兼容模式及全局事务契约见 [VECTOR_REDUCE_API.md](VECTOR_REDUCE_API.md)。

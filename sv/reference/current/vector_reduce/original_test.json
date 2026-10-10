@@ -1,0 +1,5 @@
+{
+  "result": "passed unmodified with Source/Sink assertions",
+  "note": "Original test uses 16-bit data and a 2-input/1-output control type; public SV profile exposes 4 inputs and 2 outputs.",
+  "stdout": "\n0:0000.0.0.0(start) -> 0000.0.0.0\n1:3402.1.0.0(vreduce+) -> 0009.1.0.0\n2:1177.1.0.0(vreduce*) -> 0031.1.0.0\n3:0002.1.0.0(vreduce*) -> 0000.1.0.0\n4:0002.1.0.0(vreduce*) -> 0000.1.0.0\n5:0002.1.0.0(vreduce*) -> 0000.1.0.0\n6:0002.1.0.0(vreduce*) -> 0000.1.0.0\n"
+}

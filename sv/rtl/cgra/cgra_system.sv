@@ -154,7 +154,7 @@ module cgra_system #(
     .clk, .reset, .recv_msg(ring_recv_msg), .recv_val(ring_recv_val), .recv_rdy(ring_recv_rdy),
     .send_msg(ring_send_msg), .send_val(ring_send_val), .send_rdy(ring_send_rdy)
   );
-  cgra_controller #(`CGRA_PROFILE_BIND) controller (
+  cgra_controller #(`CGRA_PROFILE_BIND,.REDUCE_LEGACY_PYTHON(REDUCE_LEGACY_PYTHON)) controller (
     .clk, .reset, .cgra_id,
     .recv_from_cpu_pkt__msg, .recv_from_cpu_pkt__val, .recv_from_cpu_pkt__rdy,
     .send_to_cpu_pkt__msg, .send_to_cpu_pkt__val, .send_to_cpu_pkt__rdy,
@@ -260,7 +260,8 @@ module cgra_system #(
       cgra_pe #(.VARIANT(TILE_VARIANT), `CGRA_PROFILE_BIND, .FU_COUNT(TILE_FU_COUNTS[t]),
         .FU_KINDS(TILE_FU_KINDS[t][TILE_FU_COUNTS[t]*8-1:0]),
         .VECTOR_LANES(VECTOR_LANES), .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER),
-        .FP_EXP_W(FP_EXP_W), .FP_SIG_W(FP_SIG_W)) tile (
+        .FP_EXP_W(FP_EXP_W), .FP_SIG_W(FP_SIG_W),
+        .REDUCE_LEGACY_PYTHON(REDUCE_LEGACY_PYTHON)) tile (
       .clk, .reset, .cgra_id, .tile_id(TILE_ID_W'(t)),
       .recv_data__msg(tile_recv_msg[t]), .recv_data__val(tile_recv_val[t]), .recv_data__rdy(tile_recv_rdy[t]),
       .send_data__msg(tile_send_msg[t]), .send_data__val(tile_send_val[t]), .send_data__rdy(tile_send_rdy[t]),

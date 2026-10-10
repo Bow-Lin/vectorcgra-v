@@ -236,7 +236,7 @@ module tile_flexible_fu_configurable #(
       );
     end
     else if(KIND==`CGRA_FU_VECTOR_REDUCE) begin : kind_vector_reduce
-      tile_vector_all_reduce #(`CGRA_PROFILE_BIND, .LANES(VECTOR_LANES), .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER)) fu (
+      tile_vector_all_reduce #(`CGRA_PROFILE_BIND, .LANES(VECTOR_LANES), .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER), .LEGACY_PYTHON(REDUCE_LEGACY_PYTHON)) fu (
         `CGRA_FU_SLOT_PORTS
       );
     end

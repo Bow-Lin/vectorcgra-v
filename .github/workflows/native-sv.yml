@@ -33,6 +33,8 @@ jobs:
         run: make -C sv current-selector JOBS=2
       - name: Pipe queue full replacement and FIFO conservation
         run: make -C sv current-pipe-queue JOBS=2
+      - name: Vector reduction handshakes and global add/multiply
+        run: make -C sv current-vector-reduce native-global-reduce JOBS=2
       - name: Current YAML system programs
         run: make -C sv current-kernels JOBS=2
       - name: Independent native arithmetic and repaired programs

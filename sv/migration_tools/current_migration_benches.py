@@ -29,7 +29,7 @@ def generate(label):
     '  logic clk=0, reset;',f'  logic [{hostbits-1}:0] recv_from_cpu_pkt__msg,send_to_cpu_pkt__msg;',
     '  logic recv_from_cpu_pkt__val,recv_from_cpu_pkt__rdy,send_to_cpu_pkt__val,send_to_cpu_pkt__rdy;',
     '  cgra_multi #('+','.join(f'.{k}({v})' for k,v in params.items())+',',
-    f"    .FU_COUNT({len(effective_kinds)}),.FU_KINDS({{{','.join('8\'d'+str(k) for k in reversed(effective_kinds))}}})) dut (.*);",
+    f"    .REDUCE_LEGACY_PYTHON(1),.FU_COUNT({len(effective_kinds)}),.FU_KINDS({{{','.join('8\'d'+str(k) for k in reversed(effective_kinds))}}})) dut (.*);",
     f'  logic [{ib-1}:0] replay_input;',f'  logic [{ob-1}:0] expected_output,actual_output;',
     '  assign actual_output={'+','.join(native(f['sv']) for f in outputs)+'};',
     '  integer fd,status,cycle,expected_cycles,host_inputs,complete_count,result_count,math_expected;',
