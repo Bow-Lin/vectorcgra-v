@@ -195,6 +195,28 @@ SPMV 在迁移工具的内存副本中补充 opcode 映射，并使用原生无�
 独立证据为 `reference/current/ring_ctrl_memory/validation.json`；此前 M23／M24／M25 记录保留。
 验收时提交／推送状态为记录生成时快照，实际状态以 Git 为准。
 
+
+## 独立 DataMem API（2026-10-10）
+
+新增 `cgra_data_mem`，支持参数化读写口、完整消息位宽及预加载映像。
+默认原生模式成对接收写地址／数据，按写口编号处理同址冲突；读端背压时保存
+读前写后边界上的完整结果，不阻塞写口；同步复位恢复预加载或零映像。
+兼容模式保留原 Python 的无效读触发预加载写、写使能锁存、假写握手和忽略复位，
+原 Python 274 个文件不变。接口与限制见 [DATA_MEMORY_API.md](DATA_MEMORY_API.md)。
+
+- 原测试 Source/Sink 断言及两组扩展轨迹共 509 周期、64531 个输出位，
+  包含 23 个 reset 周期；RTL 和实际综合网表均逐位匹配，10 个冻结文件再生成一致。
+- 4 组原生参数、3 组兼容参数均通过 RTL 与网表；每种实现有 12810 项原生检查。
+  14 个错误期望、8 个旧缺陷复现、3 个非法参数／地址负控均检出预期错误，
+  同输入的原生缺陷检查均通过。
+- 7 份网表均通过完整综合、优化前后 check，以及实际网表重读后的 check 和零 SCC；
+  Verilator 网表位别名告警保留。首次网表编译的数组展平连接问题已在台架修复。
+- Make、PowerShell、regression、CI 仿真入口及当前 native 文件列表已接入；
+  既有 PE 台架 lint/elaboration 通过。PowerShell 与远端 CI 尚无本批运行结果。
+- 未替换 PE／阵列已有存储控制器，未重跑系统内核或 PPA。
+  独立证据为 `reference/current/data_memory/validation.json`。
+  按 [MIGRATION_TASKS.md](MIGRATION_TASKS.md) 顺序，下一项为 DataMemScalable API。
+
 ## 工具链证据
 
 Verilator 5.029 的文件驱动 while 循环会错误常量折叠循环外的计数器判断，最小复现见 `reference/current/structure/verilator_counter_repro.sv`。迁移 bench 仅给计数器和覆盖位加 `public_flat_rw` 以阻止误折叠；保留全部 RTL 优化和逐位比较。没有删除覆盖检查，也没有因此修改 Python 轨迹。综合循环转换的另一个独立反例为同目录的 `loop_cast_repro.sv`。

@@ -316,3 +316,26 @@
 - 共享 NoC 500 周期、7／17 节点环各 800 周期重新逐位匹配旧 HDL，包括 invalid 消息；361／786／800 包分别全部收发守恒。native 文件列表对既有 PE 台架 lint/elaboration 通过。未重跑系统内核，不声称新的系统级验收或 PPA。
 - 明确参数范围：FU 输入 1…4、输出固定 2、Tile 输入／输出各 1…8；实际验收四组参数，不声称覆盖任意 Python 类型。动态存储 reset 保留程序，运行中配置没有隔离；Context／Streaming 和其它 FU sideband 未暴露。返回队列最低增加一拍、峰值每两拍一条。
 - Make、PowerShell、regression 和 CI 仿真入口已加入；shell 语法和 Make 入口检查通过，PowerShell 未在 Linux 执行。证据独立存入 `reference/current/ring_ctrl_memory/validation.json`，旧批次记录保留。验收记录生成时尚未提交／推送，也没有本批远端 CI 结果；实际 Git 状态为准。下一项是独立 DataMem／DataMemScalable API。
+
+## 独立 DataMem API（2026-10-10）
+
+新增 `cgra_data_mem`，支持参数化读写口、完整消息位宽及预加载映像。
+默认原生模式成对接收写地址／数据，按写口编号处理同址冲突；读端背压时保存
+读前写后边界上的完整结果，不阻塞写口；同步复位恢复预加载或零映像。
+兼容模式保留原 Python 的无效读触发预加载写、写使能锁存、假写握手和忽略复位，
+原 Python 274 个文件不变。接口与限制见 [DATA_MEMORY_API.md](DATA_MEMORY_API.md)。
+
+- 原测试 Source/Sink 断言及两组扩展轨迹共 509 周期、64531 个输出位，
+  包含 23 个 reset 周期；RTL 和实际综合网表均逐位匹配，10 个冻结文件再生成一致。
+- 4 组原生参数、3 组兼容参数均通过 RTL 与网表；每种实现有 12810 项原生检查。
+  14 个错误期望、8 个旧缺陷复现、3 个非法参数／地址负控均检出预期错误，
+  同输入的原生缺陷检查均通过。
+- 7 份网表均通过完整综合、优化前后 check，以及实际网表重读后的 check 和零 SCC；
+  Verilator 网表位别名告警保留。首次网表编译的数组展平连接问题已在台架修复。
+- Make、PowerShell、regression、CI 仿真入口及当前 native 文件列表已接入；
+  既有 PE 台架 lint/elaboration 通过。PowerShell 与远端 CI 尚无本批运行结果。
+- 未替换 PE／阵列已有存储控制器，未重跑系统内核或 PPA。
+  独立证据为 `reference/current/data_memory/validation.json`。
+  按 [MIGRATION_TASKS.md](MIGRATION_TASKS.md) 顺序，下一项为 DataMemScalable API。
+
+验收记录在提交前生成；提交和推送状态以 Git 为准。

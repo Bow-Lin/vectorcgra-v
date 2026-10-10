@@ -141,3 +141,5 @@ Nangate45 typical 条件下，第一阶段固定设计的标准单元总面积�
 上述第一阶段归档对应提交 `ff09971`，保留当时的 `tb/` 路径；当前测试目录已迁至 `tests/`。目录调整的验证记录见 `EXPERIMENT_LOG.md` 的 M05。
 
 许可证与来源声明随 `LICENSE` 和 `licenses/` 保留。
+
+独立多端口数据存储及预加载／握手契约见 [DATA_MEMORY_API.md](DATA_MEMORY_API.md)。后续授权顺序见 [MIGRATION_TASKS.md](MIGRATION_TASKS.md)。

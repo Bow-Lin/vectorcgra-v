@@ -101,3 +101,4 @@ rtl/mem/cgra_static_ctrl_mem.sv
 rtl/mem/cgra_static_const_queue.sv
 rtl/mem/cgra_ring_ctrl_node.sv
 rtl/mem/cgra_ring_multi_ctrl_mem.sv
+rtl/mem/cgra_data_mem.sv
