@@ -87,3 +87,5 @@ RTL package against nonzero PyMTL packing samples.
 `current-scalable-memory` / `current-scalable-memory-synth` 通过共享台架验证 Scalable 包装层；NoC 随机输入期间本地功能及固定零输出均受检查。
 
 `current-or-link` / `current-or-link-synth` 验证多输入 OrLink 的未修改 Python 轨迹及全部 valid 掩码的独立位计数结果。
+
+`current-selector` / `current-selector-synth` 检查全部选择口和 valid 掩码，原生模式隔离未选口 ready；兼容模式逐位复现 Python 的 ready 锁存缺陷。

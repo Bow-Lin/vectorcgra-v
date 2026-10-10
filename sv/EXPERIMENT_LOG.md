@@ -376,3 +376,21 @@ ready 广播。未替换已有双来源 `tile_link_or`，详细契约见 [LINK_A
 - Make、PowerShell、regression、CI 与 native 文件列表接入；既有 PE 台架 lint 通过。
   组合链接不缓存独立流，不承诺输入字段变化下的背压保持；未新增系统或 PPA 验收。
 - 独立证据 `reference/current/or_link/validation.json`；下一项是 Selector 的未选口 ready 修正。
+
+## 独立 Selector API 与未选口 ready 修正（2026-10-10）
+
+新增 `cgra_selector`，原生模式只有当前选择口可收到输出 ready，其余明确为零；
+保留完整选中消息（包括无效字段）。兼容模式显式保留原 Python 的未选 ready 锁存。
+它是组合路由，选择信号须由上游保持到握手完成；契约见 [LINK_APIS.md](LINK_APIS.md)。
+
+- 原固定选择 Source/Sink 测试原样通过；动态切换选择轨迹直接复现残留 ready。
+  19／35／67 位、3／5／8 输入共 960 周期／44800 输出位，含 21 个 reset 周期，
+  在 RTL 和实际网表逐位匹配；8 个参考文件再生成一致，274 个原 Python SHA 未变。
+- 原生增加 8 位／单输入，四组配置穷举选择口、valid 掩码、ready 和 reset，
+  每种实现 86908 项检查；残留 ready 用例在原生通过、兼容失败。
+  18 次错误期望、旧缺陷、非法选择／参数负控均检出预期错误。
+- 7 份实际网表全部完成综合、优化前后 check、实际网表重读 check／零 SCC。
+  默认分支无 ready 锁存，兼容分支的锁存器是原始缺陷取证的一部分。
+- Make、PowerShell、regression、CI 和 native 文件列表接入；既有 PE lint 通过。
+  无新系统或 PPA 验收；证据为 `reference/current/selector/validation.json`。
+  下一项：PipeQueue 满队列同周期出入替换语义。

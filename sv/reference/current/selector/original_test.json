@@ -1,0 +1,4 @@
+{
+  "result": "passed unmodified with Source/Sink assertions",
+  "stdout": "\n0:.          or .          or            -> | or_link:recv: 0000.0.0.0|0000.0.0.0|0000.0.0.0 (recv_from:2) => out:0000.0.0.0 ##  | ->           \n1:#          or #          or 0000.1.0.0 -> | or_link:recv: 0007.0.1.0|0000.1.0.0|0000.1.0.0 (recv_from:2) => out:0000.1.0.0 ##  | -> 0000.1.0.0\n2:#          or #          or 0004.1.0.0 -> | or_link:recv: 0007.0.1.0|0000.1.0.0|0004.1.0.0 (recv_from:2) => out:0004.1.0.0 ##  | -> 0004.1.0.0\n3:#          or #          or .          -> | or_link:recv: 0007.0.1.0|0000.1.0.0|0004.1.0.0 (recv_from:2) => out:0004.1.0.0 ##  | -> .         \n4:#          or #          or .          -> | or_link:recv: 0007.0.1.0|0000.1.0.0|0004.1.0.0 (recv_from:2) => out:0004.1.0.0 ##  | -> .         \n5:#          or #          or .          -> | or_link:recv: 0007.0.1.0|0000.1.0.0|0004.1.0.0 (recv_from:2) => out:0004.1.0.0 ##  | -> .         \n"
+}

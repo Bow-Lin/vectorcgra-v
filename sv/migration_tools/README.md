@@ -121,3 +121,5 @@ are described in `../PHASE2_REPORT.md`.
 `current_data_memory_scalable.py` 单独实例化未修改 Scalable 模型，记录占位 NoC 端口及本地存储轨迹，不以普通 DataMem 轨迹代替。
 
 `current_or_link.py` 原样运行 OrLink 的 Source/Sink 测试并冻结 16／32／64 位、多输入、含 invalid／reset 的位级轨迹；单输入 Python Bits0 限制单独记录。
+
+`current_selector.py` 原样运行固定选择测试并冻结动态选择轨迹，保留原 Python ready 锁存，原始测试输出保存在 JSON 中。

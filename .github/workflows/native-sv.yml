@@ -29,6 +29,8 @@ jobs:
         run: make -C sv current-scalable-memory JOBS=2
       - name: N-input combinational OR link
         run: make -C sv current-or-link JOBS=2
+      - name: Selector ready isolation and Python compatibility
+        run: make -C sv current-selector JOBS=2
       - name: Current YAML system programs
         run: make -C sv current-kernels JOBS=2
       - name: Independent native arithmetic and repaired programs
