@@ -105,3 +105,4 @@ rtl/mem/cgra_data_mem.sv
 rtl/mem/cgra_data_mem_scalable.sv
 rtl/noc/cgra_or_link.sv
 rtl/noc/cgra_selector.sv
+rtl/common/cgra_pipe_queue.sv

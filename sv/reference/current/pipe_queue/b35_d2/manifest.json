@@ -1,0 +1,21 @@
+{
+  "parameters": {
+    "DATA_BITS": 35,
+    "DEPTH": 2
+  },
+  "cycles": 313,
+  "input_bits": 38,
+  "output_bits": 39,
+  "reset_samples": 10,
+  "source_sha256": {
+    "lib/basic/val_rdy/queues.py": "547ef3175064e52759037cac8e0dfb037450ad3c1d8d22cf1d207e1a5e1fa909"
+  },
+  "generator_sha256": "1a1adcd0758f9ba28ac6a43869a71d789045ee7539953872098cf3506f9929b1",
+  "vectors_sha256": "9f7bdc0e0bbe8d3f390a9f0d9ed50fbc91483c6d7b44e4367eec2cd5b16a0c95",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "notes": [
+    "Original queue implementation; full simultaneous pop/push does not create a bubble.",
+    "All outputs compared, including invalid payload and reset-cycle ready/data writes.",
+    "No standalone project PipeQueue test was found; these traces drive the original model directly."
+  ]
+}

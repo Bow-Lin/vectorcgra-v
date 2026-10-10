@@ -394,3 +394,20 @@ ready 广播。未替换已有双来源 `tile_link_or`，详细契约见 [LINK_A
 - Make、PowerShell、regression、CI 和 native 文件列表接入；既有 PE lint 通过。
   无新系统或 PPA 验收；证据为 `reference/current/selector/validation.json`。
   下一项：PipeQueue 满队列同周期出入替换语义。
+
+## 独立 PipeQueue API（2026-10-10）
+
+新增 `cgra_pipe_queue`：寄存数据路径、组合 ready 传播，满队列同拍出队可接收替换元素，
+深度 1 同样成立。默认复位屏蔽握手并清空逻辑队列，兼容模式保留原复位周期写数据及
+无效输出行为。已有 Normal／Bypass 队列与系统实例不变；见 [PIPE_QUEUE_API.md](PIPE_QUEUE_API.md)。
+
+- 直接驱动未修改项目 Python，深度 1／2／3／5、8／35／67／19 位共 1255 周期／45517 输出位，
+  含 40 个 reset 周期，RTL／实际网表逐位匹配；13 个参考文件再生成一致，274 个 Python SHA 未变。
+  未发现该项目包装层的独立原测试，没有把其它实现的测试算成本 API 原测试。
+- 四组原生配置每种实现 7328 项独立 FIFO 列表检查，包含顺序、守恒、复位丢弃、长背压，
+  每组至少 40 次连续满队列替换；原生／兼容的 8 份实际网表全部通过。
+- 全部网表完成优化前后 check、完整综合、实际输出网表重读 check／零 SCC。
+  20 次负控覆盖错误期望、复位假握手、非法派生宽度，以及用 Normal Queue 替代时的满替换失败。
+- Make、PowerShell、regression、CI、native 文件列表接入；既有 PE lint 通过。
+  此队列不隔断 ready 组合路径，无新系统或 PPA 验收。
+  证据 `reference/current/pipe_queue/validation.json`；接下来修复 VectorAllReduce 原生语义。

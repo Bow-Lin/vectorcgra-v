@@ -90,6 +90,11 @@ current-selector:
 	bash tests/current/run_selector.sh
 current-selector-synth:
 	bash tests/current/run_selector.sh synth
+.PHONY: current-pipe-queue current-pipe-queue-synth
+current-pipe-queue:
+	bash tests/current/run_pipe_queue.sh
+current-pipe-queue-synth:
+	bash tests/current/run_pipe_queue.sh synth
 baseline:
 	bash scripts/run_baseline.sh all
 
@@ -122,7 +127,7 @@ phase3-system:
 
 # Stage 4 compiles maintained SV and frozen HDL/text assets directly.
 .PHONY: regression phase4 phase4-noc phase4-system phase4-template phase4-migration phase4-peripheral phase4-memory
-regression: current current-synth current-post-synth current-kernels current-prefixes native-kernels native-math native-multi native-template current-migration current-loop-controller current-loop-controller-synth current-static-memory current-static-memory-synth current-ring-ctrl-memory current-ring-ctrl-memory-synth current-data-memory current-data-memory-synth current-scalable-memory current-scalable-memory-synth current-or-link current-or-link-synth current-selector current-selector-synth baseline
+regression: current current-synth current-post-synth current-kernels current-prefixes native-kernels native-math native-multi native-template current-migration current-loop-controller current-loop-controller-synth current-static-memory current-static-memory-synth current-ring-ctrl-memory current-ring-ctrl-memory-synth current-data-memory current-data-memory-synth current-scalable-memory current-scalable-memory-synth current-or-link current-or-link-synth current-selector current-selector-synth current-pipe-queue current-pipe-queue-synth baseline
 phase4: phase4-noc phase4-system phase4-template phase4-migration phase4-peripheral phase4-memory
 phase4-noc:
 	bash tests/phase4/noc/run.sh

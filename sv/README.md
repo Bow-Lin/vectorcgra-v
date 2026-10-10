@@ -145,3 +145,5 @@ Nangate45 typical 条件下，第一阶段固定设计的标准单元总面积�
 独立多端口数据存储及预加载／握手契约见 [DATA_MEMORY_API.md](DATA_MEMORY_API.md)。后续授权顺序见 [MIGRATION_TASKS.md](MIGRATION_TASKS.md)。
 
 独立 N 输入 OrLink 的完整 OR／ready 语义见 [LINK_APIS.md](LINK_APIS.md)。
+
+独立 PipeQueue 的满队列同拍替换与复位契约见 [PIPE_QUEUE_API.md](PIPE_QUEUE_API.md)。

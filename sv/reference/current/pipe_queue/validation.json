@@ -1,0 +1,876 @@
+{
+  "task": "Standalone PipeQueue with full simultaneous dequeue/enqueue",
+  "status": "passed",
+  "date": "2026-10-10",
+  "base_commit": "9b68ef9dcd9f48789996aa17c31b8f0278910c32",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "pinned_python_unchanged": 274,
+  "profiles": [
+    {
+      "name": "b19_d5",
+      "parameters": {
+        "DATA_BITS": 19,
+        "DEPTH": 5
+      },
+      "cycles": 316,
+      "input_bits": 22,
+      "output_bits": 24,
+      "reset_samples": 10,
+      "source_sha256": {
+        "lib/basic/val_rdy/queues.py": "547ef3175064e52759037cac8e0dfb037450ad3c1d8d22cf1d207e1a5e1fa909"
+      },
+      "generator_sha256": "1a1adcd0758f9ba28ac6a43869a71d789045ee7539953872098cf3506f9929b1",
+      "vectors_sha256": "a9c3be5de7a46ded8854649b945ae372ebb376dd44ded91c1db6f0cddbf5218f",
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "notes": [
+        "Original queue implementation; full simultaneous pop/push does not create a bubble.",
+        "All outputs compared, including invalid payload and reset-cycle ready/data writes.",
+        "No standalone project PipeQueue test was found; these traces drive the original model directly."
+      ]
+    },
+    {
+      "name": "b35_d2",
+      "parameters": {
+        "DATA_BITS": 35,
+        "DEPTH": 2
+      },
+      "cycles": 313,
+      "input_bits": 38,
+      "output_bits": 39,
+      "reset_samples": 10,
+      "source_sha256": {
+        "lib/basic/val_rdy/queues.py": "547ef3175064e52759037cac8e0dfb037450ad3c1d8d22cf1d207e1a5e1fa909"
+      },
+      "generator_sha256": "1a1adcd0758f9ba28ac6a43869a71d789045ee7539953872098cf3506f9929b1",
+      "vectors_sha256": "9f7bdc0e0bbe8d3f390a9f0d9ed50fbc91483c6d7b44e4367eec2cd5b16a0c95",
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "notes": [
+        "Original queue implementation; full simultaneous pop/push does not create a bubble.",
+        "All outputs compared, including invalid payload and reset-cycle ready/data writes.",
+        "No standalone project PipeQueue test was found; these traces drive the original model directly."
+      ]
+    },
+    {
+      "name": "b67_d3",
+      "parameters": {
+        "DATA_BITS": 67,
+        "DEPTH": 3
+      },
+      "cycles": 314,
+      "input_bits": 70,
+      "output_bits": 71,
+      "reset_samples": 10,
+      "source_sha256": {
+        "lib/basic/val_rdy/queues.py": "547ef3175064e52759037cac8e0dfb037450ad3c1d8d22cf1d207e1a5e1fa909"
+      },
+      "generator_sha256": "1a1adcd0758f9ba28ac6a43869a71d789045ee7539953872098cf3506f9929b1",
+      "vectors_sha256": "3a30d2e3313ff009ed7b8b470be8a960ac2a0914910a9c3475f59d5f83425901",
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "notes": [
+        "Original queue implementation; full simultaneous pop/push does not create a bubble.",
+        "All outputs compared, including invalid payload and reset-cycle ready/data writes.",
+        "No standalone project PipeQueue test was found; these traces drive the original model directly."
+      ]
+    },
+    {
+      "name": "b8_d1",
+      "parameters": {
+        "DATA_BITS": 8,
+        "DEPTH": 1
+      },
+      "cycles": 312,
+      "input_bits": 11,
+      "output_bits": 11,
+      "reset_samples": 10,
+      "source_sha256": {
+        "lib/basic/val_rdy/queues.py": "547ef3175064e52759037cac8e0dfb037450ad3c1d8d22cf1d207e1a5e1fa909"
+      },
+      "generator_sha256": "1a1adcd0758f9ba28ac6a43869a71d789045ee7539953872098cf3506f9929b1",
+      "vectors_sha256": "0ee6ef1f09053f4f01d33d433a25e56ecccebb32edbc02302be6f159ba383e2e",
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "notes": [
+        "Original queue implementation; full simultaneous pop/push does not create a bubble.",
+        "All outputs compared, including invalid payload and reset-cycle ready/data writes.",
+        "No standalone project PipeQueue test was found; these traces drive the original model directly."
+      ]
+    }
+  ],
+  "compatibility_cycles": 1255,
+  "compatibility_reset_cycles": 40,
+  "compatibility_output_bits_per_implementation": 45517,
+  "native_checks": {
+    "rtl": 7328,
+    "synth": 7328
+  },
+  "positive_runs": [
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b8_d1/legacy0/run.log",
+      "sha256": "c58e76155ca2b8da1ccc227abc8d40e7acb709a72b20c7d6519816051b704d22",
+      "results": [
+        "PIPE_QUEUE_NATIVE_PASS samples=454 checks=1818 enqueued=215 dequeued=213 discarded=2 replacements=151"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b8_d1/legacy0/full-replace.log",
+      "sha256": "7426f08e990d41f712caaafa2eef3eed43b121fb231769fe9c787a396b39305b",
+      "results": [
+        "PIPE_QUEUE_FULL_REPLACE_PASS"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b8_d1/legacy1/run.log",
+      "sha256": "34acd0b77a6b4a6365503603088cce011adfbeb8297938d269ffdec0f674d2f4",
+      "results": [
+        "PIPE_QUEUE_REPLAY_PASS samples=312 output_bits=11"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b8_d1/legacy1/full-replace.log",
+      "sha256": "7eb1635914db9d5a9b112722ff46434495bbc7a02fa366d4d6d2a3be57c0497a",
+      "results": [
+        "PIPE_QUEUE_FULL_REPLACE_PASS"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b35_d2/legacy0/run.log",
+      "sha256": "dc6f9e554617d243a9db01e3dd0320c07a10476a7729dd64ab53216dad754bfa",
+      "results": [
+        "PIPE_QUEUE_NATIVE_PASS samples=456 checks=1826 enqueued=240 dequeued=234 discarded=6 replacements=113"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b35_d2/legacy0/full-replace.log",
+      "sha256": "bd66373c47d5cd43b646ec5084919aeb40e8a0d05b856755df50485d805d0eb0",
+      "results": [
+        "PIPE_QUEUE_FULL_REPLACE_PASS"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b35_d2/legacy0/reset.log",
+      "sha256": "6b600ca462cdf1cd8370e7ce74cdb8b13f34d4b978174a1c37f876468e3efe32",
+      "results": [
+        "PIPE_QUEUE_RESET_FIXED"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b35_d2/legacy1/run.log",
+      "sha256": "912fa96c9a577759d8983d9c7f9029e4beeb3d08ee3a74a7f9486c33a616b636",
+      "results": [
+        "PIPE_QUEUE_REPLAY_PASS samples=313 output_bits=39"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b35_d2/legacy1/full-replace.log",
+      "sha256": "8e5020480a6bb5b732dd98d912482289a07f6e9f75671915094c74139d42f6da",
+      "results": [
+        "PIPE_QUEUE_FULL_REPLACE_PASS"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b67_d3/legacy0/run.log",
+      "sha256": "2182b5e5c2f14167f2c0f71cc636101430b5ce01c2e8a6b9502472912bd919d0",
+      "results": [
+        "PIPE_QUEUE_NATIVE_PASS samples=458 checks=1834 enqueued=227 dequeued=222 discarded=5 replacements=65"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b67_d3/legacy0/full-replace.log",
+      "sha256": "df3dc13a1964042912088ce1e45cd6bed71689b4e73236ff19ccb822138008cd",
+      "results": [
+        "PIPE_QUEUE_FULL_REPLACE_PASS"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b67_d3/legacy1/run.log",
+      "sha256": "33b31f6d9af29d1b2deb579d72395998609372d4787fbe7c891d61bbff4f9faa",
+      "results": [
+        "PIPE_QUEUE_REPLAY_PASS samples=314 output_bits=71"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b67_d3/legacy1/full-replace.log",
+      "sha256": "ff506bf84c9936b2a18fa42281c517569e8c3032a5bcb8fbd6e7616ff499543a",
+      "results": [
+        "PIPE_QUEUE_FULL_REPLACE_PASS"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b19_d5/legacy0/run.log",
+      "sha256": "cf2edfa028a09d181d71dc9826962795ac8bd1f5d9eb518a5caca8847cc1be78",
+      "results": [
+        "PIPE_QUEUE_NATIVE_PASS samples=462 checks=1850 enqueued=230 dequeued=228 discarded=2 replacements=48"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b19_d5/legacy0/full-replace.log",
+      "sha256": "d6da1c46ead2b32bd2e8c528dd101e6ed9556063199d3f66c80aed9bbd2b4096",
+      "results": [
+        "PIPE_QUEUE_FULL_REPLACE_PASS"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b19_d5/legacy1/run.log",
+      "sha256": "9042bab968a1851e6ab3ed3157b1d4b2150d065b44487c0ff3b7253b14d5061d",
+      "results": [
+        "PIPE_QUEUE_REPLAY_PASS samples=316 output_bits=24"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b19_d5/legacy1/full-replace.log",
+      "sha256": "08e2ce019f73d5b2a9eb373ba0f9fa24f2b919224da1dd7af180f282ec9df10c",
+      "results": [
+        "PIPE_QUEUE_FULL_REPLACE_PASS"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b8_d1/legacy0/run.log",
+      "sha256": "4867e8ae6f1b55e0477b6445dcaa9800798210cb6a74a45970d77e86c11eea75",
+      "results": [
+        "PIPE_QUEUE_NATIVE_PASS samples=454 checks=1818 enqueued=215 dequeued=213 discarded=2 replacements=151"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b8_d1/legacy0/full-replace.log",
+      "sha256": "62d4c8bb0699d718dea7033ccc6cdfa2fa0448c17deaf1dc683ea87b1fe642bc",
+      "results": [
+        "PIPE_QUEUE_FULL_REPLACE_PASS"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b8_d1/legacy1/run.log",
+      "sha256": "22b73d121785d8da67b83daa48d1958f32533cba98cbd72a23f1b656cadcc4ad",
+      "results": [
+        "PIPE_QUEUE_REPLAY_PASS samples=312 output_bits=11"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b8_d1/legacy1/full-replace.log",
+      "sha256": "9b697f5ec7cef1e3cfc4f68128f8ebbc531090cc9418fca97a4f57b667d9abcb",
+      "results": [
+        "PIPE_QUEUE_FULL_REPLACE_PASS"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b35_d2/legacy0/run.log",
+      "sha256": "7f321b3ed3cca8f2e5ccad3c3592ef797a0cd00dda92aaedaeddcf5a6d1f312f",
+      "results": [
+        "PIPE_QUEUE_NATIVE_PASS samples=456 checks=1826 enqueued=240 dequeued=234 discarded=6 replacements=113"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b35_d2/legacy0/full-replace.log",
+      "sha256": "88781e2dd02cd81e16e6002c6b0de31032700b89db2a423598be458d5474fbad",
+      "results": [
+        "PIPE_QUEUE_FULL_REPLACE_PASS"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b35_d2/legacy0/reset.log",
+      "sha256": "79e7e9df22e34d4a9eeab6f173936f3fe95515ed6b5452f97d5d1a8ca03bbb9a",
+      "results": [
+        "PIPE_QUEUE_RESET_FIXED"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b35_d2/legacy1/run.log",
+      "sha256": "da6d5be5fd9cda0d27d41db068b424c884993b69ff9f3303b5978f7e13c0c49e",
+      "results": [
+        "PIPE_QUEUE_REPLAY_PASS samples=313 output_bits=39"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b35_d2/legacy1/full-replace.log",
+      "sha256": "baf07aaf6e20ad6f7ef69304f1d7d6a3ab6ef247aa06eb62fe415d64211ee75c",
+      "results": [
+        "PIPE_QUEUE_FULL_REPLACE_PASS"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b67_d3/legacy0/run.log",
+      "sha256": "81de5fde590e6ff1e35f060b810ebd9847f044f7f1fde349ef994b155c350d67",
+      "results": [
+        "PIPE_QUEUE_NATIVE_PASS samples=458 checks=1834 enqueued=227 dequeued=222 discarded=5 replacements=65"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b67_d3/legacy0/full-replace.log",
+      "sha256": "7bc2dae382a18454443fff1f4acb34f7b5ac61c64c7d637adfde8fa527715da6",
+      "results": [
+        "PIPE_QUEUE_FULL_REPLACE_PASS"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b67_d3/legacy1/run.log",
+      "sha256": "080c1073965aa2dd4292fefb7609daea3e3b82bb76ffd8d6fbaaeb3fb789e5ed",
+      "results": [
+        "PIPE_QUEUE_REPLAY_PASS samples=314 output_bits=71"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b67_d3/legacy1/full-replace.log",
+      "sha256": "aa47af2432a4f43bbcb33448c74086c55efa9a1b1b68afe37d633f83725a39c6",
+      "results": [
+        "PIPE_QUEUE_FULL_REPLACE_PASS"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b19_d5/legacy0/run.log",
+      "sha256": "e5ad4349eebd2954f6d5594756fe1c021f6d23d670f8c448d79522eee63b57d1",
+      "results": [
+        "PIPE_QUEUE_NATIVE_PASS samples=462 checks=1850 enqueued=230 dequeued=228 discarded=2 replacements=48"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b19_d5/legacy0/full-replace.log",
+      "sha256": "72dd5d3c85ecc85b95aa7d2c28ce59503fe4be75ce11ce497eff4b9636dff75f",
+      "results": [
+        "PIPE_QUEUE_FULL_REPLACE_PASS"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b19_d5/legacy1/run.log",
+      "sha256": "021e60aaae0f6d01873d7ed5f7c7ce7bc252aea144374e82a82a6150658d5287",
+      "results": [
+        "PIPE_QUEUE_REPLAY_PASS samples=316 output_bits=24"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b19_d5/legacy1/full-replace.log",
+      "sha256": "abb6e382c504919dd63c94a05a70d498dee1071c61a8b3746dd0dbbfcf3509a9",
+      "results": [
+        "PIPE_QUEUE_FULL_REPLACE_PASS"
+      ]
+    }
+  ],
+  "negative_runs": [
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b8_d1/legacy0/negative.log",
+      "sha256": "e263ef1543b69782cc5570d1ce522768f4f6499cd928b3f8ca50ab4a19212b77",
+      "results": [
+        "[17000] %Fatal: tb_pipe_queue.sv:42: Assertion failed in TOP.tb_pipe_queue.require: PIPE_QUEUE_CHECK occupancy sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b8_d1/legacy1/negative.log",
+      "sha256": "9377dd1be9ee1eeff482ba066d9870020d33ac6ba44f6a59120960648048e436",
+      "results": [
+        "[17000] %Fatal: tb_pipe_queue.sv:55: Assertion failed in TOP.tb_pipe_queue.replay: PIPE_QUEUE_REPLAY_MISMATCH sample=4 got=701 expected=700"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b35_d2/legacy0/negative.log",
+      "sha256": "e263ef1543b69782cc5570d1ce522768f4f6499cd928b3f8ca50ab4a19212b77",
+      "results": [
+        "[17000] %Fatal: tb_pipe_queue.sv:42: Assertion failed in TOP.tb_pipe_queue.require: PIPE_QUEUE_CHECK occupancy sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b35_d2/legacy1/negative.log",
+      "sha256": "5fe007563e6ee17d5c27049d608fc96f123ab8ec220ef0a7f6457840632c142c",
+      "results": [
+        "[17000] %Fatal: tb_pipe_queue.sv:55: Assertion failed in TOP.tb_pipe_queue.replay: PIPE_QUEUE_REPLAY_MISMATCH sample=4 got=6000000006 expected=6000000007"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b35_d2/legacy1/reset.log",
+      "sha256": "b983b8ee15f304f837c766202f5b1e58b419e47528dd011fb8d23e162dcda29c",
+      "results": [
+        "[7000] %Fatal: tb_pipe_queue.sv:42: Assertion failed in TOP.tb_pipe_queue.require: PIPE_QUEUE_CHECK DEFECT_RESET_HANDSHAKE sample=0"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b67_d3/legacy0/negative.log",
+      "sha256": "e263ef1543b69782cc5570d1ce522768f4f6499cd928b3f8ca50ab4a19212b77",
+      "results": [
+        "[17000] %Fatal: tb_pipe_queue.sv:42: Assertion failed in TOP.tb_pipe_queue.require: PIPE_QUEUE_CHECK occupancy sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b67_d3/legacy1/negative.log",
+      "sha256": "7fd27410239a4d79d99fd64494ea38d0c4cfdde484907fd98c873cdd07ac5751",
+      "results": [
+        "[17000] %Fatal: tb_pipe_queue.sv:55: Assertion failed in TOP.tb_pipe_queue.replay: PIPE_QUEUE_REPLAY_MISMATCH sample=4 got=600000000000000006 expected=600000000000000007"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b19_d5/legacy0/negative.log",
+      "sha256": "e263ef1543b69782cc5570d1ce522768f4f6499cd928b3f8ca50ab4a19212b77",
+      "results": [
+        "[17000] %Fatal: tb_pipe_queue.sv:42: Assertion failed in TOP.tb_pipe_queue.require: PIPE_QUEUE_CHECK occupancy sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b19_d5/legacy1/negative.log",
+      "sha256": "c9d7e23dacca7c104ff4f0495b209d89130cc1b4f450dae4a5cb183d39b64b2b",
+      "results": [
+        "[17000] %Fatal: tb_pipe_queue.sv:55: Assertion failed in TOP.tb_pipe_queue.replay: PIPE_QUEUE_REPLAY_MISMATCH sample=4 got=c0000a expected=c0000b"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b8_d1/legacy0/negative.log",
+      "sha256": "e263ef1543b69782cc5570d1ce522768f4f6499cd928b3f8ca50ab4a19212b77",
+      "results": [
+        "[17000] %Fatal: tb_pipe_queue.sv:42: Assertion failed in TOP.tb_pipe_queue.require: PIPE_QUEUE_CHECK occupancy sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b8_d1/legacy1/negative.log",
+      "sha256": "9377dd1be9ee1eeff482ba066d9870020d33ac6ba44f6a59120960648048e436",
+      "results": [
+        "[17000] %Fatal: tb_pipe_queue.sv:55: Assertion failed in TOP.tb_pipe_queue.replay: PIPE_QUEUE_REPLAY_MISMATCH sample=4 got=701 expected=700"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b35_d2/legacy0/negative.log",
+      "sha256": "e263ef1543b69782cc5570d1ce522768f4f6499cd928b3f8ca50ab4a19212b77",
+      "results": [
+        "[17000] %Fatal: tb_pipe_queue.sv:42: Assertion failed in TOP.tb_pipe_queue.require: PIPE_QUEUE_CHECK occupancy sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b35_d2/legacy1/negative.log",
+      "sha256": "5fe007563e6ee17d5c27049d608fc96f123ab8ec220ef0a7f6457840632c142c",
+      "results": [
+        "[17000] %Fatal: tb_pipe_queue.sv:55: Assertion failed in TOP.tb_pipe_queue.replay: PIPE_QUEUE_REPLAY_MISMATCH sample=4 got=6000000006 expected=6000000007"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b35_d2/legacy1/reset.log",
+      "sha256": "b983b8ee15f304f837c766202f5b1e58b419e47528dd011fb8d23e162dcda29c",
+      "results": [
+        "[7000] %Fatal: tb_pipe_queue.sv:42: Assertion failed in TOP.tb_pipe_queue.require: PIPE_QUEUE_CHECK DEFECT_RESET_HANDSHAKE sample=0"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b67_d3/legacy0/negative.log",
+      "sha256": "e263ef1543b69782cc5570d1ce522768f4f6499cd928b3f8ca50ab4a19212b77",
+      "results": [
+        "[17000] %Fatal: tb_pipe_queue.sv:42: Assertion failed in TOP.tb_pipe_queue.require: PIPE_QUEUE_CHECK occupancy sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b67_d3/legacy1/negative.log",
+      "sha256": "7fd27410239a4d79d99fd64494ea38d0c4cfdde484907fd98c873cdd07ac5751",
+      "results": [
+        "[17000] %Fatal: tb_pipe_queue.sv:55: Assertion failed in TOP.tb_pipe_queue.replay: PIPE_QUEUE_REPLAY_MISMATCH sample=4 got=600000000000000006 expected=600000000000000007"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b19_d5/legacy0/negative.log",
+      "sha256": "e263ef1543b69782cc5570d1ce522768f4f6499cd928b3f8ca50ab4a19212b77",
+      "results": [
+        "[17000] %Fatal: tb_pipe_queue.sv:42: Assertion failed in TOP.tb_pipe_queue.require: PIPE_QUEUE_CHECK occupancy sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b19_d5/legacy1/negative.log",
+      "sha256": "c9d7e23dacca7c104ff4f0495b209d89130cc1b4f450dae4a5cb183d39b64b2b",
+      "results": [
+        "[17000] %Fatal: tb_pipe_queue.sv:55: Assertion failed in TOP.tb_pipe_queue.replay: PIPE_QUEUE_REPLAY_MISMATCH sample=4 got=c0000a expected=c0000b"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/normal-mutant/run.log",
+      "sha256": "7fbbad6b721450516b9ebbb6b7f47764805133b2074522e616293202c54cfa76",
+      "results": [
+        "[10000] %Fatal: tb_pipe_queue.sv:42: Assertion failed in TOP.tb_pipe_queue.require: PIPE_QUEUE_CHECK DEFECT_NORMAL_FULL_REPLACE sample=0"
+      ]
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/invalid-width/run.log",
+      "sha256": "616532493ca482a259962f7e3cd13b58c814cbf6d07e85d7c0349d717df6b6ac",
+      "results": [
+        "[0] %Fatal: cgra_pipe_queue.sv:50: Assertion failed in TOP.tb_pipe_queue.pipe.dut: PIPE_QUEUE_PARAMETER"
+      ]
+    }
+  ],
+  "netlists": [
+    {
+      "profile": "b8_d1",
+      "legacy": 0,
+      "sha256": "5f08767e0e5b2f83cf8252d5b02f70bdd34a2166456ef2e9933702652eab5797",
+      "synthesis": {
+        "path": "sv/build/current/pipe-queue/synth/b8_d1/legacy0/yosys.log",
+        "sha256": "5ceddcc2949630f59a030bd36efb0315d28e01cf18290e9b50df0fecd8f78197",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/pipe-queue/synth/b8_d1/legacy0/scc.log",
+        "sha256": "93c636ef4c5ce0533e50aefca8c1debe8f2af4f8806a4af4ed3d9912cbdb5037",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "b8_d1",
+      "legacy": 1,
+      "sha256": "82287290663f8de1a63de4c1570356078869256b73db385a017520e7312f5ace",
+      "synthesis": {
+        "path": "sv/build/current/pipe-queue/synth/b8_d1/legacy1/yosys.log",
+        "sha256": "ec43535da67dbcd40b37746b51f0f2ffa4bfab05e6be66e55cfcf9ca396cb2b8",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/pipe-queue/synth/b8_d1/legacy1/scc.log",
+        "sha256": "77bea78d04a2e2827ff8eb7e57260b1518ec110a315fbcb77662536391283496",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "b35_d2",
+      "legacy": 0,
+      "sha256": "9481c6e4783339579f9e81bfdb9dd353da339d00a6b57f4857e456cc922bbfed",
+      "synthesis": {
+        "path": "sv/build/current/pipe-queue/synth/b35_d2/legacy0/yosys.log",
+        "sha256": "a2861d12763f9c261acedd7350203b73583d36e3ad6a836ae2fa93cf8783330d",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/pipe-queue/synth/b35_d2/legacy0/scc.log",
+        "sha256": "ea76b2f17dcaf9fdbce920a09b3304b95039743a8de41a6702d4cb07fc49c5b6",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "b35_d2",
+      "legacy": 1,
+      "sha256": "4db913e2e54dc8e6810facb5b20bb9507b1c79aaca8ccaee661947e1b20fc089",
+      "synthesis": {
+        "path": "sv/build/current/pipe-queue/synth/b35_d2/legacy1/yosys.log",
+        "sha256": "3915f707cd0357f2530f6090c3df95025078285a77f994bb2a9e21db63bebcf8",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/pipe-queue/synth/b35_d2/legacy1/scc.log",
+        "sha256": "25b7787e318fee1c6310236f03f1da36240419d66c5289e4f86a89449405bc77",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "b67_d3",
+      "legacy": 0,
+      "sha256": "174cd881eb64915ebe9608a4baf55a91cb63e9b19b2dd7a654fa1465a7fc24bd",
+      "synthesis": {
+        "path": "sv/build/current/pipe-queue/synth/b67_d3/legacy0/yosys.log",
+        "sha256": "047acae2a8d18de1c9c53d2339e67227545efff00bf3ca9a102d5daee4e2d6e6",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/pipe-queue/synth/b67_d3/legacy0/scc.log",
+        "sha256": "a3e0090fa4bb96b3eadc051cc2dddec86c146554fff49583e1ca60f84a4f3dc3",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "b67_d3",
+      "legacy": 1,
+      "sha256": "7781bc1433888e23e3ce829e4bd9192f56258ba22bcf18a140757335d1ebd339",
+      "synthesis": {
+        "path": "sv/build/current/pipe-queue/synth/b67_d3/legacy1/yosys.log",
+        "sha256": "378c8caa0b6c28be2476d7aa905da7257a92358490b7220c5b8b707f52915a07",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/pipe-queue/synth/b67_d3/legacy1/scc.log",
+        "sha256": "4ce94107f936f3f5a5485fa1f7a8c21b83cedf47a332fb700de1268c3f4d3e8a",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "b19_d5",
+      "legacy": 0,
+      "sha256": "b100c0da5abca65efd01a1ace95ebe5fe1ba3c4e49e21bf3487b6027c24d2283",
+      "synthesis": {
+        "path": "sv/build/current/pipe-queue/synth/b19_d5/legacy0/yosys.log",
+        "sha256": "59eb5f88aee0621087b9f715f2a9524512e757fcd8b7f04e15a99fb4d7206039",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/pipe-queue/synth/b19_d5/legacy0/scc.log",
+        "sha256": "161e11bac5a0805b550e2ea22a5e844541237056e49676024752e5e4b7e08858",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "b19_d5",
+      "legacy": 1,
+      "sha256": "2826f921b06281575d756cc71682d0647790f406575569935dfbc18deb872c09",
+      "synthesis": {
+        "path": "sv/build/current/pipe-queue/synth/b19_d5/legacy1/yosys.log",
+        "sha256": "b105c5d58b20b6a88dcfe535517021d7d2feec3a723a5ba378858d86a297cd50",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/pipe-queue/synth/b19_d5/legacy1/scc.log",
+        "sha256": "ae4690936c7839b42b13fe08d9f5908ca10b251b642da9ab3dc0d55f07fd0f1e",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    }
+  ],
+  "compile_diagnostics": [
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b8_d1/legacy0/compile.log",
+      "sha256": "3fb18a373a72c48fd828646c410a0cd96f0b985246a85db01b941716572519df",
+      "warnings": {
+        "TIMESCALEMOD": 2,
+        "WIDTHEXPAND": 5
+      }
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b8_d1/legacy1/compile.log",
+      "sha256": "eb47fb8c898024f29b7810b31d81a212487568d96e0e7bfbda315e6da81bea0d",
+      "warnings": {
+        "TIMESCALEMOD": 2,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 5
+      }
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b35_d2/legacy0/compile.log",
+      "sha256": "fe34111fcf5a398969b95fc40279bd068e35606bef494b40a0a475927e90f2cd",
+      "warnings": {
+        "TIMESCALEMOD": 2,
+        "WIDTHEXPAND": 7
+      }
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b35_d2/legacy1/compile.log",
+      "sha256": "f54648262e228f8c0737ee525daddcf76b4b68e405441efaa9ef71bbec953929",
+      "warnings": {
+        "TIMESCALEMOD": 2,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 7
+      }
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b67_d3/legacy0/compile.log",
+      "sha256": "1a4b9d93b9686f0d58c04f93105fb035cbf7a9fc1aa35043fcfe10b48e269807",
+      "warnings": {
+        "TIMESCALEMOD": 2,
+        "WIDTHEXPAND": 7
+      }
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b67_d3/legacy1/compile.log",
+      "sha256": "b3595d01c7abf23e02f53b7f3ae417c613861a04829e6b6847c3f5f40ed8c1a4",
+      "warnings": {
+        "TIMESCALEMOD": 2,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 7
+      }
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b19_d5/legacy0/compile.log",
+      "sha256": "967a213cc1582e0d62785c5b6d02f384bfee61531497a0fd8baada5ca11d5a95",
+      "warnings": {
+        "TIMESCALEMOD": 2,
+        "WIDTHEXPAND": 5
+      }
+    },
+    {
+      "path": "sv/build/current/pipe-queue/rtl/b19_d5/legacy1/compile.log",
+      "sha256": "c029b87316810a6a093a020fc65818743ad814746b7b3b8dc8ed749454d78d15",
+      "warnings": {
+        "TIMESCALEMOD": 2,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 5
+      }
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b8_d1/legacy0/compile.log",
+      "sha256": "0fd48eda1f465e884c439cbb93c6f109b16ef711976f91d6a1cdc0ea3e158583",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 2
+      }
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b8_d1/legacy1/compile.log",
+      "sha256": "8ddd773ef2563489641c70f4b8fba0c1794ee4c1a164ea159d404df907df6332",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 2
+      }
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b35_d2/legacy0/compile.log",
+      "sha256": "9af511e9af29d66595866b7381fa370529520055e94b6198349c613680d2961b",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 4
+      }
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b35_d2/legacy1/compile.log",
+      "sha256": "23aef5d347ad8b3a7994a9424d1fba56a0487ecc40c258867a0a10a6b873f997",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 4
+      }
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b67_d3/legacy0/compile.log",
+      "sha256": "97258d1719313036acbaf1399d03cc444c196025850cd5f2649682319b3dfb93",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 4
+      }
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b67_d3/legacy1/compile.log",
+      "sha256": "ef8d81c03c639b252af64245fa8d8d17981ac4de12135380b7f247c9c36ff65b",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 4
+      }
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b19_d5/legacy0/compile.log",
+      "sha256": "7b51d19df3f42393d21cfbd23b3e0b2031226cd47dc5e8de2e6f7ca820d96a4c",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 2,
+        "UNOPTFLAT": 2
+      }
+    },
+    {
+      "path": "sv/build/current/pipe-queue/synth/b19_d5/legacy1/compile.log",
+      "sha256": "d6a11543cca4ae37e2cf1b059b0097a7296c6fd4599cdbe9c370acdba8c94abd",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 2,
+        "UNOPTFLAT": 2
+      }
+    }
+  ],
+  "regenerated_identical_files": 13,
+  "frozen_sha256": {
+    "sv/reference/current/pipe_queue/b19_d5/labels.json": "4ccc7d894caf90f82c050e771e46e3d76bfff1f7ab70972e723f9757e049fcb8",
+    "sv/reference/current/pipe_queue/b19_d5/manifest.json": "985c2603cd5a56f787c7b1b19e39654e289c2786a5751f9435059382ef90deb8",
+    "sv/reference/current/pipe_queue/b19_d5/vectors.txt": "a9c3be5de7a46ded8854649b945ae372ebb376dd44ded91c1db6f0cddbf5218f",
+    "sv/reference/current/pipe_queue/b35_d2/labels.json": "70d6cf6677d263a99ed3207a9bdba730d372f8fc05fefacb224b80528f561efe",
+    "sv/reference/current/pipe_queue/b35_d2/manifest.json": "c5b43e5a21a5cd50daea1e715e5c7b1dffb29afacc532ee159e54e32b244bed0",
+    "sv/reference/current/pipe_queue/b35_d2/vectors.txt": "9f7bdc0e0bbe8d3f390a9f0d9ed50fbc91483c6d7b44e4367eec2cd5b16a0c95",
+    "sv/reference/current/pipe_queue/b67_d3/labels.json": "b15a1a4ce1193774850c14152d1695150bbb3baf3111e509f9179fc6bf6a32a6",
+    "sv/reference/current/pipe_queue/b67_d3/manifest.json": "9e194fbe2b5e524c21bd15ae7eb641eff5f0bba5df8dbc1d4ef66756461ac78a",
+    "sv/reference/current/pipe_queue/b67_d3/vectors.txt": "3a30d2e3313ff009ed7b8b470be8a960ac2a0914910a9c3475f59d5f83425901",
+    "sv/reference/current/pipe_queue/b8_d1/labels.json": "de786bb89bd10e37d8751eed74bbd9fe9903653ad607b79c06f51fd2ef7d7045",
+    "sv/reference/current/pipe_queue/b8_d1/manifest.json": "24aa8bc9c54265b886f26ca511c63cfa16702bf45f684fd1ba2aefa7558ead1b",
+    "sv/reference/current/pipe_queue/b8_d1/vectors.txt": "0ee6ef1f09053f4f01d33d433a25e56ecccebb32edbc02302be6f159ba383e2e",
+    "sv/reference/current/pipe_queue/python_boundary.json": "dff636acecf3e1978416c2ff7ad7a6ff8135c2ae27fb6284f13451e3fe9e8b0c"
+  },
+  "input_sha256": {
+    "sv/rtl/common/cgra_pipe_queue.sv": "c1efc55e6a1911d3886e6575a82f1cd1ebc0ab8275e3706585548a9498a7855c",
+    "sv/rtl/common/cgra_queue.sv": "87e03f556141d8c2c0abe26168ef567ce4b5e456a9f090f9f797aed51a4c4761",
+    "sv/tests/current/tb_pipe_queue.sv": "0b807244ddce2952995b09d74c69048646628afc04d02480da1d590192145e9a",
+    "sv/tests/current/run_pipe_queue.sh": "2041460015ca8d80ca58f3e50fabc4bf521267935929c6273c7d9358583af9fb",
+    "sv/migration_tools/current_pipe_queue.py": "1a1adcd0758f9ba28ac6a43869a71d789045ee7539953872098cf3506f9929b1",
+    "sv/scripts/toolchain.sh": "11b934d6f4ee1f19027faaece45b5a025a20ed2c1eed45dcba24ae7a4b33a0b4",
+    "sv/filelists/native.f": "2fba5ae61fd0ffc83f8f63379d34920cf5ceaaa7df862a1b7c1abb94a274d5f0",
+    "sv/Makefile": "6b6eedbc1efe204872c2fa4776f31003c9494ccb14410b1b79e203476febd661",
+    "sv/scripts/run.ps1": "85c87a66c8fb4129a59822569fb028c6ecb82695e8f45dc891ef4b1a98f8bb4e",
+    ".github/workflows/native-sv.yml": "3922c343f4d6f49ff0f3ffdb01fbc381754b739e5f7576cd606f1a860af4f69c",
+    "sv/PIPE_QUEUE_API.md": "f2540c6300932f29c015a3a41ccc056b19dd633cff3d12f122f7c5f2d9accffd",
+    "sv/MIGRATION_TASKS.md": "06f351f9236fa867859d7e6dd9247077e95ced5ae6330cc89ea8ea2e8040f548",
+    "sv/CURRENT_MIGRATION.md": "b52084a283e8ea856249eb84875156ee3503903fa1ec9f65219c4dadd6e3ad76",
+    "sv/MIGRATION_PROGRESS.md": "4b936479913d71986810ec56903359a50ac1854aaa6d5b73e446535ba4aeec93",
+    "sv/EXPERIMENT_LOG.md": "465cbe62f1d4a4a4dea4cb163bf962ad79d52895e5d1fa46e47ba1ce0d115360",
+    "sv/README.md": "e914d0d968537982e96dbee848a1ca4e1fd2861d8fd2566c638030ab922b4922",
+    "sv/tests/README.md": "6b95d798d3a32629233d96682097a6fc655fc3cb03f105f1d62bdbecf4cfe871",
+    "sv/migration_tools/README.md": "1eb6563f84f24494352049d785dd7c090b76867123580b2cc9d9e7c042b1c0db",
+    "sv/reference/current/target.json": "c560f1ccf61706ed50c871a2987ea2c2837c6ae14b942f1216b275a201de14aa"
+  },
+  "native_filelist_lint": {
+    "path": "sv/build/current/pipe-queue/native-filelist-lint.log",
+    "sha256": "d54f9984639b7e52fb039a897d9c874f34e1a90361ebe7fe42c77602b3a9063b"
+  },
+  "tools": {
+    "verilator": "Verilator 5.029 devel rev v5.028-104-ge2041f745",
+    "sv2v": "sv2v v0.0.13",
+    "yosys": "Yosys 0.45+139 (git sha1 4d581a97d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)"
+  },
+  "limitations": [
+    "Registered data path, combinational ready from output to input; does not break a ready loop.",
+    "Native reset masks handshakes and clears logical occupancy; legacy preserves Python reset-cycle writes and invalid data.",
+    "Legacy initialization models PyMTL simulation, not ASIC power-on guarantees.",
+    "Original model driven directly; no separate test of this project PipeQueue wrapper was found.",
+    "Existing Normal/Bypass queues and system instantiations are unchanged.",
+    "No new system kernel run, PPA, PowerShell runtime or remote CI result claimed."
+  ],
+  "commit_and_push": "Evidence generated before commit/push; Git is authoritative"
+}

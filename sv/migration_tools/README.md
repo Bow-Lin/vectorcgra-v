@@ -123,3 +123,5 @@ are described in `../PHASE2_REPORT.md`.
 `current_or_link.py` 原样运行 OrLink 的 Source/Sink 测试并冻结 16／32／64 位、多输入、含 invalid／reset 的位级轨迹；单输入 Python Bits0 限制单独记录。
 
 `current_selector.py` 原样运行固定选择测试并冻结动态选择轨迹，保留原 Python ready 锁存，原始测试输出保存在 JSON 中。
+
+`current_pipe_queue.py` 直接驱动未修改的项目 PipeQueue，覆盖深度 1／2／3／5，记录 invalid 消息和 reset 周期写入。

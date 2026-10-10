@@ -10,7 +10,7 @@
 | 2 | DataMemScalableRTL API；保留原 NoC 端口未实现的边界 | 已完成；见 DATA_MEMORY_API.md 与独立 validation.json |
 | 3 | N 输入 OrLinkRTL API | 已完成；见 LINK_APIS.md 与独立 validation.json |
 | 4 | SelectorRTL API；修正未选择输入的 ready | 已完成；见 LINK_APIS.md 与独立 validation.json |
-| 5 | PipeQueueRTL API；满队列同拍出入替换 | 待执行 |
+| 5 | PipeQueueRTL API；满队列同拍出入替换 | 已完成；见 PIPE_QUEUE_API.md 与独立 validation.json |
 | 6 | VectorAllReduce 数学、请求及返回握手语义 | 待执行 |
 | 7 | 向量组合常量进位、VectorMul lane 数边界 | 待执行 |
 | 8 | LoopController 输出保持、并发完成及父循环契约 | 待执行 |

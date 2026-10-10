@@ -89,3 +89,5 @@ RTL package against nonzero PyMTL packing samples.
 `current-or-link` / `current-or-link-synth` 验证多输入 OrLink 的未修改 Python 轨迹及全部 valid 掩码的独立位计数结果。
 
 `current-selector` / `current-selector-synth` 检查全部选择口和 valid 掩码，原生模式隔离未选口 ready；兼容模式逐位复现 Python 的 ready 锁存缺陷。
+
+`current-pipe-queue` / `current-pipe-queue-synth` 检查 Python 逐位兼容、独立 FIFO 守恒及连续满替换；Normal Queue 替换负控必须失败。
