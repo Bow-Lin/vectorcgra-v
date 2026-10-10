@@ -1,5 +1,7 @@
 # 当前 Python → SystemVerilog 升级
 
+> 完整分类、opcode 与命令可达性请先看 [迁移清单](MIGRATION_INVENTORY.md)；下文保留各历史批次的边界与结果。
+
 目标 Python 固定为 `cd7aad878915e389cecf8cc01ff6987d156bd019`。该提交导入 SV；Python 内容来自父提交 `e3caf6928a4e8c97e6be36574af2520ec92083b9`。原始迁移基线仍为 `ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b`。`reference/current/target.json` 记录所有 274 个原项目 Python 文件的 SHA-256；本批没有修改这些文件。
 
 本轮按 `MIGRATION_TASKS.md` 的已授权顺序推进，独立存储／链路／队列、向量归约、向量组合与 LoopController 已完成。第 9 项算术边界、复位及组合逻辑已通过组件、PE 和网表检查，记录见本文末尾及 `ARITHMETIC_BOUNDARIES.md`。第 10 项内存及外设边界已完成，见 `MEMORY_BOUNDARIES.md`；第 11 项公共 PE 接口、内存接线及异构浮点参数透传已完成，见 `PE_INTERFACES.md`；下一项检查 NoC 握手、credit 与组合环。验收中的提交、推送及远端 CI 状态是记录生成时的快照，实际以 Git 为准。

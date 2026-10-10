@@ -1,6 +1,7 @@
 +incdir+rtl/common
 rtl/common/cgra_types_pkg.sv
 rtl/common/cgra_register_file.sv
+rtl/common/cgra_reg_file.sv
 rtl/common/cgra_queue.sv
 rtl/common/cgra_channel.sv
 rtl/common/cgra_round_robin.sv

@@ -20,7 +20,7 @@
 | 12 | NoC 剩余握手、VC／credit 及实际组合环检查 | 已完成；见 NOC_HANDSHAKES.md、18 组 RTL 流量及六份实际网络网表 |
 | 13 | 不依赖项目 Python 的架构配置工具 | 已完成；见 CONFIGURATION_TOOL.md、五种配置展开及生成参数驱动的 21 PE 内核 |
 | 14 | 不依赖项目 Python 的程序／常量／预加载／命令生成工具 | 已完成；见 PROGRAM_TOOL.md、3,950 次 SV 字段检查及带 barrier 的整机回读 |
-| 15 | 全模块／功能／opcode 与原始 274 文件覆盖清单 | 待执行 |
+| 15 | 全模块／功能／opcode 与原始 274 文件覆盖清单 | 已完成；见 MIGRATION_INVENTORY.md，274 文件／99+4 opcode／59 命令及独立 RegFile 三份网表 |
 | 16 | 扩展内核独立数学验收，包括 AXPY 最终回读及矩阵边界 | 待执行 |
 | 17 | 当前源码完整系统与选定综合网表验收 | 待执行 |
 | 18 | 统一回归、CI 与工具链 | 待执行 |
