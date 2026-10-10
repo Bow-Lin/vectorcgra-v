@@ -1,0 +1,32 @@
+================================================
+Instruction:  {'index_per_ii': 0, 'operations': [{'opcode': 'PHI_START', 'id': 235, 'time_step': 15, 'invalid_iterations': 1, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '$8', 'color': 'RED'}], 'dst_operands': [{'operand': 'EAST', 'color': 'RED'}, {'operand': 'NORTH', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'PHI_START', 'id': 235, 'time_step': 15, 'invalid_iterations': 1, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '$8', 'color': 'RED'}], 'dst_operands': [{'operand': 'EAST', 'color': 'RED'}, {'operand': 'NORTH', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'PHI_START', 'id': 235, 'time_step': 15, 'invalid_iterations': 1, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '$8', 'color': 'RED'}], 'dst_operands': [{'operand': 'EAST', 'color': 'RED'}, {'operand': 'NORTH', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}]}
+>>> index 0 is REG
+>>> index 1 is REG
+>>> FuOutParams[3] = 1
+>>> FuOutParams[0] = 2
+================================================
+Instruction:  {'index_per_ii': 1, 'operations': [{'opcode': 'ADD', 'id': 253, 'time_step': 16, 'invalid_iterations': 1, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '#1', 'color': 'RED'}], 'dst_operands': [{'operand': 'EAST', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'ADD', 'id': 253, 'time_step': 16, 'invalid_iterations': 1, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '#1', 'color': 'RED'}], 'dst_operands': [{'operand': 'EAST', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'ADD', 'id': 253, 'time_step': 16, 'invalid_iterations': 1, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '#1', 'color': 'RED'}], 'dst_operands': [{'operand': 'EAST', 'color': 'RED'}]}
+>>> index 0 is REG
+>>> FuOutParams[3] = 1
+================================================
+Instruction:  {'index_per_ii': 2, 'operations': [{'opcode': 'GRANT_ONCE', 'id': 0, 'time_step': 2, 'invalid_iterations': 0, 'src_operands': [{'operand': '#8', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'GRANT_ONCE', 'id': 0, 'time_step': 2, 'invalid_iterations': 0, 'src_operands': [{'operand': '#8', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'GRANT_ONCE', 'id': 0, 'time_step': 2, 'invalid_iterations': 0, 'src_operands': [{'operand': '#8', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}
+================================================
+Instruction:  {'index_per_ii': 3, 'operations': [{'opcode': 'GRANT_PREDICATE', 'id': 26, 'time_step': 3, 'invalid_iterations': 0, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': 'EAST', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'GRANT_PREDICATE', 'id': 26, 'time_step': 3, 'invalid_iterations': 0, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': 'EAST', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'GRANT_PREDICATE', 'id': 26, 'time_step': 3, 'invalid_iterations': 0, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': 'EAST', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}
+>>> index 0 is REG
+Lane 1 available for port source {'operand': 'EAST', 'color': 'RED'}
+================================================
+Instruction:  {'index_per_ii': 4, 'operations': [{'opcode': 'ICMP_ULT', 'id': 35, 'time_step': 4, 'invalid_iterations': 0, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '#4', 'color': 'RED'}], 'dst_operands': [{'operand': 'NORTH', 'color': 'RED'}, {'operand': 'EAST', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'ICMP_ULT', 'id': 35, 'time_step': 4, 'invalid_iterations': 0, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '#4', 'color': 'RED'}], 'dst_operands': [{'operand': 'NORTH', 'color': 'RED'}, {'operand': 'EAST', 'color': 'RED'}]}
+Error in making ctrl pkt: 'ICMP_ULT'

@@ -1,0 +1,23 @@
+{
+  "batch": "M23",
+  "status": "passed_independent_math",
+  "python_equivalence": false,
+  "positive": {
+    "log": "build/native/gemm/run.log",
+    "sha256": "5da243b1cd49b7cf637d61468bc9933a70a1c7ddee2fa780cd5b798859f53a1f",
+    "markers": [
+      "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/gemm cycles=1657 words=16"
+    ]
+  },
+  "negative": {
+    "log": "build/native/gemm/negative.log",
+    "sha256": "1e8dfb4df131f37605e25981010457b12816fadd0202e2fd19623fa58ff4ef03",
+    "markers": []
+  },
+  "permanent_backpressure": {
+    "log": "build/native/gemm/timeout-negative.log",
+    "sha256": "9975ffc3c5c540ec0c48c9da11e64faab3c154751f55f8fb2c8dbbc9cb21d85a",
+    "markers": []
+  },
+  "manifest_sha256": "4d6ad8028244bb81b4992b6fa505b68b8ae6f7515ee56d4452acfefcac457ca2"
+}

@@ -1,0 +1,7 @@
+EXEC cycle=584 tile=4 pc=11 op=64 operands='{'h8, 'hc, 'h0, 'h0}  out='{'h0, 'h0}  const=          4
+KERNEL_MATH index=2 addr=2 actual=2 expected=6
+KERNEL_MATH index=4 addr=4 actual=4 expected=20
+KERNEL_MATH index=5 addr=5 actual=5 expected=30
+KERNEL_MATH index=6 addr=6 actual=6 expected=42
+KERNEL_MATH index=7 addr=7 actual=7 expected=56
+[27803000] %Fatal: tb_native_kernel.sv:168: Assertion failed in TOP.tb_native_kernel: Incomplete functional acceptance

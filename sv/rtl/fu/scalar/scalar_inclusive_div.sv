@@ -1,3 +1,4 @@
+`include "cgra_opcodes.svh"
 `include "cgra_profile_defs.svh"
 // Native InclusiveDivRTL migration from ac96; original state/handshake semantics.
 module scalar_inclusive_div #(
@@ -61,14 +62,14 @@ module scalar_inclusive_div #(
   assign to_mem_wdata__msg = to_mem_wdata__msg_typed;
 
   localparam data_t const_zero  = '0;
-  localparam logic [6:0] OPT_START  = 7'd0;
+  localparam logic [6:0] OPT_START  = `CGRA_OPT_START;
   localparam int latency_at_proceed_latency = LATENCY;
   localparam logic [2:0] num_inports_at_comb_logic  = 3'd4;
   localparam logic [1:0] num_outports_at_comb_logic  = 2'd2;
-  localparam logic [6:0] OPT_DIV_INCLUSIVE_START  = 7'd48;
-  localparam logic [6:0] OPT_REM_INCLUSIVE_START  = 7'd59;
-  localparam logic [6:0] OPT_DIV_INCLUSIVE_END  = 7'd49;
-  localparam logic [6:0] OPT_REM_INCLUSIVE_END  = 7'd15;
+  localparam logic [6:0] OPT_DIV_INCLUSIVE_START  = `CGRA_OPT_DIV_INCLUSIVE_START;
+  localparam logic [6:0] OPT_REM_INCLUSIVE_START  = `CGRA_OPT_REM_INCLUSIVE_START;
+  localparam logic [6:0] OPT_DIV_INCLUSIVE_END  = `CGRA_OPT_DIV_INCLUSIVE_END;
+  localparam logic [6:0] OPT_REM_INCLUSIVE_END  = `CGRA_OPT_REM_INCLUSIVE_END;
   logic [2:0] in0;
   logic [1:0] in0_idx;
   logic [2:0] in1;

@@ -1,0 +1,162 @@
+{
+  "kernel": "spmv",
+  "status": "native_candidate",
+  "parameters": {
+    "COLS": 4,
+    "ROWS": 4,
+    "CTRL_DEPTH": 16,
+    "GLOBAL_ADDR_W": 7,
+    "BANK_DEPTH": 16,
+    "NUM_BANKS": 2,
+    "REG_DEPTH": 8,
+    "NUM_CTRL": 15,
+    "TOTAL_STEPS": 70,
+    "MEM_COMBINATIONAL": 1,
+    "MULTI_ROWS": 1,
+    "MULTI_COLS": 4
+  },
+  "fu_kinds": [
+    0,
+    1,
+    6,
+    7,
+    9,
+    4,
+    5,
+    10,
+    2,
+    8,
+    13,
+    3
+  ],
+  "source_manifest": "sv/reference/current/kernels/spmv/manifest.json",
+  "source_manifest_sha256": "a681e01fa561bfc052e7a0ad80372b7eb1ec2b2eac130a421dd624c9415f9600",
+  "changes": [
+    {
+      "kind": "native_opcodes",
+      "ULT": 102,
+      "ULT_CONST": 103,
+      "AND_CONST": 100,
+      "OR_CONST": 101
+    },
+    {
+      "tile": 9,
+      "pc": 3,
+      "kind": "rename_read",
+      "old_register": 0,
+      "new_register": 24
+    },
+    {
+      "tile": 9,
+      "pc": 7,
+      "kind": "rename_write",
+      "old_register": 0,
+      "new_register": 24
+    },
+    {
+      "tile": 9,
+      "pc": 8,
+      "kind": "rename_read",
+      "old_register": 0,
+      "new_register": 24
+    },
+    {
+      "tile": 9,
+      "pc": 8,
+      "kind": "rename_write",
+      "old_register": 0,
+      "new_register": 24
+    },
+    {
+      "tile": 9,
+      "pc": 12,
+      "kind": "rename_read",
+      "old_register": 0,
+      "new_register": 24
+    },
+    {
+      "tile": 9,
+      "pc": 13,
+      "kind": "rename_write",
+      "old_register": 0,
+      "new_register": 24
+    },
+    {
+      "tile": 9,
+      "pc": 14,
+      "kind": "rename_read",
+      "old_register": 0,
+      "new_register": 24
+    },
+    {
+      "tile": 0,
+      "pc": 4,
+      "kind": "retain_live_register",
+      "bank": 0,
+      "index": 0
+    },
+    {
+      "tile": 5,
+      "pc": 11,
+      "kind": "retain_live_register",
+      "bank": 0,
+      "index": 0
+    },
+    {
+      "tile": 5,
+      "pc": 12,
+      "kind": "retain_live_register",
+      "bank": 0,
+      "index": 0
+    },
+    {
+      "tile": 9,
+      "pc": 9,
+      "kind": "retain_live_register",
+      "bank": 1,
+      "index": 0
+    },
+    {
+      "tile": 9,
+      "pc": 13,
+      "kind": "retain_live_register",
+      "bank": 0,
+      "index": 1
+    },
+    {
+      "tile": 9,
+      "pc": 14,
+      "kind": "retain_live_register",
+      "bank": 3,
+      "index": 0
+    },
+    {
+      "kind": "return_oracle",
+      "reason": "RetRTL preserves the executed control word in CMD_COMPLETE payload.ctrl; original YAML sink omitted it."
+    }
+  ],
+  "expected_memory_base": 0,
+  "expected_memory": [
+    0,
+    2,
+    6,
+    12,
+    20,
+    30,
+    42,
+    56
+  ],
+  "expected_return_packet": "24000001c000000000040002000200000000001002040080",
+  "claim": "Native configuration repair/extension; not Python RTL equivalence",
+  "fixture_sha256": {
+    "program.hex": "18572de1ef01c2870b18735e1e8898d670987b86dc59246527b3406056ac46c0",
+    "return.hex": "763b45924c0b5ad634d42793e39fede8a5eada87a75779c2443b0f46ab976c67",
+    "expected.hex": "446f08e64c3d3c05e3410d88e7685e62ea175f846f5bbe5ab9d77fa9930b32e3",
+    "verilator.args": "0fa1aef9791a9da9b6950471f86f76480469252ae3ea3c43d8039609f0f1dbde"
+  },
+  "known_limitations": [
+    "Mathematical readback fails; do not treat completion as success.",
+    "Original YAML uses three-input PHI; Python/SV PhiRTL implement only two.",
+    "Original workload aliases all arrays at base zero."
+  ]
+}

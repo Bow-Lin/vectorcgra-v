@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 # Process lowering and optimized structural checks; no area or Fmax claim.
 set -euo pipefail
-export PATH="/clang64/bin:/ucrt64/bin:/usr/bin:$PATH"
+source "$(dirname "${BASH_SOURCE[0]}")/../../../scripts/toolchain.sh"
 cd "$(dirname "$0")/../../.."
-eda="${CGRA_OSS_TOOLS:-/d/work/VectorCGRA/sys_lib/tools}"
-export PATH="$eda/oss-cad-suite/bin:$eda/oss-cad-suite/lib:$PATH"
-sv2v="$eda/sv2v-v0.0.13/sv2v-Windows/sv2v.exe"
-yosys="$eda/oss-cad-suite/bin/yosys.exe"
+sv2v="$SV2V"
+yosys="$YOSYS"
 build=build/phase3/scalar/synthesis
 mkdir -p "$build"
 "$sv2v" -Irtl/common rtl/fu/scalar/*.sv >"$build/scalar.v" 2>"$build/sv2v.log"

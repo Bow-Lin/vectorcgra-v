@@ -1,10 +1,16 @@
 # VectorCGRA SystemVerilog 工程
 
-当前已完成第四阶段：多 CGRA Mesh/Ring、异构结构、跨 CGRA 任务迁移，以及 DMA/im2col。第二、三阶段的单 CGRA 和 FU/Tile 入口继续保留。第四阶段交付分支为 `codex/sv-migration-phase4`；第五阶段等待用户指令，不在本分支交付范围内。
+当前正在将原生 SV 从 `ac96a7af` 的历史契约升级到当前 Python `cd7aad878915`。新的单 PE 入口为 `cgra_pe`，统一 Base / Context / Streaming 三种变体；数组顶层也通过它实例化 PE。当前变更、验收和剩余问题以 [CURRENT_MIGRATION.md](CURRENT_MIGRATION.md) 为准。
+
+Linux / MSYS2 原生入口：`make -C sv current`、`make -C sv current-synth`。工具可通过 `VERILATOR`、`SV2V`、`YOSYS`、`CXX`、`JOBS` 指定。默认 `make` 和 `all` 运行当前组件、PE、DMA 回归，日常构建不调用项目 Python。
+
+原阶段 1–4 的参考文件和报告保留为历史证据。使用 `bash sv/scripts/run_baseline.sh all` 或 `bash sv/scripts/run_baseline.sh phase3`，在 Git 归档的原始 SV 上运行旧契约；不能用旧 opcode/错误翻译结果要求当前 RTL 逐位一致。以下阶段说明记录的是原交付范围，不能作为当前版本重新验收的证明。
 
 累计功能、文件及代码行数见 [迁移进度与成果汇总](MIGRATION_PROGRESS.md)。阶段结果见 [PHASE4_REPORT.md](PHASE4_REPORT.md)，计划见 [MIGRATION_PLAN.md](MIGRATION_PLAN.md)，完整过程见 [EXPERIMENT_LOG.md](EXPERIMENT_LOG.md)。
 
 当前结构见 [架构示意图（PNG）](diagrams/vectorcgra-architecture.png) / [可编辑 SVG](diagrams/vectorcgra-architecture.svg)，图示范围及重绘方法见 [diagrams/README.md](diagrams/README.md)。
+
+当前已消除 PE 的 497 个未驱动位，完成五组综合网表功能验收、GEMM/GEMV 全内存数学回读，以及当前归约/动态迁移和多 CGRA/异构验收。M23 修复原 4×4 SPMV 映射的控制和存储完成依赖，`nnz=0…8` 的数学、写入协议及主机背压检查通过；它属于原生修复配置，原 Python 等价状态仍是配置生成失败。详细边界与复现入口见上述当前迁移记录。
 
 ## 当前实现
 
@@ -15,7 +21,7 @@
 - 参数类型规则：`rtl/common/cgra_profile_defs.svh` 与 `cgra_profile.svh`；旧 `cgra_types_pkg.sv` 继续保存 2×2 的公共编码兼容接口。
 - 测试：独立 SV 测试平台及已归档的配置、参照数据。正常仿真和综合直接编译 HDL，不运行 PyMTL 或项目 Python 生成器；允许 EDA 工具内部使用 Python。
 
-当前范围包括单/多 CGRA；包含标量、向量、归约、组合、定点 MAC、浮点和流式访存 FU，及原架构的 Context/Streaming Tile。`reference/` 是冻结参照；后续开发修改 `rtl/`，不要同步修改参照以掩盖差异。原 FP 格式及向量乘法的 Python/HDL 差异保留并单独登记，使用前请查第三阶段报告的兼容边界。
+当前范围包括单/多 CGRA；包含标量、向量、归约、组合、定点 MAC、浮点和流式访存 FU，及原架构的 Context/Streaming Tile。`reference/` 是冻结参照；后续开发修改 `rtl/`，不要同步修改参照以掩盖差异。升级后的向量乘法采用 Python 整数位移语义；FP 默认采用 IEEE 字段映射，旧格式通过 `FP_LEGACY_PYTHON=1` 显式复核；SUB_CONST 默认常量握手也已修正。
 
 第二阶段参数点、实际验证结果及合法范围见 [PHASE2_REPORT.md](PHASE2_REPORT.md)。3×2 用于验证原 `CgraRTL(width, height)` 已有的非方形支持；未修改 Python 架构以增加该能力。
 
@@ -24,9 +30,9 @@
 - [`cgra_system`](rtl/cgra/cgra_system.sv)：单 CGRA 系统，支持外部 NoC、4/8 端口 Tile、独立读写存储口和可选外设。
 - [`cgra_multi`](rtl/cgra/cgra_multi.sv)：同构多 CGRA Mesh/Ring；已验证四 CGRA、共 16 或 64 Tiles。
 - [`cgra_multi_template`](rtl/cgra/cgra_multi_template.sv)：不同大小 CGRA、逐 Tile FU 列表和静态定向链路；已验证 21 Tiles 的异构配置。
-- [`rtl/peripheral/`](rtl/peripheral/)：DMA、im2col 引擎及 CGRA 集成封装。DMA 默认保留原翻译 HDL 的已知切片行为，详情见第四阶段报告。
+- [`rtl/peripheral/`](rtl/peripheral/)：DMA、im2col 引擎及 CGRA 集成封装。当前 DMA 默认采用正确 Python 切片语义，DRAM 宽度可配置；`BASELINE_TRANSLATED_SLICES=1` 仅用于显式历史复现。
 
-`filelists/native.f` 包含本阶段 94 个 DUT 文件。所有新增测试位于 [tests/phase4/](tests/phase4/README.md)，不会调用第五阶段配置工具或旧模块补漏代码。
+`filelists/native.f` 是当前 DUT 清单。当前验收入口位于 `tests/current/`；历史第四阶段测试说明保留在 [tests/phase4/](tests/phase4/README.md)。
 
 ```powershell
 & ./sv/scripts/run.ps1 -Task phase4 `

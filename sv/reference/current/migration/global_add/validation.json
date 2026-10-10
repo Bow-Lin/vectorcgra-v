@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "oracle": "Pinned current Python raw cycle trace plus independent arithmetic/coverage",
+  "positive": {
+    "log": "build/current/migration/global_add/run.log",
+    "sha256": "e32d5770c5b089aa9ffd978635659aae3b6bce3011635431b9409635235a458c",
+    "markers": [
+      "CURRENT_MIGRATION_PASS label=global_add cycles=91 raw_bits=1779 inputs=35 completions=6 math=2 boundary=0 resume=0"
+    ]
+  },
+  "negative": {
+    "log": "build/current/migration/global_add/negative.log",
+    "sha256": "0d53cc14aa08e445e6184d60b6ccc00e1dbca4f6331967b6b7b0eac189df023d",
+    "markers": []
+  },
+  "manifest_sha256": "3161d551f870265199dfa07c19e1a798ef7213b4f11cb1f9c894d20e7b2ed6fd"
+}

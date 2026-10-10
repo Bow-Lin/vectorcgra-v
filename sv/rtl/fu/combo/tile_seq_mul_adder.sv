@@ -1,3 +1,4 @@
+`include "cgra_opcodes.svh"
 `include "cgra_profile_defs.svh"
 // ac96 behavior preserved, including undriven fields and original handshake rules.
 module tile_seq_mul_adder #(
@@ -57,15 +58,15 @@ module tile_seq_mul_adder #(
   assign to_mem_wdata__msg = p_to_mem_wdata__msg;
 
   localparam data_t const_zero  = '0;
-  localparam logic [6:0] OPT_MUL_ADD  = 7'd18;
-  localparam logic [6:0] OPT_MUL  = 7'd7;
-  localparam logic [6:0] OPT_ADD  = 7'd2;
-  localparam logic [6:0] OPT_MUL_CONST_ADD  = 7'd30;
-  localparam logic [6:0] OPT_MUL_CONST  = 7'd29;
-  localparam logic [6:0] OPT_PAS  = 7'd31;
-  localparam logic [6:0] OPT_MUL_SUB  = 7'd19;
-  localparam logic [6:0] OPT_SUB  = 7'd4;
-  localparam logic [6:0] OPT_START  = GLOBAL_ADDR_W'(0);
+  localparam logic [6:0] OPT_MUL_ADD  = `CGRA_OPT_MUL_ADD;
+  localparam logic [6:0] OPT_MUL  = `CGRA_OPT_MUL;
+  localparam logic [6:0] OPT_ADD  = `CGRA_OPT_ADD;
+  localparam logic [6:0] OPT_MUL_CONST_ADD  = `CGRA_OPT_MUL_CONST_ADD;
+  localparam logic [6:0] OPT_MUL_CONST  = `CGRA_OPT_MUL_CONST;
+  localparam logic [6:0] OPT_PAS  = `CGRA_OPT_PAS;
+  localparam logic [6:0] OPT_MUL_SUB  = `CGRA_OPT_MUL_SUB;
+  localparam logic [6:0] OPT_SUB  = `CGRA_OPT_SUB;
+  localparam logic [6:0] OPT_START  = `CGRA_OPT_START;
 
   logic [0:0] Fu0__clear;
   logic [0:0] Fu0__clk;

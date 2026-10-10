@@ -1,0 +1,81 @@
+{
+  "kernel": "spmv_coo",
+  "status": "native_candidate",
+  "parameters": {
+    "COLS": 2,
+    "ROWS": 2,
+    "CTRL_DEPTH": 64,
+    "GLOBAL_ADDR_W": 8,
+    "BANK_DEPTH": 32,
+    "NUM_BANKS": 2,
+    "REG_DEPTH": 8,
+    "NUM_CTRL": 10,
+    "TOTAL_STEPS": 80,
+    "MEM_COMBINATIONAL": 1,
+    "MULTI_ROWS": 1,
+    "MULTI_COLS": 4
+  },
+  "fu_kinds": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "rows": [
+    0,
+    1,
+    0,
+    3,
+    1,
+    2,
+    3,
+    0
+  ],
+  "columns": [
+    1,
+    0,
+    2,
+    3,
+    2,
+    1,
+    0,
+    3
+  ],
+  "values": [
+    2,
+    3,
+    4,
+    5,
+    -1,
+    6,
+    7,
+    8
+  ],
+  "feature": [
+    10,
+    20,
+    30,
+    40
+  ],
+  "initial_output": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "expected_memory_base": 32,
+  "expected_memory": [
+    481,
+    2,
+    123,
+    274
+  ],
+  "completion": "Tile 0 administrative completion after 80 retired steps",
+  "claim": "Independent native COO algorithm; not the original YAML program or Python equivalence",
+  "fixture_sha256": {
+    "program.hex": "bdd59df12b49fe4cf3b1535a46b3162963de1998cff3fb18d319de3e33b3132d",
+    "return.hex": "0e26d84373f9ea4f82bcb9901f97c4e5c033c5baf06f8a8a9915d4dc294ec73c",
+    "expected.hex": "6de59c6955e731e193e4f39d0e4343cf40d1e378578bbee3f843a9a64224bc99",
+    "verilator.args": "bc42d9806bfa437aa4ed3975fdcd312ae765a586a90ffd28a1f2e6617a3cd3e3"
+  }
+}

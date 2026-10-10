@@ -1,0 +1,12 @@
+{
+  "status": "must_fail",
+  "ablation": "dropped_store_ack",
+  "nnz": 1,
+  "mutations": 1,
+  "fixture_sha256": {
+    "program.hex": "8f7b9ca766ca72222df21b923498f2e6754a29f8ca75eb94bb1aa7058f7923ff",
+    "return.hex": "035d6282e70c004a4a3872faa6a1a3cec1bb573682a07018d9168134cbc11e3e",
+    "expected.hex": "87df3d8d4cc749d1b61a039a22cab53ab2a5c025dd47612ea54fde91d5785b24",
+    "nnz.txt": "4355a46b19d348dc2f57c046f8ef63d4538ebb936000f3c9ee954a27460dd865"
+  }
+}

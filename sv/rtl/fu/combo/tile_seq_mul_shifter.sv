@@ -1,3 +1,4 @@
+`include "cgra_opcodes.svh"
 `include "cgra_profile_defs.svh"
 // ac96 behavior preserved, including undriven fields and original handshake rules.
 module tile_seq_mul_shifter #(
@@ -57,12 +58,12 @@ module tile_seq_mul_shifter #(
   assign to_mem_wdata__msg = p_to_mem_wdata__msg;
 
   localparam data_t const_zero  = '0;
-  localparam logic [6:0] OPT_MUL_LLS  = 7'd20;
-  localparam logic [6:0] OPT_MUL  = 7'd7;
-  localparam logic [6:0] OPT_LLS  = 7'd5;
-  localparam logic [6:0] OPT_MUL_LRS  = 7'd21;
-  localparam logic [6:0] OPT_LRS  = 7'd6;
-  localparam logic [6:0] OPT_START  = GLOBAL_ADDR_W'(0);
+  localparam logic [6:0] OPT_MUL_LLS  = `CGRA_OPT_MUL_LLS;
+  localparam logic [6:0] OPT_MUL  = `CGRA_OPT_MUL;
+  localparam logic [6:0] OPT_LLS  = `CGRA_OPT_LLS;
+  localparam logic [6:0] OPT_MUL_LRS  = `CGRA_OPT_MUL_LRS;
+  localparam logic [6:0] OPT_LRS  = `CGRA_OPT_LRS;
+  localparam logic [6:0] OPT_START  = `CGRA_OPT_START;
 
   logic [0:0] Fu0__clear;
   logic [0:0] Fu0__clk;

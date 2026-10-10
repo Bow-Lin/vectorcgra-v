@@ -1,0 +1,12 @@
+{
+  "status": "must_fail",
+  "ablation": "binary_phi",
+  "nnz": 3,
+  "mutations": 1,
+  "fixture_sha256": {
+    "program.hex": "2b3f4c1aae749e51e26587946d18901f8447439a1ce93d8ebb6345c29b027a7e",
+    "return.hex": "035d6282e70c004a4a3872faa6a1a3cec1bb573682a07018d9168134cbc11e3e",
+    "expected.hex": "56ec52ef53199749fc1ea90a8b6a196fa74cd8338b8e48f6a1349183ec6ee87e",
+    "nnz.txt": "1121cfccd5913f0a63fec40a6ffd44ea64f9dc135c66634ba001d10bcf4302a2"
+  }
+}

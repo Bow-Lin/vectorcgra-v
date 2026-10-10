@@ -1,0 +1,91 @@
+{
+  "kernel": "gemv",
+  "status": "native_candidate",
+  "parameters": {
+    "COLS": 4,
+    "ROWS": 4,
+    "CTRL_DEPTH": 11,
+    "GLOBAL_ADDR_W": 8,
+    "BANK_DEPTH": 32,
+    "NUM_BANKS": 2,
+    "REG_DEPTH": 8,
+    "NUM_CTRL": 11,
+    "TOTAL_STEPS": 196,
+    "MEM_COMBINATIONAL": 1,
+    "MULTI_ROWS": 1,
+    "MULTI_COLS": 4
+  },
+  "fu_kinds": [
+    0,
+    1,
+    16,
+    6,
+    7,
+    9,
+    5,
+    10,
+    2,
+    8,
+    13,
+    3
+  ],
+  "source_manifest": "sv/reference/current/kernels/gemv/manifest.json",
+  "source_manifest_sha256": "8134908f3536f510b7e1bf001ade889c839723b8c22895a230b27a0f8a149c5c",
+  "changes": [
+    {
+      "tile": 5,
+      "pc": 1,
+      "kind": "rename_read",
+      "old_register": 2,
+      "new_register": 24
+    },
+    {
+      "tile": 5,
+      "pc": 10,
+      "kind": "rename_write",
+      "old_register": 2,
+      "new_register": 24
+    },
+    {
+      "tile": 5,
+      "pc": 10,
+      "kind": "retain_live_register",
+      "bank": 0,
+      "index": 1
+    },
+    {
+      "tile": 6,
+      "pc": 10,
+      "kind": "retain_live_register",
+      "bank": 0,
+      "index": 0
+    },
+    {
+      "tile": 10,
+      "pc": 7,
+      "kind": "retain_live_register",
+      "bank": 0,
+      "index": 0
+    },
+    {
+      "kind": "return_oracle",
+      "reason": "RetRTL preserves the executed control word in CMD_COMPLETE payload.ctrl; original YAML sink omitted it."
+    }
+  ],
+  "expected_memory_base": 20,
+  "expected_memory": [
+    30,
+    70,
+    110,
+    150
+  ],
+  "expected_return_packet": "880000038000000000040001000200000000000000000000",
+  "claim": "Native configuration repair/extension; not Python RTL equivalence",
+  "fixture_sha256": {
+    "program.hex": "708bae45d03016541df087cbdf2713965bbab44755e6be53afb2c0409aa792a4",
+    "return.hex": "84173c7a5a5ddf19c96316f7264fbb96d9b8da9a022d3eb28f4c61ffce7172fa",
+    "expected.hex": "e305233037e38a1e93f8d7b694811a32972aad5c6d953d9c97a214e00c2a5c99",
+    "verilator.args": "876880519cb81783d83ad891452cfb041d762e08fcfe7225697eefd439a85081"
+  },
+  "known_limitations": []
+}

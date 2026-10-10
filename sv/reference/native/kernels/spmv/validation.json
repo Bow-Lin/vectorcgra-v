@@ -1,0 +1,240 @@
+{
+  "batch": "M23",
+  "status": "passed_independent_math",
+  "python_equivalence": false,
+  "positive": {
+    "log": "build/native/spmv/run.log",
+    "sha256": "b933f86eb8fc348d75cc29129800eeacfeb3595c995226ccc25d2f1e8e5d5001",
+    "markers": [
+      "NATIVE_IDENTITY_STORES_PASS nnz=8 stores=8",
+      "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv cycles=964 words=32"
+    ]
+  },
+  "negative": {
+    "log": "build/native/spmv/negative.log",
+    "sha256": "643966d1f693dbc476e1e46ef93591e3b651231c8ec47a405dbe995f3ffa5e7e",
+    "markers": []
+  },
+  "permanent_backpressure": {
+    "log": "build/native/spmv/timeout-negative.log",
+    "sha256": "e7666394cf61926af881b429eef0359253ed2a16b33cf4c7e6b9877432455fd9",
+    "markers": []
+  },
+  "manifest_sha256": "9ae031445fd4ca5ecb03e8d68d19a75148d75a3383b7b85ce62896e734043cdf",
+  "scenarios": [
+    {
+      "nnz": 0,
+      "mode": "normal",
+      "log": "build/native/spmv/nnz0-normal.log",
+      "sha256": "80da8b3e22e9aa7c3c446a4d9c65c1bccd9af5ad747444b89a0a92464e6f6d0b",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=0 stores=0",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz0 cycles=938 words=32"
+      ]
+    },
+    {
+      "nnz": 0,
+      "mode": "backpressure",
+      "log": "build/native/spmv/nnz0-backpressure.log",
+      "sha256": "2da53616cd5dd1799417b3b69ba2d1c790ad7faa102704fb7a9014804dfaa269",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=0 stores=0",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz0 cycles=3064 words=32"
+      ]
+    },
+    {
+      "nnz": 1,
+      "mode": "normal",
+      "log": "build/native/spmv/nnz1-normal.log",
+      "sha256": "2e82caea8c923302555fffe60ba9022c203204c6e0c70ce9aea8d4513825cdcb",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=1 stores=1",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz1 cycles=938 words=32"
+      ]
+    },
+    {
+      "nnz": 1,
+      "mode": "backpressure",
+      "log": "build/native/spmv/nnz1-backpressure.log",
+      "sha256": "caeeecdac76b6a3a8235f81b776afe2ac22a13921c1d0f9e0fe4a8d5a4961622",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=1 stores=1",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz1 cycles=3064 words=32"
+      ]
+    },
+    {
+      "nnz": 2,
+      "mode": "normal",
+      "log": "build/native/spmv/nnz2-normal.log",
+      "sha256": "10bfc69f86a7309983e6188b237ebd9646ccf2d5974b6abd92a0afb2fdd1eb1c",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=2 stores=2",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz2 cycles=954 words=32"
+      ]
+    },
+    {
+      "nnz": 2,
+      "mode": "backpressure",
+      "log": "build/native/spmv/nnz2-backpressure.log",
+      "sha256": "84e4450a0c5cb899f33d5526ce2905a163f198320031c12b42b5164f19af44ab",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=2 stores=2",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz2 cycles=3075 words=32"
+      ]
+    },
+    {
+      "nnz": 3,
+      "mode": "normal",
+      "log": "build/native/spmv/nnz3-normal.log",
+      "sha256": "24c88f895c50f80d5e8019ecd6fab9056004f8504921fc0af8b076e103428b69",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=3 stores=3",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz3 cycles=971 words=32"
+      ]
+    },
+    {
+      "nnz": 3,
+      "mode": "backpressure",
+      "log": "build/native/spmv/nnz3-backpressure.log",
+      "sha256": "b5323e0701b203e97d09b747c08ee45b437f29c604b4d036edfffbbc039daf61",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=3 stores=3",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz3 cycles=3097 words=32"
+      ]
+    },
+    {
+      "nnz": 4,
+      "mode": "normal",
+      "log": "build/native/spmv/nnz4-normal.log",
+      "sha256": "6b6593beda16a5be6a864439110ed6d2cc6a177cbf1182508fe27bbd059b2ff2",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=4 stores=4",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz4 cycles=938 words=32"
+      ]
+    },
+    {
+      "nnz": 4,
+      "mode": "backpressure",
+      "log": "build/native/spmv/nnz4-backpressure.log",
+      "sha256": "aa22414192e7ff6e1b3328029572edeb805ec278190535eb7eabb5ce4841c260",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=4 stores=4",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz4 cycles=3064 words=32"
+      ]
+    },
+    {
+      "nnz": 5,
+      "mode": "normal",
+      "log": "build/native/spmv/nnz5-normal.log",
+      "sha256": "1682ae0b009791dba3e6a275a228aec4f2c3a87dafd72db82729ade9abf92293",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=5 stores=5",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz5 cycles=938 words=32"
+      ]
+    },
+    {
+      "nnz": 5,
+      "mode": "backpressure",
+      "log": "build/native/spmv/nnz5-backpressure.log",
+      "sha256": "455aee8ae5573a1889cc2cab2db64eb9e644134e01a25004403fa94b53ef502c",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=5 stores=5",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz5 cycles=3064 words=32"
+      ]
+    },
+    {
+      "nnz": 6,
+      "mode": "normal",
+      "log": "build/native/spmv/nnz6-normal.log",
+      "sha256": "1701de74f388a639e333a97ea3e5e8d8fbea628bc934fd1de20434d560dda656",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=6 stores=6",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz6 cycles=954 words=32"
+      ]
+    },
+    {
+      "nnz": 6,
+      "mode": "backpressure",
+      "log": "build/native/spmv/nnz6-backpressure.log",
+      "sha256": "c598c0d5dcffad7dca7b552f1990c5484ced03b8efe7bc9e4eff29979421752b",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=6 stores=6",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz6 cycles=3075 words=32"
+      ]
+    },
+    {
+      "nnz": 7,
+      "mode": "normal",
+      "log": "build/native/spmv/nnz7-normal.log",
+      "sha256": "a715e11624ba53eb29656fa520964a5e83864e74a408716f755862e931e812b0",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=7 stores=7",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz7 cycles=971 words=32"
+      ]
+    },
+    {
+      "nnz": 7,
+      "mode": "backpressure",
+      "log": "build/native/spmv/nnz7-backpressure.log",
+      "sha256": "05d439cb4cb4e1a921b001be2673af070537fd0219d32eefa97154e2b729bfb9",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=7 stores=7",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz7 cycles=3097 words=32"
+      ]
+    },
+    {
+      "nnz": 8,
+      "mode": "normal",
+      "log": "build/native/spmv/nnz8-normal.log",
+      "sha256": "263ce5b67e4398dbc8aa28338521c0f835abe81c530451540eeafff8c0c3a0e2",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=8 stores=8",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv cycles=964 words=32"
+      ]
+    },
+    {
+      "nnz": 8,
+      "mode": "backpressure",
+      "log": "build/native/spmv/nnz8-backpressure.log",
+      "sha256": "29ba04c4cded48de8a43251907a44fae4a0470e4483aabecb5da3dcf821ed8da",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=8 stores=8",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv cycles=3086 words=32"
+      ]
+    }
+  ],
+  "negative_ablations": {
+    "wrong_prologue": {
+      "log": "build/native/spmv/wrong_prologue.log",
+      "sha256": "fcf63dde8101ca03a0d47741ab9889a6fd0c7be93fd69965dabc3612cd0b98a1",
+      "markers": []
+    },
+    "legacy_start": {
+      "log": "build/native/spmv/legacy_start.log",
+      "sha256": "3f288fe4aff35cec334ad80112d33b77c95a1e6335ff7de83a62f31c015f7372",
+      "markers": []
+    },
+    "binary_phi": {
+      "log": "build/native/spmv/binary_phi.log",
+      "sha256": "e7666394cf61926af881b429eef0359253ed2a16b33cf4c7e6b9877432455fd9",
+      "markers": []
+    },
+    "missing_loop_exit": {
+      "log": "build/native/spmv/missing_loop_exit.log",
+      "sha256": "6c4f78aa64b93114467f1b035c5f62798a1239912e89dcd0137eb750a68c8486",
+      "markers": []
+    },
+    "dropped_store_ack": {
+      "log": "build/native/spmv/dropped_store_ack.log",
+      "sha256": "e7666394cf61926af881b429eef0359253ed2a16b33cf4c7e6b9877432455fd9",
+      "markers": []
+    }
+  },
+  "scope": "Original 4x4 mapping with native configuration repairs; nnz 0..8; local 32-word identity-index aliased fixture; host backpressure and gaps. No general alias/repeated-row parallelism claim.",
+  "m22_failure_archive": "failure_m22/",
+  "m22_failure_replay": {
+    "log": "build/native/spmv/m22-replay.log",
+    "sha256": "7beddefdd8f29195f4c93d98014001157577d865e63ea150cbcfb456d4e71fb7",
+    "markers": []
+  }
+}

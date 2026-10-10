@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-export PATH="/clang64/bin:/ucrt64/bin:/usr/bin:$PATH"
-export VERILATOR_ROOT="$(cygpath -m /ucrt64/share/verilator)"
+source "$(dirname "${BASH_SOURCE[0]}")/../../../scripts/toolchain.sh"
 cd "$(dirname "$0")/../../.."
 files=(rtl/common/cgra_register_file.sv rtl/common/cgra_queue.sv rtl/common/cgra_channel.sv
   rtl/mem/register_bank.sv rtl/mem/register_cluster.sv rtl/tile/tile_link_or.sv
@@ -13,17 +12,17 @@ for kind in "${@:-context streaming}"; do
   for selected in $kind; do
     top="tb_tile_$selected"; out="build/phase3/tile_variants/tile_$selected"
     mkdir -p "$out"
-    /ucrt64/bin/verilator --cc --main --exe --timing --compiler clang \
+    "$VERILATOR" --cc --main --exe --timing --compiler "$COMPILER" \
       --top-module "$top" --Mdir "$out" -o native_test -CFLAGS -std=c++20 \
       -Wno-fatal -Wno-TIMESCALEMOD -Irtl/common "${files[@]}" \
       "tests/phase3/tile_variants/$top.sv" > "$out/verilate.log" 2>&1
-    make -C "$out" -f "V${top}.mk" -j2 CXX=clang++ \
-      'LINK=env -u LINK clang++' LDLIBS=-pthread > "$out/compile.log" 2>&1
-    "$out/native_test.exe" +verilator+seed+31415926 > "$out/run.log" 2>&1
+    make -C "$out" -f "V${top}.mk" -j "$JOBS" "CXX=$CXX" \
+      "LINK=env -u LINK $CXX" LDLIBS=-pthread > "$out/compile.log" 2>&1
+    "$out/native_test${EXEEXT}" +verilator+seed+31415926 > "$out/run.log" 2>&1
     grep -q "TILE_${selected^^}_PASS" "$out/run.log"
     cat "$out/run.log"
     set +e
-    "$out/native_test.exe" +verilator+seed+31415926 +EXPECT_FAILURE > "$out/negative.log" 2>&1
+    "$out/native_test${EXEEXT}" +verilator+seed+31415926 +EXPECT_FAILURE > "$out/negative.log" 2>&1
     status=$?
     set -e
     if [[ $status -eq 0 ]] || ! grep -q 'tile replay mismatch cycle=20' "$out/negative.log"; then

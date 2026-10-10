@@ -1,0 +1,24 @@
+{
+  "python_commit": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "cycles": 120,
+  "events": [
+    {
+      "cycle": 11,
+      "port": 0,
+      "data": 84
+    },
+    {
+      "cycle": 46,
+      "port": 1,
+      "data": 812
+    }
+  ],
+  "final_state": {
+    "element_done": 1,
+    "fu_crossbar_done": 0,
+    "routing_crossbar_done": 1
+  },
+  "conclusion": "Python stalls after first scalar grant: FU completed, FU crossbar completion was lost.",
+  "native_regression": "tests/current/tb_current_pe.sv VARIANT=2",
+  "native_expected": "Four grant outputs and four routing outputs, followed by completion."
+}

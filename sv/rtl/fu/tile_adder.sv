@@ -1,8 +1,10 @@
+`include "cgra_opcodes.svh"
 // Native parameterized scalar profile; migrated from ac96 AdderRTL.
 // State and update-block names preserve the original cycle semantics.
 `include "cgra_profile_defs.svh"
 module tile_adder #(
-  `CGRA_PROFILE_PARAMETERS
+  `CGRA_PROFILE_PARAMETERS,
+  parameter bit LEGACY_SUB_CONST_READY = 0
 ) (
   input  logic [0:0] clear ,
   input  logic [0:0] clk ,
@@ -61,16 +63,16 @@ module tile_adder #(
   payload_t send_to_ctrl_mem__msg_typed ;
   assign send_to_ctrl_mem__msg = send_to_ctrl_mem__msg_typed;
   localparam data_t const_zero  = '0;
-  localparam logic [6:0] OPT_START  = 7'd0;
+  localparam logic [6:0] OPT_START  = `CGRA_OPT_START;
   localparam logic [0:0] latency_at_proceed_latency  = 1'd1;
   localparam logic [2:0] num_inports_at_comb_logic  = 3'd4;
   localparam logic [1:0] num_outports_at_comb_logic  = 2'd2;
-  localparam logic [6:0] OPT_ADD  = 7'd2;
-  localparam logic [6:0] OPT_ADD_CONST  = 7'd25;
-  localparam logic [6:0] OPT_INC  = 7'd3;
-  localparam logic [6:0] OPT_SUB  = 7'd4;
-  localparam logic [6:0] OPT_SUB_CONST  = 7'd36;
-  localparam logic [6:0] OPT_PAS  = 7'd31;
+  localparam logic [6:0] OPT_ADD  = `CGRA_OPT_ADD;
+  localparam logic [6:0] OPT_ADD_CONST  = `CGRA_OPT_ADD_CONST;
+  localparam logic [6:0] OPT_INC  = `CGRA_OPT_INC;
+  localparam logic [6:0] OPT_SUB  = `CGRA_OPT_SUB;
+  localparam logic [6:0] OPT_SUB_CONST  = `CGRA_OPT_SUB_CONST;
+  localparam logic [6:0] OPT_PAS  = `CGRA_OPT_PAS;
   logic [2:0] in0;
   logic [1:0] in0_idx;
   logic [2:0] in1;
@@ -146,7 +148,11 @@ module tile_adder #(
         recv_all_val = recv_in__val[in0_idx] & recv_const__val;
         send_out__val[1'd0] = recv_all_val;
         recv_in__rdy[in0_idx] = recv_all_val & send_out__rdy[1'd0];
-        recv_in__rdy[in1_idx] = recv_all_val & send_out__rdy[1'd0];
+        // Compatibility is used only when replaying the frozen Python defect.
+        if (LEGACY_SUB_CONST_READY)
+          recv_in__rdy[in1_idx] = recv_all_val & send_out__rdy[1'd0];
+        else
+          recv_const__rdy = recv_all_val & send_out__rdy[1'd0];
         recv_opt__rdy = recv_all_val & send_out__rdy[1'd0];
       end
       else if ( recv_opt__msg_typed.operation == 7'( OPT_PAS ) ) begin

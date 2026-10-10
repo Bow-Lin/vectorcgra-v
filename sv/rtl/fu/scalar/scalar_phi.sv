@@ -1,3 +1,5 @@
+`include "cgra_opcodes.svh"
+`include "cgra_native_extensions.svh"
 `include "cgra_profile_defs.svh"
 // Native PhiRTL migration from ac96; original state/handshake semantics.
 module scalar_phi #(
@@ -59,13 +61,13 @@ module scalar_phi #(
   assign to_mem_wdata__msg = to_mem_wdata__msg_typed;
 
   localparam data_t const_zero  = '0;
-  localparam logic [6:0] OPT_START  = 7'd0;
+  localparam logic [6:0] OPT_START  = `CGRA_OPT_START;
   localparam logic [0:0] latency_at_proceed_latency  = 1'd1;
   localparam logic [2:0] num_inports_at_comb_logic  = 3'd4;
   localparam logic [1:0] num_outports_at_comb_logic  = 2'd2;
-  localparam logic [6:0] OPT_PHI  = 7'd17;
-  localparam logic [6:0] OPT_PHI_START  = 7'd84;
-  localparam logic [6:0] OPT_PHI_CONST  = 7'd32;
+  localparam logic [6:0] OPT_PHI  = `CGRA_OPT_PHI;
+  localparam logic [6:0] OPT_PHI_START  = `CGRA_OPT_PHI_START;
+  localparam logic [6:0] OPT_PHI_CONST  = `CGRA_OPT_PHI_CONST;
   logic [0:0] first [0:CTRL_SLOTS-1];
   logic [2:0] in0;
   logic [1:0] in0_idx;
@@ -76,11 +78,18 @@ module scalar_phi #(
   logic [0:0] recv_all_val;
   logic [7:0] vector_factor_counter;
   logic [2:0] vector_factor_power;
+  logic native_phi, native_has_input, native_selected;
+  integer native_index;
+  assign native_phi = (recv_opt__msg_typed.operation == `CGRA_OPT_PHI_N) |
+                      (recv_opt__msg_typed.operation == `CGRA_OPT_PHI_START_PRED);
 
   always_comb begin : comb_logic
     recv_all_val = 1'd0;
     in0 = 3'd0;
     in1 = 3'd0;
+    native_has_input = 1'b0;
+    native_selected = 1'b0;
+    native_index = 0;
     for ( int unsigned i = 1'd0; i < 3'( num_inports_at_comb_logic ); i += 1'd1 )
       recv_in__rdy[2'(i)] = 1'd0;
     for ( int unsigned i = 1'd0; i < 2'( num_outports_at_comb_logic ); i += 1'd1 ) begin
@@ -101,7 +110,32 @@ module scalar_phi #(
       end
     end
     if ( recv_opt__val ) begin
-      if ( recv_opt__msg_typed.operation == 7'( OPT_PHI ) ) begin
+      if (recv_opt__msg_typed.operation == `CGRA_OPT_PHI_N) begin
+        // Wait for every configured input, then choose the first true predicate.
+        // Zero selectors are absent operands, including under backpressure.
+        recv_all_val = 1'b1;
+        for (int operand = 0; operand < 4; operand++) begin
+          if (recv_opt__msg_typed.fu_in[operand] != 0) begin
+            native_index = int'(recv_opt__msg_typed.fu_in[operand]) - 1;
+            recv_all_val &= recv_in__val[native_index];
+            if (!native_has_input)
+              send_out__msg_typed[0].payload = recv_in__msg_typed[native_index].payload;
+            native_has_input = 1'b1;
+            if (!native_selected && recv_in__msg_typed[native_index].predicate) begin
+              native_selected = 1'b1;
+              send_out__msg_typed[0].payload = recv_in__msg_typed[native_index].payload;
+              send_out__msg_typed[0].predicate = reached_vector_factor;
+            end
+          end
+        end
+        recv_all_val &= native_has_input;
+        send_out__val[0] = recv_all_val;
+        recv_opt__rdy = recv_all_val & send_out__rdy[0];
+        for (int operand = 0; operand < 4; operand++)
+          if (recv_opt__msg_typed.fu_in[operand] != 0)
+            recv_in__rdy[recv_opt__msg_typed.fu_in[operand]-1] = recv_opt__rdy;
+      end
+      else if ( recv_opt__msg_typed.operation == 7'( OPT_PHI ) ) begin
         if ( recv_in__msg_typed[in0_idx].predicate == 1'd1 ) begin
           send_out__msg_typed[1'd0].payload = recv_in__msg_typed[in0_idx].payload;
           send_out__msg_typed[1'd0].predicate = reached_vector_factor;
@@ -120,10 +154,13 @@ module scalar_phi #(
         recv_in__rdy[in1_idx] = recv_all_val & send_out__rdy[1'd0];
         recv_opt__rdy = recv_all_val & send_out__rdy[1'd0];
       end
-      else if ( recv_opt__msg_typed.operation == 7'( OPT_PHI_START ) ) begin
+      else if ((recv_opt__msg_typed.operation == OPT_PHI_START) |
+               (recv_opt__msg_typed.operation == `CGRA_OPT_PHI_START_PRED)) begin
         if ( first[ctrl_addr_inport] ) begin
           send_out__msg_typed[1'd0].payload = recv_in__msg_typed[in0_idx].payload;
-          send_out__msg_typed[1'd0].predicate = reached_vector_factor;
+          send_out__msg_typed[1'd0].predicate = reached_vector_factor &
+              ((recv_opt__msg_typed.operation == OPT_PHI_START) |
+               recv_in__msg_typed[in0_idx].predicate);
         end
         else if ( recv_in__msg_typed[in0_idx].predicate == 1'd1 ) begin
           send_out__msg_typed[1'd0].payload = recv_in__msg_typed[in0_idx].payload;
@@ -203,6 +240,9 @@ module scalar_phi #(
       for ( int unsigned i = 1'd0; i < CTRL_SLOTS; i += 1'd1 )
         first[CTRL_ADDR_W'(i)] <= 1'd1;
     end
+    else if ((recv_opt__msg_typed.operation == `CGRA_OPT_PHI_START_PRED) &
+             recv_opt__val & recv_opt__rdy & reached_vector_factor)
+      first[ctrl_addr_inport] <= 1'b0;
     if ( ( ( recv_opt__msg_typed.operation == 7'( OPT_PHI_CONST ) ) | ( recv_opt__msg_typed.operation == 7'( OPT_PHI_START ) ) ) & reached_vector_factor ) begin
       first[ctrl_addr_inport] <= 1'd0;
     end
@@ -212,7 +252,7 @@ module scalar_phi #(
     if ( reset ) begin
       vector_factor_counter <= 8'd0;
     end
-    else if ( recv_opt__val ) begin
+    else if (recv_opt__val & (~native_phi | recv_opt__rdy)) begin
       if ( recv_opt__msg_typed.is_last_ctrl & ( ( vector_factor_counter + ( 8'd1 << { { 5 { 1'b0 } }, vector_factor_power } ) ) < ( 8'd1 << { { 5 { 1'b0 } }, recv_opt__msg_typed.vector_factor_power } ) ) ) begin
         vector_factor_counter <= vector_factor_counter + ( 8'd1 << { { 5 { 1'b0 } }, vector_factor_power } );
       end

@@ -1,3 +1,4 @@
+`include "cgra_opcodes.svh"
 `include "cgra_profile_defs.svh"
 // Native ConstRTL migration from ac96; original state/handshake semantics.
 module scalar_const #(
@@ -59,11 +60,11 @@ module scalar_const #(
   assign to_mem_wdata__msg = to_mem_wdata__msg_typed;
 
   localparam data_t const_zero  = '0;
-  localparam logic [6:0] OPT_START  = 7'd0;
+  localparam logic [6:0] OPT_START  = `CGRA_OPT_START;
   localparam logic [0:0] latency_at_proceed_latency  = 1'd1;
   localparam logic [2:0] num_inports_at_comb_logic  = 3'd4;
   localparam logic [1:0] num_outports_at_comb_logic  = 2'd2;
-  localparam logic [6:0] OPT_CONST  = 7'd80;
+  localparam logic [6:0] OPT_CONST  = `CGRA_OPT_CONST;
   logic [0:0] latency;
   logic [0:0] reached_vector_factor;
   logic [0:0] recv_all_val;

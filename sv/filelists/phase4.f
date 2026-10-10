@@ -92,3 +92,4 @@ rtl/noc/inter_cgra/cgra_inter_mesh.sv
 rtl/noc/inter_cgra/cgra_inter_ring.sv
 rtl/cgra/cgra_multi.sv
 rtl/cgra/cgra_multi_template.sv
+rtl/tile/cgra_pe.sv

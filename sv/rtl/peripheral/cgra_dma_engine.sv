@@ -1,9 +1,9 @@
-// Native ac96 DmaEngineRTL. Four 32-bit words form one 128-bit DRAM beat.
+// Native DmaEngineRTL targeting Python cd7aad878915.
 // Non-word-aligned byte counts retain the original truncating/underflow behavior.
 module cgra_dma_engine #(
   parameter int SPM_DATA_W=32, DRAM_DATA_W=128, DRAM_ADDR_W=64,
   parameter int SPM_ADDR_W=32, BYTES_W=32, TAG_W=8,
-  parameter bit BASELINE_TRANSLATED_SLICES=1,
+  parameter bit BASELINE_TRANSLATED_SLICES=0,
   localparam int CMD_BITS=3+DRAM_ADDR_W+SPM_ADDR_W+BYTES_W+TAG_W,
   localparam int DRAM_MASK_W=DRAM_DATA_W/8, SPM_MASK_W=SPM_DATA_W/8,
   localparam int DRAM_WRITE_BITS=DRAM_ADDR_W+DRAM_DATA_W+DRAM_MASK_W,
@@ -56,11 +56,15 @@ module cgra_dma_engine #(
   logic [BYTES_W-1:0] words_left_reg;
   logic [TAG_W-1:0] tag_reg;
   logic [DRAM_DATA_W-1:0] beat_reg;
-  logic [1:0] word_idx_reg;
+  localparam int WORDS_PER_BEAT=DRAM_DATA_W/SPM_DATA_W;
+  localparam int WORD_IDX_W=WORDS_PER_BEAT>1 ? $clog2(WORDS_PER_BEAT) : 1;
+  logic [WORD_IDX_W-1:0] word_idx_reg;
   logic [DRAM_MASK_W-1:0] wr_mask_reg;
   initial begin
-    if(SPM_DATA_W!=32 || DRAM_DATA_W!=128)
-      $fatal(1,"ac96 DMA supports 32-bit SPM words and 128-bit DRAM beats");
+    if(SPM_DATA_W<8 || SPM_DATA_W%8 || DRAM_DATA_W<SPM_DATA_W || DRAM_DATA_W%SPM_DATA_W)
+      $fatal(1,"DMA requires byte-sized SPM words and an integral number per DRAM beat");
+    if(BASELINE_TRANSLATED_SLICES && (SPM_DATA_W!=32 || DRAM_DATA_W!=128))
+      $fatal(1,"Historical translated-slice mode requires SPM32/DRAM128");
     if(DRAM_ADDR_W<1 || SPM_ADDR_W<1 || BYTES_W<1 || TAG_W<1)
       $fatal(1,"DMA address, count and tag widths must be positive");
   end
@@ -75,8 +79,8 @@ module cgra_dma_engine #(
   assign recv_from_dram_wr_resp__rdy=state==MVOUT_WAIT;
   assign send_to_spm_wr_req__val=state==MVIN_WRITE;
   // Frozen PyMTL HDL narrows the lane-2/3 slice lower bounds to six bits:
-  // 6'(32)*6'd2 -> 0 and 6'(32)*6'd3 -> 32. Preserve that hardware default.
-  wire [1:0] read_word_idx=BASELINE_TRANSLATED_SLICES ? {1'b0,word_idx_reg[0]} : word_idx_reg;
+  // 6'(32)*6'd2 -> 0 and 6'(32)*6'd3 -> 32. Explicit historical mode only.
+  wire [WORD_IDX_W-1:0] read_word_idx=BASELINE_TRANSLATED_SLICES ? WORD_IDX_W'(word_idx_reg[0]) : word_idx_reg;
   assign send_to_spm_wr_req__msg={spm_addr_reg,beat_reg[SPM_DATA_W*read_word_idx+:SPM_DATA_W],{SPM_MASK_W{1'b1}}};
   assign send_to_spm_rd_req__val=state==MVOUT_READ;
   assign send_to_spm_rd_req__msg=spm_addr_reg;
@@ -96,7 +100,7 @@ module cgra_dma_engine #(
           else state<=MVOUT_READ; // All other opcodes follow MVOUT in ac96.
         end
         MVIN_REQ: if(send_to_dram_rd_req__val && send_to_dram_rd_req__rdy) begin
-          dram_addr_reg<=dram_addr_reg+DRAM_ADDR_W'(16); state<=MVIN_RESP;
+          dram_addr_reg<=dram_addr_reg+DRAM_ADDR_W'(DRAM_MASK_W); state<=MVIN_RESP;
         end
         MVIN_RESP: if(recv_from_dram_rd_resp__val && recv_from_dram_rd_resp__rdy) begin
           beat_reg<=recv_from_dram_rd_resp__msg; word_idx_reg<=0; state<=MVIN_WRITE;
@@ -105,8 +109,8 @@ module cgra_dma_engine #(
           spm_addr_reg<=spm_addr_reg+SPM_ADDR_W'(1);
           words_left_reg<=words_left_reg-BYTES_W'(1);
           if(words_left_reg==1) state<=DONE;
-          else if(word_idx_reg==3) begin word_idx_reg<=0; state<=MVIN_REQ; end
-          else word_idx_reg<=word_idx_reg+2'd1;
+          else if(word_idx_reg==WORDS_PER_BEAT-1) begin word_idx_reg<=0; state<=MVIN_REQ; end
+          else word_idx_reg<=word_idx_reg+WORD_IDX_W'(1);
         end
         MVOUT_READ: if(send_to_spm_rd_req__val && send_to_spm_rd_req__rdy) state<=MVOUT_RESP;
         MVOUT_RESP: if(recv_from_spm_rd_resp__val && recv_from_spm_rd_resp__rdy) begin
@@ -116,24 +120,18 @@ module cgra_dma_engine #(
             // to 128. The unused third word temporarily repeats word zero.
             beat_reg<={beat_reg[63:0],recv_from_spm_rd_resp__msg,beat_reg[31:0]};
           else
-            beat_reg <= (beat_reg & ~(DRAM_DATA_W'({SPM_DATA_W{1'b1}}) << (SPM_DATA_W*word_idx_reg))) |
-                        (DRAM_DATA_W'(recv_from_spm_rd_resp__msg) << (SPM_DATA_W*word_idx_reg));
+            beat_reg <= beat_reg | (DRAM_DATA_W'(recv_from_spm_rd_resp__msg) << (SPM_DATA_W*word_idx_reg));
           spm_addr_reg<=spm_addr_reg+SPM_ADDR_W'(1);
           words_left_reg<=words_left_reg-BYTES_W'(1);
           if(words_left_reg==1) begin
-            case(word_idx_reg)
-              0:wr_mask_reg<=16'h000f;
-              1:wr_mask_reg<=16'h00ff;
-              2:wr_mask_reg<=16'h0fff;
-              3:wr_mask_reg<=16'hffff;
-            endcase
+            wr_mask_reg <= {DRAM_MASK_W{1'b1}} >> (DRAM_MASK_W-(int'(word_idx_reg)+1)*SPM_MASK_W);
             state<=MVOUT_WRITE;
-          end else if(word_idx_reg==3) begin wr_mask_reg<=16'hffff; state<=MVOUT_WRITE; end
-          else begin word_idx_reg<=word_idx_reg+2'd1;state<=MVOUT_READ;end
+          end else if(word_idx_reg==WORDS_PER_BEAT-1) begin wr_mask_reg<='1; state<=MVOUT_WRITE; end
+          else begin word_idx_reg<=word_idx_reg+WORD_IDX_W'(1);state<=MVOUT_READ;end
         end
         MVOUT_WRITE: if(send_to_dram_wr_req__val && send_to_dram_wr_req__rdy) state<=MVOUT_WAIT;
         MVOUT_WAIT: if(recv_from_dram_wr_resp__val && recv_from_dram_wr_resp__rdy) begin
-          dram_addr_reg<=dram_addr_reg+DRAM_ADDR_W'(16);beat_reg<='0;word_idx_reg<=0;wr_mask_reg<='0;
+          dram_addr_reg<=dram_addr_reg+DRAM_ADDR_W'(DRAM_MASK_W);beat_reg<='0;word_idx_reg<=0;wr_mask_reg<='0;
           state<=words_left_reg==0 ? DONE : MVOUT_READ;
         end
         DONE: if(dma_done__val && dma_done__rdy) state<=IDLE;

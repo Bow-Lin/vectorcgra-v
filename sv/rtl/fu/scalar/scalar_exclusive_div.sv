@@ -1,3 +1,4 @@
+`include "cgra_opcodes.svh"
 `include "cgra_profile_defs.svh"
 // Native ExclusiveDivRTL migration from ac96; original state/handshake semantics.
 module scalar_exclusive_div #(
@@ -61,13 +62,13 @@ module scalar_exclusive_div #(
   assign to_mem_wdata__msg = to_mem_wdata__msg_typed;
 
   localparam data_t const_zero  = '0;
-  localparam logic [6:0] OPT_START  = 7'd0;
+  localparam logic [6:0] OPT_START  = `CGRA_OPT_START;
   localparam int latency_at_proceed_latency = LATENCY;
   localparam int latency_at_comb_ff = LATENCY;
-  localparam logic [6:0] OPT_DIV  = 7'd26;
+  localparam logic [6:0] OPT_DIV  = `CGRA_OPT_DIV;
   localparam logic [2:0] num_inports_at_comb_logic  = 3'd4;
   localparam logic [1:0] num_outports_at_comb_logic  = 2'd2;
-  localparam logic [6:0] OPT_REM  = 7'd44;
+  localparam logic [6:0] OPT_REM  = `CGRA_OPT_REM;
   localparam int latency_at_comb_logic = LATENCY;
   logic [$clog2(LATENCY):0] cur_cycle;
   logic [0:0] do_div;

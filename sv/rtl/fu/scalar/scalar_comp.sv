@@ -1,3 +1,4 @@
+`include "cgra_native_extensions.svh"
 `include "cgra_profile_defs.svh"
 // Native CompRTL migration from ac96; original state/handshake semantics.
 module scalar_comp #(
@@ -60,19 +61,25 @@ module scalar_comp #(
 
   localparam data_t const_one  = { DATA_W'(1), 1'd0, 1'd0, 1'd0 };
   localparam data_t const_zero  = '0;
-  localparam logic [6:0] OPT_START  = 7'd0;
+  localparam logic [6:0] OPT_START  = `CGRA_OPT_START;
   localparam logic [0:0] latency_at_proceed_latency  = 1'd1;
   localparam logic [2:0] num_inports_at_read_reg  = 3'd4;
   localparam logic [1:0] num_outports_at_read_reg  = 2'd2;
-  localparam logic [6:0] OPT_EQ  = 7'd14;
-  localparam logic [6:0] OPT_NE  = 7'd45;
-  localparam logic [6:0] OPT_EQ_CONST  = 7'd33;
-  localparam logic [6:0] OPT_NE_CONST  = 7'd46;
-  localparam logic [6:0] OPT_LT  = 7'd60;
+  localparam logic [6:0] OPT_EQ  = `CGRA_OPT_EQ;
+  localparam logic [6:0] OPT_NE  = `CGRA_OPT_NE;
+  localparam logic [6:0] OPT_EQ_CONST  = `CGRA_OPT_EQ_CONST;
+  localparam logic [6:0] OPT_NE_CONST  = `CGRA_OPT_NE_CONST;
+  localparam logic [6:0] OPT_LT  = `CGRA_OPT_LT;
+  localparam logic [6:0] OPT_ULT = `CGRA_OPT_ULT;
+  localparam logic [6:0] OPT_ULT_CONST = `CGRA_OPT_ULT_CONST;
+  logic [DATA_W-1:0] comparison_sign_mask;
+  assign comparison_sign_mask =
+    (recv_opt__msg_typed.operation == OPT_ULT || recv_opt__msg_typed.operation == OPT_ULT_CONST)
+      ? '0 : sign_flip_at_read_reg;
   localparam logic [DATA_W-1:0] sign_flip_at_read_reg = DATA_W'(1) << (DATA_W-1);
-  localparam logic [6:0] OPT_GTE_CONST  = 7'd93;
-  localparam logic [6:0] OPT_GT_CONST  = 7'd95;
-  localparam logic [6:0] OPT_LT_CONST  = 7'd94;
+  localparam logic [6:0] OPT_GTE_CONST  = `CGRA_OPT_GTE_CONST;
+  localparam logic [6:0] OPT_GT_CONST  = `CGRA_OPT_GT_CONST;
+  localparam logic [6:0] OPT_LT_CONST  = `CGRA_OPT_LT_CONST;
   logic [2:0] in0;
   logic [1:0] in0_idx;
   logic [2:0] in1;
@@ -139,8 +146,8 @@ module scalar_comp #(
         recv_const__rdy = recv_all_val & send_out__rdy[1'd0];
         recv_opt__rdy = recv_all_val & send_out__rdy[1'd0];
       end
-      else if ( recv_opt__msg_typed.operation == 7'( OPT_LT ) ) begin
-        if ( ( recv_in__msg_typed[in0_idx].payload ^ DATA_W'( sign_flip_at_read_reg ) ) < ( recv_in__msg_typed[in1_idx].payload ^ DATA_W'( sign_flip_at_read_reg ) ) ) begin
+      else if ( recv_opt__msg_typed.operation == OPT_LT || recv_opt__msg_typed.operation == OPT_ULT ) begin
+        if ( ( recv_in__msg_typed[in0_idx].payload ^ comparison_sign_mask ) < ( recv_in__msg_typed[in1_idx].payload ^ comparison_sign_mask ) ) begin
           send_out__msg_typed[1'd0] = const_one;
         end
         else
@@ -178,8 +185,8 @@ module scalar_comp #(
         recv_const__rdy = recv_all_val & send_out__rdy[1'd0];
         recv_opt__rdy = recv_all_val & send_out__rdy[1'd0];
       end
-      else if ( recv_opt__msg_typed.operation == 7'( OPT_LT_CONST ) ) begin
-        if ( ( recv_in__msg_typed[in0_idx].payload ^ DATA_W'( sign_flip_at_read_reg ) ) < ( recv_const__msg_typed.payload ^ DATA_W'( sign_flip_at_read_reg ) ) ) begin
+      else if ( recv_opt__msg_typed.operation == OPT_LT_CONST || recv_opt__msg_typed.operation == OPT_ULT_CONST ) begin
+        if ( ( recv_in__msg_typed[in0_idx].payload ^ comparison_sign_mask ) < ( recv_const__msg_typed.payload ^ comparison_sign_mask ) ) begin
           send_out__msg_typed[1'd0] = const_one;
         end
         else

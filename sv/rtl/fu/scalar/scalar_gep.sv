@@ -1,3 +1,4 @@
+`include "cgra_opcodes.svh"
 `include "cgra_profile_defs.svh"
 // Native GepRTL migration from ac96; original state/handshake semantics.
 module scalar_gep #(
@@ -59,14 +60,14 @@ module scalar_gep #(
   assign to_mem_wdata__msg = to_mem_wdata__msg_typed;
 
   localparam data_t const_zero  = '0;
-  localparam logic [6:0] OPT_START  = 7'd0;
+  localparam logic [6:0] OPT_START  = `CGRA_OPT_START;
   localparam logic [0:0] latency_at_proceed_latency  = 1'd1;
   localparam logic [2:0] num_inports_at_comb_logic  = 3'd4;
   localparam logic [1:0] num_outports_at_comb_logic  = 2'd2;
-  localparam logic [6:0] OPT_GEP  = 7'd88;
-  localparam logic [6:0] OPT_GEP_CONST  = 7'd89;
-  localparam logic [6:0] OPT_GEP_2D  = 7'd90;
-  localparam logic [6:0] OPT_GEP_2D_CONST  = 7'd91;
+  localparam logic [6:0] OPT_GEP  = `CGRA_OPT_GEP;
+  localparam logic [6:0] OPT_GEP_CONST  = `CGRA_OPT_GEP_CONST;
+  localparam logic [6:0] OPT_GEP_2D  = `CGRA_OPT_GEP_2D;
+  localparam logic [6:0] OPT_GEP_2D_CONST  = `CGRA_OPT_GEP_2D_CONST;
   localparam logic [5:0] CMD_CONFIG_GEP_STRIDE  = 6'd43;
   logic [2:0] in0;
   logic [1:0] in0_idx;

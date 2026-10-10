@@ -1,3 +1,4 @@
+`include "cgra_opcodes.svh"
 // Native parameterized scalar profile; migrated from ac96 FlexibleFuRTL.
 // State and update-block names preserve the original cycle semantics.
 `include "cgra_profile_defs.svh"
@@ -72,7 +73,7 @@ module tile_flexible_fu #(
   host_packet_t recv_pkt_from_controller__msg_typed ;
   assign recv_pkt_from_controller__msg_typed = recv_pkt_from_controller__msg;
   localparam logic [1:0] num_outports_at_comb_logic  = 2'd2;
-  localparam logic [6:0] OPT_NAH  = 7'd1;
+  localparam logic [6:0] OPT_NAH  = `CGRA_OPT_NAH;
   localparam logic [2:0] num_inports_at_comb_logic  = 3'd4;
   logic [3:0] fu_recv_const_rdy_vector;
   logic [3:0] fu_recv_in_rdy_vector [0:3];

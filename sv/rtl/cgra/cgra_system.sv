@@ -257,8 +257,7 @@ module cgra_system #(
     logic raddr_val, raddr_rdy, waddr_val, waddr_rdy;
     logic [DATA_BITS-1:0] wdata_msg, rdata_msg;
     logic wdata_val, wdata_rdy, rdata_val, rdata_rdy;
-    if(TILE_VARIANT==0) begin : variant_0
-      tile_programmable #(`CGRA_PROFILE_BIND, .FU_COUNT(TILE_FU_COUNTS[t]),
+      cgra_pe #(.VARIANT(TILE_VARIANT), `CGRA_PROFILE_BIND, .FU_COUNT(TILE_FU_COUNTS[t]),
         .FU_KINDS(TILE_FU_KINDS[t][TILE_FU_COUNTS[t]*8-1:0]),
         .VECTOR_LANES(VECTOR_LANES), .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER),
         .FP_EXP_W(FP_EXP_W), .FP_SIG_W(FP_SIG_W)) tile (
@@ -272,39 +271,6 @@ module cgra_system #(
       .to_mem_wdata__msg(wdata_msg), .to_mem_wdata__val(wdata_val), .to_mem_wdata__rdy(wdata_rdy),
       .from_mem_rdata__msg(rdata_msg), .from_mem_rdata__val(rdata_val), .from_mem_rdata__rdy(rdata_rdy)
       );
-    end
-    else if(TILE_VARIANT==1) begin : variant_1
-      tile_context #(`CGRA_PROFILE_BIND, .FU_COUNT(TILE_FU_COUNTS[t]),
-        .FU_KINDS(TILE_FU_KINDS[t][TILE_FU_COUNTS[t]*8-1:0]),
-        .VECTOR_LANES(VECTOR_LANES), .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER),
-        .FP_EXP_W(FP_EXP_W), .FP_SIG_W(FP_SIG_W)) tile (
-      .clk, .reset, .cgra_id, .tile_id(TILE_ID_W'(t)),
-      .recv_data__msg(tile_recv_msg[t]), .recv_data__val(tile_recv_val[t]), .recv_data__rdy(tile_recv_rdy[t]),
-      .send_data__msg(tile_send_msg[t]), .send_data__val(tile_send_val[t]), .send_data__rdy(tile_send_rdy[t]),
-      .recv_from_controller_pkt__msg(ring_send_msg[t]), .recv_from_controller_pkt__val(ring_send_val[t]), .recv_from_controller_pkt__rdy(ring_send_rdy[t]),
-      .send_to_controller_pkt__msg(ring_recv_msg[t]), .send_to_controller_pkt__val(ring_recv_val[t]), .send_to_controller_pkt__rdy(ring_recv_rdy[t]),
-      .to_mem_raddr__msg(raddr_msg), .to_mem_raddr__val(raddr_val), .to_mem_raddr__rdy(raddr_rdy),
-      .to_mem_waddr__msg(waddr_msg), .to_mem_waddr__val(waddr_val), .to_mem_waddr__rdy(waddr_rdy),
-      .to_mem_wdata__msg(wdata_msg), .to_mem_wdata__val(wdata_val), .to_mem_wdata__rdy(wdata_rdy),
-      .from_mem_rdata__msg(rdata_msg), .from_mem_rdata__val(rdata_val), .from_mem_rdata__rdy(rdata_rdy)
-      );
-    end
-    else if(TILE_VARIANT==2) begin : variant_2
-      tile_streaming #(`CGRA_PROFILE_BIND, .FU_COUNT(TILE_FU_COUNTS[t]),
-        .FU_KINDS(TILE_FU_KINDS[t][TILE_FU_COUNTS[t]*8-1:0]),
-        .VECTOR_LANES(VECTOR_LANES), .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER),
-        .FP_EXP_W(FP_EXP_W), .FP_SIG_W(FP_SIG_W)) tile (
-      .clk, .reset, .cgra_id, .tile_id(TILE_ID_W'(t)),
-      .recv_data__msg(tile_recv_msg[t]), .recv_data__val(tile_recv_val[t]), .recv_data__rdy(tile_recv_rdy[t]),
-      .send_data__msg(tile_send_msg[t]), .send_data__val(tile_send_val[t]), .send_data__rdy(tile_send_rdy[t]),
-      .recv_from_controller_pkt__msg(ring_send_msg[t]), .recv_from_controller_pkt__val(ring_send_val[t]), .recv_from_controller_pkt__rdy(ring_send_rdy[t]),
-      .send_to_controller_pkt__msg(ring_recv_msg[t]), .send_to_controller_pkt__val(ring_recv_val[t]), .send_to_controller_pkt__rdy(ring_recv_rdy[t]),
-      .to_mem_raddr__msg(raddr_msg), .to_mem_raddr__val(raddr_val), .to_mem_raddr__rdy(raddr_rdy),
-      .to_mem_waddr__msg(waddr_msg), .to_mem_waddr__val(waddr_val), .to_mem_waddr__rdy(waddr_rdy),
-      .to_mem_wdata__msg(wdata_msg), .to_mem_wdata__val(wdata_val), .to_mem_wdata__rdy(wdata_rdy),
-      .from_mem_rdata__msg(rdata_msg), .from_mem_rdata__val(rdata_val), .from_mem_rdata__rdy(rdata_rdy)
-      );
-    end
 
     localparam int READ_PORT=memory_port(t,0), WRITE_PORT=memory_port(t,1);
     if(READ_PORT>=0) begin : memory_read

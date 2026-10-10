@@ -1,3 +1,4 @@
+`include "cgra_opcodes.svh"
 // Public field and configuration contract for the fixed scalar 2x2 profile.
 // Packing matches ac96a7 lib/messages.py and reference/manifest.json.
 // Packed array element 0 occupies the low bits of that array field.
@@ -88,21 +89,21 @@ package cgra_types_pkg;
   localparam logic [5:0] CMD_RESUME = 15;
 
   // Operations implemented by the scalar Adder/Mul/Mem/Nah profile.
-  localparam logic [6:0] OPT_NAH = 1;
-  localparam logic [6:0] OPT_ADD = 2;
-  localparam logic [6:0] OPT_INC = 3;
-  localparam logic [6:0] OPT_SUB = 4;
-  localparam logic [6:0] OPT_MUL = 7;
-  localparam logic [6:0] OPT_LD = 12;
-  localparam logic [6:0] OPT_STR = 13;
-  localparam logic [6:0] OPT_ADD_CONST = 25;
-  localparam logic [6:0] OPT_LD_CONST = 28;
-  localparam logic [6:0] OPT_MUL_CONST = 29;
-  localparam logic [6:0] OPT_PAS = 31;
+  localparam logic [6:0] OPT_NAH = `CGRA_OPT_NAH;
+  localparam logic [6:0] OPT_ADD = `CGRA_OPT_ADD;
+  localparam logic [6:0] OPT_INC = `CGRA_OPT_INC;
+  localparam logic [6:0] OPT_SUB = `CGRA_OPT_SUB;
+  localparam logic [6:0] OPT_MUL = `CGRA_OPT_MUL;
+  localparam logic [6:0] OPT_LD = `CGRA_OPT_LD;
+  localparam logic [6:0] OPT_STR = `CGRA_OPT_STR;
+  localparam logic [6:0] OPT_ADD_CONST = `CGRA_OPT_ADD_CONST;
+  localparam logic [6:0] OPT_LD_CONST = `CGRA_OPT_LD_CONST;
+  localparam logic [6:0] OPT_MUL_CONST = `CGRA_OPT_MUL_CONST;
+  localparam logic [6:0] OPT_PAS = `CGRA_OPT_PAS;
   // ac96 leaves constant-ready low for SUB_CONST; preserved, not repaired.
-  localparam logic [6:0] OPT_SUB_CONST = 36;
-  localparam logic [6:0] OPT_STR_CONST = 58;
-  localparam logic [6:0] OPT_ADD_CONST_LD = 81;
+  localparam logic [6:0] OPT_SUB_CONST = `CGRA_OPT_SUB_CONST;
+  localparam logic [6:0] OPT_STR_CONST = `CGRA_OPT_STR_CONST;
+  localparam logic [6:0] OPT_ADD_CONST_LD = `CGRA_OPT_ADD_CONST_LD;
 
   localparam int NORTH = 0;
   localparam int SOUTH = 1;

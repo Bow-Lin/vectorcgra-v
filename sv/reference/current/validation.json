@@ -1,0 +1,643 @@
+{
+  "batch": "M23",
+  "recorded_at_utc": "2026-10-10T03:10:27.410317+00:00",
+  "head_before_changes": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "scope": "Original 4x4 SPMV native repair, nine length profiles with store-completion checks, explicit PHI extensions, legacy-kernel/component regression, synthesized PHI and PE checks",
+  "validations": [
+    {
+      "log": "build/current/m23/current-regression.log",
+      "sha256": "f85f747208f098fed0eb1a1f78dcacb87061cfdaa9f206ad12f3659d25b0543f",
+      "markers": [
+        "CURRENT_FU_PASS cycles=539",
+        "CURRENT_FU_NEGATIVE_PASS",
+        "CURRENT_STATE_PASS",
+        "NATIVE_UNSIGNED_COMPARE_PASS width=32 cases=24",
+        "NATIVE_CONST_LOGIC_PASS width=32 cases=8",
+        "NATIVE_UNSIGNED_COMPARE_PASS width=64 cases=24",
+        "NATIVE_CONST_LOGIC_PASS width=64 cases=8",
+        "CURRENT_PE_GRANT_PASS variant=0 cycles=53 outputs=4 forwarded=4",
+        "CURRENT_PE_PASS variant=0 ports=4 data=32 ctrl=8 reg=16 cycles=64",
+        "CURRENT_PE_GRANT_PASS variant=1 cycles=53 outputs=4 forwarded=4",
+        "CURRENT_PE_GRANT_PASS variant=1 cycles=71 outputs=4 forwarded=4",
+        "CURRENT_PE_PASS variant=1 ports=4 data=32 ctrl=8 reg=16 cycles=83",
+        "CURRENT_PE_GRANT_PASS variant=2 cycles=53 outputs=4 forwarded=4",
+        "CURRENT_PE_PASS variant=2 ports=8 data=32 ctrl=8 reg=16 cycles=64",
+        "CURRENT_PE_GRANT_PASS variant=0 cycles=53 outputs=4 forwarded=4",
+        "CURRENT_PE_PASS variant=0 ports=4 data=64 ctrl=16 reg=8 cycles=64",
+        "CURRENT_PE_GRANT_PASS variant=1 cycles=53 outputs=4 forwarded=4",
+        "CURRENT_PE_GRANT_PASS variant=1 cycles=71 outputs=4 forwarded=4",
+        "CURRENT_PE_PASS variant=1 ports=8 data=32 ctrl=8 reg=16 cycles=83",
+        "CURRENT_STREAM_LOAD_PASS cycles=190 outputs=10 complete=2 requests=10",
+        "CURRENT_DMA_PASS width=32 cycles=105 transactions=8 words_in=6 words_out=6 reads=6 writes=6",
+        "CURRENT_DMA_PASS width=96 cycles=321 transactions=16 words_in=28 words_out=28 reads=12 writes=12",
+        "CURRENT_DMA_PASS width=128 cycles=477 transactions=20 words_in=45 words_out=45 reads=15 writes=15",
+        "CURRENT_DMA_PASS width=256 cycles=1385 transactions=36 words_in=153 words_out=153 reads=27 writes=27",
+        "CURRENT_DMA_SYSTEM_PASS width=128 cycles=86 done=2 loads=5 read_beats=2 write_beats=2",
+        "CURRENT_DMA_SYSTEM_PASS width=256 cycles=111 done=2 loads=9 read_beats=2 write_beats=2",
+        "CURRENT_PE_PARAMETER_NEGATIVE_PASS",
+        "CURRENT_REGRESSION_PASS"
+      ]
+    },
+    {
+      "log": "build/current/m23/synthesis-regression.log",
+      "sha256": "26d8f243baaa5945a630cf157c08afe842962f2e6b577c8c7690edecb20f72a9",
+      "markers": [
+        "CURRENT_PE_SYNTH_PASS",
+        "CURRENT_PE_GRANT_PASS variant=0 cycles=53 outputs=4 forwarded=4",
+        "CURRENT_PE_PASS variant=0 ports=4 data=32 ctrl=8 reg=16 cycles=64",
+        "CURRENT_PE_POST_SYNTH_PASS profile=base",
+        "CURRENT_PE_GRANT_PASS variant=1 cycles=53 outputs=4 forwarded=4",
+        "CURRENT_PE_GRANT_PASS variant=1 cycles=71 outputs=4 forwarded=4",
+        "CURRENT_PE_PASS variant=1 ports=4 data=32 ctrl=8 reg=16 cycles=83",
+        "CURRENT_PE_POST_SYNTH_PASS profile=context",
+        "CURRENT_PE_GRANT_PASS variant=2 cycles=53 outputs=4 forwarded=4",
+        "CURRENT_PE_PASS variant=2 ports=8 data=32 ctrl=8 reg=16 cycles=64",
+        "CURRENT_PE_POST_SYNTH_PASS profile=streaming",
+        "CURRENT_PE_GRANT_PASS variant=0 cycles=53 outputs=4 forwarded=4",
+        "CURRENT_PE_PASS variant=0 ports=4 data=64 ctrl=16 reg=8 cycles=64",
+        "CURRENT_PE_POST_SYNTH_PASS profile=base64",
+        "CURRENT_PE_GRANT_PASS variant=1 cycles=53 outputs=4 forwarded=4",
+        "CURRENT_PE_GRANT_PASS variant=1 cycles=71 outputs=4 forwarded=4",
+        "CURRENT_PE_PASS variant=1 ports=8 data=32 ctrl=8 reg=16 cycles=83",
+        "CURRENT_PE_POST_SYNTH_PASS profile=context8"
+      ]
+    },
+    {
+      "log": "build/current/m23/phi-synthesis.log",
+      "sha256": "f98a0dabd6ade90e94c169c8c7561bcc3a6894ef8bfe4195b441c08d915dd6ac",
+      "markers": [
+        "NATIVE_PHI_PASS width=32 checks=395",
+        "NATIVE_PHI_POST_SYNTH_PASS width=32",
+        "NATIVE_PHI_PASS width=64 checks=395",
+        "NATIVE_PHI_POST_SYNTH_PASS width=64"
+      ]
+    },
+    {
+      "log": "build/current/m23/native-kernels.log",
+      "sha256": "fd90f6d6a00abb88c1f1a0f65b20aa6e14af3ff80e733337806ea290e0032386",
+      "markers": [
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/gemm cycles=1657 words=16",
+        "NATIVE_KERNEL_NEGATIVE_PASS kernel=gemm",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/gemv cycles=405 words=4",
+        "NATIVE_KERNEL_NEGATIVE_PASS kernel=gemv",
+        "NATIVE_IDENTITY_STORES_PASS nnz=8 stores=8",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv cycles=964 words=32",
+        "NATIVE_KERNEL_NEGATIVE_PASS kernel=spmv",
+        "NATIVE_IDENTITY_STORES_PASS nnz=0 stores=0",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz0 cycles=938 words=32",
+        "NATIVE_IDENTITY_STORES_PASS nnz=0 stores=0",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz0 cycles=3064 words=32",
+        "NATIVE_IDENTITY_STORES_PASS nnz=1 stores=1",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz1 cycles=938 words=32",
+        "NATIVE_IDENTITY_STORES_PASS nnz=1 stores=1",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz1 cycles=3064 words=32",
+        "NATIVE_IDENTITY_STORES_PASS nnz=2 stores=2",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz2 cycles=954 words=32",
+        "NATIVE_IDENTITY_STORES_PASS nnz=2 stores=2",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz2 cycles=3075 words=32",
+        "NATIVE_IDENTITY_STORES_PASS nnz=3 stores=3",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz3 cycles=971 words=32",
+        "NATIVE_IDENTITY_STORES_PASS nnz=3 stores=3",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz3 cycles=3097 words=32",
+        "NATIVE_IDENTITY_STORES_PASS nnz=4 stores=4",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz4 cycles=938 words=32",
+        "NATIVE_IDENTITY_STORES_PASS nnz=4 stores=4",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz4 cycles=3064 words=32",
+        "NATIVE_IDENTITY_STORES_PASS nnz=5 stores=5",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz5 cycles=938 words=32",
+        "NATIVE_IDENTITY_STORES_PASS nnz=5 stores=5",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz5 cycles=3064 words=32",
+        "NATIVE_IDENTITY_STORES_PASS nnz=6 stores=6",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz6 cycles=954 words=32",
+        "NATIVE_IDENTITY_STORES_PASS nnz=6 stores=6",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz6 cycles=3075 words=32",
+        "NATIVE_IDENTITY_STORES_PASS nnz=7 stores=7",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz7 cycles=971 words=32",
+        "NATIVE_IDENTITY_STORES_PASS nnz=7 stores=7",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz7 cycles=3097 words=32",
+        "NATIVE_IDENTITY_STORES_PASS nnz=8 stores=8",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv cycles=964 words=32",
+        "NATIVE_IDENTITY_STORES_PASS nnz=8 stores=8",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv cycles=3086 words=32",
+        "NATIVE_SPMV_ABLATION_PASS case=wrong_prologue",
+        "NATIVE_SPMV_ABLATION_PASS case=legacy_start",
+        "NATIVE_SPMV_ABLATION_PASS case=binary_phi",
+        "NATIVE_SPMV_ABLATION_PASS case=missing_loop_exit",
+        "NATIVE_SPMV_ABLATION_PASS case=dropped_store_ack",
+        "NATIVE_SPMV_MATRIX_PASS",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv_coo cycles=206 words=4",
+        "NATIVE_KERNEL_NEGATIVE_PASS kernel=spmv_coo"
+      ]
+    },
+    {
+      "log": "build/current/m23/current-kernels.log",
+      "sha256": "68fcbf668d9bd88ba9561f54703b733c2b3cbcef15f6339499ff3c5fbc47a16d",
+      "markers": [
+        "CURRENT_KERNEL_PASS kernel=axpy cycles=290 host_events=1",
+        "CURRENT_KERNEL_PASS kernel=fir4x4 cycles=350 host_events=1",
+        "CURRENT_KERNEL_PASS kernel=histogram cycles=240 host_events=1",
+        "CURRENT_KERNEL_PASS kernel=relu4x4 cycles=345 host_events=1",
+        "CURRENT_KERNEL_PASS kernel=sad cycles=190 host_events=1"
+      ]
+    },
+    {
+      "log": "build/current/m23/native-math.log",
+      "sha256": "b1dcf761ab7ffa19c317caea3739e9ec39fa45976dee282bf30beab117541aa5",
+      "markers": [
+        "NATIVE_SUB_CONST_PASS width=32 cases=3",
+        "NATIVE_SUB_CONST_PASS width=64 cases=3",
+        "NATIVE_PHI_PASS width=32 checks=395",
+        "NATIVE_PHI_NEGATIVE_PASS profile=phi32",
+        "NATIVE_PHI_PASS width=64 checks=395",
+        "NATIVE_PHI_NEGATIVE_PASS profile=phi64",
+        "NATIVE_IEEE_FP_PASS width=16 multiply=0 cases=12",
+        "NATIVE_IEEE_FP_NEGATIVE_PASS profile=fp16_0",
+        "NATIVE_IEEE_FP_PASS width=16 multiply=1 cases=10",
+        "NATIVE_IEEE_FP_NEGATIVE_PASS profile=fp16_1",
+        "NATIVE_IEEE_FP_PASS width=32 multiply=0 cases=12",
+        "NATIVE_IEEE_FP_NEGATIVE_PASS profile=fp32_0",
+        "NATIVE_IEEE_FP_PASS width=32 multiply=1 cases=10",
+        "NATIVE_IEEE_FP_NEGATIVE_PASS profile=fp32_1",
+        "NATIVE_IEEE_FP_PASS width=64 multiply=0 cases=12",
+        "NATIVE_IEEE_FP_NEGATIVE_PASS profile=fp64_0",
+        "NATIVE_IEEE_FP_PASS width=64 multiply=1 cases=10",
+        "NATIVE_IEEE_FP_NEGATIVE_PASS profile=fp64_1",
+        "NATIVE_FP_COMPAT_PASS multiply=0 exp=8 sig=23 samples=1170 arithmetic_checks=168 special_checks=8 seed=c03e2026",
+        "NATIVE_FP_COMPAT_PASS multiply=1 exp=8 sig=23 samples=1170 arithmetic_checks=168 special_checks=8 seed=c03e2026",
+        "NATIVE_FP_COMPAT_PASS multiply=0 exp=4 sig=11 samples=1170 arithmetic_checks=168 special_checks=8 seed=c03e2026",
+        "NATIVE_FP_COMPAT_PASS multiply=1 exp=4 sig=11 samples=1170 arithmetic_checks=168 special_checks=8 seed=c03e2026",
+        "NATIVE_FP_COMPAT_NEGATIVE_PASS: incorrect independent expectation was rejected"
+      ]
+    },
+    {
+      "log": "build/native/gemm/run.log",
+      "sha256": "5da243b1cd49b7cf637d61468bc9933a70a1c7ddee2fa780cd5b798859f53a1f",
+      "markers": [
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/gemm cycles=1657 words=16"
+      ]
+    },
+    {
+      "log": "build/native/gemv/run.log",
+      "sha256": "115b98b527b0d6d692fb97b8c95befbd66f7943cd056d46176130e40588c9b22",
+      "markers": [
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/gemv cycles=405 words=4"
+      ]
+    },
+    {
+      "log": "build/native/spmv/run.log",
+      "sha256": "b933f86eb8fc348d75cc29129800eeacfeb3595c995226ccc25d2f1e8e5d5001",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=8 stores=8",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv cycles=964 words=32"
+      ]
+    },
+    {
+      "log": "build/native/spmv/nnz0-normal.log",
+      "sha256": "80da8b3e22e9aa7c3c446a4d9c65c1bccd9af5ad747444b89a0a92464e6f6d0b",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=0 stores=0",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz0 cycles=938 words=32"
+      ]
+    },
+    {
+      "log": "build/native/spmv/nnz0-backpressure.log",
+      "sha256": "2da53616cd5dd1799417b3b69ba2d1c790ad7faa102704fb7a9014804dfaa269",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=0 stores=0",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz0 cycles=3064 words=32"
+      ]
+    },
+    {
+      "log": "build/native/spmv/nnz1-normal.log",
+      "sha256": "2e82caea8c923302555fffe60ba9022c203204c6e0c70ce9aea8d4513825cdcb",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=1 stores=1",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz1 cycles=938 words=32"
+      ]
+    },
+    {
+      "log": "build/native/spmv/nnz1-backpressure.log",
+      "sha256": "caeeecdac76b6a3a8235f81b776afe2ac22a13921c1d0f9e0fe4a8d5a4961622",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=1 stores=1",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz1 cycles=3064 words=32"
+      ]
+    },
+    {
+      "log": "build/native/spmv/nnz2-normal.log",
+      "sha256": "10bfc69f86a7309983e6188b237ebd9646ccf2d5974b6abd92a0afb2fdd1eb1c",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=2 stores=2",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz2 cycles=954 words=32"
+      ]
+    },
+    {
+      "log": "build/native/spmv/nnz2-backpressure.log",
+      "sha256": "84e4450a0c5cb899f33d5526ce2905a163f198320031c12b42b5164f19af44ab",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=2 stores=2",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz2 cycles=3075 words=32"
+      ]
+    },
+    {
+      "log": "build/native/spmv/nnz3-normal.log",
+      "sha256": "24c88f895c50f80d5e8019ecd6fab9056004f8504921fc0af8b076e103428b69",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=3 stores=3",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz3 cycles=971 words=32"
+      ]
+    },
+    {
+      "log": "build/native/spmv/nnz3-backpressure.log",
+      "sha256": "b5323e0701b203e97d09b747c08ee45b437f29c604b4d036edfffbbc039daf61",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=3 stores=3",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz3 cycles=3097 words=32"
+      ]
+    },
+    {
+      "log": "build/native/spmv/nnz4-normal.log",
+      "sha256": "6b6593beda16a5be6a864439110ed6d2cc6a177cbf1182508fe27bbd059b2ff2",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=4 stores=4",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz4 cycles=938 words=32"
+      ]
+    },
+    {
+      "log": "build/native/spmv/nnz4-backpressure.log",
+      "sha256": "aa22414192e7ff6e1b3328029572edeb805ec278190535eb7eabb5ce4841c260",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=4 stores=4",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz4 cycles=3064 words=32"
+      ]
+    },
+    {
+      "log": "build/native/spmv/nnz5-normal.log",
+      "sha256": "1682ae0b009791dba3e6a275a228aec4f2c3a87dafd72db82729ade9abf92293",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=5 stores=5",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz5 cycles=938 words=32"
+      ]
+    },
+    {
+      "log": "build/native/spmv/nnz5-backpressure.log",
+      "sha256": "455aee8ae5573a1889cc2cab2db64eb9e644134e01a25004403fa94b53ef502c",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=5 stores=5",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz5 cycles=3064 words=32"
+      ]
+    },
+    {
+      "log": "build/native/spmv/nnz6-normal.log",
+      "sha256": "1701de74f388a639e333a97ea3e5e8d8fbea628bc934fd1de20434d560dda656",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=6 stores=6",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz6 cycles=954 words=32"
+      ]
+    },
+    {
+      "log": "build/native/spmv/nnz6-backpressure.log",
+      "sha256": "c598c0d5dcffad7dca7b552f1990c5484ced03b8efe7bc9e4eff29979421752b",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=6 stores=6",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz6 cycles=3075 words=32"
+      ]
+    },
+    {
+      "log": "build/native/spmv/nnz7-normal.log",
+      "sha256": "a715e11624ba53eb29656fa520964a5e83864e74a408716f755862e931e812b0",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=7 stores=7",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz7 cycles=971 words=32"
+      ]
+    },
+    {
+      "log": "build/native/spmv/nnz7-backpressure.log",
+      "sha256": "05d439cb4cb4e1a921b001be2673af070537fd0219d32eefa97154e2b729bfb9",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=7 stores=7",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz7 cycles=3097 words=32"
+      ]
+    },
+    {
+      "log": "build/native/spmv/nnz8-normal.log",
+      "sha256": "263ce5b67e4398dbc8aa28338521c0f835abe81c530451540eeafff8c0c3a0e2",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=8 stores=8",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv cycles=964 words=32"
+      ]
+    },
+    {
+      "log": "build/native/spmv/nnz8-backpressure.log",
+      "sha256": "29ba04c4cded48de8a43251907a44fae4a0470e4483aabecb5da3dcf821ed8da",
+      "markers": [
+        "NATIVE_IDENTITY_STORES_PASS nnz=8 stores=8",
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv cycles=3086 words=32"
+      ]
+    },
+    {
+      "log": "build/native/spmv_coo/run.log",
+      "sha256": "4cd1870d80c2f411c723187a7461a8dd5a641dfe5e39c479ac3177bbb2ec3c54",
+      "markers": [
+        "NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv_coo cycles=206 words=4"
+      ]
+    },
+    {
+      "log": "build/current/kernels/axpy/run.log",
+      "sha256": "868c4409bcf612c5acdce315723c4ba1217bfa4ac291ea22c85affa2f9b272b5",
+      "markers": [
+        "CURRENT_KERNEL_PASS kernel=axpy cycles=290 host_events=1"
+      ]
+    },
+    {
+      "log": "build/current/kernels/fir4x4/run.log",
+      "sha256": "078e2d1eed94ad0492e49ec7aa3b7261a9a095d5651dc3d0b1770c8686878bb4",
+      "markers": [
+        "CURRENT_KERNEL_PASS kernel=fir4x4 cycles=350 host_events=1"
+      ]
+    },
+    {
+      "log": "build/current/kernels/histogram/run.log",
+      "sha256": "c181675b31d5b81c93bb1ee41e6d86e77ff1e13c6d7ea7c44a90a2df45dc1ae4",
+      "markers": [
+        "CURRENT_KERNEL_PASS kernel=histogram cycles=240 host_events=1"
+      ]
+    },
+    {
+      "log": "build/current/kernels/relu4x4/run.log",
+      "sha256": "eb6150ee5aa5bc7c80f8df70e84271d9c9096e6b07ba7e8b94280522b9ed3497",
+      "markers": [
+        "CURRENT_KERNEL_PASS kernel=relu4x4 cycles=345 host_events=1"
+      ]
+    },
+    {
+      "log": "build/current/kernels/sad/run.log",
+      "sha256": "d3b43481d8170092b561bf108f9ca165fad32d537e75067505e7c28d6cb24b07",
+      "markers": [
+        "CURRENT_KERNEL_PASS kernel=sad cycles=190 host_events=1"
+      ]
+    },
+    {
+      "log": "build/current/post-synth/base/run.log",
+      "sha256": "9175468e11b64741915a89b1c27771033a8e16c27a962ea025f0b8699e86473b",
+      "markers": [
+        "CURRENT_PE_GRANT_PASS variant=0 cycles=53 outputs=4 forwarded=4",
+        "CURRENT_PE_PASS variant=0 ports=4 data=32 ctrl=8 reg=16 cycles=64"
+      ]
+    },
+    {
+      "log": "build/current/post-synth/context/run.log",
+      "sha256": "78d976cb47456d59ea68eb77ea37a674940ac235cf633e0493387fb1773a9dee",
+      "markers": [
+        "CURRENT_PE_GRANT_PASS variant=1 cycles=53 outputs=4 forwarded=4",
+        "CURRENT_PE_GRANT_PASS variant=1 cycles=71 outputs=4 forwarded=4",
+        "CURRENT_PE_PASS variant=1 ports=4 data=32 ctrl=8 reg=16 cycles=83"
+      ]
+    },
+    {
+      "log": "build/current/post-synth/streaming/run.log",
+      "sha256": "d8cdf08d5c00b1bef0cb8e00a99def657275dd950257d97c248204cac88b0b28",
+      "markers": [
+        "CURRENT_PE_GRANT_PASS variant=2 cycles=53 outputs=4 forwarded=4",
+        "CURRENT_PE_PASS variant=2 ports=8 data=32 ctrl=8 reg=16 cycles=64"
+      ]
+    },
+    {
+      "log": "build/current/post-synth/base64/run.log",
+      "sha256": "33624ba499c5a6fa8435b45fdeb21a836c95be501548b3c6d619cff35baeb5f3",
+      "markers": [
+        "CURRENT_PE_GRANT_PASS variant=0 cycles=53 outputs=4 forwarded=4",
+        "CURRENT_PE_PASS variant=0 ports=4 data=64 ctrl=16 reg=8 cycles=64"
+      ]
+    },
+    {
+      "log": "build/current/post-synth/context8/run.log",
+      "sha256": "8525fca520fa2e98b28d379b7cea43a39e5d0361aac2cbbb4be9dc05ed5a6571",
+      "markers": [
+        "CURRENT_PE_GRANT_PASS variant=1 cycles=53 outputs=4 forwarded=4",
+        "CURRENT_PE_GRANT_PASS variant=1 cycles=71 outputs=4 forwarded=4",
+        "CURRENT_PE_PASS variant=1 ports=8 data=32 ctrl=8 reg=16 cycles=83"
+      ]
+    },
+    {
+      "log": "build/current/post-synth/phi/32/run.log",
+      "sha256": "6c1b4ff3fa75f1a67ab88c5f19b62ee6fe3fe85dc8ead8d0f620ec9efcbca1fa",
+      "markers": [
+        "NATIVE_PHI_PASS width=32 checks=395"
+      ]
+    },
+    {
+      "log": "build/native/math/phi32/run.log",
+      "sha256": "3aed74a32d419df84e2c2e1b0178420044024f6a25959d187eebc2f94a697bdc",
+      "markers": [
+        "NATIVE_PHI_PASS width=32 checks=395"
+      ]
+    },
+    {
+      "log": "build/current/post-synth/phi/64/run.log",
+      "sha256": "95a6259b0799e2034d189b185cdf6552556bd595111a22709e250acf26dce5af",
+      "markers": [
+        "NATIVE_PHI_PASS width=64 checks=395"
+      ]
+    },
+    {
+      "log": "build/native/math/phi64/run.log",
+      "sha256": "96df84877ca859cb849e3520460d925055b1e125f141e2d2359dfa081d35ca26",
+      "markers": [
+        "NATIVE_PHI_PASS width=64 checks=395"
+      ]
+    }
+  ],
+  "rtl_sha256": {
+    "sv/rtl/cgra/cgra_2x2.sv": "594608753066235c2f563460323109b82f685aabe763da40e005b7cb40975f9a",
+    "sv/rtl/cgra/cgra_multi.sv": "8b6cf447299a65d80e474454a48f2c4567a7dc5e3b48d08ca72edf077f405da6",
+    "sv/rtl/cgra/cgra_multi_template.sv": "7a3413778d44b61f8619dc14f23d696d6fd25d203be95eae72e3509894012c85",
+    "sv/rtl/cgra/cgra_programmable.sv": "043b8f0bc88b5b4c7b626e895d46840ef5ecf3310ff4afb01f8464963d674944",
+    "sv/rtl/cgra/cgra_scalar.sv": "efaee3229228d7052bc79191300f8f0bb602f3310428bbd9c512b49fd57fa06e",
+    "sv/rtl/cgra/cgra_system.sv": "694cbce989d0353f370601755cb574ea8d2ac5597c5dc51d19cf8d492c072bf1",
+    "sv/rtl/common/cgra_channel.sv": "0f2d6a0be4202910ffa8ebf3fbed6ed2c08d947ffaf8a11e50e1c195ffa8bf34",
+    "sv/rtl/common/cgra_fu_catalog.svh": "0e3618fdb673ccc7e2fcf26832bfb3cec5722934b8ec9271df1d2610863919e7",
+    "sv/rtl/common/cgra_native_extensions.svh": "a632d6eba711393e681bd5b2473b586ab66f99fb5bc796bb930ba017dd3ae080",
+    "sv/rtl/common/cgra_opcodes.svh": "aaf5c876081d1fb066af8cdc01e7cae2a35afebaedfeb6e5a8889e3d0375bede",
+    "sv/rtl/common/cgra_profile.svh": "8a360c5a38dc98087d9cbd89c9508bd6b2c6d428bc4cc90bba357e36de168eec",
+    "sv/rtl/common/cgra_profile_defs.svh": "0dbcc2e9b43f80fffd5101f24742f3d1ccb0fa5af67ba5f788049df9c02042dd",
+    "sv/rtl/common/cgra_queue.sv": "87e03f556141d8c2c0abe26168ef567ce4b5e456a9f090f9f797aed51a4c4761",
+    "sv/rtl/common/cgra_register_file.sv": "13856021bc1acb361a12a96870a501dea98856aec5c301dd503b41327323d41d",
+    "sv/rtl/common/cgra_round_robin.sv": "294d46b6394c205ea67577ef8f4f51b6cc220072051c6a42b3280c5b7ef4b93d",
+    "sv/rtl/common/cgra_types_pkg.sv": "b156167206aef4146c68e95693ac57926310d9f5a7ed60076b71b8d5480c9c16",
+    "sv/rtl/controller/cgra_controller.sv": "b5824a86481c138aad58e39d3b5f91da254f7bc00e96181d3788021e6326042c",
+    "sv/rtl/controller/cgra_global_reduce.sv": "09cec6468cc53aff676cca857c06cb2593e7dcfe25f4f49b10bdfe2bbdf27d8f",
+    "sv/rtl/fixed/cgra_2x2_core.sv": "6be4c3471c14ea66bf14dea87c15c11fe7d5c327bcb741a4ca949e23ab1bf780",
+    "sv/rtl/fu/combo/cgra_alu_gen_mac.sv": "8ffd2c8491a00989db2ec9a0c8d597f7afef8f20418de80bf8ce56b63cd0ebe2",
+    "sv/rtl/fu/combo/cgra_alu_gen_mac_core.sv": "8513f82ace7206cc8583c0043b139e7ef2d043eab66794b04d416905d677c28d",
+    "sv/rtl/fu/combo/cgra_multp.sv": "855e5c180f10e01be38d012d4c539fa8ef9e497e91a7be846d78f548a9be588b",
+    "sv/rtl/fu/combo/tile_alu_gen_mac.sv": "64730f0165512be99fa67faf99d98f196acfe2ce6b3e51f26aa320a5937b16cd",
+    "sv/rtl/fu/combo/tile_four_inc_cmp_not_grant.sv": "88268b3f42087623fedbe8bf5d793e6810973da314f0aa044f3602f93f2bd3f1",
+    "sv/rtl/fu/combo/tile_prl_mul_adder.sv": "aeca91099eabe466cdacda34442f5737dccab53c2342616c8340107177f9d8e0",
+    "sv/rtl/fu/combo/tile_seq_mul_adder.sv": "cc62c9ab3dbd7aefa6efccbeefd3ab3a10e850aa2f0d4dceed875236fb6d1288",
+    "sv/rtl/fu/combo/tile_seq_mul_shifter.sv": "4e11db32abd1761b7db621b45115b30dd913a333b1b85d8e82f62bdb465f45a6",
+    "sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv": "e81f0f7df64c3a507819b56956b50cda7f9d96d5bb1c972a0c4f1961a1853fd9",
+    "sv/rtl/fu/combo/vendor/dp_fpfma/DW02_multp.v": "a9d9bb4b4b5fa032e5626e3dd32d069cf39d45765c398530bb41bb3a541b4515",
+    "sv/rtl/fu/combo/vendor/svsrc/ALUgenMAC.sv": "a279b80f648394ed7b15c955360a8d803ec9a597105f0a5bd17dc32b982565a6",
+    "sv/rtl/fu/float/cgra_hardfloat_fn.sv": "fc52932df3a81ecfc90edd1d2c51c991e344213db5165d910700ab1205392d4d",
+    "sv/rtl/fu/float/tile_fp_add.sv": "164243f24ddc1582c1ad974d10b274b859ef25fe913709027b8b7ce7f59573f8",
+    "sv/rtl/fu/float/tile_fp_fu.sv": "911e3d4379224b82085c08d01ae9991a51eb8a98b6e7b60a4fba16e78c6ad7de",
+    "sv/rtl/fu/float/tile_fp_mul.sv": "c1f70d1ba0a6c92a4dfebb97fffb48e09bc4d455a5f220d06f088941070b504c",
+    "sv/rtl/fu/scalar/scalar_comp.sv": "af04f3f0eeb55fa116834ace8f3c7db6041641832e8c77c7d050c330859979e0",
+    "sv/rtl/fu/scalar/scalar_const.sv": "2d2020a3aae93d89d2271642d26a87ae8252498c1a53a720c8360b43ce9e21d5",
+    "sv/rtl/fu/scalar/scalar_div.sv": "3d7b9ff13362b4fd2a370d53655eea30c7369cfdd79f8bf7bb151508c95c6d94",
+    "sv/rtl/fu/scalar/scalar_div_pipeline.sv": "9381e8b4ff8dd31d14d69b62f29a82309d20e932103b493f31bc97f0bf39482b",
+    "sv/rtl/fu/scalar/scalar_exclusive_div.sv": "c23070747fea0137f312866eab8653abb0eb814ca2b43acd8b387c4887b4e202",
+    "sv/rtl/fu/scalar/scalar_extract_predicate.sv": "114b1394007b9f304e542c3bb8a49a74559fb0cb8ef741d5cc1d2f317d29a391",
+    "sv/rtl/fu/scalar/scalar_gep.sv": "050d2349f1a3dcae059fc2a4caf7ab42459e9906b40e8a81949fdb2e9e3a6fb7",
+    "sv/rtl/fu/scalar/scalar_grant.sv": "0e6592d3ee731cc1d3d0a243385022cef487c45b1001ad6c7a577aea9df090af",
+    "sv/rtl/fu/scalar/scalar_inclusive_div.sv": "6dd594d440f76ae1ecacc5c1bf2f738909296fb3346d4e80b3a114324ef9da25",
+    "sv/rtl/fu/scalar/scalar_logic.sv": "1293c8e9d947dcd641bc450e57a0e91cbddf4e7fc783da775e419899513617a7",
+    "sv/rtl/fu/scalar/scalar_loop_control.sv": "ca5e895d4826adfe6f9a60b15db00071578f8d691954e5d80bc80a4bf975eab5",
+    "sv/rtl/fu/scalar/scalar_loop_counter.sv": "d4d6b549b978f7801673a574d0a8683f7aa7c36269e023310d2449612110f4ef",
+    "sv/rtl/fu/scalar/scalar_phi.sv": "4566ee6e2725c687c415a2a69f1a558061aa8129e436a8a0390274cca577fdb1",
+    "sv/rtl/fu/scalar/scalar_ret.sv": "b15eb77f8ac4e8363ad37c000d316d9edda2b75667f7df2bdf8314f832c92e8e",
+    "sv/rtl/fu/scalar/scalar_sel.sv": "a3d0468b73a4f9224d9cb7d616d075a9a295656bc2c129592034ea50d89844ac",
+    "sv/rtl/fu/scalar/scalar_shifter.sv": "253ca1dbe51e6fd1330da1b4ab75367f9c26809cfbe4d2027aee169f056c61d1",
+    "sv/rtl/fu/streaming/tile_streaming_memory_fu.sv": "75e24ef6b0fd9be2bddb85ce27541f56efb220bebdbba0167e3d1cefafe3cadf",
+    "sv/rtl/fu/tile_adder.sv": "45543a691c42cc9d0ce3b5197ff8f4413cc2f8035c84b2e5a5e86e87b3893302",
+    "sv/rtl/fu/tile_flexible_fu.sv": "914d1c7978325abd19d524680db6c7f4183fd559b026c000b01a14f66bce51ed",
+    "sv/rtl/fu/tile_flexible_fu_configurable.sv": "d91ff54002020c28598e4c4774372f63131e933ca878371b45f382c548c7f907",
+    "sv/rtl/fu/tile_memory_fu.sv": "14cc78c90c4633c4ec7a60655573fc1e6854b41c278f536586a7315bf83f7655",
+    "sv/rtl/fu/tile_multiplier.sv": "75eb93fb510f442adba6a6ab978855141f0600aa2cd76f7fc24926bac56d8c5f",
+    "sv/rtl/fu/tile_nah.sv": "90cab29e133b0a51389c01123d75b92104c8f935824dac6a31b2069a343b616c",
+    "sv/rtl/fu/vector/cgra_vector_adder.sv": "b30d0d4b8a4d9be162c1f291b0b6f74169562c3e9cc047306ee7736342e3d6e9",
+    "sv/rtl/fu/vector/cgra_vector_mul.sv": "67855b8b2003f586d54aace6d3e4350a0a7b701dd4e08a310fb80b8a1c393127",
+    "sv/rtl/fu/vector/tile_vector_adder_combo.sv": "d3c955af607638a28da21f245833a26be7f7b2e8f070b6d967ff94ca14bcf20a",
+    "sv/rtl/fu/vector/tile_vector_all_reduce.sv": "9132997c1eedb14297e66b2aa712e8f8f133a172c870c52e42d6873f8da1dd9a",
+    "sv/rtl/fu/vector/tile_vector_mul_combo.sv": "f78457211e1abfde56f5f10498abef2e5fec29d858ad89bbe22ed7a6a4779301",
+    "sv/rtl/mem/cgra_data_bank.sv": "77c3214c4cf388fdeefc3145d91a0106404e36624c9fef009bd11a400fe60a1b",
+    "sv/rtl/mem/cgra_data_memory.sv": "0b75da82f24a8ef77c4795ee39af899394901dd33a5d1a88230f23ae1ff35335",
+    "sv/rtl/mem/const_queue.sv": "74c8757759528421f5949be67e0cf1e8b364fcb7c2571bd13a61a782f8797c83",
+    "sv/rtl/mem/ctrl_mem.sv": "75ba6aa4d89b59aec49bf3844eff4b52b5937d77c2172f4512a616008e28bdd0",
+    "sv/rtl/mem/register_bank.sv": "18b60aa21e281939510a3c81bf2a0c115312a5736a38064529e12f38ea3670b2",
+    "sv/rtl/mem/register_cluster.sv": "1db346700060eaa4f5d9f960c1e9ae556ff589aabaf0197aea109f17831d9e4c",
+    "sv/rtl/noc/cgra_credit_input.sv": "7d58169e0f7db7b484fa6fb9d3e926ba6de00a971b0cd4b513620a9b4fd8837b",
+    "sv/rtl/noc/cgra_credit_recv.sv": "f6c728e6ea42849f013328018204def97b764662ebd102cadebd5402b1aae0de",
+    "sv/rtl/noc/cgra_credit_ring.sv": "98213452e10b00072f872e0f81c869d744960d377cbd2735fe534beb7e1aaa70",
+    "sv/rtl/noc/cgra_credit_send.sv": "a13e8dc3a08906c46c4dc3675beea17ec13e61c729ac665b7a2c4de6dab5f7bd",
+    "sv/rtl/noc/cgra_ring_route.sv": "d794ba9f657dd7384bb947bf8d5977681e0e7dc14181e9df3989eee04ac1b46b",
+    "sv/rtl/noc/cgra_ring_router.sv": "b15e9d00833d968e97213ea144d75a55ba34e927c8c58e02ffd7f1d94c938e4b",
+    "sv/rtl/noc/cgra_switch.sv": "db3d1610cafc5c86736916a4cac1001e2ad225ba54df278e8b20414bb49866c5",
+    "sv/rtl/noc/cgra_xbar.sv": "ac048fe5d423b3b7bbbe01f34cfbffadd8859ef31df96fb4a9bce2cda3d26b64",
+    "sv/rtl/noc/inter_cgra/cgra_inter_mesh.sv": "99c6ab483bf52189c6d1bc086bf6632381096c6f71c808b858051860f4b51814",
+    "sv/rtl/noc/inter_cgra/cgra_inter_mesh_route.sv": "e1b31e0e6cae251fba0c910d835270c76dc9d39ac4de9ef1a96de056f9a02963",
+    "sv/rtl/noc/inter_cgra/cgra_inter_mesh_router.sv": "c6f2688c07d875b1960f37f6986d7e4ab53fea445f6832dc8b01d3966999edaa",
+    "sv/rtl/noc/inter_cgra/cgra_inter_ring.sv": "3d96672d77ef8574a0da06291a116aac3b655a1ef44f909d2368557cd6b884ea",
+    "sv/rtl/peripheral/cgra_dma_engine.sv": "67f69dd7e6aaf077ac645938eecebac31e1de2f9abb73deeed33acf53ea320af",
+    "sv/rtl/peripheral/cgra_im2col_engine.sv": "b17118ae24ffb40852d7aa6027c69f485d33ba415c6f2485587138bd0ac8385f",
+    "sv/rtl/peripheral/cgra_integrated_dma.sv": "c3e6351e044e738b6f28df1bf8572ad5ee82ad6efa882001d890793d46aaa2b8",
+    "sv/rtl/peripheral/cgra_integrated_im2col.sv": "2f9db4817ecde154234b58ba2e1ca76377083521fa2dfb4cfe0347135de1e9e4",
+    "sv/rtl/tile/cgra_pe.sv": "da1280780683629ad4de6c02c9f4994c25569685047b3c06c4521ff0e03869db",
+    "sv/rtl/tile/tile_core.sv": "48c50c2a50a19493bb81133bd1ca25868094ee8f42a7c523f1c3ae545425a4a7",
+    "sv/rtl/tile/tile_link_or.sv": "b86b2471c44d0e6522d20d4e228e5463721bad6225df4a0f0a315084cf2147bc",
+    "sv/rtl/tile/tile_programmable.sv": "d259827bb12e39ac5bc374fcc042080f350a5acb420e67a616c17ad8ba9d8f34",
+    "sv/rtl/tile/tile_static_crossbar.sv": "e34d871318d89453d0f2e9cd494060c7bc9d98baeb855eedbfefd3fb56d6bd40",
+    "sv/rtl/tile/variants/tile_context.sv": "310996ebfc87777c73c5b2b921adf643010018c4e3aada09ba06aad3564b522a",
+    "sv/rtl/tile/variants/tile_context_switch.sv": "0296f8460b31d8c4d319e7f5aaef7ee475d5e52330fe883c5b99926282126bcc",
+    "sv/rtl/tile/variants/tile_streaming.sv": "2df67d7a04cafa8f8b273ed90ac4dfdaeb24a0361f385b0806298a317947440c",
+    "sv/rtl/tile/variants/tile_variant_const_queue.sv": "6ce5f5f25674f291c6118a5fd7adfcac18a7524d28ee77b27eedb710ada3ccea",
+    "sv/rtl/tile/variants/tile_variant_core.sv": "2a9343627920fc13ea624a805537785bb71c1481c256586e429610f745d5303b",
+    "sv/rtl/tile/variants/tile_variant_crossbar.sv": "a65b277c3c27babecac47f2b4f567ba24981b216495d6ef99a0308ec7e681ce4",
+    "sv/rtl/tile/variants/tile_variant_ctrl_mem.sv": "6465118774647a3709c42af6c3ed43d72e1eb61308b07bc7c006bc41173ed6ca",
+    "sv/rtl/vendor/hardfloat/HardFloat_primitives.v": "3273444d956fe82b01ba074ed6c22441d957dc7be02990133dd7a83efb07845d",
+    "sv/rtl/vendor/hardfloat/HardFloat_rawFN.v": "f219b1594ce25df5790af748bf2bcfdb6ff8a2ad4806c447b1dbeffcdecc071a",
+    "sv/rtl/vendor/hardfloat/addRecFN.v": "8e299e624d7f20c752bb3f59b6ae1ae94685244df20fe2ac274b86f93d87e488",
+    "sv/rtl/vendor/hardfloat/fNToRecFN.v": "146e50014d986df605ed59a69425cd6dc19750df3acdd083f61bff7cf51ac6a3",
+    "sv/rtl/vendor/hardfloat/isSigNaNRecFN.v": "dfec25b11b197b767d15b0e28d56b4742c7329668239cdf14d324ddac0950439",
+    "sv/rtl/vendor/hardfloat/mulRecFN.v": "bff24e22929c49d0f50f70511a93388c784faae9a578cfc79e8fe322cf60cf5a",
+    "sv/rtl/vendor/hardfloat/recFNToFN.v": "9a1cb98579a715965aebf9faab6cb5851154e8284d6af7ace594a0d6cc87adf8"
+  },
+  "test_sha256": {
+    "sv/tests/current/current_pe_synth_adapter.sv": "632cb44c6a5b3e86f2306ec106709f1238bdc9d9a39113a828c4160c659a3461",
+    "sv/tests/current/migration/dynamic_fir/replay_counts.txt": "167918ace289465acd4dd6ab6587fe10bfe54bc475ad8074b049ac358f98f9e2",
+    "sv/tests/current/migration/dynamic_fir/tb_multi_migration.sv": "33f51dda535b72571298c1b471053b67a5a86257547a604c04906602b4c75ada",
+    "sv/tests/current/migration/dynamic_fir/test_profile.json": "4e2df0a53d860bac99e78feb2cac6ade489129ebc80dfac98bf890c61efa372a",
+    "sv/tests/current/migration/global_add/replay_counts.txt": "0433e993a3dbc505d6e5cad972a1df0ab189cfe7ceece5e94fd47ca9a074370f",
+    "sv/tests/current/migration/global_add/tb_multi_migration.sv": "427209f344a6323fafb93b998faef39042a0736ad745a1fe58a9daba3db3f1ae",
+    "sv/tests/current/migration/global_add/test_profile.json": "2706bc5c6e619d8f0eb0636b6096abc2f66ca932a6c9e9fc2d01fdf8ff2431fc",
+    "sv/tests/current/run.sh": "210b10e08131730108424bfa00027bfa32386844ff4b7cb9953c758b0d80dab9",
+    "sv/tests/current/run_fp_compat.sh": "08acba8eb9850985d67346d9dabea129d529897930d2ed15fd3527e6211478f8",
+    "sv/tests/current/run_kernels.sh": "e38f8f5f47fb0223816d8b60811ec911f85ecb66fbf6ff0430ded3aadba8ce18",
+    "sv/tests/current/run_migration.sh": "a8740b7aba5959dcb5395c3737103d90c8aef7c284dd1a75ce9c0dc2060346c8",
+    "sv/tests/current/run_native_kernels.sh": "8794e98320ef24d40544a422359f78d135bfa38b5c1f7c6f7e7a6502844ecd70",
+    "sv/tests/current/run_native_math.sh": "be448d2ab36ee35a80c7fb09b94ca256eeeca9ada44836ca4434fe0253207b09",
+    "sv/tests/current/run_native_multi.sh": "a27029d55d65dca617ee29059418044a23b2217b4b540175473e60f303f1bacc",
+    "sv/tests/current/run_native_template.sh": "9b547df08fbfb3ca819c7f44a213a3f232b66f2159524cab355ee3da02238c13",
+    "sv/tests/current/run_prefixes.sh": "7878c0a69af58b86e476d6cbfaf0c7de22a692d8a6cd54614572a6aeeebebeda",
+    "sv/tests/current/run_synth_pe.sh": "63d0bdfcea16145c1bc2341fabf6a6ba4877a098b547291f7d404aa18b8d3026",
+    "sv/tests/current/run_synth_phi.sh": "e2c4111ab0e3d0ba4be767777b3000337c1901e348b948f9254d123da0cc4fa6",
+    "sv/tests/current/tb_const_logic.sv": "5978ff3f18386e4e35d1ef91cae4eb2b4e016f0365b25385cf2dcbc941f39a7d",
+    "sv/tests/current/tb_current_dma.sv": "796ed6c594017f1f18519be324e05c15542962185b45593de1c987dc1b3cd342",
+    "sv/tests/current/tb_current_dma_system.sv": "6d4d1506175d88559f5ad7b715e3977846c7b3771655290225bb1da2657465d3",
+    "sv/tests/current/tb_current_fu.sv": "6e5eaa1e83e6f49f4b420668bbd2887f61b8bafc2ecb127ae97699ce45809f6d",
+    "sv/tests/current/tb_current_pe.sv": "69b1c702c48f9476405da8e8d4a64512fd25d3e8d10ae0974a6842e761c306fe",
+    "sv/tests/current/tb_current_state.sv": "52457318cbb300cfefddbc7d11b273af66b2d92bae3794b90f8ac4eae849b62a",
+    "sv/tests/current/tb_current_stream_load.sv": "06dd58f55dd271d19173949787bb2e09ddbf9206ef5b1203a9f482d60218a624",
+    "sv/tests/current/tb_fp_compat.sv": "d12f07a1e8d6c8617933f475e9446c0c0a846d4501b17f5b9a7e6c63b99580ae",
+    "sv/tests/current/tb_native_fp.sv": "2c75b998c929cfb2182d2b29df0aebbe1dcfe78e8e2b535fc5b6b5116dc02309",
+    "sv/tests/current/tb_native_kernel.sv": "5408fb152d8985f6fc3dbdd50224314d2868a1fe62e82649be127ce7659dcd74",
+    "sv/tests/current/tb_native_multi.sv": "8566b26dd8bc1abc2f2973153309f34bfc0b58c108361aebdf5a7668fb651427",
+    "sv/tests/current/tb_native_phi.sv": "53357a044ce95ca65bffd0bbb0716524630acc522f201f6315241a377f5296a5",
+    "sv/tests/current/tb_native_template.sv": "ecc6272550423c5672b7a624137d48bb210fe15fece843711c3a9e9a1cb718c9",
+    "sv/tests/current/tb_sub_const.sv": "da5650c3a895944f39549f3172dc7179dc03c0cc90155fdff51b4a49df657010",
+    "sv/tests/current/tb_unsigned_comp.sv": "a1165df4cf1a4dd6225356e963bd8abe4520213889e285a1a5084567bef2aa13"
+  },
+  "pinned_python_files_unchanged": 274,
+  "tracked_historical_reference_changed": false,
+  "kernel_coverage": {
+    "python_equivalent_complete": [
+      "axpy",
+      "fir4x4",
+      "histogram",
+      "relu4x4",
+      "sad"
+    ],
+    "python_incomplete_prefixes": [
+      "gemm",
+      "gemv"
+    ],
+    "native_independent_math": [
+      "gemm",
+      "gemv",
+      "spmv",
+      "spmv_coo"
+    ],
+    "original_spmv_yaml": "Native repaired 4x4 mapping passes nnz 0..8, full 32-word readback, unique store counts and host stalls; unmodified Python remains configuration-generation failure.",
+    "incomplete_prefix_verification_batch": "M22; GEMM/GEMV frozen Python prefixes were not rerun in M23."
+  },
+  "system_coverage": {
+    "python_equivalent": [
+      "global_add",
+      "dynamic_fir"
+    ],
+    "native_independent_math": [
+      "mesh",
+      "ring",
+      "registered",
+      "mesh64",
+      "heterogeneous21"
+    ],
+    "verification_batch": "M22; these system traces were not rerun in M23."
+  },
+  "explicit_python_compatibility": {
+    "SUB_CONST": "LEGACY_SUB_CONST_READY=1 in frozen FU replay only",
+    "floating_point": "FP_LEGACY_PYTHON=1 in four frozen HDL compatibility profiles",
+    "PHI": "Frozen opcodes 17/84/32 unchanged; native 104/105 explicitly selected by repaired SPMV configurations."
+  },
+  "remaining": [
+    "SPMV data/address layouts beyond the identity-index aliased nnz 0..8 fixture, including parallel repeated-row hazards",
+    "Legacy standalone APIs listed in CURRENT_MIGRATION.md",
+    "Additional parameter combinations, timing/PPA, and full-project completion"
+  ],
+  "remote_ci_run": false,
+  "committed_or_pushed": false,
+  "previous_batch_record": "validation_m22.json",
+  "migration_generator_sha256": "dd9401418c91e0bfef377bc11c52d6aa04db401ed09fba52bd3c962aeadae244",
+  "original_opcode_definitions_unchanged": 99
+}

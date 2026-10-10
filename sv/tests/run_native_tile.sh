@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 # Native SV-only regressions. The frozen phase-one hierarchy is test-only gold.
 set -euo pipefail
-export PATH="/clang64/bin:/ucrt64/bin:/usr/bin:$PATH"
-export VERILATOR_ROOT="$(cygpath -m /ucrt64/share/verilator)"
+source "$(dirname "${BASH_SOURCE[0]}")/../scripts/toolchain.sh"
 cd "$(dirname "$0")/.."
 seed=31415926
 files=(rtl/common/cgra_register_file.sv rtl/common/cgra_queue.sv
@@ -24,13 +23,13 @@ for kind in tile units; do
   fi
   out="build/native_tile/$kind"
   mkdir -p "$out"
-  /ucrt64/bin/verilator --cc --main --exe --timing --compiler clang \
+  "$VERILATOR" --cc --main --exe --timing --compiler "$COMPILER" \
     --top-module "$top" --Mdir "$out" -o native_test -CFLAGS -std=c++20 \
     -Wno-fatal -Wno-TIMESCALEMOD -Irtl/common "${files[@]}" \
     rtl/fixed/cgra_2x2_core.sv "$bench" > "$out/verilate.log" 2>&1
-  make -C "$out" -f "V${top}.mk" -j 2 CXX=clang++ \
-    'LINK=env -u LINK clang++' LDLIBS=-pthread > "$out/compile.log" 2>&1
-  "$out/native_test.exe" "+verilator+seed+$seed" > "$out/run.log" 2>&1
+  make -C "$out" -f "V${top}.mk" -j "$JOBS" "CXX=$CXX" \
+    "LINK=env -u LINK $CXX" LDLIBS=-pthread > "$out/compile.log" 2>&1
+  "$out/native_test${EXEEXT}" "+verilator+seed+$seed" > "$out/run.log" 2>&1
   grep -q "$marker" "$out/run.log"
   cat "$out/run.log"
 done

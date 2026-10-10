@@ -1,3 +1,4 @@
+`include "cgra_opcodes.svh"
 `include "cgra_profile_defs.svh"
 // ac96 behavior preserved, including undriven fields and original handshake rules.
 module tile_four_inc_cmp_not_grant #(
@@ -57,12 +58,12 @@ module tile_four_inc_cmp_not_grant #(
   assign to_mem_wdata__msg = p_to_mem_wdata__msg;
 
   localparam data_t const_zero  = '0;
-  localparam logic [6:0] OPT_INC_NE_CONST_NOT_GRT  = 7'd82;
-  localparam logic [6:0] OPT_INC  = 7'd3;
-  localparam logic [6:0] OPT_NE_CONST  = 7'd46;
-  localparam logic [6:0] OPT_NOT  = 7'd11;
-  localparam logic [6:0] OPT_GRT_PRED  = 7'd16;
-  localparam logic [6:0] OPT_START  = GLOBAL_ADDR_W'(0);
+  localparam logic [6:0] OPT_INC_NE_CONST_NOT_GRT  = `CGRA_OPT_INC_NE_CONST_NOT_GRT;
+  localparam logic [6:0] OPT_INC  = `CGRA_OPT_INC;
+  localparam logic [6:0] OPT_NE_CONST  = `CGRA_OPT_NE_CONST;
+  localparam logic [6:0] OPT_NOT  = `CGRA_OPT_NOT;
+  localparam logic [6:0] OPT_GRT_PRED  = `CGRA_OPT_GRT_PRED;
+  localparam logic [6:0] OPT_START  = `CGRA_OPT_START;
 
   logic [0:0] Fu0__clear;
   logic [0:0] Fu0__clk;

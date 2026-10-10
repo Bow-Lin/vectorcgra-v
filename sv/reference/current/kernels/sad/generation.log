@@ -1,0 +1,162 @@
+================================================
+Instruction:  {'index_per_ii': 0, 'operations': [{'opcode': 'GRANT_ONCE', 'id': 1, 'time_step': 5, 'invalid_iterations': 1, 'src_operands': [{'operand': '#0', 'color': 'RED'}], 'dst_operands': [{'operand': 'NORTH', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'GRANT_ONCE', 'id': 1, 'time_step': 5, 'invalid_iterations': 1, 'src_operands': [{'operand': '#0', 'color': 'RED'}], 'dst_operands': [{'operand': 'NORTH', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'GRANT_ONCE', 'id': 1, 'time_step': 5, 'invalid_iterations': 1, 'src_operands': [{'operand': '#0', 'color': 'RED'}], 'dst_operands': [{'operand': 'NORTH', 'color': 'RED'}]}
+>>> FuOutParams[0] = 1
+================================================
+Instruction:  {'index_per_ii': 3, 'operations': [{'opcode': 'LOAD', 'id': 22, 'time_step': 3, 'invalid_iterations': 0, 'src_operands': [{'operand': 'NORTH', 'color': 'RED'}], 'dst_operands': [{'operand': 'EAST', 'color': 'RED'}]}, {'opcode': 'DATA_MOV', 'id': 410000, 'time_step': 8, 'invalid_iterations': 1, 'src_operands': [{'operand': 'EAST', 'color': 'RED'}], 'dst_operands': [{'operand': 'NORTH', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'LOAD', 'id': 22, 'time_step': 3, 'invalid_iterations': 0, 'src_operands': [{'operand': 'NORTH', 'color': 'RED'}], 'dst_operands': [{'operand': 'EAST', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'DATA_MOV', 'id': 410000, 'time_step': 8, 'invalid_iterations': 1, 'src_operands': [{'operand': 'EAST', 'color': 'RED'}], 'dst_operands': [{'operand': 'NORTH', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'LOAD', 'id': 22, 'time_step': 3, 'invalid_iterations': 0, 'src_operands': [{'operand': 'NORTH', 'color': 'RED'}], 'dst_operands': [{'operand': 'EAST', 'color': 'RED'}]}
+Lane 0 available for port source {'operand': 'NORTH', 'color': 'RED'}
+>>> FuOutParams[3] = 1
+================================================
+Instruction:  {'index_per_ii': 0, 'operations': [{'opcode': 'SUB', 'id': 28, 'time_step': 5, 'invalid_iterations': 1, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '$8', 'color': 'RED'}], 'dst_operands': [{'operand': 'NORTH', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}, {'operand': '$8', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'SUB', 'id': 28, 'time_step': 5, 'invalid_iterations': 1, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '$8', 'color': 'RED'}], 'dst_operands': [{'operand': 'NORTH', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}, {'operand': '$8', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'SUB', 'id': 28, 'time_step': 5, 'invalid_iterations': 1, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '$8', 'color': 'RED'}], 'dst_operands': [{'operand': 'NORTH', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}, {'operand': '$8', 'color': 'RED'}]}
+>>> index 0 is REG
+>>> index 1 is REG
+>>> FuOutParams[0] = 1
+================================================
+Instruction:  {'index_per_ii': 1, 'operations': [{'opcode': 'ICMP_SLT', 'id': 35, 'time_step': 6, 'invalid_iterations': 1, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '#0', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'ICMP_SLT', 'id': 35, 'time_step': 6, 'invalid_iterations': 1, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '#0', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'ICMP_SLT', 'id': 35, 'time_step': 6, 'invalid_iterations': 1, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '#0', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}
+>>> index 0 is REG
+================================================
+Instruction:  {'index_per_ii': 2, 'operations': [{'opcode': 'SEL', 'id': 40, 'time_step': 7, 'invalid_iterations': 1, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': 'NORTH', 'color': 'RED'}, {'operand': '$8', 'color': 'RED'}], 'dst_operands': [{'operand': 'WEST', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'SEL', 'id': 40, 'time_step': 7, 'invalid_iterations': 1, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': 'NORTH', 'color': 'RED'}, {'operand': '$8', 'color': 'RED'}], 'dst_operands': [{'operand': 'WEST', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'SEL', 'id': 40, 'time_step': 7, 'invalid_iterations': 1, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': 'NORTH', 'color': 'RED'}, {'operand': '$8', 'color': 'RED'}], 'dst_operands': [{'operand': 'WEST', 'color': 'RED'}]}
+>>> index 0 is REG
+>>> index 2 is REG
+Lane 2 available for port source {'operand': 'NORTH', 'color': 'RED'}
+>>> FuOutParams[2] = 1
+================================================
+Instruction:  {'index_per_ii': 4, 'operations': [{'opcode': 'LOAD', 'id': 21, 'time_step': 4, 'invalid_iterations': 0, 'src_operands': [{'operand': 'NORTH', 'color': 'RED'}], 'dst_operands': [{'operand': '$8', 'color': 'RED'}]}, {'opcode': 'DATA_MOV', 'id': 26, 'time_step': 4, 'invalid_iterations': 0, 'src_operands': [{'operand': 'WEST', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'LOAD', 'id': 21, 'time_step': 4, 'invalid_iterations': 0, 'src_operands': [{'operand': 'NORTH', 'color': 'RED'}], 'dst_operands': [{'operand': '$8', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'DATA_MOV', 'id': 26, 'time_step': 4, 'invalid_iterations': 0, 'src_operands': [{'operand': 'WEST', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'LOAD', 'id': 21, 'time_step': 4, 'invalid_iterations': 0, 'src_operands': [{'operand': 'NORTH', 'color': 'RED'}], 'dst_operands': [{'operand': '$8', 'color': 'RED'}]}
+Lane 1 available for port source {'operand': 'NORTH', 'color': 'RED'}
+================================================
+Instruction:  {'index_per_ii': 0, 'operations': [{'opcode': 'DATA_MOV', 'id': 23, 'time_step': 5, 'invalid_iterations': 1, 'src_operands': [{'operand': 'NORTH', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}, {'opcode': 'GRANT_PREDICATE', 'id': 45, 'time_step': 10, 'invalid_iterations': 2, 'src_operands': [{'operand': 'EAST', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}], 'dst_operands': [{'operand': '$8', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'GRANT_PREDICATE', 'id': 45, 'time_step': 10, 'invalid_iterations': 2, 'src_operands': [{'operand': 'EAST', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}], 'dst_operands': [{'operand': '$8', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'DATA_MOV', 'id': 23, 'time_step': 5, 'invalid_iterations': 1, 'src_operands': [{'operand': 'NORTH', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'GRANT_PREDICATE', 'id': 45, 'time_step': 10, 'invalid_iterations': 2, 'src_operands': [{'operand': 'EAST', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}], 'dst_operands': [{'operand': '$8', 'color': 'RED'}]}
+>>> index 1 is REG
+Lane 1 available for port source {'operand': 'EAST', 'color': 'RED'}
+================================================
+Instruction:  {'index_per_ii': 1, 'operations': [{'opcode': 'RETURN_VALUE', 'id': 49, 'time_step': 11, 'invalid_iterations': 2, 'src_operands': [{'operand': '$8', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'RETURN_VALUE', 'id': 49, 'time_step': 11, 'invalid_iterations': 2, 'src_operands': [{'operand': '$8', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'RETURN_VALUE', 'id': 49, 'time_step': 11, 'invalid_iterations': 2, 'src_operands': [{'operand': '$8', 'color': 'RED'}]}
+>>> index 0 is REG
+================================================
+Instruction:  {'index_per_ii': 0, 'operations': [{'opcode': 'DATA_MOV', 'id': 29, 'time_step': 5, 'invalid_iterations': 1, 'src_operands': [{'operand': 'NORTH', 'color': 'RED'}], 'dst_operands': [{'operand': '$8', 'color': 'RED'}]}, {'opcode': 'GRANT_PREDICATE', 'id': 46, 'time_step': 10, 'invalid_iterations': 2, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '$8', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'GRANT_PREDICATE', 'id': 46, 'time_step': 10, 'invalid_iterations': 2, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '$8', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'DATA_MOV', 'id': 29, 'time_step': 5, 'invalid_iterations': 1, 'src_operands': [{'operand': 'NORTH', 'color': 'RED'}], 'dst_operands': [{'operand': '$8', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'GRANT_PREDICATE', 'id': 46, 'time_step': 10, 'invalid_iterations': 2, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '$8', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}
+>>> index 0 is REG
+>>> index 1 is REG
+================================================
+Instruction:  {'index_per_ii': 1, 'operations': [{'opcode': 'PHI_START', 'id': 8, 'time_step': 6, 'invalid_iterations': 1, 'src_operands': [{'operand': 'SOUTH', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'PHI_START', 'id': 8, 'time_step': 6, 'invalid_iterations': 1, 'src_operands': [{'operand': 'SOUTH', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'PHI_START', 'id': 8, 'time_step': 6, 'invalid_iterations': 1, 'src_operands': [{'operand': 'SOUTH', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}
+>>> index 1 is REG
+Lane 1 available for port source {'operand': 'SOUTH', 'color': 'RED'}
+================================================
+Instruction:  {'index_per_ii': 2, 'operations': [{'opcode': 'GEP', 'id': 15, 'time_step': 2, 'invalid_iterations': 0, 'src_operands': [{'operand': '#8', 'color': 'RED'}, {'operand': 'NORTH', 'color': 'RED'}], 'dst_operands': [{'operand': 'SOUTH', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'GEP', 'id': 15, 'time_step': 2, 'invalid_iterations': 0, 'src_operands': [{'operand': '#8', 'color': 'RED'}, {'operand': 'NORTH', 'color': 'RED'}], 'dst_operands': [{'operand': 'SOUTH', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'GEP', 'id': 15, 'time_step': 2, 'invalid_iterations': 0, 'src_operands': [{'operand': '#8', 'color': 'RED'}, {'operand': 'NORTH', 'color': 'RED'}], 'dst_operands': [{'operand': 'SOUTH', 'color': 'RED'}]}
+Lane 0 available for port source {'operand': 'NORTH', 'color': 'RED'}
+>>> FuOutParams[1] = 1
+================================================
+Instruction:  {'index_per_ii': 4, 'operations': [{'opcode': 'ADD', 'id': 42, 'time_step': 9, 'invalid_iterations': 1, 'src_operands': [{'operand': 'SOUTH', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': 'WEST', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'ADD', 'id': 42, 'time_step': 9, 'invalid_iterations': 1, 'src_operands': [{'operand': 'SOUTH', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': 'WEST', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'ADD', 'id': 42, 'time_step': 9, 'invalid_iterations': 1, 'src_operands': [{'operand': 'SOUTH', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': 'WEST', 'color': 'RED'}]}
+>>> index 1 is REG
+Lane 1 available for port source {'operand': 'SOUTH', 'color': 'RED'}
+>>> FuOutParams[2] = 2
+================================================
+Instruction:  {'index_per_ii': 1, 'operations': [{'opcode': 'SUB', 'id': 36, 'time_step': 6, 'invalid_iterations': 1, 'src_operands': [{'operand': '#0', 'color': 'RED'}, {'operand': 'SOUTH', 'color': 'RED'}], 'dst_operands': [{'operand': 'SOUTH', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'SUB', 'id': 36, 'time_step': 6, 'invalid_iterations': 1, 'src_operands': [{'operand': '#0', 'color': 'RED'}, {'operand': 'SOUTH', 'color': 'RED'}], 'dst_operands': [{'operand': 'SOUTH', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'SUB', 'id': 36, 'time_step': 6, 'invalid_iterations': 1, 'src_operands': [{'operand': '#0', 'color': 'RED'}, {'operand': 'SOUTH', 'color': 'RED'}], 'dst_operands': [{'operand': 'SOUTH', 'color': 'RED'}]}
+Lane 0 available for port source {'operand': 'SOUTH', 'color': 'RED'}
+>>> FuOutParams[1] = 1
+================================================
+Instruction:  {'index_per_ii': 3, 'operations': [{'opcode': 'DATA_MOV', 'id': 180000, 'time_step': 3, 'invalid_iterations': 0, 'src_operands': [{'operand': 'NORTH', 'color': 'RED'}], 'dst_operands': [{'operand': 'SOUTH', 'color': 'RED'}]}]}
+No take up fu operation found, just take the first.
+
+ Operation:  {'opcode': 'DATA_MOV', 'id': 180000, 'time_step': 3, 'invalid_iterations': 0, 'src_operands': [{'operand': 'NORTH', 'color': 'RED'}], 'dst_operands': [{'operand': 'SOUTH', 'color': 'RED'}]}
+================================================
+Instruction:  {'index_per_ii': 4, 'operations': [{'opcode': 'DATA_MOV', 'id': 230000, 'time_step': 4, 'invalid_iterations': 0, 'src_operands': [{'operand': 'EAST', 'color': 'RED'}], 'dst_operands': [{'operand': 'SOUTH', 'color': 'RED'}]}]}
+No take up fu operation found, just take the first.
+
+ Operation:  {'opcode': 'DATA_MOV', 'id': 230000, 'time_step': 4, 'invalid_iterations': 0, 'src_operands': [{'operand': 'EAST', 'color': 'RED'}], 'dst_operands': [{'operand': 'SOUTH', 'color': 'RED'}]}
+================================================
+Instruction:  {'index_per_ii': 0, 'operations': [{'opcode': 'GRANT_PREDICATE', 'id': 34, 'time_step': 5, 'invalid_iterations': 1, 'src_operands': [{'operand': '$8', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'GRANT_PREDICATE', 'id': 34, 'time_step': 5, 'invalid_iterations': 1, 'src_operands': [{'operand': '$8', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'GRANT_PREDICATE', 'id': 34, 'time_step': 5, 'invalid_iterations': 1, 'src_operands': [{'operand': '$8', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}]}
+>>> index 0 is REG
+>>> index 1 is REG
+================================================
+Instruction:  {'index_per_ii': 1, 'operations': [{'opcode': 'PHI_START', 'id': 7, 'time_step': 1, 'invalid_iterations': 0, 'src_operands': [{'operand': 'EAST', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}], 'dst_operands': [{'operand': 'SOUTH', 'color': 'RED'}, {'operand': 'EAST', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'PHI_START', 'id': 7, 'time_step': 1, 'invalid_iterations': 0, 'src_operands': [{'operand': 'EAST', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}], 'dst_operands': [{'operand': 'SOUTH', 'color': 'RED'}, {'operand': 'EAST', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'PHI_START', 'id': 7, 'time_step': 1, 'invalid_iterations': 0, 'src_operands': [{'operand': 'EAST', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}], 'dst_operands': [{'operand': 'SOUTH', 'color': 'RED'}, {'operand': 'EAST', 'color': 'RED'}, {'operand': '$0', 'color': 'RED'}]}
+>>> index 1 is REG
+Lane 1 available for port source {'operand': 'EAST', 'color': 'RED'}
+>>> FuOutParams[1] = 1
+>>> FuOutParams[3] = 2
+================================================
+Instruction:  {'index_per_ii': 2, 'operations': [{'opcode': 'ADD', 'id': 13, 'time_step': 2, 'invalid_iterations': 0, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '#1', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '$8', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'ADD', 'id': 13, 'time_step': 2, 'invalid_iterations': 0, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '#1', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '$8', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'ADD', 'id': 13, 'time_step': 2, 'invalid_iterations': 0, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '#1', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '$8', 'color': 'RED'}]}
+>>> index 0 is REG
+================================================
+Instruction:  {'index_per_ii': 3, 'operations': [{'opcode': 'ICMP_EQ', 'id': 20, 'time_step': 3, 'invalid_iterations': 0, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '#8', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': 'WEST', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'ICMP_EQ', 'id': 20, 'time_step': 3, 'invalid_iterations': 0, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '#8', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': 'WEST', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'ICMP_EQ', 'id': 20, 'time_step': 3, 'invalid_iterations': 0, 'src_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': '#8', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': 'WEST', 'color': 'RED'}]}
+>>> index 0 is REG
+>>> FuOutParams[2] = 2
+================================================
+Instruction:  {'index_per_ii': 4, 'operations': [{'opcode': 'NOT', 'id': 27, 'time_step': 4, 'invalid_iterations': 0, 'src_operands': [{'operand': '$0', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': 'SOUTH', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'NOT', 'id': 27, 'time_step': 4, 'invalid_iterations': 0, 'src_operands': [{'operand': '$0', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': 'SOUTH', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'NOT', 'id': 27, 'time_step': 4, 'invalid_iterations': 0, 'src_operands': [{'operand': '$0', 'color': 'RED'}], 'dst_operands': [{'operand': '$0', 'color': 'RED'}, {'operand': 'SOUTH', 'color': 'RED'}]}
+>>> index 0 is REG
+>>> FuOutParams[1] = 2
+================================================
+Instruction:  {'index_per_ii': 0, 'operations': [{'opcode': 'GRANT_ONCE', 'id': 0, 'time_step': 0, 'invalid_iterations': 0, 'src_operands': [{'operand': '#0', 'color': 'RED'}], 'dst_operands': [{'operand': 'WEST', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'GRANT_ONCE', 'id': 0, 'time_step': 0, 'invalid_iterations': 0, 'src_operands': [{'operand': '#0', 'color': 'RED'}], 'dst_operands': [{'operand': 'WEST', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'GRANT_ONCE', 'id': 0, 'time_step': 0, 'invalid_iterations': 0, 'src_operands': [{'operand': '#0', 'color': 'RED'}], 'dst_operands': [{'operand': 'WEST', 'color': 'RED'}]}
+>>> FuOutParams[2] = 1
+================================================
+Instruction:  {'index_per_ii': 2, 'operations': [{'opcode': 'GEP', 'id': 14, 'time_step': 2, 'invalid_iterations': 0, 'src_operands': [{'operand': '#0', 'color': 'RED'}, {'operand': 'WEST', 'color': 'RED'}], 'dst_operands': [{'operand': 'SOUTH', 'color': 'RED'}]}]}
+Take_up_fu_operation:  {'opcode': 'GEP', 'id': 14, 'time_step': 2, 'invalid_iterations': 0, 'src_operands': [{'operand': '#0', 'color': 'RED'}, {'operand': 'WEST', 'color': 'RED'}], 'dst_operands': [{'operand': 'SOUTH', 'color': 'RED'}]}
+
+ Operation:  {'opcode': 'GEP', 'id': 14, 'time_step': 2, 'invalid_iterations': 0, 'src_operands': [{'operand': '#0', 'color': 'RED'}, {'operand': 'WEST', 'color': 'RED'}], 'dst_operands': [{'operand': 'SOUTH', 'color': 'RED'}]}
+Lane 0 available for port source {'operand': 'WEST', 'color': 'RED'}
+>>> FuOutParams[1] = 1
+
+
+
+cycles:  190

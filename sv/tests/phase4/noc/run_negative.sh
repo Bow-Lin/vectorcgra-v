@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
-export PATH="/clang64/bin:/ucrt64/bin:/usr/bin:$PATH"
+source "$(dirname "${BASH_SOURCE[0]}")/../../../scripts/toolchain.sh"
 cd "$(dirname "$0")/../../.."
 build=build/phase4/noc/mesh_2x2_l1_w32
-[[ -f "$build/simulation.exe" ]] || { echo 'Build mesh_2x2_l1_w32 first' >&2; exit 2; }
+[[ -f "$build/simulation${EXEEXT}" ]] || { echo 'Build mesh_2x2_l1_w32 first' >&2; exit 2; }
 set +e
-"./$build/simulation.exe" +EXPECT_FAILURE > "$build/negative.log" 2>&1
+"./$build/simulation${EXEEXT}" +EXPECT_FAILURE > "$build/negative.log" 2>&1
 wrong_result=$?
-"./$build/simulation.exe" +STALL_FOREVER > "$build/timeout.log" 2>&1
+"./$build/simulation${EXEEXT}" +STALL_FOREVER > "$build/timeout.log" 2>&1
 timeout_result=$?
 set -e
 [[ "$wrong_result" != 0 && "$timeout_result" != 0 ]]

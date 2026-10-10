@@ -2,7 +2,7 @@
 # No project Python or PyMTL is used. Verilator may use its own Python helpers.
 SHELL := /bin/bash
 .SHELLFLAGS := -eu -o pipefail -c
-.DEFAULT_GOAL := all
+.DEFAULT_GOAL := current
 
 VERILATOR ?= verilator
 SV2V ?= sv2v
@@ -30,13 +30,40 @@ SIM_FILES := $(RTL_FILES) reference/VectorCGRA2x2Reference.v tests/scalar_worklo
 PROBE_FILES := scripts/probes/tool_probe.sv scripts/probes/tb_tool_probe.sv
 
 .PHONY: all probe types sim negative timeout-negative synth synth-generic synth-mapped versions
-all: types sim negative timeout-negative synth
+all: current
+
+.PHONY: current current-synth current-post-synth current-kernels current-prefixes native-kernels native-math native-multi native-template current-migration baseline
+current:
+	bash tests/current/run.sh
+current-synth:
+	bash scripts/synth_current.sh
+current-post-synth:
+	bash tests/current/run_synth_pe.sh base context streaming base64 context8
+	bash tests/current/run_synth_phi.sh
+current-kernels:
+	bash tests/current/run_kernels.sh axpy fir4x4 histogram relu4x4 sad
+current-prefixes:
+	bash tests/current/run_prefixes.sh gemm gemv
+native-kernels:
+	bash tests/current/run_native_kernels.sh gemm gemv spmv spmv_coo
+native-math:
+	bash tests/current/run_native_math.sh
+	bash tests/current/run_fp_compat.sh
+native-multi:
+	bash tests/current/run_native_multi.sh
+native-template:
+	bash tests/current/run_native_template.sh
+current-migration:
+	bash tests/current/run_migration.sh global_add
+	bash tests/current/run_migration.sh dynamic_fir
+baseline:
+	bash scripts/run_baseline.sh all
 
 .PHONY: phase2 phase2-negative $(addprefix phase2-,$(PHASE2_GEOMETRIES))
 phase2: $(addprefix phase2-,$(PHASE2_GEOMETRIES)) phase2-negative
 
 # Phase 3 runners consume maintained HDL and frozen text assets only.
-# They currently target the verified MSYS2 UCRT/Clang installation.
+# Historical contracts: run via scripts/run_baseline.sh phase3 after migration.
 .PHONY: phase3 phase3-system phase3-scalar phase3-vector-combo phase3-float phase3-tiles
 phase3: phase3-scalar phase3-vector-combo phase3-float phase3-tiles phase3-system
 phase3-scalar:
@@ -61,7 +88,7 @@ phase3-system:
 
 # Stage 4 compiles maintained SV and frozen HDL/text assets directly.
 .PHONY: regression phase4 phase4-noc phase4-system phase4-template phase4-migration phase4-peripheral phase4-memory
-regression: all phase2 phase3 phase4
+regression: current current-synth current-post-synth current-kernels current-prefixes native-kernels native-math native-multi native-template current-migration baseline
 phase4: phase4-noc phase4-system phase4-template phase4-migration phase4-peripheral phase4-memory
 phase4-noc:
 	bash tests/phase4/noc/run.sh
@@ -137,9 +164,9 @@ timeout-negative: $(BUILD_DIR)/sim/cgra_sim$(EXEEXT)
 	@set +e; ./$(BUILD_DIR)/sim/cgra_sim$(EXEEXT) +VECTORS=$(CURDIR)/vectors +STALL_FOREVER +MAX_CYCLES=200 > $(BUILD_DIR)/sim/timeout-negative.log 2>&1; result=$$?; set -e; test $$result -ne 0; grep -q 'TIMEOUT scenario=' $(BUILD_DIR)/sim/timeout-negative.log
 	@echo 'TIMEOUT_CONTROL_PASS: permanent backpressure failed with timeout'
 
-$(BUILD_DIR)/types/types_test$(EXEEXT): rtl/common/cgra_types_pkg.sv tests/tb_cgra_types.sv Makefile
+$(BUILD_DIR)/types/types_test$(EXEEXT): rtl/common/cgra_types_pkg.sv tests/tb_cgra_types.sv $(RTL_HEADERS) Makefile
 	@mkdir -p $(BUILD_DIR)/types
-	@$(VERILATOR) --cc --main --exe --timing --compiler $(COMPILER) --top-module tb_cgra_types --prefix Vtypes --Mdir $(BUILD_DIR)/types -o types_test -CFLAGS -std=c++20 $(VERILATOR_WARN_FLAGS) rtl/common/cgra_types_pkg.sv tests/tb_cgra_types.sv > $(BUILD_DIR)/types/verilate.log 2>&1 || { tail -n 40 $(BUILD_DIR)/types/verilate.log; exit 1; }
+	@$(VERILATOR) --cc --main --exe --timing --compiler $(COMPILER) --top-module tb_cgra_types --prefix Vtypes --Mdir $(BUILD_DIR)/types -o types_test -CFLAGS -std=c++20 $(VERILATOR_WARN_FLAGS) -Irtl/common rtl/common/cgra_types_pkg.sv tests/tb_cgra_types.sv > $(BUILD_DIR)/types/verilate.log 2>&1 || { tail -n 40 $(BUILD_DIR)/types/verilate.log; exit 1; }
 	@$(MAKE) -C $(BUILD_DIR)/types -f Vtypes.mk -j $(JOBS) "CXX=$(CXX)" "LINK=env -u LINK $(CXX)" $(MODEL_MAKE_FLAGS) > $(BUILD_DIR)/types/compile.log 2>&1 || { tail -n 40 $(BUILD_DIR)/types/compile.log; exit 1; }
 
 types: $(BUILD_DIR)/types/types_test$(EXEEXT)

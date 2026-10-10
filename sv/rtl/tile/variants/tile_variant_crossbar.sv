@@ -1,5 +1,6 @@
+`include "cgra_opcodes.svh"
 // Native parameterized scalar profile; migrated from ac96 CrossbarRTL.
-// State and update-block names preserve the original cycle semantics.
+// Cycle contract synchronized with frozen Python cd7aad878915; see CURRENT_MIGRATION.md.
 `include "cgra_profile_defs.svh"
 module tile_variant_crossbar #(
   `CGRA_PROFILE_PARAMETERS,
@@ -39,7 +40,7 @@ module tile_variant_crossbar #(
   ctrl_t recv_opt__msg_typed ;
   assign recv_opt__msg_typed = recv_opt__msg;
   localparam int num_outports_at_update_signal = ROUTING_OUTPUTS;
-  localparam logic [6:0] OPT_START  = 7'd0;
+  localparam logic [6:0] OPT_START  = `CGRA_OPT_START;
   localparam int num_outports_at_update_prologue_counter_next = ROUTING_OUTPUTS;
   localparam int num_outports_at_update_send_accepted_next = ROUTING_OUTPUTS;
   localparam int num_outports_at_update_prologue_allowing_vector = ROUTING_OUTPUTS;
@@ -106,7 +107,7 @@ module tile_variant_crossbar #(
     send_rdy_vector = '0;
     for ( int unsigned i = 0; i < num_outports_at_update_rdy_vector; i++ )
       if ( ( in_dir[i] != '0 ) & ( ( ~compute_done ) | ( i < outport_towards_local_base_id_at_update_rdy_vector ) ) ) begin
-        send_rdy_vector[i] = send_data__rdy[i];
+        send_rdy_vector[i] = send_data__rdy[i] | during_prologue_allowing_vector[i];
       end
       else
         send_rdy_vector[i] = 1'd1;
@@ -116,7 +117,7 @@ module tile_variant_crossbar #(
       recv_required_vector[i] = 1'd0;
     for ( int unsigned i = 0; i < num_outports_at_update_recv_required_vector; i++ )
       if ( in_dir[i] != '0 ) begin
-        recv_required_vector[in_dir_local[i]] = ~during_prologue_allowing_vector[i];
+        recv_required_vector[in_dir_local[i]] |= ~during_prologue_allowing_vector[i];
       end
   end
   always_comb begin : update_send_accepted_next
@@ -138,7 +139,7 @@ module tile_variant_crossbar #(
       send_required_vector[i] = 1'd0;
     for ( int unsigned i = 0; i < num_outports_at_update_send_required_vector; i++ )
       if ( in_dir[i] != '0 ) begin
-        send_required_vector[i] = 1'd1;
+        send_required_vector[i] = ~during_prologue_allowing_vector[i];
       end
   end
   always_comb begin : update_signal
@@ -157,10 +158,10 @@ module tile_variant_crossbar #(
           all_send_accepted = 1'd0;
         end
       for ( int unsigned i = 0; i < INPUTS; i++ )
-        recv_data__rdy[i] = ( ( & recv_valid_vector ) & all_send_accepted ) & recv_required_vector[i];
+        recv_data__rdy[i] = ( ( & recv_valid_or_during_prologue_allowing_vector ) & all_send_accepted ) & recv_required_vector[i];
       for ( int unsigned i = 0; i < num_outports_at_update_signal; i++ ) begin
-        send_data__val[i] = ( ( & recv_valid_vector ) & send_required_vector[i] ) & ( ~send_accepted[i] );
-        if ( ( ( & recv_valid_vector ) & send_required_vector[i] ) & ( ~send_accepted[i] ) ) begin
+        send_data__val[i] = ( ( & recv_valid_or_during_prologue_allowing_vector ) & send_required_vector[i] ) & ( ~send_accepted[i] );
+        if ( ( ( & recv_valid_or_during_prologue_allowing_vector ) & send_required_vector[i] ) & ( ~send_accepted[i] ) ) begin
           send_data__msg_typed[i].payload = recv_data_msg[in_dir_local[i]].payload;
           send_data__msg_typed[i].predicate = recv_data_msg[in_dir_local[i]].predicate;
         end
@@ -172,7 +173,7 @@ module tile_variant_crossbar #(
     recv_valid_vector = '0;
     for ( int unsigned i = 0; i < num_outports_at_update_valid_vector; i++ )
       if ( in_dir[i] != '0 ) begin
-        recv_valid_vector[i] = recv_data_val[in_dir_local[i]];
+        recv_valid_vector[i] = recv_data_val[in_dir_local[i]] & ~during_prologue_allowing_vector[i];
       end
       else
         recv_valid_vector[i] = 1'd1;

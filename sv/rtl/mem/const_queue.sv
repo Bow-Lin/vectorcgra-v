@@ -1,5 +1,5 @@
 // Native parameterized scalar profile; migrated from ac96 ConstQueueDynamicRTL.
-// State and update-block names preserve the original cycle semantics.
+// Cycle contract synchronized with frozen Python cd7aad878915; see CURRENT_MIGRATION.md.
 `include "cgra_profile_defs.svh"
 module const_queue #(
   `CGRA_PROFILE_PARAMETERS
@@ -40,6 +40,14 @@ module const_queue #(
     .wdata( reg_file__wdata ),
     .wen( reg_file__wen )
   );
+  // The FU can finish before the crossbars retire this control step.
+  logic consume_pending;
+  wire consume_retire = (consume_pending | send_const__rdy) & ctrl_proceed;
+  always_ff @(posedge clk) begin
+    if (reset | clear) consume_pending <= 1'b0;
+    else if (consume_retire) consume_pending <= 1'b0;
+    else consume_pending <= consume_pending | send_const__rdy;
+  end
   logic [0:0] tmp_load_const_not_full;
   logic [0:0] tmp_update_wr_cur_not_full;
   always_comb begin : load_const
@@ -65,7 +73,7 @@ module const_queue #(
     if ( reset | clear ) begin
       rd_cur <= CTRL_ADDR_W'(0);
     end
-    else if ( send_const__rdy & ctrl_proceed ) begin
+    else if ( consume_retire ) begin
       if ( CONST_WR_W'(rd_cur) < ( wr_cur - CONST_WR_W'(1) ) ) begin
         rd_cur <= rd_cur + CTRL_ADDR_W'(1);
       end

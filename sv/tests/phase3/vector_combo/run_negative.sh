@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
-export PATH="/clang64/bin:/ucrt64/bin:/usr/bin:$PATH"
+source "$(dirname "${BASH_SOURCE[0]}")/../../../scripts/toolchain.sh"
 cd "$(dirname "$0")/../../.."
 build=build/phase3/vector_combo/vector_adder_w32_l4_b8_v0
-if [[ ! -f "$build/simulation.exe" ]]; then
+if [[ ! -f "$build/simulation${EXEEXT}" ]]; then
   echo 'First run vector_adder_w32_l4_b8_v0 with run.sh' >&2
   exit 2
 fi
 set +e
-"./$build/simulation.exe" +EXPECT_FAILURE > "$build/negative.log" 2>&1
+"./$build/simulation${EXEEXT}" +EXPECT_FAILURE > "$build/negative.log" 2>&1
 status=$?
 set -e
 [[ "$status" != 0 ]]

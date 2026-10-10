@@ -1,3 +1,4 @@
+`include "cgra_opcodes.svh"
 `include "cgra_profile_defs.svh"
 module tile_streaming_memory_fu #(
   `CGRA_PROFILE_PARAMETERS,
@@ -59,7 +60,7 @@ module tile_streaming_memory_fu #(
   assign vector_next = vector_factor_counter + (8'd1 << VECTOR_POWER);
   assign reached_vector_factor = recv_opt__val &&
     (vector_next >= (8'd1 << control.vector_factor_power));
-  assign streaming_done = !(recv_opt__val && control.operation == 7'd88) ||
+  assign streaming_done = !(recv_opt__val && control.operation == `CGRA_OPT_STREAM_LD) ||
     (single_response_of_which_request_addr == streaming_end_raddr &&
      from_mem_rdata__val && from_mem_rdata__rdy);
   assign recv_from_controller_pkt__rdy = 1'b1;
@@ -82,7 +83,7 @@ module tile_streaming_memory_fu #(
     to_mem_raddr__val = 1'b0;
     from_mem_rdata__rdy = 1'b0;
     output_data = '0;
-    if (recv_opt__val && control.operation == 7'd88) begin
+    if (recv_opt__val && control.operation == `CGRA_OPT_STREAM_LD) begin
       to_mem_raddr__val = streaming_status && single_request_addr <= streaming_end_raddr;
       to_mem_raddr__msg = single_request_addr;
       from_mem_rdata__rdy = send_out__rdy[0];
@@ -106,7 +107,7 @@ module tile_streaming_memory_fu #(
       already_sent_raddr <= 1'b1;
     // ac96 deliberately tests operation/address even when recv_opt.val is low.
     // These cursors, configuration registers and ctrl_addr_reg have no reset.
-    if (control.operation == 7'd88 && ctrl_addr_reg != ctrl_addr_inport) begin
+    if (control.operation == `CGRA_OPT_STREAM_LD && ctrl_addr_reg != ctrl_addr_inport) begin
       single_request_addr <= streaming_start_raddr;
       single_response_of_which_request_addr <= streaming_start_raddr;
       streaming_status <= 1'b1;
