@@ -6,38 +6,10 @@ module tile_programmable #(
   `CGRA_PROFILE_PARAMETERS,
   `CGRA_FU_PARAMETERS
 ) (
-  input  logic [CGRA_ID_W-1:0] cgra_id ,
-  input  logic [0:0] clk ,
-  input  logic [0:0] reset ,
-  input  logic [TILE_ID_W-1:0] tile_id ,
-  input logic [DATA_BITS-1:0] from_mem_rdata__msg ,
-  output logic [0:0] from_mem_rdata__rdy  ,
-  input logic [0:0] from_mem_rdata__val  ,
-  input logic [DATA_BITS-1:0] recv_data__msg [0:TILE_PORTS-1] ,
-  output logic [0:0] recv_data__rdy [0:TILE_PORTS-1] ,
-  input logic [0:0] recv_data__val [0:TILE_PORTS-1] ,
-  input logic [HOST_BITS-1:0] recv_from_controller_pkt__msg ,
-  output logic [0:0] recv_from_controller_pkt__rdy  ,
-  input logic [0:0] recv_from_controller_pkt__val  ,
-  output logic [DATA_BITS-1:0] send_data__msg [0:TILE_PORTS-1] ,
-  input logic [0:0] send_data__rdy [0:TILE_PORTS-1] ,
-  output logic [0:0] send_data__val [0:TILE_PORTS-1] ,
-  output logic [HOST_BITS-1:0] send_to_controller_pkt__msg ,
-  input logic [0:0] send_to_controller_pkt__rdy  ,
-  output logic [0:0] send_to_controller_pkt__val  ,
-  output logic [GLOBAL_ADDR_W-1:0] to_mem_raddr__msg  ,
-  input logic [0:0] to_mem_raddr__rdy  ,
-  output logic [0:0] to_mem_raddr__val  ,
-  output logic [GLOBAL_ADDR_W-1:0] to_mem_waddr__msg  ,
-  input logic [0:0] to_mem_waddr__rdy  ,
-  output logic [0:0] to_mem_waddr__val  ,
-  output logic [DATA_BITS-1:0] to_mem_wdata__msg ,
-  input logic [0:0] to_mem_wdata__rdy  ,
-  output logic [0:0] to_mem_wdata__val  
+
+  `include "cgra_pe_ports.svh"
 );
   `include "cgra_profile.svh"
-  data_t from_mem_rdata__msg_typed ;
-  assign from_mem_rdata__msg_typed = from_mem_rdata__msg;
   data_t recv_data__msg_typed [0:TILE_PORTS-1];
   for (genvar p=0; p<TILE_PORTS; p++) begin : port_recv_data__msg
     assign recv_data__msg_typed[p] = recv_data__msg[p];
@@ -46,8 +18,6 @@ module tile_programmable #(
   for (genvar p=0; p<TILE_PORTS; p++) begin : port_send_data__msg
     assign send_data__msg[p] = send_data__msg_typed[p];
   end
-  data_t to_mem_wdata__msg_typed ;
-  assign to_mem_wdata__msg = to_mem_wdata__msg_typed;
   host_packet_t recv_from_controller_pkt__msg_typed ;
   assign recv_from_controller_pkt__msg_typed = recv_from_controller_pkt__msg;
   host_packet_t send_to_controller_pkt__msg_typed ;
@@ -445,49 +415,15 @@ module tile_programmable #(
   assign fu_crossbar__ctrl_addr_inport = ctrl_mem__ctrl_addr_outport;
   assign element__ctrl_addr_inport = ctrl_mem__ctrl_addr_outport;
   assign element__prologue_count_inport = ctrl_mem__prologue_count_outport_fu;
-  function automatic int memory_count();
-    int count;
-    count=0;
-    for(int i=0;i<FU_COUNT;i++) if(FU_KINDS[8*i+:8]==`CGRA_FU_MEM) count++;
-    return count;
-  endfunction
+  localparam logic [7:0] PE_MEMORY_KIND=`CGRA_FU_MEM;
+  `include "cgra_pe_memory.svh"
   initial begin
     if(TILE_PORTS!=4 && TILE_PORTS!=8) $fatal(1,"Base programmable Tile requires four or eight mesh ports");
-    if(memory_count()>1) $fatal(1,"Multiple MemUnit writers are not a legal ac96 Tile");
     for(int i=0;i<FU_COUNT;i++) if(FU_KINDS[8*i+:8]==`CGRA_FU_STREAMING_MEM)
       $fatal(1,"StreamingMem requires the streaming Tile variant");
   end
-  for(genvar slot=0;slot<FU_COUNT;slot++) begin : memory_ports
+  for(genvar slot=0;slot<FU_COUNT;slot++) begin : clear_slots
     assign element__clear[slot]=1'b0;
-    if(FU_KINDS[8*slot+:8]==`CGRA_FU_MEM) begin : memory
-      assign to_mem_raddr__msg=element__to_mem_raddr__msg[slot];
-      assign to_mem_raddr__val=element__to_mem_raddr__val[slot];
-      assign element__to_mem_raddr__rdy[slot]=to_mem_raddr__rdy;
-      assign element__from_mem_rdata__msg[slot]=from_mem_rdata__msg_typed;
-      assign element__from_mem_rdata__val[slot]=from_mem_rdata__val;
-      assign from_mem_rdata__rdy=element__from_mem_rdata__rdy[slot];
-      assign to_mem_waddr__msg=element__to_mem_waddr__msg[slot];
-      assign to_mem_waddr__val=element__to_mem_waddr__val[slot];
-      assign element__to_mem_waddr__rdy[slot]=to_mem_waddr__rdy;
-      assign to_mem_wdata__msg_typed=element__to_mem_wdata__msg[slot];
-      assign to_mem_wdata__val=element__to_mem_wdata__val[slot];
-      assign element__to_mem_wdata__rdy[slot]=to_mem_wdata__rdy;
-    end else begin : unused_memory
-      assign element__to_mem_raddr__rdy[slot]=0;
-      assign element__from_mem_rdata__msg[slot]='0;
-      assign element__from_mem_rdata__val[slot]=0;
-      assign element__to_mem_waddr__rdy[slot]=0;
-      assign element__to_mem_wdata__rdy[slot]=0;
-    end
-  end
-  if(memory_count()==0) begin : no_memory_fu
-    assign to_mem_raddr__msg='0;
-    assign to_mem_raddr__val=1'b0;
-    assign to_mem_waddr__msg='0;
-    assign to_mem_waddr__val=1'b0;
-    assign to_mem_wdata__msg_typed='0;
-    assign to_mem_wdata__val=1'b0;
-    assign from_mem_rdata__rdy=1'b0;
   end
 
   assign routing_crossbar__recv_data__msg[TILE_PORTS+0] = register_cluster__send_data_to_routing_crossbar__msg[0];

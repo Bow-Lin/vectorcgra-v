@@ -286,4 +286,40 @@ module tile_seq_mul_adder #(
   assign recv_const__rdy = Fu0__recv_const__rdy;
   assign Fu0__recv_const__val = recv_const__val;
 
+  // Unused interfaces and array elements are defined zeros.
+  assign Fu0__clear='0;
+  assign Fu0__ctrl_addr_inport='0;
+  assign Fu0__from_mem_rdata__msg='0;
+  assign Fu0__from_mem_rdata__val='0;
+  assign Fu0__recv_from_ctrl_mem__msg='0;
+  assign Fu0__recv_from_ctrl_mem__val='0;
+  assign Fu0__send_to_ctrl_mem__rdy='0;
+  assign Fu0__to_mem_raddr__rdy='0;
+  assign Fu0__to_mem_waddr__rdy='0;
+  assign Fu0__to_mem_wdata__rdy='0;
+  assign Fu1__clear='0;
+  assign Fu1__ctrl_addr_inport='0;
+  assign Fu1__from_mem_rdata__msg='0;
+  assign Fu1__from_mem_rdata__val='0;
+  assign Fu1__recv_const__msg='0;
+  assign Fu1__recv_const__val='0;
+  assign Fu1__recv_from_ctrl_mem__msg='0;
+  assign Fu1__recv_from_ctrl_mem__val='0;
+  assign Fu1__send_to_ctrl_mem__rdy='0;
+  assign Fu1__to_mem_raddr__rdy='0;
+  assign Fu1__to_mem_waddr__rdy='0;
+  assign Fu1__to_mem_wdata__rdy='0;
+  assign recv_in__rdy[3]='0;
+  assign p_send_out__msg[1]='0;
+  assign send_out__val[1]='0;
+  assign Fu0__recv_in__msg[2]='0;
+  assign Fu0__recv_in__msg[3]='0;
+  assign Fu0__recv_in__val[2]='0;
+  assign Fu0__recv_in__val[3]='0;
+  assign Fu0__send_out__rdy[1]='0;
+  assign Fu1__recv_in__msg[2]='0;
+  assign Fu1__recv_in__msg[3]='0;
+  assign Fu1__recv_in__val[2]='0;
+  assign Fu1__recv_in__val[3]='0;
+  assign Fu1__send_out__rdy[1]='0;
 endmodule

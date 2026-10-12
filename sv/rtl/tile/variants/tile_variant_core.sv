@@ -4,34 +4,8 @@
 `include "cgra_fu_catalog.svh"
 `include "cgra_opcodes.svh"
 module tile_variant_core #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS, parameter bit STREAMING=0) (
-  input  logic [CGRA_ID_W-1:0] cgra_id ,
-  input  logic [0:0] clk ,
-  input  logic [0:0] reset ,
-  input  logic [TILE_ID_W-1:0] tile_id ,
-  input logic [DATA_BITS-1:0] from_mem_rdata__msg ,
-  output logic [0:0] from_mem_rdata__rdy  ,
-  input logic [0:0] from_mem_rdata__val  ,
-  input logic [DATA_BITS-1:0] recv_data__msg [0:TILE_PORTS-1] ,
-  output logic [0:0] recv_data__rdy [0:TILE_PORTS-1] ,
-  input logic [0:0] recv_data__val [0:TILE_PORTS-1] ,
-  input logic [HOST_BITS-1:0] recv_from_controller_pkt__msg ,
-  output logic [0:0] recv_from_controller_pkt__rdy  ,
-  input logic [0:0] recv_from_controller_pkt__val  ,
-  output logic [DATA_BITS-1:0] send_data__msg [0:TILE_PORTS-1] ,
-  input logic [0:0] send_data__rdy [0:TILE_PORTS-1] ,
-  output logic [0:0] send_data__val [0:TILE_PORTS-1] ,
-  output logic [HOST_BITS-1:0] send_to_controller_pkt__msg ,
-  input logic [0:0] send_to_controller_pkt__rdy  ,
-  output logic [0:0] send_to_controller_pkt__val  ,
-  output logic [GLOBAL_ADDR_W-1:0] to_mem_raddr__msg  ,
-  input logic [0:0] to_mem_raddr__rdy  ,
-  output logic [0:0] to_mem_raddr__val  ,
-  output logic [GLOBAL_ADDR_W-1:0] to_mem_waddr__msg  ,
-  input logic [0:0] to_mem_waddr__rdy  ,
-  output logic [0:0] to_mem_waddr__val  ,
-  output logic [DATA_BITS-1:0] to_mem_wdata__msg ,
-  input logic [0:0] to_mem_wdata__rdy  ,
-  output logic [0:0] to_mem_wdata__val  
+
+  `include "cgra_pe_ports.svh"
 );
   `include "cgra_profile.svh"
   localparam int ROUTE_INPUTS = STREAMING ? TILE_PORTS : TILE_PORTS+4;
@@ -407,46 +381,11 @@ module tile_variant_core #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS, parame
     assign element__recv_pkt_from_controller__msg='0;
     assign element__recv_pkt_from_controller__val=1'b0;
   end
-  function automatic int memory_count();
-    int count;
-    count=0;
-    for(int i=0;i<FU_COUNT;i++)
-      if(FU_KINDS[8*i+:8]==(STREAMING ? `CGRA_FU_STREAMING_MEM : `CGRA_FU_MEM)) count++;
-    return count;
-  endfunction
-  initial if(memory_count()>1) $fatal(1,"Only one attached memory FU is supported");
-  if(memory_count()==0) begin : no_memory_fu
-    assign to_mem_raddr__msg='0;
-    assign to_mem_raddr__val=1'b0;
-    assign to_mem_waddr__msg='0;
-    assign to_mem_waddr__val=1'b0;
-    assign to_mem_wdata__msg='0;
-    assign to_mem_wdata__val=1'b0;
-    assign from_mem_rdata__rdy=1'b0;
-  end
-  for(genvar i=0;i<FU_COUNT;i++) begin : memory_slots
-    localparam logic [7:0] KIND=FU_KINDS[8*i+:8];
-    assign element__clear[i]=(!STREAMING && (KIND==`CGRA_FU_PHI || KIND==`CGRA_FU_RET || KIND==`CGRA_FU_GRANT)) ? clear : 1'b0;
-    if((STREAMING && KIND==`CGRA_FU_STREAMING_MEM) || (!STREAMING && KIND==`CGRA_FU_MEM)) begin : attached
-  assign to_mem_raddr__msg=element__to_mem_raddr__msg[i];
-  assign to_mem_raddr__val=element__to_mem_raddr__val[i];
-  assign element__to_mem_raddr__rdy[i]=to_mem_raddr__rdy;
-  assign to_mem_waddr__msg=element__to_mem_waddr__msg[i];
-  assign to_mem_waddr__val=element__to_mem_waddr__val[i];
-  assign element__to_mem_waddr__rdy[i]=to_mem_waddr__rdy;
-  assign to_mem_wdata__msg=element__to_mem_wdata__msg[i];
-  assign to_mem_wdata__val=element__to_mem_wdata__val[i];
-  assign element__to_mem_wdata__rdy[i]=to_mem_wdata__rdy;
-  assign element__from_mem_rdata__msg[i]=from_mem_rdata__msg;
-  assign element__from_mem_rdata__val[i]=from_mem_rdata__val;
-  assign from_mem_rdata__rdy=element__from_mem_rdata__rdy[i];
-    end else begin : detached
-  assign element__to_mem_raddr__rdy[i]=1'b0;
-  assign element__to_mem_waddr__rdy[i]=1'b0;
-  assign element__to_mem_wdata__rdy[i]=1'b0;
-  assign element__from_mem_rdata__msg[i]='0;
-  assign element__from_mem_rdata__val[i]='0;
-    end
+  localparam logic [7:0] PE_MEMORY_KIND=STREAMING ? `CGRA_FU_STREAMING_MEM : `CGRA_FU_MEM;
+  `include "cgra_pe_memory.svh"
+  for(genvar slot=0;slot<FU_COUNT;slot++) begin : clear_slots
+    localparam logic [7:0] KIND=FU_KINDS[8*slot+:8];
+    assign element__clear[slot]=(!STREAMING && (KIND==`CGRA_FU_PHI || KIND==`CGRA_FU_RET || KIND==`CGRA_FU_GRANT)) ? clear : 1'b0;
   end
   logic accepted_command;
   always_comb begin

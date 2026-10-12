@@ -2,7 +2,8 @@
 // Python vector arithmetic with the original interface/handshake rules.
 module tile_vector_mul_combo #(
   `CGRA_PROFILE_PARAMETERS,
-  parameter int LANES = 4, VECTOR_FACTOR_POWER = 0
+  parameter int LANES = 4, VECTOR_FACTOR_POWER = 0,
+  parameter bit LEGACY_PYTHON = 0
 ) (
   input  logic [0:0] clear ,
   input  logic [0:0] clk ,
@@ -57,12 +58,16 @@ module tile_vector_mul_combo #(
   data_t p_to_mem_wdata__msg ;
   assign to_mem_wdata__msg = p_to_mem_wdata__msg;
 
+  logic active_control;
+  assign active_control=recv_opt__val && (LEGACY_PYTHON || (!reset && !clear));
   localparam int LANE_W = DATA_W / LANES;
   // Full-width integer shifts implement the Python arithmetic contract.
   localparam int SHIFT_TWO = LANE_W*2;
   localparam int SHIFT_THREE = LANE_W*3;
   initial if (LANES < 4 || LANES % 4 != 0 || DATA_W % LANES != 0)
     $fatal(1,"VectorMulCombo requires LANES multiple of four dividing DATA_W");
+  initial if (!LEGACY_PYTHON && LANES != 4)
+    $fatal(1,"VectorMulCombo native requires exactly four lanes; use legacy only to reproduce omitted high lanes");
   // ac96 allocates LANES but its data routing uses only lanes 0..3.
   logic lane_in_rdy [0:LANES-1][0:3];
   logic lane_const_rdy [0:LANES-1], lane_ctrl_rdy [0:LANES-1];
@@ -73,6 +78,8 @@ module tile_vector_mul_combo #(
     logic [2*LANE_W-1:0] operands [0:3], constant;
     logic operand_val [0:3];
     ctrl_t control;
+    assign operands[2]='0;assign operands[3]='0;assign constant='0;
+    assign operand_val[2]=0;assign operand_val[3]=0;
     always_comb begin
       operands[0]='0;operands[1]='0;
       if(n<4) begin
@@ -84,7 +91,7 @@ module tile_vector_mul_combo #(
           operands[1][LANE_W-1:0]=p_recv_in__msg[1].payload[(n%2)*LANE_W+:LANE_W];
         end
       end
-      control.fu_in[0]=1;control.fu_in[1]=2;
+      control='0;control.fu_in[0]=1;control.fu_in[1]=2;
       control.operation=7'd1;
       if(p_recv_opt__msg.operation==55||p_recv_opt__msg.operation==75)control.operation=7'd7;
     end
@@ -94,13 +101,16 @@ module tile_vector_mul_combo #(
     cgra_vector_mul #(`CGRA_PROFILE_BIND,.LANE_W(LANE_W)) arithmetic (
       .clk,.reset,.recv_in__msg(operands),.recv_in__val(operand_val),.recv_in__rdy(lane_in_rdy[n]),
       .recv_const__msg(constant),.recv_const__val,.recv_const__rdy(lane_const_rdy[n]),
-      .recv_opt__msg(control),.recv_opt__val,.recv_opt__rdy(lane_ctrl_rdy[n]),
+      .recv_opt__msg(control),.recv_opt__val(active_control),.recv_opt__rdy(lane_ctrl_rdy[n]),
       .send_out__msg(lane_output[n]),.send_out__val(lane_out_val[n]),.send_out__rdy);
   end
   assign recv_in__rdy[0]=lane_in_rdy[0][0];
   assign recv_in__rdy[1]=lane_in_rdy[0][1];
   assign recv_const__rdy=lane_const_rdy[0];
-  assign recv_opt__rdy=send_out__rdy[0];
+  assign recv_opt__rdy=LEGACY_PYTHON ? send_out__rdy[0] : (send_out__val[0] && send_out__rdy[0]);
+  assign recv_in__rdy[2]=0;assign recv_in__rdy[3]=0;
+  assign p_send_out__msg[0].bypass=0;assign p_send_out__msg[0].delay=0;
+  assign p_send_out__msg[1]='0;
   always_comb begin
     send_out__val[0]=lane_out_val[0][0]&recv_opt__val;
     send_out__val[1]=0;

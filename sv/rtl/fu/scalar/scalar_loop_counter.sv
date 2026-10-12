@@ -101,6 +101,7 @@ module scalar_loop_counter #(
   logic [CTRL_ADDR_W-1:0] update_already_done_addr;
 
   always_comb begin : comb_logic
+    comb_logic_addr='0;
     for ( int unsigned i = 1'd0; i < 3'( num_inports_at_comb_logic ); i += 1'd1 )
       recv_in__rdy[2'(i)] = 1'd0;
     for ( int unsigned i = 1'd0; i < 2'( num_outports_at_comb_logic ); i += 1'd1 ) begin

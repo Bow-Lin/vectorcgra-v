@@ -1,0 +1,209 @@
+{
+  "kind": "mul",
+  "parameters": {
+    "DATA_W": 32,
+    "LANES": 4
+  },
+  "cycles": 320,
+  "reset_samples": 6,
+  "inputs": [
+    [
+      "clear",
+      1
+    ],
+    [
+      "reset",
+      1
+    ],
+    [
+      "ctrl_addr_inport",
+      3
+    ],
+    [
+      "from_mem_rdata__msg",
+      35
+    ],
+    [
+      "from_mem_rdata__val",
+      1
+    ],
+    [
+      "recv_const__msg",
+      35
+    ],
+    [
+      "recv_const__val",
+      1
+    ],
+    [
+      "recv_from_ctrl_mem__msg",
+      170
+    ],
+    [
+      "recv_from_ctrl_mem__val",
+      1
+    ],
+    [
+      "recv_in__msg[0]",
+      35
+    ],
+    [
+      "recv_in__msg[1]",
+      35
+    ],
+    [
+      "recv_in__msg[2]",
+      35
+    ],
+    [
+      "recv_in__msg[3]",
+      35
+    ],
+    [
+      "recv_in__val[0]",
+      1
+    ],
+    [
+      "recv_in__val[1]",
+      1
+    ],
+    [
+      "recv_in__val[2]",
+      1
+    ],
+    [
+      "recv_in__val[3]",
+      1
+    ],
+    [
+      "recv_opt__msg",
+      119
+    ],
+    [
+      "recv_opt__val",
+      1
+    ],
+    [
+      "send_out__rdy[0]",
+      1
+    ],
+    [
+      "send_out__rdy[1]",
+      1
+    ],
+    [
+      "send_to_ctrl_mem__rdy",
+      1
+    ],
+    [
+      "to_mem_raddr__rdy",
+      1
+    ],
+    [
+      "to_mem_waddr__rdy",
+      1
+    ],
+    [
+      "to_mem_wdata__rdy",
+      1
+    ]
+  ],
+  "outputs": [
+    [
+      "from_mem_rdata__rdy",
+      1
+    ],
+    [
+      "recv_const__rdy",
+      1
+    ],
+    [
+      "recv_from_ctrl_mem__rdy",
+      1
+    ],
+    [
+      "recv_in__rdy[0]",
+      1
+    ],
+    [
+      "recv_in__rdy[1]",
+      1
+    ],
+    [
+      "recv_in__rdy[2]",
+      1
+    ],
+    [
+      "recv_in__rdy[3]",
+      1
+    ],
+    [
+      "recv_opt__rdy",
+      1
+    ],
+    [
+      "send_out__msg[0]",
+      35
+    ],
+    [
+      "send_out__msg[1]",
+      35
+    ],
+    [
+      "send_out__val[0]",
+      1
+    ],
+    [
+      "send_out__val[1]",
+      1
+    ],
+    [
+      "send_to_ctrl_mem__msg",
+      170
+    ],
+    [
+      "send_to_ctrl_mem__val",
+      1
+    ],
+    [
+      "to_mem_raddr__msg",
+      7
+    ],
+    [
+      "to_mem_raddr__val",
+      1
+    ],
+    [
+      "to_mem_waddr__msg",
+      7
+    ],
+    [
+      "to_mem_waddr__val",
+      1
+    ],
+    [
+      "to_mem_wdata__msg",
+      35
+    ],
+    [
+      "to_mem_wdata__val",
+      1
+    ]
+  ],
+  "input_bits": 518,
+  "output_bits": 303,
+  "source_sha256": {
+    "fu/vector/VectorMulComboRTL.py": "552dc3c48395ad64088594f86220edc972aa8573e08f723df48bcaf3776e33c4",
+    "fu/vector/VectorMulRTL.py": "24963b450cf3d79fab00c39ffbb64a7339b150f890dd8ebcc05258782ee58594",
+    "fu/vector/test/VectorMulComboRTL_test.py": "62577c80b747c9b80db5868dc445ff098337e0757de548e1840452d76c6cfbe4",
+    "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf"
+  },
+  "generator_sha256": "3c9200bbb3a8c037424881e8a456caa9950a14f5684086f54fb23148d4d5734c",
+  "generator_helper_sha256": "97b3471b7294d1cbec2e25fd454a500c557d417af44321ad6b44577f4786277b",
+  "vectors_sha256": "4c88d6d9bcfaaa4b45b310aa05edee682ddb1c882d2e2d825b62f709502fdda8",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "notes": [
+    "Unmodified Python simulation; complete outputs, including reset, invalid data and originally undriven zeros.",
+    "Adder combined-constant carry remains broken; eight-lane multiplier retains only the original four routed lanes."
+  ]
+}

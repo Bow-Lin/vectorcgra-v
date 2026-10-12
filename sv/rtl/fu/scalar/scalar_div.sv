@@ -1,9 +1,10 @@
 `include "cgra_opcodes.svh"
 `include "cgra_profile_defs.svh"
-// Native DivRTL migration from ac96; original state/handshake semantics.
+// Corrected native transactions by default; LEGACY_PYTHON reproduces the pinned source.
 module scalar_div #(
   `CGRA_PROFILE_PARAMETERS,
-  parameter int VECTOR_FACTOR_POWER = 0
+  parameter int VECTOR_FACTOR_POWER = 0,
+  parameter bit LEGACY_PYTHON = 0
 ) (
   input  logic [0:0] clear ,
   input  logic [0:0] clk ,
@@ -40,6 +41,8 @@ module scalar_div #(
   input logic [0:0] to_mem_wdata__rdy  ,
   output logic [0:0] to_mem_wdata__val
 );
+  if (LEGACY_PYTHON) begin : legacy
+
   `include "cgra_profile.svh"
   localparam int CTRL_SLOTS = 1 << CTRL_ADDR_W;
   data_t from_mem_rdata__msg_typed ;
@@ -174,4 +177,8 @@ module scalar_div #(
   assign in0_idx = in0[1:0];
   assign in1_idx = in1[1:0];
 
+  end else begin : native_mode
+    scalar_div_native #(`CGRA_PROFILE_BIND, .MODE(0), .LATENCY(1),
+      .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER)) core(.*);
+  end
 endmodule

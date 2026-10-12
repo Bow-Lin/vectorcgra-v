@@ -143,18 +143,22 @@ module cgra_system #(
     assign send_to_inter_cgra_noc__val=loop_in_val;
     assign loop_in_rdy=send_to_inter_cgra_noc__rdy;
   end else begin : local_noc
-    // The original single-CGRA declares but does not drive the external outputs.
+    // Single-CGRA traffic uses the local loopback. The unused public NoC port
+    // must still have defined outputs when this hierarchy is synthesized.
+    assign recv_from_inter_cgra_noc__rdy=1'b0;
+    assign send_to_inter_cgra_noc__msg='0;
+    assign send_to_inter_cgra_noc__val=1'b0;
     cgra_queue #(.WIDTH(NOC_BITS), .DEPTH(1), .BYPASS(1)) loopback (
       .clk, .reset, .clear(1'b0), .recv_msg(loop_in_msg), .recv_val(loop_in_val), .recv_rdy(loop_in_rdy),
       .send_msg(loop_out_msg), .send_val(loop_out_val), .send_rdy(loop_out_rdy), .count()
     );
   end
-  cgra_credit_ring #(.WIDTH(HOST_BITS), .NODES(MAX_TILES+1), .DST_LSB(HOST_DST_LSB),
+  cgra_credit_ring #(.LEGACY_PYTHON(NOC_LEGACY_PYTHON),.WIDTH(HOST_BITS), .NODES(MAX_TILES+1), .DST_LSB(HOST_DST_LSB),
                      .DST_WIDTH(TILE_ID_W), .VC_LSB(PAYLOAD_BITS)) ctrl_ring (
     .clk, .reset, .recv_msg(ring_recv_msg), .recv_val(ring_recv_val), .recv_rdy(ring_recv_rdy),
     .send_msg(ring_send_msg), .send_val(ring_send_val), .send_rdy(ring_send_rdy)
   );
-  cgra_controller #(`CGRA_PROFILE_BIND) controller (
+  cgra_controller #(`CGRA_PROFILE_BIND,.REDUCE_LEGACY_PYTHON(REDUCE_LEGACY_PYTHON)) controller (
     .clk, .reset, .cgra_id,
     .recv_from_cpu_pkt__msg, .recv_from_cpu_pkt__val, .recv_from_cpu_pkt__rdy,
     .send_to_cpu_pkt__msg, .send_to_cpu_pkt__val, .send_to_cpu_pkt__rdy,
@@ -259,8 +263,7 @@ module cgra_system #(
     logic wdata_val, wdata_rdy, rdata_val, rdata_rdy;
       cgra_pe #(.VARIANT(TILE_VARIANT), `CGRA_PROFILE_BIND, .FU_COUNT(TILE_FU_COUNTS[t]),
         .FU_KINDS(TILE_FU_KINDS[t][TILE_FU_COUNTS[t]*8-1:0]),
-        .VECTOR_LANES(VECTOR_LANES), .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER),
-        .FP_EXP_W(FP_EXP_W), .FP_SIG_W(FP_SIG_W)) tile (
+        `CGRA_FU_BIND_OPTIONS) tile (
       .clk, .reset, .cgra_id, .tile_id(TILE_ID_W'(t)),
       .recv_data__msg(tile_recv_msg[t]), .recv_data__val(tile_recv_val[t]), .recv_data__rdy(tile_recv_rdy[t]),
       .send_data__msg(tile_send_msg[t]), .send_data__val(tile_send_val[t]), .send_data__rdy(tile_send_rdy[t]),

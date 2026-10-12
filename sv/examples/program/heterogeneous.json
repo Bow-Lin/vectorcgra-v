@@ -1,0 +1,665 @@
+{
+  "schema": 1,
+  "control_defaults": {
+    "fu_in": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "steps": [
+    {
+      "kind": "preload",
+      "address": 15,
+      "values": [
+        7,
+        "0xdeadbeef"
+      ]
+    },
+    {
+      "kind": "preload",
+      "address": 47,
+      "values": [
+        14,
+        "0xdeadbeef"
+      ]
+    },
+    {
+      "kind": "preload",
+      "address": 79,
+      "values": [
+        21,
+        "0xdeadbeef"
+      ]
+    },
+    {
+      "kind": "preload",
+      "address": 111,
+      "values": [
+        28,
+        "0xdeadbeef"
+      ]
+    },
+    {
+      "kind": "constants",
+      "cgra": 0,
+      "tile": 0,
+      "values": [
+        47,
+        48
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 0,
+      "tile": 0,
+      "words": [
+        {
+          "operation": "LD_CONST",
+          "fu_xbar_outport": {
+            "3": 1
+          }
+        },
+        {
+          "operation": "STR_CONST",
+          "routing_xbar_outport": {
+            "8": 1
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constants",
+      "cgra": 0,
+      "tile": 1,
+      "values": [
+        5
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 0,
+      "tile": 1,
+      "words": [
+        {
+          "operation": "ADD_CONST",
+          "routing_xbar_outport": {
+            "8": 3
+          },
+          "fu_xbar_outport": {
+            "0": 1
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constants",
+      "cgra": 0,
+      "tile": 2,
+      "values": [
+        -8
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 0,
+      "tile": 2,
+      "words": [
+        {
+          "operation": "ADD_CONST",
+          "routing_xbar_outport": {
+            "8": 4
+          },
+          "fu_xbar_outport": {
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constants",
+      "cgra": 0,
+      "tile": 3,
+      "values": [
+        3
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 0,
+      "tile": 3,
+      "words": [
+        {
+          "operation": "MUL_CONST",
+          "routing_xbar_outport": {
+            "8": 2
+          },
+          "fu_xbar_outport": {
+            "2": 1
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constants",
+      "cgra": 1,
+      "tile": 0,
+      "values": [
+        79,
+        80
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 1,
+      "tile": 0,
+      "words": [
+        {
+          "operation": "LD_CONST",
+          "fu_xbar_outport": {
+            "3": 1
+          }
+        },
+        {
+          "operation": "STR_CONST",
+          "routing_xbar_outport": {
+            "8": 1
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constants",
+      "cgra": 1,
+      "tile": 1,
+      "values": [
+        5
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 1,
+      "tile": 1,
+      "words": [
+        {
+          "operation": "ADD_CONST",
+          "routing_xbar_outport": {
+            "8": 3
+          },
+          "fu_xbar_outport": {
+            "0": 1
+          }
+        }
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 1,
+      "tile": 2,
+      "words": [
+        {
+          "operation": "NAH"
+        }
+      ]
+    },
+    {
+      "kind": "constants",
+      "cgra": 1,
+      "tile": 3,
+      "values": [
+        -8
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 1,
+      "tile": 3,
+      "words": [
+        {
+          "operation": "ADD_CONST",
+          "routing_xbar_outport": {
+            "8": 4
+          },
+          "fu_xbar_outport": {
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constants",
+      "cgra": 1,
+      "tile": 4,
+      "values": [
+        3
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 1,
+      "tile": 4,
+      "words": [
+        {
+          "operation": "MUL_CONST",
+          "routing_xbar_outport": {
+            "8": 2
+          },
+          "fu_xbar_outport": {
+            "2": 1
+          }
+        }
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 1,
+      "tile": 5,
+      "words": [
+        {
+          "operation": "NAH"
+        }
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 1,
+      "tile": 6,
+      "words": [
+        {
+          "operation": "NAH"
+        }
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 1,
+      "tile": 7,
+      "words": [
+        {
+          "operation": "NAH"
+        }
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 1,
+      "tile": 8,
+      "words": [
+        {
+          "operation": "NAH"
+        }
+      ]
+    },
+    {
+      "kind": "constants",
+      "cgra": 2,
+      "tile": 0,
+      "values": [
+        111,
+        112
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 2,
+      "tile": 0,
+      "words": [
+        {
+          "operation": "LD_CONST",
+          "fu_xbar_outport": {
+            "3": 1
+          }
+        },
+        {
+          "operation": "STR_CONST",
+          "routing_xbar_outport": {
+            "8": 1
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constants",
+      "cgra": 2,
+      "tile": 1,
+      "values": [
+        5
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 2,
+      "tile": 1,
+      "words": [
+        {
+          "operation": "ADD_CONST",
+          "routing_xbar_outport": {
+            "8": 3
+          },
+          "fu_xbar_outport": {
+            "0": 1
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constants",
+      "cgra": 2,
+      "tile": 2,
+      "values": [
+        -8
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 2,
+      "tile": 2,
+      "words": [
+        {
+          "operation": "ADD_CONST",
+          "routing_xbar_outport": {
+            "8": 4
+          },
+          "fu_xbar_outport": {
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constants",
+      "cgra": 2,
+      "tile": 3,
+      "values": [
+        3
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 2,
+      "tile": 3,
+      "words": [
+        {
+          "operation": "MUL_CONST",
+          "routing_xbar_outport": {
+            "8": 2
+          },
+          "fu_xbar_outport": {
+            "2": 1
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constants",
+      "cgra": 3,
+      "tile": 0,
+      "values": [
+        15,
+        16
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 3,
+      "tile": 0,
+      "words": [
+        {
+          "operation": "LD_CONST",
+          "fu_xbar_outport": {
+            "3": 1
+          }
+        },
+        {
+          "operation": "STR_CONST",
+          "routing_xbar_outport": {
+            "8": 1
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constants",
+      "cgra": 3,
+      "tile": 1,
+      "values": [
+        5
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 3,
+      "tile": 1,
+      "words": [
+        {
+          "operation": "ADD_CONST",
+          "routing_xbar_outport": {
+            "8": 3
+          },
+          "fu_xbar_outport": {
+            "0": 1
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constants",
+      "cgra": 3,
+      "tile": 2,
+      "values": [
+        -8
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 3,
+      "tile": 2,
+      "words": [
+        {
+          "operation": "ADD_CONST",
+          "routing_xbar_outport": {
+            "8": 4
+          },
+          "fu_xbar_outport": {
+            "1": 1
+          }
+        }
+      ]
+    },
+    {
+      "kind": "constants",
+      "cgra": 3,
+      "tile": 3,
+      "values": [
+        3
+      ]
+    },
+    {
+      "kind": "program",
+      "cgra": 3,
+      "tile": 3,
+      "words": [
+        {
+          "operation": "MUL_CONST",
+          "routing_xbar_outport": {
+            "8": 2
+          },
+          "fu_xbar_outport": {
+            "2": 1
+          }
+        }
+      ]
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 0,
+      "tile": 3
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 0,
+      "tile": 2
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 0,
+      "tile": 1
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 0,
+      "tile": 0
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 1,
+      "tile": 8
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 1,
+      "tile": 7
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 1,
+      "tile": 6
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 1,
+      "tile": 5
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 1,
+      "tile": 4
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 1,
+      "tile": 3
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 1,
+      "tile": 2
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 1,
+      "tile": 1
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 1,
+      "tile": 0
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 2,
+      "tile": 3
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 2,
+      "tile": 2
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 2,
+      "tile": 1
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 2,
+      "tile": 0
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 3,
+      "tile": 3
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 3,
+      "tile": 2
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 3,
+      "tile": 1
+    },
+    {
+      "kind": "command",
+      "cmd": "LAUNCH",
+      "cgra": 3,
+      "tile": 0
+    },
+    {
+      "kind": "barrier",
+      "completions": 21
+    },
+    {
+      "kind": "command",
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 16
+    },
+    {
+      "kind": "command",
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 15
+    },
+    {
+      "kind": "command",
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 48
+    },
+    {
+      "kind": "command",
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 47
+    },
+    {
+      "kind": "command",
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 80
+    },
+    {
+      "kind": "command",
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 79
+    },
+    {
+      "kind": "command",
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 112
+    },
+    {
+      "kind": "command",
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 111
+    }
+  ]
+}

@@ -20,6 +20,7 @@ module cgra_integrated_im2col #(
   parameter logic [MEM_WRITE_PORTS-1:0][31:0] WRITE_PORT_TILE='1,
   parameter logic [NUM_TILES-1:0][TILE_PORTS-1:0] BOUNDARY_IN_ENABLE='0, BOUNDARY_OUT_ENABLE='0,
   parameter int SCRATCH_DEPTH=64,
+  parameter bit PERIPHERAL_LEGACY_PYTHON=0,
   parameter logic[SCRATCH_DEPTH*DATA_W-1:0] PRELOAD_IMAGE='0
 ) (
   input logic [GLOBAL_ADDR_W-1:0] address_lower, address_upper,
@@ -67,16 +68,32 @@ module cgra_integrated_im2col #(
   logic [HOST_BITS-1:0] engine_recv_msg,engine_send_msg;
   logic engine_recv_val,engine_recv_rdy,engine_send_val,engine_send_rdy,engine_done,engine_active;
   logic cpu_val,cpu_rdy;
-  host_packet_t launch_packet;
+  host_packet_t launch_packet,cpu_packet;
   assign launch_packet=engine_recv_msg;
+  assign cpu_packet=recv_from_cpu_pkt__msg;
+  generate if(PERIPHERAL_LEGACY_PYTHON) begin:legacy_gate
   always_ff @(posedge clk) begin
     if(reset)engine_active<=0;
     else if(engine_recv_val && engine_recv_rdy && launch_packet.payload.cmd==6'd52)engine_active<=1;
     else if(engine_done)engine_active<=0;
   end
-  assign cpu_val=engine_active ? 1'b0 : recv_from_cpu_pkt__val;
-  assign recv_from_cpu_pkt__rdy=engine_active ? 1'b0 : cpu_rdy;
-  cgra_im2col_engine #(`CGRA_PROFILE_BIND,.SCRATCH_DEPTH(SCRATCH_DEPTH),.PRELOAD_IMAGE(PRELOAD_IMAGE)) engine (
+  end else begin:native_gate
+    logic launch_pending;
+    wire cpu_launch=recv_from_cpu_pkt__val && recv_from_cpu_pkt__rdy && cpu_packet.payload.cmd==6'd52;
+    // Fence at host acceptance. Waiting for the engine's downstream launch lets
+    // following CPU reads enter the controller before image stores are produced.
+    always_ff @(posedge clk) begin
+      if(reset)begin engine_active<=0;launch_pending<=0;end
+      else begin
+        if(cpu_launch)begin engine_active<=1;launch_pending<=1;end
+        if(engine_recv_val && engine_recv_rdy && launch_packet.payload.cmd==6'd52)launch_pending<=0;
+        if(engine_done && !launch_pending && !cpu_launch)engine_active<=0;
+      end
+    end
+  end endgenerate
+  assign cpu_val=(engine_active || (!PERIPHERAL_LEGACY_PYTHON && reset)) ? 1'b0 : recv_from_cpu_pkt__val;
+  assign recv_from_cpu_pkt__rdy=(engine_active || (!PERIPHERAL_LEGACY_PYTHON && reset)) ? 1'b0 : cpu_rdy;
+  cgra_im2col_engine #(`CGRA_PROFILE_BIND,.SCRATCH_DEPTH(SCRATCH_DEPTH),.PRELOAD_IMAGE(PRELOAD_IMAGE),.LEGACY_PYTHON(PERIPHERAL_LEGACY_PYTHON)) engine (
     .clk,.reset,.recv_cmd_pkt__msg(engine_recv_msg),.recv_cmd_pkt__val(engine_recv_val),.recv_cmd_pkt__rdy(engine_recv_rdy),
     .send_pkt__msg(engine_send_msg),.send_pkt__val(engine_send_val),.send_pkt__rdy(engine_send_rdy),.done(engine_done)
   );

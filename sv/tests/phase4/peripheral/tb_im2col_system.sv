@@ -52,7 +52,7 @@ module tb_im2col_system;
   logic[0:0] send_to_cpu_pkt__rdy=0;
   logic[0:0] send_to_cpu_pkt__val;
   logic[0:0] gold_send_to_cpu_pkt__val;
-  cgra_integrated_im2col #(
+  cgra_integrated_im2col #(.PERIPHERAL_LEGACY_PYTHON(1),.MEMORY_LEGACY_PYTHON(1),
     .COLS(2),
     .ROWS(2),
     .DATA_W(32),

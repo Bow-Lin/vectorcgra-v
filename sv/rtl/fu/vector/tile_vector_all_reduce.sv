@@ -1,8 +1,9 @@
 `include "cgra_profile_defs.svh"
-// ac96 behavior preserved, including undriven fields and original handshake rules.
+// Native reduction transactions, with explicit compatibility for pinned Python defects.
 module tile_vector_all_reduce #(
   `CGRA_PROFILE_PARAMETERS,
-  parameter int LANES = 4, VECTOR_FACTOR_POWER = 0
+  parameter int LANES = 4, VECTOR_FACTOR_POWER = 0,
+  parameter bit LEGACY_PYTHON = 0
 ) (
   input  logic [0:0] clear ,
   input  logic [0:0] clk ,
@@ -58,8 +59,10 @@ module tile_vector_all_reduce #(
   assign to_mem_wdata__msg = p_to_mem_wdata__msg;
 
   localparam int LANE_W=DATA_W/LANES;
+  `ifndef SYNTHESIS
   initial if(LANES<4||LANES%4!=0||DATA_W%LANES!=0)
     $fatal(1,"VectorAllReduce requires LANES multiple of four dividing DATA_W");
+  `endif
   logic already_sent_to_controller;
   logic [DATA_W-1:0] reduced_add, reduced_mul;
   logic add_op, mul_op, local_plain, local_base, global_plain, global_base, global_op;
@@ -77,6 +80,8 @@ module tile_vector_all_reduce #(
       reduced_mul=reduced_mul*(mul_op ? DATA_W'(p_recv_in__msg[0].payload[lane*LANE_W+:LANE_W]) : DATA_W'(0));
     end
   end
+  generate if (LEGACY_PYTHON) begin : legacy
+    initial already_sent_to_controller=0;
   always_comb begin
     p_send_out__msg[0].payload='0;
     case(p_recv_opt__msg.operation)
@@ -125,7 +130,83 @@ module tile_vector_all_reduce #(
     else if(recv_opt__val&global_op&already_sent_to_controller&recv_opt__rdy)
       already_sent_to_controller<=0;
   end
-  // recv_const.rdy, output1, output0 bypass/delay remain undriven as in ac96.
+  end else begin : native_mode
+    logic pending,draining,pending_is_mul,pending_has_base;
+    data_t pending_base;
+    always_comb begin
+      for (integer i=0;i<4;i++) recv_in__rdy[i]=0;
+      recv_opt__rdy=0;recv_from_ctrl_mem__rdy=0;
+      send_out__val[0]=0;p_send_out__msg[0].payload='0;p_send_out__msg[0].predicate=0;
+      send_to_ctrl_mem__val=0;p_send_to_ctrl_mem__msg='0;
+      if (!reset && !clear) begin
+        if (draining) begin
+          // A per-FU clear cannot retract a request already accepted remotely.
+          // Discard that response before allowing another reduction transaction.
+          recv_from_ctrl_mem__rdy=1;
+        end else if (pending) begin
+          recv_from_ctrl_mem__rdy=recv_opt__val && send_out__rdy[0];
+          send_out__val[0]=recv_opt__val && recv_from_ctrl_mem__val;
+          recv_opt__rdy=send_out__val[0] && send_out__rdy[0];
+          if (send_out__val[0]) begin
+            p_send_out__msg[0].payload=p_recv_from_ctrl_mem__msg.data.payload;
+            p_send_out__msg[0].predicate=p_recv_from_ctrl_mem__msg.data.predicate;
+            if (pending_has_base) begin
+              p_send_out__msg[0].payload=pending_is_mul
+                ? p_recv_from_ctrl_mem__msg.data.payload*pending_base.payload
+                : p_recv_from_ctrl_mem__msg.data.payload+pending_base.payload;
+              p_send_out__msg[0].predicate=p_recv_from_ctrl_mem__msg.data.predicate && pending_base.predicate;
+            end
+          end
+        end else if (recv_opt__val && (local_plain || local_base)) begin
+          send_out__val[0]=recv_in__val[0] && (!local_base || recv_in__val[1]);
+          recv_in__rdy[0]=send_out__rdy[0] && (!local_base || recv_in__val[1]);
+          recv_in__rdy[1]=local_base && send_out__rdy[0] && recv_in__val[0];
+          recv_opt__rdy=send_out__val[0] && send_out__rdy[0];
+          if (send_out__val[0]) begin
+            p_send_out__msg[0].payload=mul_op ? reduced_mul : reduced_add;
+            p_send_out__msg[0].predicate=p_recv_in__msg[0].predicate;
+            if (local_base) begin
+              p_send_out__msg[0].payload=mul_op
+                ? reduced_mul*p_recv_in__msg[1].payload
+                : reduced_add+p_recv_in__msg[1].payload;
+              p_send_out__msg[0].predicate=p_recv_in__msg[0].predicate && p_recv_in__msg[1].predicate;
+            end
+          end
+        end else if (recv_opt__val && global_op) begin
+          send_to_ctrl_mem__val=recv_in__val[0] && (!global_base || recv_in__val[1]);
+          recv_in__rdy[0]=send_to_ctrl_mem__rdy && (!global_base || recv_in__val[1]);
+          recv_in__rdy[1]=global_base && send_to_ctrl_mem__rdy && recv_in__val[0];
+          if (send_to_ctrl_mem__val) begin
+            p_send_to_ctrl_mem__msg.cmd=mul_op ? 6'd19 : 6'd18;
+            p_send_to_ctrl_mem__msg.data.payload=mul_op ? reduced_mul : reduced_add;
+            p_send_to_ctrl_mem__msg.data.predicate=p_recv_in__msg[0].predicate;
+            p_send_to_ctrl_mem__msg.ctrl=p_recv_opt__msg;
+          end
+        end
+      end
+    end
+    always @(posedge clk) begin
+      if (reset) begin
+        pending<=0;draining<=0;pending_is_mul<=0;pending_has_base<=0;pending_base<='0;
+      end else if (clear) begin
+        draining<=draining || pending;pending<=0;
+        pending_is_mul<=0;pending_has_base<=0;pending_base<='0;
+      end else begin
+        if (draining && recv_from_ctrl_mem__val && recv_from_ctrl_mem__rdy) draining<=0;
+        if (send_to_ctrl_mem__val && send_to_ctrl_mem__rdy) begin
+          pending<=1;pending_is_mul<=mul_op;pending_has_base<=global_base;
+          pending_base<=p_recv_in__msg[1];
+        end else if (pending && send_out__val[0] && send_out__rdy[0]) pending<=0;
+      end
+    end
+  end endgenerate
+  // The source leaves these fields undriven (zero in PyMTL simulation).
+  assign recv_const__rdy=0;
+  assign send_out__val[1]=0;
+  assign p_send_out__msg[1]='0;
+  assign p_send_out__msg[0].bypass=0;
+  assign p_send_out__msg[0].delay=0;
+
 
   assign to_mem_waddr__val = 0;
   assign to_mem_wdata__val = 0;

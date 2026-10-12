@@ -27,7 +27,7 @@ module tb_phase3_vector;
   logic [15:0] i_rhs_1 ;
   logic [15:0] i_rhs_1b ;
   logic [5:0] i_rhs_2 ;
-  cgra_alu_gen_mac dut (.reset(i_reset),.clk(clock),.lhs_0(d_lhs_0),.rhs_0(i_rhs_0),.rhs_1(i_rhs_1),.rhs_1b(i_rhs_1b),.rhs_2(i_rhs_2));
+  cgra_alu_gen_mac #(.LEGACY_PYTHON(1)) dut (.reset(i_reset),.clk(clock),.lhs_0(d_lhs_0),.rhs_0(i_rhs_0),.rhs_1(i_rhs_1),.rhs_1b(i_rhs_1b),.rhs_2(i_rhs_2));
   P3Vector_alu_gen_mac_wrapper_w16_l4_b8_v0 gold (.reset(i_reset),.clk(clock),.lhs_0(g_lhs_0),.rhs_0(i_rhs_0),.rhs_1(i_rhs_1),.rhs_1b(i_rhs_1b),.rhs_2(i_rhs_2));
   initial begin
     for(int n=0;n<64;n++)op_hits[n]=0;

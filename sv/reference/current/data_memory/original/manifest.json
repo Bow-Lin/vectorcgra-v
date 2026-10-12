@@ -1,0 +1,27 @@
+{
+  "parameters": {
+    "DATA_BITS": 19,
+    "DEPTH": 20,
+    "RD_PORTS": 1,
+    "WR_PORTS": 1,
+    "PRELOAD_ENABLE": 1,
+    "ORIGINAL": 1
+  },
+  "cycles": 13,
+  "input_bits": 34,
+  "output_bits": 23,
+  "reset_samples": 3,
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_sha256": {
+    "mem/data/DataMemRTL.py": "3c9343a560ffbf0e25923b31b06d7592e850b5f9a52f772db930ae2e163971c3",
+    "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf",
+    "mem/data/test/DataMemRTL_test.py": "c5c76f50526eef26c4a9b36bb7e306941383a6d89cea19fec8ab827d3893f5eb"
+  },
+  "generator_sha256": "93e6af44bd5ec035c5afeed4a4cf47fb5a5af738e5f09552aaa7311db7ccca1b",
+  "vectors_sha256": "239476f54cde31f1e6de9f1438a781f4265c2e2109d02eb5d11f704b6774b610",
+  "notes": [
+    "Original Python behavior, including invalid outputs and ignored reset.",
+    "Preload reads write even with val=0; write-enable latches when address valid falls.",
+    "Synthetic traffic intentionally separates address/data and changes stalled reads to expose source behavior."
+  ]
+}

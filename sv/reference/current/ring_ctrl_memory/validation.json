@@ -1,0 +1,1083 @@
+{
+  "batch": "M26",
+  "date": "2026-10-10",
+  "base_commit": "6ea3eb9948948b12cd2f33abfbffd13248caa95f",
+  "status": "passed",
+  "scope": "Standalone control ring plus dynamic memories; no new PE/array integration or system kernel rerun",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "pinned_original_python_files_unchanged": 274,
+  "python_reference": "Unmodified wrapper and core; original Source/Sink assertions retained; no hardware monkeypatch",
+  "profiles": [
+    {
+      "name": "original_test",
+      "parameters": {
+        "COLS": 2,
+        "ROWS": 2,
+        "DATA_W": 16,
+        "DATA_ADDR_W": 4,
+        "CTRL_DEPTH": 16,
+        "REG_DEPTH": 16,
+        "NUM_CTRL": 12,
+        "TOTAL_STEPS": 12,
+        "FU_INPUTS": 2,
+        "FU_OUTPUTS": 2,
+        "TILE_INPUTS": 4,
+        "TILE_OUTPUTS": 4
+      },
+      "cycles": 26,
+      "input_bits": 130,
+      "output_bits": 405,
+      "ctrl_bits": 69,
+      "reset_samples": 3,
+      "packet_bits": 123,
+      "stats": {
+        "ctrl_transfers": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "return_commands": {},
+        "held_return_changes": 5,
+        "source_stalls": 0
+      },
+      "notes": [
+        "Original test stimuli and Source/Sink assertions retained; only runner instrumented.",
+        "All cycles and output bits, including reset and invalid messages, are frozen."
+      ],
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "generator_sha256": "9293bd24a21e600aa74ec9656c94bfc6b972b16e1025418268bbbe3fceceb151",
+      "vectors_sha256": "ce466e749ab34b0ffd75b4b2a17a4fd39b29f896d24747a9195827d2c432289a",
+      "source_sha256": {
+        "mem/ctrl/RingMultiCtrlMemDynamicRTL.py": "8698dd5cd39dbab497dbcef64ca248c5165a7cb72367e4940224268ae6b54c54",
+        "mem/ctrl/CtrlMemDynamicRTL.py": "54bfc632194d673d0d58c1e59f252dca8f0aa0de1ad37d7463a2ab3fd786f21c",
+        "mem/ctrl/test/RingCtrlMemDynamicRTL_test.py": "47487710cff086d723d4aa44040d37bf4ed67426ef5b7588eca5a8bb05d14000",
+        "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf",
+        "lib/basic/val_rdy/queues.py": "547ef3175064e52759037cac8e0dfb037450ad3c1d8d22cf1d207e1a5e1fa909"
+      },
+      "submodule_commits": {
+        "noc/PyOCN": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      }
+    },
+    {
+      "name": "original",
+      "parameters": {
+        "COLS": 2,
+        "ROWS": 2,
+        "DATA_W": 16,
+        "DATA_ADDR_W": 4,
+        "CTRL_DEPTH": 16,
+        "REG_DEPTH": 16,
+        "NUM_CTRL": 12,
+        "TOTAL_STEPS": 12,
+        "FU_INPUTS": 2,
+        "FU_OUTPUTS": 2,
+        "TILE_INPUTS": 4,
+        "TILE_OUTPUTS": 4
+      },
+      "cycles": 467,
+      "input_bits": 130,
+      "output_bits": 405,
+      "ctrl_bits": 69,
+      "reset_samples": 6,
+      "packet_bits": 123,
+      "stats": {
+        "ctrl_transfers": [
+          8,
+          5,
+          5,
+          5
+        ],
+        "return_commands": {
+          "0": 207,
+          "12": 1
+        },
+        "held_return_changes": 143,
+        "source_stalls": 0
+      },
+      "notes": [
+        "Unmodified Python wrapper; no adapter or monkey-patch of hardware.",
+        "Dummy zero events starve COMPLETE despite exactly five retired controls per node.",
+        "Runtime reset preserves program storage; cancels ring traffic and execution metadata."
+      ],
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "generator_sha256": "9293bd24a21e600aa74ec9656c94bfc6b972b16e1025418268bbbe3fceceb151",
+      "vectors_sha256": "6f87545d62aecce6068c90f586be8f70df915895be1a4769d9db53a7a21b6bf2",
+      "source_sha256": {
+        "mem/ctrl/RingMultiCtrlMemDynamicRTL.py": "8698dd5cd39dbab497dbcef64ca248c5165a7cb72367e4940224268ae6b54c54",
+        "mem/ctrl/CtrlMemDynamicRTL.py": "54bfc632194d673d0d58c1e59f252dca8f0aa0de1ad37d7463a2ab3fd786f21c",
+        "mem/ctrl/test/RingCtrlMemDynamicRTL_test.py": "47487710cff086d723d4aa44040d37bf4ed67426ef5b7588eca5a8bb05d14000",
+        "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf",
+        "lib/basic/val_rdy/queues.py": "547ef3175064e52759037cac8e0dfb037450ad3c1d8d22cf1d207e1a5e1fa909"
+      },
+      "submodule_commits": {
+        "noc/PyOCN": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      }
+    },
+    {
+      "name": "nonpower",
+      "parameters": {
+        "COLS": 3,
+        "ROWS": 1,
+        "DATA_W": 32,
+        "DATA_ADDR_W": 7,
+        "CTRL_DEPTH": 6,
+        "REG_DEPTH": 8,
+        "NUM_CTRL": 3,
+        "TOTAL_STEPS": 6,
+        "FU_INPUTS": 4,
+        "FU_OUTPUTS": 2,
+        "TILE_INPUTS": 4,
+        "TILE_OUTPUTS": 4
+      },
+      "cycles": 454,
+      "input_bits": 187,
+      "output_bits": 519,
+      "ctrl_bits": 111,
+      "reset_samples": 6,
+      "packet_bits": 181,
+      "stats": {
+        "ctrl_transfers": [
+          8,
+          5,
+          5
+        ],
+        "return_commands": {
+          "0": 207,
+          "12": 1
+        },
+        "held_return_changes": 143,
+        "source_stalls": 0
+      },
+      "notes": [
+        "Unmodified Python wrapper; no adapter or monkey-patch of hardware.",
+        "Dummy zero events starve COMPLETE despite exactly five retired controls per node.",
+        "Runtime reset preserves program storage; cancels ring traffic and execution metadata."
+      ],
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "generator_sha256": "9293bd24a21e600aa74ec9656c94bfc6b972b16e1025418268bbbe3fceceb151",
+      "vectors_sha256": "c994913373124789ca30470716576203abb720b4a3133e5d584929a1554adb67",
+      "source_sha256": {
+        "mem/ctrl/RingMultiCtrlMemDynamicRTL.py": "8698dd5cd39dbab497dbcef64ca248c5165a7cb72367e4940224268ae6b54c54",
+        "mem/ctrl/CtrlMemDynamicRTL.py": "54bfc632194d673d0d58c1e59f252dca8f0aa0de1ad37d7463a2ab3fd786f21c",
+        "mem/ctrl/test/RingCtrlMemDynamicRTL_test.py": "47487710cff086d723d4aa44040d37bf4ed67426ef5b7588eca5a8bb05d14000",
+        "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf",
+        "lib/basic/val_rdy/queues.py": "547ef3175064e52759037cac8e0dfb037450ad3c1d8d22cf1d207e1a5e1fa909"
+      },
+      "submodule_commits": {
+        "noc/PyOCN": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      }
+    },
+    {
+      "name": "wide",
+      "parameters": {
+        "COLS": 1,
+        "ROWS": 2,
+        "DATA_W": 64,
+        "DATA_ADDR_W": 9,
+        "CTRL_DEPTH": 8,
+        "REG_DEPTH": 16,
+        "NUM_CTRL": 4,
+        "TOTAL_STEPS": 5,
+        "FU_INPUTS": 4,
+        "FU_OUTPUTS": 2,
+        "TILE_INPUTS": 8,
+        "TILE_OUTPUTS": 8
+      },
+      "cycles": 441,
+      "input_bits": 252,
+      "output_bits": 537,
+      "ctrl_bits": 143,
+      "reset_samples": 6,
+      "packet_bits": 247,
+      "stats": {
+        "ctrl_transfers": [
+          8,
+          5
+        ],
+        "return_commands": {
+          "0": 207,
+          "12": 1
+        },
+        "held_return_changes": 143,
+        "source_stalls": 0
+      },
+      "notes": [
+        "Unmodified Python wrapper; no adapter or monkey-patch of hardware.",
+        "Dummy zero events starve COMPLETE despite exactly five retired controls per node.",
+        "Runtime reset preserves program storage; cancels ring traffic and execution metadata."
+      ],
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "generator_sha256": "9293bd24a21e600aa74ec9656c94bfc6b972b16e1025418268bbbe3fceceb151",
+      "vectors_sha256": "7f11a5f99b99fb8c9d4ca0d189a02a4098a66e399b3d101ec299d6a50768225e",
+      "source_sha256": {
+        "mem/ctrl/RingMultiCtrlMemDynamicRTL.py": "8698dd5cd39dbab497dbcef64ca248c5165a7cb72367e4940224268ae6b54c54",
+        "mem/ctrl/CtrlMemDynamicRTL.py": "54bfc632194d673d0d58c1e59f252dca8f0aa0de1ad37d7463a2ab3fd786f21c",
+        "mem/ctrl/test/RingCtrlMemDynamicRTL_test.py": "47487710cff086d723d4aa44040d37bf4ed67426ef5b7588eca5a8bb05d14000",
+        "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf",
+        "lib/basic/val_rdy/queues.py": "547ef3175064e52759037cac8e0dfb037450ad3c1d8d22cf1d207e1a5e1fa909"
+      },
+      "submodule_commits": {
+        "noc/PyOCN": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      }
+    },
+    {
+      "name": "single",
+      "parameters": {
+        "COLS": 1,
+        "ROWS": 1,
+        "DATA_W": 32,
+        "DATA_ADDR_W": 5,
+        "CTRL_DEPTH": 3,
+        "REG_DEPTH": 4,
+        "NUM_CTRL": 2,
+        "TOTAL_STEPS": 4,
+        "FU_INPUTS": 1,
+        "FU_OUTPUTS": 2,
+        "TILE_INPUTS": 3,
+        "TILE_OUTPUTS": 5
+      },
+      "cycles": 428,
+      "input_bits": 119,
+      "output_bits": 168,
+      "ctrl_bits": 50,
+      "reset_samples": 6,
+      "packet_bits": 115,
+      "stats": {
+        "ctrl_transfers": [
+          8
+        ],
+        "return_commands": {
+          "0": 207,
+          "12": 1
+        },
+        "held_return_changes": 0,
+        "source_stalls": 0
+      },
+      "notes": [
+        "Unmodified Python wrapper; no adapter or monkey-patch of hardware.",
+        "Dummy zero events starve COMPLETE despite exactly five retired controls per node.",
+        "Runtime reset preserves program storage; cancels ring traffic and execution metadata."
+      ],
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "generator_sha256": "9293bd24a21e600aa74ec9656c94bfc6b972b16e1025418268bbbe3fceceb151",
+      "vectors_sha256": "2e2277de9b7dca344d6229be0744ab1eb476e5d6395f70aa21a658f13c0ea6b3",
+      "source_sha256": {
+        "mem/ctrl/RingMultiCtrlMemDynamicRTL.py": "8698dd5cd39dbab497dbcef64ca248c5165a7cb72367e4940224268ae6b54c54",
+        "mem/ctrl/CtrlMemDynamicRTL.py": "54bfc632194d673d0d58c1e59f252dca8f0aa0de1ad37d7463a2ab3fd786f21c",
+        "mem/ctrl/test/RingCtrlMemDynamicRTL_test.py": "47487710cff086d723d4aa44040d37bf4ed67426ef5b7588eca5a8bb05d14000",
+        "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf",
+        "lib/basic/val_rdy/queues.py": "547ef3175064e52759037cac8e0dfb037450ad3c1d8d22cf1d207e1a5e1fa909"
+      },
+      "submodule_commits": {
+        "noc/PyOCN": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+      }
+    }
+  ],
+  "positive_runs": [
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/original/legacy0/run.log",
+      "sha256": "fd76133ae734bbdb4c1eb3d16b01d21ad5ef80478325efe2f924828470e8ed82",
+      "results": [
+        "RING_CTRL_NATIVE_PASS tiles=4 ctrl_bits=69 packet_bits=123 cycles=899 checks=1721 input_stalls=112 output_stalls=163 loopbacks=20"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/original/legacy1/run.log",
+      "sha256": "642a7abafb2d88976302e4883a0edf574ab63d684a6138cf9fb00f2f038059e0",
+      "results": [
+        "RING_CTRL_REPLAY_PASS samples=467 output_bits=405"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/original/legacy1/original-test.log",
+      "sha256": "cabbe095f4b37c570c8e2ec15febf7b6f7957297dc45a750d962ae423e870e45",
+      "results": [
+        "RING_CTRL_REPLAY_PASS samples=26 output_bits=405"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/nonpower/legacy0/run.log",
+      "sha256": "71e7e8d459ba979e5dd60c4894c293572774541028128dc3f6010954ce245b5f",
+      "results": [
+        "RING_CTRL_NATIVE_PASS tiles=3 ctrl_bits=111 packet_bits=181 cycles=868 checks=1291 input_stalls=110 output_stalls=163 loopbacks=20"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/nonpower/legacy1/run.log",
+      "sha256": "a846266bcbb834930a77bbfca2b7505cfb506b9ffea571c0d5a3ceaa73aff0b9",
+      "results": [
+        "RING_CTRL_REPLAY_PASS samples=454 output_bits=519"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/wide/legacy0/run.log",
+      "sha256": "2cf1d1ac5a79e6bedc78042aab1f2c04b9fac0b9ae3d24e4f9c1e234a406657b",
+      "results": [
+        "RING_CTRL_NATIVE_PASS tiles=2 ctrl_bits=143 packet_bits=247 cycles=839 checks=906 input_stalls=110 output_stalls=164 loopbacks=20"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/wide/legacy1/run.log",
+      "sha256": "52c5f8653cdd15a99404a2fd7b18507fa06bb9d4cd676686f804be6fd5607d63",
+      "results": [
+        "RING_CTRL_REPLAY_PASS samples=441 output_bits=537"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/single/legacy0/run.log",
+      "sha256": "375a850553a833c7e356cd03bfdc9b1df30007fb82e2516b56e0a3300c7bd2e0",
+      "results": [
+        "RING_CTRL_NATIVE_PASS tiles=1 ctrl_bits=50 packet_bits=115 cycles=810 checks=552 input_stalls=110 output_stalls=162 loopbacks=20"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/single/legacy1/run.log",
+      "sha256": "c36aaa0b4194593179c300e756fe7bfc5e0080a1e0fe9455ab136c6588fe8613",
+      "results": [
+        "RING_CTRL_REPLAY_PASS samples=428 output_bits=168"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/original/legacy0/run.log",
+      "sha256": "d38fac6883f92891fe38cd19ad3b3fcbe7cef44b746bb3ce6f2a3cf3b8056903",
+      "results": [
+        "RING_CTRL_NATIVE_PASS tiles=4 ctrl_bits=69 packet_bits=123 cycles=899 checks=1721 input_stalls=112 output_stalls=163 loopbacks=20"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/original/legacy1/run.log",
+      "sha256": "9eb62b222306c2808f948e7464e89e9551d253c3630d323c1c85720b17973456",
+      "results": [
+        "RING_CTRL_REPLAY_PASS samples=467 output_bits=405"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/original/legacy1/original-test.log",
+      "sha256": "15b7ed53ab2a5107a70e3f822f7df8ba28a931ef7d4ab5cda4791310fd015080",
+      "results": [
+        "RING_CTRL_REPLAY_PASS samples=26 output_bits=405"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/nonpower/legacy0/run.log",
+      "sha256": "c11bac5b350ea00dd9372cbb297622f42723fde52342c46156590d9d8abc3ac9",
+      "results": [
+        "RING_CTRL_NATIVE_PASS tiles=3 ctrl_bits=111 packet_bits=181 cycles=868 checks=1291 input_stalls=110 output_stalls=163 loopbacks=20"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/nonpower/legacy1/run.log",
+      "sha256": "ecc69424da09d3bc60a642c7ced98d5fe83dc91ecbf7be8b22fbe1f07b5de33b",
+      "results": [
+        "RING_CTRL_REPLAY_PASS samples=454 output_bits=519"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/wide/legacy0/run.log",
+      "sha256": "865722016ddd23775823467098e3974ba33178a7765e493b099d02db8557e97e",
+      "results": [
+        "RING_CTRL_NATIVE_PASS tiles=2 ctrl_bits=143 packet_bits=247 cycles=839 checks=906 input_stalls=110 output_stalls=164 loopbacks=20"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/wide/legacy1/run.log",
+      "sha256": "4e1a2deb13fbbb823d71d7344fe10e0ae81664c664668598bf35ab178f4552ce",
+      "results": [
+        "RING_CTRL_REPLAY_PASS samples=441 output_bits=537"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/single/legacy0/run.log",
+      "sha256": "a886827fb74cc33512a9084b3f71dc050a11a518c8bd2cb8f4e5cd5d824f3802",
+      "results": [
+        "RING_CTRL_NATIVE_PASS tiles=1 ctrl_bits=50 packet_bits=115 cycles=810 checks=552 input_stalls=110 output_stalls=162 loopbacks=20"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/single/legacy1/run.log",
+      "sha256": "d525d0bf4f181d4485f234b2f16d3844afb978fad904cb823712a09f2c31840a",
+      "results": [
+        "RING_CTRL_REPLAY_PASS samples=428 output_bits=168"
+      ]
+    }
+  ],
+  "negative_runs": [
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/original/legacy0/negative.log",
+      "sha256": "2962843a7d059469e7d024987c6ebce522200c75359654d375f76c514fb67b98",
+      "results": [
+        "[181000] %Fatal: tb_ring_ctrl_memory.sv:45: Assertion failed in TOP.tb_ring_ctrl_memory.require: RING_CTRL_CHECK complete control word / FU prologue / bounds cycle=26 checks=2"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/original/legacy0/invalid-dest.log",
+      "sha256": "68fd35854571ed5dec9102db9815dc39ed44c1c5992515b8b6335ded85ac9028",
+      "results": [
+        "[22000] %Fatal: cgra_ring_multi_ctrl_mem.sv:60: Assertion failed in TOP.tb_ring_ctrl_memory.dut: RING_CTRL_DESTINATION"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/original/legacy1/negative.log",
+      "sha256": "11db544bfc2abe606d99716d0fbf64d8c7cd87bf1663d2942047d91a444c6f71",
+      "results": [
+        "[57000] %Fatal: tb_ring_ctrl_memory.sv:243: Assertion failed in TOP.tb_ring_ctrl_memory.replay: RING_CTRL_REPLAY_MISMATCH cycle=8 got=100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 expected=100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/original/legacy1/dummy-defect.log",
+      "sha256": "2048d0e0af51bb559078decb59d4ba8110f9a761181b9a499fe2b12e3a13b485",
+      "results": [
+        "[195000] %Fatal: tb_ring_ctrl_memory.sv:119: Assertion failed in TOP.tb_ring_ctrl_memory.observe: RING_CTRL_UNEXPECTED_RETURN cmd=0 cycle=28"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/original/legacy1/original-negative.log",
+      "sha256": "987a4e3485bd9d1b0b15e4f79a13cbaeebf0a6a686471d0f076cc687eae54df1",
+      "results": [
+        "[57000] %Fatal: tb_ring_ctrl_memory.sv:243: Assertion failed in TOP.tb_ring_ctrl_memory.replay: RING_CTRL_REPLAY_MISMATCH cycle=8 got=100000000000000000000000000000000290000000000000000000000000000000000000000000000000000000000000000000 expected=100000000000000000000000000000000290000000000000000000000000000000000000000000000000000000000000000001"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/nonpower/legacy0/negative.log",
+      "sha256": "c09e6ff244f082b4d3f5434f86d66b91323645225cae2c8805818af77d37ced9",
+      "results": [
+        "[153000] %Fatal: tb_ring_ctrl_memory.sv:45: Assertion failed in TOP.tb_ring_ctrl_memory.require: RING_CTRL_CHECK complete control word / FU prologue / bounds cycle=22 checks=2"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/nonpower/legacy0/invalid-address.log",
+      "sha256": "fdcfe30e916cb074d86ea9da4bfb904ceea76a4c9b69ade48b97b3325f36d03a",
+      "results": [
+        "[22000] %Fatal: cgra_ring_multi_ctrl_mem.sv:62: Assertion failed in TOP.tb_ring_ctrl_memory.dut: RING_CTRL_ADDRESS"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/nonpower/legacy1/negative.log",
+      "sha256": "9b1484d3fc53e3adf2d66c7ea7340a07fdf89d45d09c737a80e96e97e597f5b1",
+      "results": [
+        "[57000] %Fatal: tb_ring_ctrl_memory.sv:243: Assertion failed in TOP.tb_ring_ctrl_memory.replay: RING_CTRL_REPLAY_MISMATCH cycle=8 got=4000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 expected=4000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/nonpower/legacy1/dummy-defect.log",
+      "sha256": "616b07589d0b98f6d5a5649a95367480ee4ddca3d3ab6f6523ef73a1409124dc",
+      "results": [
+        "[167000] %Fatal: tb_ring_ctrl_memory.sv:119: Assertion failed in TOP.tb_ring_ctrl_memory.observe: RING_CTRL_UNEXPECTED_RETURN cmd=0 cycle=24"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/wide/legacy0/negative.log",
+      "sha256": "e86cc00f99ce0c376b8a451e5b4e37fec29fbe79098078c9fc08228157da5cb7",
+      "results": [
+        "[125000] %Fatal: tb_ring_ctrl_memory.sv:45: Assertion failed in TOP.tb_ring_ctrl_memory.require: RING_CTRL_CHECK complete control word / FU prologue / bounds cycle=18 checks=2"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/wide/legacy1/negative.log",
+      "sha256": "b4650286f6ce01f159fe9fabd41c26ded3b8fabe0949886912acf962b6d40933",
+      "results": [
+        "[57000] %Fatal: tb_ring_ctrl_memory.sv:243: Assertion failed in TOP.tb_ring_ctrl_memory.replay: RING_CTRL_REPLAY_MISMATCH cycle=8 got=100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 expected=100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/wide/legacy1/dummy-defect.log",
+      "sha256": "7af2e32e6a7076309a9a9b5718c5c5e25d458efaf1c8928d970e363c22c399f3",
+      "results": [
+        "[137000] %Fatal: tb_ring_ctrl_memory.sv:119: Assertion failed in TOP.tb_ring_ctrl_memory.observe: RING_CTRL_UNEXPECTED_RETURN cmd=0 cycle=20"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/single/legacy0/negative.log",
+      "sha256": "b8a3f7a001a71b34a116b4a4745fd8a352af126fd824ee6f1170cea4cd443889",
+      "results": [
+        "[93000] %Fatal: tb_ring_ctrl_memory.sv:45: Assertion failed in TOP.tb_ring_ctrl_memory.require: RING_CTRL_CHECK complete control word / FU prologue / bounds cycle=14 checks=2"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/single/legacy1/negative.log",
+      "sha256": "4ec131806304dd5e6cb39c1f4230e94bac01cd14d1a54a340727321f14bb7b76",
+      "results": [
+        "[57000] %Fatal: tb_ring_ctrl_memory.sv:243: Assertion failed in TOP.tb_ring_ctrl_memory.replay: RING_CTRL_REPLAY_MISMATCH cycle=8 got=800000000000000000000000000000000000000000 expected=800000000000000000000000000000000000000001"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/single/legacy1/dummy-defect.log",
+      "sha256": "f4a7a73089de4fb5b6182d210d530fb990906a4c1df918e183f58dc854ae77d3",
+      "results": [
+        "[105000] %Fatal: tb_ring_ctrl_memory.sv:119: Assertion failed in TOP.tb_ring_ctrl_memory.observe: RING_CTRL_UNEXPECTED_RETURN cmd=0 cycle=16"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/original/legacy0/negative.log",
+      "sha256": "2962843a7d059469e7d024987c6ebce522200c75359654d375f76c514fb67b98",
+      "results": [
+        "[181000] %Fatal: tb_ring_ctrl_memory.sv:45: Assertion failed in TOP.tb_ring_ctrl_memory.require: RING_CTRL_CHECK complete control word / FU prologue / bounds cycle=26 checks=2"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/original/legacy1/negative.log",
+      "sha256": "11db544bfc2abe606d99716d0fbf64d8c7cd87bf1663d2942047d91a444c6f71",
+      "results": [
+        "[57000] %Fatal: tb_ring_ctrl_memory.sv:243: Assertion failed in TOP.tb_ring_ctrl_memory.replay: RING_CTRL_REPLAY_MISMATCH cycle=8 got=100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 expected=100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/original/legacy1/dummy-defect.log",
+      "sha256": "2048d0e0af51bb559078decb59d4ba8110f9a761181b9a499fe2b12e3a13b485",
+      "results": [
+        "[195000] %Fatal: tb_ring_ctrl_memory.sv:119: Assertion failed in TOP.tb_ring_ctrl_memory.observe: RING_CTRL_UNEXPECTED_RETURN cmd=0 cycle=28"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/original/legacy1/original-negative.log",
+      "sha256": "987a4e3485bd9d1b0b15e4f79a13cbaeebf0a6a686471d0f076cc687eae54df1",
+      "results": [
+        "[57000] %Fatal: tb_ring_ctrl_memory.sv:243: Assertion failed in TOP.tb_ring_ctrl_memory.replay: RING_CTRL_REPLAY_MISMATCH cycle=8 got=100000000000000000000000000000000290000000000000000000000000000000000000000000000000000000000000000000 expected=100000000000000000000000000000000290000000000000000000000000000000000000000000000000000000000000000001"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/nonpower/legacy0/negative.log",
+      "sha256": "c09e6ff244f082b4d3f5434f86d66b91323645225cae2c8805818af77d37ced9",
+      "results": [
+        "[153000] %Fatal: tb_ring_ctrl_memory.sv:45: Assertion failed in TOP.tb_ring_ctrl_memory.require: RING_CTRL_CHECK complete control word / FU prologue / bounds cycle=22 checks=2"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/nonpower/legacy1/negative.log",
+      "sha256": "9b1484d3fc53e3adf2d66c7ea7340a07fdf89d45d09c737a80e96e97e597f5b1",
+      "results": [
+        "[57000] %Fatal: tb_ring_ctrl_memory.sv:243: Assertion failed in TOP.tb_ring_ctrl_memory.replay: RING_CTRL_REPLAY_MISMATCH cycle=8 got=4000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 expected=4000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/nonpower/legacy1/dummy-defect.log",
+      "sha256": "616b07589d0b98f6d5a5649a95367480ee4ddca3d3ab6f6523ef73a1409124dc",
+      "results": [
+        "[167000] %Fatal: tb_ring_ctrl_memory.sv:119: Assertion failed in TOP.tb_ring_ctrl_memory.observe: RING_CTRL_UNEXPECTED_RETURN cmd=0 cycle=24"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/wide/legacy0/negative.log",
+      "sha256": "e86cc00f99ce0c376b8a451e5b4e37fec29fbe79098078c9fc08228157da5cb7",
+      "results": [
+        "[125000] %Fatal: tb_ring_ctrl_memory.sv:45: Assertion failed in TOP.tb_ring_ctrl_memory.require: RING_CTRL_CHECK complete control word / FU prologue / bounds cycle=18 checks=2"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/wide/legacy1/negative.log",
+      "sha256": "b4650286f6ce01f159fe9fabd41c26ded3b8fabe0949886912acf962b6d40933",
+      "results": [
+        "[57000] %Fatal: tb_ring_ctrl_memory.sv:243: Assertion failed in TOP.tb_ring_ctrl_memory.replay: RING_CTRL_REPLAY_MISMATCH cycle=8 got=100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000 expected=100000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/wide/legacy1/dummy-defect.log",
+      "sha256": "7af2e32e6a7076309a9a9b5718c5c5e25d458efaf1c8928d970e363c22c399f3",
+      "results": [
+        "[137000] %Fatal: tb_ring_ctrl_memory.sv:119: Assertion failed in TOP.tb_ring_ctrl_memory.observe: RING_CTRL_UNEXPECTED_RETURN cmd=0 cycle=20"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/single/legacy0/negative.log",
+      "sha256": "b8a3f7a001a71b34a116b4a4745fd8a352af126fd824ee6f1170cea4cd443889",
+      "results": [
+        "[93000] %Fatal: tb_ring_ctrl_memory.sv:45: Assertion failed in TOP.tb_ring_ctrl_memory.require: RING_CTRL_CHECK complete control word / FU prologue / bounds cycle=14 checks=2"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/single/legacy1/negative.log",
+      "sha256": "4ec131806304dd5e6cb39c1f4230e94bac01cd14d1a54a340727321f14bb7b76",
+      "results": [
+        "[57000] %Fatal: tb_ring_ctrl_memory.sv:243: Assertion failed in TOP.tb_ring_ctrl_memory.replay: RING_CTRL_REPLAY_MISMATCH cycle=8 got=800000000000000000000000000000000000000000 expected=800000000000000000000000000000000000000001"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/single/legacy1/dummy-defect.log",
+      "sha256": "f4a7a73089de4fb5b6182d210d530fb990906a4c1df918e183f58dc854ae77d3",
+      "results": [
+        "[105000] %Fatal: tb_ring_ctrl_memory.sv:119: Assertion failed in TOP.tb_ring_ctrl_memory.observe: RING_CTRL_UNEXPECTED_RETURN cmd=0 cycle=16"
+      ]
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/invalid-param/run.log",
+      "sha256": "0f5d7dc1bc35c3f43e2cac8220f8be94846174700b49d947cb8ab8164fe77318",
+      "results": [
+        "[0] %Fatal: cgra_ring_multi_ctrl_mem.sv:55: Assertion failed in TOP.tb_ring_ctrl_memory.dut: RING_CTRL_PARAMETER"
+      ]
+    }
+  ],
+  "netlists": [
+    {
+      "profile": "original",
+      "legacy": 0,
+      "netlist_sha256": "bc64889aeaf54aa38ae7ead664d7024790b178803e5235de438609ebc81a6383",
+      "synthesis": {
+        "path": "sv/build/current/ring-ctrl-memory/synth/original/legacy0/yosys.log",
+        "sha256": "fe829f901c258f6d985300598841042b259c0dfc9b84d6ad2962628b39edf401",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_netlist_check": {
+        "path": "sv/build/current/ring-ctrl-memory/synth/original/legacy0/scc.log",
+        "sha256": "7809642475c9cd0d9290b461fa1daa98ff2398df36f919aa9af751ba5e9e039b",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "original",
+      "legacy": 1,
+      "netlist_sha256": "828255b39da77ba81bcac249327e2cdab358f2e2e9ab0aa779c0cd50a72c798d",
+      "synthesis": {
+        "path": "sv/build/current/ring-ctrl-memory/synth/original/legacy1/yosys.log",
+        "sha256": "029f09d78245ac831f7e523ae692344b785c8ad73843b3d9574964b70877278a",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_netlist_check": {
+        "path": "sv/build/current/ring-ctrl-memory/synth/original/legacy1/scc.log",
+        "sha256": "e9514f8d12629ac0656813b6929f710827c899e969da7666e27ed7fff4399acd",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "nonpower",
+      "legacy": 0,
+      "netlist_sha256": "343229fb5feb8da7bba223a48b612d228c8d303e1eb2cb338089c1b6de6f9ca0",
+      "synthesis": {
+        "path": "sv/build/current/ring-ctrl-memory/synth/nonpower/legacy0/yosys.log",
+        "sha256": "89ae9e3386efdb95f1ae0e1839d70268b708e8e74eee9627e8d4c33868e1c466",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_netlist_check": {
+        "path": "sv/build/current/ring-ctrl-memory/synth/nonpower/legacy0/scc.log",
+        "sha256": "2104ac4eaa958f936457ec9bcc67bb1aeeecb8785ef1a310ca692a8006c7c343",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "nonpower",
+      "legacy": 1,
+      "netlist_sha256": "2254b692c1dd33c83781fbec36378765f091459d6290e0c39e7b54549485ae6c",
+      "synthesis": {
+        "path": "sv/build/current/ring-ctrl-memory/synth/nonpower/legacy1/yosys.log",
+        "sha256": "37c8bf7be2e9e95ea6b267ed4c95464bf8fbfd3ecc548d6c99facda3c2800cb4",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_netlist_check": {
+        "path": "sv/build/current/ring-ctrl-memory/synth/nonpower/legacy1/scc.log",
+        "sha256": "91e0fdf4a537eaa212ec12db8685988a800c33bcb4738e14fe32804d1badd3fe",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "wide",
+      "legacy": 0,
+      "netlist_sha256": "5a66dc7365455533531508861863c4dddc0c7c677656ecf931df73e8e4390267",
+      "synthesis": {
+        "path": "sv/build/current/ring-ctrl-memory/synth/wide/legacy0/yosys.log",
+        "sha256": "4d4032e67582306cc627aa93824a287e1a1d566b33080b09cb8ef31e89ba5801",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_netlist_check": {
+        "path": "sv/build/current/ring-ctrl-memory/synth/wide/legacy0/scc.log",
+        "sha256": "0bde2c208d58d548b56b433019600718667e3230a71d7fef10ed2c605e4dfbf6",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "wide",
+      "legacy": 1,
+      "netlist_sha256": "83680de2afd1375f51158e93cc5e9deac229239fd720f1179295adfbaddc4560",
+      "synthesis": {
+        "path": "sv/build/current/ring-ctrl-memory/synth/wide/legacy1/yosys.log",
+        "sha256": "7cac43583f25475fb716b4849109b31f8d07dc65167c997423da644c0c6877b1",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_netlist_check": {
+        "path": "sv/build/current/ring-ctrl-memory/synth/wide/legacy1/scc.log",
+        "sha256": "d1e1d4087be5a1e14e6501578afa5a55f3b8c5b42d546ef9463f629025623b62",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "single",
+      "legacy": 0,
+      "netlist_sha256": "6f128ff1d6d2c07a98933c3eec4beff4583263800ec18127fa7760cb9e183bca",
+      "synthesis": {
+        "path": "sv/build/current/ring-ctrl-memory/synth/single/legacy0/yosys.log",
+        "sha256": "217e8e683f0e33c931b9db31e3aca1251be977c34c929f0642f0e47998e11ee4",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_netlist_check": {
+        "path": "sv/build/current/ring-ctrl-memory/synth/single/legacy0/scc.log",
+        "sha256": "78addcccd30e8942e0462960b03041ab128fccd2eefcd40078d51e18a8a441da",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "single",
+      "legacy": 1,
+      "netlist_sha256": "a1106f672864615bde45f969cf8683910fd744d163e4de2460a6a7f1986e41bc",
+      "synthesis": {
+        "path": "sv/build/current/ring-ctrl-memory/synth/single/legacy1/yosys.log",
+        "sha256": "ec76abb18b3abedf9a36479b1f2d0755da18a27e1c1e68c505e44770440b0eb2",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_netlist_check": {
+        "path": "sv/build/current/ring-ctrl-memory/synth/single/legacy1/scc.log",
+        "sha256": "d8a9364ba3fadcc6293e523939c346d458f59feba42f7884b6d41f2209c179b5",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    }
+  ],
+  "compatibility_cycles": 1816,
+  "compatibility_reset_cycles": 27,
+  "compatibility_output_bits_per_implementation": 744012,
+  "frozen_files_sha256": {
+    "sv/reference/current/ring_ctrl_memory/original_test/labels.json": "93695c9b63384b39ec1cb1094be78b41bff7c31f6a5ef5c434985f5bacba9b92",
+    "sv/reference/current/ring_ctrl_memory/original_test/vectors.txt": "ce466e749ab34b0ffd75b4b2a17a4fd39b29f896d24747a9195827d2c432289a",
+    "sv/reference/current/ring_ctrl_memory/original_test/manifest.json": "2fc64d1596be739b228c95d049184aa8bcea318d666e56babb5ac02dc4e45ef9",
+    "sv/reference/current/ring_ctrl_memory/original/labels.json": "17d87577f6cd386b8bf44c966842e0f19dd161e848bf24ecc0b96d4471562ff3",
+    "sv/reference/current/ring_ctrl_memory/original/vectors.txt": "6f87545d62aecce6068c90f586be8f70df915895be1a4769d9db53a7a21b6bf2",
+    "sv/reference/current/ring_ctrl_memory/original/manifest.json": "38e7ddc94f7b6cc3bea3538bb7cf731a5d700fbb530b2ff3c555f268edace466",
+    "sv/reference/current/ring_ctrl_memory/nonpower/labels.json": "454b41e5ecf9bcb7ba6d6f5cc2f3fd414b0cd822a2c8716a895be585007f136b",
+    "sv/reference/current/ring_ctrl_memory/nonpower/vectors.txt": "c994913373124789ca30470716576203abb720b4a3133e5d584929a1554adb67",
+    "sv/reference/current/ring_ctrl_memory/nonpower/manifest.json": "7305c5287f8280cd7a9b4a4350d1ef9141636e3ac83cc8a98475901da003097e",
+    "sv/reference/current/ring_ctrl_memory/wide/labels.json": "ce6a33cdd5c854748968eab03b45ce7eccdaf289dafd7337d34e35e62f320988",
+    "sv/reference/current/ring_ctrl_memory/wide/vectors.txt": "7f11a5f99b99fb8c9d4ca0d189a02a4098a66e399b3d101ec299d6a50768225e",
+    "sv/reference/current/ring_ctrl_memory/wide/manifest.json": "ad9320041e00aff1bdcfaa16edcd5670d25d62d41700872d6b573995cc81a102",
+    "sv/reference/current/ring_ctrl_memory/single/labels.json": "ac779ba7cdaa11e411cc84b6a02bbaa6736e80b4faea6f6b52db21eb3f1e0678",
+    "sv/reference/current/ring_ctrl_memory/single/vectors.txt": "2e2277de9b7dca344d6229be0744ab1eb476e5d6395f70aa21a658f13c0ea6b3",
+    "sv/reference/current/ring_ctrl_memory/single/manifest.json": "921a3fba2df22bb5d0d8ee3b95850d434b618b60f6d829f07acb5a3e5301317b"
+  },
+  "regenerated_identical_files": 15,
+  "input_sha256": {
+    ".github/workflows/native-sv.yml": "236f2ce09ffd998b08c416b35e7e92a5fe297c98d1adbf7b1b1eee4a3a590ff7",
+    "sv/CURRENT_MIGRATION.md": "9f1a5ed1b6dd8724fffc637fb299ccf98483611f4562cc8bcb65ed4c7fca44f4",
+    "sv/EXPERIMENT_LOG.md": "c64c2645e6e75f5dc05a360627b45e4c1e19825f243d86c6241c5b7f1870ae07",
+    "sv/MIGRATION_PROGRESS.md": "8ab0698a681d7263897c95da8a18ba38c3a9dafffcc9d7923831cf098181c66c",
+    "sv/Makefile": "c64c78a8d850bbea315485649a4300359d777aafb304ea39f5000ff563ce331d",
+    "sv/README.md": "137bedf6c257c1c3924ca002136971719aaa946d793a37ae8da395fc367aec58",
+    "sv/RING_CTRL_MEMORY_API.md": "9209d202ef4c016e14486fdfadcfcc125461110dde0b35599df111d10b4d2bbc",
+    "sv/filelists/native.f": "d5fe432413c782b291584a45178d5a7e491ede5e141493b9cc7586d165ca8d64",
+    "sv/filelists/ring_ctrl_memory.f": "930578aadf49d7e44a685af00865aa739e96c10f9f85c0e3926afe1727032c63",
+    "sv/migration_tools/README.md": "a064fe76ac5dad2bf93d83d8b8cc014180de59bf7c9595f9ac9952b83de61138",
+    "sv/migration_tools/current_ring_ctrl_memory.py": "9293bd24a21e600aa74ec9656c94bfc6b972b16e1025418268bbbe3fceceb151",
+    "sv/reference/VectorCGRA2x2Reference.v": "f7d4479abe7b2305f21875a4ba82d685cb20d61275abbf4114786c57185487aa",
+    "sv/reference/current/target.json": "c560f1ccf61706ed50c871a2987ea2c2837c6ae14b942f1216b275a201de14aa",
+    "sv/reference/phase2/3x2/Phase2Reference3x2.v": "e15db72b718b672ee423b9635aac3f918fcc84cf03adbf6ac236760011d990c2",
+    "sv/reference/phase2/4x4/Phase2Reference4x4.v": "5d8222b2ac95f3217968d0787a48d2973cc413cf3652b4dc1918cf7dfae4e93b",
+    "sv/rtl/common/cgra_opcodes.svh": "aaf5c876081d1fb066af8cdc01e7cae2a35afebaedfeb6e5a8889e3d0375bede",
+    "sv/rtl/common/cgra_profile.svh": "8a360c5a38dc98087d9cbd89c9508bd6b2c6d428bc4cc90bba357e36de168eec",
+    "sv/rtl/common/cgra_profile_defs.svh": "0dbcc2e9b43f80fffd5101f24742f3d1ccb0fa5af67ba5f788049df9c02042dd",
+    "sv/rtl/common/cgra_queue.sv": "87e03f556141d8c2c0abe26168ef567ce4b5e456a9f090f9f797aed51a4c4761",
+    "sv/rtl/common/cgra_register_file.sv": "13856021bc1acb361a12a96870a501dea98856aec5c301dd503b41327323d41d",
+    "sv/rtl/common/cgra_ring_ctrl_defs.svh": "f27e2bfd700ec4dcc068aaaef03f550780ee47c89b6e4084038810d35dbdb69d",
+    "sv/rtl/common/cgra_ring_ctrl_types.svh": "de18f9bea5b5944bb0b230bd9d24f20f1b50e10fdb7753c6ec62da56dba4e3d6",
+    "sv/rtl/common/cgra_round_robin.sv": "294d46b6394c205ea67577ef8f4f51b6cc220072051c6a42b3280c5b7ef4b93d",
+    "sv/rtl/mem/cgra_ring_ctrl_node.sv": "c4cb34ecc70fd6114ccf39e70dce4dc13c167eef7789468c91da93881a96771a",
+    "sv/rtl/mem/cgra_ring_multi_ctrl_mem.sv": "30ebbed68b2122c073e10953d2cf2a5dd16e72d44915d6adb2f2820fe1a4ea80",
+    "sv/rtl/mem/ctrl_mem.sv": "75ba6aa4d89b59aec49bf3844eff4b52b5937d77c2172f4512a616008e28bdd0",
+    "sv/rtl/noc/cgra_credit_input.sv": "7d58169e0f7db7b484fa6fb9d3e926ba6de00a971b0cd4b513620a9b4fd8837b",
+    "sv/rtl/noc/cgra_credit_recv.sv": "f6c728e6ea42849f013328018204def97b764662ebd102cadebd5402b1aae0de",
+    "sv/rtl/noc/cgra_credit_ring.sv": "98213452e10b00072f872e0f81c869d744960d377cbd2735fe534beb7e1aaa70",
+    "sv/rtl/noc/cgra_credit_send.sv": "a13e8dc3a08906c46c4dc3675beea17ec13e61c729ac665b7a2c4de6dab5f7bd",
+    "sv/rtl/noc/cgra_ring_route.sv": "30ddabd82453381cc3ae7e686bbb5e0497c7b9d3b41dd27c83d9496464840cbf",
+    "sv/rtl/noc/cgra_ring_router.sv": "b15e9d00833d968e97213ea144d75a55ba34e927c8c58e02ffd7f1d94c938e4b",
+    "sv/rtl/noc/cgra_switch.sv": "14ec2ae9108c947153b5ca4fc5ccf06c78d3cc29a870c7be74c86189c6eb5c18",
+    "sv/scripts/run.ps1": "e53ced8263b60bf3d7ef348b196c5bf272d44f3c577bbd979bdbae6be9bc5a6c",
+    "sv/scripts/toolchain.sh": "11b934d6f4ee1f19027faaece45b5a025a20ed2c1eed45dcba24ae7a4b33a0b4",
+    "sv/tests/README.md": "f23c5846412f15602805ceaae6016f0f19eb30900ec2a580c8ef5d25ab864442",
+    "sv/tests/current/run_ring_ctrl_memory.sh": "f0dc7f0c6865e571d4b5cad3994846c4d0e50bb0f9e63250df0b3e4711344401",
+    "sv/tests/current/tb_ring_ctrl_memory.sv": "c0400971189a1d1df6af3bd5399409c84e223c8f2d977b5e86f7cbfe9a0fd1f5",
+    "sv/tests/run_native_noc.sh": "4da74135255456309bbc9ca73a0f115a07068dab3389d0ad2caa798b2f8c4b13",
+    "sv/tests/run_native_ring_profiles.sh": "d748def55aefcf11a25316c0c2e0381fcda3e8f5b1066bacacb735e8a67542dc",
+    "sv/tests/tb_native_noc.sv": "d5e745be1e66cb93f662cb773ec19bdc45b28e64a4635a3f3414510899a148bd",
+    "sv/tests/tb_native_ring_profiles.sv": "faaba82b803cebe21605c0330010bca4bb1caad76e912c195e117b5cd0bc58f0"
+  },
+  "input_hash_note": "Hashes describe actual local build bytes; unchanged checkout files may contain CRLF.",
+  "compile_diagnostics": [
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/original/legacy0/compile.log",
+      "sha256": "3400a136ab8364ead32f3cd2074260c156d5297ec3c6f26186c06edcde895a1b",
+      "warnings": {
+        "TIMESCALEMOD": 13,
+        "WIDTHEXPAND": 7,
+        "WIDTHTRUNC": 6
+      }
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/original/legacy1/compile.log",
+      "sha256": "cb5f978c33bf827f07bb9eb4cb0bea398a6635c3e633fdb07984a8cc64d755fc",
+      "warnings": {
+        "TIMESCALEMOD": 13,
+        "WIDTHTRUNC": 7,
+        "WIDTHEXPAND": 7
+      }
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/nonpower/legacy0/compile.log",
+      "sha256": "167637313576f192d40b89077676b8d0a652751291ea66e8fc2a52a9de639334",
+      "warnings": {
+        "TIMESCALEMOD": 13,
+        "WIDTHEXPAND": 5,
+        "WIDTHTRUNC": 3
+      }
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/nonpower/legacy1/compile.log",
+      "sha256": "9425bdd745a5c0963e8f28f9524d3065d1cbbb22f6f5aacd46eae034935a5376",
+      "warnings": {
+        "TIMESCALEMOD": 13,
+        "WIDTHTRUNC": 4,
+        "WIDTHEXPAND": 5
+      }
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/wide/legacy0/compile.log",
+      "sha256": "dee2d8bf53c7c95918c0f7934d169b35caaf76ee094f17c6d95945954896ad15",
+      "warnings": {
+        "TIMESCALEMOD": 13,
+        "WIDTHEXPAND": 6,
+        "WIDTHTRUNC": 5
+      }
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/wide/legacy1/compile.log",
+      "sha256": "cce8386eecbd17a03815454911415b9ce47f3cb0227a6ee81f3a990c87cc6ac4",
+      "warnings": {
+        "TIMESCALEMOD": 13,
+        "WIDTHTRUNC": 6,
+        "WIDTHEXPAND": 6
+      }
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/single/legacy0/compile.log",
+      "sha256": "c76dcdfad81c3355598f9ed5dd31b3683a38b2057f2f787470047e48bfa5e210",
+      "warnings": {
+        "TIMESCALEMOD": 13,
+        "WIDTHEXPAND": 5,
+        "WIDTHTRUNC": 5
+      }
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/rtl/single/legacy1/compile.log",
+      "sha256": "d7b2e547e2d587595a2f8def1307438b7894cb90f032b60cf099e44b62163982",
+      "warnings": {
+        "TIMESCALEMOD": 13,
+        "WIDTHTRUNC": 6,
+        "WIDTHEXPAND": 5
+      }
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/original/legacy0/compile.log",
+      "sha256": "9fc11991bb48f4bd266d18e2f7ea7dd7df02a9cac0f3feccd61a723cd1f2f334",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "ASCRANGE": 270,
+        "WIDTHTRUNC": 5,
+        "UNOPTFLAT": 216
+      }
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/original/legacy1/compile.log",
+      "sha256": "3b2588a5d92b4eb5cb3496b23756db852232f2eb3208aece3dfdb6878970cd65",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 6,
+        "ASCRANGE": 270,
+        "UNOPTFLAT": 221
+      }
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/nonpower/legacy0/compile.log",
+      "sha256": "e1e0fd346f489df786eb0ff9a116d862b1250bead24ef19c5b2d129f799b1138",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "ASCRANGE": 218,
+        "WIDTHTRUNC": 2,
+        "UNOPTFLAT": 138
+      }
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/nonpower/legacy1/compile.log",
+      "sha256": "9396f5d4c24edf4dd5bf9c9355aba100baa4fa6cb2b3a705f6fb2e68c9159427",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 3,
+        "ASCRANGE": 218,
+        "UNOPTFLAT": 143
+      }
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/wide/legacy0/compile.log",
+      "sha256": "3559786b2fdf7aeb11517be5d3052c27ef7b02845feb2a338509f276f54530e4",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "ASCRANGE": 166,
+        "WIDTHEXPAND": 1,
+        "WIDTHTRUNC": 5,
+        "UNOPTFLAT": 92
+      }
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/wide/legacy1/compile.log",
+      "sha256": "35f65c20faeebafab2452aa1bd9d319e948a839ce94b2006ef07d62b5b1c4128",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 6,
+        "ASCRANGE": 166,
+        "WIDTHEXPAND": 1,
+        "UNOPTFLAT": 96
+      }
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/single/legacy0/compile.log",
+      "sha256": "d610f37dc4024a6c6171751dba5b3a3437303f5773c869681fe5c7c556cd9398",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "ASCRANGE": 112,
+        "WIDTHTRUNC": 2,
+        "UNOPTFLAT": 44
+      }
+    },
+    {
+      "path": "sv/build/current/ring-ctrl-memory/synth/single/legacy1/compile.log",
+      "sha256": "76ba69dc0d97730ce78878a02b921a93dcbf4f0b989f81261679337240459652",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 3,
+        "ASCRANGE": 112,
+        "UNOPTFLAT": 49
+      }
+    }
+  ],
+  "shared_ring_regression": [
+    {
+      "path": "sv/build/native_noc/run.log",
+      "sha256": "1d38a36a163eae3ae21a6297393ebedf438d9211ad2dcc7131b7adce49d99a0f",
+      "results": [
+        "NATIVE_NOC_PASS cycles=500 seed=31415926 ring_accepted=361 ring_delivered=361 full_invalid_msg_comparison=1"
+      ]
+    },
+    {
+      "path": "sv/build/native_ring_7/run.log",
+      "sha256": "9b232b3d38db40795c6b92803883cd34905e71ee5cca2db67a866908bfa0b24f",
+      "results": [
+        "NATIVE_RING_PASS nodes=7 width=191 cycles=800 seed=27182818 accepted=786 delivered=786 blocked=806 full_invalid_msg_comparison=1"
+      ]
+    },
+    {
+      "path": "sv/build/native_ring_17/run.log",
+      "sha256": "7ef23ac8275ae71c95a86673ea8d20d100309d0166eb24d10cf3fbca1f88a3b8",
+      "results": [
+        "NATIVE_RING_PASS nodes=17 width=195 cycles=800 seed=27182818 accepted=800 delivered=800 blocked=4620 full_invalid_msg_comparison=1"
+      ]
+    }
+  ],
+  "native_filelist_lint": {
+    "path": "sv/build/current/ring-ctrl-memory/native-filelist-lint.log",
+    "sha256": "f4ee9d67dcaafed8eea7a7bb57f8721405e16a9e6f302eebf5a19ebd26a05f7f",
+    "errors": 0
+  },
+  "tools": {
+    "verilator": "Verilator 5.029 devel rev v5.028-104-ge2041f745",
+    "sv2v": "sv2v v0.0.13",
+    "yosys": "Yosys 0.45+139 (git sha1 4d581a97d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)",
+    "cxx": "c++ (Debian 14.2.0-19) 14.2.0\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.  There is NO\nwarranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE."
+  },
+  "checks": {
+    "shell_syntax": "passed",
+    "make_dry_run": "passed",
+    "powershell_runtime": "not run on Linux"
+  },
+  "synthesis_notes": [
+    "Initial dynamic-array-write route lowered to large variable slices; flat synthesis was stopped after excess resource use.",
+    "A hierarchical synthesis experiment was killed with exit 137 at flattening; not counted as validation.",
+    "Final shared route and switch use static connections/selections with unchanged arbitration, valid and invalid data semantics.",
+    "All final netlists use complete synth -flatten -noabc, pre/post check -assert, emitted-netlist check and zero SCC.",
+    "CXXFLAGS=-O0 accelerates selected simulator builds; Verilator RTL optimizations remain enabled."
+  ],
+  "limitations": [
+    "Public adapter supports FU inputs 1..4, exactly 2 FU outputs, tile inputs/outputs 1..8; four concrete parameter points validated.",
+    "Program storage survives reset; never-programmed memory zero in Python/Verilator is not an ASIC initialization guarantee.",
+    "Native host output queue adds minimum one cycle latency and at most one return per two cycles.",
+    "Runtime programming can change an offered control word; configure while stopped.",
+    "Context/Streaming/FU sidebands are not exposed; accepted commands do not imply those execution features.",
+    "Illegal address/destination/parameter assertions are RTL simulation diagnostics, not synthesized hardware error handling.",
+    "No new system kernel, PPA, or remote CI result is claimed."
+  ],
+  "commit_and_push": "Evidence generated before commit/push; Git is authoritative",
+  "remote_ci": "not observed"
+}

@@ -1,9 +1,10 @@
 // Native DmaEngineRTL targeting Python cd7aad878915.
-// Non-word-aligned byte counts retain the original truncating/underflow behavior.
+// Native commands use 32-bit SPM words and whole-word byte counts.
+// LEGACY_PYTHON preserves the source's truncation, underflow and reset handshakes.
 module cgra_dma_engine #(
   parameter int SPM_DATA_W=32, DRAM_DATA_W=128, DRAM_ADDR_W=64,
   parameter int SPM_ADDR_W=32, BYTES_W=32, TAG_W=8,
-  parameter bit BASELINE_TRANSLATED_SLICES=0,
+  parameter bit BASELINE_TRANSLATED_SLICES=0, LEGACY_PYTHON=0,
   localparam int CMD_BITS=3+DRAM_ADDR_W+SPM_ADDR_W+BYTES_W+TAG_W,
   localparam int DRAM_MASK_W=DRAM_DATA_W/8, SPM_MASK_W=SPM_DATA_W/8,
   localparam int DRAM_WRITE_BITS=DRAM_ADDR_W+DRAM_DATA_W+DRAM_MASK_W,
@@ -47,6 +48,9 @@ module cgra_dma_engine #(
   } command_t;
   command_t command;
   assign command=dma_cmd__msg;
+  logic enabled,legal_command;
+  assign enabled=LEGACY_PYTHON || !reset;
+  assign legal_command=LEGACY_PYTHON || (command.opcode<2 && command.nbytes%4==0);
   localparam logic [3:0] IDLE=0, MVIN_REQ=1, MVIN_RESP=2, MVIN_WRITE=3,
     MVOUT_READ=4, MVOUT_RESP=5, MVOUT_WRITE=6, MVOUT_WAIT=7, DONE=8;
   logic [3:0] state;
@@ -63,28 +67,34 @@ module cgra_dma_engine #(
   initial begin
     if(SPM_DATA_W<8 || SPM_DATA_W%8 || DRAM_DATA_W<SPM_DATA_W || DRAM_DATA_W%SPM_DATA_W)
       $fatal(1,"DMA requires byte-sized SPM words and an integral number per DRAM beat");
+    if(!LEGACY_PYTHON && SPM_DATA_W!=32)
+      $fatal(1,"DMA_NATIVE_WORD_WIDTH: only 32-bit SPM words are supported");
     if(BASELINE_TRANSLATED_SLICES && (SPM_DATA_W!=32 || DRAM_DATA_W!=128))
       $fatal(1,"Historical translated-slice mode requires SPM32/DRAM128");
     if(DRAM_ADDR_W<1 || SPM_ADDR_W<1 || BYTES_W<1 || TAG_W<1)
       $fatal(1,"DMA address, count and tag widths must be positive");
   end
-  assign dma_cmd__rdy=state==IDLE;
-  assign dma_done__val=state==DONE;
+  assign dma_cmd__rdy=enabled && state==IDLE && legal_command;
+  assign dma_done__val=enabled && state==DONE;
   assign dma_done__msg=tag_reg;
-  assign send_to_dram_rd_req__val=state==MVIN_REQ;
+  assign send_to_dram_rd_req__val=enabled && state==MVIN_REQ;
   assign send_to_dram_rd_req__msg=dram_addr_reg;
-  assign recv_from_dram_rd_resp__rdy=state==MVIN_RESP;
-  assign send_to_dram_wr_req__val=state==MVOUT_WRITE;
+  assign recv_from_dram_rd_resp__rdy=enabled && state==MVIN_RESP;
+  assign send_to_dram_wr_req__val=enabled && state==MVOUT_WRITE;
   assign send_to_dram_wr_req__msg={dram_addr_reg,beat_reg,wr_mask_reg};
-  assign recv_from_dram_wr_resp__rdy=state==MVOUT_WAIT;
-  assign send_to_spm_wr_req__val=state==MVIN_WRITE;
+  assign recv_from_dram_wr_resp__rdy=enabled && state==MVOUT_WAIT;
+  assign send_to_spm_wr_req__val=enabled && state==MVIN_WRITE;
   // Frozen PyMTL HDL narrows the lane-2/3 slice lower bounds to six bits:
   // 6'(32)*6'd2 -> 0 and 6'(32)*6'd3 -> 32. Explicit historical mode only.
   wire [WORD_IDX_W-1:0] read_word_idx=BASELINE_TRANSLATED_SLICES ? WORD_IDX_W'(word_idx_reg[0]) : word_idx_reg;
   assign send_to_spm_wr_req__msg={spm_addr_reg,beat_reg[SPM_DATA_W*read_word_idx+:SPM_DATA_W],{SPM_MASK_W{1'b1}}};
-  assign send_to_spm_rd_req__val=state==MVOUT_READ;
+  assign send_to_spm_rd_req__val=enabled && state==MVOUT_READ;
   assign send_to_spm_rd_req__msg=spm_addr_reg;
-  assign recv_from_spm_rd_resp__rdy=state==MVOUT_RESP;
+  assign recv_from_spm_rd_resp__rdy=enabled && state==MVOUT_RESP;
+`ifndef SYNTHESIS
+  always @(posedge clk) if(!LEGACY_PYTHON && !reset && state==IDLE && dma_cmd__val && !legal_command)
+    $fatal(1,"DMA_NATIVE_COMMAND: opcode must be MVIN/MVOUT and nbytes must be a multiple of four");
+`endif
   always_ff @(posedge clk) begin
     if(reset) begin
       state<=IDLE; opcode_reg<='0; dram_addr_reg<='0; spm_addr_reg<='0;

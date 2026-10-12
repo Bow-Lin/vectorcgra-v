@@ -1,0 +1,50 @@
+{
+  "parameters": {
+    "COLS": 2,
+    "ROWS": 2,
+    "DATA_W": 16,
+    "DATA_ADDR_W": 4,
+    "CTRL_DEPTH": 16,
+    "REG_DEPTH": 16,
+    "NUM_CTRL": 12,
+    "TOTAL_STEPS": 12,
+    "FU_INPUTS": 2,
+    "FU_OUTPUTS": 2,
+    "TILE_INPUTS": 4,
+    "TILE_OUTPUTS": 4
+  },
+  "cycles": 26,
+  "input_bits": 130,
+  "output_bits": 405,
+  "ctrl_bits": 69,
+  "reset_samples": 3,
+  "packet_bits": 123,
+  "stats": {
+    "ctrl_transfers": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "return_commands": {},
+    "held_return_changes": 5,
+    "source_stalls": 0
+  },
+  "notes": [
+    "Original test stimuli and Source/Sink assertions retained; only runner instrumented.",
+    "All cycles and output bits, including reset and invalid messages, are frozen."
+  ],
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "generator_sha256": "9293bd24a21e600aa74ec9656c94bfc6b972b16e1025418268bbbe3fceceb151",
+  "vectors_sha256": "ce466e749ab34b0ffd75b4b2a17a4fd39b29f896d24747a9195827d2c432289a",
+  "source_sha256": {
+    "mem/ctrl/RingMultiCtrlMemDynamicRTL.py": "8698dd5cd39dbab497dbcef64ca248c5165a7cb72367e4940224268ae6b54c54",
+    "mem/ctrl/CtrlMemDynamicRTL.py": "54bfc632194d673d0d58c1e59f252dca8f0aa0de1ad37d7463a2ab3fd786f21c",
+    "mem/ctrl/test/RingCtrlMemDynamicRTL_test.py": "47487710cff086d723d4aa44040d37bf4ed67426ef5b7588eca5a8bb05d14000",
+    "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf",
+    "lib/basic/val_rdy/queues.py": "547ef3175064e52759037cac8e0dfb037450ad3c1d8d22cf1d207e1a5e1fa909"
+  },
+  "submodule_commits": {
+    "noc/PyOCN": "d8ffacc64fb8dd24ce26e944d501016880302bbe"
+  }
+}

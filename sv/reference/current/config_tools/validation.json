@@ -1,0 +1,500 @@
+{
+  "task": "Standard-library-only JSON architecture configuration and PE memory-kind guards",
+  "status": "passed",
+  "date": "2026-10-10",
+  "base_commit": "0a2625ab8016d955b5729741aa4e630eeefe10f6",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "pinned_python_unchanged": 274,
+  "unit_tests": {
+    "path": "sv/build/current/config-tools/unit.log",
+    "sha256": "6cbc22fa339f553487dfbf6268254955f7f131c2ee1f4ae55cc43d6074a36692",
+    "results": [
+      "test_frozen_heterogeneous_tables (__main__.ConfigTests.test_frozen_heterogeneous_tables) ... ok",
+      "test_graph_conflicts (__main__.ConfigTests.test_graph_conflicts) ... ok",
+      "test_invalid_parameters (__main__.ConfigTests.test_invalid_parameters) ... ok",
+      "test_isolated_cli_and_no_overwrite (__main__.ConfigTests.test_isolated_cli_and_no_overwrite) ... ok",
+      "test_memory_and_catalog_rejections (__main__.ConfigTests.test_memory_and_catalog_rejections) ... ok",
+      "test_multi_topology_and_maps (__main__.ConfigTests.test_multi_topology_and_maps) ... ok",
+      "test_packing_agrees_with_catalog (__main__.ConfigTests.test_packing_agrees_with_catalog) ... ok",
+      "test_regular_geometry_and_memory_order (__main__.ConfigTests.test_regular_geometry_and_memory_order) ... ok",
+      "test_vector_and_float_boundaries (__main__.ConfigTests.test_vector_and_float_boundaries) ... ok",
+      "Ran 9 tests in 0.233s",
+      "OK"
+    ]
+  },
+  "positive_hdl_runs": [
+    {
+      "path": "sv/build/current/config-tools/profiles/system/run.log",
+      "sha256": "6686cd9d1306c5dd68011366e0bad6fe2c0a086a8a7ed99b4d3018dfb204eea8",
+      "results": [
+        "CGRA_CONFIG_ELAB_PASS host_bits=191 cgras=1"
+      ]
+    },
+    {
+      "path": "sv/build/current/config-tools/profiles/context64/run.log",
+      "sha256": "6311d50df6d6098a73ee31de93ece209af1b4091edddece28d0bc582839f6f5a",
+      "results": [
+        "CGRA_CONFIG_ELAB_PASS host_bits=240 cgras=1"
+      ]
+    },
+    {
+      "path": "sv/build/current/config-tools/profiles/streaming/run.log",
+      "sha256": "678aa287601439ef70ebbcb186874ebb68e4d3b89856b23ca184a678c8962469",
+      "results": [
+        "CGRA_CONFIG_ELAB_PASS host_bits=215 cgras=1"
+      ]
+    },
+    {
+      "path": "sv/build/current/config-tools/profiles/ring/run.log",
+      "sha256": "4cf7c0bc9561c6d560454e6d68ceca2202fc0b971b7e2da304f98bf052405358",
+      "results": [
+        "CGRA_CONFIG_ELAB_PASS host_bits=195 cgras=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/config-tools/profiles/heterogeneous/run.log",
+      "sha256": "20be8d4445bf14e4f6302df2c5c7bc4b0fbf1a0f7b9e44b0f8cd923b033cfe13",
+      "results": [
+        "CGRA_CONFIG_ELAB_PASS host_bits=219 cgras=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/config-tools/memory-kinds/v0-k2/run.log",
+      "sha256": "b00a11d4edde301296d7380a60e5dc18ef717c09c681734f78b75b6aa15c9518",
+      "results": [
+        "CONFIG_PE_MEMORY_KIND_PASS variant=0 kind=2"
+      ]
+    },
+    {
+      "path": "sv/build/current/config-tools/memory-kinds/v1-k2/run.log",
+      "sha256": "2c390978c5d530ae23f3aca9138b51efeb199f21c4968a5ab28c27463ff45a63",
+      "results": [
+        "CONFIG_PE_MEMORY_KIND_PASS variant=1 kind=2"
+      ]
+    },
+    {
+      "path": "sv/build/current/config-tools/memory-kinds/v2-k32/run.log",
+      "sha256": "c8f651de02a7f03000547d4716aaa670628d1a60f4b8343d95e034d223689ff1",
+      "results": [
+        "CONFIG_PE_MEMORY_KIND_PASS variant=2 kind=32"
+      ]
+    },
+    {
+      "path": "sv/build/current/config-tools/memory-kinds/v1-k0/run.log",
+      "sha256": "0a3fbc26930f16e5c98261c4cd33f6812d4183ff3192138e12a7903979eceace",
+      "results": [
+        "CONFIG_PE_MEMORY_KIND_PASS variant=1 kind=0"
+      ]
+    },
+    {
+      "path": "sv/build/current/config-tools/memory-kinds/v2-k0/run.log",
+      "sha256": "f5e0d9336df731595ce8194b1be397bda745488783948fd8e7b3b488553a0cde",
+      "results": [
+        "CONFIG_PE_MEMORY_KIND_PASS variant=2 kind=0"
+      ]
+    },
+    {
+      "path": "sv/build/current/config-tools/kernel/run.log",
+      "sha256": "241a5ee7bebd71d3782d4a652a798afdaec6b3c07de45b522e003678a7e1fa7b",
+      "results": [
+        "NATIVE_TEMPLATE_PASS cycles=203 completions=21 reads=8 stalls=24 remote_requests=20"
+      ]
+    }
+  ],
+  "negative_hdl_runs": [
+    {
+      "path": "sv/build/current/config-tools/memory-kinds/v1-k32/run.log",
+      "sha256": "f8d16a8f0b708e6a4f71d3ec8a9ff016b3944df31c9c6d9b35798a196689c610",
+      "results": [
+        "[0] %Fatal: cgra_pe_memory.svh:24: Assertion failed in TOP.tb_pe_memory_kind.dut.context_switch.core.core.memory_slots[0]: PE_MEMORY_VARIANT: memory FU kind does not match the PE variant"
+      ]
+    },
+    {
+      "path": "sv/build/current/config-tools/memory-kinds/v2-k2/run.log",
+      "sha256": "3735c0743b9ba64501e24a7ff05539c725ebf9b348860622d06cf026aee7e32e",
+      "results": [
+        "[0] %Fatal: cgra_pe_memory.svh:24: Assertion failed in TOP.tb_pe_memory_kind.dut.streaming.core.core.memory_slots[0]: PE_MEMORY_VARIANT: memory FU kind does not match the PE variant"
+      ]
+    },
+    {
+      "path": "sv/build/current/config-tools/kernel/NEGATIVE.log",
+      "sha256": "1ceef99666a9d9684dbceda715d8f157c1bbaf275f9427d45fbd22b958af4486",
+      "results": [
+        "[1765000] %Fatal: tb_native_template.sv:72: Assertion failed in TOP.tb_native_template.unnamedblk2: Heterogeneous result/address/owner mismatch addr=16 value=0000001c expected=29"
+      ]
+    },
+    {
+      "path": "sv/build/current/config-tools/kernel/STALL_FOREVER.log",
+      "sha256": "0a2b86ad6ebaa3ca70be5abe6dea8fed93d7449a8ef6130d2ed352d798b71999",
+      "results": [
+        "[30030000] %Fatal: tb_native_template.sv:83: Assertion failed in TOP.tb_native_template.unnamedblk2: NATIVE_TEMPLATE_TIMEOUT"
+      ]
+    }
+  ],
+  "compile_diagnostics": [
+    {
+      "path": "sv/build/current/config-tools/kernel/compile.log",
+      "sha256": "2d3950b9c581eff8fdcb053650066ddae1cf8c9561ec98bbcb5aa0b0e6723382",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 64,
+        "WIDTHTRUNC": 3,
+        "UNOPTFLAT": 10
+      }
+    },
+    {
+      "path": "sv/build/current/config-tools/profiles/heterogeneous/compile.log",
+      "sha256": "ca230dfb69a649e3e5b97fcef0921640c700fec123ed0ceb66545c128fd7df8a",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 65,
+        "WIDTHTRUNC": 2,
+        "UNOPTFLAT": 2
+      }
+    },
+    {
+      "path": "sv/build/current/config-tools/profiles/ring/compile.log",
+      "sha256": "fa2394887f61108e34cb1ffcbbd64602669ef19de95b896daa8a0633f6b706f3",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 58,
+        "WIDTHTRUNC": 3,
+        "UNOPTFLAT": 2
+      }
+    },
+    {
+      "path": "sv/build/current/config-tools/profiles/system/compile.log",
+      "sha256": "fd7cf1b60e826b07b7daab311fe9720304a1ba4c67a8ca7b6548949b95cf3a3e",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 56,
+        "WIDTHTRUNC": 3,
+        "UNOPTFLAT": 2
+      }
+    },
+    {
+      "path": "sv/build/current/config-tools/profiles/context64/compile.log",
+      "sha256": "3fc4f8e13e9174986ba0e4e6204bd7924aa7d7533f4ed3de6600b0e25f85db8f",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 62,
+        "WIDTHTRUNC": 5,
+        "UNOPTFLAT": 3
+      }
+    },
+    {
+      "path": "sv/build/current/config-tools/profiles/streaming/compile.log",
+      "sha256": "e8cfc0fd0e3165d33339318e62dcc27e519edac58325ee271c0751e9f5633c6f",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 58,
+        "WIDTHTRUNC": 2,
+        "UNOPTFLAT": 3
+      }
+    },
+    {
+      "path": "sv/build/current/config-tools/memory-kinds/v2-k2/compile.log",
+      "sha256": "d2a3d6d7aad3de299656f30f3e911d72a1de36187887df967a32217d4f95b964",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 30
+      }
+    },
+    {
+      "path": "sv/build/current/config-tools/memory-kinds/v1-k2/compile.log",
+      "sha256": "81474fe948bd99732683ef03b7392efe2ab05df240a56d6d1df3df220283c707",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 32
+      }
+    },
+    {
+      "path": "sv/build/current/config-tools/memory-kinds/v0-k2/compile.log",
+      "sha256": "eaeaa2545822b8f3d4ebb17f14850f1b5c9eec85c4b01d98879470321ecc8e04",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 28,
+        "WIDTHTRUNC": 1
+      }
+    },
+    {
+      "path": "sv/build/current/config-tools/memory-kinds/v2-k32/compile.log",
+      "sha256": "039c08552bbedc9250bab14e2d302a85f1522431bc29b1f30874dee7396f75d6",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 30
+      }
+    },
+    {
+      "path": "sv/build/current/config-tools/memory-kinds/v2-k0/compile.log",
+      "sha256": "4ef721fa1698f8fd384103a7a8bc83d6036eec6e668d07c1a82e5e5ed402bbee",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 30
+      }
+    },
+    {
+      "path": "sv/build/current/config-tools/memory-kinds/v1-k0/compile.log",
+      "sha256": "4a2fd76a0be4dd203d1c6f5bd81215d5d7fc85e82cf92bbaa5b582d08b449f01",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 32
+      }
+    },
+    {
+      "path": "sv/build/current/config-tools/memory-kinds/v1-k32/compile.log",
+      "sha256": "35dbf52aa1aa3e3404d0ee02f0598baeb474c26a7fad633f2f432fe64d6290c6",
+      "warnings": {
+        "TIMESCALEMOD": 121,
+        "WIDTHEXPAND": 32
+      }
+    }
+  ],
+  "generated_headers": [
+    {
+      "profile": "system",
+      "files": {
+        "architecture.svh": "279e2f5f4d8198ad85fd7aec4884fb6764d3c867e58386cde807f569a76201bd",
+        "bindings.svh": "15807ff4d4ecffa3db75626cbac2e51a9f74120231cd9d011155f00223861629",
+        "manifest.json": "c548d9f90bec1fde7cbc5b2c016f386e52f1c59ae032630ee964c21d6eefa265"
+      }
+    },
+    {
+      "profile": "context64",
+      "files": {
+        "architecture.svh": "120d698bc2a73da261f80aa9d6797b2981420dbcc3f2888e589d642f1194d496",
+        "bindings.svh": "4718ea1c22ea009818afbf986306fb546eaddaab662f3227560f6762b61f5d84",
+        "manifest.json": "01dc41d2afdd7314946c6e29caef3f41abdbe4dc5a243e22173bcdda18e6ea69"
+      }
+    },
+    {
+      "profile": "streaming",
+      "files": {
+        "architecture.svh": "3092299f5f8037ed0ac81d525e82f918aff5ebc915a7d4ccd9beb0f5ad56a7a4",
+        "bindings.svh": "244d854a1d82acb9c143eaa4f6c9ca401359483fcf9eebce9308adc1f0d1df7a",
+        "manifest.json": "d581999b8cfd08d081d00c4e3ea2a53e2d9dcb1cfa1a1e27377c79c40df21b19"
+      }
+    },
+    {
+      "profile": "ring",
+      "files": {
+        "architecture.svh": "b09f42a64476e0ae589e7830c614ff727ff5b49b435cde5bd37dad5c421e26c8",
+        "bindings.svh": "b9e42f1b661413d16f8b8c21ee1e65024506e289b9320673d4b2cf34866d635b",
+        "manifest.json": "30d20a4c44d9f3c06b768932e2bded0c13e12b72e695940291e1ddaba96aa756"
+      }
+    },
+    {
+      "profile": "heterogeneous",
+      "files": {
+        "architecture.svh": "517cde3c04968861a81f086b4a763d963cf6c9d2b77c60b8a2105a352d2d778d",
+        "bindings.svh": "f74552ecb670c9be121647b2f96f3e6094572f146b492b2b367201dc2574d253",
+        "manifest.json": "b567a16517a756487fd9284f601c42c175000840a21a9410e788f563968cb4e0"
+      }
+    }
+  ],
+  "final_tool_reproduction": [
+    {
+      "profile": "system",
+      "result": "CGRA_CONFIG_PASS top=system cgras=1 host_bits=191",
+      "manifest": "/workspace/work/config-tools/final-reproduction-style/system/manifest.json",
+      "sha256": "b77d066fedfe4ff634de076176a6c49a457b09f3870e1caf1da9e403d402f5e2"
+    },
+    {
+      "profile": "context64",
+      "result": "CGRA_CONFIG_PASS top=system cgras=1 host_bits=240",
+      "manifest": "/workspace/work/config-tools/final-reproduction-style/context64/manifest.json",
+      "sha256": "be5907cf8d491ea843a5c0b5cbc6ed39fc88553b50b1312abf992d455c802e4b"
+    },
+    {
+      "profile": "streaming",
+      "result": "CGRA_CONFIG_PASS top=system cgras=1 host_bits=215",
+      "manifest": "/workspace/work/config-tools/final-reproduction-style/streaming/manifest.json",
+      "sha256": "5df7428ef7037359ed9b745f2c7482ec25c5a794970a7d3299dfb2100c63a909"
+    },
+    {
+      "profile": "ring",
+      "result": "CGRA_CONFIG_PASS top=multi cgras=4 host_bits=195",
+      "manifest": "/workspace/work/config-tools/final-reproduction-style/ring/manifest.json",
+      "sha256": "b42acb0df5a667f41c2dfb7a4c17188117a0470609b0ffbb5e381eb93b347292"
+    },
+    {
+      "profile": "heterogeneous",
+      "result": "CGRA_CONFIG_PASS top=multi cgras=4 host_bits=219",
+      "manifest": "/workspace/work/config-tools/final-reproduction-style/heterogeneous/manifest.json",
+      "sha256": "cd2abd56040654a92faf71845cb00d4c721dddd9523811bcff79eeb6c9c81907"
+    }
+  ],
+  "input_sha256": {
+    "sv/CONFIGURATION_TOOL.md": "ee1d628f4a02033594c7eb1a52eb2c9075424ac59ae1cb15058ce4723310289a",
+    "sv/MIGRATION_TASKS.md": "7f3e2cc896e44bfaad0e01286fef06c42806b0900d97d865377a2370c2622996",
+    "sv/Makefile": "32d43ae98d452215945722465117c4dfb1b312e79adc35ec3152837309e77cfe",
+    "sv/examples/config/context64.json": "98419429d8997ea6126a6b0f1247e0b6f0366480563fe153f8419e78b739ade5",
+    "sv/examples/config/heterogeneous.json": "816418cd681bd6e11012468b3979a4425391c134ebf56747817f32b07d61ecf6",
+    "sv/examples/config/ring.json": "9a2294f73e503a3f39220a69e796b9f5e45b29ad93f14da35a16fe21ac883980",
+    "sv/examples/config/streaming.json": "da22d34018e8dd5a9049001f62de3546742e5f28b7e314535320f67d71515364",
+    "sv/examples/config/system.json": "13879447da8c6e755d3f14f46761f72d02066641f4acaeeccabbc284b0d657c9",
+    "sv/filelists/native.f": "e5643e6684afb0e23bdc4464e109567ac6f6b4dbe3750027b428523d4aaf3011",
+    "sv/reference/current/target.json": "c560f1ccf61706ed50c871a2987ea2c2837c6ae14b942f1216b275a201de14aa",
+    "sv/reference/phase4/template/heterogeneous/manifest.json": "2e15a581d16f6b73c33c0ec320df0db90844f7c03596e5e1a7f06deec36d6820",
+    "sv/rtl/cgra/cgra_2x2.sv": "594608753066235c2f563460323109b82f685aabe763da40e005b7cb40975f9a",
+    "sv/rtl/cgra/cgra_multi.sv": "c22ffdf311ffb837e9994f38da105f1489e5016293a5ffe6ba398fc3e0f196ad",
+    "sv/rtl/cgra/cgra_multi_template.sv": "c6c30511183969ed5c3cd0686636cc91a321c50195f6ab11e462617b4fc86e10",
+    "sv/rtl/cgra/cgra_programmable.sv": "d2965f2573b7efeef4beba8dad875763f1cd9e02393b5972de15299dbb87baa0",
+    "sv/rtl/cgra/cgra_scalar.sv": "227ea3f81cca38acb6f90d4889a4639b5200fcffd68764c52df40cb984a5c684",
+    "sv/rtl/cgra/cgra_system.sv": "56fb6f976e84dcda9d3abaf314bbe12ce9ddd68a595472c3da1e6d46dfa81b77",
+    "sv/rtl/common/cgra_channel.sv": "0f2d6a0be4202910ffa8ebf3fbed6ed2c08d947ffaf8a11e50e1c195ffa8bf34",
+    "sv/rtl/common/cgra_fu_catalog.svh": "3a438230aa71381d6bdc4856f31f46783b8512212699b8d9f6fbbb3d1e2320bb",
+    "sv/rtl/common/cgra_native_extensions.svh": "a632d6eba711393e681bd5b2473b586ab66f99fb5bc796bb930ba017dd3ae080",
+    "sv/rtl/common/cgra_opcodes.svh": "aaf5c876081d1fb066af8cdc01e7cae2a35afebaedfeb6e5a8889e3d0375bede",
+    "sv/rtl/common/cgra_pe_memory.svh": "4c2ef8fa6fc191aa0baa23e573ebe00bef287a0fba31fccca9085938d4b5ddcd",
+    "sv/rtl/common/cgra_pe_ports.svh": "3403bcb7c5fc1a760ed07a29af25605ed9e879cfcd634ff9a54c93542cee0b5b",
+    "sv/rtl/common/cgra_pipe_queue.sv": "c1efc55e6a1911d3886e6575a82f1cd1ebc0ab8275e3706585548a9498a7855c",
+    "sv/rtl/common/cgra_profile.svh": "8a360c5a38dc98087d9cbd89c9508bd6b2c6d428bc4cc90bba357e36de168eec",
+    "sv/rtl/common/cgra_profile_defs.svh": "dbd20bfaa83506e76e87ac960af7377137aeab0b31b274af4768657f19d20cd0",
+    "sv/rtl/common/cgra_queue.sv": "87e03f556141d8c2c0abe26168ef567ce4b5e456a9f090f9f797aed51a4c4761",
+    "sv/rtl/common/cgra_register_file.sv": "13856021bc1acb361a12a96870a501dea98856aec5c301dd503b41327323d41d",
+    "sv/rtl/common/cgra_ring_ctrl_defs.svh": "f27e2bfd700ec4dcc068aaaef03f550780ee47c89b6e4084038810d35dbdb69d",
+    "sv/rtl/common/cgra_ring_ctrl_types.svh": "de18f9bea5b5944bb0b230bd9d24f20f1b50e10fdb7753c6ec62da56dba4e3d6",
+    "sv/rtl/common/cgra_round_robin.sv": "294d46b6394c205ea67577ef8f4f51b6cc220072051c6a42b3280c5b7ef4b93d",
+    "sv/rtl/common/cgra_types_pkg.sv": "b156167206aef4146c68e95693ac57926310d9f5a7ed60076b71b8d5480c9c16",
+    "sv/rtl/controller/cgra_controller.sv": "f19a4e56c14e0295f270ee8db588faa1b1d600da7ddbb5b24d5a60a6812fd830",
+    "sv/rtl/controller/cgra_global_reduce.sv": "09cec6468cc53aff676cca857c06cb2593e7dcfe25f4f49b10bdfe2bbdf27d8f",
+    "sv/rtl/controller/cgra_loop_controller.sv": "9591b36ba8ee0830363232415cf7f5fdfe58d8e262b96e301c057fff4332995f",
+    "sv/rtl/controller/cgra_loop_controller_legacy.sv": "49d61bd7af7e66468302de10ec822cbdc916fdf34d89daa91a16e99a966d8baf",
+    "sv/rtl/controller/cgra_loop_controller_native.sv": "d835fe2995fddf56404347637888f1db437f5d79ae9ddaa45ef204a297afc354",
+    "sv/rtl/fixed/cgra_2x2_core.sv": "6be4c3471c14ea66bf14dea87c15c11fe7d5c327bcb741a4ca949e23ab1bf780",
+    "sv/rtl/fu/combo/cgra_alu_gen_mac.sv": "2a3c4543a4da07afdda54f2b98ce79f6b619d0e86da03d13a0b48e0f95128fa2",
+    "sv/rtl/fu/combo/cgra_alu_gen_mac_core.sv": "fcd99e36be14e96e51af9006afd03c1d5d8d0b0b6d5d1048f520e0ec1232afbc",
+    "sv/rtl/fu/combo/cgra_multp.sv": "855e5c180f10e01be38d012d4c539fa8ef9e497e91a7be846d78f548a9be588b",
+    "sv/rtl/fu/combo/tile_alu_gen_mac.sv": "cf3653711209242196f24dfd38d4f2657de6dedd32731fa31913352c1541b8f4",
+    "sv/rtl/fu/combo/tile_four_inc_cmp_not_grant.sv": "f07e9725770f6035bddf88a0db8b423dd4109cb874914b08709bb7ac104b50ae",
+    "sv/rtl/fu/combo/tile_prl_mul_adder.sv": "463a6413f39a31562380a0e83d4b4abe6693afbadd1bef97a2ba80923803f506",
+    "sv/rtl/fu/combo/tile_seq_mul_adder.sv": "e5b32d0d27635866de133f8af720aa62bbb04b7def014864b9f7f92ec6688349",
+    "sv/rtl/fu/combo/tile_seq_mul_shifter.sv": "0d9ae72d7eeb7ff3c2e8d8292d50545f6bd63d943896468c161312a0093287e4",
+    "sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv": "46b15a4038d546c02e91ef2ca17c47e2fcfc30803fcb1cccad11c8628154ec36",
+    "sv/rtl/fu/combo/vendor/README.md": "3b6e2224d5614cf1dd3856bec4563ec7da6ef25a0cf53b8bf66b055f76c3e16c",
+    "sv/rtl/fu/combo/vendor/dp_fpfma/DW02_multp.v": "a9d9bb4b4b5fa032e5626e3dd32d069cf39d45765c398530bb41bb3a541b4515",
+    "sv/rtl/fu/combo/vendor/svsrc/ALUgenMAC.sv": "a279b80f648394ed7b15c955360a8d803ec9a597105f0a5bd17dc32b982565a6",
+    "sv/rtl/fu/float/cgra_hardfloat_fn.sv": "fc52932df3a81ecfc90edd1d2c51c991e344213db5165d910700ab1205392d4d",
+    "sv/rtl/fu/float/tile_fp_add.sv": "164243f24ddc1582c1ad974d10b274b859ef25fe913709027b8b7ce7f59573f8",
+    "sv/rtl/fu/float/tile_fp_fu.sv": "911e3d4379224b82085c08d01ae9991a51eb8a98b6e7b60a4fba16e78c6ad7de",
+    "sv/rtl/fu/float/tile_fp_mul.sv": "c1f70d1ba0a6c92a4dfebb97fffb48e09bc4d455a5f220d06f088941070b504c",
+    "sv/rtl/fu/scalar/scalar_comp.sv": "af04f3f0eeb55fa116834ace8f3c7db6041641832e8c77c7d050c330859979e0",
+    "sv/rtl/fu/scalar/scalar_const.sv": "2d2020a3aae93d89d2271642d26a87ae8252498c1a53a720c8360b43ce9e21d5",
+    "sv/rtl/fu/scalar/scalar_div.sv": "bbdc94f43b3e6351b61d4dbae0dd5f65e0810063e6ea9de00d3e88cff01ccab4",
+    "sv/rtl/fu/scalar/scalar_div_native.sv": "f1b8b0ee91441b19801b1f70d689d0cfbfb6fbc77fbfc52791e9eaf85d4e5844",
+    "sv/rtl/fu/scalar/scalar_div_pipeline.sv": "2930cacb0918951bf85493bd16d7e087e25603e0c7ccde5ad77001f192471fd6",
+    "sv/rtl/fu/scalar/scalar_exclusive_div.sv": "f35e97139d2780e115be546a7fa7947474ee99486dbb90f2cbf9d6d4f4b4d2c0",
+    "sv/rtl/fu/scalar/scalar_extract_predicate.sv": "114b1394007b9f304e542c3bb8a49a74559fb0cb8ef741d5cc1d2f317d29a391",
+    "sv/rtl/fu/scalar/scalar_gep.sv": "050d2349f1a3dcae059fc2a4caf7ab42459e9906b40e8a81949fdb2e9e3a6fb7",
+    "sv/rtl/fu/scalar/scalar_grant.sv": "0e6592d3ee731cc1d3d0a243385022cef487c45b1001ad6c7a577aea9df090af",
+    "sv/rtl/fu/scalar/scalar_inclusive_div.sv": "2df8f4ec03d5a2945d7c998653d80fd0cad52f7e069d0dd0d0f085f83bd2537c",
+    "sv/rtl/fu/scalar/scalar_logic.sv": "1293c8e9d947dcd641bc450e57a0e91cbddf4e7fc783da775e419899513617a7",
+    "sv/rtl/fu/scalar/scalar_loop_control.sv": "cc1a3d06a0a0c123a7024f8ceee0bb8917732a1900ea83f674efa7f15993fd30",
+    "sv/rtl/fu/scalar/scalar_loop_control_native.sv": "04e4860c9008190c71b49d008a54533d6c97a62c0048a809d6406bd548c0d6a3",
+    "sv/rtl/fu/scalar/scalar_loop_counter.sv": "d3c45bdbd3469e8e841d6ffe588e7028fecbf4883dc47094f218000dc06f6d65",
+    "sv/rtl/fu/scalar/scalar_phi.sv": "4566ee6e2725c687c415a2a69f1a558061aa8129e436a8a0390274cca577fdb1",
+    "sv/rtl/fu/scalar/scalar_ret.sv": "b15eb77f8ac4e8363ad37c000d316d9edda2b75667f7df2bdf8314f832c92e8e",
+    "sv/rtl/fu/scalar/scalar_sel.sv": "a3d0468b73a4f9224d9cb7d616d075a9a295656bc2c129592034ea50d89844ac",
+    "sv/rtl/fu/scalar/scalar_shifter.sv": "253ca1dbe51e6fd1330da1b4ab75367f9c26809cfbe4d2027aee169f056c61d1",
+    "sv/rtl/fu/streaming/tile_streaming_memory_fu.sv": "75e24ef6b0fd9be2bddb85ce27541f56efb220bebdbba0167e3d1cefafe3cadf",
+    "sv/rtl/fu/tile_adder.sv": "45543a691c42cc9d0ce3b5197ff8f4413cc2f8035c84b2e5a5e86e87b3893302",
+    "sv/rtl/fu/tile_flexible_fu.sv": "914d1c7978325abd19d524680db6c7f4183fd559b026c000b01a14f66bce51ed",
+    "sv/rtl/fu/tile_flexible_fu_configurable.sv": "ba855c558f2b7ca95b5430219a5f90a790bf15831432b7c06a5598b0b249cf57",
+    "sv/rtl/fu/tile_memory_fu.sv": "14cc78c90c4633c4ec7a60655573fc1e6854b41c278f536586a7315bf83f7655",
+    "sv/rtl/fu/tile_multiplier.sv": "75eb93fb510f442adba6a6ab978855141f0600aa2cd76f7fc24926bac56d8c5f",
+    "sv/rtl/fu/tile_nah.sv": "90cab29e133b0a51389c01123d75b92104c8f935824dac6a31b2069a343b616c",
+    "sv/rtl/fu/vector/cgra_vector_adder.sv": "abdfd80381c515c13f9f541636ddd39f47fd676e9bed15c81952bb384e17ee2e",
+    "sv/rtl/fu/vector/cgra_vector_mul.sv": "67855b8b2003f586d54aace6d3e4350a0a7b701dd4e08a310fb80b8a1c393127",
+    "sv/rtl/fu/vector/tile_vector_adder_combo.sv": "1a9c65fb75968035095cc979bf4fd453466c7dde27f93bfe5b854823daf0c5a6",
+    "sv/rtl/fu/vector/tile_vector_all_reduce.sv": "61eeb25f5c679791a4e0d90054adee1a13708fe9c5ad621e75ecbcd5190ff4a7",
+    "sv/rtl/fu/vector/tile_vector_mul_combo.sv": "94eb6a5272ceba17b1a7d5eab04cb15ea4c59320b49ecefd378cacad88ca60b0",
+    "sv/rtl/mem/cgra_data_bank.sv": "fe056aabe4ab86e14fe7b7adbe83b063758aaaf2ee9a85f5a47330172249be13",
+    "sv/rtl/mem/cgra_data_mem.sv": "29bf69381bd007711ba3d7af5bcf04811741826dda6cc60f058bcf010ef4a1bb",
+    "sv/rtl/mem/cgra_data_mem_scalable.sv": "8d071e7c7bc9965595873877e94d1afc2d66a16bb0a9f00cb9ea5d583fae97e1",
+    "sv/rtl/mem/cgra_data_memory.sv": "eb452816a1793fbbe75729cfa182039cf6ad6424259012658ed83fca5bc0337d",
+    "sv/rtl/mem/cgra_ring_ctrl_node.sv": "c4cb34ecc70fd6114ccf39e70dce4dc13c167eef7789468c91da93881a96771a",
+    "sv/rtl/mem/cgra_ring_multi_ctrl_mem.sv": "54fec2007ed74de94b426a5d5918be5e98d8aeb683d711ac5b5e51238e49f89f",
+    "sv/rtl/mem/cgra_static_const_queue.sv": "7bc17ad13815330830858426c1795ab1fed78f81fffba28511b1aa8c07265316",
+    "sv/rtl/mem/cgra_static_ctrl_mem.sv": "59371c9567c9da2604fbf9704d1eaed435fe2d89e1ecb36348876a41b80e20a2",
+    "sv/rtl/mem/const_queue.sv": "74c8757759528421f5949be67e0cf1e8b364fcb7c2571bd13a61a782f8797c83",
+    "sv/rtl/mem/ctrl_mem.sv": "75ba6aa4d89b59aec49bf3844eff4b52b5937d77c2172f4512a616008e28bdd0",
+    "sv/rtl/mem/register_bank.sv": "18b60aa21e281939510a3c81bf2a0c115312a5736a38064529e12f38ea3670b2",
+    "sv/rtl/mem/register_cluster.sv": "1db346700060eaa4f5d9f960c1e9ae556ff589aabaf0197aea109f17831d9e4c",
+    "sv/rtl/noc/cgra_credit_input.sv": "c70a6188a78373c7b1b817b4cc6ea2b44fa06ca4b489b73dde61481aeb8a1f5d",
+    "sv/rtl/noc/cgra_credit_recv.sv": "181ac5ed8e66869375eec7668ceb58e6b1f3ae422045d3736c7472f58a550f07",
+    "sv/rtl/noc/cgra_credit_ring.sv": "1261785a4eeb013f1047c5855b5350f1195d0ccfa67226336c27b6affb2634e0",
+    "sv/rtl/noc/cgra_credit_send.sv": "03171c6c933efe24717ed7d0df5b484f20312019421cba45e56de7e8fa712512",
+    "sv/rtl/noc/cgra_or_link.sv": "bc815b089ab81e08631b3e7aaaec8c0801cab56b3994c2370578ae685d735fbf",
+    "sv/rtl/noc/cgra_ring_route.sv": "30ddabd82453381cc3ae7e686bbb5e0497c7b9d3b41dd27c83d9496464840cbf",
+    "sv/rtl/noc/cgra_ring_router.sv": "6e5b799e25ca4820e6ff2b927e430d9243cf6658bd1459a94bc064aa857617ff",
+    "sv/rtl/noc/cgra_selector.sv": "9273142c3eeba043de9673658bffb397a95fe19b4ba018a767e0eb692cc95a12",
+    "sv/rtl/noc/cgra_switch.sv": "b240bd16d346ebe037705caff67bb0d6c4c536f69c9e505e8503add1bf6005a4",
+    "sv/rtl/noc/cgra_xbar.sv": "f55b550f4c8fad03256080e27018bbfcac7fc6f563f3410a1ac0908fd8b6cd9e",
+    "sv/rtl/noc/inter_cgra/cgra_inter_mesh.sv": "654816b77d98a7f8603e2a4448ca29e1136243adc3a2c7cb562d008445c9238b",
+    "sv/rtl/noc/inter_cgra/cgra_inter_mesh_route.sv": "e1b31e0e6cae251fba0c910d835270c76dc9d39ac4de9ef1a96de056f9a02963",
+    "sv/rtl/noc/inter_cgra/cgra_inter_mesh_router.sv": "b0559e00361d605e55016341088a9ab64d883669ddd3efc73234fade08b7c3cc",
+    "sv/rtl/noc/inter_cgra/cgra_inter_ring.sv": "df60e28016a9a6e907679f069dcac38bfa5de5cd423446a6b1c8befe28992c65",
+    "sv/rtl/peripheral/cgra_dma_engine.sv": "a75bf533d584a887e5444afbf0099a24470b5c3983d7bebb7d2105595e7fc48c",
+    "sv/rtl/peripheral/cgra_im2col_engine.sv": "cf2e474559424a17cb30b2d4f696bb14c6bd965f966d2a01b2359acdfa3444d5",
+    "sv/rtl/peripheral/cgra_integrated_dma.sv": "58adf917214dccbc29ea16a73b4d96fec7240acf09e9eb978ae3407b4e3374e5",
+    "sv/rtl/peripheral/cgra_integrated_im2col.sv": "b76394df3dec6acf136b0480c1342ff78649d50ccac205695e426904c3d0c71d",
+    "sv/rtl/tile/cgra_pe.sv": "53b14b836c28829cc8bdd724d69c88d2b930fa7895a79ff9e9677210643780d1",
+    "sv/rtl/tile/tile_core.sv": "48c50c2a50a19493bb81133bd1ca25868094ee8f42a7c523f1c3ae545425a4a7",
+    "sv/rtl/tile/tile_link_or.sv": "b86b2471c44d0e6522d20d4e228e5463721bad6225df4a0f0a315084cf2147bc",
+    "sv/rtl/tile/tile_programmable.sv": "663f7046fdc98e19ba48030356ec5f5f6e959122cd46f99190696a935eeca448",
+    "sv/rtl/tile/tile_static_crossbar.sv": "e34d871318d89453d0f2e9cd494060c7bc9d98baeb855eedbfefd3fb56d6bd40",
+    "sv/rtl/tile/variants/tile_context.sv": "18e26360f8150740c46ca3da886c0868210eb52a645747643651fc6789d9d322",
+    "sv/rtl/tile/variants/tile_context_switch.sv": "0296f8460b31d8c4d319e7f5aaef7ee475d5e52330fe883c5b99926282126bcc",
+    "sv/rtl/tile/variants/tile_streaming.sv": "75f8a8a8929ea7d3ab45f1933d55bc7aedd3d830be580a1679dc291f2c27cf85",
+    "sv/rtl/tile/variants/tile_variant_const_queue.sv": "6ce5f5f25674f291c6118a5fd7adfcac18a7524d28ee77b27eedb710ada3ccea",
+    "sv/rtl/tile/variants/tile_variant_core.sv": "a7b69390881c6357e4591d9b41f59c9d2c2afdea58fd5e8b5610f0c58b8fc07e",
+    "sv/rtl/tile/variants/tile_variant_crossbar.sv": "a65b277c3c27babecac47f2b4f567ba24981b216495d6ef99a0308ec7e681ce4",
+    "sv/rtl/tile/variants/tile_variant_ctrl_mem.sv": "6465118774647a3709c42af6c3ed43d72e1eb61308b07bc7c006bc41173ed6ca",
+    "sv/rtl/vendor/hardfloat/COPYING.txt": "c791a6bdcef33feddaa0cb7ab99c233fb63d93bb385f06d58f9f1b9a8182b418",
+    "sv/rtl/vendor/hardfloat/HardFloat_consts.vi": "ff7168d2e1bcce237ee6ac0789d58588705063a3d14c9137ee4abba839822b40",
+    "sv/rtl/vendor/hardfloat/HardFloat_localFuncs.vi": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50",
+    "sv/rtl/vendor/hardfloat/HardFloat_primitives.v": "3273444d956fe82b01ba074ed6c22441d957dc7be02990133dd7a83efb07845d",
+    "sv/rtl/vendor/hardfloat/HardFloat_rawFN.v": "f219b1594ce25df5790af748bf2bcfdb6ff8a2ad4806c447b1dbeffcdecc071a",
+    "sv/rtl/vendor/hardfloat/HardFloat_specialize.vi": "c231a6ec6c62a9c01c3c2962cf43ea9ec92a7c1c115a8102959d89425803c890",
+    "sv/rtl/vendor/hardfloat/RISCV/HardFloat_specialize.vi": "9c12592b78732e7331f4f506c50e84ad15c120507d73e1f9e511fd95ed30448e",
+    "sv/rtl/vendor/hardfloat/addRecFN.v": "8e299e624d7f20c752bb3f59b6ae1ae94685244df20fe2ac274b86f93d87e488",
+    "sv/rtl/vendor/hardfloat/fNToRecFN.v": "146e50014d986df605ed59a69425cd6dc19750df3acdd083f61bff7cf51ac6a3",
+    "sv/rtl/vendor/hardfloat/isSigNaNRecFN.v": "dfec25b11b197b767d15b0e28d56b4742c7329668239cdf14d324ddac0950439",
+    "sv/rtl/vendor/hardfloat/mulRecFN.v": "bff24e22929c49d0f50f70511a93388c784faae9a578cfc79e8fe322cf60cf5a",
+    "sv/rtl/vendor/hardfloat/provenance.json": "6d31d80df7db1a31cac285fe922928a21bef42f4f64a1ff32d05785ccb3de403",
+    "sv/rtl/vendor/hardfloat/recFNToFN.v": "9a1cb98579a715965aebf9faab6cb5851154e8284d6af7ace594a0d6cc87adf8",
+    "sv/scripts/run.ps1": "17e3823bf7edd2cdbdb85d34d8cf8c6fad0967bd5899c79eed0e2341bd7c2873",
+    "sv/scripts/toolchain.sh": "11b934d6f4ee1f19027faaece45b5a025a20ed2c1eed45dcba24ae7a4b33a0b4",
+    "sv/tests/config/prepare_hdl_checks.py": "1a408f27193c1f9d8085f659fdc05afde6295d1f204af1923a4ef779103c128b",
+    "sv/tests/config/run_config_kernel.sh": "f3f6238ef66feb1dd600ab3889b5c6f6892e1fa1b7b14d47a3b27da3443e76be",
+    "sv/tests/config/run_config_profiles.sh": "450e59ce0e3b2a117186e236ec857bb3c12aef0633760e20d0c2affb22a6da22",
+    "sv/tests/config/run_config_tools.sh": "35a86d2d9643c9f7f74b2d3340b1f055f5288b917feb0c3e74c5ec8b31b48328",
+    "sv/tests/config/run_pe_memory_kinds.sh": "866bbbb1dfe00e613f8024105673b938d2212914ab480e17fb00ea33acd7e77a",
+    "sv/tests/config/tb_pe_memory_kind.sv": "f3adb3c60236176a856a7ad9002e6e958cbf72919042664005b88bc5fe5f3ff1",
+    "sv/tests/config/test_config.py": "ee44d685f5c513ef03032cec3e7ab24fac97374d47b02893682ecc041de70a84",
+    "sv/tests/current/tb_native_template.sv": "ecde5332ec0f22291f4c70f17e46b8e6c6f465a88b8344f6f531ed376f7f461d",
+    "sv/tests/phase4/template/heterogeneous/architecture.svh": "d5ad912bf383e18582dee0396d0a63acf0c14f6b30d7c82afc15ecdb5209090d",
+    "sv/tests/phase4/template/heterogeneous/inputs.hex": "8fe5550bf0b7ad84902cc471cde58cd2eebc885219f35328ebf378ac6f8649ec",
+    "sv/tests/phase4/template/heterogeneous/outputs.hex": "fc91db11ec5ad43c84b4ba26b77559eb7e3191486302d2ae5ec729d8ffd21737",
+    "sv/tests/phase4/template/heterogeneous/program.hex": "c45ad11b02b5de84763acadd1817092ac9d10767597534d52fbfdf75f8bb7086",
+    "sv/tests/phase4/template/heterogeneous/results.json": "761e4ec8c34b62ba2a09abf602e7b45c5cc4719296e7e5ccff93f083a5752877",
+    "sv/tests/phase4/template/heterogeneous/samples.txt": "d0e4e31ae6fee4757afeb2090f3c19d2620fc4b2f5405b3cebc5f466fdbd15e8",
+    "sv/tools/cgra_config.py": "bf081cbf5b38381beabc3f0205e7107d0318e4cbc827b0e5e2f0d11b9a26e5d6"
+  },
+  "tools": {
+    "python": "Python 3.12.14",
+    "verilator": "5.029 devel"
+  },
+  "notes": [
+    "The CLI is copied to an otherwise empty temporary directory and invoked with -I -S. Only Python standard-library imports are needed; no project Python, PyMTL, migration exporter, Git or source checkout is needed to run it.",
+    "Nine unittest groups include many directed invalid inputs, isolated CLI execution, duplicate-key rejection, no overwrite, deterministic output, FU catalog IDs, memory variants, vector/FP constraints, graph ownership, memory ports and address-window permutations.",
+    "Every frozen heterogeneous ARCH_* table declaration exactly matches the emitted packed value, width and ordering. The original manifest independently checks host, NoC and control widths.",
+    "Five actual SV tops elaborate with generated bindings. A separate probe computes widths using native CGRA_PROFILE_PARAMETERS and $bits checks, independently of the tool formulas. These are elaboration checks with tied-off inputs, not program-functionality claims for all five examples.",
+    "The actual 21-PE heterogeneous kernel uses the generated headers and bindings, completes all 21 PEs and verifies eight ordered final readbacks against independent arithmetic. Wrong-answer and permanent-stall negatives remain active.",
+    "Shared memory attachment now rejects Context with StreamingMem and Streaming with ordinary Mem. Five positive catalogs include legal no-memory Context/Streaming. Existing Base rejection is preserved.",
+    "The final emitter was rerun after correcting original-class aliases. Both generated SV files were byte-compared with the files used in all five compiled profiles and the kernel; the resulting final tool hash is recorded separately from the original build manifests.",
+    "Compiler UNOPTFLAT diagnostics are recorded rather than suppressed or equated with verified graph SCCs. No emitted full-system netlist proof is claimed by this configuration-tool task; current-system SCC/synthesis refresh remains a later task.",
+    "Program mapping, arbitrary coordinate remapping, sparse deleted tiles, general VC/credit counts and standalone single-PE configuration syntax are outside this architecture schema. Public cgra_pe SV parameterization is unchanged."
+  ]
+}

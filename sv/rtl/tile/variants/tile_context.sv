@@ -1,63 +1,8 @@
 `include "cgra_profile_defs.svh"
 `include "cgra_fu_catalog.svh"
 module tile_context #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS) (
-  input  logic [CGRA_ID_W-1:0] cgra_id ,
-  input  logic [0:0] clk ,
-  input  logic [0:0] reset ,
-  input  logic [TILE_ID_W-1:0] tile_id ,
-  input logic [DATA_BITS-1:0] from_mem_rdata__msg ,
-  output logic [0:0] from_mem_rdata__rdy  ,
-  input logic [0:0] from_mem_rdata__val  ,
-  input logic [DATA_BITS-1:0] recv_data__msg [0:TILE_PORTS-1] ,
-  output logic [0:0] recv_data__rdy [0:TILE_PORTS-1] ,
-  input logic [0:0] recv_data__val [0:TILE_PORTS-1] ,
-  input logic [HOST_BITS-1:0] recv_from_controller_pkt__msg ,
-  output logic [0:0] recv_from_controller_pkt__rdy  ,
-  input logic [0:0] recv_from_controller_pkt__val  ,
-  output logic [DATA_BITS-1:0] send_data__msg [0:TILE_PORTS-1] ,
-  input logic [0:0] send_data__rdy [0:TILE_PORTS-1] ,
-  output logic [0:0] send_data__val [0:TILE_PORTS-1] ,
-  output logic [HOST_BITS-1:0] send_to_controller_pkt__msg ,
-  input logic [0:0] send_to_controller_pkt__rdy  ,
-  output logic [0:0] send_to_controller_pkt__val  ,
-  output logic [GLOBAL_ADDR_W-1:0] to_mem_raddr__msg  ,
-  input logic [0:0] to_mem_raddr__rdy  ,
-  output logic [0:0] to_mem_raddr__val  ,
-  output logic [GLOBAL_ADDR_W-1:0] to_mem_waddr__msg  ,
-  input logic [0:0] to_mem_waddr__rdy  ,
-  output logic [0:0] to_mem_waddr__val  ,
-  output logic [DATA_BITS-1:0] to_mem_wdata__msg ,
-  input logic [0:0] to_mem_wdata__rdy  ,
-  output logic [0:0] to_mem_wdata__val  
+
+  `include "cgra_pe_ports.svh"
 );
-  tile_variant_core #(`CGRA_PROFILE_BIND, `CGRA_FU_BIND, .STREAMING(0)) core (
-    .cgra_id(cgra_id),
-    .clk(clk),
-    .reset(reset),
-    .tile_id(tile_id),
-    .from_mem_rdata__msg(from_mem_rdata__msg),
-    .from_mem_rdata__rdy(from_mem_rdata__rdy),
-    .from_mem_rdata__val(from_mem_rdata__val),
-    .recv_data__msg(recv_data__msg),
-    .recv_data__rdy(recv_data__rdy),
-    .recv_data__val(recv_data__val),
-    .recv_from_controller_pkt__msg(recv_from_controller_pkt__msg),
-    .recv_from_controller_pkt__rdy(recv_from_controller_pkt__rdy),
-    .recv_from_controller_pkt__val(recv_from_controller_pkt__val),
-    .send_data__msg(send_data__msg),
-    .send_data__rdy(send_data__rdy),
-    .send_data__val(send_data__val),
-    .send_to_controller_pkt__msg(send_to_controller_pkt__msg),
-    .send_to_controller_pkt__rdy(send_to_controller_pkt__rdy),
-    .send_to_controller_pkt__val(send_to_controller_pkt__val),
-    .to_mem_raddr__msg(to_mem_raddr__msg),
-    .to_mem_raddr__rdy(to_mem_raddr__rdy),
-    .to_mem_raddr__val(to_mem_raddr__val),
-    .to_mem_waddr__msg(to_mem_waddr__msg),
-    .to_mem_waddr__rdy(to_mem_waddr__rdy),
-    .to_mem_waddr__val(to_mem_waddr__val),
-    .to_mem_wdata__msg(to_mem_wdata__msg),
-    .to_mem_wdata__rdy(to_mem_wdata__rdy),
-    .to_mem_wdata__val(to_mem_wdata__val)
-  );
+  tile_variant_core #(`CGRA_PROFILE_BIND, `CGRA_FU_BIND, .STREAMING(0)) core (.*);
 endmodule

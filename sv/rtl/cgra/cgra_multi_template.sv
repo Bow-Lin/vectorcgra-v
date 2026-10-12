@@ -39,13 +39,13 @@ module cgra_multi_template #(
     if(64'(NUM_CGRAS)*64'(NUM_BANKS)*64'(BANK_DEPTH)>(64'd1<<GLOBAL_ADDR_W)) $fatal(1,"Global memory cannot contain all CGRA address ranges");
   end
   if(TOPOLOGY==0) begin : mesh
-    cgra_inter_mesh #(.WIDTH(NOC_BITS),.COLS(MULTI_COLS),.ROWS(MULTI_ROWS),
+    cgra_inter_mesh #(.LEGACY_PYTHON(NOC_LEGACY_PYTHON),.WIDTH(NOC_BITS),.COLS(MULTI_COLS),.ROWS(MULTI_ROWS),
       .DST_X_LSB(NOC_DST_X_LSB),.DST_Y_LSB(NOC_DST_Y_LSB),.X_WIDTH(CGRA_X_W),.Y_WIDTH(CGRA_Y_W)) network (
       .clk,.reset,.recv_msg(noc_recv_msg),.recv_val(noc_recv_val),.recv_rdy(noc_recv_rdy),
       .send_msg(noc_send_msg),.send_val(noc_send_val),.send_rdy(noc_send_rdy)
     );
   end else begin : ring
-    cgra_inter_ring #(.WIDTH(NOC_BITS),.NODES(NUM_CGRAS),.DST_LSB(NOC_DST_LSB),
+    cgra_inter_ring #(.LEGACY_PYTHON(NOC_LEGACY_PYTHON),.WIDTH(NOC_BITS),.NODES(NUM_CGRAS),.DST_LSB(NOC_DST_LSB),
       .DST_WIDTH(CGRA_ID_W),.VC_LSB(PAYLOAD_BITS),.VC_WIDTH(2)) network (
       .clk,.reset,.recv_msg(noc_recv_msg),.recv_val(noc_recv_val),.recv_rdy(noc_recv_rdy),
       .send_msg(noc_send_msg),.send_val(noc_send_val),.send_rdy(noc_send_rdy)

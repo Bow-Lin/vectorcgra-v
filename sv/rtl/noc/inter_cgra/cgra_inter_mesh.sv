@@ -5,7 +5,8 @@ module cgra_inter_mesh #(
   parameter int X_WIDTH=(COLS>1)?$clog2(COLS):1,
   parameter int Y_WIDTH=(ROWS>1)?$clog2(ROWS):1,
   parameter int DST_X_LSB=2,DST_Y_LSB=0,CHANNEL_LATENCY=1,
-  localparam int NODES=COLS*ROWS
+  localparam int NODES=COLS*ROWS,
+  parameter bit LEGACY_PYTHON=0
 ) (
   input logic clk,reset,
   input logic [WIDTH-1:0] recv_msg [0:NODES-1],
@@ -28,7 +29,7 @@ module cgra_inter_mesh #(
       $fatal(1,"Mesh destination fields must fit the packet");
   end
   for(genvar node=0;node<NODES;node++)begin : nodes
-    cgra_inter_mesh_router #(.WIDTH(WIDTH),.X_WIDTH(X_WIDTH),.Y_WIDTH(Y_WIDTH),
+    cgra_inter_mesh_router #(.LEGACY_PYTHON(LEGACY_PYTHON),.WIDTH(WIDTH),.X_WIDTH(X_WIDTH),.Y_WIDTH(Y_WIDTH),
       .DST_X_LSB(DST_X_LSB),.DST_Y_LSB(DST_Y_LSB)) router (
       .clk,.reset,.pos_x(X_WIDTH'(node%COLS)),.pos_y(Y_WIDTH'(node/COLS)),
       .recv_msg(router_recv_msg[node]),.recv_val(router_recv_val[node]),.recv_rdy(router_recv_rdy[node]),

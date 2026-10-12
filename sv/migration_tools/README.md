@@ -1,6 +1,28 @@
 # Migration-only reference export
 
-These scripts freeze the unmodified Python RTL at
+Ordinary native builds and standalone delivery use the checked-in HDL and frozen
+inputs; see [REGRESSION.md](../REGRESSION.md) and [STANDALONE.md](../STANDALONE.md).
+The independent architecture/program tools are under `sv/tools/` and use only
+the Python standard library. This directory retains reference-generation and
+source-audit tools with separate requirements. `inventory.py --check` reads the
+original source tree without importing PyMTL; the standalone package carries its
+results but does not contain the original source needed to repeat that audit.
+
+Current-target exporters (`current_*.py`) use the Python pinned in
+`sv/reference/current/target.json`; the historical tools described below retain
+the original ac96 baseline. `current_static_memory.py --output-root <directory>`
+freezes the standalone static CtrlMem/ConstQueue APIs and records original Python
+failures separately. CtrlMem uses an explicitly documented field-name adapter;
+see [STATIC_MEMORY_API.md](../STATIC_MEMORY_API.md). No original Python is edited.
+
+`current_ring_ctrl_memory.py --output-root <directory>` freezes the unchanged
+RingMultiCtrlMemDynamicRTL wrapper and its original test. It retains the dummy
+event and stalled-return defects; native repairs are verified separately by HDL
+protocol tests. See [RING_CTRL_MEMORY_API.md](../RING_CTRL_MEMORY_API.md).
+
+## Historical ac96 exporters
+
+The following historical scripts freeze the unmodified Python RTL at
 `ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b`. They are optional migration tools;
 the normal SystemVerilog build uses checked-in RTL and vectors without importing
 the project Python generator.
@@ -103,3 +125,19 @@ port. It is not a hardware generator used by Make, and is not the source of
 truth for subsequent edits to `rtl/`. Later corrections and integration are
 maintained in the checked-in SystemVerilog. Final phase-2 coverage and evidence
 are described in `../PHASE2_REPORT.md`.
+
+## Current pinned Python exporters
+
+`current_data_memory.py` 冻结未修改 DataMemRTL；原测试 Source/Sink 断言保留，附加多口位级轨迹及 Bits0 边界。日常回归不调用此工具。
+
+`current_data_memory_scalable.py` 单独实例化未修改 Scalable 模型，记录占位 NoC 端口及本地存储轨迹，不以普通 DataMem 轨迹代替。
+
+`current_or_link.py` 原样运行 OrLink 的 Source/Sink 测试并冻结 16／32／64 位、多输入、含 invalid／reset 的位级轨迹；单输入 Python Bits0 限制单独记录。
+
+`current_selector.py` 原样运行固定选择测试并冻结动态选择轨迹，保留原 Python ready 锁存，原始测试输出保存在 JSON 中。
+
+`current_pipe_queue.py` 直接驱动未修改的项目 PipeQueue，覆盖深度 1／2／3／5，记录 invalid 消息和 reset 周期写入。
+
+`current_vector_reduce.py` 运行原 VectorAllReduce Source/Sink 测试并冻结四组完整位级轨迹，包括 reset、invalid 输出及原模型缺陷；不在日常回归调用。
+
+`current_vector_arithmetic.py` 冻结未修改组合加／乘法及原始测试，使用 `current_vector_reduce.py` 的公共接口打包辅助函数。

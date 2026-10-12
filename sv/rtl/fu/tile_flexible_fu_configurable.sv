@@ -46,6 +46,19 @@ module tile_flexible_fu_configurable #(
 );
   `include "cgra_profile.svh"
   ctrl_t effective_control;
+  logic enabled,raw_packet_ready;
+  assign recv_pkt_from_controller__rdy=enabled && raw_packet_ready;
+  logic [0:0] guarded_input_valid[0:3],guarded_output_ready[0:1];
+  assign enabled=ARITH_LEGACY_PYTHON || !reset;
+  for(genvar p=0;p<4;p++) assign guarded_input_valid[p]=recv_in__val[p] && enabled;
+  for(genvar p=0;p<2;p++) assign guarded_output_ready[p]=send_out__rdy[p] && enabled;
+  logic [0:0] raw_from_mem_rdata__rdy[0:FU_COUNT-1];
+  logic [GLOBAL_ADDR_W-1:0] raw_to_mem_raddr__msg[0:FU_COUNT-1];
+  logic [0:0] raw_to_mem_raddr__val[0:FU_COUNT-1];
+  logic [GLOBAL_ADDR_W-1:0] raw_to_mem_waddr__msg[0:FU_COUNT-1];
+  logic [0:0] raw_to_mem_waddr__val[0:FU_COUNT-1];
+  logic [DATA_BITS-1:0] raw_to_mem_wdata__msg[0:FU_COUNT-1];
+  logic [0:0] raw_to_mem_wdata__val[0:FU_COUNT-1];
   logic [DATA_BITS-1:0] fu_send_out__msg [0:FU_COUNT-1][0:1];
   logic fu_send_out__val [0:FU_COUNT-1][0:1];
   logic fu_input_ready [0:FU_COUNT-1][0:3];
@@ -92,44 +105,57 @@ module tile_flexible_fu_configurable #(
         send_out__val[p]=fu_send_out__val[i][p];
       end
     end
+    if (!enabled) begin
+      recv_const__rdy=0;recv_opt__rdy=0;recv_from_ctrl_mem__rdy=0;
+      send_to_ctrl_mem__val=0;send_to_ctrl_mem__msg='0;
+      for(integer p=0;p<4;p++) recv_in__rdy[p]=0;
+      for(integer p=0;p<2;p++) begin send_out__val[p]=0;send_out__msg[p]='0;end
+    end
   end
   for(genvar slot=0;slot<FU_COUNT;slot++) begin : units
     localparam logic [7:0] KIND=FU_KINDS[8*slot+:8];
+    assign from_mem_rdata__rdy[slot]=enabled ? raw_from_mem_rdata__rdy[slot] : '0;
+    assign to_mem_raddr__msg[slot]=enabled ? raw_to_mem_raddr__msg[slot] : '0;
+    assign to_mem_raddr__val[slot]=enabled ? raw_to_mem_raddr__val[slot] : '0;
+    assign to_mem_waddr__msg[slot]=enabled ? raw_to_mem_waddr__msg[slot] : '0;
+    assign to_mem_waddr__val[slot]=enabled ? raw_to_mem_waddr__val[slot] : '0;
+    assign to_mem_wdata__msg[slot]=enabled ? raw_to_mem_wdata__msg[slot] : '0;
+    assign to_mem_wdata__val[slot]=enabled ? raw_to_mem_wdata__val[slot] : '0;
 `define CGRA_FU_SLOT_PORTS \
         .clear(clear[slot]), \
         .clk(clk), \
         .ctrl_addr_inport(ctrl_addr_inport), \
         .reset(reset), \
         .from_mem_rdata__msg(from_mem_rdata__msg[slot]), \
-        .from_mem_rdata__rdy(from_mem_rdata__rdy[slot]), \
-        .from_mem_rdata__val(from_mem_rdata__val[slot]), \
+        .from_mem_rdata__rdy(raw_from_mem_rdata__rdy[slot]), \
+        .from_mem_rdata__val(from_mem_rdata__val[slot] && enabled), \
         .recv_const__msg(recv_const__msg), \
         .recv_const__rdy(fu_recv_const__rdy[slot]), \
-        .recv_const__val(recv_const__val), \
+        .recv_const__val(recv_const__val && enabled), \
         .recv_from_ctrl_mem__msg(recv_from_ctrl_mem__msg), \
         .recv_from_ctrl_mem__rdy(fu_recv_from_ctrl_mem__rdy[slot]), \
-        .recv_from_ctrl_mem__val(recv_from_ctrl_mem__val), \
+        .recv_from_ctrl_mem__val(recv_from_ctrl_mem__val && enabled), \
         .recv_in__msg(recv_in__msg), \
         .recv_in__rdy(fu_input_ready[slot]), \
-        .recv_in__val(recv_in__val), \
+        .recv_in__val(guarded_input_valid), \
         .recv_opt__msg(effective_control), \
         .recv_opt__rdy(fu_recv_opt__rdy[slot]), \
-        .recv_opt__val(recv_opt__val), \
+        .recv_opt__val(recv_opt__val && enabled), \
         .send_out__msg(fu_send_out__msg[slot]), \
-        .send_out__rdy(send_out__rdy), \
+        .send_out__rdy(guarded_output_ready), \
         .send_out__val(fu_send_out__val[slot]), \
         .send_to_ctrl_mem__msg(fu_send_to_ctrl_mem__msg[slot]), \
-        .send_to_ctrl_mem__rdy(send_to_ctrl_mem__rdy), \
+        .send_to_ctrl_mem__rdy(send_to_ctrl_mem__rdy && enabled), \
         .send_to_ctrl_mem__val(fu_send_to_ctrl_mem__val[slot]), \
-        .to_mem_raddr__msg(to_mem_raddr__msg[slot]), \
-        .to_mem_raddr__rdy(to_mem_raddr__rdy[slot]), \
-        .to_mem_raddr__val(to_mem_raddr__val[slot]), \
-        .to_mem_waddr__msg(to_mem_waddr__msg[slot]), \
-        .to_mem_waddr__rdy(to_mem_waddr__rdy[slot]), \
-        .to_mem_waddr__val(to_mem_waddr__val[slot]), \
-        .to_mem_wdata__msg(to_mem_wdata__msg[slot]), \
-        .to_mem_wdata__rdy(to_mem_wdata__rdy[slot]), \
-        .to_mem_wdata__val(to_mem_wdata__val[slot])
+        .to_mem_raddr__msg(raw_to_mem_raddr__msg[slot]), \
+        .to_mem_raddr__rdy(to_mem_raddr__rdy[slot] && enabled), \
+        .to_mem_raddr__val(raw_to_mem_raddr__val[slot]), \
+        .to_mem_waddr__msg(raw_to_mem_waddr__msg[slot]), \
+        .to_mem_waddr__rdy(to_mem_waddr__rdy[slot] && enabled), \
+        .to_mem_waddr__val(raw_to_mem_waddr__val[slot]), \
+        .to_mem_wdata__msg(raw_to_mem_wdata__msg[slot]), \
+        .to_mem_wdata__rdy(to_mem_wdata__rdy[slot] && enabled), \
+        .to_mem_wdata__val(raw_to_mem_wdata__val[slot])
     if(KIND==`CGRA_FU_ADDER) begin : kind_adder
       tile_adder #(`CGRA_PROFILE_BIND) fu (
         `CGRA_FU_SLOT_PORTS
@@ -206,37 +232,37 @@ module tile_flexible_fu_configurable #(
       );
     end
     else if(KIND==`CGRA_FU_LOOP_CONTROL) begin : kind_loop_control
-      scalar_loop_control #(`CGRA_PROFILE_BIND, .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER)) fu (
+      scalar_loop_control #(`CGRA_PROFILE_BIND, .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER), .LEGACY_PYTHON(ARITH_LEGACY_PYTHON)) fu (
         `CGRA_FU_SLOT_PORTS
       );
     end
     else if(KIND==`CGRA_FU_DIV) begin : kind_div
-      scalar_div #(`CGRA_PROFILE_BIND, .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER)) fu (
+      scalar_div #(`CGRA_PROFILE_BIND, .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER), .LEGACY_PYTHON(ARITH_LEGACY_PYTHON)) fu (
         `CGRA_FU_SLOT_PORTS
       );
     end
     else if(KIND==`CGRA_FU_INCLUSIVE_DIV) begin : kind_inclusive_div
-      scalar_inclusive_div #(`CGRA_PROFILE_BIND, .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER)) fu (
+      scalar_inclusive_div #(`CGRA_PROFILE_BIND, .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER), .LEGACY_PYTHON(ARITH_LEGACY_PYTHON)) fu (
         `CGRA_FU_SLOT_PORTS
       );
     end
     else if(KIND==`CGRA_FU_EXCLUSIVE_DIV) begin : kind_exclusive_div
-      scalar_exclusive_div #(`CGRA_PROFILE_BIND, .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER)) fu (
+      scalar_exclusive_div #(`CGRA_PROFILE_BIND, .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER), .LEGACY_PYTHON(ARITH_LEGACY_PYTHON)) fu (
         `CGRA_FU_SLOT_PORTS
       );
     end
     else if(KIND==`CGRA_FU_VECTOR_ADDER) begin : kind_vector_adder
-      tile_vector_adder_combo #(`CGRA_PROFILE_BIND, .LANES(VECTOR_LANES), .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER)) fu (
+      tile_vector_adder_combo #(`CGRA_PROFILE_BIND, .LANES(VECTOR_LANES), .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER), .LEGACY_PYTHON(VECTOR_LEGACY_PYTHON)) fu (
         `CGRA_FU_SLOT_PORTS
       );
     end
     else if(KIND==`CGRA_FU_VECTOR_MUL) begin : kind_vector_mul
-      tile_vector_mul_combo #(`CGRA_PROFILE_BIND, .LANES(VECTOR_LANES), .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER)) fu (
+      tile_vector_mul_combo #(`CGRA_PROFILE_BIND, .LANES(VECTOR_LANES), .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER), .LEGACY_PYTHON(VECTOR_LEGACY_PYTHON)) fu (
         `CGRA_FU_SLOT_PORTS
       );
     end
     else if(KIND==`CGRA_FU_VECTOR_REDUCE) begin : kind_vector_reduce
-      tile_vector_all_reduce #(`CGRA_PROFILE_BIND, .LANES(VECTOR_LANES), .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER)) fu (
+      tile_vector_all_reduce #(`CGRA_PROFILE_BIND, .LANES(VECTOR_LANES), .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER), .LEGACY_PYTHON(REDUCE_LEGACY_PYTHON)) fu (
         `CGRA_FU_SLOT_PORTS
       );
     end
@@ -266,7 +292,7 @@ module tile_flexible_fu_configurable #(
       );
     end
     else if(KIND==`CGRA_FU_ALU_GEN_MAC) begin : kind_alu_gen_mac
-      tile_alu_gen_mac #(`CGRA_PROFILE_BIND) fu (
+      tile_alu_gen_mac #(`CGRA_PROFILE_BIND, .LEGACY_PYTHON(ARITH_LEGACY_PYTHON)) fu (
         `CGRA_FU_SLOT_PORTS
       );
     end
@@ -284,8 +310,8 @@ module tile_flexible_fu_configurable #(
       tile_streaming_memory_fu #(`CGRA_PROFILE_BIND) fu (
         `CGRA_FU_SLOT_PORTS,
         .recv_from_controller_pkt__msg(recv_pkt_from_controller__msg),
-        .recv_from_controller_pkt__val(recv_pkt_from_controller__val),
-        .recv_from_controller_pkt__rdy(recv_pkt_from_controller__rdy)
+        .recv_from_controller_pkt__val(recv_pkt_from_controller__val && enabled),
+        .recv_from_controller_pkt__rdy(raw_packet_ready)
       );
     end
     else begin : invalid_kind
@@ -293,7 +319,7 @@ module tile_flexible_fu_configurable #(
     end
   end
   if(count_kind(`CGRA_FU_STREAMING_MEM)==0) begin : no_raw_packet_consumer
-    assign recv_pkt_from_controller__rdy=1'b0;
+    assign raw_packet_ready=1'b0;
   end
 endmodule
 `undef CGRA_FU_SLOT_PORTS

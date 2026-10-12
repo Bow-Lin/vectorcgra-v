@@ -41,8 +41,8 @@ module cgra_data_bank #(`CGRA_PROFILE_PARAMETERS) (
       response.remote_src_port = rd.remote_src_port;
     end
   end
-  // Like the baseline RegisterFile, writes are not gated by reset.
+  // RAM contents persist; native reset cancels a queued write before commit.
   always_ff @(posedge clk) begin
-    if (wr_val) memory[wr.addr[BANK_ADDR_W-1:0]] <= wr.data;
+    if (wr_val && (MEMORY_LEGACY_PYTHON || !reset)) memory[wr.addr[BANK_ADDR_W-1:0]] <= wr.data;
   end
 endmodule

@@ -1,0 +1,86 @@
+{
+  "parameters": {
+    "DATA_W": 64,
+    "SCRATCH_DEPTH": 32,
+    "preload_image": [
+      2147483651,
+      1099511627796,
+      2199023255589,
+      3298534883382,
+      4398046511175,
+      5497558138968,
+      6597069766761,
+      7698728878202,
+      8796093022347,
+      9895604650140,
+      10995116277933,
+      12094627905726,
+      13194139533519,
+      14293651161312,
+      15395310272753,
+      16492674416898,
+      17592186044691,
+      18691697672484,
+      19791209300277,
+      20890720928070,
+      21990232555863,
+      23091891667304,
+      24189255811449,
+      25288767439242,
+      26388279067035
+    ]
+  },
+  "cycles": 860,
+  "inputs": [
+    [
+      "reset",
+      1
+    ],
+    [
+      "recv_cmd_pkt__msg",
+      223
+    ],
+    [
+      "recv_cmd_pkt__val",
+      1
+    ],
+    [
+      "send_pkt__rdy",
+      1
+    ]
+  ],
+  "outputs": [
+    [
+      "recv_cmd_pkt__rdy",
+      1
+    ],
+    [
+      "send_pkt__msg",
+      223
+    ],
+    [
+      "send_pkt__val",
+      1
+    ],
+    [
+      "done",
+      1
+    ]
+  ],
+  "input_bits": 226,
+  "output_bits": 226,
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_sha256": {
+    "fu/others/Im2colEngineRTL.py": "ff4d262432bfb1ff502593087921a504835f5ba40bfb3b9c200d13ceb8ea13cb",
+    "fu/others/test/Im2colEngineRTL_test.py": "1cd1b0f4487e5244e6de9e07a55c66ade61cf476b85edf9d41c50983d1f97332",
+    "mem/data/DataMemRTL.py": "3c9343a560ffbf0e25923b31b06d7592e850b5f9a52f772db930ae2e163971c3",
+    "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf"
+  },
+  "generator_sha256": "44a16135eb822b194286a67091ba9c434d90e74636bbec038a1456e592a4fdd5",
+  "helper_sha256": "97b3471b7294d1cbec2e25fd454a500c557d417af44321ad6b44577f4786277b",
+  "vectors_sha256": "e6feeba18a16671196254b093241ab8961fcf28e5179ee9aa20e574e999e32b1",
+  "notes": [
+    "Original DONE is terminal until reset; geometry and scratch preload state survive reset.",
+    "Includes warm launch, stride, busy configuration, held outputs and reset during execution."
+  ]
+}

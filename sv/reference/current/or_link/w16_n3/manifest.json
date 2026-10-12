@@ -1,0 +1,22 @@
+{
+  "parameters": {
+    "DATA_W": 16,
+    "NUM_INPUTS": 3
+  },
+  "cycles": 320,
+  "input_bits": 62,
+  "output_bits": 23,
+  "reset_samples": 7,
+  "notes": [
+    "All input payloads and predicates are ORed regardless of their valid bits.",
+    "All-invalid output is zero; bypass/delay outputs zero; ready broadcasts even during reset."
+  ],
+  "source_sha256": {
+    "noc/OrLinkRTL.py": "5849649e4b347c23ee8fc53115dab612526566fb5263db0ce5f83c9f400e46a0",
+    "noc/test/OrLinkRTL_test.py": "9e74fc1db787f643862c76db9fba7dd29a91351e52fe328dc836f9a409215588",
+    "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf"
+  },
+  "generator_sha256": "234444ca100ba56a4b6dcd0e861104ef20f543773c4e4d48cce0916bb18b615a",
+  "vectors_sha256": "3fe090d796f7e13f12ce9031bf00a574b91f1fae89cfc105c42ce91561a89967",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019"
+}

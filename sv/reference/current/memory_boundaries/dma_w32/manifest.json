@@ -1,0 +1,138 @@
+{
+  "parameters": {
+    "DRAM_DATA_W": 32,
+    "SPM_DATA_W": 32
+  },
+  "cycles": 600,
+  "inputs": [
+    [
+      "reset",
+      1
+    ],
+    [
+      "dma_cmd__msg",
+      139
+    ],
+    [
+      "dma_cmd__val",
+      1
+    ],
+    [
+      "dma_done__rdy",
+      1
+    ],
+    [
+      "send_to_dram_rd_req__rdy",
+      1
+    ],
+    [
+      "recv_from_dram_rd_resp__msg",
+      32
+    ],
+    [
+      "recv_from_dram_rd_resp__val",
+      1
+    ],
+    [
+      "send_to_dram_wr_req__rdy",
+      1
+    ],
+    [
+      "recv_from_dram_wr_resp__msg",
+      1
+    ],
+    [
+      "recv_from_dram_wr_resp__val",
+      1
+    ],
+    [
+      "send_to_spm_wr_req__rdy",
+      1
+    ],
+    [
+      "send_to_spm_rd_req__rdy",
+      1
+    ],
+    [
+      "recv_from_spm_rd_resp__msg",
+      32
+    ],
+    [
+      "recv_from_spm_rd_resp__val",
+      1
+    ]
+  ],
+  "outputs": [
+    [
+      "dma_cmd__rdy",
+      1
+    ],
+    [
+      "dma_done__msg",
+      8
+    ],
+    [
+      "dma_done__val",
+      1
+    ],
+    [
+      "send_to_dram_rd_req__msg",
+      64
+    ],
+    [
+      "send_to_dram_rd_req__val",
+      1
+    ],
+    [
+      "recv_from_dram_rd_resp__rdy",
+      1
+    ],
+    [
+      "send_to_dram_wr_req__msg",
+      100
+    ],
+    [
+      "send_to_dram_wr_req__val",
+      1
+    ],
+    [
+      "recv_from_dram_wr_resp__rdy",
+      1
+    ],
+    [
+      "send_to_spm_wr_req__msg",
+      68
+    ],
+    [
+      "send_to_spm_wr_req__val",
+      1
+    ],
+    [
+      "send_to_spm_rd_req__msg",
+      32
+    ],
+    [
+      "send_to_spm_rd_req__val",
+      1
+    ],
+    [
+      "recv_from_spm_rd_resp__rdy",
+      1
+    ]
+  ],
+  "input_bits": 214,
+  "output_bits": 281,
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_sha256": {
+    "mem/dma/DmaEngineRTL.py": "135d48d548f5bc191166521f7d3ecae78a3491ff860e98b323798ad0a2b809bf",
+    "mem/dma/test/DmaEngineRTL_test.py": "adab75016d09a56ab14932dc4733fb27da94551d59992039b23997d0882c038c",
+    "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf"
+  },
+  "generator_sha256": "44a16135eb822b194286a67091ba9c434d90e74636bbec038a1456e592a4fdd5",
+  "helper_sha256": "97b3471b7294d1cbec2e25fd454a500c557d417af44321ad6b44577f4786277b",
+  "vectors_sha256": "4774f673beb4abc2a3c6925fece614ade1188a610565529c05d510c57d2b9117",
+  "notes": [
+    "Both models receive a reset clock before comparison; power-on FSM encoding is not a hardware contract. All subsequent raw outputs including invalid/reset are compared. Diagnostic stimuli include source truncation/underflow and unknown-opcode behavior.",
+    "Responses are synthetic raw-cycle stimuli, not a proof of a valid DMA memory transaction sequence. Independent native scoreboards check real transfers."
+  ]
+}

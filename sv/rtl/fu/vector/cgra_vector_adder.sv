@@ -36,7 +36,7 @@ module cgra_vector_adder #(
   localparam logic [6:0] OPT_SUB_CONST  = `CGRA_OPT_SUB_CONST;
   localparam logic [6:0] OPT_PAS  = `CGRA_OPT_PAS;
   localparam int bw_at_comb_logic = LANE_W;
-  // Only bit 0 was driven by ac96; high bits deliberately remain undriven.
+  // The source drives bit zero only; make its simulated zero extension explicit.
   logic [LANE_W:0] carry_in_temp;
   logic [2:0] in0;
   logic [1:0] in0_idx;
@@ -56,7 +56,7 @@ module cgra_vector_adder #(
     end
     recv_const__rdy = 1'd0;
     recv_opt__rdy = 1'd0;
-    carry_in_temp[0] = carry_in & combine_adder;
+    carry_in_temp = {{LANE_W{1'b0}},(carry_in & combine_adder)};
     if ( recv_opt__val ) begin
       if ( p_recv_opt__msg.fu_in[2'd0] != 3'd0 ) begin
         in0 = p_recv_opt__msg.fu_in[2'd0] - 3'd1;

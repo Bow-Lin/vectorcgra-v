@@ -1,0 +1,964 @@
+{
+  "schema": 1,
+  "status": "passed_for_stated_acceptance_scope",
+  "base_commit": "aa5b0e9e889e8af6211441012d1791f6f01c9f0b",
+  "completed_implementation_commits": [
+    {
+      "task": 1,
+      "commit": "746fd788070511b728a4ce485d97decced437a73",
+      "subject": "Add standalone multiport data memory with atomic writes and stable reads"
+    },
+    {
+      "task": 2,
+      "commit": "e1e7d8ea24ed2978219cf338b36f9418e06a0421",
+      "subject": "Add scalable data-memory wrapper with the original inactive NoC interface"
+    },
+    {
+      "task": 3,
+      "commit": "15568912158f8bcf96477d97af38c4238f69cb75",
+      "subject": "Add parameterized N-input OR link with explicit message semantics"
+    },
+    {
+      "task": 4,
+      "commit": "9b68ef9dcd9f48789996aa17c31b8f0278910c32",
+      "subject": "Add standalone selector and isolate ready from unselected inputs"
+    },
+    {
+      "task": 5,
+      "commit": "b78dc78b3f01899e2c7c8d5d535b6c56936a2598",
+      "subject": "Implement standalone pipe queue with full-cycle replacement and reset gating"
+    },
+    {
+      "task": 6,
+      "commit": "c75439b21bc1d6d59eed4a059497cccfb228a5cc",
+      "subject": "Fix vector reduction transactions and route global multiply requests"
+    },
+    {
+      "task": 7,
+      "commit": "822c9387903d69af195b8871412822b738dcc441",
+      "subject": "Fix combined vector constant carry and reject unsupported multiplier lanes"
+    },
+    {
+      "task": 8,
+      "commit": "af6432c78ca0e43218574483afe05935d0064fea",
+      "subject": "Fix loop dispatch stability and counted parent completions"
+    },
+    {
+      "task": 9,
+      "commit": "43086d11ce5ea9a4aacd7b9b64ead9d0f4992f58",
+      "subject": "Fix divider transactions, signed MAC comparisons, and FU reset isolation"
+    },
+    {
+      "task": 10,
+      "commit": "c184af2f1a902f3b42f133d03e3357d3edf3aa89",
+      "subject": "Fix memory write pairing and peripheral restart boundaries"
+    },
+    {
+      "task": 11,
+      "commit": "207dc2d86eecaf887cd7a817bf903600572d5365",
+      "subject": "Share PE interfaces and forward floating-point compatibility settings"
+    },
+    {
+      "task": 12,
+      "commit": "0a2625ab8016d955b5729741aa4e630eeefe10f6",
+      "subject": "Hold stalled NoC packets and normalize ring virtual-channel injection"
+    },
+    {
+      "task": 13,
+      "commit": "6970deeb0b29626cc54571cb41af78c4d2c4e0c8",
+      "subject": "Add standalone architecture configuration and reject mismatched PE memory units"
+    },
+    {
+      "task": 14,
+      "commit": "3ec6adb36cf6c9a676c6ec5d9b555d33fbf5b57d",
+      "subject": "Add standalone program packing and completion barriers"
+    },
+    {
+      "task": 15,
+      "commit": "34a6027bcd89c33a34aaf2606e070abd47c8fd2e",
+      "subject": "Audit complete Python migration coverage and add legacy register-file interface"
+    },
+    {
+      "task": 16,
+      "commit": "3e09c11a7627df2ac47c08871323090e92c13f6b",
+      "subject": "Fix predicated store retirement and verify kernel completion ordering"
+    },
+    {
+      "task": 17,
+      "commit": "57c370fdf2c50a53cefeba71b30f54face059b69",
+      "subject": "Drive disabled controller ports and verify complete system netlists"
+    },
+    {
+      "task": 18,
+      "commit": "4be92fdac5a20fe1d381f2c2e41a3ed24e213bfb",
+      "subject": "Unify native regression and pin verified HDL toolchains"
+    },
+    {
+      "task": 19,
+      "commit": "aa5b0e9e889e8af6211441012d1791f6f01c9f0b",
+      "subject": "Export and verify a standalone SystemVerilog project"
+    }
+  ],
+  "documentation_task": 20,
+  "implementation_ci_scope": {
+    "commit": "4be92fdac5a20fe1d381f2c2e41a3ed24e213bfb",
+    "native_rtl_filelists_tools_and_hardware_tests_unchanged_to_base": true,
+    "intervening_packaging_changes": [
+      ".github/workflows/native-sv.yml",
+      "sv/CURRENT_MIGRATION.md",
+      "sv/DEPENDENCIES.md",
+      "sv/MIGRATION_TASKS.md",
+      "sv/STANDALONE.md",
+      "sv/licenses/dependencies.json",
+      "sv/reference/current/standalone/validation.json",
+      "sv/scripts/check_standalone.sh",
+      "sv/scripts/export_standalone.py",
+      "sv/scripts/prepare_baseline.py",
+      "sv/scripts/run_baseline.sh",
+      "sv/scripts/verify_bundle.py",
+      "sv/tests/scripts/test_standalone.py"
+    ],
+    "changed_baseline_helper_and_export_verified_separately_at_base": true
+  },
+  "scope": "Documentation and evidence closeout only; no RTL, test or build-input changes from the base commit.",
+  "python_target": {
+    "schema": 1,
+    "original_migration_baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+    "python_target_commit": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+    "python_source_origin_commit": "e3caf6928a4e8c97e6be36574af2520ec92083b9",
+    "original_sv_import_commit": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+    "policy": "Current native RTL targets this frozen Python source. Historical ac96 references remain read-only. Known Python defects and intentional corrections require separate expectations."
+  },
+  "source_integrity": {
+    "original_python_files_unchanged": 274,
+    "original_project_yaml_files_unchanged": 17,
+    "reference_snapshot_commit": "0772a8e8ee8baf75317ab0dc0dab8079a1752fff",
+    "preexisting_reference_files_unchanged": 630,
+    "runtime_inputs_unchanged_from_clean_container_test": 490,
+    "runtime_input_map_sha256": "ad7fa41e48e3245c3cfc17208eb266aa0abd1ddaea38a82581628801704ce9e3",
+    "runtime_input_map": "sv/reference/current/standalone/validation.json#runtime_input_sha256"
+  },
+  "evidence_sha256": {
+    "sv/reference/current/arithmetic_boundaries/validation.json": "c35aa9dda3f2789712905095187aee9c4d590caedda158092c490e44cf1c3143",
+    "sv/reference/current/config_tools/validation.json": "da6f46f71ce863144158597ce38fb60ef9c2c562c025da9f5ea3a1fa712a9fd6",
+    "sv/reference/current/data_memory/validation.json": "30d51f63935af5697a3294eb283abdf5eaaa3950757b20ddade362543d9f3e0d",
+    "sv/reference/current/data_memory_scalable/validation.json": "046d66cbaa896f017f77fa00a6ed16342f1be630ac790d040bf39096e5a190d4",
+    "sv/reference/current/inventory/reg_file_validation.json": "8f87c822ed457dd550fa9acbe3a0b3f0efeea7e962c90b9bbf2e901133bc9289",
+    "sv/reference/current/kernel_boundaries/validation.json": "24ca53730b089d1930751db03c6e9eb694396c7d03c5f0d17a6cc8e8883165a1",
+    "sv/reference/current/loop_controller/validation.json": "87871fff6c95ad3147536ff28ca784fe61dbd31d303d8aadea7ab13584934598",
+    "sv/reference/current/loop_controller_semantics/validation.json": "9859e10ed5885555f1e8ae73f84c3b9609e3fec8bf1bd57410a39799dda202f1",
+    "sv/reference/current/memory_boundaries/validation.json": "9e570afcbcb37228d5ba02c357e2b3c25494ff2fe85281fda4a3f7e3e7471d49",
+    "sv/reference/current/migration/dynamic_fir/validation.json": "369676446d855e857ce98d364d5e25032100c7b86a399a4acaca586000c137c8",
+    "sv/reference/current/migration/global_add/validation.json": "122aa2013e60862777159040f6c4c9a8fc3a6efe7b1114d82694915c3987e002",
+    "sv/reference/current/noc_handshakes/validation.json": "125db97db342377f187da7798426661479d6c365014d79fdb486223cc2572b4a",
+    "sv/reference/current/or_link/validation.json": "562651d3dea6498d3c4928161b64acb1c1e4a9bfce3026f9c4170098256dfcdb",
+    "sv/reference/current/pe_interfaces/validation.json": "054d4de3bef739b3664624d58846748284d94d1e72b3011b1cf94cef9991de48",
+    "sv/reference/current/pipe_queue/validation.json": "4538b7879cd0f0c06b9886ca87dcb96d4194517129ee05bb855e492a79ae3ba7",
+    "sv/reference/current/program_tools/validation.json": "4504fcd7ab95abd07d533ef16776ea4ed2547dff7ad527430912fc3d119cce7c",
+    "sv/reference/current/regression/validation.json": "27e5a35caf2ab00bd250624a24a11f8fdc338cf492d9a1f7cb5bee6c3d1128de",
+    "sv/reference/current/ring_ctrl_memory/validation.json": "4cb52fc9182cce54d92e66e7fe946cba0622a188111fc25eb65726c66a22ab60",
+    "sv/reference/current/selector/validation.json": "0d7e51bae8e6e1c534e861f8d501629827e833878bb2eceb5c34db10db0db861",
+    "sv/reference/current/standalone/validation.json": "0ca1b72f06037270d1128391e07e93488989071617b6f1011d6b1f04a1ed11b2",
+    "sv/reference/current/static_memory/validation.json": "13fafc869ac5cdff306189eab75a9808b5d838946a0824501d4ebde905b36630",
+    "sv/reference/current/structure/validation.json": "0d29307041a37a828d055298f827bcc20c77bf94246e499b8ca1e6da57ba1a47",
+    "sv/reference/current/system_acceptance/validation.json": "33aa6e0549db8766f2ae4582de3611183b27afb90a941e207c279d20c1533858",
+    "sv/reference/current/validation.json": "265b2268e29766111dcf99208f2ab89522af54e769586ce45cfe775ff5077a2f",
+    "sv/reference/current/vector_arithmetic/validation.json": "9cdf842a58d5f3bb3bebb62df8a0bdb7562d187bd0cec55d989880114f169ee8",
+    "sv/reference/current/vector_reduce/validation.json": "ef651dee9f5457d918a30ab5a3e8af1cd6ab9ba5621c537d329893c4e9632f0a"
+  },
+  "clean_committed_export": {
+    "status": "passed",
+    "commit": "aa5b0e9e889e8af6211441012d1791f6f01c9f0b",
+    "dirty_source": false,
+    "files": 1576,
+    "bytes": 50187855,
+    "sha256": "6a4f9a73551b4b65b1530801f4e9cba5d64b487040efc729bd3a4cc643d6f15d",
+    "repeated_export_identical": true,
+    "runtime_inputs_identical_to_clean_container_test": 490
+  },
+  "documentation_preview_export": {
+    "status": "passed",
+    "scope": "Documentation preview export integrity; no hardware simulation rerun",
+    "archive_sha256": "60382792284e00bc85bc01b23844cd995719e3030395432d048506a4a1ee7c77",
+    "dirty_source": true,
+    "payload_files": 1579,
+    "runtime_inputs_identical": 490
+  },
+  "additional_clean_control_profile": {
+    "status": "passed",
+    "scope": "One static CtrlMem RTL profile only; does not replace the full remote control group",
+    "profile": {
+      "ctrl_bits": 119,
+      "depth": 4,
+      "count_per_iter": 4,
+      "total_steps": 9
+    },
+    "compiler": "GCC 13.3.0 in Ubuntu 24.04",
+    "verilator": "5.029",
+    "clean_package": true,
+    "network": "none",
+    "native_checks": 108,
+    "native_accepted": 9,
+    "legacy_samples": 222,
+    "negative_controls": 5,
+    "native_defect_fix_checks": [
+      "budget",
+      "reset",
+      "unpaired"
+    ],
+    "source_archive_sha256": "60382792284e00bc85bc01b23844cd995719e3030395432d048506a4a1ee7c77",
+    "log_sha256": {
+      "sv/build/current/static-memory/rtl/ctrl_default/legacy0/compile.log": "c297f3f2c0a1e53a882d9f630bfcfa54a308261120007b78cefddeecb88e560e",
+      "sv/build/current/static-memory/rtl/ctrl_default/legacy0/defect-budget.log": "5c445b7fa6de29e9b868e7ae07191b53906b68f01d523f9ae0ec917ae30cc81f",
+      "sv/build/current/static-memory/rtl/ctrl_default/legacy0/defect-reset.log": "beecb09eef297d1339e73efce6864f788055ce971100d0b92b0abb1d78844f99",
+      "sv/build/current/static-memory/rtl/ctrl_default/legacy0/defect-unpaired.log": "370027c547697041217a1cd1100afe983e714e7b999646cebeb5e384a082e86b",
+      "sv/build/current/static-memory/rtl/ctrl_default/legacy0/negative.log": "9674caceba989eb3717f61decd19b845064d2b90963eceb4abca01eac1441be7",
+      "sv/build/current/static-memory/rtl/ctrl_default/legacy0/run.log": "87970f9802a961b6cff0859b75d0f4a8b6987908f562fcdde47b86a21e77623a",
+      "sv/build/current/static-memory/rtl/ctrl_default/legacy1/compile.log": "a2dbc8dbf3d57fe1ab4c066bc3d11a18a1213e352c3e7c70d7982789495f0363",
+      "sv/build/current/static-memory/rtl/ctrl_default/legacy1/defect-budget.log": "bd9884310208b26314ece5931f2cb6e06ea78ecc36504bb460aa2394f6f3a517",
+      "sv/build/current/static-memory/rtl/ctrl_default/legacy1/defect-reset.log": "5805f966247980b2104241da97ce1f6422cfe0e6556da80a6d04a8de4f014ec6",
+      "sv/build/current/static-memory/rtl/ctrl_default/legacy1/defect-unpaired.log": "e782e043f7c96e2a09f121da7546e81842f1cb8b08b18c7b6d2ef8ac0118b68d",
+      "sv/build/current/static-memory/rtl/ctrl_default/legacy1/negative.log": "390aa82391ced8f1a0aa4cb01fa896b0580a4ae146cd2c6a92dc68d2e0c5f273",
+      "sv/build/current/static-memory/rtl/ctrl_default/legacy1/run.log": "011928adcb1473ca7c8cae449ff40cc27950b09cac583bef7cc7d0dfc84379be"
+    },
+    "setup_note": "An initial attempt reused working-tree build outputs and failed on their old absolute Verilator include path before simulation. The successful retry used a fresh unpacked package without build outputs."
+  },
+  "additional_current_ring_netlist_profile": {
+    "status": "passed",
+    "scope": "Current original-profile four-node control-ring netlists in native and compatibility modes; other profiles remain the full CI group scope",
+    "compiler": "GCC 13.3.0",
+    "tools": {
+      "verilator": "5.029",
+      "yosys": "0.45+139",
+      "sv2v": "0.0.13"
+    },
+    "source_archive_sha256": "60382792284e00bc85bc01b23844cd995719e3030395432d048506a4a1ee7c77",
+    "clean_external_tools": true,
+    "network": "none",
+    "positive_runs": 3,
+    "negative_runs": 4,
+    "runs": [
+      {
+        "legacy": 0,
+        "markers": [
+          "RING_CTRL_NATIVE_PASS tiles=4 ctrl_bits=69 packet_bits=123 cycles=900 checks=1721 input_stalls=113 output_stalls=163 loopbacks=20"
+        ],
+        "netlist_sha256": "eb24e4831bad70f398faecdca4135b11d4023286ec549bf40a8170730c0d611e",
+        "reread_scc": 0,
+        "verilator_compile_wall_seconds": 171.034,
+        "log_sha256": {
+          "sv/build/current/ring-ctrl-memory/synth/original/legacy0/compile.log": "6b2b50816b36f61ae9848412f6ca70499ec154f014fdc62475628ed0eb85577a",
+          "sv/build/current/ring-ctrl-memory/synth/original/legacy0/negative.log": "2962843a7d059469e7d024987c6ebce522200c75359654d375f76c514fb67b98",
+          "sv/build/current/ring-ctrl-memory/synth/original/legacy0/run.log": "6be4f6b211c4af47e43f98f62baaf39bdad64b5cc82629632de2700cd94a3242",
+          "sv/build/current/ring-ctrl-memory/synth/original/legacy0/scc.log": "256fe2f80489a6cfc38766a03f790034522f6bb9710891db38a68a80799878b3",
+          "sv/build/current/ring-ctrl-memory/synth/original/legacy0/yosys.log": "1b7969fc325080ec6e3880ca1551b651394ea4cad746631d6ee9aa3d7a046de5"
+        }
+      },
+      {
+        "legacy": 1,
+        "markers": [
+          "RING_CTRL_REPLAY_PASS samples=467 output_bits=405",
+          "RING_CTRL_REPLAY_PASS samples=26 output_bits=405"
+        ],
+        "netlist_sha256": "83a5591ef05200be021790721cfb207b3550ced0b6eec20987fb575541608d44",
+        "reread_scc": 0,
+        "verilator_compile_wall_seconds": 165.775,
+        "log_sha256": {
+          "sv/build/current/ring-ctrl-memory/synth/original/legacy1/compile.log": "72d98e87df215761484c85bad585533cd82ff970c3a1d0fdbe3c20939b1d5732",
+          "sv/build/current/ring-ctrl-memory/synth/original/legacy1/dummy-defect.log": "2048d0e0af51bb559078decb59d4ba8110f9a761181b9a499fe2b12e3a13b485",
+          "sv/build/current/ring-ctrl-memory/synth/original/legacy1/negative.log": "11db544bfc2abe606d99716d0fbf64d8c7cd87bf1663d2942047d91a444c6f71",
+          "sv/build/current/ring-ctrl-memory/synth/original/legacy1/original-negative.log": "987a4e3485bd9d1b0b15e4f79a13cbaeebf0a6a686471d0f076cc687eae54df1",
+          "sv/build/current/ring-ctrl-memory/synth/original/legacy1/original-test.log": "66a343dbffe87b65f1fd47fcfafc088f5278939f847d0869662ae9a763896d48",
+          "sv/build/current/ring-ctrl-memory/synth/original/legacy1/run.log": "4e9c6df02104af0f9399d1a334ded64f2d33e4d7f245610065969b58eb7c2fd5",
+          "sv/build/current/ring-ctrl-memory/synth/original/legacy1/scc.log": "c197153fbea7bc9f3f2a67702c92947b1f841f02e1577bdec736da9d6ed0467b",
+          "sv/build/current/ring-ctrl-memory/synth/original/legacy1/yosys.log": "804a5a4b754fa8dd3fd9bbbde6987a06c4e8be8b40c341c255cc7409f0abe7e2"
+        }
+      }
+    ]
+  },
+  "local_documentation_checks": {
+    "original_source_inventory": "passed: 274 files, 1576 symbols, 99 original + 4 native opcodes, 59 commands",
+    "regression_catalog": "passed: 14 groups, 48 targets",
+    "script_unit_tests": "passed: 8 tests",
+    "local_links": {
+      "status": "passed",
+      "documents": [
+        "AGENTS.md",
+        "README.md",
+        "sv/CURRENT_MIGRATION.md",
+        "sv/CURRENT_MIGRATION_HISTORY.md",
+        "sv/FINAL_ACCEPTANCE.md",
+        "sv/MIGRATION_PLAN.md",
+        "sv/MIGRATION_PROGRESS.md",
+        "sv/MIGRATION_TASKS.md",
+        "sv/README.md",
+        "sv/REGRESSION.md",
+        "sv/STANDALONE.md",
+        "sv/migration_tools/README.md",
+        "sv/scripts/README.md",
+        "sv/tests/README.md"
+      ],
+      "local_link_count": 119,
+      "scope": "Relative local link destinations; external URLs and heading anchors not checked."
+    },
+    "whitespace_check": "passed: git -c core.whitespace=cr-at-eol diff --check"
+  },
+  "remote_ci": {
+    "observed_at": "2026-10-10 18:24:08 UTC",
+    "completed_native_run": {
+      "id": 38067845563,
+      "head_sha": "4be92fdac5a20fe1d381f2c2e41a3ed24e213bfb",
+      "status": "completed",
+      "conclusion": "success",
+      "updated_at": "2026-10-10T18:22:22Z",
+      "html_url": "https://github.com/Bow-Lin/vectorcgra-v/actions/runs/38067845563"
+    },
+    "runs": [
+      {
+        "run_id": 38067845563,
+        "url": "https://github.com/Bow-Lin/vectorcgra-v/actions/runs/38067845563",
+        "jobs": [
+          {
+            "id": 114259033709,
+            "name": "catalog",
+            "head_sha": "4be92fdac5a20fe1d381f2c2e41a3ed24e213bfb",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:29:10Z",
+            "completed_at": "2026-10-10T16:29:17Z"
+          },
+          {
+            "id": 114259064959,
+            "name": "native (vectors)",
+            "head_sha": "4be92fdac5a20fe1d381f2c2e41a3ed24e213bfb",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:29:20Z",
+            "completed_at": "2026-10-10T16:45:28Z"
+          },
+          {
+            "id": 114259064976,
+            "name": "native (pe)",
+            "head_sha": "4be92fdac5a20fe1d381f2c2e41a3ed24e213bfb",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:29:20Z",
+            "completed_at": "2026-10-10T16:44:17Z"
+          },
+          {
+            "id": 114259064982,
+            "name": "native (control)",
+            "head_sha": "4be92fdac5a20fe1d381f2c2e41a3ed24e213bfb",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:29:20Z",
+            "completed_at": "2026-10-10T18:22:21Z"
+          },
+          {
+            "id": 114259064985,
+            "name": "native (raw-kernels)",
+            "head_sha": "4be92fdac5a20fe1d381f2c2e41a3ed24e213bfb",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:29:20Z",
+            "completed_at": "2026-10-10T16:35:49Z"
+          },
+          {
+            "id": 114259064996,
+            "name": "native (baseline)",
+            "head_sha": "4be92fdac5a20fe1d381f2c2e41a3ed24e213bfb",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:29:20Z",
+            "completed_at": "2026-10-10T16:34:49Z"
+          },
+          {
+            "id": 114259065012,
+            "name": "native (apis)",
+            "head_sha": "4be92fdac5a20fe1d381f2c2e41a3ed24e213bfb",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:29:21Z",
+            "completed_at": "2026-10-10T16:47:33Z"
+          },
+          {
+            "id": 114259065017,
+            "name": "native (memory)",
+            "head_sha": "4be92fdac5a20fe1d381f2c2e41a3ed24e213bfb",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:29:20Z",
+            "completed_at": "2026-10-10T17:06:50Z"
+          },
+          {
+            "id": 114259065022,
+            "name": "native (core)",
+            "head_sha": "4be92fdac5a20fe1d381f2c2e41a3ed24e213bfb",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:29:20Z",
+            "completed_at": "2026-10-10T16:48:28Z"
+          },
+          {
+            "id": 114259065028,
+            "name": "native (tools)",
+            "head_sha": "4be92fdac5a20fe1d381f2c2e41a3ed24e213bfb",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:29:20Z",
+            "completed_at": "2026-10-10T16:38:58Z"
+          },
+          {
+            "id": 114259065035,
+            "name": "native (noc)",
+            "head_sha": "4be92fdac5a20fe1d381f2c2e41a3ed24e213bfb",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:29:20Z",
+            "completed_at": "2026-10-10T16:54:30Z"
+          },
+          {
+            "id": 114259065050,
+            "name": "native (arithmetic)",
+            "head_sha": "4be92fdac5a20fe1d381f2c2e41a3ed24e213bfb",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:29:20Z",
+            "completed_at": "2026-10-10T17:12:44Z"
+          },
+          {
+            "id": 114259065065,
+            "name": "native (systems)",
+            "head_sha": "4be92fdac5a20fe1d381f2c2e41a3ed24e213bfb",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:29:20Z",
+            "completed_at": "2026-10-10T16:58:38Z"
+          },
+          {
+            "id": 114259065091,
+            "name": "native (migration)",
+            "head_sha": "4be92fdac5a20fe1d381f2c2e41a3ed24e213bfb",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:29:20Z",
+            "completed_at": "2026-10-10T16:32:22Z"
+          },
+          {
+            "id": 114259065584,
+            "name": "native (native-kernels)",
+            "head_sha": "4be92fdac5a20fe1d381f2c2e41a3ed24e213bfb",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:29:20Z",
+            "completed_at": "2026-10-10T16:52:55Z"
+          }
+        ]
+      },
+      {
+        "run_id": 38069896320,
+        "url": "https://github.com/Bow-Lin/vectorcgra-v/actions/runs/38069896320",
+        "jobs": [
+          {
+            "id": 114265001936,
+            "name": "catalog",
+            "head_sha": "aa5b0e9e889e8af6211441012d1791f6f01c9f0b",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:59:38Z",
+            "completed_at": "2026-10-10T16:59:44Z"
+          },
+          {
+            "id": 114265029569,
+            "name": "standalone",
+            "head_sha": "aa5b0e9e889e8af6211441012d1791f6f01c9f0b",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:59:47Z",
+            "completed_at": "2026-10-10T17:22:35Z"
+          },
+          {
+            "id": 114265029785,
+            "name": "native (noc)",
+            "head_sha": "aa5b0e9e889e8af6211441012d1791f6f01c9f0b",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:59:47Z",
+            "completed_at": "2026-10-10T17:28:46Z"
+          },
+          {
+            "id": 114265029792,
+            "name": "native (core)",
+            "head_sha": "aa5b0e9e889e8af6211441012d1791f6f01c9f0b",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:59:47Z",
+            "completed_at": "2026-10-10T17:19:17Z"
+          },
+          {
+            "id": 114265029793,
+            "name": "native (native-kernels)",
+            "head_sha": "aa5b0e9e889e8af6211441012d1791f6f01c9f0b",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:59:47Z",
+            "completed_at": "2026-10-10T17:22:38Z"
+          },
+          {
+            "id": 114265029814,
+            "name": "native (memory)",
+            "head_sha": "aa5b0e9e889e8af6211441012d1791f6f01c9f0b",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:59:47Z",
+            "completed_at": "2026-10-10T17:38:06Z"
+          },
+          {
+            "id": 114265029818,
+            "name": "native (control)",
+            "head_sha": "aa5b0e9e889e8af6211441012d1791f6f01c9f0b",
+            "status": "in_progress",
+            "conclusion": null,
+            "started_at": "2026-10-10T16:59:47Z",
+            "completed_at": null
+          },
+          {
+            "id": 114265029820,
+            "name": "native (raw-kernels)",
+            "head_sha": "aa5b0e9e889e8af6211441012d1791f6f01c9f0b",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:59:47Z",
+            "completed_at": "2026-10-10T17:05:43Z"
+          },
+          {
+            "id": 114265029846,
+            "name": "native (migration)",
+            "head_sha": "aa5b0e9e889e8af6211441012d1791f6f01c9f0b",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:59:47Z",
+            "completed_at": "2026-10-10T17:03:00Z"
+          },
+          {
+            "id": 114265029851,
+            "name": "native (arithmetic)",
+            "head_sha": "aa5b0e9e889e8af6211441012d1791f6f01c9f0b",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:59:47Z",
+            "completed_at": "2026-10-10T17:44:29Z"
+          },
+          {
+            "id": 114265029857,
+            "name": "native (apis)",
+            "head_sha": "aa5b0e9e889e8af6211441012d1791f6f01c9f0b",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:59:47Z",
+            "completed_at": "2026-10-10T17:14:57Z"
+          },
+          {
+            "id": 114265029885,
+            "name": "native (systems)",
+            "head_sha": "aa5b0e9e889e8af6211441012d1791f6f01c9f0b",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:59:47Z",
+            "completed_at": "2026-10-10T17:40:09Z"
+          },
+          {
+            "id": 114265029905,
+            "name": "native (pe)",
+            "head_sha": "aa5b0e9e889e8af6211441012d1791f6f01c9f0b",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:59:47Z",
+            "completed_at": "2026-10-10T17:14:43Z"
+          },
+          {
+            "id": 114265029914,
+            "name": "native (vectors)",
+            "head_sha": "aa5b0e9e889e8af6211441012d1791f6f01c9f0b",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:59:47Z",
+            "completed_at": "2026-10-10T17:14:58Z"
+          },
+          {
+            "id": 114265029931,
+            "name": "native (baseline)",
+            "head_sha": "aa5b0e9e889e8af6211441012d1791f6f01c9f0b",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:59:47Z",
+            "completed_at": "2026-10-10T17:05:04Z"
+          },
+          {
+            "id": 114265030074,
+            "name": "native (tools)",
+            "head_sha": "aa5b0e9e889e8af6211441012d1791f6f01c9f0b",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-10T16:59:47Z",
+            "completed_at": "2026-10-10T17:11:16Z"
+          }
+        ]
+      }
+    ],
+    "run_38067845563_verified_targets": [
+      {
+        "job_id": 114259064959,
+        "name": "native (vectors)",
+        "conclusion": "success",
+        "steps": [
+          "current-vector-reduce",
+          "current-vector-reduce-synth",
+          "native-global-reduce",
+          "current-vector-arithmetic",
+          "current-vector-arithmetic-synth"
+        ],
+        "summary": [
+          {
+            "shard": "vectors",
+            "targets": 5
+          }
+        ]
+      },
+      {
+        "job_id": 114259064976,
+        "name": "native (pe)",
+        "conclusion": "success",
+        "steps": [
+          "current-pe-interfaces",
+          "current-pe-interfaces-synth"
+        ],
+        "summary": [
+          {
+            "shard": "pe",
+            "targets": 2
+          }
+        ]
+      },
+      {
+        "job_id": 114259064985,
+        "name": "native (raw-kernels)",
+        "conclusion": "success",
+        "steps": [
+          "current-kernels",
+          "current-prefixes"
+        ],
+        "summary": [
+          {
+            "shard": "raw-kernels",
+            "targets": 2
+          }
+        ]
+      },
+      {
+        "job_id": 114259064996,
+        "name": "native (baseline)",
+        "conclusion": "success",
+        "steps": [
+          "baseline"
+        ],
+        "summary": [
+          {
+            "shard": "baseline",
+            "targets": 1
+          }
+        ]
+      },
+      {
+        "job_id": 114259065012,
+        "name": "native (apis)",
+        "conclusion": "success",
+        "steps": [
+          "current-data-memory",
+          "current-data-memory-synth",
+          "current-scalable-memory",
+          "current-scalable-memory-synth",
+          "current-or-link",
+          "current-or-link-synth",
+          "current-selector",
+          "current-selector-synth",
+          "current-pipe-queue",
+          "current-pipe-queue-synth",
+          "current-reg-file",
+          "current-reg-file-synth"
+        ],
+        "summary": [
+          {
+            "shard": "apis",
+            "targets": 12
+          }
+        ]
+      },
+      {
+        "job_id": 114259065022,
+        "name": "native (core)",
+        "conclusion": "success",
+        "steps": [
+          "current",
+          "current-synth",
+          "current-post-synth"
+        ],
+        "summary": [
+          {
+            "shard": "core",
+            "targets": 3
+          }
+        ]
+      },
+      {
+        "job_id": 114259065028,
+        "name": "native (tools)",
+        "conclusion": "success",
+        "steps": [
+          "config-tools",
+          "program-tools"
+        ],
+        "summary": [
+          {
+            "shard": "tools",
+            "targets": 2
+          }
+        ]
+      },
+      {
+        "job_id": 114259065035,
+        "name": "native (noc)",
+        "conclusion": "success",
+        "steps": [
+          "current-noc-handshakes",
+          "current-noc-handshakes-synth"
+        ],
+        "summary": [
+          {
+            "shard": "noc",
+            "targets": 2
+          }
+        ]
+      },
+      {
+        "job_id": 114259065065,
+        "name": "native (systems)",
+        "conclusion": "success",
+        "steps": [
+          "native-multi",
+          "native-template",
+          "current-system-synth"
+        ],
+        "summary": [
+          {
+            "shard": "systems",
+            "targets": 3
+          }
+        ]
+      },
+      {
+        "job_id": 114259065091,
+        "name": "native (migration)",
+        "conclusion": "success",
+        "steps": [
+          "current-migration"
+        ],
+        "summary": [
+          {
+            "shard": "migration",
+            "targets": 1
+          }
+        ]
+      },
+      {
+        "job_id": 114259065584,
+        "name": "native (native-kernels)",
+        "conclusion": "success",
+        "steps": [
+          "native-kernels",
+          "native-kernel-boundaries",
+          "current-predicated-store",
+          "current-predicated-store-synth"
+        ],
+        "summary": [
+          {
+            "shard": "native-kernels",
+            "targets": 4
+          }
+        ]
+      },
+      {
+        "job_id": 114259065017,
+        "name": "native (memory)",
+        "conclusion": "success",
+        "steps": [
+          "current-memory-boundaries",
+          "current-memory-boundaries-synth"
+        ],
+        "summary": [
+          {
+            "shard": "memory",
+            "targets": 2
+          }
+        ]
+      },
+      {
+        "job_id": 114259065050,
+        "name": "native (arithmetic)",
+        "conclusion": "success",
+        "steps": [
+          "current-arithmetic-boundaries",
+          "current-arithmetic-boundaries-synth",
+          "native-math"
+        ],
+        "summary": [
+          {
+            "shard": "arithmetic",
+            "targets": 3
+          }
+        ]
+      },
+      {
+        "job_id": 114259064982,
+        "name": "native (control)",
+        "conclusion": "success",
+        "steps": [
+          "current-loop-controller",
+          "current-loop-controller-synth",
+          "current-static-memory",
+          "current-static-memory-synth",
+          "current-ring-ctrl-memory",
+          "current-ring-ctrl-memory-synth"
+        ],
+        "summary": [
+          {
+            "shard": "control",
+            "targets": 6
+          }
+        ]
+      }
+    ],
+    "standalone_committed_export": {
+      "job_id": 114265029569,
+      "commit": "aa5b0e9e889e8af6211441012d1791f6f01c9f0b",
+      "conclusion": "success",
+      "archive_entries": 1577,
+      "archive_bytes": 50187855,
+      "archive_sha256": "6a4f9a73551b4b65b1530801f4e9cba5d64b487040efc729bd3a4cc643d6f15d",
+      "dirty_source": false,
+      "identical_to_local_clean_export": true,
+      "artifact_id": 11676289511,
+      "artifact_digest": "sha256:842aaaace54c47ba6dcc9093982357e1404042a0aad6b1d7ff19fa8431790db9",
+      "artifact_bytes": 50492219,
+      "artifact_url": "https://github.com/Bow-Lin/vectorcgra-v/actions/runs/38069896320/artifacts/11676289511"
+    },
+    "artifacts_38067845563": [
+      {
+        "id": 11677289842,
+        "name": "native-sv-control",
+        "size_in_bytes": 5661153,
+        "expired": false,
+        "digest": "sha256:2cf5307c07fa8f3b1caeccd40a4f33e3004a0bba531b9b16597ed7652b9b590f"
+      },
+      {
+        "id": 11677086087,
+        "name": "native-sv-arithmetic",
+        "size_in_bytes": 1208724,
+        "expired": false,
+        "digest": "sha256:68810af5a1f3aae16a30d35f89361fe478c1356b9dcf1acfa95ae49ac201b2b5"
+      },
+      {
+        "id": 11676925574,
+        "name": "native-sv-memory",
+        "size_in_bytes": 2095504,
+        "expired": false,
+        "digest": "sha256:2b54412973f431079f29bdd5295c671af0a779b062e973f6160bf8543ed358f5"
+      },
+      {
+        "id": 11676590235,
+        "name": "native-sv-systems",
+        "size_in_bytes": 1117639,
+        "expired": false,
+        "digest": "sha256:b63ee66424db1a089368750f9433b98f718d698361d4100725ff099415d90424"
+      },
+      {
+        "id": 11676421584,
+        "name": "native-sv-apis",
+        "size_in_bytes": 681943,
+        "expired": false,
+        "digest": "sha256:891100ba38203dabfa148e2420f2bb5c1084cde4ce54a00889341bc15e4f4aa7"
+      },
+      {
+        "id": 11676386778,
+        "name": "native-sv-core",
+        "size_in_bytes": 997911,
+        "expired": false,
+        "digest": "sha256:5c35e002242cd272ea0afc51dfbbdbc18731e544806140b95414963c974989ea"
+      },
+      {
+        "id": 11676290765,
+        "name": "native-sv-raw-kernels",
+        "size_in_bytes": 169650,
+        "expired": false,
+        "digest": "sha256:a4d4df4db2ea608f3cb62e5d3ed56eb0f5848f30d7f3444c23bed91db3dfda21"
+      },
+      {
+        "id": 11676098873,
+        "name": "native-sv-noc",
+        "size_in_bytes": 2546277,
+        "expired": false,
+        "digest": "sha256:77d1694b42ed2704dffe010dd4ad5b1717ca693f579875ef2eac7fd83053ecdf"
+      },
+      {
+        "id": 11676071636,
+        "name": "native-sv-baseline",
+        "size_in_bytes": 220556,
+        "expired": false,
+        "digest": "sha256:dc2d8968b972aef329d41bb88198816ae2f7cd032ed748fe6a4be19584db08f6"
+      },
+      {
+        "id": 11675900772,
+        "name": "native-sv-migration",
+        "size_in_bytes": 97561,
+        "expired": false,
+        "digest": "sha256:ca9f1366bfa1156a7ca1515e359a1c45180fdc63ce89d1fb23f4bf9e9a9b6eaf"
+      },
+      {
+        "id": 11675877870,
+        "name": "native-sv-pe",
+        "size_in_bytes": 1762025,
+        "expired": false,
+        "digest": "sha256:242a94df6978b57f8436978eb69d2838c1372ac430501e3b48e25ca610fc1dd5"
+      },
+      {
+        "id": 11675786908,
+        "name": "native-sv-vectors",
+        "size_in_bytes": 601308,
+        "expired": false,
+        "digest": "sha256:b4bb5b8ca019503164f6b793c06210ca12faab3a9c5a4c4f23eab694f56fdd9e"
+      },
+      {
+        "id": 11675587613,
+        "name": "native-sv-tools",
+        "size_in_bytes": 168427,
+        "expired": false,
+        "digest": "sha256:4509c1accb1590c63ea52b101c1b1b2eafd85224f53a3856bcc6a29be976309c"
+      },
+      {
+        "id": 11675354736,
+        "name": "native-sv-native-kernels",
+        "size_in_bytes": 331682,
+        "expired": false,
+        "digest": "sha256:3196fed86c29f13a4fa0e10b45d907fb8d9a780fb6b825f60dec3683e128b383"
+      }
+    ]
+  },
+  "limitations": [
+    "Observed CI results belong to their exact head commits; no future CI success is implied.",
+    "Historical validation JSON files retain their original input hashes and scopes.",
+    "Only selected standalone clean-environment targets were run, separately from the 14-group repository CI.",
+    "Original GEMM/GEMV references are incomplete prefixes; original SPMV generation failed; native repaired programs have separate mathematical evidence.",
+    "LoopController system routing, scalable-memory remote access, general DFG mapping, arbitrary parameters, full original Python suite, four-state exhaustive verification, formal equivalence and platform PPA are not claimed.",
+    "Final documentation commit changes archive bytes; this record identifies the clean base-commit archive, not a self-referential final archive hash."
+  ]
+}

@@ -1,0 +1,2069 @@
+{
+  "batch": "M25",
+  "date": "2026-10-10",
+  "base_commit": "008c2ecf5970c6b0ad0d1a3284e10a3f0707bbab",
+  "scope": "Standalone static CtrlMem/ConstQueue; no PE/array integration or system kernel rerun",
+  "status": "passed",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "pinned_original_python_files_unchanged": 274,
+  "ctrl_reference_adapter": "Type-only operation -> ctrl rename, identical packed field layout; original module unchanged",
+  "legacy_initialization": "Explicit initial zero models PyMTL startup; ignores runtime reset; not an ASIC power-on guarantee",
+  "profiles": [
+    {
+      "name": "const_four",
+      "parameters": {
+        "DATA_BITS": 35,
+        "NUM_CONST": 4,
+        "CONST_WORDS_HEX": "8001a2b1d0002fc92e0005678640009abc9"
+      },
+      "cycles": 160,
+      "input_bits": 2,
+      "output_bits": 36,
+      "reset_samples": 6,
+      "notes": [
+        "Unmodified static ROM; all message metadata, invalid and reset samples compared."
+      ],
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "source_sha256": "f0409e7f86a50706a9449c8b0f178f71d3034106464c9d535b31f21a03fbb9c6",
+      "generator_sha256": "9e4a3b2c1426f1d51fd5d25dace30b0cc25bbf2409c841f17eae4d56f04dedab",
+      "vectors_sha256": "849d4b6102541eba1bfa0a4000d01e497b5d0adacfc53e19a05053d44438a89d"
+    },
+    {
+      "name": "const_original",
+      "parameters": {
+        "DATA_BITS": 19,
+        "NUM_CONST": 3,
+        "CONST_WORDS_HEX": "f000220004c"
+      },
+      "cycles": 160,
+      "input_bits": 2,
+      "output_bits": 20,
+      "reset_samples": 6,
+      "notes": [
+        "Unmodified static ROM; all message metadata, invalid and reset samples compared."
+      ],
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "source_sha256": "f0409e7f86a50706a9449c8b0f178f71d3034106464c9d535b31f21a03fbb9c6",
+      "generator_sha256": "9e4a3b2c1426f1d51fd5d25dace30b0cc25bbf2409c841f17eae4d56f04dedab",
+      "vectors_sha256": "292ec58048c42edc32fed7794d78f91d0c8484fe3c68b5d1de8c82aa3dbc1f31"
+    },
+    {
+      "name": "const_single",
+      "parameters": {
+        "DATA_BITS": 35,
+        "NUM_CONST": 1,
+        "CONST_WORDS_HEX": "40009abc9"
+      },
+      "cycles": 160,
+      "input_bits": 2,
+      "output_bits": 36,
+      "reset_samples": 6,
+      "notes": [
+        "Unmodified static ROM; all message metadata, invalid and reset samples compared."
+      ],
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "source_sha256": "f0409e7f86a50706a9449c8b0f178f71d3034106464c9d535b31f21a03fbb9c6",
+      "generator_sha256": "9e4a3b2c1426f1d51fd5d25dace30b0cc25bbf2409c841f17eae4d56f04dedab",
+      "vectors_sha256": "241f7edb1909a6f1d9d48c53c09dd02f020af5afb6129afe60907b5887b7f942"
+    },
+    {
+      "name": "const_wide",
+      "parameters": {
+        "DATA_BITS": 67,
+        "NUM_CONST": 3,
+        "CONST_WORDS_HEX": "1000000000002fc92e00000000000567864000000000009abc9"
+      },
+      "cycles": 160,
+      "input_bits": 2,
+      "output_bits": 68,
+      "reset_samples": 6,
+      "notes": [
+        "Unmodified static ROM; all message metadata, invalid and reset samples compared."
+      ],
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "source_sha256": "f0409e7f86a50706a9449c8b0f178f71d3034106464c9d535b31f21a03fbb9c6",
+      "generator_sha256": "9e4a3b2c1426f1d51fd5d25dace30b0cc25bbf2409c841f17eae4d56f04dedab",
+      "vectors_sha256": "d83f1853b92ac8118a53be5ad6e8a30221c3eedc39103c06e228b09ce92ef751"
+    },
+    {
+      "name": "ctrl_default",
+      "parameters": {
+        "CTRL_BITS": 119,
+        "DEPTH": 4,
+        "COUNT_PER_ITER": 4,
+        "TOTAL_STEPS": 9
+      },
+      "cycles": 222,
+      "input_bits": 125,
+      "output_bits": 122,
+      "reset_samples": 20,
+      "notes": [
+        "Type-only adapter renames operation to ctrl; identical packed field layout.",
+        "All outputs compared, including invalid messages and reset cycles.",
+        "Budget expires under stall; reset is ignored; unpaired writes are lost."
+      ],
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "source_sha256": "b2783f190c60da27e2a2d402c7ca2391222d65bba46097ae568bc5a2213a85f8",
+      "generator_sha256": "9e4a3b2c1426f1d51fd5d25dace30b0cc25bbf2409c841f17eae4d56f04dedab",
+      "vectors_sha256": "7eefd15a6fa9de7205ddb558339541d0121be405b51287b820e4d2078b1d2ac8"
+    },
+    {
+      "name": "ctrl_nonpower",
+      "parameters": {
+        "CTRL_BITS": 107,
+        "DEPTH": 3,
+        "COUNT_PER_ITER": 3,
+        "TOTAL_STEPS": 7
+      },
+      "cycles": 219,
+      "input_bits": 113,
+      "output_bits": 110,
+      "reset_samples": 20,
+      "notes": [
+        "Type-only adapter renames operation to ctrl; identical packed field layout.",
+        "All outputs compared, including invalid messages and reset cycles.",
+        "Budget expires under stall; reset is ignored; unpaired writes are lost."
+      ],
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "source_sha256": "b2783f190c60da27e2a2d402c7ca2391222d65bba46097ae568bc5a2213a85f8",
+      "generator_sha256": "9e4a3b2c1426f1d51fd5d25dace30b0cc25bbf2409c841f17eae4d56f04dedab",
+      "vectors_sha256": "d1e1e23bfbe1499ea7e989fadb245994a5a8816345f7cf62843b0090c11241c6"
+    },
+    {
+      "name": "ctrl_subset",
+      "parameters": {
+        "CTRL_BITS": 119,
+        "DEPTH": 8,
+        "COUNT_PER_ITER": 2,
+        "TOTAL_STEPS": 13
+      },
+      "cycles": 224,
+      "input_bits": 126,
+      "output_bits": 122,
+      "reset_samples": 20,
+      "notes": [
+        "Type-only adapter renames operation to ctrl; identical packed field layout.",
+        "All outputs compared, including invalid messages and reset cycles.",
+        "Budget expires under stall; reset is ignored; unpaired writes are lost."
+      ],
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "source_sha256": "b2783f190c60da27e2a2d402c7ca2391222d65bba46097ae568bc5a2213a85f8",
+      "generator_sha256": "9e4a3b2c1426f1d51fd5d25dace30b0cc25bbf2409c841f17eae4d56f04dedab",
+      "vectors_sha256": "e7f927fa3e9031b2861e33f953cfc6f289155da664e7f115649e441b78215766"
+    }
+  ],
+  "compared_cycles_per_implementation": 1305,
+  "compared_reset_cycles_per_implementation": 84,
+  "compared_output_bits_per_implementation": 104102,
+  "independent_checks": {
+    "rtl": 2635,
+    "synth": 2635
+  },
+  "bench_counted_transfers": {
+    "rtl": 534,
+    "synth": 534
+  },
+  "positive_runs": [
+    {
+      "mode": "rtl",
+      "profile": "const_empty",
+      "legacy": 0,
+      "result": "STATIC_CONST_NATIVE_PASS bits=35 count=0 checks=400 accepted=0",
+      "log": {
+        "path": "build/current/static-memory/rtl/const_empty/legacy0/run.log",
+        "sha256": "962df85b623e8ee6787fa115766baa36e8428683ffe6a83b847dc957c72da577"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "const_four",
+      "legacy": 0,
+      "result": "STATIC_CONST_NATIVE_PASS bits=35 count=4 checks=400 accepted=118",
+      "log": {
+        "path": "build/current/static-memory/rtl/const_four/legacy0/run.log",
+        "sha256": "fada064dfe5faebcc0f52f4e8a628f6ffeb92bdaa53781e60dc37bf452da5b86"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "const_four",
+      "legacy": 1,
+      "result": "STATIC_CONST_REPLAY_PASS samples=160 output_bits=36",
+      "log": {
+        "path": "build/current/static-memory/rtl/const_four/legacy1/run.log",
+        "sha256": "c8cfd401a8c43d800130139432c51c0a476d4c0fd906398828a4248b90d47a90"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "const_original",
+      "legacy": 0,
+      "result": "STATIC_CONST_NATIVE_PASS bits=19 count=3 checks=400 accepted=118",
+      "log": {
+        "path": "build/current/static-memory/rtl/const_original/legacy0/run.log",
+        "sha256": "24261d462381341f8bb60ad2a645df2f89896f48df6af61eedde384fff577cd4"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "const_original",
+      "legacy": 1,
+      "result": "STATIC_CONST_REPLAY_PASS samples=160 output_bits=20",
+      "log": {
+        "path": "build/current/static-memory/rtl/const_original/legacy1/run.log",
+        "sha256": "58551b98bd160bf462eddc91689ac77306ad3c5c979e2de505041f21f1a615cb"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "const_single",
+      "legacy": 0,
+      "result": "STATIC_CONST_NATIVE_PASS bits=35 count=1 checks=400 accepted=118",
+      "log": {
+        "path": "build/current/static-memory/rtl/const_single/legacy0/run.log",
+        "sha256": "739246e94ca89c1c83dd5c77ef6c42651b4c170d0b357d584a9533925b759ae5"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "const_single",
+      "legacy": 1,
+      "result": "STATIC_CONST_REPLAY_PASS samples=160 output_bits=36",
+      "log": {
+        "path": "build/current/static-memory/rtl/const_single/legacy1/run.log",
+        "sha256": "84fb59e905f41fc09fdb960524fa0200edf8f9866a8021faa6e51f9834f82951"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "const_wide",
+      "legacy": 0,
+      "result": "STATIC_CONST_NATIVE_PASS bits=67 count=3 checks=400 accepted=118",
+      "log": {
+        "path": "build/current/static-memory/rtl/const_wide/legacy0/run.log",
+        "sha256": "0db44741636aba0b68984cdbc39b41d3badf2a167362aab0105023901a92ce47"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "const_wide",
+      "legacy": 1,
+      "result": "STATIC_CONST_REPLAY_PASS samples=160 output_bits=68",
+      "log": {
+        "path": "build/current/static-memory/rtl/const_wide/legacy1/run.log",
+        "sha256": "174b9e4450f3726d58003db5d693be01b15ed6e5f43f74a37424d269c551eb83"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_default",
+      "legacy": 0,
+      "result": "STATIC_CTRL_NATIVE_PASS depth=4 period=4 total=9 checks=108 accepted=9",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_default/legacy0/run.log",
+        "sha256": "bf89e32d82bd24805cb34b5405197de8fe4daefc718018df512f567f502d0973"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_default",
+      "legacy": 1,
+      "result": "STATIC_CTRL_REPLAY_PASS samples=222 output_bits=122",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_default/legacy1/run.log",
+        "sha256": "3dd99426105a119e4b681a1bd782894c1e2e84ecccab4cb77c8784f32d457530"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_nonpower",
+      "legacy": 0,
+      "result": "STATIC_CTRL_NATIVE_PASS depth=3 period=3 total=7 checks=96 accepted=7",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_nonpower/legacy0/run.log",
+        "sha256": "1c15fe5d431cf9448e66bb5a834fd43c42f474e0b541ad13fd0588c8a8150774"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_nonpower",
+      "legacy": 1,
+      "result": "STATIC_CTRL_REPLAY_PASS samples=219 output_bits=110",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_nonpower/legacy1/run.log",
+        "sha256": "655f5d3c0b21c52bbb44cb6b60effb4fcec6ea517673a0ab710460f955b468f1"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_offset",
+      "legacy": 0,
+      "result": "STATIC_CTRL_NATIVE_PASS depth=3 period=3 total=7 checks=96 accepted=7",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_offset/legacy0/run.log",
+        "sha256": "5658f45ba2fcbe2b7d5ca0a13dca669c2826343b4c4b4bb9414287f53657363f"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_single",
+      "legacy": 0,
+      "result": "STATIC_CTRL_NATIVE_PASS depth=1 period=1 total=3 checks=67 accepted=3",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_single/legacy0/run.log",
+        "sha256": "8efe4479cb479f0d932b42de76e359bcc312deb86de89b391e78508ab1b2c834"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_subset",
+      "legacy": 0,
+      "result": "STATIC_CTRL_NATIVE_PASS depth=8 period=2 total=13 checks=124 accepted=13",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_subset/legacy0/run.log",
+        "sha256": "3d6fc619baf52775792aa9636339add618b38d12df2812129bebf1d9aaa420f8"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_subset",
+      "legacy": 1,
+      "result": "STATIC_CTRL_REPLAY_PASS samples=224 output_bits=122",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_subset/legacy1/run.log",
+        "sha256": "079ca67c6dc5a4bb34b36f1ee4d8c0ae74a3fb4cf39c00dfbe2964031a33a7a0"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_unlimited",
+      "legacy": 0,
+      "result": "STATIC_CTRL_NATIVE_PASS depth=3 period=3 total=0 checks=144 accepted=23",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_unlimited/legacy0/run.log",
+        "sha256": "6f7cf90d5aa6cd9d60f497405a5a0f8edb4d37db34491b835850df70a01f9221"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "const_empty",
+      "legacy": 0,
+      "result": "STATIC_CONST_NATIVE_PASS bits=35 count=0 checks=400 accepted=0",
+      "log": {
+        "path": "build/current/static-memory/synth/const_empty/legacy0/run.log",
+        "sha256": "a4839fb86be592515a96d72713eafad9cf28fde6e4994ca6ae08992261b2e03d"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "const_four",
+      "legacy": 0,
+      "result": "STATIC_CONST_NATIVE_PASS bits=35 count=4 checks=400 accepted=118",
+      "log": {
+        "path": "build/current/static-memory/synth/const_four/legacy0/run.log",
+        "sha256": "3f129aa35e703ea3337abce4fe396f064bb765279e33110213371010d247da49"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "const_four",
+      "legacy": 1,
+      "result": "STATIC_CONST_REPLAY_PASS samples=160 output_bits=36",
+      "log": {
+        "path": "build/current/static-memory/synth/const_four/legacy1/run.log",
+        "sha256": "7d22b017eb252ac81ecf3ad9dbba9d909dabf61a51c33953e74f54906c7f7937"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "const_original",
+      "legacy": 0,
+      "result": "STATIC_CONST_NATIVE_PASS bits=19 count=3 checks=400 accepted=118",
+      "log": {
+        "path": "build/current/static-memory/synth/const_original/legacy0/run.log",
+        "sha256": "7d4ac699ee26d3a4a00cafdc1944eb2f13d6275dee20d8b20718fa5ad62fadde"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "const_original",
+      "legacy": 1,
+      "result": "STATIC_CONST_REPLAY_PASS samples=160 output_bits=20",
+      "log": {
+        "path": "build/current/static-memory/synth/const_original/legacy1/run.log",
+        "sha256": "03ffb54af9528a5152357c30f415a139f65642663da0e14f27d780253c15776a"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "const_single",
+      "legacy": 0,
+      "result": "STATIC_CONST_NATIVE_PASS bits=35 count=1 checks=400 accepted=118",
+      "log": {
+        "path": "build/current/static-memory/synth/const_single/legacy0/run.log",
+        "sha256": "b2a6edfabd9453cfc44cfcd0f13d10eeb0f1cd060ebf55886a3f00a80fa32b6a"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "const_single",
+      "legacy": 1,
+      "result": "STATIC_CONST_REPLAY_PASS samples=160 output_bits=36",
+      "log": {
+        "path": "build/current/static-memory/synth/const_single/legacy1/run.log",
+        "sha256": "537ffe2234825976b49d0432c26bd12d28a41d013457c72081fdfe697d02e3d6"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "const_wide",
+      "legacy": 0,
+      "result": "STATIC_CONST_NATIVE_PASS bits=67 count=3 checks=400 accepted=118",
+      "log": {
+        "path": "build/current/static-memory/synth/const_wide/legacy0/run.log",
+        "sha256": "0a7707bfb98d20362825574dd8b43b2025897171f1c867957d722349da09247c"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "const_wide",
+      "legacy": 1,
+      "result": "STATIC_CONST_REPLAY_PASS samples=160 output_bits=68",
+      "log": {
+        "path": "build/current/static-memory/synth/const_wide/legacy1/run.log",
+        "sha256": "f5007396caecb763cd0007a96218412a8f45f25cf1b5d9784135e5548baeebc5"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_default",
+      "legacy": 0,
+      "result": "STATIC_CTRL_NATIVE_PASS depth=4 period=4 total=9 checks=108 accepted=9",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_default/legacy0/run.log",
+        "sha256": "1116c08787088e6dc04bae39ab84c51971319ac594d908d8b7f0df7b2d0e51d8"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_default",
+      "legacy": 1,
+      "result": "STATIC_CTRL_REPLAY_PASS samples=222 output_bits=122",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_default/legacy1/run.log",
+        "sha256": "cca03d253bb79690e31196ab4240a16734c6242601afde3ee0295b83cdea02f1"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_nonpower",
+      "legacy": 0,
+      "result": "STATIC_CTRL_NATIVE_PASS depth=3 period=3 total=7 checks=96 accepted=7",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_nonpower/legacy0/run.log",
+        "sha256": "3a1b35aa71a45965f0ce190829e674d64ba3c6a1029f6b20d9ce0b321f391d89"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_nonpower",
+      "legacy": 1,
+      "result": "STATIC_CTRL_REPLAY_PASS samples=219 output_bits=110",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_nonpower/legacy1/run.log",
+        "sha256": "d64757a93fca2d1614667df4ab4892422c59e3e1af7067498e3b97407e321d15"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_offset",
+      "legacy": 0,
+      "result": "STATIC_CTRL_NATIVE_PASS depth=3 period=3 total=7 checks=96 accepted=7",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_offset/legacy0/run.log",
+        "sha256": "2d9d8133e6c04ffdd736de88c11cfe2ee6418230f82f70f08d41f2c4530266b6"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_single",
+      "legacy": 0,
+      "result": "STATIC_CTRL_NATIVE_PASS depth=1 period=1 total=3 checks=67 accepted=3",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_single/legacy0/run.log",
+        "sha256": "b8fa467efc78f6862bb79b975585c2cf2108b2586d5c964379f0e702d55549e0"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_subset",
+      "legacy": 0,
+      "result": "STATIC_CTRL_NATIVE_PASS depth=8 period=2 total=13 checks=124 accepted=13",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_subset/legacy0/run.log",
+        "sha256": "b9b30c466359d48f1bd94aebd402cb820d87f5267f8fe5596178b674b1e915b0"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_subset",
+      "legacy": 1,
+      "result": "STATIC_CTRL_REPLAY_PASS samples=224 output_bits=122",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_subset/legacy1/run.log",
+        "sha256": "1c61964824b7cb81330d85844a7a3918c357ff11015ae3774ce0461368704114"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_unlimited",
+      "legacy": 0,
+      "result": "STATIC_CTRL_NATIVE_PASS depth=3 period=3 total=0 checks=144 accepted=23",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_unlimited/legacy0/run.log",
+        "sha256": "cdf69f430a7338d05979ed6bb0ad54c19ad8a21af10a79639f4ee7bd2d90c30b"
+      }
+    }
+  ],
+  "negative_runs": [
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "const_empty",
+      "legacy": 0,
+      "error": "[36000] %Fatal: tb_static_const_queue.sv:22: Assertion failed in TOP.tb_static_const_queue.require: STATIC_CONST_CHECK ROM payload and all metadata / stall stability checks=11",
+      "log": {
+        "path": "build/current/static-memory/rtl/const_empty/legacy0/negative.log",
+        "sha256": "3e2b1c69e5564263c5a569bee18f5468d5adfe956cc67785ff10395010cc0340"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "const_four",
+      "legacy": 0,
+      "error": "[36000] %Fatal: tb_static_const_queue.sv:22: Assertion failed in TOP.tb_static_const_queue.require: STATIC_CONST_CHECK ROM payload and all metadata / stall stability checks=11",
+      "log": {
+        "path": "build/current/static-memory/rtl/const_four/legacy0/negative.log",
+        "sha256": "3e2b1c69e5564263c5a569bee18f5468d5adfe956cc67785ff10395010cc0340"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "const_four",
+      "legacy": 1,
+      "error": "[19000] %Fatal: tb_static_const_queue.sv:38: Assertion failed in TOP.tb_static_const_queue.replay: STATIC_CONST_REPLAY_MISMATCH sample=3 got=c000bf24b expected=c000bf24a",
+      "log": {
+        "path": "build/current/static-memory/rtl/const_four/legacy1/negative.log",
+        "sha256": "12f94848df1bda6f605a378feaa7aa6b745561e13502fdc00d93dfe9da75898a"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "const_original",
+      "legacy": 0,
+      "error": "[36000] %Fatal: tb_static_const_queue.sv:22: Assertion failed in TOP.tb_static_const_queue.require: STATIC_CONST_CHECK ROM payload and all metadata / stall stability checks=11",
+      "log": {
+        "path": "build/current/static-memory/rtl/const_original/legacy0/negative.log",
+        "sha256": "3e2b1c69e5564263c5a569bee18f5468d5adfe956cc67785ff10395010cc0340"
+      }
+    },
+    {
+      "kind": "legacy_defect",
+      "mode": "rtl",
+      "profile": "const_original",
+      "legacy": 1,
+      "error": "[16000] %Fatal: tb_static_const_queue.sv:22: Assertion failed in TOP.tb_static_const_queue.require: STATIC_CONST_CHECK DEFECT_RESET checks=1",
+      "log": {
+        "path": "build/current/static-memory/rtl/const_original/legacy1/defect-reset.log",
+        "sha256": "50e50f07bdb48f95e269c565f5d10b9c7674acbd4f55a9962ed392beadfb62af"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "const_original",
+      "legacy": 1,
+      "error": "[19000] %Fatal: tb_static_const_queue.sv:38: Assertion failed in TOP.tb_static_const_queue.replay: STATIC_CONST_REPLAY_MISMATCH sample=3 got=8003c expected=8003d",
+      "log": {
+        "path": "build/current/static-memory/rtl/const_original/legacy1/negative.log",
+        "sha256": "0e29bd1b56fc1b26d047c8ae338085bb19aa0a7c1732c97c2e84ef4ea202152c"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "const_single",
+      "legacy": 0,
+      "error": "[36000] %Fatal: tb_static_const_queue.sv:22: Assertion failed in TOP.tb_static_const_queue.require: STATIC_CONST_CHECK ROM payload and all metadata / stall stability checks=11",
+      "log": {
+        "path": "build/current/static-memory/rtl/const_single/legacy0/negative.log",
+        "sha256": "3e2b1c69e5564263c5a569bee18f5468d5adfe956cc67785ff10395010cc0340"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "const_single",
+      "legacy": 1,
+      "error": "[19000] %Fatal: tb_static_const_queue.sv:38: Assertion failed in TOP.tb_static_const_queue.replay: STATIC_CONST_REPLAY_MISMATCH sample=3 got=c0009abc9 expected=c0009abc8",
+      "log": {
+        "path": "build/current/static-memory/rtl/const_single/legacy1/negative.log",
+        "sha256": "461464093edb13a3c80b5181460e52119bbcd92b7b5568d8afe09a2c5c71bc17"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "const_wide",
+      "legacy": 0,
+      "error": "[36000] %Fatal: tb_static_const_queue.sv:22: Assertion failed in TOP.tb_static_const_queue.require: STATIC_CONST_CHECK ROM payload and all metadata / stall stability checks=11",
+      "log": {
+        "path": "build/current/static-memory/rtl/const_wide/legacy0/negative.log",
+        "sha256": "3e2b1c69e5564263c5a569bee18f5468d5adfe956cc67785ff10395010cc0340"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "const_wide",
+      "legacy": 1,
+      "error": "[19000] %Fatal: tb_static_const_queue.sv:38: Assertion failed in TOP.tb_static_const_queue.replay: STATIC_CONST_REPLAY_MISMATCH sample=3 got=c00000000000bf24b expected=c00000000000bf24a",
+      "log": {
+        "path": "build/current/static-memory/rtl/const_wide/legacy1/negative.log",
+        "sha256": "a6953641f03f94b547729d58a2ca58fb74d8d2afcb19433ed321c4f702fd969f"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "ctrl_default",
+      "legacy": 0,
+      "error": "[103000] %Fatal: tb_static_ctrl_mem.sv:26: Assertion failed in TOP.tb_static_ctrl_mem.require: STATIC_CTRL_CHECK stable output under stall checks=19",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_default/legacy0/negative.log",
+        "sha256": "9674caceba989eb3717f61decd19b845064d2b90963eceb4abca01eac1441be7"
+      }
+    },
+    {
+      "kind": "legacy_defect",
+      "mode": "rtl",
+      "profile": "ctrl_default",
+      "legacy": 1,
+      "error": "[93000] %Fatal: tb_static_ctrl_mem.sv:26: Assertion failed in TOP.tb_static_ctrl_mem.require: STATIC_CTRL_CHECK DEFECT_BUDGET checks=5",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_default/legacy1/defect-budget.log",
+        "sha256": "bd9884310208b26314ece5931f2cb6e06ea78ecc36504bb460aa2394f6f3a517"
+      }
+    },
+    {
+      "kind": "legacy_defect",
+      "mode": "rtl",
+      "profile": "ctrl_default",
+      "legacy": 1,
+      "error": "[39000] %Fatal: tb_static_ctrl_mem.sv:26: Assertion failed in TOP.tb_static_ctrl_mem.require: STATIC_CTRL_CHECK DEFECT_RESET checks=5",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_default/legacy1/defect-reset.log",
+        "sha256": "5805f966247980b2104241da97ce1f6422cfe0e6556da80a6d04a8de4f014ec6"
+      }
+    },
+    {
+      "kind": "legacy_defect",
+      "mode": "rtl",
+      "profile": "ctrl_default",
+      "legacy": 1,
+      "error": "[6000] %Fatal: tb_static_ctrl_mem.sv:26: Assertion failed in TOP.tb_static_ctrl_mem.require: STATIC_CTRL_CHECK DEFECT_UNPAIRED checks=1",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_default/legacy1/defect-unpaired.log",
+        "sha256": "e782e043f7c96e2a09f121da7546e81842f1cb8b08b18c7b6d2ef8ac0118b68d"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "ctrl_default",
+      "legacy": 1,
+      "error": "[19000] %Fatal: tb_static_ctrl_mem.sv:68: Assertion failed in TOP.tb_static_ctrl_mem.replay: STATIC_CTRL_REPLAY_MISMATCH sample=3 got=3000000000000000000000000000000 expected=3000000000000000000000000000001",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_default/legacy1/negative.log",
+        "sha256": "390aa82391ced8f1a0aa4cb01fa896b0580a4ae146cd2c6a92dc68d2e0c5f273"
+      }
+    },
+    {
+      "kind": "invalid_address",
+      "mode": "rtl",
+      "profile": "ctrl_nonpower",
+      "legacy": 0,
+      "error": "[9000] %Fatal: cgra_static_ctrl_mem.sv:81: Assertion failed in TOP.tb_static_ctrl_mem.dut: STATIC_CTRL_ADDRESS",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_nonpower/legacy0/invalid-address.log",
+        "sha256": "1ea6d92ca01b79c05159268a41230e1cac33278d95f958a7b53ee19a73b4b909"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "ctrl_nonpower",
+      "legacy": 0,
+      "error": "[96000] %Fatal: tb_static_ctrl_mem.sv:26: Assertion failed in TOP.tb_static_ctrl_mem.require: STATIC_CTRL_CHECK stable output under stall checks=18",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_nonpower/legacy0/negative.log",
+        "sha256": "e95f7f4141c005651a326bc151cb264a063873a08a731e957f513d54e6c9bf97"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "ctrl_nonpower",
+      "legacy": 1,
+      "error": "[19000] %Fatal: tb_static_ctrl_mem.sv:68: Assertion failed in TOP.tb_static_ctrl_mem.replay: STATIC_CTRL_REPLAY_MISMATCH sample=3 got=3000000000000000000000000000 expected=3000000000000000000000000001",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_nonpower/legacy1/negative.log",
+        "sha256": "7f6070f53a2a7629c4bcb3be264940e78f5c4d8c082a3b44efba94514807168f"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "ctrl_offset",
+      "legacy": 0,
+      "error": "[96000] %Fatal: tb_static_ctrl_mem.sv:26: Assertion failed in TOP.tb_static_ctrl_mem.require: STATIC_CTRL_CHECK stable output under stall checks=18",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_offset/legacy0/negative.log",
+        "sha256": "e95f7f4141c005651a326bc151cb264a063873a08a731e957f513d54e6c9bf97"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "ctrl_single",
+      "legacy": 0,
+      "error": "[82000] %Fatal: tb_static_ctrl_mem.sv:26: Assertion failed in TOP.tb_static_ctrl_mem.require: STATIC_CTRL_CHECK stable output under stall checks=16",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_single/legacy0/negative.log",
+        "sha256": "1d141470441aaa3b814f9dc0a286cd1b138c3653ab7d8345b7b9e8c3882a6f3d"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "ctrl_subset",
+      "legacy": 0,
+      "error": "[89000] %Fatal: tb_static_ctrl_mem.sv:26: Assertion failed in TOP.tb_static_ctrl_mem.require: STATIC_CTRL_CHECK stable output under stall checks=17",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_subset/legacy0/negative.log",
+        "sha256": "dfbb1544ba095d8bacf9025ed6dbd160816bb33cfdcee42a4ad249d6c426d156"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "ctrl_subset",
+      "legacy": 1,
+      "error": "[19000] %Fatal: tb_static_ctrl_mem.sv:68: Assertion failed in TOP.tb_static_ctrl_mem.replay: STATIC_CTRL_REPLAY_MISMATCH sample=3 got=3000000000000000000000000000000 expected=3000000000000000000000000000001",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_subset/legacy1/negative.log",
+        "sha256": "390aa82391ced8f1a0aa4cb01fa896b0580a4ae146cd2c6a92dc68d2e0c5f273"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "rtl",
+      "profile": "ctrl_unlimited",
+      "legacy": 0,
+      "error": "[96000] %Fatal: tb_static_ctrl_mem.sv:26: Assertion failed in TOP.tb_static_ctrl_mem.require: STATIC_CTRL_CHECK stable output under stall checks=18",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_unlimited/legacy0/negative.log",
+        "sha256": "e95f7f4141c005651a326bc151cb264a063873a08a731e957f513d54e6c9bf97"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "const_empty",
+      "legacy": 0,
+      "error": "[36000] %Fatal: tb_static_const_queue.sv:22: Assertion failed in TOP.tb_static_const_queue.require: STATIC_CONST_CHECK ROM payload and all metadata / stall stability checks=11",
+      "log": {
+        "path": "build/current/static-memory/synth/const_empty/legacy0/negative.log",
+        "sha256": "3e2b1c69e5564263c5a569bee18f5468d5adfe956cc67785ff10395010cc0340"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "const_four",
+      "legacy": 0,
+      "error": "[36000] %Fatal: tb_static_const_queue.sv:22: Assertion failed in TOP.tb_static_const_queue.require: STATIC_CONST_CHECK ROM payload and all metadata / stall stability checks=11",
+      "log": {
+        "path": "build/current/static-memory/synth/const_four/legacy0/negative.log",
+        "sha256": "3e2b1c69e5564263c5a569bee18f5468d5adfe956cc67785ff10395010cc0340"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "const_four",
+      "legacy": 1,
+      "error": "[19000] %Fatal: tb_static_const_queue.sv:38: Assertion failed in TOP.tb_static_const_queue.replay: STATIC_CONST_REPLAY_MISMATCH sample=3 got=c000bf24b expected=c000bf24a",
+      "log": {
+        "path": "build/current/static-memory/synth/const_four/legacy1/negative.log",
+        "sha256": "12f94848df1bda6f605a378feaa7aa6b745561e13502fdc00d93dfe9da75898a"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "const_original",
+      "legacy": 0,
+      "error": "[36000] %Fatal: tb_static_const_queue.sv:22: Assertion failed in TOP.tb_static_const_queue.require: STATIC_CONST_CHECK ROM payload and all metadata / stall stability checks=11",
+      "log": {
+        "path": "build/current/static-memory/synth/const_original/legacy0/negative.log",
+        "sha256": "3e2b1c69e5564263c5a569bee18f5468d5adfe956cc67785ff10395010cc0340"
+      }
+    },
+    {
+      "kind": "legacy_defect",
+      "mode": "synth",
+      "profile": "const_original",
+      "legacy": 1,
+      "error": "[16000] %Fatal: tb_static_const_queue.sv:22: Assertion failed in TOP.tb_static_const_queue.require: STATIC_CONST_CHECK DEFECT_RESET checks=1",
+      "log": {
+        "path": "build/current/static-memory/synth/const_original/legacy1/defect-reset.log",
+        "sha256": "50e50f07bdb48f95e269c565f5d10b9c7674acbd4f55a9962ed392beadfb62af"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "const_original",
+      "legacy": 1,
+      "error": "[19000] %Fatal: tb_static_const_queue.sv:38: Assertion failed in TOP.tb_static_const_queue.replay: STATIC_CONST_REPLAY_MISMATCH sample=3 got=8003c expected=8003d",
+      "log": {
+        "path": "build/current/static-memory/synth/const_original/legacy1/negative.log",
+        "sha256": "0e29bd1b56fc1b26d047c8ae338085bb19aa0a7c1732c97c2e84ef4ea202152c"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "const_single",
+      "legacy": 0,
+      "error": "[36000] %Fatal: tb_static_const_queue.sv:22: Assertion failed in TOP.tb_static_const_queue.require: STATIC_CONST_CHECK ROM payload and all metadata / stall stability checks=11",
+      "log": {
+        "path": "build/current/static-memory/synth/const_single/legacy0/negative.log",
+        "sha256": "3e2b1c69e5564263c5a569bee18f5468d5adfe956cc67785ff10395010cc0340"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "const_single",
+      "legacy": 1,
+      "error": "[19000] %Fatal: tb_static_const_queue.sv:38: Assertion failed in TOP.tb_static_const_queue.replay: STATIC_CONST_REPLAY_MISMATCH sample=3 got=c0009abc9 expected=c0009abc8",
+      "log": {
+        "path": "build/current/static-memory/synth/const_single/legacy1/negative.log",
+        "sha256": "461464093edb13a3c80b5181460e52119bbcd92b7b5568d8afe09a2c5c71bc17"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "const_wide",
+      "legacy": 0,
+      "error": "[36000] %Fatal: tb_static_const_queue.sv:22: Assertion failed in TOP.tb_static_const_queue.require: STATIC_CONST_CHECK ROM payload and all metadata / stall stability checks=11",
+      "log": {
+        "path": "build/current/static-memory/synth/const_wide/legacy0/negative.log",
+        "sha256": "3e2b1c69e5564263c5a569bee18f5468d5adfe956cc67785ff10395010cc0340"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "const_wide",
+      "legacy": 1,
+      "error": "[19000] %Fatal: tb_static_const_queue.sv:38: Assertion failed in TOP.tb_static_const_queue.replay: STATIC_CONST_REPLAY_MISMATCH sample=3 got=c00000000000bf24b expected=c00000000000bf24a",
+      "log": {
+        "path": "build/current/static-memory/synth/const_wide/legacy1/negative.log",
+        "sha256": "a6953641f03f94b547729d58a2ca58fb74d8d2afcb19433ed321c4f702fd969f"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "ctrl_default",
+      "legacy": 0,
+      "error": "[103000] %Fatal: tb_static_ctrl_mem.sv:26: Assertion failed in TOP.tb_static_ctrl_mem.require: STATIC_CTRL_CHECK stable output under stall checks=19",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_default/legacy0/negative.log",
+        "sha256": "9674caceba989eb3717f61decd19b845064d2b90963eceb4abca01eac1441be7"
+      }
+    },
+    {
+      "kind": "legacy_defect",
+      "mode": "synth",
+      "profile": "ctrl_default",
+      "legacy": 1,
+      "error": "[93000] %Fatal: tb_static_ctrl_mem.sv:26: Assertion failed in TOP.tb_static_ctrl_mem.require: STATIC_CTRL_CHECK DEFECT_BUDGET checks=5",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_default/legacy1/defect-budget.log",
+        "sha256": "bd9884310208b26314ece5931f2cb6e06ea78ecc36504bb460aa2394f6f3a517"
+      }
+    },
+    {
+      "kind": "legacy_defect",
+      "mode": "synth",
+      "profile": "ctrl_default",
+      "legacy": 1,
+      "error": "[39000] %Fatal: tb_static_ctrl_mem.sv:26: Assertion failed in TOP.tb_static_ctrl_mem.require: STATIC_CTRL_CHECK DEFECT_RESET checks=5",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_default/legacy1/defect-reset.log",
+        "sha256": "5805f966247980b2104241da97ce1f6422cfe0e6556da80a6d04a8de4f014ec6"
+      }
+    },
+    {
+      "kind": "legacy_defect",
+      "mode": "synth",
+      "profile": "ctrl_default",
+      "legacy": 1,
+      "error": "[6000] %Fatal: tb_static_ctrl_mem.sv:26: Assertion failed in TOP.tb_static_ctrl_mem.require: STATIC_CTRL_CHECK DEFECT_UNPAIRED checks=1",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_default/legacy1/defect-unpaired.log",
+        "sha256": "e782e043f7c96e2a09f121da7546e81842f1cb8b08b18c7b6d2ef8ac0118b68d"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "ctrl_default",
+      "legacy": 1,
+      "error": "[19000] %Fatal: tb_static_ctrl_mem.sv:68: Assertion failed in TOP.tb_static_ctrl_mem.replay: STATIC_CTRL_REPLAY_MISMATCH sample=3 got=3000000000000000000000000000000 expected=3000000000000000000000000000001",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_default/legacy1/negative.log",
+        "sha256": "390aa82391ced8f1a0aa4cb01fa896b0580a4ae146cd2c6a92dc68d2e0c5f273"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "ctrl_nonpower",
+      "legacy": 0,
+      "error": "[96000] %Fatal: tb_static_ctrl_mem.sv:26: Assertion failed in TOP.tb_static_ctrl_mem.require: STATIC_CTRL_CHECK stable output under stall checks=18",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_nonpower/legacy0/negative.log",
+        "sha256": "e95f7f4141c005651a326bc151cb264a063873a08a731e957f513d54e6c9bf97"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "ctrl_nonpower",
+      "legacy": 1,
+      "error": "[19000] %Fatal: tb_static_ctrl_mem.sv:68: Assertion failed in TOP.tb_static_ctrl_mem.replay: STATIC_CTRL_REPLAY_MISMATCH sample=3 got=3000000000000000000000000000 expected=3000000000000000000000000001",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_nonpower/legacy1/negative.log",
+        "sha256": "7f6070f53a2a7629c4bcb3be264940e78f5c4d8c082a3b44efba94514807168f"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "ctrl_offset",
+      "legacy": 0,
+      "error": "[96000] %Fatal: tb_static_ctrl_mem.sv:26: Assertion failed in TOP.tb_static_ctrl_mem.require: STATIC_CTRL_CHECK stable output under stall checks=18",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_offset/legacy0/negative.log",
+        "sha256": "e95f7f4141c005651a326bc151cb264a063873a08a731e957f513d54e6c9bf97"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "ctrl_single",
+      "legacy": 0,
+      "error": "[82000] %Fatal: tb_static_ctrl_mem.sv:26: Assertion failed in TOP.tb_static_ctrl_mem.require: STATIC_CTRL_CHECK stable output under stall checks=16",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_single/legacy0/negative.log",
+        "sha256": "1d141470441aaa3b814f9dc0a286cd1b138c3653ab7d8345b7b9e8c3882a6f3d"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "ctrl_subset",
+      "legacy": 0,
+      "error": "[89000] %Fatal: tb_static_ctrl_mem.sv:26: Assertion failed in TOP.tb_static_ctrl_mem.require: STATIC_CTRL_CHECK stable output under stall checks=17",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_subset/legacy0/negative.log",
+        "sha256": "dfbb1544ba095d8bacf9025ed6dbd160816bb33cfdcee42a4ad249d6c426d156"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "ctrl_subset",
+      "legacy": 1,
+      "error": "[19000] %Fatal: tb_static_ctrl_mem.sv:68: Assertion failed in TOP.tb_static_ctrl_mem.replay: STATIC_CTRL_REPLAY_MISMATCH sample=3 got=3000000000000000000000000000000 expected=3000000000000000000000000000001",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_subset/legacy1/negative.log",
+        "sha256": "390aa82391ced8f1a0aa4cb01fa896b0580a4ae146cd2c6a92dc68d2e0c5f273"
+      }
+    },
+    {
+      "kind": "wrong_expectation",
+      "mode": "synth",
+      "profile": "ctrl_unlimited",
+      "legacy": 0,
+      "error": "[96000] %Fatal: tb_static_ctrl_mem.sv:26: Assertion failed in TOP.tb_static_ctrl_mem.require: STATIC_CTRL_CHECK stable output under stall checks=18",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_unlimited/legacy0/negative.log",
+        "sha256": "e95f7f4141c005651a326bc151cb264a063873a08a731e957f513d54e6c9bf97"
+      }
+    },
+    {
+      "kind": "invalid_parameter",
+      "case": "invalid-param-0",
+      "error": "[0] %Fatal: cgra_static_ctrl_mem.sv:75: Assertion failed in TOP.tb_static_invalid.ctrl.dut: STATIC_CTRL_PARAM",
+      "log": {
+        "path": "build/current/static-memory/rtl/invalid-param-0/run.log",
+        "sha256": "5fc83dc2be3333a3367198d22ae28d8543598b42ac43cf5f11daabb3d985d609"
+      }
+    },
+    {
+      "kind": "invalid_parameter",
+      "case": "invalid-param-1",
+      "error": "[0] %Fatal: cgra_static_ctrl_mem.sv:77: Assertion failed in TOP.tb_static_invalid.ctrl.dut: STATIC_CTRL_LEGACY_DOMAIN",
+      "log": {
+        "path": "build/current/static-memory/rtl/invalid-param-1/run.log",
+        "sha256": "09c3d3576dced68c0967d9f7b3970219e97df354daabe753c6ef71611955c528"
+      }
+    },
+    {
+      "kind": "invalid_parameter",
+      "case": "invalid-param-2",
+      "error": "[0] %Fatal: cgra_static_ctrl_mem.sv:77: Assertion failed in TOP.tb_static_invalid.ctrl.dut: STATIC_CTRL_LEGACY_DOMAIN",
+      "log": {
+        "path": "build/current/static-memory/rtl/invalid-param-2/run.log",
+        "sha256": "09c3d3576dced68c0967d9f7b3970219e97df354daabe753c6ef71611955c528"
+      }
+    },
+    {
+      "kind": "invalid_parameter",
+      "case": "invalid-param-3",
+      "error": "[0] %Fatal: cgra_static_const_queue.sv:37: Assertion failed in TOP.tb_static_invalid.const_queue.dut: STATIC_CONST_LEGACY_DOMAIN",
+      "log": {
+        "path": "build/current/static-memory/rtl/invalid-param-3/run.log",
+        "sha256": "cc891d3f5d2ac66bce26ea43b1a0ac9a1f496bfa0d5cc3c006b20d6621a659e5"
+      }
+    }
+  ],
+  "native_defect_checks": [
+    {
+      "mode": "rtl",
+      "profile": "const_original",
+      "result": "STATIC_CONST_DEFECT_FIXED reset",
+      "log": {
+        "path": "build/current/static-memory/rtl/const_original/legacy0/defect-reset.log",
+        "sha256": "6c89f620fb4b6659dc940e967379f68ff9f274f92f452041e51ca78a1499f7df"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_default",
+      "result": "STATIC_CTRL_DEFECT_FIXED budget",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_default/legacy0/defect-budget.log",
+        "sha256": "858584cde6038109d481be0b31f70750da8028014fc3932448c5645b59fe8c47"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_default",
+      "result": "STATIC_CTRL_DEFECT_FIXED reset",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_default/legacy0/defect-reset.log",
+        "sha256": "35fb7fd06c598b60acdf8de4d4c86d3636770e04024448bd120b80a64cfdb995"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_default",
+      "result": "STATIC_CTRL_DEFECT_FIXED unpaired",
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_default/legacy0/defect-unpaired.log",
+        "sha256": "9a702bdeb42fa0dcfb61ef55561f15d06b15b70bbd8afae7ea50e72e5e816bfc"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "const_original",
+      "result": "STATIC_CONST_DEFECT_FIXED reset",
+      "log": {
+        "path": "build/current/static-memory/synth/const_original/legacy0/defect-reset.log",
+        "sha256": "af4de8b2adbbdbe175ed00f71cd7a9c7e291255ee0e744a5be084b7c559c351d"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_default",
+      "result": "STATIC_CTRL_DEFECT_FIXED budget",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_default/legacy0/defect-budget.log",
+        "sha256": "3aebf9de8535160a6ba5d22b336d51499484f3c2f25d89a25f3f9f2f2fed6a4e"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_default",
+      "result": "STATIC_CTRL_DEFECT_FIXED reset",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_default/legacy0/defect-reset.log",
+        "sha256": "34e6a2c926254b55e627661e1dadd66588d0c55fa3d926bb52f1622be20495ef"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_default",
+      "result": "STATIC_CTRL_DEFECT_FIXED unpaired",
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_default/legacy0/defect-unpaired.log",
+        "sha256": "a3723cdf46502a0979d017594753ba193095f01755cc6b04794dee85c28493de"
+      }
+    }
+  ],
+  "synthesized_netlists": [
+    {
+      "profile": "const_empty",
+      "legacy": 0,
+      "pre_and_post_check": "passed",
+      "netlist": {
+        "path": "build/current/static-memory/synth/const_empty/legacy0/netlist.v",
+        "sha256": "212c83e44a26fbd8ffd36c23b674d65fd9e7f1dbc828fd2069bf88c1222a4bae"
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/const_empty/legacy0/yosys.log",
+        "sha256": "c2482c7a3e430cdbf109dfad48c4bdaec7e1518e58fd3be9276b3b9934eee5e0"
+      },
+      "emitted_netlist_comb_scc": 0,
+      "scc_log": {
+        "path": "build/current/static-memory/synth/const_empty/legacy0/scc.log",
+        "sha256": "4202791cfedd61128da6786865219222e14ac791d416b0d1cdecaf9cb1f34912"
+      }
+    },
+    {
+      "profile": "const_four",
+      "legacy": 0,
+      "pre_and_post_check": "passed",
+      "netlist": {
+        "path": "build/current/static-memory/synth/const_four/legacy0/netlist.v",
+        "sha256": "60632a3198a78eb79710abaca403d141c4a9d09ab762d02e83d2f9c3799dd205"
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/const_four/legacy0/yosys.log",
+        "sha256": "f72d64014594693a0b9fc7c5810c150a0a5a79b74a6f0c4d04d2e62bfda1d961"
+      },
+      "emitted_netlist_comb_scc": 0,
+      "scc_log": {
+        "path": "build/current/static-memory/synth/const_four/legacy0/scc.log",
+        "sha256": "d3647a0c10dc0bf89c2519a7884a53d919c1066aebe9b1be3438bb2cb12cd1fa"
+      }
+    },
+    {
+      "profile": "const_four",
+      "legacy": 1,
+      "pre_and_post_check": "passed",
+      "netlist": {
+        "path": "build/current/static-memory/synth/const_four/legacy1/netlist.v",
+        "sha256": "285e407b4f1b217fde5f2bf8b089856c3e90670bd873110ac2596e11cf689a48"
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/const_four/legacy1/yosys.log",
+        "sha256": "e534533a17cec3bddedf5683fdb69206e1bf2b322a0dce86de4c3b7be35e942d"
+      },
+      "emitted_netlist_comb_scc": 0,
+      "scc_log": {
+        "path": "build/current/static-memory/synth/const_four/legacy1/scc.log",
+        "sha256": "8aa8076865e94da4014464fd70ee4aa425a9aa4d8d9f256f7b2d2d57fd2c9d3c"
+      }
+    },
+    {
+      "profile": "const_original",
+      "legacy": 0,
+      "pre_and_post_check": "passed",
+      "netlist": {
+        "path": "build/current/static-memory/synth/const_original/legacy0/netlist.v",
+        "sha256": "7f5663f3515a4be6998bb3d6383cee7072390a58f497225065033c07218c5c70"
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/const_original/legacy0/yosys.log",
+        "sha256": "fc9c49c125daebf5b734c30ab25dfc45c288ce00d711aab99113f0c4851c95ad"
+      },
+      "emitted_netlist_comb_scc": 0,
+      "scc_log": {
+        "path": "build/current/static-memory/synth/const_original/legacy0/scc.log",
+        "sha256": "7d1aa0b1dff8755ae3dfa3ec370ee23d8b84fc6b3a80e733b4e37b1dda8cb44d"
+      }
+    },
+    {
+      "profile": "const_original",
+      "legacy": 1,
+      "pre_and_post_check": "passed",
+      "netlist": {
+        "path": "build/current/static-memory/synth/const_original/legacy1/netlist.v",
+        "sha256": "60cf9c05e6b796bbe501648f19f1f626af89f171005b5540783ad61a64fbcd92"
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/const_original/legacy1/yosys.log",
+        "sha256": "a4f101f4353f84841f738105437ae08fe790983eb0df64aba943451ab2faedad"
+      },
+      "emitted_netlist_comb_scc": 0,
+      "scc_log": {
+        "path": "build/current/static-memory/synth/const_original/legacy1/scc.log",
+        "sha256": "05d858f2d796a39cf867364e09b0e14d121b6c6c665bbf69d5752368c3f335ce"
+      }
+    },
+    {
+      "profile": "const_single",
+      "legacy": 0,
+      "pre_and_post_check": "passed",
+      "netlist": {
+        "path": "build/current/static-memory/synth/const_single/legacy0/netlist.v",
+        "sha256": "5aba32a2a6e48cdbc64b68b86fbaed3648cc0244bcf698c2c8e2b627f6040da6"
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/const_single/legacy0/yosys.log",
+        "sha256": "ba9fc37d65312673bb4e1dc2df8d9560ff66f72c4be58c6455b59c1d662b8e71"
+      },
+      "emitted_netlist_comb_scc": 0,
+      "scc_log": {
+        "path": "build/current/static-memory/synth/const_single/legacy0/scc.log",
+        "sha256": "45e78d2b2939c839ef76328ebbccc524434b84f038c8aee06728363bfa642ed5"
+      }
+    },
+    {
+      "profile": "const_single",
+      "legacy": 1,
+      "pre_and_post_check": "passed",
+      "netlist": {
+        "path": "build/current/static-memory/synth/const_single/legacy1/netlist.v",
+        "sha256": "1b9abd010d665c4b89b5958ce8a159bc9162ab4166a08c1dac23b048b55aaffb"
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/const_single/legacy1/yosys.log",
+        "sha256": "41be3c9525a1a59f1214cb65619147b31c1a84a6ddb6250d253bc471f6e99fb0"
+      },
+      "emitted_netlist_comb_scc": 0,
+      "scc_log": {
+        "path": "build/current/static-memory/synth/const_single/legacy1/scc.log",
+        "sha256": "3f41f86ef40ecf153002a8c1be3fa85de90fc437cf7b226f87a0e3241a89c18f"
+      }
+    },
+    {
+      "profile": "const_wide",
+      "legacy": 0,
+      "pre_and_post_check": "passed",
+      "netlist": {
+        "path": "build/current/static-memory/synth/const_wide/legacy0/netlist.v",
+        "sha256": "acde6c1edb231e20065f351d306869070c940d6a0f7a32be9c9809d3fcd5c3a7"
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/const_wide/legacy0/yosys.log",
+        "sha256": "c7f838a930e08cf062799cec841a45bb91ccc4f02fca2e51e1031134a06c51c1"
+      },
+      "emitted_netlist_comb_scc": 0,
+      "scc_log": {
+        "path": "build/current/static-memory/synth/const_wide/legacy0/scc.log",
+        "sha256": "398dec6b14ca113a7e07b7856c54ff230f2396096cbd4f5be89b1792f67ac197"
+      }
+    },
+    {
+      "profile": "const_wide",
+      "legacy": 1,
+      "pre_and_post_check": "passed",
+      "netlist": {
+        "path": "build/current/static-memory/synth/const_wide/legacy1/netlist.v",
+        "sha256": "27f52a93f00b243aaacaa293abfebfc29b1a0d4d383686cd888b4ffb03103b9c"
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/const_wide/legacy1/yosys.log",
+        "sha256": "0aa82dd8778e304a218f70724a4f0f76302edb757662dd981d1b55eaa33f6ac0"
+      },
+      "emitted_netlist_comb_scc": 0,
+      "scc_log": {
+        "path": "build/current/static-memory/synth/const_wide/legacy1/scc.log",
+        "sha256": "91d8b3861f39b3a1b46edf90d82152197b47e0368e069aa93b33eb210ba82e76"
+      }
+    },
+    {
+      "profile": "ctrl_default",
+      "legacy": 0,
+      "pre_and_post_check": "passed",
+      "netlist": {
+        "path": "build/current/static-memory/synth/ctrl_default/legacy0/netlist.v",
+        "sha256": "f34176fe7dcf44a48cb83d7091a503c2619489c2daf765091aab782a1adf2b20"
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_default/legacy0/yosys.log",
+        "sha256": "e7a35ee8e85802f30ece6b8dfe065c89ef091bbe35591d835553c9d715821ba4"
+      },
+      "emitted_netlist_comb_scc": 0,
+      "scc_log": {
+        "path": "build/current/static-memory/synth/ctrl_default/legacy0/scc.log",
+        "sha256": "9aeb17e1364513aab692ec347fefe495e63647d1a95c4d055359053323c18eac"
+      }
+    },
+    {
+      "profile": "ctrl_default",
+      "legacy": 1,
+      "pre_and_post_check": "passed",
+      "netlist": {
+        "path": "build/current/static-memory/synth/ctrl_default/legacy1/netlist.v",
+        "sha256": "b3e3deac8aeeb2415df8b8a78a257b39aebc0c423730a510bb25971a963baf6a"
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_default/legacy1/yosys.log",
+        "sha256": "eb8e7d2a6255e5098442b503fe7f0d6017d1c98ccb299360f8e31a6fc2611497"
+      },
+      "emitted_netlist_comb_scc": 0,
+      "scc_log": {
+        "path": "build/current/static-memory/synth/ctrl_default/legacy1/scc.log",
+        "sha256": "dfbe734c4989961009dfba15e0abaee5288612203f1c57f61e3de4de4c0aa21b"
+      }
+    },
+    {
+      "profile": "ctrl_nonpower",
+      "legacy": 0,
+      "pre_and_post_check": "passed",
+      "netlist": {
+        "path": "build/current/static-memory/synth/ctrl_nonpower/legacy0/netlist.v",
+        "sha256": "abae4ee7a928a3cf16a40d434510634bf45cbf5f9c18ddfa54417e179557db84"
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_nonpower/legacy0/yosys.log",
+        "sha256": "1715dc99a5e643811253bef653c471857e81f9171e6200022cc97cd1c1e1b13e"
+      },
+      "emitted_netlist_comb_scc": 0,
+      "scc_log": {
+        "path": "build/current/static-memory/synth/ctrl_nonpower/legacy0/scc.log",
+        "sha256": "55bd1f8379e2a1116c93ef6e97cd770a81dcc9d6b78d282a89df36cea8456669"
+      }
+    },
+    {
+      "profile": "ctrl_nonpower",
+      "legacy": 1,
+      "pre_and_post_check": "passed",
+      "netlist": {
+        "path": "build/current/static-memory/synth/ctrl_nonpower/legacy1/netlist.v",
+        "sha256": "f6cb5a99c635bab1d5fbe0e11e4f8d10af0ea00d7ef91d4d50995726477250b9"
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_nonpower/legacy1/yosys.log",
+        "sha256": "c57381426e55a8bc714840260bbf7a8f7e9fc434810dbed82950bde5e6b9f149"
+      },
+      "emitted_netlist_comb_scc": 0,
+      "scc_log": {
+        "path": "build/current/static-memory/synth/ctrl_nonpower/legacy1/scc.log",
+        "sha256": "5cbe385156544806d3c4266060f7a6086e29d6f4b991d1793fb17e3dd42857a1"
+      }
+    },
+    {
+      "profile": "ctrl_offset",
+      "legacy": 0,
+      "pre_and_post_check": "passed",
+      "netlist": {
+        "path": "build/current/static-memory/synth/ctrl_offset/legacy0/netlist.v",
+        "sha256": "80a037910b2f608e3eea2d21bd8caf123f29052755a80d5b96eb32c3f03a0057"
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_offset/legacy0/yosys.log",
+        "sha256": "dc88c3a39473a2175b81d95643bd759e73671ce19d032b6efac0942ad046292f"
+      },
+      "emitted_netlist_comb_scc": 0,
+      "scc_log": {
+        "path": "build/current/static-memory/synth/ctrl_offset/legacy0/scc.log",
+        "sha256": "25048e75111785ccaf1da57d49faa303a88bbc2b0540a36e4a53176a252ffaeb"
+      }
+    },
+    {
+      "profile": "ctrl_single",
+      "legacy": 0,
+      "pre_and_post_check": "passed",
+      "netlist": {
+        "path": "build/current/static-memory/synth/ctrl_single/legacy0/netlist.v",
+        "sha256": "003dd29b0a283a41e7bbe267fc6abd124d6c3f8de56f5cee9e9a8d0eb9947339"
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_single/legacy0/yosys.log",
+        "sha256": "5a68c1fb223e6d9386c4df05c180ee3fa75c72cea1a91119bb17e9110e9e8a89"
+      },
+      "emitted_netlist_comb_scc": 0,
+      "scc_log": {
+        "path": "build/current/static-memory/synth/ctrl_single/legacy0/scc.log",
+        "sha256": "bbc5ec4b182f9c6d302bc548f8962ec78bb14c20510571db429710cca937a3b0"
+      }
+    },
+    {
+      "profile": "ctrl_subset",
+      "legacy": 0,
+      "pre_and_post_check": "passed",
+      "netlist": {
+        "path": "build/current/static-memory/synth/ctrl_subset/legacy0/netlist.v",
+        "sha256": "4e8a728f19d036d7a564f0ed0572a0ccb3b054b6d5892649e3ef44bdf49b8d72"
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_subset/legacy0/yosys.log",
+        "sha256": "33ff69420afed6144c5d10534cf087972539feff9b2f8fe0ae6693b7907a1855"
+      },
+      "emitted_netlist_comb_scc": 0,
+      "scc_log": {
+        "path": "build/current/static-memory/synth/ctrl_subset/legacy0/scc.log",
+        "sha256": "361a33cd145c1876ac821ce3975bc8bcd9aa30e5428475e807899dffccd18c32"
+      }
+    },
+    {
+      "profile": "ctrl_subset",
+      "legacy": 1,
+      "pre_and_post_check": "passed",
+      "netlist": {
+        "path": "build/current/static-memory/synth/ctrl_subset/legacy1/netlist.v",
+        "sha256": "a3bd995b72244efc9b5a17e89e675d8f6aebd044d7f2aefd20ba23e513a0586c"
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_subset/legacy1/yosys.log",
+        "sha256": "816f732bcdd6d44f8363267281e35fce50306eb9d2a5ec1728e1f928c3fd3855"
+      },
+      "emitted_netlist_comb_scc": 0,
+      "scc_log": {
+        "path": "build/current/static-memory/synth/ctrl_subset/legacy1/scc.log",
+        "sha256": "0e6c861011c8af75a85e7d8f4f7c3686833e4713cd6f4e41d7c747fd3d165ae9"
+      }
+    },
+    {
+      "profile": "ctrl_unlimited",
+      "legacy": 0,
+      "pre_and_post_check": "passed",
+      "netlist": {
+        "path": "build/current/static-memory/synth/ctrl_unlimited/legacy0/netlist.v",
+        "sha256": "48791d1ec09fc017b402538789caada2992110081e249f02c48146a393210351"
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_unlimited/legacy0/yosys.log",
+        "sha256": "531335a89a80824bcf93f13c36ab79301bd4a8c3e477629d5fc0bfedd5e8e1d1"
+      },
+      "emitted_netlist_comb_scc": 0,
+      "scc_log": {
+        "path": "build/current/static-memory/synth/ctrl_unlimited/legacy0/scc.log",
+        "sha256": "9a0c281819713d811cbfdc6606a494910d6cb229c24083e86c35e6565f691959"
+      }
+    }
+  ],
+  "reference_regeneration": {
+    "status": "byte_identical",
+    "files": 23,
+    "sha256": {
+      "const_four/labels.json": "e85ed7cc8f74375883cf4a005a95a3e4afe9d1ceb1f1106230da27454774d888",
+      "const_four/manifest.json": "00b5590b4df5b01b46b8609824ce47971205521578f681477d87c23d28eaf153",
+      "const_four/vectors.txt": "849d4b6102541eba1bfa0a4000d01e497b5d0adacfc53e19a05053d44438a89d",
+      "const_original/labels.json": "e85ed7cc8f74375883cf4a005a95a3e4afe9d1ceb1f1106230da27454774d888",
+      "const_original/manifest.json": "aa2d22bd042caab46a81eebd095f981c34b92b1636aa3e31f061970ebb91452a",
+      "const_original/vectors.txt": "292ec58048c42edc32fed7794d78f91d0c8484fe3c68b5d1de8c82aa3dbc1f31",
+      "const_single/labels.json": "e85ed7cc8f74375883cf4a005a95a3e4afe9d1ceb1f1106230da27454774d888",
+      "const_single/manifest.json": "700f8b17a22dc2caf8fdd62b1de1c7780ea654d90c0faed20e014703f795b386",
+      "const_single/vectors.txt": "241f7edb1909a6f1d9d48c53c09dd02f020af5afb6129afe60907b5887b7f942",
+      "const_wide/labels.json": "e85ed7cc8f74375883cf4a005a95a3e4afe9d1ceb1f1106230da27454774d888",
+      "const_wide/manifest.json": "2ced9355f0a4b458be16361095ecbf3c0a82aa407397f91f58f3569bcc1b1543",
+      "const_wide/vectors.txt": "d83f1853b92ac8118a53be5ad6e8a30221c3eedc39103c06e228b09ce92ef751",
+      "ctrl_default/labels.json": "767ade8f993832a0009f25b4ffd2a26ce4eb59a219219a720d40ea7e33560f18",
+      "ctrl_default/manifest.json": "19972985b97fe69a4165be95ae20def0257d4f5f20c598fb3cba9e6176e12fe1",
+      "ctrl_default/vectors.txt": "7eefd15a6fa9de7205ddb558339541d0121be405b51287b820e4d2078b1d2ac8",
+      "ctrl_nonpower/labels.json": "66212977ac27551972c30bf4600070bbc4768c251ddfb9b1cd53a417673bedc2",
+      "ctrl_nonpower/manifest.json": "70557bc3196f7dae3f77810a27ce9132add169c7ea00cff88cd624efb68e5117",
+      "ctrl_nonpower/vectors.txt": "d1e1e23bfbe1499ea7e989fadb245994a5a8816345f7cf62843b0090c11241c6",
+      "ctrl_subset/labels.json": "ea1da74f201431b09bc26d73cad5f5922a8ebc937b7a0e061d53d1792ff0e909",
+      "ctrl_subset/manifest.json": "b2db3eefe06e5cb9e61097f407d73a8f75d4ee59c85358ac5fb9c9284f253766",
+      "ctrl_subset/vectors.txt": "e7f927fa3e9031b2861e33f953cfc6f289155da664e7f115649e441b78215766",
+      "original_const_test.txt": "2c969374990fe8d76911c20d08d5ebc491471b95fa560f26b64ae3d0a3241ef5",
+      "python_boundaries.json": "eddee49b8e74071784ad08e919701851d156b85685185c9b7d7d0e26fd97d0d6"
+    }
+  },
+  "python_boundaries": {
+    "failures": [
+      {
+        "case": "modern_ctrl_field",
+        "exception": "VarNotDeclaredError",
+        "message": "\nIn file <ROOT>/mem/ctrl/CtrlMemRTL.py:53 in update_signal\n\n53          (s.reg_file.rdata[0].ctrl == OPT_START):\n\n^^^ Field \"ctrl\" of object \"s.reg_file.rdata[0]\" (class \"OutPort\") is accessed in block \"update_signal\",\n    but s.reg_file.rdata[0] does not have field \"ctrl\".\n(when constructing instance s of class \"CtrlMemRTL\" in the hierarchy)\n\nSuggestion: fix incorrect field access at line 53, or fix the declaration somewhere."
+      },
+      {
+        "case": "unlimited_steps",
+        "exception": "AssertionError",
+        "message": "We don't allow Bits0"
+      },
+      {
+        "case": "single_ctrl_slot",
+        "exception": "AssertionError",
+        "message": "We don't allow Bits0"
+      },
+      {
+        "case": "empty_constants",
+        "exception": "AssertionError",
+        "message": "We don't allow Bits0"
+      },
+      {
+        "case": "missing_constants",
+        "exception": "TypeError",
+        "message": "object of type 'NoneType' has no len()"
+      }
+    ],
+    "narrow_pc_zext": "depth=8/count=2 executes: custom PyMTL type-form zext accepts narrower type",
+    "original_const_test": "passed unmodified, original Source/Sink assertions active",
+    "deprecated_ctrl_tests": "not collected: deprecated files use obsolete constructors; not claimed passed"
+  },
+  "native_filelist_elaboration": {
+    "status": "passed",
+    "log": {
+      "path": "build/current/static-memory/native-filelist-lint.log",
+      "sha256": "9ffcad133fed055fec6fa39482f77e19c84d06dfbf75b8708d77f8dadc96b0bc"
+    }
+  },
+  "entrypoint_checks": {
+    "shell_syntax": "passed",
+    "make_dry_run": "passed",
+    "powershell_execution": "not_run_on_linux"
+  },
+  "tools": {
+    "verilator": "Verilator 5.029 devel rev v5.028-104-ge2041f745",
+    "sv2v": "sv2v v0.0.13",
+    "yosys": "Yosys 0.45+139 (git sha1 4d581a97d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)",
+    "cxx": "c++ (Debian 14.2.0-19) 14.2.0"
+  },
+  "source_sha256": {
+    "sv/rtl/mem/cgra_static_ctrl_mem.sv": "59371c9567c9da2604fbf9704d1eaed435fe2d89e1ecb36348876a41b80e20a2",
+    "sv/rtl/mem/cgra_static_const_queue.sv": "7bc17ad13815330830858426c1795ab1fed78f81fffba28511b1aa8c07265316",
+    "sv/migration_tools/current_static_memory.py": "9e4a3b2c1426f1d51fd5d25dace30b0cc25bbf2409c841f17eae4d56f04dedab",
+    "sv/tests/current/run_static_memory.sh": "f1c89de6fe6c4be9baaf1d9bc3349bdda514b35cd7acb69ba771f1f716c891d2",
+    "sv/tests/current/tb_static_ctrl_mem.sv": "bfd9585ee7a9e6da07e442349a4a188cc3a225941f177d8683cdfbd78a1df768",
+    "sv/tests/current/tb_static_const_queue.sv": "bde6ae45d56763b55f7f2199d36ce4d2af53d400111250995a847ef0ec794341",
+    "sv/tests/current/tb_static_invalid.sv": "629c14bc7ac9135530949c7048b6e92e773898052fede291f9f5f6dbb42f7201",
+    "sv/tests/current/static_const_fixture.svh": "512252cc7579fe61aec19ebfab65dc205a0bd4f38c7d7bb38043bf562cce21ba",
+    "sv/tests/current/static_const_synth.sv": "b88dd27cefd7ad9ad6d26da0108ddcc16e37d3a9f9b92e6078bf2789b4dc5886",
+    "sv/Makefile": "d565b85a44ecdf96fe383d19f094c48e618e64e629d535370c760efb2832abe1",
+    "sv/filelists/native.f": "a1a7c95db7bdbd9b01ce6392b4f256c8594e58960d226148498340f16705ac48",
+    "sv/scripts/run.ps1": "8ee2daee85b9d8eacd71e7729d6951d208c7017f04d0f93ff450595bd3f2c438",
+    "sv/scripts/toolchain.sh": "11b934d6f4ee1f19027faaece45b5a025a20ed2c1eed45dcba24ae7a4b33a0b4",
+    "sv/STATIC_MEMORY_API.md": "742a15bbd50969dfbcbb17aca195e1b79cde3b522175de410212ba6649becac1",
+    "sv/CURRENT_MIGRATION.md": "e3904719159e2eec73271cd86b3a84af508ebc69da293b52c89e5c0770878459",
+    "sv/EXPERIMENT_LOG.md": "04ce5a367ba94a4505b657ae16ef0b3115b3cf61113d5fc1fab3ced6574a3668",
+    "sv/README.md": "0ec34f93c4847aff7895f5d20d05ecc23147d80db305abd43bfe9885b248c630",
+    "sv/MIGRATION_PROGRESS.md": "069f9a9d2198d841704676d41ebc404056fa9e4fc3a0fe9d739972ea7dfbb917",
+    "sv/tests/README.md": "e5320ae99ed8ebae9a170373c735aabea58310c335c9005b98067367b4535fa6",
+    "sv/migration_tools/README.md": "a02f5b2922a0baed88db8283d20d6368c4dee3912ede82e57d15b3fcbae8941e",
+    ".github/workflows/native-sv.yml": "b6dafa753572dd2ebef7f35c859ac77795190d8f191eac190cf033f416a534cb"
+  },
+  "limitations": [
+    "Two-state Verilator simulation and generic Yosys synthesis; no technology mapping or PPA claim",
+    "Configuration assertions are simulation diagnostics, not synthesized hardware error responses",
+    "Legacy CtrlMem adapter does not fix the obsolete Python public message-type interface",
+    "Deprecated CtrlMem tests not counted as passed",
+    "No new PE/array integration or system/kernel rerun; prior records retained",
+    "Width and timescale diagnostics remain. Generated netlist vector aliases trigger Verilator UNOPTFLAT; all 18 emitted netlists separately pass Yosys check and scc -expect 0. RTL has no UNOPTFLAT, latch, multiple-driver or select-range warnings in these profiles."
+  ],
+  "git_status_at_record": "uncommitted, not pushed",
+  "remote_ci": "not_run_for_this_batch",
+  "compile_warnings": [
+    {
+      "mode": "rtl",
+      "profile": "const_empty",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 1
+      },
+      "log": {
+        "path": "build/current/static-memory/rtl/const_empty/legacy0/compile.log",
+        "sha256": "bf69094547dab1213f05fd9cbdb4725763005c2ef031a10fb13b101a2b1be509"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "const_four",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 2
+      },
+      "log": {
+        "path": "build/current/static-memory/rtl/const_four/legacy0/compile.log",
+        "sha256": "6bd08ea8ab1fda071ffdd50fd4348019a4aa5fae49e6e0ef04781c7c0a994a09"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "const_four",
+      "legacy": 1,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 2,
+        "WIDTHTRUNC": 1
+      },
+      "log": {
+        "path": "build/current/static-memory/rtl/const_four/legacy1/compile.log",
+        "sha256": "dfa989e6620a9eb9e660441231306459735d350bc5b315de9a1032b1083c2ea2"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "const_original",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 1,
+        "WIDTHTRUNC": 2
+      },
+      "log": {
+        "path": "build/current/static-memory/rtl/const_original/legacy0/compile.log",
+        "sha256": "cbca6350cf227b33b6e29669327561c283abe95818e6bc2a7329a3ecef480e60"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "const_original",
+      "legacy": 1,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 1,
+        "WIDTHTRUNC": 3
+      },
+      "log": {
+        "path": "build/current/static-memory/rtl/const_original/legacy1/compile.log",
+        "sha256": "c45b0ca3429786d7b0b4acea3de4f3f9707c5c1b41fb03bc45611be69263bfe0"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "const_single",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 2
+      },
+      "log": {
+        "path": "build/current/static-memory/rtl/const_single/legacy0/compile.log",
+        "sha256": "3f6da5f554c75b6db726b47816545e87a680c2e44cfaa09c868a9652720886c4"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "const_single",
+      "legacy": 1,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 2,
+        "WIDTHTRUNC": 1
+      },
+      "log": {
+        "path": "build/current/static-memory/rtl/const_single/legacy1/compile.log",
+        "sha256": "f1f7dab92432c857b9acfa1abaec2be3bb4927d7d23f971a640b061c36c99d90"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "const_wide",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 3
+      },
+      "log": {
+        "path": "build/current/static-memory/rtl/const_wide/legacy0/compile.log",
+        "sha256": "98a3e09f8f7e4e5679739efd73fab1f1e415c562099d3a17aa02bdee2ae019c1"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "const_wide",
+      "legacy": 1,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 3,
+        "WIDTHTRUNC": 1
+      },
+      "log": {
+        "path": "build/current/static-memory/rtl/const_wide/legacy1/compile.log",
+        "sha256": "300e1bc05639b4115fe581c8fdfa4e16c18d9f76804d3ae448a8f520abc07319"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_default",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 4
+      },
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_default/legacy0/compile.log",
+        "sha256": "8061944cbdd0446abc1b364bae6a509d419195f29260935a40c74d107ea382b4"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_default",
+      "legacy": 1,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 6,
+        "WIDTHTRUNC": 1
+      },
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_default/legacy1/compile.log",
+        "sha256": "979da102fd1dadd9d38d37dda152bacc70c2480651400e255a971f497cdffb1d"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_nonpower",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 4
+      },
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_nonpower/legacy0/compile.log",
+        "sha256": "8b7bd623392bc7bac0dfcc8a66fbe989d2c77c37a7520ff1420ca0f98be036c0"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_nonpower",
+      "legacy": 1,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 6,
+        "WIDTHTRUNC": 1
+      },
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_nonpower/legacy1/compile.log",
+        "sha256": "4cface5d14f29ee68df15dd1944676f0bf79a7dabf20e96a521a655ea5ea7a43"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_offset",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 4
+      },
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_offset/legacy0/compile.log",
+        "sha256": "6c3e64783ddf49170764a8b6185d86af87870b96fb60a4edcf638b2b5176040a"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_single",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 4
+      },
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_single/legacy0/compile.log",
+        "sha256": "4ee4952a385f9ad6c64c85c742be24fb8faf08bffed49bffaefeca9ca0abee42"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_subset",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 4
+      },
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_subset/legacy0/compile.log",
+        "sha256": "ef4c9df84ffe7f57cb111b6093b1c58295c42f4d9f0057c68d5a2efd9df7693a"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_subset",
+      "legacy": 1,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 6,
+        "WIDTHTRUNC": 1
+      },
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_subset/legacy1/compile.log",
+        "sha256": "f4e8cb56ca9d2a1a121ab034799c2bd9cabe1288e5802c983f64c369c51f358f"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "ctrl_unlimited",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 4
+      },
+      "log": {
+        "path": "build/current/static-memory/rtl/ctrl_unlimited/legacy0/compile.log",
+        "sha256": "a37b9228717efc07660a698cbfe1eab62bd8e423288cddc8d6a0865f74046ece"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "const_empty",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 1
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/const_empty/legacy0/compile.log",
+        "sha256": "a61eb797170e6cb1075a94efe0b6301dd2635b76a9ae82f9bca7c949ead3235b"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "const_four",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "UNOPTFLAT": 2,
+        "WIDTHEXPAND": 1
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/const_four/legacy0/compile.log",
+        "sha256": "476f08d60e94589d16e8c356e0a07486d7303e432b2da4964c0770b6faafddb4"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "const_four",
+      "legacy": 1,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "UNOPTFLAT": 2,
+        "WIDTHEXPAND": 1,
+        "WIDTHTRUNC": 1
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/const_four/legacy1/compile.log",
+        "sha256": "eac188aea15a5aab13d853f4f9af228ce8abb90d049e4859c0953044bb4f60cd"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "const_original",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "UNOPTFLAT": 2,
+        "WIDTHTRUNC": 2
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/const_original/legacy0/compile.log",
+        "sha256": "fd5b5a1e7b9101e2f8ea42ca4b84e18cef912dfdbb73f9cea950b7dca2d65169"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "const_original",
+      "legacy": 1,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "UNOPTFLAT": 2,
+        "WIDTHTRUNC": 3
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/const_original/legacy1/compile.log",
+        "sha256": "4d461b1113c0effdcbdb33fecaf485ec417dc4e10cc8d99e9af43c97e9f5cd58"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "const_single",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 1
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/const_single/legacy0/compile.log",
+        "sha256": "2a5ec490760e8f33be8027923f5d6d056ea6f913f5ed01b8efb84c7209073a71"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "const_single",
+      "legacy": 1,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "UNOPTFLAT": 1,
+        "WIDTHEXPAND": 1,
+        "WIDTHTRUNC": 1
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/const_single/legacy1/compile.log",
+        "sha256": "0386c8c29bed784f38341d1a019bf2f3b7995f7026eee0495f8176a04580d257"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "const_wide",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "UNOPTFLAT": 2,
+        "WIDTHEXPAND": 2
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/const_wide/legacy0/compile.log",
+        "sha256": "8ccffe5f2c4ce615c567dfb556837e719574deb3b273412cb69b3b6dbb390dd9"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "const_wide",
+      "legacy": 1,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "UNOPTFLAT": 2,
+        "WIDTHEXPAND": 2,
+        "WIDTHTRUNC": 1
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/const_wide/legacy1/compile.log",
+        "sha256": "aaf025e1e0faedc5499dfe5842dd432a732ef3ce7d14208facf6ec3b9fe5a6b2"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_default",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "UNOPTFLAT": 4
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_default/legacy0/compile.log",
+        "sha256": "22148d6a8498cd6252974baaf4218d69939149955666dc3e238084a98d69b1e4"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_default",
+      "legacy": 1,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "UNOPTFLAT": 3,
+        "WIDTHTRUNC": 1
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_default/legacy1/compile.log",
+        "sha256": "a27f270d728a9273a44b90d0083d12bcdbc54ab2871b8ed85ff70840500d2264"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_nonpower",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "UNOPTFLAT": 3
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_nonpower/legacy0/compile.log",
+        "sha256": "b5ca7a424338ca607092742b023a6c57b26c117eb45318e0daac6ed32ee77928"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_nonpower",
+      "legacy": 1,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "UNOPTFLAT": 2,
+        "WIDTHTRUNC": 1
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_nonpower/legacy1/compile.log",
+        "sha256": "7665c5474759aad95a0c5dd0aeb8785bd584f986ec01f531be8bb1a4d743f464"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_offset",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "UNOPTFLAT": 3
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_offset/legacy0/compile.log",
+        "sha256": "69d69dd855db07b30bca9ce0240b35211ef2aa0fba4fd6a3dbe0a2af3e0a06a0"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_single",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "UNOPTFLAT": 2
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_single/legacy0/compile.log",
+        "sha256": "8ca60f4d1a8054efa1399537b639815bc1f1f3912771255692dd974e98a21a7f"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_subset",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "UNOPTFLAT": 4
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_subset/legacy0/compile.log",
+        "sha256": "15fe6d706c251fcc8d9046b8ead0f2b2b6c4266c284f962e0b35f0034dd5fbfb"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_subset",
+      "legacy": 1,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "UNOPTFLAT": 3,
+        "WIDTHTRUNC": 1
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_subset/legacy1/compile.log",
+        "sha256": "70ddf699c051a95f79289c5412ddb49ab799c60455a2a0baa3246fc64866f9ee"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "ctrl_unlimited",
+      "legacy": 0,
+      "counts": {
+        "TIMESCALEMOD": 1,
+        "UNOPTFLAT": 2
+      },
+      "log": {
+        "path": "build/current/static-memory/synth/ctrl_unlimited/legacy0/compile.log",
+        "sha256": "dc97b82b9ab18f898c5bd34c165451fe4b2404d903e1154defea00248f7627f8"
+      }
+    }
+  ],
+  "netlist_scc_checks": {
+    "configurations": 18,
+    "status": "passed",
+    "expected_scc": 0
+  }
+}

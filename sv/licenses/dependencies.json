@@ -1,0 +1,69 @@
+{
+  "schema": 1,
+  "original_python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "historical_baseline": "ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b",
+  "all_files_covered_only_by_project_bsd": false,
+  "external_build_tools_bundled": false,
+  "dependencies": [
+    {
+      "name": "VectorCGRA",
+      "terms": "BSD-3-Clause except separately identified dependencies",
+      "files_sha256": {
+        "LICENSE": "8ebbe12c9b622592781afe1e719d1e29a96bb059145a4f033e651011047a5d1c"
+      }
+    },
+    {
+      "name": "PyMTL provenance",
+      "terms": "BSD-3-Clause",
+      "runtime_required": false,
+      "files_sha256": {
+        "licenses/PyMTL-LICENSE": "1d33d1f5dec00d6b0598c27b5bd0b68fe74e0169d7ad8f4746d1282de607ac5f"
+      }
+    },
+    {
+      "name": "PyOCN derived network",
+      "terms": "BSD-3-Clause",
+      "source_commit": "d8ffacc64fb8dd24ce26e944d501016880302bbe",
+      "files_sha256": {
+        "licenses/PyOCN-LICENSE": "9f16a33e2aeef99f1f9feac1be22b8f10275712eaa0bb1001fd24f67ebdddfe2"
+      }
+    },
+    {
+      "name": "Berkeley HardFloat",
+      "terms": "Berkeley HardFloat BSD-style license; retained COPYING and headers",
+      "source_commit": "aea69e416e079178df4bb5697795ef653f55df58",
+      "files_sha256": {
+        "rtl/vendor/hardfloat/HardFloat_primitives.v": "3273444d956fe82b01ba074ed6c22441d957dc7be02990133dd7a83efb07845d",
+        "rtl/vendor/hardfloat/isSigNaNRecFN.v": "dfec25b11b197b767d15b0e28d56b4742c7329668239cdf14d324ddac0950439",
+        "rtl/vendor/hardfloat/HardFloat_rawFN.v": "f219b1594ce25df5790af748bf2bcfdb6ff8a2ad4806c447b1dbeffcdecc071a",
+        "rtl/vendor/hardfloat/fNToRecFN.v": "146e50014d986df605ed59a69425cd6dc19750df3acdd083f61bff7cf51ac6a3",
+        "rtl/vendor/hardfloat/recFNToFN.v": "9a1cb98579a715965aebf9faab6cb5851154e8284d6af7ace594a0d6cc87adf8",
+        "rtl/vendor/hardfloat/addRecFN.v": "8e299e624d7f20c752bb3f59b6ae1ae94685244df20fe2ac274b86f93d87e488",
+        "rtl/vendor/hardfloat/mulRecFN.v": "bff24e22929c49d0f50f70511a93388c784faae9a578cfc79e8fe322cf60cf5a",
+        "rtl/vendor/hardfloat/HardFloat_consts.vi": "ff7168d2e1bcce237ee6ac0789d58588705063a3d14c9137ee4abba839822b40",
+        "rtl/vendor/hardfloat/HardFloat_localFuncs.vi": "e6e8d53f362dc2c9fe14c9b0edbc73bc6367d8899276b3384e947a17029b5d50",
+        "rtl/vendor/hardfloat/HardFloat_specialize.vi": "c231a6ec6c62a9c01c3c2962cf43ea9ec92a7c1c115a8102959d89425803c890",
+        "rtl/vendor/hardfloat/RISCV/HardFloat_specialize.vi": "9c12592b78732e7331f4f506c50e84ad15c120507d73e1f9e511fd95ed30448e",
+        "rtl/vendor/hardfloat/COPYING.txt": "c791a6bdcef33feddaa0cb7ab99c233fb63d93bb385f06d58f9f1b9a8182b418",
+        "rtl/vendor/hardfloat/provenance.json": "6d31d80df7db1a31cac285fe922928a21bef42f4f64a1ff32d05785ccb3de403"
+      }
+    },
+    {
+      "name": "ALUgenMAC and native rendition",
+      "terms": "Original Genesis2 non-commercial notice remains applicable; no relicensing claimed",
+      "files_sha256": {
+        "rtl/fu/combo/vendor/svsrc/ALUgenMAC.sv": "a279b80f648394ed7b15c955360a8d803ec9a597105f0a5bd17dc32b982565a6",
+        "rtl/fu/combo/cgra_alu_gen_mac_core.sv": "fcd99e36be14e96e51af9006afd03c1d5d8d0b0b6d5d1048f520e0ec1232afbc",
+        "rtl/fu/combo/vendor/README.md": "3b6e2224d5614cf1dd3856bec4563ec7da6ef25a0cf53b8bf66b055f76c3e16c"
+      }
+    },
+    {
+      "name": "DW02_multp and native rendition",
+      "terms": "Original Synopsys proprietary license notice remains applicable; no relicensing claimed",
+      "files_sha256": {
+        "rtl/fu/combo/vendor/dp_fpfma/DW02_multp.v": "a9d9bb4b4b5fa032e5626e3dd32d069cf39d45765c398530bb41bb3a541b4515",
+        "rtl/fu/combo/cgra_multp.sv": "855e5c180f10e01be38d012d4c539fa8ef9e497e91a7be846d78f548a9be588b"
+      }
+    }
+  ]
+}

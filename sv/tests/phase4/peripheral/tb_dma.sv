@@ -31,7 +31,7 @@ module tb_dma #(parameter bit HDL_MODE=1);
   logic [32-1:0] recv_from_spm_rd_resp__msg=0;
   logic [1-1:0] recv_from_spm_rd_resp__val=0;
   logic [1-1:0] recv_from_spm_rd_resp__rdy, gold_recv_from_spm_rd_resp__rdy;
-  cgra_dma_engine #(.SPM_DATA_W(32),.DRAM_DATA_W(128),.DRAM_ADDR_W(64),.SPM_ADDR_W(32),.BYTES_W(32),.TAG_W(8),.BASELINE_TRANSLATED_SLICES(HDL_MODE)) dut (.clk(clk),
+  cgra_dma_engine #(.LEGACY_PYTHON(1),.SPM_DATA_W(32),.DRAM_DATA_W(128),.DRAM_ADDR_W(64),.SPM_ADDR_W(32),.BYTES_W(32),.TAG_W(8),.BASELINE_TRANSLATED_SLICES(HDL_MODE)) dut (.clk(clk),
     .reset(reset),
     .dma_cmd__msg(dma_cmd__msg),
     .dma_cmd__val(dma_cmd__val),

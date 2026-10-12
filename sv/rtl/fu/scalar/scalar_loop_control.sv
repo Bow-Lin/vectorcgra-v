@@ -1,9 +1,10 @@
 `include "cgra_opcodes.svh"
 `include "cgra_profile_defs.svh"
-// Native LoopControlRTL migration from ac96; original state/handshake semantics.
+// Corrected native transactions by default; LEGACY_PYTHON reproduces the pinned source.
 module scalar_loop_control #(
   `CGRA_PROFILE_PARAMETERS,
-  parameter int VECTOR_FACTOR_POWER = 0
+  parameter int VECTOR_FACTOR_POWER = 0,
+  parameter bit LEGACY_PYTHON=0
 ) (
   input  logic [0:0] clear ,
   input  logic [0:0] clk ,
@@ -40,6 +41,8 @@ module scalar_loop_control #(
   input logic [0:0] to_mem_wdata__rdy  ,
   output logic [0:0] to_mem_wdata__val
 );
+  if (LEGACY_PYTHON) begin : legacy
+
   `include "cgra_profile.svh"
   localparam int CTRL_SLOTS = 1 << CTRL_ADDR_W;
   data_t from_mem_rdata__msg_typed ;
@@ -272,4 +275,7 @@ module scalar_loop_control #(
 
   assign vector_factor_power = 3'(VECTOR_FACTOR_POWER);
 
+  end else begin : native_mode
+    scalar_loop_control_native #(`CGRA_PROFILE_BIND, .VECTOR_FACTOR_POWER(VECTOR_FACTOR_POWER)) core(.*);
+  end
 endmodule

@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "top": "system",
+  "architectures": [
+    {
+      "cols": 2,
+      "rows": 2
+    }
+  ]
+}

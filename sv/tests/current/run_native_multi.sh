@@ -10,12 +10,16 @@ for profile in "$@"; do
     ring) args=(-GMULTI_COLS=4 -GMULTI_ROWS=1 -GTOPOLOGY=1);;
     registered) args+=(-GMEM_COMBINATIONAL=0);;
     mesh64) args+=(-GCOLS=4 -GROWS=4);;
+    mesh-compact) args+=(-GCTRL_DEPTH=2 -GREG_DEPTH=2 -GNUM_CTRL=2 -GTOTAL_STEPS=2);;
+    ring2-compact) args=(-GMULTI_COLS=2 -GMULTI_ROWS=1 -GTOPOLOGY=1 -GCTRL_DEPTH=2 -GREG_DEPTH=2 -GNUM_CTRL=2 -GTOTAL_STEPS=2);;
     *) exit 2;;
   esac
-  build="build/native/multi/$profile"
+  build="${NATIVE_MULTI_BUILD_ROOT:-build/native/multi}/$profile"
   mkdir -p "$build"
+  { grep -vE '^\+|^$' filelists/native.f; printf '%s\n' tests/current/tb_native_multi.sv; } | xargs sha256sum > "$build/compiled_sources.sha256"
+  sha256sum rtl/common/*.svh >> "$build/compiled_sources.sha256"
   env -u LINK "$VERILATOR" --binary --timing --compiler "$COMPILER" -j "$JOBS" \
-    -MAKEFLAGS "CXX=$CXX LINK=$CXX" --top-module tb_native_multi \
+    -MAKEFLAGS "CXX=$CXX LINK=$CXX" -CFLAGS -O0 --output-split 10000 --output-split-cfuncs 2000 --top-module tb_native_multi \
     --Mdir "$build" -Wno-fatal -Irtl/common -f filelists/native.f "${args[@]}" \
     tests/current/tb_native_multi.sv >"$build/compile.log" 2>&1 || { tail -n 30 "$build/compile.log"; exit 1; }
   "$build/Vtb_native_multi${EXEEXT}" >"$build/run.log" 2>&1 || { tail -n 12 "$build/run.log"; exit 1; }

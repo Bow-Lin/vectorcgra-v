@@ -1,8 +1,9 @@
 `include "cgra_opcodes.svh"
 `include "cgra_profile_defs.svh"
-// ac96 behavior preserved, including undriven fields and original handshake rules.
+// Native signed comparisons and stable operands; explicit original-Python compatibility.
 module tile_alu_gen_mac #(
-  `CGRA_PROFILE_PARAMETERS
+  `CGRA_PROFILE_PARAMETERS,
+  parameter bit LEGACY_PYTHON=0
 ) (
   input  logic [0:0] clear ,
   input  logic [0:0] clk ,
@@ -91,7 +92,7 @@ module tile_alu_gen_mac #(
   logic [15:0] fALU_rhs_1b;
   logic [5:0] fALU_rhs_2;
 
-  cgra_alu_gen_mac fALU
+  cgra_alu_gen_mac #(.LEGACY_PYTHON(LEGACY_PYTHON)) fALU
   (
     .clk( fALU_clk ),
     .lhs_0( fALU_lhs_0 ),
@@ -107,6 +108,7 @@ module tile_alu_gen_mac #(
   end
 
   always_comb begin : comb_logic
+    if (!LEGACY_PYTHON) begin fALU_rhs_0=0;fALU_rhs_1=0;fALU_rhs_1b=0;end
     recv_all_val = 1'd0;
     in0 = 3'd0;
     in1 = 3'd0;
@@ -122,7 +124,7 @@ module tile_alu_gen_mac #(
     send_to_ctrl_mem__val = 1'd0;
     p_send_to_ctrl_mem__msg = '0;
     recv_from_ctrl_mem__rdy = 1'd0;
-    if ( recv_opt__val & send_out__rdy[1'd0] ) begin
+    if (recv_opt__val && (LEGACY_PYTHON ? send_out__rdy[0] : !reset && !clear)) begin
       if ( p_recv_opt__msg.fu_in[2'd0] != 3'd0 ) begin
         in0 = p_recv_opt__msg.fu_in[2'd0] - 3'd1;
       end
@@ -133,7 +135,7 @@ module tile_alu_gen_mac #(
         in2 = p_recv_opt__msg.fu_in[2'd2] - 3'd1;
       end
     end
-    if ( recv_opt__val ) begin
+    if (recv_opt__val && (LEGACY_PYTHON || (!reset && !clear))) begin
       if ( ( ( ( ( ( ( ( p_recv_opt__msg.operation == 7'( OPT_ADD ) ) | ( p_recv_opt__msg.operation == 7'( OPT_SUB ) ) ) | ( p_recv_opt__msg.operation == 7'( OPT_LT ) ) ) | ( p_recv_opt__msg.operation == 7'( OPT_GTE ) ) ) | ( p_recv_opt__msg.operation == 7'( OPT_GT ) ) ) | ( p_recv_opt__msg.operation == 7'( OPT_LTE ) ) ) | ( p_recv_opt__msg.operation == 7'( OPT_MUL ) ) ) | ( p_recv_opt__msg.operation == 7'( OPT_MUL_ADD ) ) ) begin
         fALU_rhs_0 = p_recv_in__msg[in0_idx].payload;
         fALU_rhs_1 = p_recv_in__msg[in1_idx].payload;

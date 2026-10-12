@@ -1,0 +1,14 @@
++incdir+rtl/common
+rtl/common/cgra_register_file.sv
+rtl/common/cgra_queue.sv
+rtl/common/cgra_round_robin.sv
+rtl/noc/cgra_switch.sv
+rtl/noc/cgra_credit_send.sv
+rtl/noc/cgra_credit_input.sv
+rtl/noc/cgra_credit_recv.sv
+rtl/noc/cgra_ring_route.sv
+rtl/noc/cgra_ring_router.sv
+rtl/noc/cgra_credit_ring.sv
+rtl/mem/ctrl_mem.sv
+rtl/mem/cgra_ring_ctrl_node.sv
+rtl/mem/cgra_ring_multi_ctrl_mem.sv

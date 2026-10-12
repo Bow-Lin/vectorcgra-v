@@ -4,7 +4,7 @@ module tb_multi_migration;
   logic [192:0] recv_from_cpu_pkt__msg,send_to_cpu_pkt__msg;
   logic recv_from_cpu_pkt__val,recv_from_cpu_pkt__rdy,send_to_cpu_pkt__val,send_to_cpu_pkt__rdy;
   cgra_multi #(.DATA_W(32),.COLS(2),.ROWS(2),.MULTI_COLS(2),.MULTI_ROWS(2),.TILE_PORTS(4),.CTRL_DEPTH(8),.GLOBAL_ADDR_W(7),.BANK_DEPTH(16),.NUM_BANKS(2),.REG_DEPTH(16),.NUM_CTRL(8),.TOTAL_STEPS(8),.TILE_VARIANT(0),
-    .FU_COUNT(4),.FU_KINDS({8'd3,8'd13,8'd21,8'd2})) dut (.*);
+    .NOC_LEGACY_PYTHON(1),.MEMORY_LEGACY_PYTHON(1),.ARITH_LEGACY_PYTHON(1),.VECTOR_LEGACY_PYTHON(1),.FP_LEGACY_PYTHON(1),.REDUCE_LEGACY_PYTHON(1),.FU_COUNT(4),.FU_KINDS({8'd3,8'd13,8'd21,8'd2})) dut (.*);
   logic [195:0] replay_input;
   logic [1778:0] expected_output,actual_output;
   assign actual_output={recv_from_cpu_pkt__rdy,send_to_cpu_pkt__msg,send_to_cpu_pkt__val,dut.noc_send_msg[0],dut.noc_send_val[0],dut.noc_send_rdy[0],dut.noc_recv_msg[0],dut.noc_recv_val[0],dut.noc_recv_rdy[0],dut.noc_send_msg[1],dut.noc_send_val[1],dut.noc_send_rdy[1],dut.noc_recv_msg[1],dut.noc_recv_val[1],dut.noc_recv_rdy[1],dut.noc_send_msg[2],dut.noc_send_val[2],dut.noc_send_rdy[2],dut.noc_recv_msg[2],dut.noc_recv_val[2],dut.noc_recv_rdy[2],dut.noc_send_msg[3],dut.noc_send_val[3],dut.noc_send_rdy[3],dut.noc_recv_msg[3],dut.noc_recv_val[3],dut.noc_recv_rdy[3]};

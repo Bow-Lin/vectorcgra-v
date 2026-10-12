@@ -9,7 +9,8 @@ module cgra_ring_router #(
   parameter int VC_WIDTH = 1,
   parameter int VCS = 2,
   parameter int CREDITS = 2,
-  parameter int POS_WIDTH = $clog2(NODES)
+  parameter int POS_WIDTH = $clog2(NODES),
+  parameter bit LEGACY_PYTHON=0
 ) (
   input logic clk, reset,
   input logic [POS_WIDTH-1:0] pos,
@@ -28,7 +29,7 @@ module cgra_ring_router #(
   for (genvar p = 0; p < 3; p++) begin : inputs
     logic [WIDTH-1:0] messages [0:VCS-1];
     logic valid [0:VCS-1], ready [0:VCS-1];
-    cgra_credit_input #(.WIDTH(WIDTH), .VCS(VCS), .CREDITS(CREDITS),
+    cgra_credit_input #(.LEGACY_PYTHON(LEGACY_PYTHON),.WIDTH(WIDTH), .VCS(VCS), .CREDITS(CREDITS),
                         .VC_LSB(VC_LSB), .VC_WIDTH(VC_WIDTH)) input_unit (
       .clk, .reset, .recv_msg(recv_msg[p]), .recv_en(recv_en[p]), .recv_credit(recv_credit[p]),
       .send_msg(messages), .send_val(valid), .send_rdy(ready)
@@ -51,19 +52,29 @@ module cgra_ring_router #(
     logic valid [0:ROUTES-1], ready [0:ROUTES-1];
     logic [WIDTH-1:0] selected_msg;
     logic selected_val, selected_rdy;
+    logic [VCS-1:0] available_credit;
     for (genvar r = 0; r < ROUTES; r++) begin : ports
       assign messages[r] = routed_msg[r][o];
-      assign valid[r] = routed_val[r][o];
+      logic credit_eligible;
+      always_comb begin
+        credit_eligible=0;
+        for(int v=0;v<VCS;v++)
+          if(messages[r][VC_LSB+:VC_WIDTH]==VC_WIDTH'(v)) credit_eligible=available_credit[v];
+      end
+      // Arbitrate only candidates that can consume a registered output credit.
+      // Use the routed VC (after any dateline rewrite), not the input VC.
+      // Feeding selected_rdy back here would create a combinational loop.
+      assign valid[r] = routed_val[r][o] && (LEGACY_PYTHON || credit_eligible);
       assign routed_rdy[r][o] = ready[r];
     end
-    cgra_switch #(.WIDTH(WIDTH), .INPUTS(ROUTES)) switch_unit (
+    cgra_switch #(.LEGACY_PYTHON(LEGACY_PYTHON),.WIDTH(WIDTH), .INPUTS(ROUTES)) switch_unit (
       .clk, .reset, .recv_msg(messages), .recv_val(valid), .recv_rdy(ready),
       .send_msg(selected_msg), .send_val(selected_val), .send_rdy(selected_rdy)
     );
-    cgra_credit_send #(.WIDTH(WIDTH), .VCS(VCS), .CREDITS(CREDITS),
+    cgra_credit_send #(.LEGACY_PYTHON(LEGACY_PYTHON),.WIDTH(WIDTH), .VCS(VCS), .CREDITS(CREDITS),
                        .VC_LSB(VC_LSB), .VC_WIDTH(VC_WIDTH)) output_unit (
       .clk, .reset, .recv_msg(selected_msg), .recv_val(selected_val), .recv_rdy(selected_rdy),
-      .send_msg(send_msg[o]), .send_en(send_en[o]), .send_credit(send_credit[o])
+      .send_msg(send_msg[o]), .send_en(send_en[o]), .send_credit(send_credit[o]), .available_credit
     );
   end
 endmodule

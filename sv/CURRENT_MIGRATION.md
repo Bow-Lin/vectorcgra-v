@@ -1,152 +1,87 @@
-# 当前 Python → SystemVerilog 升级
+# 当前 Python → SystemVerilog 迁移状态
 
-目标 Python 固定为 `cd7aad878915e389cecf8cc01ff6987d156bd019`。该提交导入 SV；Python 内容来自父提交 `e3caf6928a4e8c97e6be36574af2520ec92083b9`。原始迁移基线仍为 `ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b`。`reference/current/target.json` 记录所有 274 个原项目 Python 文件的 SHA-256；本批没有修改这些文件。
+本轮按 [已授权的 20 项顺序](MIGRATION_TASKS.md) 完成功能补齐、语义检查、回归和独立
+交付。任务完成指这些明确范围完成，不表示所有 Python 软件工具被重写，也不是任意
+参数组合的形式等价证明。具体提交和验证状态见 [最终验收索引](FINAL_ACCEPTANCE.md)。
 
-最新完成批次为 M23（2026-10-10）：原 4×4 SPMV 映射的原生修复配置通过下述限定范围验收。下一项仍是旧独立 API 的补齐。验收记录中的提交、推送及远端 CI 状态均为记录生成时的快照；实际提交与推送状态以 Git 为准。
+Python 目标固定为 **`cd7aad878915e389cecf8cc01ff6987d156bd019`**；它导入 SV，Python
+内容来自父提交 **`e3caf6928a4e8c97e6be36574af2520ec92083b9`**。最初基线仍是
+**`ac96a7af930c9d6f814ab10e7bb61a10d6eaa33b`**。迁移期间原 274 个 Python 文件、
+原始 YAML 和冻结参考保持不变；`reference/current/target.json` 固定 Python 源文件的 SHA，
+其余完整性核对见最终验收记录。
 
-## 已实现
+## 实现与接口
 
-| 项目 | 当前实现 |
+- `cgra_pe` 是一个参数化 PE，统一 Base／Context／Streaming 入口；阵列规模由上层
+  `cgra_system`、`cgra_multi` 或 `cgra_multi_template` 构造，不受固定 2×2 顶层限制。
+- 公共参数、类型、PE 端口及 FU 内存连线已集中维护；保留各变体的命令、退役、任务
+  保存／恢复与 Streaming 语义。详见 [PE_INTERFACES.md](PE_INTERFACES.md)。
+- 独立 DataMem、DataMemScalable、OrLink、Selector、PipeQueue、RegFile，以及静态
+  CtrlMem／ConstQueue、RingMultiCtrlMem 和 LoopController 有独立 API 与验收。
+  独立 API 不自动表示已替换 PE 内部对应模块或接入整机。
+- 标量、向量、归约、组合、MAC、浮点、存储、DMA／im2col、NoC 的修复和边界分别
+  记录在接口文档中；[MIGRATION_INVENTORY.md](MIGRATION_INVENTORY.md) 提供完整索引。
+- JSON 架构／程序工具不导入原项目或 PyMTL，生成静态参数、控制包、常量、预加载和
+  barrier。它们是有范围的软件替代，详见 [CONFIGURATION_TOOL.md](CONFIGURATION_TOOL.md)
+  与 [PROGRAM_TOOL.md](PROGRAM_TOOL.md)。
+
+## 原生修正与 Python 兼容
+
+原生默认行为与冻结 Python 周期重放分别验收。旧轨迹显式启用所需的 NOC、MEMORY、
+ARITH、VECTOR、FP、REDUCE 兼容参数；不能把通过兼容重放等同于修复后的默认语义。
+
+| 范围 | 当前语义和证据 |
 |---|---|
-| 单 PE 顶层 | `rtl/tile/cgra_pe.sv`，`VARIANT=0/1/2` 选择 Base/Context/Streaming；`cgra_programmable` 和 `cgra_system` 共用此入口 |
-| opcode | `rtl/common/cgra_opcodes.svh` 集中定义当前 Python 编码；同步 13 个编码变化，包括 Streaming Load、GEP、比较和常量移位 |
-| Grant | 按 `ctrl_addr` 独立记录 once 状态；支持 GRT_ONCE_CONST；Context 的 task clear 清除 Grant 状态 |
-| 常量移位 | LLS_CONST 的算术、谓词和常量握手 |
-| GEP | 当前编码及命令 43 的 Controller → Tile → CtrlMem → FU 配置通路；三变体共用验收 |
-| STORE | 普通 STR 的地址和数据请求受两个操作数的 predicate 控制 |
-| 常量队列 | 记忆 FU 提前消耗，整条控制步退役时只前进一次；Base/Context/Streaming 同步 |
-| RegisterCluster | 依据实际物理输入槽决定是否 drain；向已占用寄存器写入时正确背压 |
-| Crossbar | prologue 不消耗输入、不发送陈旧数据、不等待被跳过端口；保留多播单次交付 |
-| VectorMul | 修复翻译时位移量位宽截断，采用 Python 的完整整数位移 |
-| DMA | 默认正确的 beat 拆装；DRAM 位宽、word index、地址步长、尾拍 mask 参数化；集成封装透传 DRAM_DATA_W |
-| Linux 工具链 | 27 个历史 shell runner 去除 MSYS 路径硬编码；新回归直接运行原生 SV |
-| 原生算术修正 | SUB_CONST 默认消耗常量端口；浮点默认采用标准 IEEE 字段映射，支持显式旧 Python 兼容模式 |
-| 程序工作流 | 从未修改的原始 YAML 测试获取配置包和逐周期参考，生成原生 SV 重放；原测试 Sink 断言继续生效 |
+| 存储与完成顺序 | 假谓词 STORE 正常退役且不发事务；reset／clear 抑制原生内存事务；内核返回必须等待实际存储完成，最后一次写入与返回同拍合法。见 [KERNEL_BOUNDARIES.md](KERNEL_BOUNDARIES.md) |
+| 算术／浮点 | 修正常量握手、边界运算、MAC 有符号行为；浮点默认使用 IEEE 字段映射和独立结果检查，旧格式显式兼容。见 [ARITHMETIC_BOUNDARIES.md](ARITHMETIC_BOUNDARIES.md) |
+| 向量／归约 | 组合常量的 lane 间进位、乘法 lane 范围、归约请求与返回背压稳定性有独立验收。见 [VECTOR_ARITHMETIC_API.md](VECTOR_ARITHMETIC_API.md)、[VECTOR_REDUCE_API.md](VECTOR_REDUCE_API.md) |
+| LoopController | 独立接口修复满目标派发回绕、背压输出保持和同拍完成计数；父通知及身份契约有限定。见 [LOOP_CONTROLLER_API.md](LOOP_CONTROLLER_API.md) |
+| 内存／外设 | 配对握手、非对称端口、复位、DMA 长度及重启、im2col 边界与系统回读。见 [MEMORY_BOUNDARIES.md](MEMORY_BOUNDARIES.md) |
+| NoC／Controller | 包在背压下保持，Ring VC 选择归一化；禁用 im2col 的 ready 显式绑零。见 [NOC_HANDSHAKES.md](NOC_HANDSHAKES.md)、[SYSTEM_ACCEPTANCE.md](SYSTEM_ACCEPTANCE.md) |
 
-## PE 配置契约
+有意保留的接口行为同样必须遵守：未写过的 PE 寄存器提供默认 token；操作数可以在
+同一控制步中多次观察，常量和寄存器消费随 `ctrl_proceed` 退役；有序 FU 选择保留
+last-valid 优先级。独立旧 RegFile 包装每个时钟沿无条件写入，不能当作普通握手 RAM。
+Streaming 的透明控制包保持逻辑在选定网表中保留 13 位锁存，不声称全部消除了锁存器。
 
-`cgra_pe` 只实例化一个 PE。`COLS/ROWS/MULTI_COLS/MULTI_ROWS` 在此层用于所属阵列的包格式和身份字段，不会生成额外 PE。阵列生成由上层 `cgra_system` 等负责。
+## 验证范围
 
-- Base/Context 可用 4 或 8 个物理端口，Streaming 要求 8 个。
-- `DATA_W`、`CTRL_DEPTH`、`REG_DEPTH`、`NUM_CTRL`、`TOTAL_STEPS` 控制数据和存储配置；控制深度允许非二次幂，例如 YAML 程序的 6。
-- `FU_COUNT` 与 `FU_KINDS[8*i+:8]` 给出有序 FU 列表。必须恰有一个 Nah，最多一个连接存储的 FU。聚合器沿用有序 last-valid 优先级，不假定所有组合都满足 one-hot。
-- 数据操作数保持可在同一控制步内多次被观察；寄存器 token 和常量指针在 `ctrl_proceed` 退役。未写过的寄存器仍提供原模型的默认 token。
-- 已验收参数点：Base 32/4 端口、Base 64/4 端口/CTRL16/REG8、Context 32/4 和 8 端口、Streaming 32/8 端口。更多组合不能仅凭“参数化”视为通过。
+- 独立单元／PE：除数学结果，还检查背压、缺失输入、reset／clear、非法参数，并运行
+  错误期望或恢复旧缺陷的负例。选定综合网表另有重新读取后的 check／SCC 检查，
+  覆盖范围以各组证据为准。
+- 原生 AXPY／GEMM／GEMV：18 个输入／尺寸场景 × 2 内存模式 × 2 节奏，共 72 次数学
+  验收，检查完整回读、实际写次数和返回顺序。SPMV 的 nnz=0…8 及独立 COO 另有证据。
+- 当前整机：16／64 PE 同构系统、21 PE 异构系统，以及选定完整 Mesh／Ring 网表；
+  18 次正向运行、27 次负向检查。两份整机网表与对应 RTL 的场景周期一致。
+- Python 周期兼容：AXPY、FIR、histogram、ReLU、SAD 五个已完成轨迹；global_add、
+  dynamic_fir 两个完整多 CGRA 场景。GEMM／GEMV 只验证原 Python 未完成的前缀，
+  不标成原 Python 完成；原 Python SPMV 配置生成失败，原生修复程序另行验收。
+- 本地与 CI 的统一清单为 14 组、48 个目标，工具版本和 SHA 固定。每组保存输入 SHA、
+  退出码和日志；来源审计与原生功能回归分开。详见 [REGRESSION.md](REGRESSION.md)。
+- 独立包以不含原项目 Python／`.git`／PyMTL 的干净环境另行检查，来源与许可保留。
+  详见 [STANDALONE.md](STANDALONE.md)。
 
-## 验证入口
+每份 validation JSON 保留其运行时的源码、参数和工具版本。历史记录不会因被新文档
+引用而变成当前版本重新运行的证明；最新统一回归和独立构建状态见最终验收记录。
 
-```bash
-make -C sv current
-make -C sv current-synth current-post-synth
-make -C sv current-kernels
-make -C sv current-prefixes
-make -C sv native-kernels native-math
-make -C sv native-multi native-template current-migration
-bash sv/scripts/run_baseline.sh all
-```
+## 参数与未覆盖范围
 
-设置工具路径时使用环境变量或 Make 变量。构建产物和日志位于 `sv/build/current/`；历史回归位于 `sv/build/baseline-cd7aad878915/`。`regression` 包含上列当前验收入口与旧基线 all。历史 phase2/3/4 请通过 `run_baseline.sh` 运行。GitHub Actions 增加原生算术、修复后的 kernel、多 CGRA、异构及当前迁移重放；远端 CI 尚未执行。
+Base／Context 采用 4 或 8 个物理端口，Streaming 采用 8 个；CTRL_DEPTH／REG_DEPTH
+至少为 2，1 ≤ NUM_CTRL ≤ CTRL_DEPTH。有序 FU 列表恰含一个 Nah，内存 FU 的数量和
+类型受变体限制。32／64 位 PE、非方形阵列、异构 FU、4×4 单阵列及 64 PE 多阵列是
+已测试参数点；不要把这些点推广为任意位宽、端口数、FU 排列和拓扑均已验证。
+完整整机门级验收使用 CTRL_DEPTH=2、REG_DEPTH=2 的指定 Mesh／Ring 配置。
 
-本批验收包括：
+[完整清单](reference/current/inventory/inventory.md) 分类 274 文件、99 个原始 opcode、
+4 个原生扩展和 59 个命令。它是覆盖清单，不是测试通过率。需明确保留的边界包括：
 
-- 8 个 FU × 539 周期，比较全部 303 位输出（包括无效周期消息；Adder 显式启用 SUB_CONST 的旧 Python 兼容模式），覆盖新编码、predicate、背压、Grant 槽状态、GEP stride 和 VectorMul。
-- 故意破坏期望值的负向测试，确认比较器能够检出错误。
-- 非法 PE 变体和越界控制计数必须在启动时报错，编译失败不算负向测试通过。
-- 常量提前接受/延迟退役、prologue 陈旧输入、未使用物理槽、满目标寄存器，以及多播部分接受后的去重。
-- 五组 PE 参数配置运行 Grant + 独立路由背压及 GEP 程序；Context 另验证 TERMINATE 后重新执行。
-- Streaming Load：190 周期，10 次请求、10 个输出、2 次完成，独立检查请求地址和结果。
-- DMA 32/96/128/256 位 DRAM，零长度、跨 beat 和所有尾拍 mask、独立请求/响应背压及完成背压；集成 DMA 128/256 位 CPU 命令、SPM 回读与 DRAM 回写端到端测试。
-- 默认 PE 的 497 个未驱动位已消除。根因包括 19 个窄有符号循环边界转换，在 sv2v/Yosys 路径中导致循环体被删除，以及未使用的接口没有显式驱动。现在在 `proc; opt_clean` 后、综合优化前执行 `check -assert`，综合后再次检查。五组 PE 参数的真实综合网表重跑相同公共接口程序，不只检查最终网表是否有告警。证据和最小反例在 `reference/current/structure/`。
-- 历史 all：类型编码、2×2 的 134 周期/489 位比较、错误结果和超时负向测试、通用综合。
+- LoopController 尚无整机命令路由；DataMemScalable 的额外 NoC 口在原 Python 中也未
+  实现，SV 保留该边界。命令转发使用显式白名单，不是自动 catch-all。
+- VEC_INC=50、VEC_INC_COMBINED=70、REM_CONST=99 在两边均只有编码定义。
+  AND_CONST=100／OR_CONST=101 为 SV 已实现的原有编码；102…105 为原生新增指令。
+- 20 个 DFG／映射、日志、PPA、自动化等 Python 软件文件未移植；没有通用 YAML／DAG
+  编译器、任意稀疏删 Tile、运行时隔离重配置或任意 VC／credit 参数承诺。
+- DMA 及向量／浮点、矩阵／稀疏程序各有输入格式和尺寸边界，使用前须查对应文档。
+- 未重跑全部原 Python 测试，未进行任意参数形式等价、四态全面验证或平台 PPA 签核。
 
-YAML 每个程序的 Python 状态、参数、配置包和事件见 `reference/current/kernels/*/manifest.json`；对应原生结果见 `build/current/kernels/*/run.log`。这是逐周期等价检查：数学正确性仍受原测试的断言覆盖范围限制，例如 AXPY 原测试没有最终内存回读。
-
-| YAML 程序 | 参考状态 | 完整通过的周期数 |
-|---|---|---:|
-| AXPY | Python 完成，SV 全部顶层输出逐位匹配 | 290 |
-| FIR4x4 | Python 完成，SV 全部顶层输出逐位匹配 | 350 |
-| Histogram | Python 完成，SV 全部顶层输出逐位匹配 | 240 |
-| ReLU4x4 | Python 完成，SV 全部顶层输出逐位匹配 | 345 |
-| SAD | Python 完成，SV 全部顶层输出逐位匹配 | 190 |
-| GEMM | 30 分钟时停止；2,258 周期前缀与 SV 逐位匹配，尚无完成包 | — |
-| GEMV | 30 分钟时停止；2,689 周期前缀与 SV 逐位匹配，尚无完成包 | — |
-| SPMV | 原配置生成器缺少 ICMP_ULT 映射 | — |
-
-`current-prefixes` 只比较 GEMM/GEMV 已采集的前缀，结果名称为 `CURRENT_KERNEL_PREFIX_PASS`，不能当作程序完成。参考工具新增 `--wall-seconds`（默认 1800）和进度输出；部分轨迹始终标记 incomplete。原配置延长到 12,000 周期仍停顿，进一步定位为读后再次读取寄存器，却没有保留已消费 token。GEMM 还缺少 stride=4 配置，当前 Python/SV controller 的接受列表也漏了命令 43；SV 已补齐转发。
-
-## 原生程序的独立数学验收
-
-`migration_tools/native_kernels.py` 在独立目录生成修复配置，不覆盖 `reference/current` 的原轨迹。配置修复通过现有 Register → Routing → Register 通路保留活跃值；单写端口冲突通过将目标寄存器搬到空闲第四个 bank 解决，不放宽全局 token 协议。完成包按照 RetRTL 的接口携带实际控制字，原 YAML sink 的零控制字期望没有沿用。
-
-| 程序 | 原生独立验收 | 内存回读 |
-|---|---|---|
-| GEMV | 405 周期完成 | 地址 20–23：30、70、110、150 |
-| GEMM | 1657 周期完成 | 地址 32–47 的全部 16 个 `C_initial + A×B` 值 |
-| SPMV 原 4×4 映射，原生修复配置 | 964 周期完成并回读全部 32 字 | 前 8 字为 `0、2、6、12、20、30、42、56`；其余 24 字不变 |
-
-另有独立 `spmv_coo` 程序：2×2 阵列中的单 PE 执行 8 个稀疏项，数组地址互不重叠，覆盖重复行累加和负权重。206 周期完成，回读 `481、2、123、274`，与独立 COO 计算一致。它与上述保留原 4×4 映射的修复程序分别验收。
-
-GEMM/GEMV/SPMV/独立 COO 的错误期望和永久背压负向测试均要求失败。`make native-kernels` 包含四个程序；`bash tests/current/run_native_kernels.sh spmv` 单独运行 4×4 SPMV、长度边界和故障注入。M22 的失败配置、日志及校验值保存在 `reference/native/kernels/spmv/failure_m22/`。
-
-SPMV 在迁移工具的内存副本中补充 opcode 映射，并使用原生无符号比较 102/103；100/101 是 Python 已定义但未实现的常量 AND/OR。原始 Python 生成失败的证据保留；原 Python 和 YAML 文件未修改。
-
-### M23：原 4×4 SPMV 的修复与边界
-
-- 修正 M22 寄存器改名工具的遗漏：tile 9 的 `$0 → $24` 同时迁移路由 prologue 的物理输入编号 `5 → 8`。否则旧循环中的值会提前进入反馈链，导致地址 2 错误。
-- 新增显式原生 `PHI_N=104`，等待所有已配置输入，按顺序选择第一个真谓词；三输入返回合并不再丢弃第三条路径。`PHI_START_PRED=105` 首次保留入口谓词，只在实际接受且完成 vector factor 时更新首次状态。旧 PHI/PHI_START/PHI_CONST 的编码和行为保持兼容。
-- 对编译期 `nnz>0` 且为 4 的倍数的无尾项分支，将 tile 4、slot 13 的循环退出 token 保存到 `$24`，slot 7 以它作为返回依赖，避免只检查“余数为零”就返回。
-- 用现有路由交叉开关合并两条存储完成链：`3 → 2 → 1 → 5 → 4` 和 `12 → 8 → 4`。token 在 STORE 后的控制步发出；未激活的 STORE 同样推进控制。返回谓词也经过同一个交叉开关，因此必须等两条链都到达才可执行 Ret；没有增加存储或返回 opcode。
-- 将 tile 4 的 Ret 从 slot 11 移到 14，使它在 slot 13 接收原循环退出 token 后再接收完成 token。原 slot 14 的 GEP 移到 11，地址临时值放入 `$25`，避免与同周期 `$2` 写入冲突。保留 4×4 布局、15 步 II 和原算术/访存任务。
-- `nnz=0…8` 的 9 组长度分别运行常规模式及主机背压/配置间隔模式，共 18 组检查。验收包含全部 32 字、每个输出地址恰好写一次、实际写次数等于 nnz、返回前已完成这些存储握手、返回后不得继续写入。原 8 项在两种模式下分别为 964/3086 周期（包含回读）。
-- 五个负向配置分别恢复错误 prologue、旧 PHI_START、二输入 PHI、提前退出条件，或丢弃存储确认；均要求数学/存储协议检查失败或超时。32/64 位 PHI 单元各执行 395 项检查，覆盖输入选择、缺失输入、谓词、长期背压、独立控制槽、clear、vector factor 和旧 opcode 兼容。
-- 上述 PHI 检查在 32/64 位实际综合网表上再次通过，优化前和综合后的 `check -assert` 均通过。M23 同时重跑当前组件、五组 PE 网表、五个完整 Python 内核轨迹、原生 GEMM/GEMV/COO、原生算术及浮点旧格式兼容回归，全部通过。M22 的多 CGRA/迁移系统及两个不完整前缀未在本批重跑，验收元数据明确保留其批次来源。
-
-这仍是**原生配置修复后的数学验收**，不是未修改 Python SPMV 的等价完成。原始 workload 的所有数组仍共享基址 0；本组使用 `mem[i]=i` 的恒等行列索引，不能推广为支持任意别名、重复行的并行读改写或任意长度。重复行和负权重由独立串行 COO 程序覆盖。
-
-## 当前系统的重新验收
-
-- 四 CGRA Mesh、Ring、注册存储和 64 Tile：两个输入场景，检查每个 Tile 完成、远程请求/响应、背压、每个存储 owner 的响应顺序和全部回读值。分别为 384、346、374、944 个采样周期；均包含错误值和永久背压负向测试。
-- 21 Tile 异构：203 周期，21 个完成、8 次回读、20 个远程请求；使用既有静态架构表及程序、当前 RTL 的数学验收，不比较旧 HDL。
-- 当前 Python 跨 CGRA 归约：91 周期 × 1779 位逐位匹配，结果 53、31；35 个配置包、6 个完成。
-- 当前 Python 动态 FIR 迁移：165 周期 × 3844 位逐位匹配，结果 2215；126 个配置包、5 次物理边界传输、2 次恢复覆盖。两个迁移程序均有错误结果负向测试。
-
-## 有意修正 Python 缺陷的地方
-
-这些项目与纯 Python 同步明确分开；原 Python 和旧参考未修改。
-
-1. **Streaming 标量控制步死锁**：Python 在 FU 和 FU Crossbar 同周期完成时只读取旧的 `element_done`，导致 FU Crossbar 的完成丢失。`current_streaming_defect.py` 在未修改 Python 上复现：120 周期后 `element_done=1`、`fu_crossbar_done=0`，只输出第一个 grant。SV 对普通操作直接记录 Crossbar 完成，对 STREAM_LD 保持多次输出并识别本周期 FU 完成。`streaming_defect.json` 保存反例，三变体 PE 和流式加载测试分别验收。
-2. **未驱动输入**：Base/Streaming 的 constant clear 显式接 0；Context 的 FU 控制地址接实际 ctrl_addr，未使用 raw packet 输入接 0。Context 的 Grant 随 task clear 清除。
-3. **GEP 配置接口一致性**：命令 43 扩展到 Controller 和三个 Tile 变体。原 Python controller 实际使用命令白名单，不是 AGENTS.md 描述的 catch-all；遗漏命令会卡住主机配置流。
-4. **SUB_CONST**：默认断开无关的第二操作数 ready，正确接受常量；32/64 位独立算术、背压、缺常量、谓词测试通过。叶模块 `tile_adder.LEGACY_SUB_CONST_READY=1` 仅用于原 Python 缺陷复核，当前 PE 使用修正后的默认值。
-5. **浮点**：`FP_EXP_W` 表示指数位，`FP_SIG_W` 表示存储的小数位；HardFloat 使用 `EXP_W=FP_EXP_W`、`SIG_W=FP_SIG_W+1`。默认 FINC 加 1.0，valid 不依赖输出 ready；常量操作要求 const.valid 并合并两个谓词。`FP_LEGACY_PYTHON=1` 恢复原有格式及握手并由 FU/PE/阵列参数透传。IEEE FP16/32/64 的加减乘、常量、FINC、舍入、非规格数、零、Inf/NaN 均有独立检查；旧格式另与四组冻结 HDL 做兼容回归。
-
-## 尚未完成及边界
-
-- 未修改 Python 的 SPMV 配置生成仍遇到 `KeyError: ICMP_ULT`。M23 的原生修复程序已通过上述限定范围的验收；原 Python 等价状态仍是配置生成失败。
-- GEMM/GEMV 的原始 Python 轨迹仍标记 incomplete；修复配置的数学通过不是未修改 Python 程序的等价完成。
-- VectorMul 的 LANES>4 仍有 Python 只连接前四路的边界，本批不将它扩展为任意 lane 算术。
-- DMA command 的 `nbytes >> 2` 仍遵循当前 Python。已验收的 SPM word 为 32 位、长度为 4 的倍数；其它 SPM 位宽/非对齐长度没有完整业务语义保证。
-- Mesh/Ring、注册存储、64 Tile 和异构程序使用当前 RTL 的独立数学验收；这些结果不等于当前 Python 的完整逐周期等价。当前跨 CGRA 归约和动态 FIR 另有新采集的原 Python 轨迹。历史 64-Tile Python 轨迹不完整的边界仍保留。
-- 独立 LoopController、旧静态 CtrlMem/ConstQueue、RingMultiCtrlMem、DataMem/DataMemScalable、OrLink/Selector/PipeQueue 等完整旧 API 的补齐仍是后续批次；当前 PE/系统功能覆盖不能代替这些独立模块的验收。
-- ConstQueue/Crossbar 等变体内部的重复实现，以及 NoC 新版结构优化仍待后续集中重构；当前先以同一验收矩阵保持行为一致。
-- 当前工具链仍有 Verilator 的 UNOPTFLAT 诊断；修复未驱动位不表示已完成全部组合环、时序或 FPGA/ASIC 实现验收。
-
-## 旧独立 API 的清单
-
-这些缺口不因当前 PE 或系统验收通过而自动关闭。本轮完成接口盘点，未将旧 API 批量改写成包装器。
-
-| Python 模块 | 当前 SV 边界与后续要求 |
-|---|---|
-| `controller/LoopControllerRTL.py` | 独立多 CCU、父子完成计数及本地/远程 reset/shadow 广播接口尚未移植；已有 LoopCounter/LoopControl FU 不等价 |
-| `mem/ctrl/CtrlMemRTL.py` | 旧静态地址/控制写口，仍读取旧 `.ctrl` 字段，停顿周期也增加 times；不能直接用动态 CtrlMem 顶替 |
-| `mem/const/ConstQueueRTL.py` | 静态常量 ROM、循环读指针，原实现没有 reset 分支；当前动态常量队列不是同一 API |
-| `mem/ctrl/RingMultiCtrlMemDynamicRTL.py` | 独立 ring+控制存储组合包装层未补齐；系统内部 ctrl ring 覆盖不是接口级验收 |
-| `mem/data/DataMemRTL.py` | 独立多读写口、首次读懒预加载契约尚未移植；Python Im2colEngine 使用它，SV Im2col 内存需另作对应性验收 |
-| `mem/data/DataMemScalableRTL.py` | 额外 NoC 口在原 Python 中也全部系零；不能将其描述为已支持远程访问的缺失功能 |
-| `noc/OrLinkRTL.py` | 原 API 为 N 输入，OR 所有消息的 payload/predicate，不按 valid 屏蔽；SV `tile_link_or` 只覆盖两输入内部接口 |
-| `noc/SelectorRTL.py` | 原 Python 仅给选中输入赋 ready，其余没有默认值；后续必须先明确修正契约再验收 |
-| `lib/basic/val_rdy/queues.py::PipeQueueRTL` | 满队列同周期出队可替换入队；当前 `cgra_queue` 的 Normal/Bypass 模式不提供这一语义 |
-
-## 工具链证据
-
-Verilator 5.029 的文件驱动 while 循环会错误常量折叠循环外的计数器判断，最小复现见 `reference/current/structure/verilator_counter_repro.sv`。迁移 bench 仅给计数器和覆盖位加 `public_flat_rw` 以阻止误折叠；保留全部 RTL 优化和逐位比较。没有删除覆盖检查，也没有因此修改 Python 轨迹。综合循环转换的另一个独立反例为同目录的 `loop_cast_repro.sv`。
+本轮之前的逐批日志和差异说明保留在 [历史迁移记录](CURRENT_MIGRATION_HISTORY.md)。

@@ -7,7 +7,8 @@ module cgra_xbar #(
   parameter int DST_LSB = 0,
   parameter int DST_WIDTH = (OUTPUTS <= 1) ? 1 : $clog2(OUTPUTS),
   parameter bit INPUT_BYPASS = 0,
-  parameter int DIR_WIDTH = (OUTPUTS <= 1) ? 1 : $clog2(OUTPUTS)
+  parameter int DIR_WIDTH = (OUTPUTS <= 1) ? 1 : $clog2(OUTPUTS),
+  parameter bit LEGACY_PYTHON=0
 ) (
   input logic clk, reset,
   input logic [WIDTH-1:0] recv_msg [0:INPUTS-1],
@@ -23,8 +24,10 @@ module cgra_xbar #(
   logic route_val [0:INPUTS-1][0:OUTPUTS-1];
   logic route_rdy [0:INPUTS-1][0:OUTPUTS-1];
   for (genvar i = 0; i < INPUTS; i++) begin : inputs
+    logic queue_recv_rdy;
+    assign recv_rdy[i]=(LEGACY_PYTHON || !reset) && queue_recv_rdy;
     cgra_queue #(.WIDTH(WIDTH), .DEPTH(2), .BYPASS(INPUT_BYPASS)) queue (
-      .clk, .reset, .clear(1'b0), .recv_msg(recv_msg[i]), .recv_val(recv_val[i]), .recv_rdy(recv_rdy[i]),
+      .clk, .reset, .clear(1'b0), .recv_msg(recv_msg[i]), .recv_val(recv_val[i] && (LEGACY_PYTHON || !reset)), .recv_rdy(queue_recv_rdy),
       .send_msg(queued_msg[i]), .send_val(queued_val[i]), .send_rdy(queued_rdy[i]), .count()
     );
     assign destination[i] = DIR_WIDTH'(queued_msg[i][DST_LSB +: DST_WIDTH]);
@@ -47,7 +50,7 @@ module cgra_xbar #(
       assign switch_val[i] = route_val[i][o];
       assign route_rdy[i][o] = switch_rdy[i];
     end
-    cgra_switch #(.WIDTH(WIDTH), .INPUTS(INPUTS)) switch_unit (
+    cgra_switch #(.LEGACY_PYTHON(LEGACY_PYTHON),.WIDTH(WIDTH), .INPUTS(INPUTS)) switch_unit (
       .clk, .reset, .recv_msg(switch_msg), .recv_val(switch_val), .recv_rdy(switch_rdy),
       .send_msg(send_msg[o]), .send_val(send_val[o]), .send_rdy(send_rdy[o])
     );

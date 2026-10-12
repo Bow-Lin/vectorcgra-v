@@ -1,0 +1,1035 @@
+{
+  "cgra/CgraRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/cgra/cgra_system.sv"
+    ],
+    "family": "system",
+    "notes": "Parameterized profile; variant/FU catalog and explicit topology tables replace Python class elaboration."
+  },
+  "cgra/CgraTemplateRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/cgra/cgra_system.sv"
+    ],
+    "family": "system",
+    "notes": "Parameterized profile; variant/FU catalog and explicit topology tables replace Python class elaboration."
+  },
+  "cgra/CgraWithContextSwitchRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/cgra/cgra_system.sv"
+    ],
+    "family": "system",
+    "notes": "Parameterized profile; variant/FU catalog and explicit topology tables replace Python class elaboration."
+  },
+  "cgra/CgraWithStreamingLoadRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/cgra/cgra_system.sv"
+    ],
+    "family": "system",
+    "notes": "Parameterized profile; variant/FU catalog and explicit topology tables replace Python class elaboration."
+  },
+  "cgra/IntegratedCgraWithDmaRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/peripheral/cgra_integrated_dma.sv"
+    ],
+    "family": "peripheral",
+    "notes": "Fixed 32-bit SPM words; see DMA/im2col boundary contract."
+  },
+  "cgra/IntegratedIm2ColWithCgraRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/peripheral/cgra_integrated_im2col.sv"
+    ],
+    "family": "peripheral",
+    "notes": "Fixed 32-bit SPM words; see DMA/im2col boundary contract."
+  },
+  "controller/ControllerRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/controller/cgra_controller.sv"
+    ],
+    "family": "system",
+    "notes": "Explicit native/legacy semantics; controller dispatch is a whitelist, not a universal catch-all."
+  },
+  "controller/GlobalReduceUnitRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/controller/cgra_global_reduce.sv"
+    ],
+    "family": "reduce",
+    "notes": "Explicit native/legacy semantics; controller dispatch is a whitelist, not a universal catch-all."
+  },
+  "controller/LoopControllerRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/controller/cgra_loop_controller.sv"
+    ],
+    "family": "loop_controller",
+    "notes": "Standalone only, no system route or general DAG."
+  },
+  "fu/basic/FourCombo.py": {
+    "status": "bounded_factory",
+    "targets": [
+      "sv/rtl/fu/combo/tile_four_inc_cmp_not_grant.sv"
+    ],
+    "family": "combo",
+    "notes": "Concrete shipped combinations implemented. Arbitrary Python FU class composition is not a standalone SV factory API; FU interface is 4 inputs / 2 outputs."
+  },
+  "fu/basic/ThreeCombo.py": {
+    "status": "bounded_factory",
+    "targets": [
+      "sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv"
+    ],
+    "family": "combo",
+    "notes": "Concrete shipped combinations implemented. Arbitrary Python FU class composition is not a standalone SV factory API; FU interface is 4 inputs / 2 outputs."
+  },
+  "fu/basic/TwoPrlCombo.py": {
+    "status": "bounded_factory",
+    "targets": [
+      "sv/rtl/fu/combo/tile_prl_mul_adder.sv"
+    ],
+    "family": "combo",
+    "notes": "Concrete shipped combinations implemented. Arbitrary Python FU class composition is not a standalone SV factory API; FU interface is 4 inputs / 2 outputs."
+  },
+  "fu/basic/TwoSeqCombo.py": {
+    "status": "bounded_factory",
+    "targets": [
+      "sv/rtl/fu/combo/tile_seq_mul_adder.sv",
+      "sv/rtl/fu/combo/tile_seq_mul_shifter.sv"
+    ],
+    "family": "combo",
+    "notes": "Concrete shipped combinations implemented. Arbitrary Python FU class composition is not a standalone SV factory API; FU interface is 4 inputs / 2 outputs."
+  },
+  "fu/basic/Fu.py": {
+    "status": "integrated",
+    "targets": [
+      "sv/rtl/common/cgra_profile.svh",
+      "sv/rtl/common/cgra_fu_catalog.svh",
+      "sv/rtl/fu/tile_flexible_fu_configurable.sv"
+    ],
+    "family": "fu",
+    "notes": "Base interface/default signals are inlined in concrete FUs; no synthesizable Python base class API."
+  },
+  "fu/basic/SumUnit.py": {
+    "status": "integrated",
+    "targets": [
+      "sv/rtl/fu/vector/tile_vector_all_reduce.sv"
+    ],
+    "family": "reduce",
+    "notes": "Reduction arithmetic is inlined; generic standalone child-class API is not exported."
+  },
+  "fu/basic/ReduceMulUnit.py": {
+    "status": "integrated",
+    "targets": [
+      "sv/rtl/fu/vector/tile_vector_all_reduce.sv"
+    ],
+    "family": "reduce",
+    "notes": "Reduction arithmetic is inlined; generic standalone child-class API is not exported."
+  },
+  "fu/double/PrlMulAdderRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/combo/tile_prl_mul_adder.sv"
+    ],
+    "family": "combo",
+    "notes": ""
+  },
+  "fu/double/SeqMulAdderRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/combo/tile_seq_mul_adder.sv"
+    ],
+    "family": "combo",
+    "notes": ""
+  },
+  "fu/double/SeqMulShifterRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/combo/tile_seq_mul_shifter.sv"
+    ],
+    "family": "combo",
+    "notes": ""
+  },
+  "fu/flexible/FlexibleFuRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/tile_flexible_fu_configurable.sv",
+      "sv/rtl/common/cgra_fu_catalog.svh"
+    ],
+    "family": "fu",
+    "notes": "Ordered catalog including NAH; fixed 4-input/2-output FU contract, not arbitrary Python class injection."
+  },
+  "fu/float/FpAddRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/float/tile_fp_add.sv",
+      "sv/rtl/fu/float/tile_fp_fu.sv"
+    ],
+    "family": "fp",
+    "notes": "Native IEEE format/handshakes differ deliberately; FP_LEGACY_PYTHON is explicit compatibility."
+  },
+  "fu/float/FpMulRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/float/tile_fp_mul.sv",
+      "sv/rtl/fu/float/tile_fp_fu.sv"
+    ],
+    "family": "fp",
+    "notes": "Native IEEE format/handshakes differ deliberately; FP_LEGACY_PYTHON is explicit compatibility."
+  },
+  "fu/fused_alu_fixedp/AluGenMacRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/combo/cgra_alu_gen_mac.sv",
+      "sv/rtl/fu/combo/cgra_alu_gen_mac_core.sv"
+    ],
+    "family": "combo",
+    "notes": "Translated wrapper replaced with native core; vendor source retained with provenance."
+  },
+  "fu/fused_alu_fixedp/AluGenMacWrapperRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/combo/tile_alu_gen_mac.sv"
+    ],
+    "family": "combo",
+    "notes": ""
+  },
+  "fu/others/Im2colEngineRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/peripheral/cgra_im2col_engine.sv"
+    ],
+    "family": "peripheral",
+    "notes": ""
+  },
+  "fu/quadra/FourIncCmpNotGrantRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/combo/tile_four_inc_cmp_not_grant.sv"
+    ],
+    "family": "combo",
+    "notes": ""
+  },
+  "fu/single/AdderRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/tile_adder.sv"
+    ],
+    "family": "fu",
+    "notes": ""
+  },
+  "fu/single/MulRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/tile_multiplier.sv"
+    ],
+    "family": "fu",
+    "notes": ""
+  },
+  "fu/single/MemUnitRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/tile_memory_fu.sv"
+    ],
+    "family": "memory",
+    "notes": ""
+  },
+  "fu/single/NahRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/tile_nah.sv"
+    ],
+    "family": "fu",
+    "notes": ""
+  },
+  "fu/single/CompRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/scalar/scalar_comp.sv"
+    ],
+    "family": "fu",
+    "notes": ""
+  },
+  "fu/single/ConstRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/scalar/scalar_const.sv"
+    ],
+    "family": "fu",
+    "notes": ""
+  },
+  "fu/single/DivRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/scalar/scalar_div.sv"
+    ],
+    "family": "fu",
+    "notes": ""
+  },
+  "fu/single/ExclusiveDivRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/scalar/scalar_exclusive_div.sv"
+    ],
+    "family": "fu",
+    "notes": ""
+  },
+  "fu/single/ExtractPredicateRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/scalar/scalar_extract_predicate.sv"
+    ],
+    "family": "fu",
+    "notes": ""
+  },
+  "fu/single/GepRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/scalar/scalar_gep.sv"
+    ],
+    "family": "fu",
+    "notes": ""
+  },
+  "fu/single/GrantRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/scalar/scalar_grant.sv"
+    ],
+    "family": "fu",
+    "notes": ""
+  },
+  "fu/single/InclusiveDivRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/scalar/scalar_inclusive_div.sv"
+    ],
+    "family": "fu",
+    "notes": "Divisor is intentionally snooped without asserting ready; preserve level-like operand semantics."
+  },
+  "fu/single/LogicRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/scalar/scalar_logic.sv"
+    ],
+    "family": "fu",
+    "notes": "SV also implements AND_CONST/OR_CONST, which Python only defines in its ABI."
+  },
+  "fu/single/LoopControlRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/scalar/scalar_loop_control.sv"
+    ],
+    "family": "fu",
+    "notes": ""
+  },
+  "fu/single/LoopCounterRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/scalar/scalar_loop_counter.sv"
+    ],
+    "family": "fu",
+    "notes": ""
+  },
+  "fu/single/PhiRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/scalar/scalar_phi.sv"
+    ],
+    "family": "fu",
+    "notes": "Old PHI opcodes retained; explicit native PHI_N/PHI_START_PRED extensions are separate."
+  },
+  "fu/single/RetRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/scalar/scalar_ret.sv"
+    ],
+    "family": "fu",
+    "notes": ""
+  },
+  "fu/single/SelRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/scalar/scalar_sel.sv"
+    ],
+    "family": "fu",
+    "notes": ""
+  },
+  "fu/single/ShifterRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/scalar/scalar_shifter.sv"
+    ],
+    "family": "fu",
+    "notes": ""
+  },
+  "fu/single/StreamingMemUnitRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/streaming/tile_streaming_memory_fu.sv"
+    ],
+    "family": "streaming",
+    "notes": ""
+  },
+  "fu/triple/ThreeMulAdderShifterRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv"
+    ],
+    "family": "combo",
+    "notes": ""
+  },
+  "fu/vector/VectorAdderComboRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/vector/tile_vector_adder_combo.sv"
+    ],
+    "family": "vector",
+    "notes": "Native arithmetic/reset corrections are documented separately from Python compatibility."
+  },
+  "fu/vector/VectorAdderRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/vector/cgra_vector_adder.sv"
+    ],
+    "family": "vector",
+    "notes": "Native arithmetic/reset corrections are documented separately from Python compatibility."
+  },
+  "fu/vector/VectorAllReduceRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/vector/tile_vector_all_reduce.sv"
+    ],
+    "family": "reduce",
+    "notes": "Native arithmetic/reset corrections are documented separately from Python compatibility."
+  },
+  "fu/vector/VectorMulComboRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/vector/tile_vector_mul_combo.sv"
+    ],
+    "family": "vector",
+    "notes": "Native arithmetic/reset corrections are documented separately from Python compatibility."
+  },
+  "fu/vector/VectorMulRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/fu/vector/cgra_vector_mul.sv"
+    ],
+    "family": "vector",
+    "notes": "Native arithmetic/reset corrections are documented separately from Python compatibility."
+  },
+  "cgra/CgraFL.py": {
+    "status": "reference_model",
+    "targets": [],
+    "family": "reference",
+    "notes": "Functional/cycle-level software model; not an additional RTL implementation or exact migrated software API."
+  },
+  "fu/flexible/FuFL.py": {
+    "status": "reference_model",
+    "targets": [],
+    "family": "reference",
+    "notes": "Functional/cycle-level software model; not an additional RTL implementation or exact migrated software API."
+  },
+  "mem/ctrl/CtrlMemCL.py": {
+    "status": "reference_model",
+    "targets": [],
+    "family": "reference",
+    "notes": "Functional/cycle-level software model; not an additional RTL implementation or exact migrated software API."
+  },
+  "mem/data/DataMemCL.py": {
+    "status": "reference_model",
+    "targets": [],
+    "family": "reference",
+    "notes": "Functional/cycle-level software model; not an additional RTL implementation or exact migrated software API."
+  },
+  "lib/basic/en_rdy/ifcs.py": {
+    "status": "framework",
+    "targets": [
+      "sv/rtl/common/cgra_pe_ports.svh"
+    ],
+    "family": "framework",
+    "notes": "RTL signal fields are flattened; Python FL/CL adaptors/string rendering are not SV APIs."
+  },
+  "lib/basic/val_rdy/ifcs.py": {
+    "status": "framework",
+    "targets": [
+      "sv/rtl/common/cgra_pe_ports.svh"
+    ],
+    "family": "framework",
+    "notes": "RTL signal fields are flattened; Python FL/CL adaptors/string rendering are not SV APIs."
+  },
+  "lib/basic/en_rdy/test_sinks.py": {
+    "status": "test_support",
+    "targets": [
+      "sv/tests/current/tb_current_fu.sv",
+      "sv/tests/current/tb_native_kernel.sv"
+    ],
+    "family": "test",
+    "notes": "SV drivers/checkers replace usage, not the original Python helper API. No assertion of original-test execution."
+  },
+  "lib/basic/en_rdy/test_srcs.py": {
+    "status": "test_support",
+    "targets": [
+      "sv/tests/current/tb_current_fu.sv",
+      "sv/tests/current/tb_native_kernel.sv"
+    ],
+    "family": "test",
+    "notes": "SV drivers/checkers replace usage, not the original Python helper API. No assertion of original-test execution."
+  },
+  "lib/basic/val_rdy/SinkRTL.py": {
+    "status": "test_support",
+    "targets": [
+      "sv/tests/current/tb_current_fu.sv",
+      "sv/tests/current/tb_native_kernel.sv"
+    ],
+    "family": "test",
+    "notes": "SV drivers/checkers replace usage, not the original Python helper API. No assertion of original-test execution."
+  },
+  "lib/basic/val_rdy/SourceRTL.py": {
+    "status": "test_support",
+    "targets": [
+      "sv/tests/current/tb_current_fu.sv",
+      "sv/tests/current/tb_native_kernel.sv"
+    ],
+    "family": "test",
+    "notes": "SV drivers/checkers replace usage, not the original Python helper API. No assertion of original-test execution."
+  },
+  "lib/basic/val_rdy/queues.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/common/cgra_queue.sv",
+      "sv/rtl/common/cgra_pipe_queue.sv"
+    ],
+    "family": "queue",
+    "notes": "Normal/Bypass/clear variants plus standalone PipeQueue; shared datapath/controller classes are inlined."
+  },
+  "lib/cmd_type.py": {
+    "status": "abi_or_metadata",
+    "targets": [
+      "sv/tools/abi.json",
+      "sv/rtl/common/cgra_types_pkg.sv"
+    ],
+    "family": "abi",
+    "notes": "Encoding/field semantics mapped; Python factory and attribute dictionary API not exported. Opcode/command definitions do not imply dispatch support."
+  },
+  "lib/messages.py": {
+    "status": "abi_or_metadata",
+    "targets": [
+      "sv/rtl/common/cgra_profile.svh",
+      "sv/rtl/common/cgra_types_pkg.sv",
+      "sv/tools/cgra_program.py"
+    ],
+    "family": "abi",
+    "notes": "Encoding/field semantics mapped; Python factory and attribute dictionary API not exported. Opcode/command definitions do not imply dispatch support."
+  },
+  "lib/opt_type.py": {
+    "status": "abi_or_metadata",
+    "targets": [
+      "sv/rtl/common/cgra_opcodes.svh",
+      "sv/tools/abi.json"
+    ],
+    "family": "abi",
+    "notes": "Encoding/field semantics mapped; Python factory and attribute dictionary API not exported. Opcode/command definitions do not imply dispatch support."
+  },
+  "lib/status_type.py": {
+    "status": "abi_or_metadata",
+    "targets": [
+      "sv/rtl/tile/variants/tile_context_switch.sv"
+    ],
+    "family": "abi",
+    "notes": "Encoding/field semantics mapped; Python factory and attribute dictionary API not exported. Opcode/command definitions do not imply dispatch support."
+  },
+  "lib/util/common.py": {
+    "status": "abi_or_metadata",
+    "targets": [
+      "sv/rtl/common/cgra_profile.svh",
+      "sv/tools/cgra_config.py"
+    ],
+    "family": "abi",
+    "notes": "Encoding/field semantics mapped; Python factory and attribute dictionary API not exported. Opcode/command definitions do not imply dispatch support."
+  },
+  "lib/util/data_struct_attr.py": {
+    "status": "abi_or_metadata",
+    "targets": [
+      "sv/tools/cgra_config.py",
+      "sv/tools/cgra_program.py"
+    ],
+    "family": "abi",
+    "notes": "Encoding/field semantics mapped; Python factory and attribute dictionary API not exported. Opcode/command definitions do not imply dispatch support."
+  },
+  "lib/util/cgra/DataSPM.py": {
+    "status": "bounded_tool",
+    "targets": [
+      "sv/tools/cgra_config.py"
+    ],
+    "family": "config",
+    "notes": "Explicit architecture JSON replaces supported elaboration inputs. Not an exact Python/YAML parser API; sparse deleted tiles and arbitrary custom FU classes are outside scope."
+  },
+  "lib/util/cgra/Link.py": {
+    "status": "bounded_tool",
+    "targets": [
+      "sv/tools/cgra_config.py"
+    ],
+    "family": "config",
+    "notes": "Explicit architecture JSON replaces supported elaboration inputs. Not an exact Python/YAML parser API; sparse deleted tiles and arbitrary custom FU classes are outside scope."
+  },
+  "lib/util/cgra/Tile.py": {
+    "status": "bounded_tool",
+    "targets": [
+      "sv/tools/cgra_config.py"
+    ],
+    "family": "config",
+    "notes": "Explicit architecture JSON replaces supported elaboration inputs. Not an exact Python/YAML parser API; sparse deleted tiles and arbitrary custom FU classes are outside scope."
+  },
+  "lib/util/cgra/cgra_helper.py": {
+    "status": "bounded_tool",
+    "targets": [
+      "sv/tools/cgra_config.py"
+    ],
+    "family": "config",
+    "notes": "Explicit architecture JSON replaces supported elaboration inputs. Not an exact Python/YAML parser API; sparse deleted tiles and arbitrary custom FU classes are outside scope."
+  },
+  "multi_cgra/arch_parser/ArchParser.py": {
+    "status": "bounded_tool",
+    "targets": [
+      "sv/tools/cgra_config.py"
+    ],
+    "family": "config",
+    "notes": "Explicit architecture JSON replaces supported elaboration inputs. Not an exact Python/YAML parser API; sparse deleted tiles and arbitrary custom FU classes are outside scope."
+  },
+  "multi_cgra/arch_parser/MultiCgraParam.py": {
+    "status": "bounded_tool",
+    "targets": [
+      "sv/tools/cgra_config.py"
+    ],
+    "family": "config",
+    "notes": "Explicit architecture JSON replaces supported elaboration inputs. Not an exact Python/YAML parser API; sparse deleted tiles and arbitrary custom FU classes are outside scope."
+  },
+  "multi_cgra/arch_parser/ParamCGRA.py": {
+    "status": "bounded_tool",
+    "targets": [
+      "sv/tools/cgra_config.py"
+    ],
+    "family": "config",
+    "notes": "Explicit architecture JSON replaces supported elaboration inputs. Not an exact Python/YAML parser API; sparse deleted tiles and arbitrary custom FU classes are outside scope."
+  },
+  "lib/util/ctrl_helper.py": {
+    "status": "bounded_tool",
+    "targets": [
+      "sv/tools/cgra_program.py"
+    ],
+    "family": "program",
+    "notes": "Explicit program/control JSON packing and barriers; no automatic mapping, scheduler, general YAML/DFG lowering, or exact Python utility API."
+  },
+  "validation/script_generator.py": {
+    "status": "bounded_tool",
+    "targets": [
+      "sv/tools/cgra_program.py"
+    ],
+    "family": "program",
+    "notes": "Explicit program/control JSON packing and barriers; no automatic mapping, scheduler, general YAML/DFG lowering, or exact Python utility API."
+  },
+  "lib/util/dfg_helper.py": {
+    "status": "software_not_ported",
+    "targets": [
+      "sv/tools/cgra_program.py"
+    ],
+    "family": "program",
+    "notes": "General DFG/YAML lowering stays in the original project. Standalone tools accept explicit mapped words, not arbitrary DFGs; original ICMP_ULT mapping defect remains frozen."
+  },
+  "lib/util/map_helper.py": {
+    "status": "software_not_ported",
+    "targets": [
+      "sv/tools/cgra_program.py"
+    ],
+    "family": "program",
+    "notes": "General DFG/YAML lowering stays in the original project. Standalone tools accept explicit mapped words, not arbitrary DFGs; original ICMP_ULT mapping defect remains frozen."
+  },
+  "lib/trace_logger.py": {
+    "status": "software_not_ported",
+    "targets": [
+      "sv/tests/current/tb_native_kernel.sv"
+    ],
+    "family": "test",
+    "notes": "Native testbench logs replace selected diagnostics, not the original trace-logger API."
+  },
+  "mem/const/ConstQueueDynamicRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/mem/const_queue.sv",
+      "sv/rtl/tile/variants/tile_variant_const_queue.sv"
+    ],
+    "family": "state",
+    "notes": ""
+  },
+  "mem/const/ConstQueueRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/mem/cgra_static_const_queue.sv"
+    ],
+    "family": "static_memory",
+    "notes": ""
+  },
+  "mem/ctrl/ContextSwitchRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/tile/variants/tile_context_switch.sv"
+    ],
+    "family": "context",
+    "notes": ""
+  },
+  "mem/ctrl/CtrlMemDynamicRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/mem/ctrl_mem.sv",
+      "sv/rtl/tile/variants/tile_variant_ctrl_mem.sv"
+    ],
+    "family": "state",
+    "notes": ""
+  },
+  "mem/ctrl/CtrlMemRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/mem/cgra_static_ctrl_mem.sv"
+    ],
+    "family": "static_memory",
+    "notes": ""
+  },
+  "mem/ctrl/RingMultiCtrlMemDynamicRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/mem/cgra_ring_multi_ctrl_mem.sv"
+    ],
+    "family": "ring_memory",
+    "notes": ""
+  },
+  "mem/data/DataMemControllerRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/mem/cgra_data_bank.sv"
+    ],
+    "family": "memory",
+    "notes": ""
+  },
+  "mem/data/DataMemRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/mem/cgra_data_mem.sv"
+    ],
+    "family": "data_memory",
+    "notes": ""
+  },
+  "mem/data/DataMemScalableRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/mem/cgra_data_mem_scalable.sv"
+    ],
+    "family": "scalable_memory",
+    "notes": "Original extra NoC ports are tied off too; no remote scalable memory support."
+  },
+  "mem/data/DataMemWrapperRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/mem/cgra_data_memory.sv"
+    ],
+    "family": "memory",
+    "notes": ""
+  },
+  "mem/dma/DmaEngineRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/peripheral/cgra_dma_engine.sv"
+    ],
+    "family": "peripheral",
+    "notes": ""
+  },
+  "mem/register_cluster/RegisterBankRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/mem/register_bank.sv"
+    ],
+    "family": "state",
+    "notes": ""
+  },
+  "mem/register_cluster/RegisterClusterRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/mem/register_cluster.sv"
+    ],
+    "family": "state",
+    "notes": ""
+  },
+  "multi_cgra/MeshMultiCgraRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/cgra/cgra_multi.sv"
+    ],
+    "family": "system",
+    "notes": "Native NoC locking/reset/VC normalization differs intentionally; NOC_LEGACY_PYTHON restores supported legacy profiles."
+  },
+  "multi_cgra/RingMultiCgraRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/cgra/cgra_multi.sv"
+    ],
+    "family": "system",
+    "notes": "Native NoC locking/reset/VC normalization differs intentionally; NOC_LEGACY_PYTHON restores supported legacy profiles."
+  },
+  "multi_cgra/MeshMultiCgraTemplateRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/cgra/cgra_multi_template.sv"
+    ],
+    "family": "system",
+    "notes": "Native NoC locking/reset/VC normalization differs intentionally; NOC_LEGACY_PYTHON restores supported legacy profiles."
+  },
+  "noc/ChannelWithClearRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/common/cgra_channel.sv"
+    ],
+    "family": "noc",
+    "notes": ""
+  },
+  "noc/CrossbarRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/noc/cgra_xbar.sv"
+    ],
+    "family": "noc",
+    "notes": ""
+  },
+  "noc/LinkOrRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/tile/tile_link_or.sv"
+    ],
+    "family": "link",
+    "notes": ""
+  },
+  "noc/OrLinkRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/noc/cgra_or_link.sv"
+    ],
+    "family": "link",
+    "notes": ""
+  },
+  "noc/SelectorRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/noc/cgra_selector.sv"
+    ],
+    "family": "link",
+    "notes": ""
+  },
+  "noc/StaticSwitchUnitRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/noc/cgra_switch.sv"
+    ],
+    "family": "noc",
+    "notes": ""
+  },
+  "rf/RegFile.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/common/cgra_reg_file.sv",
+      "sv/rtl/common/cgra_register_file.sv"
+    ],
+    "family": "reg_file",
+    "notes": "Standalone legacy API; unconditionally writes every rising edge even when invalid, stalled or reset. Not used by current PE; storage power-up unspecified."
+  },
+  "rf/RegisterRTL.py": {
+    "status": "integrated",
+    "targets": [
+      "sv/rtl/common/cgra_channel.sv"
+    ],
+    "family": "queue",
+    "notes": "Queue-chain latency >=1 maps to channel with clear tied low. SV latency=0 is an extension, not a supported Python parameter."
+  },
+  "tile/TileRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/tile/tile_programmable.sv",
+      "sv/rtl/tile/cgra_pe.sv"
+    ],
+    "family": "pe",
+    "notes": "Shared parameterized PE API; ctrl_proceed/token semantics retained. Streaming scalar-retirement defect intentionally fixed."
+  },
+  "tile/TileWithContextSwitchRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/tile/variants/tile_context.sv",
+      "sv/rtl/tile/cgra_pe.sv"
+    ],
+    "family": "pe",
+    "notes": "Shared parameterized PE API; ctrl_proceed/token semantics retained. Streaming scalar-retirement defect intentionally fixed."
+  },
+  "tile/TileWithStreamingLoadRTL.py": {
+    "status": "rtl",
+    "targets": [
+      "sv/rtl/tile/variants/tile_streaming.sv",
+      "sv/rtl/tile/cgra_pe.sv"
+    ],
+    "family": "pe",
+    "notes": "Shared parameterized PE API; ctrl_proceed/token semantics retained. Streaming scalar-retirement defect intentionally fixed."
+  },
+  ".github/scripts/issue_to_pr_gemini.py": {
+    "status": "software_not_ported",
+    "targets": [
+      "sv/scripts/run.ps1",
+      "sv/Makefile"
+    ],
+    "family": "tooling",
+    "notes": "Original automation/reference/PPA tooling retained, not translated into RTL. Native build/regression replaces selected use cases; no claim of equivalent PPA/AI automation tools."
+  },
+  ".github/scripts/issue_to_pr_openai.py": {
+    "status": "software_not_ported",
+    "targets": [
+      "sv/scripts/run.ps1",
+      "sv/Makefile"
+    ],
+    "family": "tooling",
+    "notes": "Original automation/reference/PPA tooling retained, not translated into RTL. Native build/regression replaces selected use cases; no claim of equivalent PPA/AI automation tools."
+  },
+  "local_CI.py": {
+    "status": "software_not_ported",
+    "targets": [
+      "sv/scripts/run.ps1",
+      "sv/Makefile"
+    ],
+    "family": "tooling",
+    "notes": "Original automation/reference/PPA tooling retained, not translated into RTL. Native build/regression replaces selected use cases; no claim of equivalent PPA/AI automation tools."
+  },
+  "sys_lib/abc_path_groups.py": {
+    "status": "software_not_ported",
+    "targets": [
+      "sv/scripts/run.ps1",
+      "sv/Makefile"
+    ],
+    "family": "tooling",
+    "notes": "Original automation/reference/PPA tooling retained, not translated into RTL. Native build/regression replaces selected use cases; no claim of equivalent PPA/AI automation tools."
+  },
+  "sys_lib/area_report.py": {
+    "status": "software_not_ported",
+    "targets": [
+      "sv/scripts/run.ps1",
+      "sv/Makefile"
+    ],
+    "family": "tooling",
+    "notes": "Original automation/reference/PPA tooling retained, not translated into RTL. Native build/regression replaces selected use cases; no claim of equivalent PPA/AI automation tools."
+  },
+  "sys_lib/class_nldm.py": {
+    "status": "software_not_ported",
+    "targets": [
+      "sv/scripts/run.ps1",
+      "sv/Makefile"
+    ],
+    "family": "tooling",
+    "notes": "Original automation/reference/PPA tooling retained, not translated into RTL. Native build/regression replaces selected use cases; no claim of equivalent PPA/AI automation tools."
+  },
+  "sys_lib/collect_results.py": {
+    "status": "software_not_ported",
+    "targets": [
+      "sv/scripts/run.ps1",
+      "sv/Makefile"
+    ],
+    "family": "tooling",
+    "notes": "Original automation/reference/PPA tooling retained, not translated into RTL. Native build/regression replaces selected use cases; no claim of equivalent PPA/AI automation tools."
+  },
+  "sys_lib/equivalence.py": {
+    "status": "software_not_ported",
+    "targets": [
+      "sv/scripts/run.ps1",
+      "sv/Makefile"
+    ],
+    "family": "tooling",
+    "notes": "Original automation/reference/PPA tooling retained, not translated into RTL. Native build/regression replaces selected use cases; no claim of equivalent PPA/AI automation tools."
+  },
+  "sys_lib/generate.py": {
+    "status": "software_not_ported",
+    "targets": [
+      "sv/scripts/run.ps1",
+      "sv/Makefile"
+    ],
+    "family": "tooling",
+    "notes": "Original automation/reference/PPA tooling retained, not translated into RTL. Native build/regression replaces selected use cases; no claim of equivalent PPA/AI automation tools."
+  },
+  "sys_lib/local_crossbar_synth.py": {
+    "status": "software_not_ported",
+    "targets": [
+      "sv/scripts/run.ps1",
+      "sv/Makefile"
+    ],
+    "family": "tooling",
+    "notes": "Original automation/reference/PPA tooling retained, not translated into RTL. Native build/regression replaces selected use cases; no claim of equivalent PPA/AI automation tools."
+  },
+  "sys_lib/mapped_timing.py": {
+    "status": "software_not_ported",
+    "targets": [
+      "sv/scripts/run.ps1",
+      "sv/Makefile"
+    ],
+    "family": "tooling",
+    "notes": "Original automation/reference/PPA tooling retained, not translated into RTL. Native build/regression replaces selected use cases; no claim of equivalent PPA/AI automation tools."
+  },
+  "sys_lib/structural_cutpoints.py": {
+    "status": "software_not_ported",
+    "targets": [
+      "sv/scripts/run.ps1",
+      "sv/Makefile"
+    ],
+    "family": "tooling",
+    "notes": "Original automation/reference/PPA tooling retained, not translated into RTL. Native build/regression replaces selected use cases; no claim of equivalent PPA/AI automation tools."
+  },
+  "sys_lib/synthesize.py": {
+    "status": "software_not_ported",
+    "targets": [
+      "sv/scripts/run.ps1",
+      "sv/Makefile"
+    ],
+    "family": "tooling",
+    "notes": "Original automation/reference/PPA tooling retained, not translated into RTL. Native build/regression replaces selected use cases; no claim of equivalent PPA/AI automation tools."
+  },
+  "sys_lib/validate_nldm.py": {
+    "status": "software_not_ported",
+    "targets": [
+      "sv/scripts/run.ps1",
+      "sv/Makefile"
+    ],
+    "family": "tooling",
+    "notes": "Original automation/reference/PPA tooling retained, not translated into RTL. Native build/regression replaces selected use cases; no claim of equivalent PPA/AI automation tools."
+  },
+  "sys_lib/verify_cgra.py": {
+    "status": "software_not_ported",
+    "targets": [
+      "sv/scripts/run.ps1",
+      "sv/Makefile"
+    ],
+    "family": "tooling",
+    "notes": "Original automation/reference/PPA tooling retained, not translated into RTL. Native build/regression replaces selected use cases; no claim of equivalent PPA/AI automation tools."
+  },
+  "sys_lib/verify_crossbar.py": {
+    "status": "software_not_ported",
+    "targets": [
+      "sv/scripts/run.ps1",
+      "sv/Makefile"
+    ],
+    "family": "tooling",
+    "notes": "Original automation/reference/PPA tooling retained, not translated into RTL. Native build/regression replaces selected use cases; no claim of equivalent PPA/AI automation tools."
+  },
+  "sys_lib/verify_switch.py": {
+    "status": "software_not_ported",
+    "targets": [
+      "sv/scripts/run.ps1",
+      "sv/Makefile"
+    ],
+    "family": "tooling",
+    "notes": "Original automation/reference/PPA tooling retained, not translated into RTL. Native build/regression replaces selected use cases; no claim of equivalent PPA/AI automation tools."
+  }
+}

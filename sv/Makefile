@@ -32,7 +32,7 @@ PROBE_FILES := scripts/probes/tool_probe.sv scripts/probes/tb_tool_probe.sv
 .PHONY: all probe types sim negative timeout-negative synth synth-generic synth-mapped versions
 all: current
 
-.PHONY: current current-synth current-post-synth current-kernels current-prefixes native-kernels native-math native-multi native-template current-migration baseline
+.PHONY: current current-synth current-post-synth current-kernels current-prefixes native-kernels native-math native-multi native-template current-migration current-loop-controller current-loop-controller-synth baseline
 current:
 	bash tests/current/run.sh
 current-synth:
@@ -56,8 +56,131 @@ native-template:
 current-migration:
 	bash tests/current/run_migration.sh global_add
 	bash tests/current/run_migration.sh dynamic_fir
+current-loop-controller:
+	bash tests/current/run_loop_controller.sh
+current-loop-controller-synth:
+	bash tests/current/run_loop_controller.sh synth
+.PHONY: current-static-memory current-static-memory-synth
+current-static-memory:
+	bash tests/current/run_static_memory.sh
+current-static-memory-synth:
+	bash tests/current/run_static_memory.sh synth
+.PHONY: current-ring-ctrl-memory current-ring-ctrl-memory-synth
+current-ring-ctrl-memory:
+	bash tests/current/run_ring_ctrl_memory.sh
+current-ring-ctrl-memory-synth:
+	bash tests/current/run_ring_ctrl_memory.sh synth
+.PHONY: current-data-memory current-data-memory-synth
+current-data-memory:
+	bash tests/current/run_data_memory.sh
+current-data-memory-synth:
+	bash tests/current/run_data_memory.sh synth
+.PHONY: current-scalable-memory current-scalable-memory-synth
+current-scalable-memory:
+	bash tests/current/run_data_memory.sh rtl scalable
+current-scalable-memory-synth:
+	bash tests/current/run_data_memory.sh synth scalable
+.PHONY: current-or-link current-or-link-synth
+current-or-link:
+	bash tests/current/run_or_link.sh
+current-or-link-synth:
+	bash tests/current/run_or_link.sh synth
+.PHONY: current-selector current-selector-synth
+current-selector:
+	bash tests/current/run_selector.sh
+current-selector-synth:
+	bash tests/current/run_selector.sh synth
+.PHONY: current-pipe-queue current-pipe-queue-synth
+current-pipe-queue:
+	bash tests/current/run_pipe_queue.sh
+current-pipe-queue-synth:
+	bash tests/current/run_pipe_queue.sh synth
+.PHONY: current-vector-reduce current-vector-reduce-synth native-global-reduce
+current-vector-reduce:
+	bash tests/current/run_vector_reduce.sh
+current-vector-reduce-synth:
+	bash tests/current/run_vector_reduce.sh synth
+native-global-reduce:
+	bash tests/current/run_native_global_reduce.sh
+.PHONY: current-vector-arithmetic current-vector-arithmetic-synth
+current-vector-arithmetic:
+	bash tests/current/run_vector_arithmetic.sh
+	bash tests/current/run_vector_arithmetic_pe.sh
+current-vector-arithmetic-synth:
+	bash tests/current/run_vector_arithmetic.sh synth
+.PHONY: current-arithmetic-boundaries current-arithmetic-boundaries-synth
+current-arithmetic-boundaries:
+	bash tests/current/run_arithmetic_boundaries.sh
+	bash tests/current/run_arithmetic_boundaries_pe.sh
+	bash tests/current/run_fu_reset.sh
+	bash tests/current/run_arithmetic_guards.sh
+	bash tests/current/run_arithmetic_compat.sh
+current-arithmetic-boundaries-synth:
+	bash tests/current/run_arithmetic_boundaries.sh synth
+	bash tests/current/run_arithmetic_guards.sh synth
+	bash tests/current/run_arithmetic_compat.sh synth
 baseline:
 	bash scripts/run_baseline.sh all
+
+.PHONY: current-memory-boundaries current-memory-boundaries-synth
+current-memory-boundaries:
+	bash tests/current/run_dma_boundaries.sh rtl
+	bash tests/current/run_im2col_boundaries.sh rtl
+	bash tests/current/run_memory_boundaries.sh rtl
+	bash tests/current/run_memory_boundaries_compat.sh rtl
+	bash tests/current/run_memory_boundary_systems.sh
+current-memory-boundaries-synth:
+	bash tests/current/run_dma_boundaries.sh synth
+	bash tests/current/run_im2col_boundaries.sh synth
+	bash tests/current/run_memory_boundaries.sh synth
+	bash tests/current/run_memory_boundaries_compat.sh synth
+	bash tests/current/run_im2col_boundary_system_synth.sh
+
+.PHONY: current-pe-interfaces current-pe-interfaces-synth
+current-pe-interfaces:
+	bash tests/current/run_pe_interfaces.sh rtl
+	bash tests/current/run_pe_attachment.sh
+current-pe-interfaces-synth:
+	bash tests/current/run_pe_interfaces.sh synth
+
+.PHONY: current-systems current-system-synth
+current-systems: native-multi native-template current-kernels current-prefixes current-migration
+current-system-synth:
+	bash tests/current/run_native_multi.sh mesh-compact ring2-compact
+	bash tests/current/run_system_synth.sh
+
+.PHONY: native-kernel-boundaries current-predicated-store current-predicated-store-synth
+native-kernel-boundaries:
+	bash tests/current/run_kernel_boundaries.sh
+current-predicated-store:
+	bash tests/current/run_predicated_store.sh rtl
+current-predicated-store-synth:
+	bash tests/current/run_predicated_store.sh synth
+
+.PHONY: current-reg-file current-reg-file-synth migration-inventory
+current-reg-file:
+	bash tests/current/run_reg_file.sh rtl
+current-reg-file-synth:
+	bash tests/current/run_reg_file.sh synth
+migration-inventory:
+	python3 migration_tools/inventory.py --check
+
+.PHONY: program-tools
+program-tools:
+	bash tests/config/run_program_tools.sh
+
+.PHONY: config-tools
+config-tools:
+	bash tests/config/run_config_tools.sh
+
+.PHONY: current-noc-handshakes current-noc-handshakes-synth
+current-noc-handshakes:
+	bash tests/current/run_noc_router_credit.sh
+	bash tests/current/run_noc_primitives.sh
+	bash tests/current/run_noc_guards.sh
+	bash tests/current/run_noc_networks.sh
+current-noc-handshakes-synth:
+	bash tests/current/run_noc_networks_synth.sh
 
 .PHONY: phase2 phase2-negative $(addprefix phase2-,$(PHASE2_GEOMETRIES))
 phase2: $(addprefix phase2-,$(PHASE2_GEOMETRIES)) phase2-negative
@@ -88,7 +211,8 @@ phase3-system:
 
 # Stage 4 compiles maintained SV and frozen HDL/text assets directly.
 .PHONY: regression phase4 phase4-noc phase4-system phase4-template phase4-migration phase4-peripheral phase4-memory
-regression: current current-synth current-post-synth current-kernels current-prefixes native-kernels native-math native-multi native-template current-migration baseline
+regression:
+	python3 scripts/regression.py --all
 phase4: phase4-noc phase4-system phase4-template phase4-migration phase4-peripheral phase4-memory
 phase4-noc:
 	bash tests/phase4/noc/run.sh

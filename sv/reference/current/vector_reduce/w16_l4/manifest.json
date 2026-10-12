@@ -1,0 +1,208 @@
+{
+  "parameters": {
+    "DATA_W": 16,
+    "LANES": 4
+  },
+  "cycles": 360,
+  "inputs": [
+    [
+      "clear",
+      1
+    ],
+    [
+      "reset",
+      1
+    ],
+    [
+      "ctrl_addr_inport",
+      3
+    ],
+    [
+      "from_mem_rdata__msg",
+      19
+    ],
+    [
+      "from_mem_rdata__val",
+      1
+    ],
+    [
+      "recv_const__msg",
+      19
+    ],
+    [
+      "recv_const__val",
+      1
+    ],
+    [
+      "recv_from_ctrl_mem__msg",
+      154
+    ],
+    [
+      "recv_from_ctrl_mem__val",
+      1
+    ],
+    [
+      "recv_in__msg[0]",
+      19
+    ],
+    [
+      "recv_in__msg[1]",
+      19
+    ],
+    [
+      "recv_in__msg[2]",
+      19
+    ],
+    [
+      "recv_in__msg[3]",
+      19
+    ],
+    [
+      "recv_in__val[0]",
+      1
+    ],
+    [
+      "recv_in__val[1]",
+      1
+    ],
+    [
+      "recv_in__val[2]",
+      1
+    ],
+    [
+      "recv_in__val[3]",
+      1
+    ],
+    [
+      "recv_opt__msg",
+      119
+    ],
+    [
+      "recv_opt__val",
+      1
+    ],
+    [
+      "send_out__rdy[0]",
+      1
+    ],
+    [
+      "send_out__rdy[1]",
+      1
+    ],
+    [
+      "send_to_ctrl_mem__rdy",
+      1
+    ],
+    [
+      "to_mem_raddr__rdy",
+      1
+    ],
+    [
+      "to_mem_waddr__rdy",
+      1
+    ],
+    [
+      "to_mem_wdata__rdy",
+      1
+    ]
+  ],
+  "outputs": [
+    [
+      "from_mem_rdata__rdy",
+      1
+    ],
+    [
+      "recv_const__rdy",
+      1
+    ],
+    [
+      "recv_from_ctrl_mem__rdy",
+      1
+    ],
+    [
+      "recv_in__rdy[0]",
+      1
+    ],
+    [
+      "recv_in__rdy[1]",
+      1
+    ],
+    [
+      "recv_in__rdy[2]",
+      1
+    ],
+    [
+      "recv_in__rdy[3]",
+      1
+    ],
+    [
+      "recv_opt__rdy",
+      1
+    ],
+    [
+      "send_out__msg[0]",
+      19
+    ],
+    [
+      "send_out__msg[1]",
+      19
+    ],
+    [
+      "send_out__val[0]",
+      1
+    ],
+    [
+      "send_out__val[1]",
+      1
+    ],
+    [
+      "send_to_ctrl_mem__msg",
+      154
+    ],
+    [
+      "send_to_ctrl_mem__val",
+      1
+    ],
+    [
+      "to_mem_raddr__msg",
+      7
+    ],
+    [
+      "to_mem_raddr__val",
+      1
+    ],
+    [
+      "to_mem_waddr__msg",
+      7
+    ],
+    [
+      "to_mem_waddr__val",
+      1
+    ],
+    [
+      "to_mem_wdata__msg",
+      19
+    ],
+    [
+      "to_mem_wdata__val",
+      1
+    ]
+  ],
+  "input_bits": 406,
+  "output_bits": 239,
+  "reset_samples": 9,
+  "source_sha256": {
+    "fu/vector/VectorAllReduceRTL.py": "5a8ee29d3fa55f373c4943c42ac6b348d3dd6c0fc1645fe4460ee1c39c62f8b2",
+    "fu/basic/SumUnit.py": "631a54831624e2c20bb5cd2455b61405027de5dd44f2576dc6c1454c2fda5b4d",
+    "fu/basic/ReduceMulUnit.py": "ef2fe2e7742363f94f26053d8c9c8f0861ec2dd510482e19c9ae23edc7764832",
+    "fu/vector/test/VectorAllReduceRTL_test.py": "cbe2fc1e375acb8923662bda3f2ca8aa54974bdcec0388a8078c297fb6501334",
+    "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf"
+  },
+  "generator_sha256": "97b3471b7294d1cbec2e25fd454a500c557d417af44321ad6b44577f4786277b",
+  "vectors_sha256": "5bbd015c18d6cf90fc695980e0a1cc8e4903fa394d83536da331aaec538c474e",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "notes": [
+    "Unmodified current model, all outputs including originally undriven zero fields and reset samples.",
+    "Synthetic traffic exposes missing global guards, zero global product, missing base ready, premature retirement and ignored clear."
+  ]
+}

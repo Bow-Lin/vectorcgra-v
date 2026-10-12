@@ -75,15 +75,24 @@ module tb_native_kernel #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS);
   int identity_nnz=-1;
   int identity_stores /*verilator public_flat_rw*/ =0;
   bit [255:0] stored_addresses /*verilator public_flat_rw*/ ='0;
+  bit check_store_counts=0;
+  int required_stores /*verilator public_flat_rw*/ =0;
+  int watched_stores /*verilator public_flat_rw*/ =0;
+  int expected_stores [0:255];
+  int actual_stores [0:255];
+  string store_file;
+  int file_addr, file_count;
+  logic [DATA_W-1:0] file_value;
   task automatic tick;
+    bit completion_this_edge;
+    completion_this_edge=0;
     #5;
     if(send_to_cpu_pkt__val && send_to_cpu_pkt__rdy) begin
       response=send_to_cpu_pkt__msg;
       if(response.payload.cmd==6'd14) begin
         if(send_to_cpu_pkt__msg===expected_return) begin
-          if(identity_nnz>=0 && identity_stores!=identity_nnz)
-            $fatal(1,"KERNEL_EARLY_RETURN stores=%0d expected=%0d",identity_stores,identity_nnz);
-          completed++;
+          completion_this_edge=1;
+          if($test$plusargs("TRACE_FU")) $display("KERNEL_RETURN_SAMPLE cycle=%0d",cycle);
         end
         else if(response.src<NUM_TILES && response.payload.ctrl=='0 && response.payload.data=='0 && response.payload.data_addr=='0 && response.payload.ctrl_addr=='0) begin
           if(administrative_done[response.src]) $fatal(1,"Duplicate control-count completion");
@@ -102,7 +111,17 @@ module tb_native_kernel #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS);
         loads++;
       end else $fatal(1,"Unexpected host response command=%0d",response.payload.cmd);
     end
-    clk=1;#5;clk=0;cycle++;
+    // Sample both host completion and memory handshakes on the same edge.
+    // Checking before posedge wrongly rejects a legal concurrent last store.
+    clk=1;#5;
+    if(completion_this_edge) begin
+      if(identity_nnz>=0 && identity_stores!=identity_nnz)
+        $fatal(1,"KERNEL_EARLY_RETURN cycle=%0d stores=%0d expected=%0d",cycle,identity_stores,identity_nnz);
+      if(check_store_counts && watched_stores!=required_stores)
+        $fatal(1,"KERNEL_EARLY_RETURN cycle=%0d stores=%0d expected=%0d",cycle,watched_stores,required_stores);
+      completed++;
+    end
+    clk=0;cycle++;
     send_to_cpu_pkt__rdy=!$test$plusargs("STALL_FOREVER") &&
         (!$test$plusargs("BACKPRESSURE") || (cycle%11>=5 && cycle%7!=0));
     if(cycle>max_cycles) $fatal(1,"NATIVE_KERNEL_TIMEOUT completed=%0d loads=%0d",completed,loads);
@@ -157,10 +176,27 @@ module tb_native_kernel #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS);
     if(!$value$plusargs("PROGRAM=%s",directory)) $fatal(1,"Missing PROGRAM directory");
     fd=$fopen({directory,"/return.hex"},"r");if(!fd)$fatal(1,"Missing expected return");
     rc=$fscanf(fd,"%h",expected_return);if(rc!=1)$fatal(1,"Invalid return");$fclose(fd);
+    for(int i=0;i<256;i++) begin expected_stores[i]=0;actual_stores[i]=0;end
+    if($value$plusargs("STORE_COUNTS=%s",store_file)) begin
+      check_store_counts=1;
+      fd=$fopen(store_file,"r");if(!fd)$fatal(1,"Missing store counts");
+      while(!$feof(fd)) begin
+        rc=$fscanf(fd,"%d %d\n",file_addr,file_count);
+        if(rc==2) begin
+          if(file_addr<0 || file_addr>=256 || file_count<1 || expected_stores[file_addr]!=0)
+            $fatal(1,"Malformed store counts");
+          expected_stores[file_addr]=file_count;required_stores+=file_count;
+        end else if(rc>0 || !$feof(fd)) $fatal(1,"Malformed store counts");
+      end
+      $fclose(fd);
+    end
     fd=$fopen({directory,"/expected.hex"},"r");if(!fd)$fatal(1,"Missing expected memory");
     while(!$feof(fd)) begin
-      rc=$fscanf(fd,"%d %h\n",expected_addr[words],expected_value[words]);
-      if(rc==2)words++;else if(rc!=-1)$fatal(1,"Malformed expected memory");
+      rc=$fscanf(fd,"%d %h\n",file_addr,file_value);
+      if(rc==2) begin
+        if(words>=256 || file_addr<0 || file_addr>=NUM_BANKS*BANK_DEPTH) $fatal(1,"Invalid expected memory address");
+        expected_addr[words]=file_addr;expected_value[words]=file_value;words++;
+      end else if(rc>0 || !$feof(fd)) $fatal(1,"Malformed expected memory");
     end
     $fclose(fd);
     if($test$plusargs("EXPECT_FAILURE")) expected_value[0]^=1;
@@ -169,7 +205,7 @@ module tb_native_kernel #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS);
     fd=$fopen({directory,"/program.hex"},"r");if(!fd)$fatal(1,"Missing program");
     while(!$feof(fd)) begin
       rc=$fscanf(fd,"%h\n",program_packet);
-      if(rc==1)send_packet(program_packet);else if(rc!=-1)$fatal(1,"Malformed program");
+      if(rc==1)send_packet(program_packet);else if(rc>0 || !$feof(fd))$fatal(1,"Malformed program");
     end
     $fclose(fd);
     while(completed==0)tick();
@@ -182,11 +218,30 @@ module tb_native_kernel #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS);
     end
     if(completed!=1 || loads!=words || words==0 || math_errors!=0)$fatal(1,"Incomplete functional acceptance");
     if(identity_nnz>=0 && identity_stores!=identity_nnz)$fatal(1,"KERNEL_STORE_COUNT");
+    if(check_store_counts) begin
+      for(int i=0;i<256;i++) if(expected_stores[i]!=actual_stores[i])
+        $fatal(1,"KERNEL_STORE_COUNT addr=%0d actual=%0d expected=%0d",i,actual_stores[i],expected_stores[i]);
+      $display("NATIVE_STORE_COUNTS_PASS stores=%0d",watched_stores);
+    end
     if(identity_nnz>=0)$display("NATIVE_IDENTITY_STORES_PASS nnz=%0d stores=%0d",identity_nnz,identity_stores);
     $display("NATIVE_KERNEL_MATH_PASS program=%s cycles=%0d words=%0d",directory,cycle,loads);
     $finish;
   end
   for(genvar t=0;t<NUM_TILES;t++) begin : diagnostics
+    always @(posedge clk) if(!reset && check_store_counts &&
+        dut.tiles[t].tile.base.core.to_mem_wdata__val &&
+        dut.tiles[t].tile.base.core.to_mem_wdata__rdy) begin
+      if(completed!=0)$fatal(1,"KERNEL_LATE_STORE tile=%0d",t);
+      if(!dut.tiles[t].tile.base.core.to_mem_waddr__val ||
+         !dut.tiles[t].tile.base.core.to_mem_waddr__rdy)
+        $fatal(1,"KERNEL_STORE_PAIR tile=%0d",t);
+      if(int'(dut.tiles[t].tile.base.core.to_mem_waddr__msg)>=256 ||
+         actual_stores[dut.tiles[t].tile.base.core.to_mem_waddr__msg]>=
+         expected_stores[dut.tiles[t].tile.base.core.to_mem_waddr__msg])
+        $fatal(1,"KERNEL_STRAY_STORE tile=%0d addr=%0d",t,dut.tiles[t].tile.base.core.to_mem_waddr__msg);
+      actual_stores[dut.tiles[t].tile.base.core.to_mem_waddr__msg]++;
+      watched_stores++;
+    end
     always @(posedge clk) if(identity_nnz>=0 &&
         dut.tiles[t].tile.base.core.to_mem_wdata__val &&
         dut.tiles[t].tile.base.core.to_mem_wdata__rdy) begin

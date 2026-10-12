@@ -20,7 +20,7 @@ for kind in ${*:-dma dma-small dma-python dma-small-python im2col im2col-wide}; 
     im2col-wide) gold=Phase4Im2ColWide;native=cgra_im2col_engine;marker=IM2COL_PASS;;
     *)echo "Unknown case $kind" >&2;exit 2;;
   esac
-  files=("rtl/peripheral/$native.sv" "reference/phase4/peripheral/$reference_kind/$gold.v" "tests/phase4/peripheral/$top.sv")
+  files=(rtl/mem/cgra_data_mem.sv "rtl/peripheral/$native.sv" "reference/phase4/peripheral/$reference_kind/$gold.v" "tests/phase4/peripheral/$top.sv")
   "$VERILATOR" --cc --main --exe --timing --compiler "$COMPILER" \
     --top-module "$top" --Mdir "$out" -o native_test -CFLAGS -std=c++20 \
     -Wno-fatal -Wno-TIMESCALEMOD -Irtl/common "${options[@]}" "${files[@]}" > "$out/verilate.log" 2>&1

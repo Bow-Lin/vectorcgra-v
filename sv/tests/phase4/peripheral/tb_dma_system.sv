@@ -35,7 +35,7 @@ module tb_dma_system;
   logic[0:0] send_to_dram_wr_req__val;
   logic[0:0] gold_send_to_dram_wr_req__val;
   logic[34:0] zero_data[0:1];logic zero_bit[0:1];
-  cgra_integrated_dma #(
+  cgra_integrated_dma #(.PERIPHERAL_LEGACY_PYTHON(1),.MEMORY_LEGACY_PYTHON(1),
     .COLS(2),
     .ROWS(2),
     .DATA_W(32),

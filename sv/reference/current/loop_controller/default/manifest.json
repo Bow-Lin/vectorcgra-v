@@ -1,0 +1,56 @@
+{
+  "parameters": {
+    "DATA_W": 32,
+    "NUM_CCUS": 8,
+    "MAX_TARGETS": 4,
+    "CTRL_BITS": 107,
+    "DATA_ADDR_W": 3,
+    "CTRL_ADDR_W": 3
+  },
+  "cycles": 611,
+  "input_bits": 468,
+  "output_bits": 314,
+  "scenarios": [
+    {
+      "name": "test_3_layer_loop",
+      "cycles": 34,
+      "status": "original_test_passed"
+    },
+    {
+      "name": "test_basic_2_layer_loop",
+      "cycles": 17,
+      "status": "original_test_passed"
+    },
+    {
+      "name": "test_cross_cgra_2_layer_loop",
+      "cycles": 20,
+      "status": "original_test_passed"
+    },
+    {
+      "name": "test_sibling_barrier",
+      "cycles": 18,
+      "status": "original_test_passed"
+    },
+    {
+      "name": "mixed_events",
+      "status": "frozen_python_behavior",
+      "local_sends": 92,
+      "remote_sends": 90,
+      "simultaneous_events": 31,
+      "stalled_sends": 196
+    },
+    {
+      "name": "capacity",
+      "status": "frozen_python_behavior",
+      "local_sends": 19,
+      "remote_sends": 19,
+      "simultaneous_events": 0,
+      "stalled_sends": 10,
+      "python_dispatch_wrap_reproduced": true
+    }
+  ],
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "vectors_sha256": "bb44bfb5be113602a77edb8fc7c756f694fae9119264ffef8835c52fa3617fcb",
+  "generator_sha256": "db61c9902f48d66b673b0929021dc3edb94759e0b7b64f1cb275ddb193279aa7",
+  "source_sha256": "abb17411a687e65a1fd15da743bc62ec34ee3cf92f31b50d9c373828784702df"
+}

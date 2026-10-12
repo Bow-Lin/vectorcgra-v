@@ -5,15 +5,17 @@ maintained Verilog/SystemVerilog implementation in [`sv/`](sv/README.md).
 
 - **Python RTL, tests and NoC optimizations:** the root-level project is preserved
   from `codex/noc-4x4-opt` at `e3caf69`.
-- **Verilog/SystemVerilog RTL and tests:** `sv/` is copied unchanged from
-  `codex/sv-migration-phase4` at `67c407c`. Start with
-  [`sv/README.md`](sv/README.md), the [migration progress](sv/MIGRATION_PROGRESS.md)
-  and the [phase 4 report](sv/PHASE4_REPORT.md).
-- **Baseline boundary:** the SystemVerilog migration uses the `ac96a7a` Python
-  baseline. It does not include the newer B/C2 NoC optimizations in the root
-  Python project. Frozen references and archived verification evidence remain
-  under `sv/`; normal HDL builds do not invoke the root Python project.
-  Migration/export scripts require their documented historical source baseline.
+- **Current SystemVerilog RTL and tests:** `sv/rtl/` includes the parameterized
+  `cgra_pe` and configurable single/multiple-CGRA tops. Start with
+  [`sv/README.md`](sv/README.md), the [current migration status](sv/CURRENT_MIGRATION.md)
+  and the [acceptance index](sv/FINAL_ACCEPTANCE.md).
+- **Source boundary:** the historical migration started at `ac96a7af`; the
+  current Python target is pinned to `cd7aad878915`, whose Python content comes
+  from `e3caf69`. The original 274 Python files remain unchanged. Native fixes,
+  explicit compatibility modes and remaining limits are documented separately.
+  Frozen references and historical evidence remain under `sv/`; normal HDL
+  builds do not invoke the root Python project or PyMTL. Standard-library Python
+  tools handle architecture configuration, program packing and regression.
 
 Clone with submodules to obtain the Python project's external dependencies:
 
@@ -22,8 +24,9 @@ git clone --recurse-submodules https://github.com/Bow-Lin/vectorcgra-v.git
 cd vectorcgra-v
 ```
 
-For native HDL builds, follow the tool setup and commands in
-[`sv/scripts/README.md`](sv/scripts/README.md). Local tool installations, build
+For native HDL builds, follow the [pinned tools and regression](sv/REGRESSION.md).
+The [standalone export](sv/STANDALONE.md) builds without the original Python
+directories or Git history. Local tool installations, build
 outputs and uncommitted presentation/specification materials are excluded.
 Original upstream history, licenses and attribution are retained below and in
 [`LICENSE`](LICENSE) and [`sv/licenses/`](sv/licenses/).

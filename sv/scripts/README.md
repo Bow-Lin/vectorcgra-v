@@ -1,5 +1,17 @@
 # Native SystemVerilog build tools
 
+Current Linux build, pinned tools, 14-shard regression and CI: [REGRESSION.md](../REGRESSION.md).
+Standalone export and clean build: [STANDALONE.md](../STANDALONE.md).
+The default `make -C sv current` runs the current contract; `make -C sv regression`
+runs the shared catalog. Standard-library Python scripts do not require the original project or PyMTL.
+
+## Historical Windows validation
+
+The remaining sections record the earlier Windows tool combinations and historical
+phase targets. Their statements about `all`, unexecuted Unix builds and filelists
+refer to that earlier snapshot. Run historical contracts through `run_baseline.sh`;
+use the linked current documentation for present Linux entry points and validation.
+
 The maintained build starts from the checked-in SystemVerilog and frozen reference
 HDL. It does not invoke project Python, PyMTL, or a reference generator. Verilator
 can invoke its own Python helper while compiling its generated C++ model.

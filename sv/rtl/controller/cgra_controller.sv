@@ -2,7 +2,8 @@
 // Native parameterized cgra_controller; control flow derived from ac96 cgra_controller.
 // Disabled DMA/im2col declarations and undriven inputs retain baseline semantics.
 module cgra_controller #(
-  `CGRA_PROFILE_PARAMETERS
+  `CGRA_PROFILE_PARAMETERS,
+  parameter bit REDUCE_LEGACY_PYTHON = 0
 ) (
   input  logic [CGRA_ID_W-1:0] cgra_id ,
   input  logic [0:0] clk ,
@@ -155,6 +156,7 @@ module cgra_controller #(
   localparam logic [3:0] CMD_COMPLETE  = 4'd14;
   localparam logic [4:0] CMD_LEAF_COUNTER_COMPLETE  = 5'd31;
   localparam logic [4:0] CMD_GLOBAL_REDUCE_ADD  = 5'd18;
+  localparam logic [4:0] CMD_GLOBAL_REDUCE_MUL  = 5'd19;
   localparam logic [4:0] CMD_GLOBAL_REDUCE_COUNT  = 5'd17;
   localparam logic [1:0] CMD_CONFIG  = 2'd3;
   localparam logic [2:0] CMD_CONFIG_PROLOGUE_FU  = 3'd4;
@@ -570,7 +572,9 @@ module cgra_controller #(
       else if ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_LEAF_COUNTER_COMPLETE ) ) begin
         recv_from_inter_cgra_noc__rdy = 1'd1;
       end
-      else if ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_GLOBAL_REDUCE_ADD ) ) begin
+      // Python dispatches ADD only; native MUL must reach the same accumulator.
+      else if ( (p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'(CMD_GLOBAL_REDUCE_ADD)) ||
+                (!REDUCE_LEGACY_PYTHON && p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'(CMD_GLOBAL_REDUCE_MUL)) ) begin
         recv_from_inter_cgra_noc__rdy = global_reduce_unit__recv_data__rdy;
         global_reduce_unit__recv_data__val = 1'd1;
         global_reduce_unit__recv_data__msg = p_recv_from_inter_cgra_noc__msg;
@@ -692,5 +696,6 @@ module cgra_controller #(
   assign recv_from_im2col_pkt_queue__recv__val = HAS_IM2COL ? recv_from_im2col_pkt__val : 1'b0;
   assign recv_from_im2col_pkt_queue__recv__msg = HAS_IM2COL ? recv_from_im2col_pkt__msg : '0;
   if (HAS_IM2COL) assign recv_from_im2col_pkt__rdy = recv_from_im2col_pkt_queue__recv__rdy;
+  else assign recv_from_im2col_pkt__rdy = 1'b0;
 
 endmodule

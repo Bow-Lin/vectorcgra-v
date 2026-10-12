@@ -5,29 +5,98 @@ on:
   push:
     paths: ['sv/**', '.github/workflows/native-sv.yml']
   workflow_dispatch:
+permissions:
+  contents: read
 jobs:
-  current:
+  catalog:
     runs-on: ubuntu-24.04
-    timeout-minutes: 45
+    outputs:
+      shards: ${{ steps.catalog.outputs.shards }}
     steps:
-      - uses: actions/checkout@v4
-      - name: Install native simulation tools
-        run: sudo apt-get update && sudo apt-get install -y verilator g++ make
-      - name: Record tool versions
-        run: verilator --version && g++ --version
-      - name: Components, PE variants and DMA
-        run: make -C sv current JOBS=2
-      - name: Current YAML system programs
-        run: make -C sv current-kernels JOBS=2
-      - name: Independent native arithmetic and repaired programs
-        run: make -C sv native-math native-kernels JOBS=2
-      - name: Current multi-CGRA and migration acceptance
-        run: make -C sv native-multi native-template current-migration JOBS=2
-      - uses: actions/upload-artifact@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - id: catalog
+        run: |
+          python3 sv/scripts/regression.py --check-catalog
+          python3 -m unittest discover -s sv/tests/scripts -p 'test_*.py' -v
+          echo "shards=$(python3 sv/scripts/regression.py --list)" >> "$GITHUB_OUTPUT"
+      - name: Audit pinned original Python sources
+        run: make -C sv migration-inventory
+  native:
+    needs: catalog
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: ${{ fromJSON(needs.catalog.outputs.shards) }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      JOBS: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0 # Historical baseline uses the exact cd7aad object.
+      - name: Record resources
+        env:
+          SHARD: ${{ matrix.shard }}
+        run: |
+          minimum=0
+          if [[ "$SHARD" == systems || "$SHARD" == pe ]]; then minimum=14; fi
+          python3 sv/scripts/preflight.py --minimum-memory-gib "$minimum" --output "sv/build/regression/$SHARD/resources.json"
+      - name: Install build prerequisites
+        run: sudo apt-get update && sudo apt-get install -y g++ make python3 perl curl unzip
+      - name: Install SHA-verified HDL tools
+        run: python3 sv/scripts/install_toolchain.py --github-env
+      - name: Run native regression shard
+        env:
+          SHARD: ${{ matrix.shard }}
+        run: python3 sv/scripts/regression.py --shard "$SHARD"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         if: always()
         with:
-          name: native-sv-current
+          name: native-sv-${{ matrix.shard }}
           path: |
+            sv/build/regression/**/*.json
+            sv/build/regression/**/*.log
+            sv/build/toolchain/versions.json
             sv/build/current/**/*.log
-            sv/build/current/SHA256SUMS
+            sv/build/current/**/compiled_sources.sha256
+            sv/build/current/**/build-stamp.json
             sv/build/native/**/*.log
+            sv/build/baseline-*/sv/build/**/*.log
+          retention-days: 14
+  standalone:
+    needs: catalog
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    env:
+      JOBS: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+      - name: Install native build prerequisites
+        run: sudo apt-get update && sudo apt-get install -y g++ make python3 perl curl unzip
+      - name: Install SHA-verified HDL tools
+        run: python3 sv/scripts/install_toolchain.py --github-env
+      - name: Export and verify a clean standalone bundle
+        run: |
+          python3 sv/scripts/export_standalone.py --output "$RUNNER_TEMP/vectorcgra-native.tar.gz"
+          mkdir -p "$RUNNER_TEMP/vectorcgra-unpacked"
+          tar -xzf "$RUNNER_TEMP/vectorcgra-native.tar.gz" -C "$RUNNER_TEMP/vectorcgra-unpacked"
+          python3 "$RUNNER_TEMP/vectorcgra-unpacked/sv/scripts/verify_bundle.py"
+      - name: Build without original Python or Git history
+        run: |
+          cd "$RUNNER_TEMP/vectorcgra-unpacked"
+          bash sv/scripts/check_standalone.sh > standalone-build.log 2>&1
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: always()
+        with:
+          name: vectorcgra-standalone
+          path: |
+            ${{ runner.temp }}/vectorcgra-native.tar.gz
+            ${{ runner.temp }}/vectorcgra-native.tar.gz.sha256
+            ${{ runner.temp }}/vectorcgra-unpacked/BUNDLE_MANIFEST.json
+            ${{ runner.temp }}/vectorcgra-unpacked/standalone-*.log
+            ${{ runner.temp }}/vectorcgra-unpacked/sv/build/**/*.log
+            ${{ runner.temp }}/vectorcgra-unpacked/sv/build/**/baseline-sources.json
+          retention-days: 14

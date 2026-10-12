@@ -2,10 +2,12 @@
 set -euo pipefail
 cd "$(dirname "$0")/../.."
 source scripts/toolchain.sh
-build=build/native/template
+build=${NATIVE_TEMPLATE_BUILD_ROOT:-build/native/template}
 mkdir -p "$build"
+{ grep -vE '^\+|^$' filelists/native.f; printf '%s\n' tests/current/tb_native_template.sv; } | xargs sha256sum > "$build/compiled_sources.sha256"
+sha256sum rtl/common/*.svh >> "$build/compiled_sources.sha256"
 env -u LINK "$VERILATOR" --binary --timing --compiler "$COMPILER" -j "$JOBS" \
-  -MAKEFLAGS "CXX=$CXX LINK=$CXX" --top-module tb_native_template --Mdir "$build" \
+  -MAKEFLAGS "CXX=$CXX LINK=$CXX" -CFLAGS -O0 --output-split 10000 --output-split-cfuncs 2000 --top-module tb_native_template --Mdir "$build" \
   -Wno-fatal -Irtl/common -Itests/phase4/template -f filelists/native.f \
   -GCOLS=3 -GROWS=3 -GTILE_PORTS=8 -GMULTI_COLS=2 -GMULTI_ROWS=2 \
   tests/current/tb_native_template.sv >"$build/compile.log" 2>&1 || { tail -n 30 "$build/compile.log"; exit 1; }

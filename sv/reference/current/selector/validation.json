@@ -1,0 +1,666 @@
+{
+  "task": "Standalone Selector with unselected-ready isolation",
+  "status": "passed",
+  "date": "2026-10-10",
+  "base_commit": "15568912158f8bcf96477d97af38c4238f69cb75",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "pinned_python_unchanged": 274,
+  "profiles": [
+    {
+      "name": "b19_n3",
+      "parameters": {
+        "DATA_BITS": 19,
+        "NUM_INPUTS": 3
+      },
+      "cycles": 320,
+      "input_bits": 64,
+      "output_bits": 23,
+      "reset_samples": 7,
+      "source_sha256": {
+        "noc/SelectorRTL.py": "6742762cda7858637b23e8d3ee62491d3bb4b64c91c4b5dc4dae03d3b329bc00",
+        "noc/test/SelectorRTL_test.py": "b9101706fa3dc72c3d8ead6a03d4b1c243e826f6a6e95dcbdf8a2f3024ce9f93",
+        "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf"
+      },
+      "generator_sha256": "5340ce1233dc33d4d3aa886b3a32d4532bf71843c0007675de73a679214cabdc",
+      "vectors_sha256": "fa5a20bd56ff982d0d0568970afdf0614ef6ca9e2d12c2208be531fb7f4a03a0",
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "notes": [
+        "Changing selection retains ready on previously selected ports, including reset cycles.",
+        "Every output bit compared, including invalid message fields; synthetic selection changes expose source latch behavior."
+      ]
+    },
+    {
+      "name": "b35_n5",
+      "parameters": {
+        "DATA_BITS": 35,
+        "NUM_INPUTS": 5
+      },
+      "cycles": 320,
+      "input_bits": 185,
+      "output_bits": 41,
+      "reset_samples": 7,
+      "source_sha256": {
+        "noc/SelectorRTL.py": "6742762cda7858637b23e8d3ee62491d3bb4b64c91c4b5dc4dae03d3b329bc00",
+        "noc/test/SelectorRTL_test.py": "b9101706fa3dc72c3d8ead6a03d4b1c243e826f6a6e95dcbdf8a2f3024ce9f93",
+        "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf"
+      },
+      "generator_sha256": "5340ce1233dc33d4d3aa886b3a32d4532bf71843c0007675de73a679214cabdc",
+      "vectors_sha256": "cdcc7104b600c8572179c2355b7cb77cd5ae1317bdb3afd3cd9e2577940b7ca8",
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "notes": [
+        "Changing selection retains ready on previously selected ports, including reset cycles.",
+        "Every output bit compared, including invalid message fields; synthetic selection changes expose source latch behavior."
+      ]
+    },
+    {
+      "name": "b67_n8",
+      "parameters": {
+        "DATA_BITS": 67,
+        "NUM_INPUTS": 8
+      },
+      "cycles": 320,
+      "input_bits": 549,
+      "output_bits": 76,
+      "reset_samples": 7,
+      "source_sha256": {
+        "noc/SelectorRTL.py": "6742762cda7858637b23e8d3ee62491d3bb4b64c91c4b5dc4dae03d3b329bc00",
+        "noc/test/SelectorRTL_test.py": "b9101706fa3dc72c3d8ead6a03d4b1c243e826f6a6e95dcbdf8a2f3024ce9f93",
+        "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf"
+      },
+      "generator_sha256": "5340ce1233dc33d4d3aa886b3a32d4532bf71843c0007675de73a679214cabdc",
+      "vectors_sha256": "5ccb58e9795dc85220d04a08139d62544eb1f0036d8c98f3e14719c44a4ffa92",
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "notes": [
+        "Changing selection retains ready on previously selected ports, including reset cycles.",
+        "Every output bit compared, including invalid message fields; synthetic selection changes expose source latch behavior."
+      ]
+    }
+  ],
+  "compatibility_cycles": 960,
+  "compatibility_reset_cycles": 21,
+  "compatibility_output_bits_per_implementation": 44800,
+  "native_checks": {
+    "rtl": 86908,
+    "synth": 86908
+  },
+  "positive_runs": [
+    {
+      "path": "sv/build/current/selector/rtl/b19_n3/legacy0/run.log",
+      "sha256": "6fc73ccb92f0cec19588f952cdb1a3a074c3a39e6e375530d6051550949b8539",
+      "results": [
+        "SELECTOR_NATIVE_PASS samples=96 checks=481"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b19_n3/legacy0/defect.log",
+      "sha256": "c4bd559794684ef3f0eb80c0ccf903fa2de608307f8eac1bc3f19e9fbf98ffc7",
+      "results": [
+        "SELECTOR_DEFECT_FIXED"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b19_n3/legacy1/run.log",
+      "sha256": "7817d0ed90f81de6d230c4ccd5e505e738ebdb22e3a611e31f4b81cc83ebf712",
+      "results": [
+        "SELECTOR_REPLAY_PASS samples=320 output_bits=23"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b35_n5/legacy0/run.log",
+      "sha256": "89a12893e269bf4780ee2251b5ad471fbb0d20a486df872aa37bdd256722be17",
+      "results": [
+        "SELECTOR_NATIVE_PASS samples=640 checks=4481"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b35_n5/legacy1/run.log",
+      "sha256": "7dc48efd9e546c4a9a36aabe290ccfa86b3baddaef49dc85ad2985ec4c94fa18",
+      "results": [
+        "SELECTOR_REPLAY_PASS samples=320 output_bits=41"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b67_n8/legacy0/run.log",
+      "sha256": "865ecec12d27255a58851e696c20b9e0822594969b729e020a1b3d709594bcb6",
+      "results": [
+        "SELECTOR_NATIVE_PASS samples=8192 checks=81921"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b67_n8/legacy1/run.log",
+      "sha256": "f5519c89ce79068b4fac1df393bb713ab2656850c458a79d63eadc0cc42de432",
+      "results": [
+        "SELECTOR_REPLAY_PASS samples=320 output_bits=76"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b8_n1/legacy0/run.log",
+      "sha256": "ed6bf07a79e1b12057df72de44ff904bfac42e3bd8b9703be15fc606f93bd0f4",
+      "results": [
+        "SELECTOR_NATIVE_PASS samples=8 checks=25"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/synth/b19_n3/legacy0/run.log",
+      "sha256": "53cc7c676ec02bfdcd341aec1ad74002f754c868f9ef4eab48baa19ed3b60081",
+      "results": [
+        "SELECTOR_NATIVE_PASS samples=96 checks=481"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/synth/b19_n3/legacy0/defect.log",
+      "sha256": "59a6f0c565aa660c0a89b73b7e26fc972b09957ab142ff075ba51918306a28d5",
+      "results": [
+        "SELECTOR_DEFECT_FIXED"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/synth/b19_n3/legacy1/run.log",
+      "sha256": "6f43c5822e7f355d11c1bfb545d399b2d3d3cbd450a9b8524839c3aaa7c9413e",
+      "results": [
+        "SELECTOR_REPLAY_PASS samples=320 output_bits=23"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/synth/b35_n5/legacy0/run.log",
+      "sha256": "d12f5b89459d8f2d4fef02d736d18ea497f61ca737f564de74c423370df993b0",
+      "results": [
+        "SELECTOR_NATIVE_PASS samples=640 checks=4481"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/synth/b35_n5/legacy1/run.log",
+      "sha256": "04b71093cb05b3fa37c8ff3d1ca44a015f5e02137b56e649e5135b52f9352475",
+      "results": [
+        "SELECTOR_REPLAY_PASS samples=320 output_bits=41"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/synth/b67_n8/legacy0/run.log",
+      "sha256": "fd96fc0185b652efbf9605dec05780332f5763434b790149db3f1eaa5cfcd749",
+      "results": [
+        "SELECTOR_NATIVE_PASS samples=8192 checks=81921"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/synth/b67_n8/legacy1/run.log",
+      "sha256": "d95303992d61b4b9611da9ce37d35d2c6728b87756a3bdc8b72515c183e1c07b",
+      "results": [
+        "SELECTOR_REPLAY_PASS samples=320 output_bits=76"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/synth/b8_n1/legacy0/run.log",
+      "sha256": "000b3e58900f6b6ee00f6ec2b8ec92b78acb517d550d254c6bb3ef6aa2c0f940",
+      "results": [
+        "SELECTOR_NATIVE_PASS samples=8 checks=25"
+      ]
+    }
+  ],
+  "negative_runs": [
+    {
+      "path": "sv/build/current/selector/rtl/b19_n3/legacy0/negative.log",
+      "sha256": "b023692a0fe7b2b07a743f0392b264bb38cb2f6e039a1dc3072c60353a77a47f",
+      "results": [
+        "[17000] %Fatal: tb_selector.sv:38: Assertion failed in TOP.tb_selector.require: SELECTOR_CHECK full selected message including invalid and metadata sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b19_n3/legacy0/invalid-index.log",
+      "sha256": "280910e8a5f2e72dfbef4b92657e74a3c7ddbdc12d665a25a42541b783748150",
+      "results": [
+        "[1000] %Fatal: cgra_selector.sv:38: Assertion failed in TOP.tb_selector.dut: SELECTOR_INDEX"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b19_n3/legacy1/negative.log",
+      "sha256": "5b76ff010d3769f37be7f2bb45f3066306831f8565817cf57f995c3b5f126455",
+      "results": [
+        "[17000] %Fatal: tb_selector.sv:56: Assertion failed in TOP.tb_selector.replay: SELECTOR_REPLAY_MISMATCH sample=4 got=1a05f5 expected=1a05f4"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b19_n3/legacy1/defect.log",
+      "sha256": "856e7996518c2efddd54fa9be05f2795fef6d35b04c7b1856cb43d971791fd25",
+      "results": [
+        "[4000] %Fatal: tb_selector.sv:38: Assertion failed in TOP.tb_selector.require: SELECTOR_CHECK DEFECT_UNSELECTED_READY sample=0"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b35_n5/legacy0/negative.log",
+      "sha256": "b023692a0fe7b2b07a743f0392b264bb38cb2f6e039a1dc3072c60353a77a47f",
+      "results": [
+        "[17000] %Fatal: tb_selector.sv:38: Assertion failed in TOP.tb_selector.require: SELECTOR_CHECK full selected message including invalid and metadata sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b35_n5/legacy1/negative.log",
+      "sha256": "f445e5d3dc8b3a33e913136beb94afb553912b0cd3a2a81c191dc2eca5b4c3d4",
+      "results": [
+        "[17000] %Fatal: tb_selector.sv:56: Assertion failed in TOP.tb_selector.replay: SELECTOR_REPLAY_MISMATCH sample=4 got=00a8e461af6 expected=00a8e461af7"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b67_n8/legacy0/negative.log",
+      "sha256": "b023692a0fe7b2b07a743f0392b264bb38cb2f6e039a1dc3072c60353a77a47f",
+      "results": [
+        "[17000] %Fatal: tb_selector.sv:38: Assertion failed in TOP.tb_selector.require: SELECTOR_CHECK full selected message including invalid and metadata sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b67_n8/legacy1/negative.log",
+      "sha256": "142fe0cf4cf978ea649cdbb24429cb5567c2bda88001f3678d41fff0c186a097",
+      "results": [
+        "[17000] %Fatal: tb_selector.sv:56: Assertion failed in TOP.tb_selector.replay: SELECTOR_REPLAY_MISMATCH sample=4 got=408744967a2b5b939b0 expected=408744967a2b5b939b1"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b8_n1/legacy0/negative.log",
+      "sha256": "b023692a0fe7b2b07a743f0392b264bb38cb2f6e039a1dc3072c60353a77a47f",
+      "results": [
+        "[17000] %Fatal: tb_selector.sv:38: Assertion failed in TOP.tb_selector.require: SELECTOR_CHECK full selected message including invalid and metadata sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/synth/b19_n3/legacy0/negative.log",
+      "sha256": "b023692a0fe7b2b07a743f0392b264bb38cb2f6e039a1dc3072c60353a77a47f",
+      "results": [
+        "[17000] %Fatal: tb_selector.sv:38: Assertion failed in TOP.tb_selector.require: SELECTOR_CHECK full selected message including invalid and metadata sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/synth/b19_n3/legacy1/negative.log",
+      "sha256": "5b76ff010d3769f37be7f2bb45f3066306831f8565817cf57f995c3b5f126455",
+      "results": [
+        "[17000] %Fatal: tb_selector.sv:56: Assertion failed in TOP.tb_selector.replay: SELECTOR_REPLAY_MISMATCH sample=4 got=1a05f5 expected=1a05f4"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/synth/b19_n3/legacy1/defect.log",
+      "sha256": "856e7996518c2efddd54fa9be05f2795fef6d35b04c7b1856cb43d971791fd25",
+      "results": [
+        "[4000] %Fatal: tb_selector.sv:38: Assertion failed in TOP.tb_selector.require: SELECTOR_CHECK DEFECT_UNSELECTED_READY sample=0"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/synth/b35_n5/legacy0/negative.log",
+      "sha256": "b023692a0fe7b2b07a743f0392b264bb38cb2f6e039a1dc3072c60353a77a47f",
+      "results": [
+        "[17000] %Fatal: tb_selector.sv:38: Assertion failed in TOP.tb_selector.require: SELECTOR_CHECK full selected message including invalid and metadata sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/synth/b35_n5/legacy1/negative.log",
+      "sha256": "f445e5d3dc8b3a33e913136beb94afb553912b0cd3a2a81c191dc2eca5b4c3d4",
+      "results": [
+        "[17000] %Fatal: tb_selector.sv:56: Assertion failed in TOP.tb_selector.replay: SELECTOR_REPLAY_MISMATCH sample=4 got=00a8e461af6 expected=00a8e461af7"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/synth/b67_n8/legacy0/negative.log",
+      "sha256": "b023692a0fe7b2b07a743f0392b264bb38cb2f6e039a1dc3072c60353a77a47f",
+      "results": [
+        "[17000] %Fatal: tb_selector.sv:38: Assertion failed in TOP.tb_selector.require: SELECTOR_CHECK full selected message including invalid and metadata sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/synth/b67_n8/legacy1/negative.log",
+      "sha256": "142fe0cf4cf978ea649cdbb24429cb5567c2bda88001f3678d41fff0c186a097",
+      "results": [
+        "[17000] %Fatal: tb_selector.sv:56: Assertion failed in TOP.tb_selector.replay: SELECTOR_REPLAY_MISMATCH sample=4 got=408744967a2b5b939b0 expected=408744967a2b5b939b1"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/synth/b8_n1/legacy0/negative.log",
+      "sha256": "b023692a0fe7b2b07a743f0392b264bb38cb2f6e039a1dc3072c60353a77a47f",
+      "results": [
+        "[17000] %Fatal: tb_selector.sv:38: Assertion failed in TOP.tb_selector.require: SELECTOR_CHECK full selected message including invalid and metadata sample=4"
+      ]
+    },
+    {
+      "path": "sv/build/current/selector/rtl/invalid-legacy/run.log",
+      "sha256": "7c4153ad93d898ea548897d0f146ef7ab1dc78c60d313366f19331676c6ef1a7",
+      "results": [
+        "[0] %Fatal: cgra_selector.sv:36: Assertion failed in TOP.tb_selector.dut: SELECTOR_LEGACY_DOMAIN"
+      ]
+    }
+  ],
+  "netlists": [
+    {
+      "profile": "b19_n3",
+      "legacy": 0,
+      "sha256": "2b7a9ee62ae59ed28092b60eb36c9ed0270ea122142126e01eacd9f003f77f2a",
+      "synthesis": {
+        "path": "sv/build/current/selector/synth/b19_n3/legacy0/yosys.log",
+        "sha256": "7341d660a0bdd6c8da2e97bc00ef63758481a391d96301c7631708a9410d5dd2",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/selector/synth/b19_n3/legacy0/scc.log",
+        "sha256": "63294678e7013ab74a71a5e408d7c1b31bf339be21e5bfbcf52631a7c0863942",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "b19_n3",
+      "legacy": 1,
+      "sha256": "bc7d7e2043981ee9d565e4def428197d361f4b35fd4a1f9dd5781427aae9ba70",
+      "synthesis": {
+        "path": "sv/build/current/selector/synth/b19_n3/legacy1/yosys.log",
+        "sha256": "6af061dc8e232006fbeb5595031b369bd5c4f21af8e0305509f88e2da2bf783b",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/selector/synth/b19_n3/legacy1/scc.log",
+        "sha256": "66befbb3458c4ef93ae206e04cb18b11c44ca9d81c4670178f0f7ce87b87d17d",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "b35_n5",
+      "legacy": 0,
+      "sha256": "09df4d6596cc43d2fa34a0806f785e94f2d87c6f46edbfa1eb079a0f359b8f6e",
+      "synthesis": {
+        "path": "sv/build/current/selector/synth/b35_n5/legacy0/yosys.log",
+        "sha256": "ae938709c16285a8e1fef05d0bea028290027a0677ef1f9ec00475957c0f0351",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/selector/synth/b35_n5/legacy0/scc.log",
+        "sha256": "e512a181e7141fe6b95491e1d628566b089f3abdd8de5de65ad19f9196b45324",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "b35_n5",
+      "legacy": 1,
+      "sha256": "302eac80d42bee697e379dd9e9dfd33982e0c688b2b92509aa97da361ba075da",
+      "synthesis": {
+        "path": "sv/build/current/selector/synth/b35_n5/legacy1/yosys.log",
+        "sha256": "9b8b468d90e578b6641fd5e7f63c77ec01c1c5a27ff58539a3c231ad7a59d143",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/selector/synth/b35_n5/legacy1/scc.log",
+        "sha256": "37167b605b1061d0737f007a1cf6acb13055105d328f80c784261c6f996bc045",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "b67_n8",
+      "legacy": 0,
+      "sha256": "8827bcf38916cea85e81147cd37550572731ccccc734ab2606e4f170bc7030a5",
+      "synthesis": {
+        "path": "sv/build/current/selector/synth/b67_n8/legacy0/yosys.log",
+        "sha256": "cf0fa1342747f1ab838c9ca546afb137978b86c21eec5ba6f86a170fc4fd0609",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/selector/synth/b67_n8/legacy0/scc.log",
+        "sha256": "165f0aa0f7d0d6754b125dd03f2448408b82a3738c1e813cd9956e9e543f22d6",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "b67_n8",
+      "legacy": 1,
+      "sha256": "811e46e3515add7c791374a0a4ef97e8769288c1b3bf016009577fa39c61246b",
+      "synthesis": {
+        "path": "sv/build/current/selector/synth/b67_n8/legacy1/yosys.log",
+        "sha256": "f13067160240aef5148bfa748e4a4a5121ace10dd4782782c5d0ef1119f8247e",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/selector/synth/b67_n8/legacy1/scc.log",
+        "sha256": "898372291613cb5e497884fc8ab69aa772672e228aabadd269759ac4552bc5d4",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    },
+    {
+      "profile": "b8_n1",
+      "legacy": 0,
+      "sha256": "4198df02048f72e61c7750aa499143aed8d7cfafc5c159be8232ef76a72fceb9",
+      "synthesis": {
+        "path": "sv/build/current/selector/synth/b8_n1/legacy0/yosys.log",
+        "sha256": "aedfe3f16ea49daca180736d7728fb9e79d1a03c33f7a7108d35b5bc0549ac71",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      },
+      "emitted_check": {
+        "path": "sv/build/current/selector/synth/b8_n1/legacy0/scc.log",
+        "sha256": "949353b7eae68bcd055992806534b900efd4579dafbcd1c2847f70842854828b",
+        "results": [
+          "Found and reported 0 problems.",
+          "Found and expected 0 SCCs."
+        ]
+      }
+    }
+  ],
+  "compile_diagnostics": [
+    {
+      "path": "sv/build/current/selector/rtl/b19_n3/legacy0/compile.log",
+      "sha256": "cc0be4839ce18ee95fe6b0419930513385c018664ae76698fd4f22ca2fb1e11c",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 1
+      }
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b19_n3/legacy1/compile.log",
+      "sha256": "ae9588656608a0fd65b1af66e78baf8275c85ac2abe99b7adac88153863741f6",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 1
+      }
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b35_n5/legacy0/compile.log",
+      "sha256": "df075423cec4e1fecc1b28cf716b1cef12d57edbd90be0e712e6356954e26a31",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 2
+      }
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b35_n5/legacy1/compile.log",
+      "sha256": "e2be12ef1368de6f4320c1b6212f373320dbe52ec5c19df8fbc8fdf0f6981625",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 2
+      }
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b67_n8/legacy0/compile.log",
+      "sha256": "65ad31d7b8b30b7507d182fda675b8dc90e7fb879e4fffbad0650834e0f6f50e",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 2
+      }
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b67_n8/legacy1/compile.log",
+      "sha256": "8073ae8fcf184b8e3c8c66258b75fe0bc333daeb1848031d6dd14613354e66b9",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 2
+      }
+    },
+    {
+      "path": "sv/build/current/selector/rtl/b8_n1/legacy0/compile.log",
+      "sha256": "427e5879bdbbabe80daffd33c3c87669841c635cc8e3c0e5e1866b10494b2f20",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 1
+      }
+    },
+    {
+      "path": "sv/build/current/selector/synth/b19_n3/legacy0/compile.log",
+      "sha256": "54beb27a49fd45924bc215d897c4487fc45ec6e4f7a5d8d16fa328891f333367",
+      "warnings": {
+        "TIMESCALEMOD": 1
+      }
+    },
+    {
+      "path": "sv/build/current/selector/synth/b19_n3/legacy1/compile.log",
+      "sha256": "ecf8c0e7490274cf7877e256e9c4761b947661e765d114fe58450116d2fc708a",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 1,
+        "LATCH": 3
+      }
+    },
+    {
+      "path": "sv/build/current/selector/synth/b35_n5/legacy0/compile.log",
+      "sha256": "d8ef9fe952265ae86567ce5f111143a63cedaf2bde7956900ad82a84c1e8fc77",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 1
+      }
+    },
+    {
+      "path": "sv/build/current/selector/synth/b35_n5/legacy1/compile.log",
+      "sha256": "b4a78d8ae7be302105e29e94b468a869599ceb6bdd87134ff689ad96fa250a4a",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 1,
+        "LATCH": 5
+      }
+    },
+    {
+      "path": "sv/build/current/selector/synth/b67_n8/legacy0/compile.log",
+      "sha256": "6701288f19acfc9ac99cbf19c37f748d56f36b06e4ab6743226531519ad1057e",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHEXPAND": 1
+      }
+    },
+    {
+      "path": "sv/build/current/selector/synth/b67_n8/legacy1/compile.log",
+      "sha256": "34bd48ae441f029ae17777bad20b5b51d25a418addac85611a8c633031552fc6",
+      "warnings": {
+        "TIMESCALEMOD": 1,
+        "WIDTHTRUNC": 1,
+        "WIDTHEXPAND": 1,
+        "LATCH": 8
+      }
+    },
+    {
+      "path": "sv/build/current/selector/synth/b8_n1/legacy0/compile.log",
+      "sha256": "7d63580cefb468765917e45c00740eae2155b4b6dca52cc47042216d7c153e9b",
+      "warnings": {
+        "TIMESCALEMOD": 1
+      }
+    }
+  ],
+  "regenerated_identical_files": 8,
+  "frozen_sha256": {
+    "sv/reference/current/selector/b19_n3/manifest.json": "35741771873d6ef5b754fa90bfc9f2702d53e255acd26e1ba82c030a55bb1e5d",
+    "sv/reference/current/selector/b19_n3/vectors.txt": "fa5a20bd56ff982d0d0568970afdf0614ef6ca9e2d12c2208be531fb7f4a03a0",
+    "sv/reference/current/selector/b35_n5/manifest.json": "9bcd20ddcab82ae861b5db2383c3a4acab248e16e03900a1a1c6f7a333c6b9cb",
+    "sv/reference/current/selector/b35_n5/vectors.txt": "cdcc7104b600c8572179c2355b7cb77cd5ae1317bdb3afd3cd9e2577940b7ca8",
+    "sv/reference/current/selector/b67_n8/manifest.json": "f043c1fdd0699a3702b2bf313159932a1b0f5963c7a6bc73bab327e302f5854b",
+    "sv/reference/current/selector/b67_n8/vectors.txt": "5ccb58e9795dc85220d04a08139d62544eb1f0036d8c98f3e14719c44a4ffa92",
+    "sv/reference/current/selector/original_test.json": "9c564c9d201bf6bb391282785e8d9eedf32c96606e203f0514371bf6f8f5871e",
+    "sv/reference/current/selector/python_boundary.json": "4b96d3ae638f861029e97696d531715dae4fb7b33ba0179822d60fa280e39e73"
+  },
+  "input_sha256": {
+    "sv/rtl/noc/cgra_selector.sv": "9273142c3eeba043de9673658bffb397a95fe19b4ba018a767e0eb692cc95a12",
+    "sv/tests/current/tb_selector.sv": "4e725f568b393e66792fc51d4954cb9c496aa3172270cd125db763a592a65353",
+    "sv/tests/current/run_selector.sh": "48ff9b6faf140efae7e58167b0896d08eb05cc6ef1e5bf6d5cb7a398b5cdf0f1",
+    "sv/migration_tools/current_selector.py": "5340ce1233dc33d4d3aa886b3a32d4532bf71843c0007675de73a679214cabdc",
+    "sv/scripts/toolchain.sh": "11b934d6f4ee1f19027faaece45b5a025a20ed2c1eed45dcba24ae7a4b33a0b4",
+    "sv/filelists/native.f": "20137919ff0997ccdb63cd9d54915d0e08e4345ef503c569ec084c584aa23afc",
+    "sv/Makefile": "0b2c2e328c6f5e4b6ed8dd1ab5740e9d02022a637e1187bea83817dd8697f86f",
+    "sv/scripts/run.ps1": "89bc02b3b77ffdd4e60b06f4ca351b68c03f76f65fb8ac0a2b62e3e5cbcbe722",
+    ".github/workflows/native-sv.yml": "8fcd5be0542243113c9cf97aa67d367dabfd28fefa36822f09fd5f01b682634a",
+    "sv/LINK_APIS.md": "09f9c518d1d5f15256d1a4d4a71a61e1ff901e5d34c9e11383457122d5c199cb",
+    "sv/MIGRATION_TASKS.md": "508cf3d32fdd6fddcc13c4e80a0a912bc03828795df8e68ae8366022ff5ab031",
+    "sv/CURRENT_MIGRATION.md": "3abdfe478ffb658cb6e1234941188e082591cfe25bc5308448e4fbc50d3bfce8",
+    "sv/MIGRATION_PROGRESS.md": "5643f50134227f14f084da7f26f20789a8a11dd4dd640c47c1433b26755bbe43",
+    "sv/EXPERIMENT_LOG.md": "6a2be0cdca0eccc251d5ef83cb7e4473c568e5f5d39d2e417abd8aad6797b73a",
+    "sv/tests/README.md": "8c3dae040ffd6f15e975840bccf428a5ce155a5fbec1ad2c197c6dcd8d25a86a",
+    "sv/migration_tools/README.md": "da59ce4183d3b53a20cf46595289061085bbc136bcaf72a34db2161959ee332d",
+    "sv/reference/current/target.json": "c560f1ccf61706ed50c871a2987ea2c2837c6ae14b942f1216b275a201de14aa"
+  },
+  "native_filelist_lint": {
+    "path": "sv/build/current/selector/native-filelist-lint.log",
+    "sha256": "1425cb713a751d2b7d4f2f6b06961bd3141777603a1c8ddd395172dd5623d6f6"
+  },
+  "tools": {
+    "verilator": "Verilator 5.029 devel rev v5.028-104-ge2041f745",
+    "sv2v": "sv2v v0.0.13",
+    "yosys": "Yosys 0.45+139 (git sha1 4d581a97d, clang++ 14.0.0-1ubuntu1.1 -fPIC -O3)"
+  },
+  "limitations": [
+    "Combinational selector; caller must hold selection and selected message until handshake. No arbitration or buffering.",
+    "Native reset is ignored by the stateless routing function. Legacy retains ready latches across reset.",
+    "Legacy zero initialization models PyMTL simulation, not ASIC power-on guarantees.",
+    "Single-input Python fails Bits0; only native SV supports one input.",
+    "Illegal selector/parameter guards are RTL diagnostics, not hardware error responses.",
+    "No PE replacement, new system kernel run, PPA, PowerShell runtime or remote CI result claimed."
+  ],
+  "commit_and_push": "Evidence generated before commit/push; Git is authoritative"
+}

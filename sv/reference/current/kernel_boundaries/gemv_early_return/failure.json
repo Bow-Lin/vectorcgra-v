@@ -1,0 +1,16 @@
+{
+  "base_commit": "34a6027bcd89c33a34aaf2606e070abd47c8fd2e",
+  "bench_sha256": "f4764ad5e4b1c80b0d12e519849f926334ae2766f1174bc0558559dc2049e75c",
+  "memory_fu_sha256": "e6f85b96f6fd6c8ec3785f7c09b2af5287278358e48aa61c722ffd00c3156394",
+  "memory_combinational": 1,
+  "reason": "Previous mapped native GEMV n=1 returns after 0 of 1 stores; final store follows 23 cycles later in combinational and registered memory.",
+  "result": "expected_failure",
+  "files_sha256": {
+    "program.hex": "45deb73ef94d0728caa4ec183b62aa0c997a795c93a2175c8da3cc38593e5cbd",
+    "expected.hex": "eebebf312d6d903170db0b6fdbb5cf0d988353e62fc882349a8a8a2292b12fc1",
+    "stores.txt": "91a92b363736bbe24f751f1373ff607895b66b346c9f9ecd2a9ed46887e647cd",
+    "manifest.json": "4242e97e2b296a73f0bacb3fce583a2d6f3c53d9b998e9522152c6e091b912b2",
+    "return.hex": "84173c7a5a5ddf19c96316f7264fbb96d9b8da9a022d3eb28f4c61ffce7172fa",
+    "failure.log": "b251167d7a7dd8d9edbc9778404fcb8f8a179bec5c28843030d556b891ab62a4"
+  }
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "reads": 3,
+    "writes": 1,
+    "stage": "simulation",
+    "status": "passed"
+  },
+  {
+    "reads": 3,
+    "writes": 1,
+    "stage": "translation",
+    "status": "original Python failure",
+    "exception": "PyMTLTypeError",
+    "message": "\nIn file <repository>/mem/data/DataMemControllerRTL.py, Line 508, Col 22:\n  trunc(s.write_crossbar.send[num_banks_per_cgra].msg.src, NocRemoteSrcPortType), # remote_src_port\n  ^\n- the target bitwidth 2 is larger than the bitwidth of the operand (1)!"
+  },
+  {
+    "reads": 1,
+    "writes": 3,
+    "stage": "simulation",
+    "status": "original Python failure",
+    "exception": "ValueError",
+    "message": "Value 0x2 is too wide for Bits1!\n(Bits1 only accepts -0x1 <= value <= 0x1)"
+  },
+  {
+    "reads": 1,
+    "writes": 3,
+    "stage": "translation",
+    "rtl": "r1w3_reference.v",
+    "sha256": "dfaa3fda7df49f9530d4281ef0c707254d26d4e30b5b32ab1e8604850c6958b9",
+    "status": "passed"
+  }
+]

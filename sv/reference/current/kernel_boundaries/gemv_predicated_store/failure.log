@@ -1,0 +1,67 @@
+TILE cycle=999 t=5 pc=3 times=25 active=1 complete=0 op=84 done=000 rdy=000
+DETAIL t=5 control=1703771965411789621363966725853184
+ROUTE t=5 dirs='{'h0, 'h0, 'h0, 'h0, 'h0, 'h2, 'h2, 'h0}  in_val='{'h0, 'h0, 'h1, 'h0, 'h0, 'h0, 'h0, 'h0}  in_rdy='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_rdy='{'h1, 'h0, 'h1, 'h1, 'h1, 'h0, 'h1, 'h1}  accepted=00000000 required=00000010
+FU t=5 val='{'h1, 'h0, 'h0, 'h0}  rdy='{'h0, 'h0, 'h0, 'h0}  const_val=1 const_rdy=0 mem_addr_val=0 mem_addr_rdy=0 mem_data_val=0 mem_data_rdy=0
+TILE cycle=999 t=6 pc=9 times=20 active=1 complete=0 op=2 done=000 rdy=000
+DETAIL t=6 control=  40614339226726399791757034262528
+ROUTE t=6 dirs='{'h0, 'h0, 'h0, 'h0, 'h0, 'h2, 'h0, 'h0}  in_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  in_rdy='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_rdy='{'h1, 'h0, 'h1, 'h1, 'h1, 'h0, 'h1, 'h1}  accepted=00000000 required=00000010
+FU t=6 val='{'h1, 'h0, 'h0, 'h0}  rdy='{'h0, 'h0, 'h0, 'h0}  const_val=1 const_rdy=0 mem_addr_val=0 mem_addr_rdy=0 mem_data_val=0 mem_data_rdy=0
+TILE cycle=999 t=7 pc=0 times=0 active=0 complete=0 op=0 done=000 rdy=000
+DETAIL t=7 control=                                 0
+ROUTE t=7 dirs='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  in_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  in_rdy='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_rdy='{'h1, 'h1, 'h1, 'h0, 'h1, 'h1, 'h1, 'h1}  accepted=00000000 required=00000000
+FU t=7 val='{'h0, 'h0, 'h0, 'h0}  rdy='{'h0, 'h0, 'h0, 'h0}  const_val=0 const_rdy=0 mem_addr_val=0 mem_addr_rdy=0 mem_data_val=0 mem_data_rdy=0
+TILE cycle=999 t=9 pc=6 times=28 active=1 complete=0 op=1 done=101 rdy=000
+DETAIL t=9 control=  20282409754767397875780193091584
+ROUTE t=9 dirs='{'h0, 'h0, 'h0, 'h0, 'h2, 'h0, 'h0, 'h0}  in_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  in_rdy='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_rdy='{'h1, 'h1, 'h1, 'h1, 'h1, 'h1, 'h1, 'h1}  accepted=00000000 required=00000010
+FU t=9 val='{'h0, 'h0, 'h0, 'h0}  rdy='{'h0, 'h0, 'h0, 'h0}  const_val=0 const_rdy=0 mem_addr_val=0 mem_addr_rdy=0 mem_data_val=0 mem_data_rdy=0
+TILE cycle=999 t=10 pc=1 times=23 active=1 complete=0 op=1 done=101 rdy=000
+DETAIL t=10 control=  20282412021503309653222797344768
+ROUTE t=10 dirs='{'h0, 'h0, 'h0, 'h0, 'h0, 'h2, 'h0, 'h0}  in_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  in_rdy='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_rdy='{'h1, 'h1, 'h1, 'h1, 'h1, 'h1, 'h1, 'h1}  accepted=00000000 required=00000010
+FU t=10 val='{'h0, 'h0, 'h0, 'h0}  rdy='{'h0, 'h0, 'h0, 'h0}  const_val=1 const_rdy=0 mem_addr_val=0 mem_addr_rdy=0 mem_data_val=0 mem_data_rdy=0
+TILE cycle=999 t=11 pc=0 times=0 active=0 complete=0 op=0 done=000 rdy=000
+DETAIL t=11 control=                                 0
+ROUTE t=11 dirs='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  in_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  in_rdy='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_rdy='{'h1, 'h1, 'h1, 'h0, 'h1, 'h1, 'h1, 'h1}  accepted=00000000 required=00000000
+FU t=11 val='{'h0, 'h0, 'h0, 'h0}  rdy='{'h0, 'h0, 'h0, 'h0}  const_val=0 const_rdy=0 mem_addr_val=0 mem_addr_rdy=0 mem_data_val=0 mem_data_rdy=0
+TILE cycle=999 t=13 pc=0 times=0 active=0 complete=0 op=0 done=000 rdy=000
+DETAIL t=13 control=                                 0
+ROUTE t=13 dirs='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  in_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  in_rdy='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_rdy='{'h0, 'h1, 'h1, 'h1, 'h1, 'h1, 'h1, 'h1}  accepted=00000000 required=00000000
+FU t=13 val='{'h0, 'h0, 'h0, 'h0}  rdy='{'h0, 'h0, 'h0, 'h0}  const_val=0 const_rdy=0 mem_addr_val=0 mem_addr_rdy=0 mem_data_val=0 mem_data_rdy=0
+TILE cycle=999 t=14 pc=0 times=0 active=0 complete=0 op=0 done=000 rdy=000
+DETAIL t=14 control=                                 0
+ROUTE t=14 dirs='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  in_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  in_rdy='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_rdy='{'h0, 'h1, 'h1, 'h1, 'h1, 'h1, 'h1, 'h1}  accepted=00000000 required=00000000
+FU t=14 val='{'h0, 'h0, 'h0, 'h0}  rdy='{'h0, 'h0, 'h0, 'h0}  const_val=0 const_rdy=0 mem_addr_val=0 mem_addr_rdy=0 mem_data_val=0 mem_data_rdy=0
+TILE cycle=999 t=15 pc=0 times=0 active=0 complete=0 op=0 done=000 rdy=000
+DETAIL t=15 control=                                 0
+ROUTE t=15 dirs='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  in_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  in_rdy='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_rdy='{'h0, 'h1, 'h1, 'h0, 'h1, 'h1, 'h1, 'h1}  accepted=00000000 required=00000000
+FU t=15 val='{'h0, 'h0, 'h0, 'h0}  rdy='{'h0, 'h0, 'h0, 'h0}  const_val=0 const_rdy=0 mem_addr_val=0 mem_addr_rdy=0 mem_data_val=0 mem_data_rdy=0
+TILE cycle=999 t=0 pc=7 times=29 active=1 complete=0 op=1 done=101 rdy=000
+DETAIL t=0 control=  20282409679209534149865869672448
+ROUTE t=0 dirs='{'h0, 'h0, 'h0, 'h0, 'h1, 'h0, 'h0, 'h0}  in_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  in_rdy='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_rdy='{'h1, 'h0, 'h0, 'h0, 'h1, 'h1, 'h1, 'h1}  accepted=00000000 required=00000001
+FU t=0 val='{'h0, 'h0, 'h0, 'h0}  rdy='{'h0, 'h0, 'h0, 'h0}  const_val=1 const_rdy=0 mem_addr_val=0 mem_addr_rdy=1 mem_data_val=0 mem_data_rdy=0
+TILE cycle=999 t=1 pc=10 times=21 active=1 complete=0 op=16 done=101 rdy=000
+DETAIL t=1 control= 324602734804191051986562248085504
+ROUTE t=1 dirs='{'h0, 'h0, 'h0, 'h3, 'h0, 'h1, 'h0, 'h0}  in_val='{'h1, 'h0, 'h1, 'h0, 'h0, 'h0, 'h0, 'h0}  in_rdy='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_val='{'h0, 'h0, 'h0, 'h1, 'h0, 'h0, 'h0, 'h0}  out_rdy='{'h1, 'h0, 'h1, 'h0, 'h1, 'h0, 'h1, 'h1}  accepted=00100000 required=00000101
+FU t=1 val='{'h1, 'h0, 'h0, 'h0}  rdy='{'h0, 'h0, 'h0, 'h0}  const_val=0 const_rdy=0 mem_addr_val=0 mem_addr_rdy=1 mem_data_val=0 mem_data_rdy=0
+TILE cycle=999 t=2 pc=0 times=11 active=1 complete=0 op=13 done=001 rdy=000
+DETAIL t=2 control= 263755506205742532162379552129024
+ROUTE t=2 dirs='{'h0, 'h0, 'h0, 'h0, 'h3, 'h1, 'h0, 'h0}  in_val='{'h1, 'h0, 'h1, 'h0, 'h0, 'h0, 'h0, 'h0}  in_rdy='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_val='{'h0, 'h0, 'h0, 'h0, 'h1, 'h1, 'h0, 'h0}  out_rdy='{'h1, 'h0, 'h1, 'h1, 'h0, 'h0, 'h1, 'h1}  accepted=00000000 required=00000101
+FU t=2 val='{'h1, 'h1, 'h0, 'h0}  rdy='{'h0, 'h0, 'h0, 'h0}  const_val=0 const_rdy=0 mem_addr_val=0 mem_addr_rdy=1 mem_data_val=0 mem_data_rdy=0
+TILE cycle=999 t=3 pc=0 times=0 active=0 complete=0 op=0 done=000 rdy=000
+DETAIL t=3 control=                                 0
+ROUTE t=3 dirs='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  in_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  in_rdy='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_rdy='{'h1, 'h0, 'h1, 'h0, 'h1, 'h1, 'h1, 'h1}  accepted=00000000 required=00000000
+FU t=3 val='{'h0, 'h0, 'h0, 'h0}  rdy='{'h0, 'h0, 'h0, 'h0}  const_val=0 const_rdy=0 mem_addr_val=0 mem_addr_rdy=1 mem_data_val=0 mem_data_rdy=0
+TILE cycle=999 t=4 pc=6 times=28 active=1 complete=0 op=16 done=000 rdy=000
+DETAIL t=4 control= 324602738416801415674342821335040
+ROUTE t=4 dirs='{'h0, 'h0, 'h0, 'h0, 'h0, 'h4, 'h0, 'h0}  in_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  in_rdy='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_rdy='{'h1, 'h1, 'h0, 'h1, 'h1, 'h0, 'h1, 'h1}  accepted=00000000 required=00001000
+FU t=4 val='{'h1, 'h0, 'h0, 'h0}  rdy='{'h0, 'h0, 'h0, 'h0}  const_val=1 const_rdy=0 mem_addr_val=0 mem_addr_rdy=1 mem_data_val=0 mem_data_rdy=0
+TILE cycle=999 t=8 pc=10 times=32 active=1 complete=0 op=64 done=001 rdy=000
+DETAIL t=8 control=1298079166544979776105552325640192
+ROUTE t=8 dirs='{'h0, 'h0, 'h0, 'h0, 'h2, 'h0, 'h0, 'h0}  in_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  in_rdy='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_rdy='{'h1, 'h1, 'h0, 'h1, 'h0, 'h1, 'h1, 'h1}  accepted=00000000 required=00000010
+FU t=8 val='{'h0, 'h0, 'h0, 'h0}  rdy='{'h0, 'h0, 'h0, 'h0}  const_val=0 const_rdy=0 mem_addr_val=0 mem_addr_rdy=1 mem_data_val=0 mem_data_rdy=0
+TILE cycle=999 t=12 pc=0 times=0 active=0 complete=0 op=0 done=000 rdy=000
+DETAIL t=12 control=                                 0
+ROUTE t=12 dirs='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  in_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  in_rdy='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_val='{'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0, 'h0}  out_rdy='{'h0, 'h1, 'h0, 'h1, 'h1, 'h1, 'h1, 'h1}  accepted=00000000 required=00000000
+FU t=12 val='{'h0, 'h0, 'h0, 'h0}  rdy='{'h0, 'h0, 'h0, 'h0}  const_val=0 const_rdy=0 mem_addr_val=0 mem_addr_rdy=1 mem_data_val=0 mem_data_rdy=0
+[15186000] %Fatal: tb_native_kernel.sv:118: Assertion failed in TOP.tb_native_kernel.tick: NATIVE_KERNEL_TIMEOUT completed=0 loads=0
+%Error: tests/current/tb_native_kernel.sv:118: Verilog $stop
+Aborting...

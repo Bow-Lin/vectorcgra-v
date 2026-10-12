@@ -9,7 +9,9 @@ AGENTS.md convention read it directly.
 
 VectorCGRA is a parameterizable CGRA (Coarse-Grained Reconfigurable Accelerator)
 generator written in PyMTL3. The Python "RTL" both simulates cycle-accurately and
-translates to synthesizable Verilog via Verilator.
+translates to synthesizable Verilog, which Verilator can compile for simulation.
+The maintained native SystemVerilog implementation is under `sv/`; its build
+and validation workflow is documented below separately from the Python generator.
 
 ## Environment setup
 
@@ -106,10 +108,10 @@ shared constants (`lib/util/common.py`).
   Changing component semantics usually means re-deriving expected sink
   sequences cycle-by-cycle; sinks (`lib/basic/val_rdy/SinkRTL.py`) check order,
   not cycle numbers, and stop accepting once their expected list is exhausted.
-- The command-type dispatch in `ControllerRTL` forwards any inter-CGRA command
-  without a dedicated handler to the ctrl ring (catch-all), so new `CMD_*`
-  types work by default; `CtrlMemDynamicRTL`'s accept-list is curated and must
-  be extended explicitly.
+- The command-type dispatch in `ControllerRTL` uses an explicit whitelist for
+  configuration forwarding to the ctrl ring. New `CMD_*` types do not work by
+  default: check the Controller, host ingress, Tile variant and CtrlMem accept
+  lists separately. Packet packing alone does not prove system reachability.
 
 ## Repo conventions
 
@@ -126,3 +128,25 @@ shared constants (`lib/util/common.py`).
 - Branch protection on `master`: PR required, 1 approving review (authors
   cannot self-approve), and both `build (3.9.20)` / `build (3.12.8)` checks
   must pass.
+
+## Maintained native SystemVerilog workflow
+
+`sv/rtl/` and `sv/filelists/native.f` are the current HDL implementation. The
+single-PE entry is `cgra_pe`, with Base/Context/Streaming variants; configurable
+array entries are `cgra_system`, `cgra_multi` and `cgra_multi_template`.
+Read `sv/CURRENT_MIGRATION.md`, `sv/MIGRATION_INVENTORY.md` and the relevant API
+contract before changing semantics. Preserve original Python files and frozen
+reference data; explicit compatibility tests are distinct from native math tests.
+
+Use `make -C sv current` for the current component/PE/DMA checks, and
+`python3 sv/scripts/regression.py --shard <name>` for a catalog group. Full native
+regression is `make -C sv regression`; its 14 groups cover 48 required targets.
+`sv/scripts/install_toolchain.py` installs SHA-pinned native tools (Verilator
+5.029, Yosys 0.45+139, sv2v 0.0.13). These are separate from the original PyMTL
+translation/import workflow above, which uses Verilator 4.036. Native config and
+program tools use Python's standard library, not the original RTL generator.
+
+Historical `phase2/3/4` contracts must use `sv/scripts/run_baseline.sh` on the
+fixed baseline. Independent export and clean-environment acceptance are documented
+in `sv/STANDALONE.md`; dependency notices and MAC-specific licensing boundaries
+are in `sv/DEPENDENCIES.md`. See `sv/FINAL_ACCEPTANCE.md` for evidence scope.

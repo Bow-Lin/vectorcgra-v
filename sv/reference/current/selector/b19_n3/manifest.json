@@ -1,0 +1,22 @@
+{
+  "parameters": {
+    "DATA_BITS": 19,
+    "NUM_INPUTS": 3
+  },
+  "cycles": 320,
+  "input_bits": 64,
+  "output_bits": 23,
+  "reset_samples": 7,
+  "source_sha256": {
+    "noc/SelectorRTL.py": "6742762cda7858637b23e8d3ee62491d3bb4b64c91c4b5dc4dae03d3b329bc00",
+    "noc/test/SelectorRTL_test.py": "b9101706fa3dc72c3d8ead6a03d4b1c243e826f6a6e95dcbdf8a2f3024ce9f93",
+    "lib/messages.py": "70421d75c72853add95637edf1c73b6a0dba2154dba6547f495cf69da92fd5bf"
+  },
+  "generator_sha256": "5340ce1233dc33d4d3aa886b3a32d4532bf71843c0007675de73a679214cabdc",
+  "vectors_sha256": "fa5a20bd56ff982d0d0568970afdf0614ef6ca9e2d12c2208be531fb7f4a03a0",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "notes": [
+    "Changing selection retains ready on previously selected ports, including reset cycles.",
+    "Every output bit compared, including invalid message fields; synthetic selection changes expose source latch behavior."
+  ]
+}

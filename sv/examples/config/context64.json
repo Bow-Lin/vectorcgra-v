@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "top": "system",
+  "variant": "context",
+  "parameters": {
+    "DATA_W": 64,
+    "CTRL_DEPTH": 16,
+    "REG_DEPTH": 8,
+    "NUM_CTRL": 12,
+    "TILE_PORTS": 8
+  },
+  "architectures": [
+    {
+      "cols": 3,
+      "rows": 2
+    }
+  ]
+}

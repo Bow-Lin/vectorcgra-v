@@ -1,0 +1,16 @@
+{
+  "base_commit": "34a6027bcd89c33a34aaf2606e070abd47c8fd2e",
+  "bench_sha256": "f4764ad5e4b1c80b0d12e519849f926334ae2766f1174bc0558559dc2049e75c",
+  "reason": "Original mapped AXPY returns after 13 of 16 stores with registered memory; final store follows 17 cycles later. Combinational memory accepts completion and final store on the same edge, and is a positive control.",
+  "result": "expected_failure",
+  "files_sha256": {
+    "program.hex": "b9284cd3aa496d60e2faabfa897207396800c0eae33ce7b22f0ffab22db4c265",
+    "expected.hex": "1307ad4d4a0cb80bd9a7fdca08634e79ebfb7bb717c49d363e5084fc15e7ec42",
+    "stores.txt": "7c256db1156fcf726ed646f47dd017226e8508da79ad50faa967e7726011d790",
+    "manifest.json": "b4aa14fa006f44bff09d247496b063beded775db809115ed5531f653cbca0a11",
+    "return.hex": "5544ee1e6032591e2f7014625959ec55fb972783d05a4ddf633f41eb6e5dd17d",
+    "failure.log": "8a6456219a1368ff8d89a7fc8b6ce56c6ddb241bce7f841ffe7521ed3efe344c"
+  },
+  "memory_fu_sha256": "e6f85b96f6fd6c8ec3785f7c09b2af5287278358e48aa61c722ffd00c3156394",
+  "memory_combinational": 0
+}

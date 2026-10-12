@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "base_commit": "3ec6adb36cf6c9a676c6ec5d9b555d33fbf5b57d",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "pinned_python_unchanged": 274,
+  "positive_runs": 6,
+  "negative_runs": 6,
+  "independent_checks": 3840,
+  "emitted_and_replayed_netlists": 3,
+  "method": "Independent scoreboard derived from unconditional-write Python source contract; not an original Python-test replay.",
+  "limits": [
+    "Not connected to PE",
+    "No reset or power-up value guarantee",
+    "Legal addresses only",
+    "Unconditional writes even under reset/invalid/backpressure"
+  ],
+  "input_sha256": {
+    "sv/rtl/common/cgra_reg_file.sv": "fd50b0b58e5806ff0d5927d46d68dd974aa898b1e332f6745d791008d0488d12",
+    "sv/rtl/common/cgra_register_file.sv": "13856021bc1acb361a12a96870a501dea98856aec5c301dd503b41327323d41d",
+    "sv/tests/current/run_reg_file.sh": "fd616ea85b610588a9d958452a9eac1169f0b8a2bac948605571e689fd78835d",
+    "sv/tests/current/tb_reg_file.sv": "af15f8e640b7dd409ce45d7664544a39c1dadf07cc8fb94f9b6678394f289540",
+    "sv/filelists/native.f": "50497e9d76bf98c235c5eacfb1201faac8ff7d51e3469108baf81612a9f6b6cf"
+  },
+  "runs": [
+    {
+      "mode": "rtl",
+      "profile": "b32_d1",
+      "result": "REG_FILE_PASS bits=32 depth=1 checks=640 stalled_writes=175 reset_writes=19 invalid_writes=261",
+      "negative_detected": true,
+      "log_sha256": {
+        "run.log": "ffeba34fad33497a302379b71d0cde7ef650f80fd0bf9690e8782f3cf0293c22",
+        "negative.log": "b1b6d161e72abc1ba99dace28144fd74c76f7db955ccfde1383d29381610fc09",
+        "compile.log": "40ffc6eae09dbc29287ba98154b5fecf6866d686034d3efa4bf079258243f4e6"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "b67_d3",
+      "result": "REG_FILE_PASS bits=67 depth=3 checks=640 stalled_writes=175 reset_writes=19 invalid_writes=261",
+      "negative_detected": true,
+      "log_sha256": {
+        "run.log": "c441cdb2a53abd54e45739c8797306d47a8fbf8b1dd5987f16f49837ab926042",
+        "negative.log": "165f77a749441e98e17599aa6846425eb46b4627f36e63d9bcff5e7fb8052045",
+        "compile.log": "f0494d7d0e694a4fcce33f26771f5d96e1f19c3895cd58a4ea1cbc430edae760"
+      }
+    },
+    {
+      "mode": "rtl",
+      "profile": "b19_d16",
+      "result": "REG_FILE_PASS bits=19 depth=16 checks=640 stalled_writes=175 reset_writes=19 invalid_writes=261",
+      "negative_detected": true,
+      "log_sha256": {
+        "run.log": "7cd3be3c3da5d0ec418f337b7679b41d87ad1ddf5f73126ae3ed74a4a393eb9a",
+        "negative.log": "82fad94846109b9c7183e32b70483dfe96c54b827efd813f5508021528dd2cbf",
+        "compile.log": "294cb43dcb1a5e263df846c2a8251236a9c06817be1b435733c0728b702dfdc7"
+      }
+    },
+    {
+      "mode": "synth",
+      "profile": "b32_d1",
+      "result": "REG_FILE_PASS bits=32 depth=1 checks=640 stalled_writes=175 reset_writes=19 invalid_writes=261",
+      "negative_detected": true,
+      "log_sha256": {
+        "run.log": "4d22137df0bd1680b74a4067bd0074b993c72a466b3b295f3587c9203c8817ca",
+        "negative.log": "b1b6d161e72abc1ba99dace28144fd74c76f7db955ccfde1383d29381610fc09",
+        "compile.log": "0cfc5ab13e6e6cee574a02d9ace8f49d74a638863d6f60ae8d844e49b9f31478",
+        "yosys.log": "3e125d753f6ec6f7e5eb87bd02c43fde827031254b39c1a0389f1d3f9b7eff0c",
+        "scc.log": "10b6f75def9204da03c59eb63545a831418fb5a4ee1d84c6d9800e8be3568f19"
+      },
+      "netlist_sha256": "713b62d81690b5d2c6703e6e66540be73cf7abadb5fd8b44ea72f20701778daf"
+    },
+    {
+      "mode": "synth",
+      "profile": "b67_d3",
+      "result": "REG_FILE_PASS bits=67 depth=3 checks=640 stalled_writes=175 reset_writes=19 invalid_writes=261",
+      "negative_detected": true,
+      "log_sha256": {
+        "run.log": "04fff395403472f30b56a18e3b97b429d958418e6e0104b89c923bd7b75f4893",
+        "negative.log": "165f77a749441e98e17599aa6846425eb46b4627f36e63d9bcff5e7fb8052045",
+        "compile.log": "58ebe8e0136e17085a8151c0e92889ab37d7d1d6922294b77751770a08305514",
+        "yosys.log": "212cfd00a27aee969dcd530934f25259aa7a055275e5aceb2bbfb71bbb868c5b",
+        "scc.log": "2890a01b9c0506541197db33f8bc4c495315ebc0c7d5972e9d746e6e0046e250"
+      },
+      "netlist_sha256": "3959e1d9dcc0ea12ec86d5f7ce11deada8fe9aeeec4d25818f64960c5b4ee578"
+    },
+    {
+      "mode": "synth",
+      "profile": "b19_d16",
+      "result": "REG_FILE_PASS bits=19 depth=16 checks=640 stalled_writes=175 reset_writes=19 invalid_writes=261",
+      "negative_detected": true,
+      "log_sha256": {
+        "run.log": "a648a038f69e920c2db030935b1af9afa13181d144d304d9ed421832eb3f462a",
+        "negative.log": "82fad94846109b9c7183e32b70483dfe96c54b827efd813f5508021528dd2cbf",
+        "compile.log": "53e5c8c04129bb7b100287a59f9410b9792f4499185fa3e997449c5ad66ffada",
+        "yosys.log": "3b629e033cba9229b8ff3f5a679e2f0fd644eec7d912425a9b9abd21efb7cf7f",
+        "scc.log": "c3f48cd2602a134b8fa0c178dda71adf71ab7903be5187bd645bb54b60a63b21"
+      },
+      "netlist_sha256": "25ef7f03ca954ce8671361a8495b22797f765890f8d9ab49552f0ce04c1ae894"
+    }
+  ]
+}

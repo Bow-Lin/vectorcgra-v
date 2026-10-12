@@ -1,0 +1,36 @@
+{
+  "parameters": {
+    "DATA_W": 32,
+    "NUM_CCUS": 8,
+    "MAX_TARGETS": 8,
+    "CTRL_BITS": 119,
+    "DATA_ADDR_W": 3,
+    "CTRL_ADDR_W": 4
+  },
+  "cycles": 522,
+  "input_bits": 507,
+  "output_bits": 340,
+  "scenarios": [
+    {
+      "name": "mixed_events",
+      "status": "frozen_python_behavior",
+      "local_sends": 92,
+      "remote_sends": 90,
+      "simultaneous_events": 31,
+      "stalled_sends": 196
+    },
+    {
+      "name": "capacity",
+      "status": "frozen_python_behavior",
+      "local_sends": 19,
+      "remote_sends": 19,
+      "simultaneous_events": 0,
+      "stalled_sends": 10,
+      "python_dispatch_wrap_reproduced": true
+    }
+  ],
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "vectors_sha256": "e2367be75c966720466751d6510dc3392561efcaba005c6722ec83781726f06a",
+  "generator_sha256": "db61c9902f48d66b673b0929021dc3edb94759e0b7b64f1cb275ddb193279aa7",
+  "source_sha256": "abb17411a687e65a1fd15da743bc62ec34ee3cf92f31b50d9c373828784702df"
+}

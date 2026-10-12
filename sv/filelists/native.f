@@ -1,6 +1,7 @@
 +incdir+rtl/common
 rtl/common/cgra_types_pkg.sv
 rtl/common/cgra_register_file.sv
+rtl/common/cgra_reg_file.sv
 rtl/common/cgra_queue.sv
 rtl/common/cgra_channel.sv
 rtl/common/cgra_round_robin.sv
@@ -46,6 +47,7 @@ rtl/fu/float/tile_fp_mul.sv
 rtl/fu/scalar/scalar_comp.sv
 rtl/fu/scalar/scalar_const.sv
 rtl/fu/scalar/scalar_div_pipeline.sv
+rtl/fu/scalar/scalar_div_native.sv
 rtl/fu/scalar/scalar_div.sv
 rtl/fu/scalar/scalar_exclusive_div.sv
 rtl/fu/scalar/scalar_extract_predicate.sv
@@ -53,6 +55,7 @@ rtl/fu/scalar/scalar_gep.sv
 rtl/fu/scalar/scalar_grant.sv
 rtl/fu/scalar/scalar_inclusive_div.sv
 rtl/fu/scalar/scalar_logic.sv
+rtl/fu/scalar/scalar_loop_control_native.sv
 rtl/fu/scalar/scalar_loop_control.sv
 rtl/fu/scalar/scalar_loop_counter.sv
 rtl/fu/scalar/scalar_phi.sv
@@ -96,3 +99,15 @@ rtl/peripheral/cgra_im2col_engine.sv
 rtl/peripheral/cgra_integrated_dma.sv
 rtl/peripheral/cgra_integrated_im2col.sv
 rtl/tile/cgra_pe.sv
+rtl/controller/cgra_loop_controller_legacy.sv
+rtl/controller/cgra_loop_controller_native.sv
+rtl/controller/cgra_loop_controller.sv
+rtl/mem/cgra_static_ctrl_mem.sv
+rtl/mem/cgra_static_const_queue.sv
+rtl/mem/cgra_ring_ctrl_node.sv
+rtl/mem/cgra_ring_multi_ctrl_mem.sv
+rtl/mem/cgra_data_mem.sv
+rtl/mem/cgra_data_mem_scalable.sv
+rtl/noc/cgra_or_link.sv
+rtl/noc/cgra_selector.sv
+rtl/common/cgra_pipe_queue.sv
