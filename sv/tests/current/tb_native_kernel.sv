@@ -71,6 +71,8 @@ module tb_native_kernel #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS);
   host_packet_t packet, response;
   logic [NUM_TILES-1:0] administrative_done='0;
   string directory;
+  string result_path;
+  int result_fd=0;
   int diagnostic_drain=0, max_cycles=12000, math_errors=0;
   int identity_nnz=-1;
   int identity_stores /*verilator public_flat_rw*/ =0;
@@ -108,6 +110,7 @@ module tb_native_kernel #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS);
           $display("KERNEL_MATH index=%0d addr=%0d actual=%0d expected=%0d",loads,expected_addr[loads],response.payload.data.payload,expected_value[loads]);
           math_errors++;
         end
+        if(result_fd) $fdisplay(result_fd,"%0d,%08h,%08h",expected_addr[loads],response.payload.data.payload,expected_value[loads]);
         loads++;
       end else $fatal(1,"Unexpected host response command=%0d",response.payload.cmd);
     end
@@ -174,6 +177,10 @@ module tb_native_kernel #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS);
     send_to_im2col_engine_pkt__rdy='0;
 
     if(!$value$plusargs("PROGRAM=%s",directory)) $fatal(1,"Missing PROGRAM directory");
+    if($value$plusargs("RESULTS=%s",result_path)) begin
+      result_fd=$fopen(result_path,"w");if(!result_fd)$fatal(1,"Cannot write results");
+      $fdisplay(result_fd,"address,actual_hex,expected_hex");
+    end
     fd=$fopen({directory,"/return.hex"},"r");if(!fd)$fatal(1,"Missing expected return");
     rc=$fscanf(fd,"%h",expected_return);if(rc!=1)$fatal(1,"Invalid return");$fclose(fd);
     for(int i=0;i<256;i++) begin expected_stores[i]=0;actual_stores[i]=0;end
@@ -225,6 +232,7 @@ module tb_native_kernel #(`CGRA_PROFILE_PARAMETERS, `CGRA_FU_PARAMETERS);
     end
     if(identity_nnz>=0)$display("NATIVE_IDENTITY_STORES_PASS nnz=%0d stores=%0d",identity_nnz,identity_stores);
     $display("NATIVE_KERNEL_MATH_PASS program=%s cycles=%0d words=%0d",directory,cycle,loads);
+    if(result_fd) $fclose(result_fd);
     $finish;
   end
   for(genvar t=0;t<NUM_TILES;t++) begin : diagnostics

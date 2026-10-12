@@ -3,6 +3,8 @@
 `tools/cgra_program.py` 把显式控制字、常量、预加载和命令序列打包为
 当前 SV 主机接口文件。运行只需 Python 标准库以及同目录的
 `cgra_config.py`、`abi.json`，不需要项目 Python、PyMTL 或 migration_tools。
+已映射的标量 ReLU YAML 可通过单独的 [YAML 前端](YAML_RELU.md) 进入此打包流程；
+该可选前端需要 PyYAML，支持范围独立列出。
 
 ```bash
 python3 -I -S sv/tools/cgra_program.py \

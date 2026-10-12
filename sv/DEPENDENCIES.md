@@ -21,3 +21,6 @@ MAC 的两个维护版模块是原算法的可综合整理，不能因为文件�
 
 Verilator、Yosys、sv2v、编译器属于外部构建工具，不打包进工程源码归档。
 `scripts/toolchain.lock.json` 固定下载版本和 SHA；各工具自己的发行包保留其许可。
+
+可选 `tools/cgra_yaml.py` 使用外部 PyYAML（MIT）解析数据，本次验证版本为 6.0.3；
+工程包不内嵌 PyYAML。仅使用原有 JSON 工具时不需要安装它。

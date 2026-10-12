@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "status": "passed",
+  "at_utc": "2026-10-12T08:35:02Z",
+  "mathematical_runs": 8,
+  "checked_words": 256,
+  "negative_runs": 5,
+  "source_sha256": {
+    "tools/cgra_yaml.py": "2cfc59f268cbb5284eac63d2a4aa5179e674a85fac9357298ddfbf2b7ce5bbfa",
+    "tools/cgra_program.py": "210735a79f06e3a565179619968ef44f35ec4a364cc98ea447c993576d611eed",
+    "tools/cgra_config.py": "bf081cbf5b38381beabc3f0205e7107d0318e4cbc827b0e5e2f0d11b9a26e5d6",
+    "tools/abi.json": "d50163eff162271c3f92f11ed2916e0eddecc501b2e2cd9ed4348050f3ea5228",
+    "tests/current/gen_relu_yaml.py": "381898ebefbe6efb3cb85098d38fa09ec29c87d0f2229cd1039aafd72a366a2b",
+    "tests/current/run_relu_yaml.sh": "34605a4041a5e7a2d3752875c73244dbb8796e1603b2d024a3e723747cc0b8b5",
+    "tests/current/run_yaml_relu_tests.py": "28881f29538c8059b06aa0b670cacc44b790f7273d7204413b7daed260abc645",
+    "tests/current/tb_native_kernel.sv": "e52e16335a2832f6f6ab57c8414d371a773e9e9a52fa499b8e1162ebcdce60c3",
+    "tests/config/test_yaml.py": "790c5a4ebe56712d975be2bd9498b89adad0e2e28e5f4a4c2adb99c05c85b8d3",
+    "examples/yaml/relu_neura_pass.yaml": "1d64eca29eb6e95825e7493c2d082398d5689a7f6a0e3bf08049a1b71dc848ca"
+  },
+  "checks": [
+    {
+      "name": "frontend",
+      "negative": false,
+      "exit_code": 0,
+      "marker": "OK",
+      "log": "build/current/yaml-relu/regression-kjiefa2k/frontend.log",
+      "log_sha256": "8bfa499b8ccb24b5c8a6036e9d3cf2c3932118b4b2bbda6c1fabc26760b9c923"
+    },
+    {
+      "name": "memory1-original",
+      "negative": false,
+      "exit_code": 0,
+      "marker": "RELU_YAML_PASS",
+      "log": "build/current/yaml-relu/regression-kjiefa2k/memory1-original.log",
+      "log_sha256": "25bba7cfbbd51d1e24381c9365d41c48023da261decd0f31c7dc85c1a69f0aec"
+    },
+    {
+      "name": "memory1-boundaries",
+      "negative": false,
+      "exit_code": 0,
+      "marker": "RELU_YAML_PASS",
+      "log": "build/current/yaml-relu/regression-kjiefa2k/memory1-boundaries.log",
+      "log_sha256": "41c0706138de9de6f1a92f224b96ea15299576772c45078a2a99c86264ffbb2b"
+    },
+    {
+      "name": "memory1-random",
+      "negative": false,
+      "exit_code": 0,
+      "marker": "RELU_YAML_PASS",
+      "log": "build/current/yaml-relu/regression-kjiefa2k/memory1-random.log",
+      "log_sha256": "2434ef87dc9634583740870ea3732c94a7df475dc5ebaca2ddb3d6867ef718af"
+    },
+    {
+      "name": "memory1-zero",
+      "negative": false,
+      "exit_code": 0,
+      "marker": "RELU_YAML_PASS",
+      "log": "build/current/yaml-relu/regression-kjiefa2k/memory1-zero.log",
+      "log_sha256": "6b9234e448bd2aaa835abdb0e9e515cc8fbea61f3279bad23d16e5857a60f3b2"
+    },
+    {
+      "name": "memory1-wrong-result",
+      "negative": true,
+      "exit_code": -6,
+      "marker": "KERNEL_MATH",
+      "log": "build/current/yaml-relu/regression-kjiefa2k/memory1-wrong-result.log",
+      "log_sha256": "d1ac9a6549d26276d276fd481780175b15f993ed144df5f170b4e4458baf092b"
+    },
+    {
+      "name": "memory1-timeout",
+      "negative": true,
+      "exit_code": -6,
+      "marker": "NATIVE_KERNEL_TIMEOUT",
+      "log": "build/current/yaml-relu/regression-kjiefa2k/memory1-timeout.log",
+      "log_sha256": "61f92ae2c0acac42817fe4eae90e05f983b1ba51e5d826a00742677d2bd92fe8"
+    },
+    {
+      "name": "memory1-early-return",
+      "negative": true,
+      "exit_code": -6,
+      "marker": "KERNEL_EARLY_RETURN",
+      "log": "build/current/yaml-relu/regression-kjiefa2k/memory1-early-return.log",
+      "log_sha256": "b4e5fd37d790c036d12d95b3a8ecbd0c4786fb5ce9b8d859a136d76e99dc31cd"
+    },
+    {
+      "name": "memory1-changed-yaml",
+      "negative": true,
+      "exit_code": -6,
+      "marker": "KERNEL_MATH",
+      "log": "build/current/yaml-relu/regression-kjiefa2k/memory1-changed-yaml.log",
+      "log_sha256": "97b368fd6928928bcdcef456316c52a588e153803da5ce13ed6be249ae584986"
+    },
+    {
+      "name": "registered-memory-early-return",
+      "negative": true,
+      "exit_code": 1,
+      "marker": "KERNEL_EARLY_RETURN",
+      "log": "build/current/yaml-relu/regression-kjiefa2k/registered-memory-early-return.log",
+      "log_sha256": "965a8225e2d091972b02d6b4d280e557a169e8a4b321dd5a290dcb91344a0c33"
+    }
+  ]
+}

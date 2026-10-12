@@ -140,11 +140,13 @@ reference data; explicit compatibility tests are distinct from native math tests
 
 Use `make -C sv current` for the current component/PE/DMA checks, and
 `python3 sv/scripts/regression.py --shard <name>` for a catalog group. Full native
-regression is `make -C sv regression`; its 14 groups cover 48 required targets.
+regression is `make -C sv regression`; its 14 groups cover 49 required targets.
 `sv/scripts/install_toolchain.py` installs SHA-pinned native tools (Verilator
 5.029, Yosys 0.45+139, sv2v 0.0.13). These are separate from the original PyMTL
 translation/import workflow above, which uses Verilator 4.036. Native config and
-program tools use Python's standard library, not the original RTL generator.
+JSON program tools use Python's standard library, not the original RTL generator.
+The optional mapped-YAML frontend and `native-yaml-relu` regression additionally
+need PyYAML; supported input and memory timing are documented in `sv/YAML_RELU.md`.
 
 Historical `phase2/3/4` contracts must use `sv/scripts/run_baseline.sh` on the
 fixed baseline. Independent export and clean-environment acceptance are documented

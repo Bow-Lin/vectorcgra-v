@@ -1,6 +1,6 @@
 # 原生回归与工具链
 
-`scripts/regression.json` 是本地与 CI 共用的清单，14 个分组覆盖 48 个当前验收目标。
+`scripts/regression.json` 是本地与 CI 共用的清单，14 个分组覆盖 49 个当前验收目标。
 清单检查拒绝漏列或重复目标；原 Python 源码分类审计 `migration-inventory` 单独运行。
 历史 `phase2/3/4` 入口不属于当前 RTL 契约；`baseline` 在固定 `cd7aad` 源码上运行
 原 `all`（类型、2×2 仿真、负例及综合），不声称重跑了全部历史阶段。
@@ -20,6 +20,8 @@ C++20 编译器、make 和 Perl（Verilator 启动脚本使用）。锁定 OSS C
 0.45+139）与 sv2v 0.0.13，下载后检查完整 SHA256。缓存归档同样检查 SHA，再解压并
 核对实际版本。正常构建不需要 PyMTL，也不运行原项目的 Python RTL。其他平台可自行
 设置 VERILATOR／SV2V／YOSYS／CXX，验证记录必须保留实际版本。
+`native-kernels` 新增的 `native-yaml-relu` 另需 PyYAML，CI 安装 `python3-yaml`；
+本地可在所用 Python 环境安装 PyYAML。范围与已知反例见 [YAML_RELU.md](YAML_RELU.md)。
 
 统一驱动逐项记录退出码、耗时、日志 SHA、工具版本及输入源码 SHA；失败即停止该分组，
 标出未执行目标。前后输入变化也视为失败。结果位于 `sv/build/regression/<shard>/`。

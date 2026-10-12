@@ -3,6 +3,7 @@
 导出包包含当前 `sv/` 源码、独立配置／程序工具、测试、冻结输入、来源及许可声明。
 普通构建不需要原项目的 Python 目录、`.git` 或 PyMTL。Python 3 标准库仍用于配置、
 回归编排和完整性检查；EDA 工具本身也可能使用 Python／Perl。
+直接加载 YAML 以及包含 `native-yaml-relu` 的完整回归另需 PyYAML；原 JSON 工具不受影响。
 
 从完整 Git 仓库导出：
 

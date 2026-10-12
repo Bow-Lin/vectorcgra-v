@@ -24,6 +24,8 @@ Python 目标固定为 **`cd7aad878915e389cecf8cc01ff6987d156bd019`**；它导�
 - JSON 架构／程序工具不导入原项目或 PyMTL，生成静态参数、控制包、常量、预加载和
   barrier。它们是有范围的软件替代，详见 [CONFIGURATION_TOOL.md](CONFIGURATION_TOOL.md)
   与 [PROGRAM_TOOL.md](PROGRAM_TOOL.md)。
+- 新增已映射 ReLU YAML 的有限前端和直接运行入口，支持上传文件的 4×4／II=5／
+  32 元素组合内存配置，检查完整回读和写入完成顺序。见 [YAML_RELU.md](YAML_RELU.md)。
 
 ## 原生修正与 Python 兼容
 
@@ -56,7 +58,7 @@ Streaming 的透明控制包保持逻辑在选定网表中保留 13 位锁存，
 - Python 周期兼容：AXPY、FIR、histogram、ReLU、SAD 五个已完成轨迹；global_add、
   dynamic_fir 两个完整多 CGRA 场景。GEMM／GEMV 只验证原 Python 未完成的前缀，
   不标成原 Python 完成；原 Python SPMV 配置生成失败，原生修复程序另行验收。
-- 本地与 CI 的统一清单为 14 组、48 个目标，工具版本和 SHA 固定。每组保存输入 SHA、
+- 本地与 CI 的统一清单为 14 组、49 个目标，工具版本和 SHA 固定。每组保存输入 SHA、
   退出码和日志；来源审计与原生功能回归分开。详见 [REGRESSION.md](REGRESSION.md)。
 - 独立包以不含原项目 Python／`.git`／PyMTL 的干净环境另行检查，来源与许可保留。
   详见 [STANDALONE.md](STANDALONE.md)。

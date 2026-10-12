@@ -31,7 +31,7 @@ def catalog(root=SV):
 
 def fingerprint(root=SV):
   result = {}
-  for directory in ['rtl', 'filelists', 'tests', 'tools', 'scripts', 'reference']:
+  for directory in ['rtl', 'filelists', 'tests', 'tools', 'scripts', 'reference', 'examples']:
     for path in sorted((root / directory).rglob('*')):
       if not path.is_file() or '__pycache__' in path.parts or path.suffix == '.pyc':
         continue

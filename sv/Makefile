@@ -152,6 +152,9 @@ current-system-synth:
 .PHONY: native-kernel-boundaries current-predicated-store current-predicated-store-synth
 native-kernel-boundaries:
 	bash tests/current/run_kernel_boundaries.sh
+.PHONY: native-yaml-relu
+native-yaml-relu:
+	python3 tests/current/run_yaml_relu_tests.py
 current-predicated-store:
 	bash tests/current/run_predicated_store.sh rtl
 current-predicated-store-synth:

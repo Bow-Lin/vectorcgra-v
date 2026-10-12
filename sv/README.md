@@ -2,7 +2,7 @@
 
 当前维护版位于 `sv/rtl/`，DUT 文件清单为 `sv/filelists/native.f`。硬件直接由
 SystemVerilog 参数和 generate 展开；普通仿真、综合和程序加载不依赖原项目 Python
-或 PyMTL。配置和回归工具使用 Python 3 标准库。
+或 PyMTL。JSON 配置和回归工具使用 Python 3 标准库；可选 YAML 前端另需 PyYAML。
 
 迁移的历史起点是 `ac96a7af`；本轮固定 Python 目标为 `cd7aad878915`，其 Python 内容
 来自父提交 `e3caf6928a4e`。原始 274 个 Python 文件保持不变。当前范围、明确差异及
@@ -22,10 +22,18 @@ python3 sv/scripts/regression.py --list
 python3 sv/scripts/regression.py --shard core
 ```
 
-完整回归：`make -C sv regression`。本地和 CI 共用 14 组、48 个目标的清单，包含
+完整回归：`make -C sv regression`。本地和 CI 共用 14 组、49 个目标的清单，包含
 原生数学测试、冻结 Python 周期兼容、负例、实际综合网表和历史基线。工具版本、
 资源要求与结果位置见 [REGRESSION.md](REGRESSION.md)。完整 Mesh 网表检查建议独占
 16 GiB 内存；不要把小组件的运行资源估计用于整个阵列。
+
+上传的 ReLU YAML 可直接运行：
+
+```bash
+bash sv/tests/current/run_relu_yaml.sh sv/examples/yaml/relu_neura_pass.yaml
+```
+
+输入、32 个结果的回读、前端支持范围和内存时序限制见 [YAML_RELU.md](YAML_RELU.md)。
 
 ## 可配置硬件入口
 

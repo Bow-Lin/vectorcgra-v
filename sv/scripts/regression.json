@@ -66,6 +66,7 @@
     "native-kernels": [
       "native-kernels",
       "native-kernel-boundaries",
+      "native-yaml-relu",
       "current-predicated-store",
       "current-predicated-store-synth"
     ],

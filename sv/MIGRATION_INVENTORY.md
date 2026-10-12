@@ -70,6 +70,10 @@ VectorAllReduce 内联，没有额外导出任意输入数的独立类接口。D
 端口在 Python 与 SV 都未实现远程访问。LoopController 系统调度、任意 VC／credit、
 稀疏删除 Tile、运行时隔离重配置及更广 DMA 格式仍属于另行确认的扩展。
 
+清单之后新增了 `tools/cgra_yaml.py`，为已经映射好的 ReLU YAML 提供有限翻译入口；
+它不替代通用 DFG 布局／调度，也不改变上表原始文件的分类计数。支持范围、数学回读
+和寄存内存下的提前返回反例见 [YAML_RELU.md](YAML_RELU.md)。
+
 复位、算术、向量进位／归约、FP、NoC 锁定／VC、DMA／im2col 的原生修正分别见
 [算术边界](ARITHMETIC_BOUNDARIES.md)、[向量算术](VECTOR_ARITHMETIC_API.md)、
 [归约](VECTOR_REDUCE_API.md)、[PE 接口](PE_INTERFACES.md)、
