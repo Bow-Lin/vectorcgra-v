@@ -1,0 +1,26 @@
+{
+  "case": {
+    "id": 166,
+    "group": "systems",
+    "file": "multi_cgra/test/RingMultiCgraRTL_test.py",
+    "function": "test_homo_1x4",
+    "parameters": {},
+    "classes": [
+      "RingMultiCgraRTL"
+    ],
+    "source_sha256": "7081e7132f63325320f57aaa52838b516cacc621fc9eb29c72d609a43a50a5e5",
+    "require_sink_completion": "complete_signal_sink_out",
+    "completion_cycles": 500
+  },
+  "status": "failed",
+  "source_sha256": "7081e7132f63325320f57aaa52838b516cacc621fc9eb29c72d609a43a50a5e5",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "original_function_status": "passed",
+  "error": "AssertionError('Supplemented completion check timed out; original test only waited for configuration source')",
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/vectorcgra-v/sv/migration_tools/original_test_capture.py\", line 236, in main\n    else:raise AssertionError('Supplemented completion check timed out; original test only waited for configuration source')\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError: Supplemented completion check timed out; original test only waited for configuration source\n",
+  "captures": [
+    "dut000"
+  ],
+  "adapter_errors": []
+}

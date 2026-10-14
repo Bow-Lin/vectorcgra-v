@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 183,
+    "group": "components",
+    "file": "rf/test/RegisterRTL_test.py",
+    "function": "test_simple",
+    "parameters": {},
+    "classes": [
+      "RegisterRTL"
+    ],
+    "source_sha256": "931c0beb54841068530854921ce328125c36640b0d4fa11f80dc6ac5a21da50a"
+  },
+  "status": "passed",
+  "source_sha256": "931c0beb54841068530854921ce328125c36640b0d4fa11f80dc6ac5a21da50a",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

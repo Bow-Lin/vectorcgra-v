@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 74,
+    "group": "fu",
+    "file": "fu/single/test/ExtractPredicateRTL_test.py",
+    "function": "test_extract_predicate_for_loop_termination",
+    "parameters": {},
+    "classes": [
+      "ExtractPredicateRTL"
+    ],
+    "source_sha256": "4a20583578f2f1454fdbd5f964027d45beab19ee1ae17338a6b5ea2bc5ff2c8d"
+  },
+  "status": "passed",
+  "source_sha256": "4a20583578f2f1454fdbd5f964027d45beab19ee1ae17338a6b5ea2bc5ff2c8d",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

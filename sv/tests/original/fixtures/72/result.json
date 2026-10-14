@@ -1,0 +1,21 @@
+{
+  "case": {
+    "id": 72,
+    "group": "fu",
+    "file": "fu/single/test/ExclusiveDivRTL_test.py",
+    "function": "test_mul",
+    "parameters": {},
+    "classes": [
+      "ExclusiveDivRTL"
+    ],
+    "source_sha256": "98ade2e646567613413ea8967a12fa22e5356d57af0253a6fbcb06dfbe51f865"
+  },
+  "status": "passed",
+  "source_sha256": "98ade2e646567613413ea8967a12fa22e5356d57af0253a6fbcb06dfbe51f865",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ],
+  "adapter_errors": []
+}

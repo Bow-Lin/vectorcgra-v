@@ -1,0 +1,365 @@
+{
+  "python_class": "TileRTL",
+  "arguments": {
+    "IntraCgraPktType": "IntraCgraPacket_1_1x1_4_8_2_CgraPayload",
+    "ctrl_mem_size": 8,
+    "data_mem_size": 16,
+    "num_ctrl": 4,
+    "total_steps": 8,
+    "num_fu_inports": 4,
+    "num_fu_outports": 2,
+    "num_tile_inports": 4,
+    "num_tile_outports": 4,
+    "num_cgras": 1,
+    "num_tiles": 4,
+    "num_registers_per_reg_bank": 16,
+    "Fu": "FlexibleFuRTL",
+    "FuList": [
+      "GrantRTL",
+      "NahRTL"
+    ]
+  },
+  "hierarchy": "s.dut",
+  "samples": 30,
+  "edges": 30,
+  "module": "cgra_pe",
+  "parameters": {
+    "DATA_W": 64,
+    "CTRL_DEPTH": 8,
+    "GLOBAL_ADDR_W": 4,
+    "REG_DEPTH": 16,
+    "TILE_PORTS": 4,
+    "COLS": 2,
+    "ROWS": 2,
+    "MAX_COLS": 7,
+    "MAX_ROWS": 1,
+    "MULTI_COLS": 1,
+    "MULTI_ROWS": 1,
+    "NUM_CTRL": 4,
+    "TOTAL_STEPS": 8,
+    "FU_COUNT": 2,
+    "FU_KINDS": "16'h30a",
+    "VARIANT": 0
+  },
+  "mode": "native",
+  "bindings": {},
+  "normalize_ctrl": true,
+  "ports": [
+    {
+      "path": "cgra_id",
+      "name": "cgra_id",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "from_mem_rdata.msg",
+      "name": "from_mem_rdata__msg",
+      "width": 67,
+      "original_width": 67,
+      "direction": "input"
+    },
+    {
+      "path": "from_mem_rdata.rdy",
+      "name": "from_mem_rdata__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "from_mem_rdata.val",
+      "name": "from_mem_rdata__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data[0].msg",
+      "name": "recv_data__msg[0]",
+      "width": 67,
+      "original_width": 67,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data[0].rdy",
+      "name": "recv_data__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data[0].val",
+      "name": "recv_data__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data[1].msg",
+      "name": "recv_data__msg[1]",
+      "width": 67,
+      "original_width": 67,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data[1].rdy",
+      "name": "recv_data__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data[1].val",
+      "name": "recv_data__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data[2].msg",
+      "name": "recv_data__msg[2]",
+      "width": 67,
+      "original_width": 67,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data[2].rdy",
+      "name": "recv_data__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data[2].val",
+      "name": "recv_data__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data[3].msg",
+      "name": "recv_data__msg[3]",
+      "width": 67,
+      "original_width": 67,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data[3].rdy",
+      "name": "recv_data__rdy[3]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data[3].val",
+      "name": "recv_data__val[3]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_controller_pkt.msg",
+      "name": "recv_from_controller_pkt__msg",
+      "width": 220,
+      "original_width": 220,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_controller_pkt.rdy",
+      "name": "recv_from_controller_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_controller_pkt.val",
+      "name": "recv_from_controller_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data[0].msg",
+      "name": "send_data__msg[0]",
+      "width": 67,
+      "original_width": 67,
+      "direction": "output"
+    },
+    {
+      "path": "send_data[0].rdy",
+      "name": "send_data__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data[0].val",
+      "name": "send_data__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data[1].msg",
+      "name": "send_data__msg[1]",
+      "width": 67,
+      "original_width": 67,
+      "direction": "output"
+    },
+    {
+      "path": "send_data[1].rdy",
+      "name": "send_data__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data[1].val",
+      "name": "send_data__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data[2].msg",
+      "name": "send_data__msg[2]",
+      "width": 67,
+      "original_width": 67,
+      "direction": "output"
+    },
+    {
+      "path": "send_data[2].rdy",
+      "name": "send_data__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data[2].val",
+      "name": "send_data__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data[3].msg",
+      "name": "send_data__msg[3]",
+      "width": 67,
+      "original_width": 67,
+      "direction": "output"
+    },
+    {
+      "path": "send_data[3].rdy",
+      "name": "send_data__rdy[3]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data[3].val",
+      "name": "send_data__val[3]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_controller_pkt.msg",
+      "name": "send_to_controller_pkt__msg",
+      "width": 220,
+      "original_width": 220,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_controller_pkt.rdy",
+      "name": "send_to_controller_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_controller_pkt.val",
+      "name": "send_to_controller_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "tile_id",
+      "name": "tile_id",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "to_mem_raddr.msg",
+      "name": "to_mem_raddr__msg",
+      "width": 4,
+      "original_width": 4,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_raddr.rdy",
+      "name": "to_mem_raddr__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "to_mem_raddr.val",
+      "name": "to_mem_raddr__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_waddr.msg",
+      "name": "to_mem_waddr__msg",
+      "width": 4,
+      "original_width": 4,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_waddr.rdy",
+      "name": "to_mem_waddr__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "to_mem_waddr.val",
+      "name": "to_mem_waddr__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_wdata.msg",
+      "name": "to_mem_wdata__msg",
+      "width": 67,
+      "original_width": 67,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_wdata.rdy",
+      "name": "to_mem_wdata__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "to_mem_wdata.val",
+      "name": "to_mem_wdata__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "29ed6f6de4acec7101ccd7e0c1b39d2ce36bf116a33ed681afcab73c0cab6a60"
+}

@@ -1,0 +1,5 @@
+OUTPUT_COUNT send_to_cpu_pkt 0/1
+INPUT_COUNT recv_from_cpu_pkt 28/28
+[53230000] %Fatal: tb_original.sv:167: Assertion failed in TOP.tb_original: ORIGINAL_TRANSACTION_TIMEOUT
+%Error: /workspace/work/original-test-systems/build/11d233e3bf0e59597922/tb_original.sv:167: Verilog $stop
+Aborting...

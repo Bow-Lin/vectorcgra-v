@@ -1,0 +1,513 @@
+{
+  "address_map": [
+    2,
+    0,
+    1
+  ],
+  "algorithm": "add",
+  "boundary_inputs": [],
+  "capacity": 32,
+  "expected_completions": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      1,
+      0
+    ],
+    [
+      1,
+      1
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      0
+    ],
+    [
+      2,
+      1
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      2,
+      2
+    ]
+  ],
+  "initial": {
+    "0": [
+      2813918610,
+      2813918623,
+      2813918636,
+      2813918649,
+      2813918662,
+      2813918675,
+      2813918688,
+      2813918701,
+      2813918714,
+      2813918727,
+      2813918740,
+      2813918753,
+      2813918766,
+      2813918779,
+      2813918792,
+      2813918805,
+      2813918818,
+      2813918831,
+      2813918844,
+      2813918857,
+      2813918870,
+      2813918883,
+      2813918896,
+      2813918909,
+      2813918922,
+      2813918935,
+      2813918948,
+      2813918961,
+      2813918974,
+      2813918987,
+      2148799824,
+      2813919013
+    ],
+    "1": [
+      2813918707,
+      2813918720,
+      2813918733,
+      2813918746,
+      2813918759,
+      2813918772,
+      2813918785,
+      2813918798,
+      2813918811,
+      2813918824,
+      2813918837,
+      2813918850,
+      2813918863,
+      2813918876,
+      2813918889,
+      2813918902,
+      2813918915,
+      2813918928,
+      2813918941,
+      2813918954,
+      2813918967,
+      2813918980,
+      2813918993,
+      2813919006,
+      2813919019,
+      2813919032,
+      2813919045,
+      2813919058,
+      2813919071,
+      2813919084,
+      2812133837,
+      2813919110
+    ],
+    "2": [
+      2813918804,
+      2813918817,
+      2813918830,
+      2813918843,
+      2813918856,
+      2813918869,
+      2813918882,
+      2813918895,
+      2813918908,
+      2813918921,
+      2813918934,
+      2813918947,
+      2813918960,
+      2813918973,
+      2813918986,
+      2813918999,
+      2813919012,
+      2813919025,
+      2813919038,
+      2813919051,
+      2813919064,
+      2813919077,
+      2813919090,
+      2813919103,
+      2813919116,
+      2813919129,
+      2813919142,
+      2813919155,
+      2813919168,
+      2813919181,
+      634050620,
+      2813919207
+    ]
+  },
+  "mathematical_function": "x+17",
+  "rounds": 6,
+  "seed": 917,
+  "stages": [
+    {
+      "cgra": 0,
+      "output_address": 95,
+      "path": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "source_address": 94,
+      "source_owner": 1,
+      "tiles": [
+        {
+          "initial_increment": 0,
+          "last_control": 5,
+          "operations": [
+            {
+              "kind": "add",
+              "value": 2
+            },
+            {
+              "kind": "add",
+              "value": 3
+            },
+            {
+              "kind": "add",
+              "value": 4
+            },
+            {
+              "kind": "add",
+              "value": 5
+            }
+          ],
+          "register": 4,
+          "tile": 0
+        },
+        {
+          "initial_increment": 1,
+          "last_control": 5,
+          "operations": [
+            {
+              "kind": "add",
+              "value": 7
+            },
+            {
+              "kind": "add",
+              "value": 1
+            },
+            {
+              "kind": "add",
+              "value": 2
+            },
+            {
+              "kind": "add",
+              "value": 3
+            }
+          ],
+          "register": 4,
+          "tile": 1
+        },
+        {
+          "initial_increment": 1,
+          "last_control": 5,
+          "operations": [
+            {
+              "kind": "add",
+              "value": 3
+            },
+            {
+              "kind": "add",
+              "value": 4
+            },
+            {
+              "kind": "add",
+              "value": 5
+            },
+            {
+              "kind": "add",
+              "value": 6
+            }
+          ],
+          "register": 4,
+          "tile": 3
+        },
+        {
+          "initial_increment": 1,
+          "last_control": 5,
+          "operations": [
+            {
+              "kind": "add",
+              "value": 5
+            },
+            {
+              "kind": "add",
+              "value": 6
+            },
+            {
+              "kind": "add",
+              "value": 7
+            },
+            {
+              "kind": "add",
+              "value": 1
+            },
+            {
+              "kind": "add",
+              "value": 4294967278
+            }
+          ],
+          "register": 4,
+          "tile": 2
+        }
+      ]
+    },
+    {
+      "cgra": 1,
+      "output_address": 31,
+      "path": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "source_address": 30,
+      "source_owner": 2,
+      "tiles": [
+        {
+          "initial_increment": 0,
+          "last_control": 5,
+          "operations": [
+            {
+              "kind": "add",
+              "value": 5
+            },
+            {
+              "kind": "add",
+              "value": 6
+            },
+            {
+              "kind": "add",
+              "value": 7
+            },
+            {
+              "kind": "add",
+              "value": 1
+            }
+          ],
+          "register": 4,
+          "tile": 0
+        },
+        {
+          "initial_increment": 1,
+          "last_control": 5,
+          "operations": [
+            {
+              "kind": "add",
+              "value": 3
+            },
+            {
+              "kind": "add",
+              "value": 4
+            },
+            {
+              "kind": "add",
+              "value": 5
+            },
+            {
+              "kind": "add",
+              "value": 6
+            }
+          ],
+          "register": 4,
+          "tile": 1
+        },
+        {
+          "initial_increment": 1,
+          "last_control": 5,
+          "operations": [
+            {
+              "kind": "add",
+              "value": 6
+            },
+            {
+              "kind": "add",
+              "value": 7
+            },
+            {
+              "kind": "add",
+              "value": 1
+            },
+            {
+              "kind": "add",
+              "value": 2
+            }
+          ],
+          "register": 4,
+          "tile": 3
+        },
+        {
+          "initial_increment": 1,
+          "last_control": 5,
+          "operations": [
+            {
+              "kind": "add",
+              "value": 1
+            },
+            {
+              "kind": "add",
+              "value": 2
+            },
+            {
+              "kind": "add",
+              "value": 3
+            },
+            {
+              "kind": "add",
+              "value": 4
+            },
+            {
+              "kind": "add",
+              "value": 4294967282
+            }
+          ],
+          "register": 4,
+          "tile": 2
+        }
+      ]
+    },
+    {
+      "cgra": 2,
+      "output_address": 63,
+      "path": [
+        0,
+        1,
+        3,
+        2
+      ],
+      "source_address": 62,
+      "source_owner": 0,
+      "tiles": [
+        {
+          "initial_increment": 0,
+          "last_control": 5,
+          "operations": [
+            {
+              "kind": "add",
+              "value": 1
+            },
+            {
+              "kind": "add",
+              "value": 2
+            },
+            {
+              "kind": "add",
+              "value": 3
+            },
+            {
+              "kind": "add",
+              "value": 4
+            }
+          ],
+          "register": 4,
+          "tile": 0
+        },
+        {
+          "initial_increment": 1,
+          "last_control": 5,
+          "operations": [
+            {
+              "kind": "add",
+              "value": 6
+            },
+            {
+              "kind": "add",
+              "value": 7
+            },
+            {
+              "kind": "add",
+              "value": 1
+            },
+            {
+              "kind": "add",
+              "value": 2
+            }
+          ],
+          "register": 4,
+          "tile": 1
+        },
+        {
+          "initial_increment": 1,
+          "last_control": 5,
+          "operations": [
+            {
+              "kind": "add",
+              "value": 2
+            },
+            {
+              "kind": "add",
+              "value": 3
+            },
+            {
+              "kind": "add",
+              "value": 4
+            },
+            {
+              "kind": "add",
+              "value": 5
+            }
+          ],
+          "register": 4,
+          "tile": 3
+        },
+        {
+          "initial_increment": 1,
+          "last_control": 5,
+          "operations": [
+            {
+              "kind": "add",
+              "value": 4
+            },
+            {
+              "kind": "add",
+              "value": 5
+            },
+            {
+              "kind": "add",
+              "value": 6
+            },
+            {
+              "kind": "add",
+              "value": 7
+            },
+            {
+              "kind": "add",
+              "value": 4294967279
+            }
+          ],
+          "register": 4,
+          "tile": 2
+        }
+      ]
+    }
+  ],
+  "streaming": false,
+  "width": 32
+}

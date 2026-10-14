@@ -1,0 +1,232 @@
+{
+  "architectures": [
+    {
+      "boundary_in": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "boundary_out": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "cols": 3,
+      "fu_names": [
+        [
+          "ADDER",
+          "CONST",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MUL",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MUL",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MUL",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MUL",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "NAH"
+        ]
+      ],
+      "links": [
+        {
+          "dp": 6,
+          "dst": 6,
+          "enabled": 1,
+          "sp": 4,
+          "src": 0
+        },
+        {
+          "dp": 4,
+          "dst": 0,
+          "enabled": 1,
+          "sp": 6,
+          "src": 6
+        },
+        {
+          "dp": 6,
+          "dst": 4,
+          "enabled": 1,
+          "sp": 4,
+          "src": 6
+        },
+        {
+          "dp": 4,
+          "dst": 6,
+          "enabled": 1,
+          "sp": 6,
+          "src": 4
+        },
+        {
+          "dp": 6,
+          "dst": 7,
+          "enabled": 1,
+          "sp": 4,
+          "src": 4
+        },
+        {
+          "dp": 4,
+          "dst": 4,
+          "enabled": 1,
+          "sp": 6,
+          "src": 7
+        },
+        {
+          "dp": 6,
+          "dst": 3,
+          "enabled": 1,
+          "sp": 4,
+          "src": 7
+        },
+        {
+          "dp": 4,
+          "dst": 7,
+          "enabled": 1,
+          "sp": 6,
+          "src": 3
+        },
+        {
+          "dp": 6,
+          "dst": 1,
+          "enabled": 1,
+          "sp": 4,
+          "src": 3
+        },
+        {
+          "dp": 4,
+          "dst": 3,
+          "enabled": 1,
+          "sp": 6,
+          "src": 1
+        },
+        {
+          "dp": 6,
+          "dst": 5,
+          "enabled": 1,
+          "sp": 4,
+          "src": 1
+        },
+        {
+          "dp": 4,
+          "dst": 1,
+          "enabled": 1,
+          "sp": 6,
+          "src": 5
+        },
+        {
+          "dp": 6,
+          "dst": 2,
+          "enabled": 1,
+          "sp": 4,
+          "src": 5
+        },
+        {
+          "dp": 4,
+          "dst": 5,
+          "enabled": 1,
+          "sp": 6,
+          "src": 2
+        },
+        {
+          "dp": 6,
+          "dst": 8,
+          "enabled": 1,
+          "sp": 4,
+          "src": 2
+        },
+        {
+          "dp": 4,
+          "dst": 2,
+          "enabled": 1,
+          "sp": 6,
+          "src": 8
+        },
+        {
+          "dp": 7,
+          "dst": 8,
+          "enabled": 0,
+          "sp": 5,
+          "src": 0
+        }
+      ],
+      "read_ports": [
+        6,
+        0
+      ],
+      "rows": 3,
+      "write_ports": [
+        4,
+        6,
+        0
+      ]
+    }
+  ],
+  "default_fus": [
+    "ADDER",
+    "MUL",
+    "CONST",
+    "MEM",
+    "NAH"
+  ],
+  "parameters": {
+    "BANK_DEPTH": 8,
+    "CTRL_DEPTH": 6,
+    "NUM_BANKS": 4,
+    "NUM_CTRL": 6,
+    "REG_DEPTH": 5,
+    "TILE_PORTS": 8,
+    "TOTAL_STEPS": 6
+  },
+  "schema": 1,
+  "top": "system"
+}

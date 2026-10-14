@@ -1,0 +1,293 @@
+{
+  "python_class": "MeshMultiCgraTemplateRTL",
+  "arguments": {
+    "CgraPayloadType": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr",
+    "cgra_rows": 2,
+    "cgra_columns": 2,
+    "ctrl_mem_size": 16,
+    "data_mem_size_global": 256,
+    "data_mem_size_per_bank": 32,
+    "num_banks_per_cgra": 2,
+    "num_registers_per_reg_bank": 16,
+    "num_ctrl": 2,
+    "total_steps": 2,
+    "FunctionUnit": "FlexibleFuRTL",
+    "FuList": [
+      "AdderRTL",
+      "MulRTL",
+      "LogicRTL",
+      "ShifterRTL",
+      "PhiRTL",
+      "CompRTL",
+      "GrantRTL",
+      "MemUnitRTL",
+      "SelRTL",
+      "RetRTL",
+      "SeqMulAdderRTL",
+      "VectorMulComboRTL",
+      "VectorAdderComboRTL"
+    ],
+    "controller2addr_map": {
+      "0": [
+        0,
+        63
+      ],
+      "1": [
+        64,
+        127
+      ],
+      "2": [
+        128,
+        191
+      ],
+      "3": [
+        192,
+        255
+      ]
+    },
+    "id2ctrlMemSize_map": {
+      "0": 16,
+      "1": 16,
+      "2": 16,
+      "3": 16
+    },
+    "id2cgraSize_map": {
+      "0": [
+        2,
+        2
+      ],
+      "1": [
+        2,
+        2
+      ],
+      "2": [
+        2,
+        2
+      ],
+      "3": [
+        2,
+        2
+      ]
+    },
+    "id2validTiles": {
+      "0": [
+        "<VectorCGRA.lib.util.cgra.Tile.Tile object at 0x7f9cf593bad0>",
+        "<VectorCGRA.lib.util.cgra.Tile.Tile object at 0x7f9cf593b4d0>",
+        "<VectorCGRA.lib.util.cgra.Tile.Tile object at 0x7f9cf593bd70>",
+        "<VectorCGRA.lib.util.cgra.Tile.Tile object at 0x7f9cf5dac740>"
+      ],
+      "1": [
+        "<VectorCGRA.lib.util.cgra.Tile.Tile object at 0x7f9cf59747a0>",
+        "<VectorCGRA.lib.util.cgra.Tile.Tile object at 0x7f9cf5974920>",
+        "<VectorCGRA.lib.util.cgra.Tile.Tile object at 0x7f9cf5974a10>",
+        "<VectorCGRA.lib.util.cgra.Tile.Tile object at 0x7f9cf5974860>"
+      ],
+      "2": [
+        "<VectorCGRA.lib.util.cgra.Tile.Tile object at 0x7f9cf5974f20>",
+        "<VectorCGRA.lib.util.cgra.Tile.Tile object at 0x7f9cf5975100>",
+        "<VectorCGRA.lib.util.cgra.Tile.Tile object at 0x7f9cf59750a0>",
+        "<VectorCGRA.lib.util.cgra.Tile.Tile object at 0x7f9cf5975340>"
+      ],
+      "3": [
+        "<VectorCGRA.lib.util.cgra.Tile.Tile object at 0x7f9cf5975880>",
+        "<VectorCGRA.lib.util.cgra.Tile.Tile object at 0x7f9cf5975760>",
+        "<VectorCGRA.lib.util.cgra.Tile.Tile object at 0x7f9cf59759d0>",
+        "<VectorCGRA.lib.util.cgra.Tile.Tile object at 0x7f9cf5975a60>"
+      ]
+    },
+    "id2validLinks": {
+      "0": [
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf67aca40>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf61b6000>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5c508c0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf593b620>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf593b230>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974b60>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf593acf0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf59741a0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974380>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf59746b0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf59748c0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf59743e0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974770>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974650>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf59746e0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974800>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974620>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf59745c0>"
+      ],
+      "1": [
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf59745f0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974890>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf59747d0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf59749b0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974500>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974b00>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974ad0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974d70>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974cb0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974c20>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974b90>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974e00>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974d10>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974ef0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974ce0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974da0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974fb0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974f80>"
+      ],
+      "2": [
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974e30>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974e60>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975070>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975400>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974ec0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975460>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf59753d0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf59754f0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975520>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf59755e0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975370>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf59754c0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975670>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975640>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975430>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975730>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975700>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975610>"
+      ],
+      "3": [
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf59755b0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf59757c0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975790>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975b20>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975550>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974830>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975a00>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5974c80>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975c10>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975c70>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975bb0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975cd0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975d00>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975d30>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975c40>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975d90>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975dc0>",
+        "<VectorCGRA.lib.util.cgra.Link.Link object at 0x7f9cf5975df0>"
+      ]
+    },
+    "id2dataSPM": {
+      "0": "<VectorCGRA.lib.util.cgra.DataSPM.DataSPM object at 0x7f9cf593b6b0>",
+      "1": "<VectorCGRA.lib.util.cgra.DataSPM.DataSPM object at 0x7f9cf5975d60>",
+      "2": "<VectorCGRA.lib.util.cgra.DataSPM.DataSPM object at 0x7f9cf5975e20>",
+      "3": "<VectorCGRA.lib.util.cgra.DataSPM.DataSPM object at 0x7f9cf5975e50>"
+    },
+    "mem_access_is_combinational": true,
+    "is_multi_cgra": true
+  },
+  "hierarchy": "s.dut",
+  "samples": 59,
+  "edges": 59,
+  "module": "cgra_multi_template",
+  "parameters": {
+    "DATA_W": 32,
+    "CTRL_DEPTH": 16,
+    "GLOBAL_ADDR_W": 8,
+    "REG_DEPTH": 16,
+    "TILE_PORTS": 8,
+    "COLS": 2,
+    "ROWS": 2,
+    "MULTI_COLS": 2,
+    "MULTI_ROWS": 2,
+    "BANK_DEPTH": 32,
+    "NUM_BANKS": 2,
+    "NUM_CTRL": 2,
+    "TOTAL_STEPS": 2,
+    "MEM_COMBINATIONAL": 1,
+    "FU_COUNT": 16,
+    "FU_KINDS": "128'h306050d0709021d1c0f0112040a0008",
+    "CUSTOM_ADDR_MAP": 1,
+    "ADDR_MAP": "8'he4",
+    "CUSTOM_COORD_MAP": 1,
+    "COORD_X_MAP": "4'ha",
+    "COORD_Y_MAP": "4'hc",
+    "CUSTOM_TOPOLOGY": 15,
+    "MEM_PORTS": 3,
+    "MEM_WRITE_PORTS": 3,
+    "LINK_COUNT": 12,
+    "READ_PORT_TILE": "384'h10000000200000000000000010000000200000000000000010000000200000000000000010000000200000000",
+    "WRITE_PORT_TILE": "384'h10000000200000000000000010000000200000000000000010000000200000000000000010000000200000000",
+    "LINK_SRC_TILE": "1536'h20000000100000003000000000000000300000001000000020000000000000003000000020000000100000000000000020000000100000003000000000000000300000001000000020000000000000003000000020000000100000000000000020000000100000003000000000000000300000001000000020000000000000003000000020000000100000000000000020000000100000003000000000000000300000001000000020000000000000003000000020000000100000000",
+    "LINK_SRC_PORT": "1536'h60000000400000007000000050000000100000000000000010000000000000002000000030000000200000003000000060000000400000007000000050000000100000000000000010000000000000002000000030000000200000003000000060000000400000007000000050000000100000000000000010000000000000002000000030000000200000003000000060000000400000007000000050000000100000000000000010000000000000002000000030000000200000003",
+    "LINK_DST_TILE": "1536'h10000000200000000000000030000000100000003000000000000000200000002000000030000000000000001000000010000000200000000000000030000000100000003000000000000000200000002000000030000000000000001000000010000000200000000000000030000000100000003000000000000000200000002000000030000000000000001000000010000000200000000000000030000000100000003000000000000000200000002000000030000000000000001",
+    "LINK_DST_PORT": "1536'h40000000600000005000000070000000000000001000000000000000100000003000000020000000300000002000000040000000600000005000000070000000000000001000000000000000100000003000000020000000300000002000000040000000600000005000000070000000000000001000000000000000100000003000000020000000300000002000000040000000600000005000000070000000000000001000000000000000100000003000000020000000300000002",
+    "LINK_ENABLED": "48'hffffffffffff",
+    "BOUNDARY_IN_ENABLE": "128'h4020608000a020105000409010800",
+    "BOUNDARY_OUT_ENABLE": "128'h4020608000a020105000409010800",
+    "TILE_FU_COUNTS": "512'h10000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010",
+    "TILE_FU_KINDS": "2048'h306050d0709021d1c0f0112040a00080306050d0709021d1c0f0112040a00080306050d0709021d1c0f0112040a00080306050d0709021d1c0f0112040a00080306050d0709021d1c0f0112040a00080306050d0709021d1c0f0112040a00080306050d0709021d1c0f0112040a00080306050d0709021d1c0f0112040a00080306050d0709021d1c0f0112040a00080306050d0709021d1c0f0112040a00080306050d0709021d1c0f0112040a00080306050d0709021d1c0f0112040a00080306050d0709021d1c0f0112040a00080306050d0709021d1c0f0112040a00080306050d0709021d1c0f0112040a00080306050d0709021d1c0f0112040a0008",
+    "MAX_COLS": 2,
+    "MAX_ROWS": 2,
+    "MAX_MEM_PORTS": 3,
+    "CGRA_COLS": "128'h2000000020000000200000002",
+    "CGRA_ROWS": "128'h2000000020000000200000002"
+  },
+  "mode": "native",
+  "bindings": {},
+  "normalize_ctrl": true,
+  "transaction_replay": true,
+  "ports": [
+    {
+      "path": "recv_from_cpu_pkt.msg",
+      "name": "recv_from_cpu_pkt__msg",
+      "width": 219,
+      "original_width": 219,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_cpu_pkt.rdy",
+      "name": "recv_from_cpu_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_cpu_pkt.val",
+      "name": "recv_from_cpu_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_cpu_pkt.msg",
+      "name": "send_to_cpu_pkt__msg",
+      "width": 219,
+      "original_width": 219,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_cpu_pkt.rdy",
+      "name": "send_to_cpu_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_cpu_pkt.val",
+      "name": "send_to_cpu_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "b2167ba1190be06b66c81ac37759fea8ae9645498a89d2f622ab0847303efcf6",
+  "adapter_note": "Boundary tables follow CgraTemplateRTL explicit single/multi and inner west/south connections; original vectors are unchanged."
+}

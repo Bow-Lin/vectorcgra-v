@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 144,
+    "group": "state_pe",
+    "file": "mem/register_cluster/test/RegisterBankRTL_test.py",
+    "function": "test_reg_bank",
+    "parameters": {},
+    "classes": [
+      "RegisterBankRTL"
+    ],
+    "source_sha256": "259a6d839556305ec4a1dd14fb74cd6a50fa1952435406872917a23fef4dfb31"
+  },
+  "status": "passed",
+  "source_sha256": "259a6d839556305ec4a1dd14fb74cd6a50fa1952435406872917a23fef4dfb31",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

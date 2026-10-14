@@ -1,0 +1,34 @@
+{
+  "schema": 1,
+  "scope": "Additional existing native checks; do not replace original-case failures",
+  "checks": [
+    {
+      "name": "native_matrix",
+      "status": "passed",
+      "command": "JOBS=1 bash sv/tests/current/run_native_kernels.sh gemm gemv spmv",
+      "log": "evidence/additional/original-native-matrix.log",
+      "log_sha256": "b08c606b45d23f283a4825a147f8e5f76810cb0c746332c821552b07fc0ad4ac"
+    },
+    {
+      "name": "native_math",
+      "status": "passed",
+      "command": "JOBS=1 bash sv/tests/current/run_native_math.sh",
+      "log": "evidence/additional/original-native-math.log",
+      "log_sha256": "75f6148138ad1384a2fedf8bf3623be7ea569d2a6176b6728957b2bfd8720b7a"
+    },
+    {
+      "name": "inclusive_div",
+      "status": "passed",
+      "command": "ARITHMETIC_PROFILE_FILTER=inclusive_w32_l4 JOBS=1 bash sv/tests/current/run_arithmetic_boundaries.sh",
+      "log": "evidence/additional/original-native-inclusive.log",
+      "log_sha256": "50dffecd063056ba1b858722c5b3c6a2e4c97f472ba05a9db216b6ca60affe59"
+    },
+    {
+      "name": "runner_guards",
+      "status": "passed",
+      "command": "python3 sv/tests/original/check_runner.py --output /workspace/work/original-frozen-check",
+      "log": "evidence/additional/original-runner-guards.log",
+      "log_sha256": "59b626f9a1a976bbf38f590934fbe6e1f728b2980a3da8cbe0201b75086bd3e2"
+    }
+  ]
+}

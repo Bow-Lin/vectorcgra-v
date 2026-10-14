@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 38,
+    "group": "fu",
+    "file": "fu/flexible/test/FlexibleFuRTL_test.py",
+    "function": "test_flexible_alu",
+    "parameters": {},
+    "classes": [
+      "FlexibleFuRTL"
+    ],
+    "source_sha256": "8c648431d6e3b2991ab172bfae60de0ac1804aa7ebde45aa0cef462aaaa20b9c"
+  },
+  "status": "passed",
+  "source_sha256": "8c648431d6e3b2991ab172bfae60de0ac1804aa7ebde45aa0cef462aaaa20b9c",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

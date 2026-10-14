@@ -1,0 +1,3 @@
+[16148000] %Fatal: tb_native_kernel.sv:109: Assertion failed in TOP.tb_native_kernel.tick: KERNEL_MATH index=4 addr=36 actual=0 expected=40
+%Error: tests/current/tb_native_kernel.sv:109: Verilog $stop
+Aborting...

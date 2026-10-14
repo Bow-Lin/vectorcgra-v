@@ -1,0 +1,12 @@
+{
+  "original_cycles": 30,
+  "inputs": {
+    "recv_from_cpu_pkt": 12,
+    "recv_from_inter_cgra_noc": 0
+  },
+  "outputs": {
+    "send_to_cpu_pkt": 4,
+    "send_to_inter_cgra_noc": 0
+  },
+  "final_outputs": {}
+}

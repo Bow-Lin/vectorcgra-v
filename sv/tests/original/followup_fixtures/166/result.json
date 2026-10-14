@@ -1,0 +1,45 @@
+{
+  "status": "passed",
+  "source_sha256": "7081e7132f63325320f57aaa52838b516cacc621fc9eb29c72d609a43a50a5e5",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "reference_variant": "supplemental_ring_remote_program",
+  "captures": [
+    "dut000"
+  ],
+  "description": "CGRA0 tile0 loads CGRA3 address24, computes 4*(seed+2), stores address25, completes, then host reads address25",
+  "seed": 3,
+  "original_program_diagnosis": {
+    "configuration_destinations": {
+      "0": 24
+    },
+    "launch_destinations": {
+      "0": 4
+    },
+    "first_fu_selectors": [
+      1,
+      0,
+      0,
+      0
+    ],
+    "first_routing_to_operands": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "first_register_read_directions": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "explanation": "All four copied programs target tile0; the first INC has neither an operand route nor an enabled register read."
+  },
+  "cycles": 69,
+  "expected_value": 20,
+  "output_words": [
+    "0x200000380000000000000000000000000000000000000000",
+    "0x2660002c0000005264000000000000000000000000000000"
+  ]
+}

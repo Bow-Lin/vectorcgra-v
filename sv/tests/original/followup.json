@@ -1,0 +1,1471 @@
+{
+  "schema": 1,
+  "base_rtl_commit": "502f7ff26930b11f090195cc8094258d3090ea03",
+  "modified_rtl_sha256": {
+    "sv/rtl/cgra/cgra_system.sv": "f46e8d2e0bfd0a31b88c9a42b86952201e88c092ce0f362b834af1f9a86e5b9a"
+  },
+  "original_source_files_checked": 274,
+  "initial_report": {
+    "path": "results.json",
+    "sha256": "9b7774e9496bddc1e1f2f48e7559f4022bfe02415206025d6cd81191a4436a94"
+  },
+  "reviewed": {
+    "explicit_reset_and_valid_payload": 11,
+    "native_functional_contract": 14,
+    "construction_only": 1
+  },
+  "unresolved_original_cases": [
+    10,
+    11,
+    12,
+    166
+  ],
+  "all_original_tests_passed": false,
+  "commit_allowed": false,
+  "contracts": [
+    {
+      "id": 32,
+      "file": "controller/test/ControllerRTL_test.py",
+      "function": "test_simple",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": false,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_controller",
+          "parameters": {
+            "DATA_W": 32,
+            "CTRL_DEPTH": 16,
+            "GLOBAL_ADDR_W": 4,
+            "REG_DEPTH": 16,
+            "TILE_PORTS": 4,
+            "COLS": 2,
+            "ROWS": 2,
+            "MULTI_COLS": 4,
+            "MULTI_ROWS": 1,
+            "MAX_COLS": 4,
+            "MAX_ROWS": 1,
+            "MAX_MEM_PORTS": 3,
+            "HAS_DMA": 0,
+            "HAS_IM2COL": 0,
+            "CUSTOM_ADDR_MAP": 1,
+            "ADDR_MAP": "8'he4",
+            "CUSTOM_COORD_MAP": 1,
+            "COORD_X_MAP": "8'he4",
+            "COORD_Y_MAP": "4'h0",
+            "NUM_BANKS": 1,
+            "BANK_DEPTH": 4
+          },
+          "mode": "native",
+          "coverage": "reviewed_reset_and_valid_payload",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "65380488421b19cb57188cb5aa3ccf974946d50a84b1f7802c8732058330db7d",
+          "build": {
+            "exit_code": 0,
+            "seconds": 6.8,
+            "log": "/workspace/work/original-contract/build/978601854261ab5ec244/compile.log",
+            "log_sha256": "677ed1938af37db6160d590a7b3c9d1d97fc751465394525353cab07239af606"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/followup/contracts/32/dut000/sv.log",
+            "log_sha256": "96cd75127b013abd1265bdceb4ed43e1f7d157cd60421272cedf35d3e0124abd"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.01,
+            "log": "evidence/followup/contracts/32/dut000/negative.log",
+            "log_sha256": "92fd49ba7dbe242199ced9730359bda5fde6296da4eb60f55cab38d44267b3d6"
+          },
+          "negative_reset": {
+            "exit_code": -6,
+            "seconds": 0.01,
+            "log": "evidence/followup/contracts/32/dut000/negative-reset.log",
+            "log_sha256": "ce561aadd1acd19e5a05fc8a10e57caeef89db250f8a692900b98b3d1d9f8a85"
+          }
+        }
+      ],
+      "acceptance_contract": {
+        "name": "valid_payload_and_explicit_reset",
+        "reset_zero": [
+          "recv_from_ctrl_ring_pkt.rdy"
+        ],
+        "activity": "valid_output_payload",
+        "invalid_payload": "ignored only when matching channel valid is zero",
+        "all_other_outputs": "strictly compared, including reset cycles",
+        "document": "sv/NOC_HANDSHAKES.md"
+      }
+    },
+    {
+      "id": 39,
+      "file": "fu/flexible/test/FlexibleFuRTL_test.py",
+      "function": "test_flexible_fu_prologue_advances_without_const",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": false,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "tile_flexible_fu_configurable",
+          "parameters": {
+            "DATA_W": 16,
+            "CTRL_DEPTH": 2,
+            "GLOBAL_ADDR_W": 1,
+            "REG_DEPTH": 16,
+            "TILE_PORTS": 5,
+            "COLS": 2,
+            "ROWS": 2,
+            "MAX_COLS": 1,
+            "MAX_ROWS": 1,
+            "MULTI_COLS": 1,
+            "MULTI_ROWS": 1,
+            "FU_COUNT": 2,
+            "FU_KINDS": "16'h300"
+          },
+          "mode": "native",
+          "coverage": "reviewed_reset_and_valid_payload",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "9623d3b9ed92c7d4cbad9a8ec2140fe5932ac17e5c73fc01403fe9d30fc56017",
+          "build": {
+            "exit_code": 0,
+            "seconds": 3.72,
+            "log": "/workspace/work/original-contract/build/85329da6605f3474c067/compile.log",
+            "log_sha256": "b34bfb5406f46e76ab68dca27716fd4882d6d5dfc3326df6a32632684c68895e"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.0,
+            "log": "evidence/followup/contracts/39/dut000/sv.log",
+            "log_sha256": "116d36e32311574628a13d964d2cf56eb220cf9578f7a76d28e69d0d5986f778"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/followup/contracts/39/dut000/negative.log",
+            "log_sha256": "97cf11409eac4137ec82f6d42f733339b71b8511f47d7e6c2917577cfcee2031"
+          },
+          "negative_reset": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/followup/contracts/39/dut000/negative-reset.log",
+            "log_sha256": "c066707b491bc5fea84f10e96d98273118f0e23ef71017908681328081f69831"
+          }
+        }
+      ],
+      "acceptance_contract": {
+        "name": "valid_payload_and_explicit_reset",
+        "reset_zero": [
+          "recv_opt.rdy"
+        ],
+        "activity": "one_prologue_control",
+        "invalid_payload": "ignored only when matching channel valid is zero",
+        "all_other_outputs": "strictly compared, including reset cycles",
+        "document": "sv/ARITHMETIC_BOUNDARIES.md"
+      }
+    },
+    {
+      "id": 72,
+      "file": "fu/single/test/ExclusiveDivRTL_test.py",
+      "function": "test_mul",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": false,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "scalar_exclusive_div",
+          "parameters": {
+            "DATA_W": 32,
+            "CTRL_DEPTH": 8,
+            "GLOBAL_ADDR_W": 3,
+            "REG_DEPTH": 16,
+            "TILE_PORTS": 5,
+            "COLS": 2,
+            "ROWS": 2,
+            "MAX_COLS": 1,
+            "MAX_ROWS": 1,
+            "MULTI_COLS": 1,
+            "MULTI_ROWS": 1,
+            "VECTOR_FACTOR_POWER": 0,
+            "LATENCY": 4
+          },
+          "mode": "native",
+          "coverage": "reviewed_reset_and_valid_payload",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "fee2d9cf52954ee10bab10713ffb6283c189b4936e6dd6102e777df0f48fd9d6",
+          "build": {
+            "exit_code": 0,
+            "seconds": 3.73,
+            "log": "/workspace/work/original-contract/build/0f1442cad444c5dacd2b/compile.log",
+            "log_sha256": "9fadf45117da90518040e7e8543371a8a4760f1226d82550053257109c82b8f6"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/followup/contracts/72/dut000/sv.log",
+            "log_sha256": "173ca6b4911c32235337ca1529262038c041be0b40cc9f486b328916bba63eda"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/followup/contracts/72/dut000/negative.log",
+            "log_sha256": "59d00afecef491841546af4315ac18784add8469743c90933066225f8b01b7ac"
+          }
+        }
+      ],
+      "acceptance_contract": {
+        "name": "valid_payload_and_explicit_reset",
+        "reset_zero": [],
+        "activity": "valid_output_payload",
+        "invalid_payload": "ignored only when matching channel valid is zero",
+        "all_other_outputs": "strictly compared, including reset cycles",
+        "document": "sv/ARITHMETIC_BOUNDARIES.md"
+      }
+    },
+    {
+      "id": 128,
+      "file": "mem/const/test/ConstQueueRTL_test.py",
+      "function": "test_const_queue",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": false,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_static_const_queue",
+          "parameters": {
+            "DATA_BITS": 19,
+            "NUM_CONST": 3,
+            "CONST_WORDS": "57'hf000220004c"
+          },
+          "mode": "native",
+          "coverage": "reviewed_reset_and_valid_payload",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "151a6020c360ef2f90e0727bb3b9c19a1777d190541642b596c7c9e17395dc4e",
+          "build": {
+            "exit_code": 0,
+            "seconds": 3.93,
+            "log": "/workspace/work/original-contract/build/c0b5b45be651296246b6/compile.log",
+            "log_sha256": "118d354cb42a2f6a35aabce187d20d0696de334ad0aef96f029ac7dc91ea55d8"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.0,
+            "log": "evidence/followup/contracts/128/dut000/sv.log",
+            "log_sha256": "062cf609ce04521b4b859ccf61ff619772128e63d6945d1674efbfd41d369d08"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/followup/contracts/128/dut000/negative.log",
+            "log_sha256": "87fd32ef28f0a3d6ad26372a3c9f6f129284618ccd5ded8a14b99d41e339ac0e"
+          },
+          "negative_reset": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/followup/contracts/128/dut000/negative-reset.log",
+            "log_sha256": "2e322c5a6efa0cb186ce5f14b6830938baafb9b999a9dc6456120f651ef28acd"
+          }
+        }
+      ],
+      "acceptance_contract": {
+        "name": "valid_payload_and_explicit_reset",
+        "reset_zero": [
+          "send_const.val"
+        ],
+        "activity": "valid_output_payload",
+        "invalid_payload": "ignored only when matching channel valid is zero",
+        "all_other_outputs": "strictly compared, including reset cycles",
+        "document": "sv/STATIC_MEMORY_API.md"
+      }
+    },
+    {
+      "id": 137,
+      "file": "mem/dma/test/DmaEngineRTL_test.py",
+      "function": "test_dma_mvin_one_beat",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": false,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_dma_engine",
+          "parameters": {
+            "SPM_DATA_W": 32,
+            "DRAM_DATA_W": 128,
+            "DRAM_ADDR_W": 64,
+            "SPM_ADDR_W": 32,
+            "BYTES_W": 32,
+            "TAG_W": 8
+          },
+          "mode": "native",
+          "coverage": "reviewed_reset_and_valid_payload",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "4a22aa6184e116190e8972dcd95a1036821a1c210095c2083f6220a7d1bd7f26",
+          "build": {
+            "exit_code": 0,
+            "seconds": 3.68,
+            "log": "/workspace/work/original-contract/build/708409141da4dcbb9fbe/compile.log",
+            "log_sha256": "2a809c921a7c6324affb5845db072b3e814655f559bcbcad078215b856239399"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/followup/contracts/137/dut000/sv.log",
+            "log_sha256": "6991ef5590753ef6df0a03de75575e56ece07b094e492b02d30dc07fa02a4894"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.01,
+            "log": "evidence/followup/contracts/137/dut000/negative.log",
+            "log_sha256": "3c035ba36dd4e8e1d9167146d128e093778881458fc67deda14f70643f7f004e"
+          },
+          "negative_reset": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/followup/contracts/137/dut000/negative-reset.log",
+            "log_sha256": "1e399aa869389197be226372f4b1bc2e2f3288f5016e3909833d17325e7ce545"
+          }
+        }
+      ],
+      "acceptance_contract": {
+        "name": "valid_payload_and_explicit_reset",
+        "reset_zero": [
+          "dma_cmd.rdy"
+        ],
+        "activity": "valid_output_payload",
+        "invalid_payload": "ignored only when matching channel valid is zero",
+        "all_other_outputs": "strictly compared, including reset cycles",
+        "document": "sv/MEMORY_BOUNDARIES.md"
+      }
+    },
+    {
+      "id": 138,
+      "file": "mem/dma/test/DmaEngineRTL_test.py",
+      "function": "test_dma_mvout_partial_beat",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": false,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_dma_engine",
+          "parameters": {
+            "SPM_DATA_W": 32,
+            "DRAM_DATA_W": 128,
+            "DRAM_ADDR_W": 64,
+            "SPM_ADDR_W": 32,
+            "BYTES_W": 32,
+            "TAG_W": 8
+          },
+          "mode": "native",
+          "coverage": "reviewed_reset_and_valid_payload",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "3acb08e89405929aa3b51a1053d956913e27de876d5878b4a98dbd87cfe3d72d",
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.0,
+            "log": "evidence/followup/contracts/138/dut000/sv.log",
+            "log_sha256": "302a30b02ddb908ab0a2a7fdd93321e3b5a8d71607693986d2f4456980f85d5d"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/followup/contracts/138/dut000/negative.log",
+            "log_sha256": "31447d8b2eead5e886f4f5260bf728b498cf012302d620139c2cf33b768dcd17"
+          },
+          "negative_reset": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/followup/contracts/138/dut000/negative-reset.log",
+            "log_sha256": "dd9a7bd859f544582bb36b6da0d7db75c464388de7de3dfe54c46061a1799d3b"
+          }
+        }
+      ],
+      "acceptance_contract": {
+        "name": "valid_payload_and_explicit_reset",
+        "reset_zero": [
+          "dma_cmd.rdy"
+        ],
+        "activity": "valid_output_payload",
+        "invalid_payload": "ignored only when matching channel valid is zero",
+        "all_other_outputs": "strictly compared, including reset cycles",
+        "document": "sv/MEMORY_BOUNDARIES.md"
+      }
+    },
+    {
+      "id": 139,
+      "file": "mem/dma/test/DmaEngineRTL_test.py",
+      "function": "test_dma_mvout_full_beat",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": false,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_dma_engine",
+          "parameters": {
+            "SPM_DATA_W": 32,
+            "DRAM_DATA_W": 128,
+            "DRAM_ADDR_W": 64,
+            "SPM_ADDR_W": 32,
+            "BYTES_W": 32,
+            "TAG_W": 8
+          },
+          "mode": "native",
+          "coverage": "reviewed_reset_and_valid_payload",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "11538ed7c72cd7a9f7c5349518bcdf7d39525c699ab79bd39b7e362fdb398b1c",
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/followup/contracts/139/dut000/sv.log",
+            "log_sha256": "7a4b4aa4cd3afbb26424a7bf394c2ccd906a5b91757e5b70c9b1fad39fe56772"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.01,
+            "log": "evidence/followup/contracts/139/dut000/negative.log",
+            "log_sha256": "9b7f7ee02215878adfaf17d1aed4e6e66da0a9052218ef987d663fc93c8906d8"
+          },
+          "negative_reset": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/followup/contracts/139/dut000/negative-reset.log",
+            "log_sha256": "24a5e38a3324dca71d397184d3fe79deeb061ed7d703e176efe3fb63614e356a"
+          }
+        }
+      ],
+      "acceptance_contract": {
+        "name": "valid_payload_and_explicit_reset",
+        "reset_zero": [
+          "dma_cmd.rdy"
+        ],
+        "activity": "valid_output_payload",
+        "invalid_payload": "ignored only when matching channel valid is zero",
+        "all_other_outputs": "strictly compared, including reset cycles",
+        "document": "sv/MEMORY_BOUNDARIES.md"
+      }
+    },
+    {
+      "id": 140,
+      "file": "mem/dma/test/DmaEngineRTL_test.py",
+      "function": "test_dma_mvin_configurable_partial_second_beat",
+      "parameters": {
+        "dram_data_nbits": 96
+      },
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": false,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_dma_engine",
+          "parameters": {
+            "SPM_DATA_W": 32,
+            "DRAM_DATA_W": 96,
+            "DRAM_ADDR_W": 64,
+            "SPM_ADDR_W": 32,
+            "BYTES_W": 32,
+            "TAG_W": 8
+          },
+          "mode": "native",
+          "coverage": "reviewed_reset_and_valid_payload",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "ee2b32d263735b063fdc4ce3d60d397c0e54299d607c8da2eb5f32bb0d62ed31",
+          "build": {
+            "exit_code": 0,
+            "seconds": 3.13,
+            "log": "/workspace/work/original-contract/build/50f977d4e04b95c760d1/compile.log",
+            "log_sha256": "09165c6947c73d73dde265aa02158f6c3f8c28a0b1e242c043eef7df5d5e642f"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/followup/contracts/140/dut000/sv.log",
+            "log_sha256": "49774cb45b8c5f24190a9f284d7ddc89b9a3a526584724df907d4870384180e1"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/followup/contracts/140/dut000/negative.log",
+            "log_sha256": "c4cfad97ed0021c33b60f294cb352a0498112526b44465c100a2ad279759e322"
+          },
+          "negative_reset": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/followup/contracts/140/dut000/negative-reset.log",
+            "log_sha256": "fe065dfdf33976d8e40ab1dafbea3e2ab2e76a23d34edaf3046d2f110e91e261"
+          }
+        }
+      ],
+      "acceptance_contract": {
+        "name": "valid_payload_and_explicit_reset",
+        "reset_zero": [
+          "dma_cmd.rdy"
+        ],
+        "activity": "valid_output_payload",
+        "invalid_payload": "ignored only when matching channel valid is zero",
+        "all_other_outputs": "strictly compared, including reset cycles",
+        "document": "sv/MEMORY_BOUNDARIES.md"
+      }
+    },
+    {
+      "id": 141,
+      "file": "mem/dma/test/DmaEngineRTL_test.py",
+      "function": "test_dma_mvin_configurable_partial_second_beat",
+      "parameters": {
+        "dram_data_nbits": 256
+      },
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": false,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_dma_engine",
+          "parameters": {
+            "SPM_DATA_W": 32,
+            "DRAM_DATA_W": 256,
+            "DRAM_ADDR_W": 64,
+            "SPM_ADDR_W": 32,
+            "BYTES_W": 32,
+            "TAG_W": 8
+          },
+          "mode": "native",
+          "coverage": "reviewed_reset_and_valid_payload",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "22df8b0ddc70535129a08d23b6b5ccecea47675b1cbfc71c348cd2137cce24b4",
+          "build": {
+            "exit_code": 0,
+            "seconds": 3.83,
+            "log": "/workspace/work/original-contract/build/6cf827efcb602edc43f0/compile.log",
+            "log_sha256": "02a97dcba309da4014944721a96dd06e4c6b5cb5fb6cfca7540a9bb6768cc6d3"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/followup/contracts/141/dut000/sv.log",
+            "log_sha256": "14030fa649564b162539d399c438c9c7400dfdcd7ddf31ebae7f93620576e1c8"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.01,
+            "log": "evidence/followup/contracts/141/dut000/negative.log",
+            "log_sha256": "90df1c99ae6b01478f7237792cad29227d0d0449f3152fc731ae91b77749e7ac"
+          },
+          "negative_reset": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/followup/contracts/141/dut000/negative-reset.log",
+            "log_sha256": "cb5ce5581bcb0ceb4f19f982a99ad506a4197ed45e3a26e5c55bf3b9685667ca"
+          }
+        }
+      ],
+      "acceptance_contract": {
+        "name": "valid_payload_and_explicit_reset",
+        "reset_zero": [
+          "dma_cmd.rdy"
+        ],
+        "activity": "valid_output_payload",
+        "invalid_payload": "ignored only when matching channel valid is zero",
+        "all_other_outputs": "strictly compared, including reset cycles",
+        "document": "sv/MEMORY_BOUNDARIES.md"
+      }
+    },
+    {
+      "id": 142,
+      "file": "mem/dma/test/DmaEngineRTL_test.py",
+      "function": "test_dma_mvout_configurable_partial_second_beat",
+      "parameters": {
+        "dram_data_nbits": 96
+      },
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": false,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_dma_engine",
+          "parameters": {
+            "SPM_DATA_W": 32,
+            "DRAM_DATA_W": 96,
+            "DRAM_ADDR_W": 64,
+            "SPM_ADDR_W": 32,
+            "BYTES_W": 32,
+            "TAG_W": 8
+          },
+          "mode": "native",
+          "coverage": "reviewed_reset_and_valid_payload",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "f04ec9982a3246970d36f12e439a01a05d9b3469baea0faafd59e0298005a69c",
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/followup/contracts/142/dut000/sv.log",
+            "log_sha256": "8b2c0957bf572d2b06f6cf0b0a59590ce919d99a3c4cd586fd02159b0b689018"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.01,
+            "log": "evidence/followup/contracts/142/dut000/negative.log",
+            "log_sha256": "997caec88cea06fd8b6cbc94c11e7bfd708eccf38affe5070d35126aec2239ca"
+          },
+          "negative_reset": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/followup/contracts/142/dut000/negative-reset.log",
+            "log_sha256": "5b3feeb8dbb4d13b4ad5a81db123af2c89e5f9e8456dd9cb842a97d26873da39"
+          }
+        }
+      ],
+      "acceptance_contract": {
+        "name": "valid_payload_and_explicit_reset",
+        "reset_zero": [
+          "dma_cmd.rdy"
+        ],
+        "activity": "valid_output_payload",
+        "invalid_payload": "ignored only when matching channel valid is zero",
+        "all_other_outputs": "strictly compared, including reset cycles",
+        "document": "sv/MEMORY_BOUNDARIES.md"
+      }
+    },
+    {
+      "id": 143,
+      "file": "mem/dma/test/DmaEngineRTL_test.py",
+      "function": "test_dma_mvout_configurable_partial_second_beat",
+      "parameters": {
+        "dram_data_nbits": 256
+      },
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": false,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_dma_engine",
+          "parameters": {
+            "SPM_DATA_W": 32,
+            "DRAM_DATA_W": 256,
+            "DRAM_ADDR_W": 64,
+            "SPM_ADDR_W": 32,
+            "BYTES_W": 32,
+            "TAG_W": 8
+          },
+          "mode": "native",
+          "coverage": "reviewed_reset_and_valid_payload",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "dc712698bad38c5f9ca39f5e967b079764e74cf4eaac79390d8a5eb2033f2fae",
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/followup/contracts/143/dut000/sv.log",
+            "log_sha256": "2b02bf32c1b7e8e5f286b28507d91ffdf9adfe36fcf23289cf2683630387f158"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.01,
+            "log": "evidence/followup/contracts/143/dut000/negative.log",
+            "log_sha256": "533693b00d225221a45fc7fb121876703962eeac746b499e48f815dcaf3f76ab"
+          },
+          "negative_reset": {
+            "exit_code": -6,
+            "seconds": 0.01,
+            "log": "evidence/followup/contracts/143/dut000/negative-reset.log",
+            "log_sha256": "1e6eb8a9cc66cfc159c5bc53ff95f6eb1337972b5cdc47cba5d2b7d275109fca"
+          }
+        }
+      ],
+      "acceptance_contract": {
+        "name": "valid_payload_and_explicit_reset",
+        "reset_zero": [
+          "dma_cmd.rdy"
+        ],
+        "activity": "valid_output_payload",
+        "invalid_payload": "ignored only when matching channel valid is zero",
+        "all_other_outputs": "strictly compared, including reset cycles",
+        "document": "sv/MEMORY_BOUNDARIES.md"
+      }
+    }
+  ],
+  "native_functional_checks": [
+    {
+      "exit_code": 0,
+      "seconds": 0.97,
+      "log": "/workspace/work/original-native-review/arithmetic/ieee_math.log",
+      "log_sha256": "31b5cb37001bd2b0257978727e376b10cf5972944b4582beb0bf8e5dc3e7b0c9",
+      "name": "ieee_math",
+      "case_ids": [
+        42,
+        43
+      ],
+      "argv": [
+        "bash",
+        "sv/tests/current/run_native_math.sh"
+      ],
+      "variables": {},
+      "status": "passed",
+      "test_sha256": "be448d2ab36ee35a80c7fb09b94ca256eeeca9ada44836ca4434fe0253207b09",
+      "evidence": {
+        "path": "evidence/followup/native/ieee_math.log",
+        "sha256": "31b5cb37001bd2b0257978727e376b10cf5972944b4582beb0bf8e5dc3e7b0c9"
+      }
+    },
+    {
+      "exit_code": 0,
+      "seconds": 0.22,
+      "log": "/workspace/work/original-native-review/arithmetic/inclusive_div.log",
+      "log_sha256": "cbc622cd37bbb5b7a28268195107baf7f2f0f8d58f91e6c2c959ed7ce62b4656",
+      "name": "inclusive_div",
+      "case_ids": [
+        95
+      ],
+      "argv": [
+        "bash",
+        "sv/tests/current/run_arithmetic_boundaries.sh"
+      ],
+      "variables": {
+        "ARITHMETIC_PROFILE_FILTER": "inclusive_w32_l4"
+      },
+      "status": "passed",
+      "test_sha256": "57c3b104c6b1bd744a25620731f329af5c555e4f279022fd89d570970049274c",
+      "evidence": {
+        "path": "evidence/followup/native/inclusive_div.log",
+        "sha256": "cbc622cd37bbb5b7a28268195107baf7f2f0f8d58f91e6c2c959ed7ce62b4656"
+      }
+    },
+    {
+      "exit_code": 0,
+      "seconds": 157.37,
+      "log": "/workspace/work/original-native-review/arithmetic/vector_reduce.log",
+      "log_sha256": "f769dcba1948b32077d3e34113023d530942a4e3cafedfa88c923637653d886d",
+      "name": "vector_reduce",
+      "case_ids": [
+        122
+      ],
+      "argv": [
+        "bash",
+        "sv/tests/current/run_vector_reduce.sh"
+      ],
+      "variables": {},
+      "status": "passed",
+      "test_sha256": "79e98cb954c1c896d5f80db17579cad382baf9d36d62f6391f0858d9544e0963",
+      "evidence": {
+        "path": "evidence/followup/native/vector_reduce.log",
+        "sha256": "f769dcba1948b32077d3e34113023d530942a4e3cafedfa88c923637653d886d"
+      }
+    },
+    {
+      "exit_code": 0,
+      "seconds": 143.84,
+      "log": "/workspace/work/original-native-review/arithmetic/vector_arithmetic.log",
+      "log_sha256": "3a30e4d01ed3950a68862ef988540899f1553db65b1ad9134db4726911749fec",
+      "name": "vector_arithmetic",
+      "case_ids": [
+        123
+      ],
+      "argv": [
+        "bash",
+        "sv/tests/current/run_vector_arithmetic.sh"
+      ],
+      "variables": {},
+      "status": "passed",
+      "test_sha256": "7d8264165cc3b3708986884dd5444576b9ea62ac1c2f7c7c5bd22d754ce2c888",
+      "evidence": {
+        "path": "evidence/followup/native/vector_arithmetic.log",
+        "sha256": "3a30e4d01ed3950a68862ef988540899f1553db65b1ad9134db4726911749fec"
+      }
+    },
+    {
+      "exit_code": 0,
+      "seconds": 143.6,
+      "log": "/workspace/work/original-native-review/fabric/memory.log",
+      "log_sha256": "b26953fab4b70a229e0bd775bc955da72134042fd707ad2c8adedd9d163a689e",
+      "name": "memory",
+      "case_ids": [
+        134,
+        135
+      ],
+      "argv": [
+        "bash",
+        "sv/tests/current/run_memory_boundaries.sh"
+      ],
+      "variables": {},
+      "status": "passed",
+      "test_sha256": "4d2d13aa9cf1c4c64ac276f3f9e42c418cfff6d65846aa8fb5752d8592f9b9a6",
+      "evidence": {
+        "path": "evidence/followup/native/memory.log",
+        "sha256": "b26953fab4b70a229e0bd775bc955da72134042fd707ad2c8adedd9d163a689e"
+      }
+    },
+    {
+      "exit_code": 0,
+      "seconds": 50.98,
+      "log": "/workspace/work/original-native-review/fabric/switch.log",
+      "log_sha256": "b862427fc1565bd6464c6414e31bece18e35838fd17b548adc6546fdcce28e25",
+      "name": "switch",
+      "case_ids": [
+        175,
+        176,
+        177,
+        178,
+        179,
+        180,
+        181
+      ],
+      "argv": [
+        "bash",
+        "sv/tests/current/run_noc_primitives.sh"
+      ],
+      "variables": {},
+      "status": "passed",
+      "test_sha256": "e41a0d6cf40725b59056f555c50c513c6c1fac23a0be902b35082362ee9083e6",
+      "evidence": {
+        "path": "evidence/followup/native/switch.log",
+        "sha256": "b862427fc1565bd6464c6414e31bece18e35838fd17b548adc6546fdcce28e25"
+      }
+    }
+  ],
+  "construction": {
+    "id": 3,
+    "file": "cgra/test/CgraRTL_fir_2x2_test.py",
+    "function": "test_homogeneous_2x2_fir_non_combinational_mem_access_no_ctrl_ring",
+    "parameters": {},
+    "status": "passed",
+    "python_status": "passed",
+    "diagnostic_only": false,
+    "replays": [
+      {
+        "trace": "dut000",
+        "module": "cgra_system",
+        "parameters": {
+          "DATA_W": 32,
+          "CTRL_DEPTH": 6,
+          "GLOBAL_ADDR_W": 7,
+          "REG_DEPTH": 16,
+          "TILE_PORTS": 8,
+          "COLS": 2,
+          "ROWS": 2,
+          "MULTI_COLS": 4,
+          "MULTI_ROWS": 1,
+          "BANK_DEPTH": 16,
+          "NUM_BANKS": 2,
+          "NUM_CTRL": 3,
+          "TOTAL_STEPS": 34,
+          "MEM_COMBINATIONAL": 0,
+          "FU_COUNT": 12,
+          "FU_KINDS": "96'h31a0d08020a050907060100",
+          "IS_MULTI": 0,
+          "TILE_VARIANT": 0,
+          "TILE_FU_COUNTS": "128'hc0000000c0000000c0000000c",
+          "TILE_FU_KINDS": "384'h31a0d08020a050907060100031a0d08020a050907060100031a0d08020a050907060100031a0d08020a050907060100",
+          "HAS_CTRL_RING": 0
+        },
+        "mode": "native",
+        "native_source_sha256": "8ab07fa38a60729799e38c0d29c9145cd0055b5cb39f61e9cf52e378dc51815c",
+        "trace_sha256": "fa7648c26b49b73da473c24183586e466d20862cee5233c465efa49470151379",
+        "build": {
+          "exit_code": 0,
+          "seconds": 15.77,
+          "log": "/workspace/work/original-no-control-ring/build/46803e7da8cc410267a7/compile.log",
+          "log_sha256": "55599c68c1919780096ca25fb611b13b6853b159dfcd40cc466f7d872fdce8c8"
+        },
+        "run": {
+          "exit_code": 0,
+          "seconds": 0.02,
+          "log": "evidence/followup/construction/3/dut000/sv.log",
+          "log_sha256": "7cb1313b6e38f4f3b95b0884fd0567fd0eb156e296c87ed1b81d10f8deeeb2d1"
+        },
+        "status": "passed",
+        "negative": {
+          "exit_code": -6,
+          "seconds": 0.01,
+          "log": "evidence/followup/construction/3/dut000/negative.log",
+          "log_sha256": "d7fabdaec68b5894593cf5d3697d3fd509066ae466d3c6bc55e718308a52f5a9"
+        }
+      }
+    ],
+    "coverage": "construction_only_original_done_is_unconditional"
+  },
+  "control_ring_regressions": [
+    {
+      "id": 0,
+      "file": "cgra/test/CgraRTL_fir_2x2_loop_counter_test.py",
+      "function": "test_homogeneous_2x2_fir_with_loop_counter_combinational_mem_access_return",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": false,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_system",
+          "parameters": {
+            "DATA_W": 32,
+            "CTRL_DEPTH": 6,
+            "GLOBAL_ADDR_W": 7,
+            "REG_DEPTH": 16,
+            "TILE_PORTS": 8,
+            "COLS": 2,
+            "ROWS": 2,
+            "MULTI_COLS": 4,
+            "MULTI_ROWS": 1,
+            "BANK_DEPTH": 16,
+            "NUM_BANKS": 2,
+            "NUM_CTRL": 3,
+            "TOTAL_STEPS": 34,
+            "MEM_COMBINATIONAL": 1,
+            "FU_COUNT": 13,
+            "FU_KINDS": "104'h30c0e0d08020a050907060100",
+            "IS_MULTI": 0,
+            "TILE_VARIANT": 0,
+            "TILE_FU_COUNTS": "128'hd0000000d0000000d0000000d",
+            "TILE_FU_KINDS": "416'h30c0e0d08020a050907060100030c0e0d08020a050907060100030c0e0d08020a050907060100030c0e0d08020a050907060100"
+          },
+          "mode": "native",
+          "native_source_sha256": "8ab07fa38a60729799e38c0d29c9145cd0055b5cb39f61e9cf52e378dc51815c",
+          "trace_sha256": "ac0e7890d384e0cfe7a9737d29106c8fc886c2d963934eadcdb1b91b89280d4d",
+          "build": {
+            "exit_code": 0,
+            "seconds": 20.61,
+            "log": "/workspace/work/control-ring-regression/build/c59ec7b2c6433b9875eb/compile.log",
+            "log_sha256": "4b8d9785954b2be0d5e3667110bcaa9aaa34bbf321f8f631f56e1da94d02e1f1"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.16,
+            "log": "evidence/followup/regression/0/dut000/sv.log",
+            "log_sha256": "6133ae9f5208820ae0847bc8eb5048ef52b56e18cfd3e391ea30b9d4c6319fa8"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.17,
+            "log": "evidence/followup/regression/0/dut000/negative.log",
+            "log_sha256": "ccfc0f55e670ca2a21a4af2ee1d69066d4f14452ad0a952193f38c8ff02ee68d"
+          },
+          "transaction_evidence": {
+            "path": "evidence/followup/regression/0/dut000/transactions.json",
+            "sha256": "bc74bd85fb449065fb78afffc05a1d4e5235824de38f43a70033cb5eff3dd740"
+          }
+        }
+      ]
+    },
+    {
+      "id": 1,
+      "file": "cgra/test/CgraRTL_fir_2x2_test.py",
+      "function": "test_homogeneous_2x2_fir_combinational_mem_access_return",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": false,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_system",
+          "parameters": {
+            "DATA_W": 32,
+            "CTRL_DEPTH": 6,
+            "GLOBAL_ADDR_W": 7,
+            "REG_DEPTH": 16,
+            "TILE_PORTS": 8,
+            "COLS": 2,
+            "ROWS": 2,
+            "MULTI_COLS": 4,
+            "MULTI_ROWS": 1,
+            "BANK_DEPTH": 16,
+            "NUM_BANKS": 2,
+            "NUM_CTRL": 3,
+            "TOTAL_STEPS": 34,
+            "MEM_COMBINATIONAL": 1,
+            "FU_COUNT": 12,
+            "FU_KINDS": "96'h31a0d08020a050907060100",
+            "IS_MULTI": 0,
+            "TILE_VARIANT": 0,
+            "TILE_FU_COUNTS": "128'hc0000000c0000000c0000000c",
+            "TILE_FU_KINDS": "384'h31a0d08020a050907060100031a0d08020a050907060100031a0d08020a050907060100031a0d08020a050907060100"
+          },
+          "mode": "native",
+          "native_source_sha256": "8ab07fa38a60729799e38c0d29c9145cd0055b5cb39f61e9cf52e378dc51815c",
+          "trace_sha256": "5146c8b2d9554e04ccd9cb5dbbec3315b58f02eea9a46f7e538c807af2060d7f",
+          "build": {
+            "exit_code": 0,
+            "seconds": 22.82,
+            "log": "/workspace/work/control-ring-regression/build/9f70b95e5dfbfa72607e/compile.log",
+            "log_sha256": "1c792bd822b12c2fb11fb00d455d129075a227ba3b226ef532c9f72750ec6ed5"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.16,
+            "log": "evidence/followup/regression/1/dut000/sv.log",
+            "log_sha256": "26362f330419d4ad2bd82d5a5ba8b248ee47ba07f069b128a27821e37c3cbaaa"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.16,
+            "log": "evidence/followup/regression/1/dut000/negative.log",
+            "log_sha256": "1b5d7fae13c7afffe4b8bbb7eb8641574a7e803e13c19d54e70c86f588a6c81d"
+          },
+          "transaction_evidence": {
+            "path": "evidence/followup/regression/1/dut000/transactions.json",
+            "sha256": "9ef85c3940b9331a2f90dca9db9d5507b65694c0dc5724f38c3c2f3273a3c0e6"
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "file": "cgra/test/CgraRTL_fir_2x2_test.py",
+      "function": "test_homogeneous_2x2_fir_non_combinational_mem_access_return",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": false,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_system",
+          "parameters": {
+            "DATA_W": 32,
+            "CTRL_DEPTH": 6,
+            "GLOBAL_ADDR_W": 7,
+            "REG_DEPTH": 16,
+            "TILE_PORTS": 8,
+            "COLS": 2,
+            "ROWS": 2,
+            "MULTI_COLS": 4,
+            "MULTI_ROWS": 1,
+            "BANK_DEPTH": 16,
+            "NUM_BANKS": 2,
+            "NUM_CTRL": 3,
+            "TOTAL_STEPS": 34,
+            "MEM_COMBINATIONAL": 0,
+            "FU_COUNT": 12,
+            "FU_KINDS": "96'h31a0d08020a050907060100",
+            "IS_MULTI": 0,
+            "TILE_VARIANT": 0,
+            "TILE_FU_COUNTS": "128'hc0000000c0000000c0000000c",
+            "TILE_FU_KINDS": "384'h31a0d08020a050907060100031a0d08020a050907060100031a0d08020a050907060100031a0d08020a050907060100"
+          },
+          "mode": "native",
+          "native_source_sha256": "8ab07fa38a60729799e38c0d29c9145cd0055b5cb39f61e9cf52e378dc51815c",
+          "trace_sha256": "35d5eb8f3bdbe5e5771ec052397ebf7512a2a275fd980b0a5d33c390deb629c7",
+          "build": {
+            "exit_code": 0,
+            "seconds": 26.67,
+            "log": "/workspace/work/control-ring-regression/build/73e14e5fec60c86493a9/compile.log",
+            "log_sha256": "c7dce2d7450c88a9b917fffb26dc4810c768f9e5436f855252e154a33d22be03"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.26,
+            "log": "evidence/followup/regression/2/dut000/sv.log",
+            "log_sha256": "6bfcd5137bab5b50696e726518f1af2382757e68445d174eb5faebb9d2a12dea"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.21,
+            "log": "evidence/followup/regression/2/dut000/negative.log",
+            "log_sha256": "1aa654854b541569b8ef1cd63bc1ad4e40f1e93e9c5209e371a365f181313c0c"
+          },
+          "transaction_evidence": {
+            "path": "evidence/followup/regression/2/dut000/transactions.json",
+            "sha256": "d3761603557f543c6eee3a907b93886b02fc64c0ccf16184f254014f241b2d54"
+          }
+        }
+      ]
+    }
+  ],
+  "supplementary_ring": {
+    "id": 166,
+    "file": "multi_cgra/test/RingMultiCgraRTL_test.py",
+    "function": "test_homo_1x4",
+    "parameters": {},
+    "status": "passed",
+    "python_status": "passed",
+    "diagnostic_only": true,
+    "reference_variant": "supplemental_ring_remote_program",
+    "replays": [
+      {
+        "trace": "dut000",
+        "module": "cgra_multi",
+        "parameters": {
+          "DATA_W": 32,
+          "CTRL_DEPTH": 6,
+          "GLOBAL_ADDR_W": 5,
+          "REG_DEPTH": 16,
+          "TILE_PORTS": 4,
+          "COLS": 2,
+          "ROWS": 2,
+          "MULTI_COLS": 4,
+          "MULTI_ROWS": 1,
+          "BANK_DEPTH": 4,
+          "NUM_BANKS": 2,
+          "NUM_CTRL": 6,
+          "TOTAL_STEPS": 6,
+          "MEM_COMBINATIONAL": 1,
+          "FU_COUNT": 3,
+          "FU_KINDS": "24'h30002",
+          "CUSTOM_ADDR_MAP": 1,
+          "ADDR_MAP": "8'he4",
+          "TOPOLOGY": 1,
+          "TILE_VARIANT": 0
+        },
+        "mode": "native",
+        "native_source_sha256": "8ab07fa38a60729799e38c0d29c9145cd0055b5cb39f61e9cf52e378dc51815c",
+        "trace_sha256": "9047f225dde7ed850a6fb0caa55297bfdc1dab265ffdbb08662c60513d328bd3",
+        "run": {
+          "exit_code": 0,
+          "seconds": 0.26,
+          "log": "evidence/followup/ring/166/dut000/sv.log",
+          "log_sha256": "5ce96e5fb11efcaff0651924cb8aaa3984dc51ef916db1a9dce85b1bbae4dcb1"
+        },
+        "status": "passed",
+        "negative": {
+          "exit_code": -6,
+          "seconds": 0.16,
+          "log": "evidence/followup/ring/166/dut000/negative.log",
+          "log_sha256": "b9b7b7d914f91d8df2545e4ffe105223ccc9dffc2e948ad12a754d93cd5283d4"
+        },
+        "transaction_evidence": {
+          "path": "evidence/followup/ring/166/dut000/transactions.json",
+          "sha256": "fbc0c7a84d99d0d1f7be4cd6d315d69c26d93339e72f3a1d30a3242ae9e750a8"
+        }
+      }
+    ],
+    "python_reference": {
+      "status": "passed",
+      "source_sha256": "7081e7132f63325320f57aaa52838b516cacc621fc9eb29c72d609a43a50a5e5",
+      "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+      "source_files_checked": 274,
+      "reference_variant": "supplemental_ring_remote_program",
+      "captures": [
+        "dut000"
+      ],
+      "description": "CGRA0 tile0 loads CGRA3 address24, computes 4*(seed+2), stores address25, completes, then host reads address25",
+      "seed": 3,
+      "original_program_diagnosis": {
+        "configuration_destinations": {
+          "0": 24
+        },
+        "launch_destinations": {
+          "0": 4
+        },
+        "first_fu_selectors": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "first_routing_to_operands": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "first_register_read_directions": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "explanation": "All four copied programs target tile0; the first INC has neither an operand route nor an enabled register read."
+      },
+      "cycles": 69,
+      "expected_value": 20,
+      "output_words": [
+        "0x200000380000000000000000000000000000000000000000",
+        "0x2660002c0000005264000000000000000000000000000000"
+      ]
+    },
+    "backpressure": {
+      "exit_code": 0,
+      "seconds": 0.26,
+      "log": "/workspace/work/ring-completion-reference/166/backpressure.log",
+      "log_sha256": "879e3f0f23423ab5f6365b6c2d322d4343bae8d704bbc9bd7cb53e8bed9de398",
+      "status": "passed",
+      "evidence": {
+        "path": "evidence/followup/ring/backpressure.log",
+        "sha256": "879e3f0f23423ab5f6365b6c2d322d4343bae8d704bbc9bd7cb53e8bed9de398"
+      }
+    },
+    "frozen_replay": {
+      "id": 166,
+      "file": "multi_cgra/test/RingMultiCgraRTL_test.py",
+      "function": "test_homo_1x4",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "reference_variant": "supplemental_ring_remote_program",
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_multi",
+          "parameters": {
+            "DATA_W": 32,
+            "CTRL_DEPTH": 6,
+            "GLOBAL_ADDR_W": 5,
+            "REG_DEPTH": 16,
+            "TILE_PORTS": 4,
+            "COLS": 2,
+            "ROWS": 2,
+            "MULTI_COLS": 4,
+            "MULTI_ROWS": 1,
+            "BANK_DEPTH": 4,
+            "NUM_BANKS": 2,
+            "NUM_CTRL": 6,
+            "TOTAL_STEPS": 6,
+            "MEM_COMBINATIONAL": 1,
+            "FU_COUNT": 3,
+            "FU_KINDS": "24'h30002",
+            "CUSTOM_ADDR_MAP": 1,
+            "ADDR_MAP": "8'he4",
+            "TOPOLOGY": 1,
+            "TILE_VARIANT": 0
+          },
+          "mode": "native",
+          "native_source_sha256": "8ab07fa38a60729799e38c0d29c9145cd0055b5cb39f61e9cf52e378dc51815c",
+          "trace_sha256": "9047f225dde7ed850a6fb0caa55297bfdc1dab265ffdbb08662c60513d328bd3",
+          "build": {
+            "exit_code": 0,
+            "seconds": 39.1,
+            "log": "/workspace/work/ring-frozen-check/build/e7090e900950ba441218/compile.log",
+            "log_sha256": "a54d113719ddd850ef8f8b3e0a8f1aa2d20ce6d205d794ade5d0b31f864b62eb"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.26,
+            "log": "evidence/followup/ring-frozen/166/dut000/sv.log",
+            "log_sha256": "6aceee7d58160301f6d2fef9fb0c9ace739e61139439dcffb86f729314f7cbd0"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.16,
+            "log": "evidence/followup/ring-frozen/166/dut000/negative.log",
+            "log_sha256": "dafbdd6d8f4e5e3a21b5307863656f50602596dec37b9666ed52ee92d5efdc83"
+          },
+          "transaction_evidence": {
+            "path": "evidence/followup/ring-frozen/166/dut000/transactions.json",
+            "sha256": "fbc0c7a84d99d0d1f7be4cd6d315d69c26d93339e72f3a1d30a3242ae9e750a8"
+          }
+        }
+      ]
+    }
+  },
+  "matrix": {
+    "schema": 1,
+    "python_equivalence": false,
+    "checks": [
+      {
+        "exit_code": -6,
+        "seconds": 3.59,
+        "log": "/workspace/work/matrix-counterexamples/gemm/original_program/run.log",
+        "log_sha256": "f77352b50c65b858aca856cea7f6b8f97662b716ff2885ae9c5c5cfbd1aa7cc0",
+        "kernel": "gemm",
+        "variant": "original_program",
+        "expected_counterexample": true,
+        "program_sha256": "86f0b901ece3ef3e26b750150c0afb6263ba986d6bd808b0d81e207ebeca4b96",
+        "evidence": {
+          "path": "evidence/followup/matrix/gemm/original_program/run.log",
+          "sha256": "f77352b50c65b858aca856cea7f6b8f97662b716ff2885ae9c5c5cfbd1aa7cc0"
+        },
+        "program": {
+          "path": "evidence/followup/matrix/gemm/original_program/program.hex",
+          "sha256": "86f0b901ece3ef3e26b750150c0afb6263ba986d6bd808b0d81e207ebeca4b96"
+        }
+      },
+      {
+        "exit_code": -6,
+        "seconds": 2.18,
+        "log": "/workspace/work/matrix-counterexamples/gemm/without_register_retention/run.log",
+        "log_sha256": "8ad0c3fd7d235ee4eafb096ea0b5835a0e9528fe580a297b9b5cd0d1adfb709e",
+        "kernel": "gemm",
+        "variant": "without_register_retention",
+        "expected_counterexample": true,
+        "program_sha256": "30f2502f1ba68598c8e668abbde704d83189d2f6f31eea606c13412c69571195",
+        "evidence": {
+          "path": "evidence/followup/matrix/gemm/without_register_retention/run.log",
+          "sha256": "8ad0c3fd7d235ee4eafb096ea0b5835a0e9528fe580a297b9b5cd0d1adfb709e"
+        },
+        "program": {
+          "path": "evidence/followup/matrix/gemm/without_register_retention/program.hex",
+          "sha256": "30f2502f1ba68598c8e668abbde704d83189d2f6f31eea606c13412c69571195"
+        }
+      },
+      {
+        "exit_code": -6,
+        "seconds": 0.72,
+        "log": "/workspace/work/matrix-counterexamples/gemm/without_stride/run.log",
+        "log_sha256": "7fac755332a695459894de245fde052a7e2ad14f000586a95e6b57d965e25698",
+        "kernel": "gemm",
+        "variant": "without_stride",
+        "expected_counterexample": true,
+        "program_sha256": "1b52b82581d5456d086c3013c0ba608d1be1fc13fd4758353a4838be222113fc",
+        "evidence": {
+          "path": "evidence/followup/matrix/gemm/without_stride/run.log",
+          "sha256": "7fac755332a695459894de245fde052a7e2ad14f000586a95e6b57d965e25698"
+        },
+        "program": {
+          "path": "evidence/followup/matrix/gemm/without_stride/program.hex",
+          "sha256": "1b52b82581d5456d086c3013c0ba608d1be1fc13fd4758353a4838be222113fc"
+        }
+      },
+      {
+        "exit_code": -6,
+        "seconds": 2.12,
+        "log": "/workspace/work/matrix-counterexamples/gemv/original_program/run.log",
+        "log_sha256": "284afbdd67cfa8c805d147aca622394549359e0ad7c2835f26776efa9351b00d",
+        "kernel": "gemv",
+        "variant": "original_program",
+        "expected_counterexample": true,
+        "program_sha256": "059ce366e7028602f5c0a43f0eb4cdb22096a4284e05e1958f081a74ff706952",
+        "evidence": {
+          "path": "evidence/followup/matrix/gemv/original_program/run.log",
+          "sha256": "284afbdd67cfa8c805d147aca622394549359e0ad7c2835f26776efa9351b00d"
+        },
+        "program": {
+          "path": "evidence/followup/matrix/gemv/original_program/program.hex",
+          "sha256": "059ce366e7028602f5c0a43f0eb4cdb22096a4284e05e1958f081a74ff706952"
+        }
+      },
+      {
+        "exit_code": -6,
+        "seconds": 2.12,
+        "log": "/workspace/work/matrix-counterexamples/gemv/without_register_retention/run.log",
+        "log_sha256": "284afbdd67cfa8c805d147aca622394549359e0ad7c2835f26776efa9351b00d",
+        "kernel": "gemv",
+        "variant": "without_register_retention",
+        "expected_counterexample": true,
+        "program_sha256": "6dc75e771db717f106c901ef6507e85bb409d60ed9a665be4ecb160ab2ea818f",
+        "evidence": {
+          "path": "evidence/followup/matrix/gemv/without_register_retention/run.log",
+          "sha256": "284afbdd67cfa8c805d147aca622394549359e0ad7c2835f26776efa9351b00d"
+        },
+        "program": {
+          "path": "evidence/followup/matrix/gemv/without_register_retention/program.hex",
+          "sha256": "6dc75e771db717f106c901ef6507e85bb409d60ed9a665be4ecb160ab2ea818f"
+        }
+      }
+    ],
+    "corrected_native_programs": {
+      "path": "evidence/followup/matrix/native-math.log",
+      "sha256": "2c57d17bb200c3e895e7497a0bba00bbd4ee4c846c89335041f29366c7ce41f9"
+    },
+    "regenerated_artifacts": [
+      {
+        "kernel": "gemm",
+        "file": "program.hex",
+        "identical": true,
+        "sha256": "acb262dfb836395fc2c408043d133e2a291b625b7e2dc2b18d3df6d6561b3635"
+      },
+      {
+        "kernel": "gemm",
+        "file": "return.hex",
+        "identical": true,
+        "sha256": "ed019b8b6d89111629fed4a3bfb4992e41ab8b582c723d6760d9a23414914821"
+      },
+      {
+        "kernel": "gemm",
+        "file": "expected.hex",
+        "identical": true,
+        "sha256": "e029c12631fcbe5cfff69927a31f4a1fb1cb76a2f61d31297f5a3ee6e48c3d38"
+      },
+      {
+        "kernel": "gemm",
+        "file": "verilator.args",
+        "identical": true,
+        "sha256": "ddc36bbe79b18665172b9b2cf8f32be153ce0638f9c7738638dcdb2cd3ac7e2c"
+      },
+      {
+        "kernel": "gemv",
+        "file": "program.hex",
+        "identical": true,
+        "sha256": "708bae45d03016541df087cbdf2713965bbab44755e6be53afb2c0409aa792a4"
+      },
+      {
+        "kernel": "gemv",
+        "file": "return.hex",
+        "identical": true,
+        "sha256": "84173c7a5a5ddf19c96316f7264fbb96d9b8da9a022d3eb28f4c61ffce7172fa"
+      },
+      {
+        "kernel": "gemv",
+        "file": "expected.hex",
+        "identical": true,
+        "sha256": "e305233037e38a1e93f8d7b694811a32972aad5c6d953d9c97a214e00c2a5c99"
+      },
+      {
+        "kernel": "gemv",
+        "file": "verilator.args",
+        "identical": true,
+        "sha256": "876880519cb81783d83ad891452cfb041d762e08fcfe7225697eefd439a85081"
+      },
+      {
+        "kernel": "spmv",
+        "file": "program.hex",
+        "identical": true,
+        "sha256": "089f6bb6650ea328009c0ef2d90fe0a9f911403d21e997f2509b165488e6b71b"
+      },
+      {
+        "kernel": "spmv",
+        "file": "return.hex",
+        "identical": true,
+        "sha256": "035d6282e70c004a4a3872faa6a1a3cec1bb573682a07018d9168134cbc11e3e"
+      },
+      {
+        "kernel": "spmv",
+        "file": "expected.hex",
+        "identical": true,
+        "sha256": "4e04b2ca4e128aa6547ca17f7cc93c16733e481fd9d89a3b18b7cdf6cd07a752"
+      },
+      {
+        "kernel": "spmv",
+        "file": "verilator.args",
+        "identical": true,
+        "sha256": "0fa1aef9791a9da9b6950471f86f76480469252ae3ea3c43d8039609f0f1dbde"
+      }
+    ]
+  },
+  "runner_guards": {
+    "path": "evidence/followup/runner-guards.log",
+    "sha256": "b06d0706deb50f4256ebb08ce92ee66beb13c6c96b1f07195b4fa1a70fa97262"
+  },
+  "tool_files_sha256": {
+    "sv/migration_tools/original_test_capture.py": "25aba4cfd3300c762c1ec5b4241e7642a05da692330aa286cc148a1acd6d7311",
+    "sv/migration_tools/original_test_profiles.py": "318e49158e88e74b79c8d76863c6093bbe286085d726bbe1f0b43c71731af46b",
+    "sv/migration_tools/ring_completion_reference.py": "22dfab0b58799213c3708f19f580e997394d9f9e7467c2a356827ca497b5d942",
+    "sv/tests/original/check_runner.py": "931a7f43e28ade6bf76c0191724a0f7044f1b7c2e70d7ae94bc47a526a276b90",
+    "sv/tests/original/contracts.py": "5f817abc1d3f7be88d7dae16baf5d07b9c0f203606acad6d7976af576210464f",
+    "sv/tests/original/followup_report.py": "08382ca07dda78f8016800f213ed7e7cb0108fc76782791d0101ceb98cc27a06",
+    "sv/tests/original/freeze.py": "97dfd0d04351eb959e3beb8c0bf104ca69b504c5f89b317de29e3771fc6e9990",
+    "sv/tests/original/matrix_counterexamples.py": "598f673831998a99c7269cc92bdc5ddad8d27247f843f5a165876e6c7a7ad077",
+    "sv/tests/original/report.py": "a7c377cbc5864f5838b5ea8f5e27a1f0288da1788f770dafe2e1c62dcc305a53",
+    "sv/tests/original/review_native.py": "b24940e4b67e4dc40963c7db66d9c7174003ff2a2e90ee4795ad5ff53b99cd86",
+    "sv/tests/original/run.py": "e61c49bed3a7657ee6d5833e3933787b1a08040f474cd943bad37ffb010c8d6e",
+    "sv/tests/original/transactions.py": "f2ab264f348709f45e19aec61aa093df236dc99958edcb1491ff1408a64f503b"
+  }
+}

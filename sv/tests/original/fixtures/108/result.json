@@ -1,0 +1,23 @@
+{
+  "case": {
+    "id": 108,
+    "group": "fu",
+    "file": "fu/single/test/MulRTL_test.py",
+    "function": "test_mul0",
+    "parameters": {
+      "input_a": 3,
+      "input_b": 3
+    },
+    "classes": [
+      "MulRTL"
+    ],
+    "source_sha256": "10ab2b0f75a22d688ce6f31321d5031ebb2f7b2c7bcbad04faa38c6817543cef"
+  },
+  "status": "passed",
+  "source_sha256": "10ab2b0f75a22d688ce6f31321d5031ebb2f7b2c7bcbad04faa38c6817543cef",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

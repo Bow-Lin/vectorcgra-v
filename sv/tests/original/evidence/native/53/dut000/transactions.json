@@ -1,0 +1,12 @@
+{
+  "original_cycles": 21,
+  "inputs": {
+    "recv_cmd_pkt": 7
+  },
+  "outputs": {
+    "send_pkt": 4
+  },
+  "final_outputs": {
+    "done": 1
+  }
+}

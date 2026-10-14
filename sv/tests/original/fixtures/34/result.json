@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 34,
+    "group": "fu",
+    "file": "fu/double/test/TwoPrlComboRTL_test.py",
+    "function": "test_mul_alu",
+    "parameters": {},
+    "classes": [
+      "PrlMulAdderRTL"
+    ],
+    "source_sha256": "423ec5b9835048fd21ccb3129e04cb0b9da1bb752bc7db6331c041e4a9a2d232"
+  },
+  "status": "passed",
+  "source_sha256": "423ec5b9835048fd21ccb3129e04cb0b9da1bb752bc7db6331c041e4a9a2d232",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

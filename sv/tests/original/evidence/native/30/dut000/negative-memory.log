@@ -1,0 +1,3 @@
+[375000] %Fatal: tb_original.sv:328: Assertion failed in TOP.tb_original: ORIGINAL_MEMORY_MISMATCH bank=0 addr=0 actual=08888888c
+%Error: /workspace/work/original-test-systems/build/f772324160a8f6e73851/tb_original.sv:328: Verilog $stop
+Aborting...

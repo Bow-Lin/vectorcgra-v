@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 123,
+    "group": "fu",
+    "file": "fu/vector/test/VectorMulComboRTL_test.py",
+    "function": "test_vector_mul_combo",
+    "parameters": {},
+    "classes": [
+      "VectorMulComboRTL"
+    ],
+    "source_sha256": "62577c80b747c9b80db5868dc445ff098337e0757de548e1840452d76c6cfbe4"
+  },
+  "status": "passed",
+  "source_sha256": "62577c80b747c9b80db5868dc445ff098337e0757de548e1840452d76c6cfbe4",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

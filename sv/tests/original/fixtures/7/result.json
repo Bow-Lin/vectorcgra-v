@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 7,
+    "group": "systems",
+    "file": "cgra/test/CgraRTL_fir_test.py",
+    "function": "test_homogeneous_4x4_fir_multi_cycle_mem_access_return",
+    "parameters": {},
+    "classes": [
+      "CgraRTL"
+    ],
+    "source_sha256": "38c290c923f5a326665a9ea8ba2cd15e1c33932d0ad1ff1b7f1a9f02ff32067f"
+  },
+  "status": "passed",
+  "source_sha256": "38c290c923f5a326665a9ea8ba2cd15e1c33932d0ad1ff1b7f1a9f02ff32067f",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

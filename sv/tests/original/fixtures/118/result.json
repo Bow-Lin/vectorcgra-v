@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 118,
+    "group": "fu",
+    "file": "fu/single/test/StreamingMemUnitRTL_test.py",
+    "function": "test_streaming_load",
+    "parameters": {},
+    "classes": [
+      "StreamingMemUnitRTL"
+    ],
+    "source_sha256": "f9d4fd806f8e87e08f82f2654756b20d8a9254fae8b609ab45a4935333cbf317"
+  },
+  "status": "passed",
+  "source_sha256": "f9d4fd806f8e87e08f82f2654756b20d8a9254fae8b609ab45a4935333cbf317",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

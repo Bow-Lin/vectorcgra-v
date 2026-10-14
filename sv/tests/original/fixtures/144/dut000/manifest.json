@@ -1,0 +1,126 @@
+{
+  "python_class": "RegisterBankRTL",
+  "arguments": {
+    "DataType": "CgraData_16_1_1_1",
+    "CtrlType": "CGRAConfig_7_4_2_4_4_3_4",
+    "reg_bank_id": 1,
+    "num_registers": 16
+  },
+  "hierarchy": "s.reg_bank",
+  "samples": 11,
+  "edges": 11,
+  "module": "register_bank",
+  "parameters": {
+    "DATA_W": 16,
+    "REG_DEPTH": 16,
+    "TILE_PORTS": 4,
+    "BANK_ID": 1
+  },
+  "mode": "native",
+  "bindings": {},
+  "ports": [
+    {
+      "path": "clear",
+      "name": "clear",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "inport_ctrl_proceed",
+      "name": "inport_ctrl_proceed",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "inport_opt",
+      "name": "inport_opt",
+      "width": 119,
+      "direction": "input"
+    },
+    {
+      "path": "inport_valid[0]",
+      "name": "inport_valid[0]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "inport_valid[1]",
+      "name": "inport_valid[1]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "inport_valid[2]",
+      "name": "inport_valid[2]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "inport_wdata[0]",
+      "name": "inport_wdata[0]",
+      "width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "inport_wdata[1]",
+      "name": "inport_wdata[1]",
+      "width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "inport_wdata[2]",
+      "name": "inport_wdata[2]",
+      "width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "outport_wr_rdy",
+      "name": "outport_wr_rdy",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_to_fu.msg",
+      "name": "send_data_to_fu__msg",
+      "width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_to_fu.rdy",
+      "name": "send_data_to_fu__rdy",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_to_fu.val",
+      "name": "send_data_to_fu__val",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_to_xbar.msg",
+      "name": "send_data_to_xbar__msg",
+      "width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_to_xbar.rdy",
+      "name": "send_data_to_xbar__rdy",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_to_xbar.val",
+      "name": "send_data_to_xbar__val",
+      "width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "87372ac0e58c3576ac73732de74331ae7e58ce5e49e3790e07221866c2a8e593"
+}

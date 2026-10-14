@@ -1,0 +1,5 @@
+ORIGINAL_TRANSACTION_PASS cycles=64
+- /workspace/work/ring-frozen-check/build/e7090e900950ba441218/tb_original.sv:146: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.029 devel
+- Verilator: $finish at 680ns; walltime 0.230 s; speed 2.951 us/s
+- Verilator: cpu 0.230 s on 1 threads; alloced 38 MB

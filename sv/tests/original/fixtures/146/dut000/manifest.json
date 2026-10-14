@@ -1,0 +1,407 @@
+{
+  "python_class": "RegisterClusterRTL",
+  "arguments": {
+    "DataType": "CgraData_16_1_1_1",
+    "CtrlType": "CGRAConfig_7_4_2_4_4_3_4",
+    "num_reg_banks": 4,
+    "num_registers_per_reg_bank": 16
+  },
+  "hierarchy": "s.reg_cluster",
+  "samples": 11,
+  "edges": 11,
+  "module": "register_cluster",
+  "parameters": {
+    "DATA_W": 16,
+    "REG_DEPTH": 16,
+    "TILE_PORTS": 4
+  },
+  "mode": "native",
+  "bindings": {},
+  "ports": [
+    {
+      "path": "clear",
+      "name": "clear",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "inport_ctrl_proceed",
+      "name": "inport_ctrl_proceed",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "inport_opt",
+      "name": "inport_opt",
+      "width": 119,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_const[0].msg",
+      "name": "recv_data_from_const__msg[0]",
+      "width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_const[0].rdy",
+      "name": "recv_data_from_const__rdy[0]",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_from_const[0].val",
+      "name": "recv_data_from_const__val[0]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_const[1].msg",
+      "name": "recv_data_from_const__msg[1]",
+      "width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_const[1].rdy",
+      "name": "recv_data_from_const__rdy[1]",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_from_const[1].val",
+      "name": "recv_data_from_const__val[1]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_const[2].msg",
+      "name": "recv_data_from_const__msg[2]",
+      "width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_const[2].rdy",
+      "name": "recv_data_from_const__rdy[2]",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_from_const[2].val",
+      "name": "recv_data_from_const__val[2]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_const[3].msg",
+      "name": "recv_data_from_const__msg[3]",
+      "width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_const[3].rdy",
+      "name": "recv_data_from_const__rdy[3]",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_from_const[3].val",
+      "name": "recv_data_from_const__val[3]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_fu_crossbar[0].msg",
+      "name": "recv_data_from_fu_crossbar__msg[0]",
+      "width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_fu_crossbar[0].rdy",
+      "name": "recv_data_from_fu_crossbar__rdy[0]",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_from_fu_crossbar[0].val",
+      "name": "recv_data_from_fu_crossbar__val[0]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_fu_crossbar[1].msg",
+      "name": "recv_data_from_fu_crossbar__msg[1]",
+      "width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_fu_crossbar[1].rdy",
+      "name": "recv_data_from_fu_crossbar__rdy[1]",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_from_fu_crossbar[1].val",
+      "name": "recv_data_from_fu_crossbar__val[1]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_fu_crossbar[2].msg",
+      "name": "recv_data_from_fu_crossbar__msg[2]",
+      "width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_fu_crossbar[2].rdy",
+      "name": "recv_data_from_fu_crossbar__rdy[2]",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_from_fu_crossbar[2].val",
+      "name": "recv_data_from_fu_crossbar__val[2]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_fu_crossbar[3].msg",
+      "name": "recv_data_from_fu_crossbar__msg[3]",
+      "width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_fu_crossbar[3].rdy",
+      "name": "recv_data_from_fu_crossbar__rdy[3]",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_from_fu_crossbar[3].val",
+      "name": "recv_data_from_fu_crossbar__val[3]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_routing_crossbar[0].msg",
+      "name": "recv_data_from_routing_crossbar__msg[0]",
+      "width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_routing_crossbar[0].rdy",
+      "name": "recv_data_from_routing_crossbar__rdy[0]",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_from_routing_crossbar[0].val",
+      "name": "recv_data_from_routing_crossbar__val[0]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_routing_crossbar[1].msg",
+      "name": "recv_data_from_routing_crossbar__msg[1]",
+      "width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_routing_crossbar[1].rdy",
+      "name": "recv_data_from_routing_crossbar__rdy[1]",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_from_routing_crossbar[1].val",
+      "name": "recv_data_from_routing_crossbar__val[1]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_routing_crossbar[2].msg",
+      "name": "recv_data_from_routing_crossbar__msg[2]",
+      "width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_routing_crossbar[2].rdy",
+      "name": "recv_data_from_routing_crossbar__rdy[2]",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_from_routing_crossbar[2].val",
+      "name": "recv_data_from_routing_crossbar__val[2]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_routing_crossbar[3].msg",
+      "name": "recv_data_from_routing_crossbar__msg[3]",
+      "width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_from_routing_crossbar[3].rdy",
+      "name": "recv_data_from_routing_crossbar__rdy[3]",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_from_routing_crossbar[3].val",
+      "name": "recv_data_from_routing_crossbar__val[3]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_to_fu[0].msg",
+      "name": "send_data_to_fu__msg[0]",
+      "width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_to_fu[0].rdy",
+      "name": "send_data_to_fu__rdy[0]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_to_fu[0].val",
+      "name": "send_data_to_fu__val[0]",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_to_fu[1].msg",
+      "name": "send_data_to_fu__msg[1]",
+      "width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_to_fu[1].rdy",
+      "name": "send_data_to_fu__rdy[1]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_to_fu[1].val",
+      "name": "send_data_to_fu__val[1]",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_to_fu[2].msg",
+      "name": "send_data_to_fu__msg[2]",
+      "width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_to_fu[2].rdy",
+      "name": "send_data_to_fu__rdy[2]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_to_fu[2].val",
+      "name": "send_data_to_fu__val[2]",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_to_fu[3].msg",
+      "name": "send_data_to_fu__msg[3]",
+      "width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_to_fu[3].rdy",
+      "name": "send_data_to_fu__rdy[3]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_to_fu[3].val",
+      "name": "send_data_to_fu__val[3]",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_to_routing_crossbar[0].msg",
+      "name": "send_data_to_routing_crossbar__msg[0]",
+      "width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_to_routing_crossbar[0].rdy",
+      "name": "send_data_to_routing_crossbar__rdy[0]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_to_routing_crossbar[0].val",
+      "name": "send_data_to_routing_crossbar__val[0]",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_to_routing_crossbar[1].msg",
+      "name": "send_data_to_routing_crossbar__msg[1]",
+      "width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_to_routing_crossbar[1].rdy",
+      "name": "send_data_to_routing_crossbar__rdy[1]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_to_routing_crossbar[1].val",
+      "name": "send_data_to_routing_crossbar__val[1]",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_to_routing_crossbar[2].msg",
+      "name": "send_data_to_routing_crossbar__msg[2]",
+      "width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_to_routing_crossbar[2].rdy",
+      "name": "send_data_to_routing_crossbar__rdy[2]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_to_routing_crossbar[2].val",
+      "name": "send_data_to_routing_crossbar__val[2]",
+      "width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_to_routing_crossbar[3].msg",
+      "name": "send_data_to_routing_crossbar__msg[3]",
+      "width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_to_routing_crossbar[3].rdy",
+      "name": "send_data_to_routing_crossbar__rdy[3]",
+      "width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_to_routing_crossbar[3].val",
+      "name": "send_data_to_routing_crossbar__val[3]",
+      "width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "5a07c3bb1b4c2df551b62db6dae8a8c48525142dfeed1aa755e4f3bb5bb6c14b"
+}

@@ -49,6 +49,10 @@ bash sv/tests/current/run_relu_yaml.sh sv/examples/yaml/relu_neura_pass.yaml
 Base／Context 支持 4 或 8 个物理端口，Streaming 为 8 个。详细公共接口、FU 接线和
 保留的变体语义见 [PE_INTERFACES.md](PE_INTERFACES.md)。参数化不等于任意组合已通过验证。
 
+[参数对应与验收范围](PARAMETERIZATION.md) 逐项区分 Python 构造参数、SV 参数和配置工具入口。
+[跨架构运行结果](tests/parameterization/RESULTS.md) 记录固定 RTL、同一架构不同程序、
+同一数学函数不同架构的运行及原 Python 对照；未通过项和接口缺口独立保留。
+
 架构 JSON 生成静态参数和绑定；程序 JSON 生成控制包、常量、预加载和带 barrier 的
 主机命令。它们不包含通用 DFG 映射器：
 

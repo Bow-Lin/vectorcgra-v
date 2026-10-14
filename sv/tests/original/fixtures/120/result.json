@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 120,
+    "group": "fu",
+    "file": "fu/vector/test/VectorAdderComboRTL_test.py",
+    "function": "test_vector_adder_combo",
+    "parameters": {},
+    "classes": [
+      "VectorAdderComboRTL"
+    ],
+    "source_sha256": "ae43f4e65023d730329e1498576c76ab733f659a9f1d951382ddaa7fe2c45345"
+  },
+  "status": "passed",
+  "source_sha256": "ae43f4e65023d730329e1498576c76ab733f659a9f1d951382ddaa7fe2c45345",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 119,
+    "group": "fu",
+    "file": "fu/triple/test/ThreeMulAluShifterRTL_test.py",
+    "function": "test_mul_alu_shifter",
+    "parameters": {},
+    "classes": [
+      "ThreeMulAdderShifterRTL"
+    ],
+    "source_sha256": "7febc849cb2362ca58300187def7d2f8ad3fdf3fb4e6048db72c41eda3740b91"
+  },
+  "status": "passed",
+  "source_sha256": "7febc849cb2362ca58300187def7d2f8ad3fdf3fb4e6048db72c41eda3740b91",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

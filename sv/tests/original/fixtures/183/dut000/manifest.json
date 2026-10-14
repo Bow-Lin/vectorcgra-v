@@ -1,0 +1,70 @@
+{
+  "python_class": "RegisterRTL",
+  "arguments": {
+    "DataType": "Bits3",
+    "latency": 1
+  },
+  "hierarchy": "s.dut",
+  "samples": 13,
+  "edges": 13,
+  "module": "cgra_channel",
+  "parameters": {
+    "WIDTH": 3,
+    "LATENCY": 1
+  },
+  "mode": "native",
+  "bindings": {},
+  "single_underscore": true,
+  "ports": [
+    {
+      "path": "recv.msg",
+      "name": "recv__msg",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "recv.rdy",
+      "name": "recv__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv.val",
+      "name": "recv__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send.msg",
+      "name": "send__msg",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "send.rdy",
+      "name": "send__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send.val",
+      "name": "send__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "469702fb731c9987185303269d1e46fa40ebd5088b63767e07a3217106296f61"
+}

@@ -1,0 +1,5 @@
+ORIGINAL_TRANSACTION_PASS cycles=124
+- /workspace/work/control-ring-regression/build/73e14e5fec60c86493a9/tb_original.sv:519: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.029 devel
+- Verilator: $finish at 1us; walltime 0.219 s; speed 5.832 us/s
+- Verilator: cpu 0.219 s on 1 threads; alloced 36 MB

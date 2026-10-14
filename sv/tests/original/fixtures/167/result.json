@@ -1,0 +1,21 @@
+{
+  "case": {
+    "id": 167,
+    "group": "systems",
+    "file": "multi_cgra/test/RingNetworkRTL_test.py",
+    "function": "RingNetwork_Tests::test_cgra_data",
+    "parameters": {},
+    "classes": [
+      "RingNetworkRTL"
+    ],
+    "source_sha256": "53712667a5dc839b485bd332319c87edbc008d96d705204b63d830bb99aac9dc"
+  },
+  "status": "passed",
+  "source_sha256": "53712667a5dc839b485bd332319c87edbc008d96d705204b63d830bb99aac9dc",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ],
+  "adapter_errors": []
+}

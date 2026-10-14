@@ -1,0 +1,137 @@
+{
+  "python_class": "MeshMultiCgraRTL",
+  "arguments": {
+    "CgraPayloadType": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr",
+    "cgra_rows": 2,
+    "cgra_columns": 2,
+    "tile_rows": 4,
+    "tile_columns": 4,
+    "ctrl_mem_size": 16,
+    "data_mem_size_global": 128,
+    "data_mem_size_per_bank": 16,
+    "num_banks_per_cgra": 2,
+    "num_registers_per_reg_bank": 16,
+    "num_ctrl": 4,
+    "total_steps": 132,
+    "mem_access_is_combinational": true,
+    "FunctionUnit": "FlexibleFuRTL",
+    "FuList": [
+      "AdderRTL",
+      "MulRTL",
+      "LogicRTL",
+      "ShifterRTL",
+      "PhiRTL",
+      "CompRTL",
+      "GrantRTL",
+      "MemUnitRTL",
+      "SelRTL",
+      "RetRTL",
+      "SeqMulAdderRTL",
+      "VectorMulComboRTL",
+      "VectorAdderComboRTL",
+      "NahRTL"
+    ],
+    "per_cgra_topology": "Mesh",
+    "controller2addr_map": {
+      "0": [
+        0,
+        31
+      ],
+      "1": [
+        32,
+        63
+      ],
+      "2": [
+        64,
+        95
+      ],
+      "3": [
+        96,
+        127
+      ]
+    },
+    "support_task_switching": false
+  },
+  "hierarchy": "s.dut",
+  "samples": 143,
+  "edges": 143,
+  "module": "cgra_multi",
+  "parameters": {
+    "DATA_W": 32,
+    "CTRL_DEPTH": 16,
+    "GLOBAL_ADDR_W": 7,
+    "REG_DEPTH": 16,
+    "TILE_PORTS": 4,
+    "COLS": 4,
+    "ROWS": 4,
+    "MULTI_COLS": 2,
+    "MULTI_ROWS": 2,
+    "BANK_DEPTH": 16,
+    "NUM_BANKS": 2,
+    "NUM_CTRL": 4,
+    "TOTAL_STEPS": 132,
+    "MEM_COMBINATIONAL": 1,
+    "FU_COUNT": 14,
+    "FU_KINDS": "112'h31314160d08020a050907060100",
+    "CUSTOM_ADDR_MAP": 1,
+    "ADDR_MAP": "8'he4",
+    "TOPOLOGY": 0,
+    "TILE_VARIANT": 0
+  },
+  "mode": "native",
+  "bindings": {},
+  "normalize_ctrl": true,
+  "transaction_replay": true,
+  "ports": [
+    {
+      "path": "recv_from_cpu_pkt.msg",
+      "name": "recv_from_cpu_pkt__msg",
+      "width": 198,
+      "original_width": 198,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_cpu_pkt.rdy",
+      "name": "recv_from_cpu_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_cpu_pkt.val",
+      "name": "recv_from_cpu_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_cpu_pkt.msg",
+      "name": "send_to_cpu_pkt__msg",
+      "width": 198,
+      "original_width": 198,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_cpu_pkt.rdy",
+      "name": "send_to_cpu_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_cpu_pkt.val",
+      "name": "send_to_cpu_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "2a8f306f3770ab2dea2263a212f122bac2e390a28a674e3a8221672cce58a3b8"
+}

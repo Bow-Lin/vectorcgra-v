@@ -1,0 +1,1010 @@
+%Warning-TIMESCALEMOD: rtl/common/cgra_types_pkg.sv:5:9: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | package cgra_types_pkg;
+      |         ^~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/TIMESCALEMOD?v=5.029
+                       ... Use "/* verilator lint_off TIMESCALEMOD */" and lint_on around source to disable this message.
+%Warning-TIMESCALEMOD: rtl/common/cgra_register_file.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module cgra_register_file #(
+      |        ^~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/common/cgra_reg_file.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module cgra_reg_file #(
+      |        ^~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/common/cgra_queue.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module cgra_queue #(
+      |        ^~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/common/cgra_channel.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module cgra_channel #(
+      |        ^~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/common/cgra_round_robin.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module cgra_round_robin #(parameter int INPUTS = 2) (
+      |        ^~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/noc/cgra_switch.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module cgra_switch #(
+      |        ^~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/noc/cgra_xbar.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module cgra_xbar #(
+      |        ^~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/noc/cgra_credit_send.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module cgra_credit_send #(
+      |        ^~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/noc/cgra_credit_input.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module cgra_credit_input #(
+      |        ^~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/noc/cgra_credit_recv.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module cgra_credit_recv #(
+      |        ^~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/noc/cgra_ring_route.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module cgra_ring_route #(
+      |        ^~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/noc/cgra_ring_router.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module cgra_ring_router #(
+      |        ^~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/noc/cgra_credit_ring.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module cgra_credit_ring #(
+      |        ^~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/tile_adder.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module tile_adder #(
+      |        ^~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/tile_multiplier.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module tile_multiplier #(
+      |        ^~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/tile_memory_fu.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module tile_memory_fu #(
+      |        ^~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/tile_nah.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module tile_nah #(
+      |        ^~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/tile_flexible_fu.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module tile_flexible_fu #(
+      |        ^~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/mem/const_queue.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module const_queue #(
+      |        ^~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/mem/ctrl_mem.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module ctrl_mem #(
+      |        ^~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/mem/register_bank.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module register_bank #(
+      |        ^~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/mem/register_cluster.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module register_cluster #(
+      |        ^~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/mem/cgra_data_bank.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module cgra_data_bank #(
+      |        ^~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/mem/cgra_data_memory.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module cgra_data_memory #(
+      |        ^~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/tile/tile_static_crossbar.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module tile_static_crossbar #(
+      |        ^~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/tile/tile_link_or.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module tile_link_or #(
+      |        ^~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/tile/tile_core.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module tile_core #(
+      |        ^~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/controller/cgra_global_reduce.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module cgra_global_reduce #(
+      |        ^~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/controller/cgra_controller.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module cgra_controller #(
+      |        ^~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/cgra/cgra_scalar.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module cgra_scalar #(
+      |        ^~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/cgra/cgra_2x2.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module cgra_2x2 (
+      |        ^~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/vendor/hardfloat/HardFloat_primitives.v:43:5: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   43 |     reverse#(parameter width = 1) (
+      |     ^~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/vendor/hardfloat/HardFloat_primitives.v:60:5: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   60 |     lowMaskHiLo#(
+      |     ^~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/vendor/hardfloat/HardFloat_primitives.v:87:5: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   87 |     lowMaskLoHi#(
+      |     ^~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/vendor/hardfloat/HardFloat_primitives.v:114:5: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  114 |     countLeadingZeros#(parameter inWidth = 1, parameter countWidth = 1) (
+      |     ^~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/vendor/hardfloat/HardFloat_primitives.v:142:5: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  142 |     compressBy2#(parameter inWidth = 1) (
+      |     ^~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/vendor/hardfloat/HardFloat_primitives.v:161:5: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  161 |     compressBy4#(parameter inWidth = 1) (
+      |     ^~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/vendor/hardfloat/isSigNaNRecFN.v:43:5: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   43 |     isSigNaNRecFN#(parameter expWidth = 3, parameter sigWidth = 3) (
+      |     ^~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/vendor/hardfloat/HardFloat_specialize.vi:43:5: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   43 |     iNFromException#(parameter width = 1) (
+      |     ^~~~~~~~~~~~~~~
+                       rtl/vendor/hardfloat/HardFloat_rawFN.v:41:1: ... note: In file included from 'HardFloat_rawFN.v'
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/vendor/hardfloat/HardFloat_rawFN.v:50:5: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   50 |     recFNToRawFN#(parameter expWidth = 3, parameter sigWidth = 3) (
+      |     ^~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/vendor/hardfloat/HardFloat_rawFN.v:80:5: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   80 |     roundAnyRawFNToRecFN#(
+      |     ^~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/vendor/hardfloat/HardFloat_rawFN.v:330:5: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  330 |     roundRawFNToRecFN#(
+      |     ^~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/vendor/hardfloat/fNToRecFN.v:43:5: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   43 |     fNToRecFN#(parameter expWidth = 3, parameter sigWidth = 3) (
+      |     ^~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/vendor/hardfloat/recFNToFN.v:49:5: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   49 |     recFNToFN#(parameter expWidth = 3, parameter sigWidth = 3) (
+      |     ^~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/vendor/hardfloat/addRecFN.v:46:5: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   46 |     addRecFNToRaw#(parameter expWidth = 3, parameter sigWidth = 3) (
+      |     ^~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/vendor/hardfloat/addRecFN.v:207:5: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  207 |     addRecFN#(parameter expWidth = 3, parameter sigWidth = 3) (
+      |     ^~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/vendor/hardfloat/mulRecFN.v:46:5: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   46 |     mulRecFNToFullRaw#(parameter expWidth = 3, parameter sigWidth = 3) (
+      |     ^~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/vendor/hardfloat/mulRecFN.v:121:5: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  121 |     mulRecFNToRaw#(parameter expWidth = 3, parameter sigWidth = 3) (
+      |     ^~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/vendor/hardfloat/mulRecFN.v:197:5: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+  197 |     mulRecFN#(parameter expWidth = 3, parameter sigWidth = 3) (
+      |     ^~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/float/cgra_hardfloat_fn.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module cgra_hardfloat_fn #(
+      |        ^~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/float/tile_fp_fu.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module tile_fp_fu #(
+      |        ^~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/float/tile_fp_add.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module tile_fp_add #(
+      |        ^~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/float/tile_fp_mul.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module tile_fp_mul #(
+      |        ^~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/scalar/scalar_comp.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module scalar_comp #(
+      |        ^~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/scalar/scalar_const.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module scalar_const #(
+      |        ^~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/scalar/scalar_div_pipeline.sv:11:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   11 | module scalar_div_stage #(
+      |        ^~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/scalar/scalar_div_pipeline.sv:54:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   54 | module scalar_div_pipeline #(
+      |        ^~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/scalar/scalar_div_native.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module scalar_div_native #(
+      |        ^~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/scalar/scalar_div.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module scalar_div #(
+      |        ^~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/scalar/scalar_exclusive_div.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module scalar_exclusive_div #(
+      |        ^~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/scalar/scalar_extract_predicate.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module scalar_extract_predicate #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/scalar/scalar_gep.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module scalar_gep #(
+      |        ^~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/scalar/scalar_grant.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module scalar_grant #(
+      |        ^~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/scalar/scalar_inclusive_div.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module scalar_inclusive_div #(
+      |        ^~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/scalar/scalar_logic.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module scalar_logic #(
+      |        ^~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/scalar/scalar_loop_control_native.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module scalar_loop_control_native #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/scalar/scalar_loop_control.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module scalar_loop_control #(
+      |        ^~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/scalar/scalar_loop_counter.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module scalar_loop_counter #(
+      |        ^~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/scalar/scalar_phi.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module scalar_phi #(
+      |        ^~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/scalar/scalar_ret.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module scalar_ret #(
+      |        ^~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/scalar/scalar_sel.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module scalar_sel #(
+      |        ^~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/scalar/scalar_shifter.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module scalar_shifter #(
+      |        ^~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/vector/cgra_vector_adder.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module cgra_vector_adder #(
+      |        ^~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/vector/cgra_vector_mul.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module cgra_vector_mul #(
+      |        ^~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/vector/tile_vector_adder_combo.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module tile_vector_adder_combo #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/vector/tile_vector_all_reduce.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module tile_vector_all_reduce #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/vector/tile_vector_mul_combo.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module tile_vector_mul_combo #(
+      |        ^~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/combo/cgra_alu_gen_mac.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module cgra_alu_gen_mac #(parameter bit LEGACY_PYTHON=0) (
+      |        ^~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/combo/cgra_alu_gen_mac_core.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module cgra_alu_gen_mac_core #(parameter bit LEGACY_PYTHON=0) (
+      |        ^~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/combo/cgra_multp.sv:10:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+   10 | module cgra_multp #(
+      |        ^~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/combo/tile_alu_gen_mac.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module tile_alu_gen_mac #(
+      |        ^~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/combo/tile_four_inc_cmp_not_grant.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module tile_four_inc_cmp_not_grant #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/combo/tile_prl_mul_adder.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module tile_prl_mul_adder #(
+      |        ^~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/combo/tile_seq_mul_adder.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module tile_seq_mul_adder #(
+      |        ^~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/combo/tile_seq_mul_shifter.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module tile_seq_mul_shifter #(
+      |        ^~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/combo/tile_three_mul_adder_shifter.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module tile_three_mul_adder_shifter #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/streaming/tile_streaming_memory_fu.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module tile_streaming_memory_fu #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/tile/variants/tile_context_switch.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module tile_context_switch #(
+      |        ^~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/tile/variants/tile_context.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module tile_context #(
+      |        ^~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/tile/variants/tile_streaming.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module tile_streaming #(
+      |        ^~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/tile/variants/tile_variant_const_queue.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module tile_variant_const_queue #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/tile/variants/tile_variant_core.sv:6:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    6 | module tile_variant_core #(
+      |        ^~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/tile/variants/tile_variant_crossbar.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module tile_variant_crossbar #(
+      |        ^~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/tile/variants/tile_variant_ctrl_mem.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module tile_variant_ctrl_mem #(
+      |        ^~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/fu/tile_flexible_fu_configurable.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module tile_flexible_fu_configurable #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/tile/tile_programmable.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module tile_programmable #(
+      |        ^~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/cgra/cgra_programmable.sv:6:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    6 | module cgra_programmable #(
+      |        ^~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/cgra/cgra_system.sv:6:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    6 | module cgra_system #(
+      |        ^~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/noc/inter_cgra/cgra_inter_mesh_route.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module cgra_inter_mesh_route #(
+      |        ^~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/noc/inter_cgra/cgra_inter_mesh_router.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module cgra_inter_mesh_router #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/noc/inter_cgra/cgra_inter_mesh.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module cgra_inter_mesh #(
+      |        ^~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/noc/inter_cgra/cgra_inter_ring.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module cgra_inter_ring #(
+      |        ^~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/cgra/cgra_multi.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module cgra_multi #(
+      |        ^~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/cgra/cgra_multi_template.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module cgra_multi_template #(
+      |        ^~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/peripheral/cgra_dma_engine.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module cgra_dma_engine #(
+      |        ^~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/peripheral/cgra_im2col_engine.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module cgra_im2col_engine #(
+      |        ^~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/peripheral/cgra_integrated_dma.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module cgra_integrated_dma #(
+      |        ^~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/peripheral/cgra_integrated_im2col.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module cgra_integrated_im2col #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/tile/cgra_pe.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module cgra_pe #(
+      |        ^~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/controller/cgra_loop_controller_legacy.sv:5:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    5 | module cgra_loop_controller_legacy #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/controller/cgra_loop_controller_native.sv:1:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    1 | module cgra_loop_controller_native #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/controller/cgra_loop_controller.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module cgra_loop_controller #(
+      |        ^~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/mem/cgra_static_ctrl_mem.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module cgra_static_ctrl_mem #(
+      |        ^~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/mem/cgra_static_const_queue.sv:2:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    2 | module cgra_static_const_queue #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/mem/cgra_ring_ctrl_node.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module cgra_ring_ctrl_node #(
+      |        ^~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/mem/cgra_ring_multi_ctrl_mem.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module cgra_ring_multi_ctrl_mem #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/mem/cgra_data_mem.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module cgra_data_mem #(
+      |        ^~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/mem/cgra_data_mem_scalable.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module cgra_data_mem_scalable #(
+      |        ^~~~~~~~~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/noc/cgra_or_link.sv:4:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    4 | module cgra_or_link #(
+      |        ^~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/noc/cgra_selector.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module cgra_selector #(
+      |        ^~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-TIMESCALEMOD: rtl/common/cgra_pipe_queue.sv:3:8: Timescale missing on this module as other modules have it (IEEE 1800-2023 3.14.2.3)
+    3 | module cgra_pipe_queue #(
+      |        ^~~~~~~~~~~~~~~
+                       /workspace/work/parameterization/base_2x2/tb_parameterization.sv:2:8: ... Location of module with timescale
+    2 | module tb_parameterization;
+      |        ^~~~~~~~~~~~~~~~~~~
+%Warning-WIDTHEXPAND: rtl/cgra/cgra_system.sv:7:49: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                  : ... note: In instance 'tb_parameterization.dut'
+    7 |   localparam int XBAR_MEM_PORTS = MEM_PORTS + 1 + HAS_DMA, 
+      |                                                 ^
+%Warning-WIDTHEXPAND: rtl/cgra/cgra_system.sv:7:58: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                  : ... note: In instance 'tb_parameterization.dut'
+    7 |   localparam int XBAR_WR_MEM_PORTS = MEM_WRITE_PORTS + 1 + HAS_DMA, 
+      |                                                          ^
+%Warning-WIDTHEXPAND: rtl/cgra/cgra_system.sv:8:36: Operator VAR 'FU_KINDS' expects 40 bits on the Initial value, but Initial value's REPLICATE generates 32 bits.
+                                                  : ... note: In instance 'tb_parameterization.dut'
+    8 |   parameter logic [FU_COUNT*8-1:0] FU_KINDS = {8'd3, 8'd2, 8'd1, 8'd0}, 
+      |                                    ^~~~~~~~
+%Warning-WIDTHTRUNC: rtl/cgra/cgra_system.sv:222:7: Logical operator IF expects 1 bit on the If, but If's VARREF 'write_port' generates 32 bits.
+                                                  : ... note: In instance 'tb_parameterization.dut'
+  222 |       if(write_port) begin
+      |       ^~
+%Warning-WIDTHTRUNC: rtl/cgra/cgra_system.sv:217:42: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's VARREF 'output_side' generates 32 bits.
+                                                   : ... note: In instance 'tb_parameterization.dut'
+  217 |       if(LINK_ENABLED[k] && (output_side ? LINK_SRC_TILE[k]==tile && LINK_SRC_PORT[k]==port : LINK_DST_TILE[k]==tile && LINK_DST_PORT[k]==port)) find_link=k;
+      |                                          ^
+%Warning-WIDTHEXPAND: rtl/controller/cgra_controller.sv:5:49: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                            : ... note: In instance 'tb_parameterization.dut.controller'
+    5 |   localparam int XBAR_MEM_PORTS = MEM_PORTS + 1 + HAS_DMA, 
+      |                                                 ^
+%Warning-WIDTHEXPAND: rtl/controller/cgra_controller.sv:5:58: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                            : ... note: In instance 'tb_parameterization.dut.controller'
+    5 |   localparam int XBAR_WR_MEM_PORTS = MEM_WRITE_PORTS + 1 + HAS_DMA, 
+      |                                                          ^
+%Warning-WIDTHEXPAND: rtl/mem/cgra_data_memory.sv:5:49: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                      : ... note: In instance 'tb_parameterization.dut.data_mem'
+    5 |   localparam int XBAR_MEM_PORTS = MEM_PORTS + 1 + HAS_DMA, 
+      |                                                 ^
+%Warning-WIDTHEXPAND: rtl/mem/cgra_data_memory.sv:5:58: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                      : ... note: In instance 'tb_parameterization.dut.data_mem'
+    5 |   localparam int XBAR_WR_MEM_PORTS = MEM_WRITE_PORTS + 1 + HAS_DMA, 
+      |                                                          ^
+%Warning-WIDTHEXPAND: rtl/tile/cgra_pe.sv:5:49: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                              : ... note: In instance 'tb_parameterization.dut.tiles[0].tile'
+    5 |   localparam int XBAR_MEM_PORTS = MEM_PORTS + 1 + HAS_DMA, 
+      |                                                 ^
+%Warning-WIDTHEXPAND: rtl/tile/cgra_pe.sv:5:58: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                              : ... note: In instance 'tb_parameterization.dut.tiles[0].tile'
+    5 |   localparam int XBAR_WR_MEM_PORTS = MEM_WRITE_PORTS + 1 + HAS_DMA, 
+      |                                                          ^
+%Warning-WIDTHEXPAND: rtl/controller/cgra_global_reduce.sv:5:49: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                               : ... note: In instance 'tb_parameterization.dut.controller.global_reduce_unit'
+    5 |   localparam int XBAR_MEM_PORTS = MEM_PORTS + 1 + HAS_DMA, 
+      |                                                 ^
+%Warning-WIDTHEXPAND: rtl/controller/cgra_global_reduce.sv:5:58: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                               : ... note: In instance 'tb_parameterization.dut.controller.global_reduce_unit'
+    5 |   localparam int XBAR_WR_MEM_PORTS = MEM_WRITE_PORTS + 1 + HAS_DMA, 
+      |                                                          ^
+%Warning-WIDTHEXPAND: rtl/mem/cgra_data_bank.sv:4:49: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                    : ... note: In instance 'tb_parameterization.dut.data_mem.banks[0].memory'
+    4 |   localparam int XBAR_MEM_PORTS = MEM_PORTS + 1 + HAS_DMA, 
+      |                                                 ^
+%Warning-WIDTHEXPAND: rtl/mem/cgra_data_bank.sv:4:58: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                    : ... note: In instance 'tb_parameterization.dut.data_mem.banks[0].memory'
+    4 |   localparam int XBAR_WR_MEM_PORTS = MEM_WRITE_PORTS + 1 + HAS_DMA, 
+      |                                                          ^
+%Warning-WIDTHEXPAND: rtl/tile/tile_programmable.sv:6:49: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                        : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core'
+    6 |   localparam int XBAR_MEM_PORTS = MEM_PORTS + 1 + HAS_DMA, 
+      |                                                 ^
+%Warning-WIDTHEXPAND: rtl/tile/tile_programmable.sv:6:58: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                        : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core'
+    6 |   localparam int XBAR_WR_MEM_PORTS = MEM_WRITE_PORTS + 1 + HAS_DMA, 
+      |                                                          ^
+%Warning-WIDTHEXPAND: rtl/mem/const_queue.sv:5:49: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                 : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.const_mem'
+    5 |   localparam int XBAR_MEM_PORTS = MEM_PORTS + 1 + HAS_DMA, 
+      |                                                 ^
+%Warning-WIDTHEXPAND: rtl/mem/const_queue.sv:5:58: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                 : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.const_mem'
+    5 |   localparam int XBAR_WR_MEM_PORTS = MEM_WRITE_PORTS + 1 + HAS_DMA, 
+      |                                                          ^
+%Warning-WIDTHEXPAND: rtl/mem/ctrl_mem.sv:6:49: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                              : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.ctrl_mem'
+    6 |   localparam int XBAR_MEM_PORTS = MEM_PORTS + 1 + HAS_DMA, 
+      |                                                 ^
+%Warning-WIDTHEXPAND: rtl/mem/ctrl_mem.sv:6:58: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                              : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.ctrl_mem'
+    6 |   localparam int XBAR_WR_MEM_PORTS = MEM_WRITE_PORTS + 1 + HAS_DMA, 
+      |                                                          ^
+%Warning-WIDTHEXPAND: rtl/tile/tile_static_crossbar.sv:6:49: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                           : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.fu_crossbar'
+    6 |   localparam int XBAR_MEM_PORTS = MEM_PORTS + 1 + HAS_DMA, 
+      |                                                 ^
+%Warning-WIDTHEXPAND: rtl/tile/tile_static_crossbar.sv:6:58: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                           : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.fu_crossbar'
+    6 |   localparam int XBAR_WR_MEM_PORTS = MEM_WRITE_PORTS + 1 + HAS_DMA, 
+      |                                                          ^
+%Warning-WIDTHEXPAND: rtl/fu/tile_flexible_fu_configurable.sv:4:49: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                                  : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.element'
+    4 |   localparam int XBAR_MEM_PORTS = MEM_PORTS + 1 + HAS_DMA, 
+      |                                                 ^
+%Warning-WIDTHEXPAND: rtl/fu/tile_flexible_fu_configurable.sv:4:58: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                                  : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.element'
+    4 |   localparam int XBAR_WR_MEM_PORTS = MEM_WRITE_PORTS + 1 + HAS_DMA, 
+      |                                                          ^
+%Warning-WIDTHEXPAND: rtl/mem/register_cluster.sv:6:49: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                      : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.register_cluster'
+    6 |   localparam int XBAR_MEM_PORTS = MEM_PORTS + 1 + HAS_DMA, 
+      |                                                 ^
+%Warning-WIDTHEXPAND: rtl/mem/register_cluster.sv:6:58: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                      : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.register_cluster'
+    6 |   localparam int XBAR_WR_MEM_PORTS = MEM_WRITE_PORTS + 1 + HAS_DMA, 
+      |                                                          ^
+%Warning-WIDTHEXPAND: rtl/tile/tile_link_or.sv:5:49: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                   : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.physical_ports[0].output_link'
+    5 |   localparam int XBAR_MEM_PORTS = MEM_PORTS + 1 + HAS_DMA, 
+      |                                                 ^
+%Warning-WIDTHEXPAND: rtl/tile/tile_link_or.sv:5:58: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                   : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.physical_ports[0].output_link'
+    5 |   localparam int XBAR_WR_MEM_PORTS = MEM_WRITE_PORTS + 1 + HAS_DMA, 
+      |                                                          ^
+%Warning-WIDTHEXPAND: rtl/fu/scalar/scalar_const.sv:5:49: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                        : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.element.units[2].....kind_const.fu'
+    5 |   localparam int XBAR_MEM_PORTS = MEM_PORTS + 1 + HAS_DMA, 
+      |                                                 ^
+%Warning-WIDTHEXPAND: rtl/fu/scalar/scalar_const.sv:5:58: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                        : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.element.units[2].....kind_const.fu'
+    5 |   localparam int XBAR_WR_MEM_PORTS = MEM_WRITE_PORTS + 1 + HAS_DMA, 
+      |                                                          ^
+%Warning-WIDTHEXPAND: rtl/fu/tile_memory_fu.sv:6:49: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                   : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.element.units[3]...kind_mem.fu'
+    6 |   localparam int XBAR_MEM_PORTS = MEM_PORTS + 1 + HAS_DMA, 
+      |                                                 ^
+%Warning-WIDTHEXPAND: rtl/fu/tile_memory_fu.sv:6:58: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                   : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.element.units[3]...kind_mem.fu'
+    6 |   localparam int XBAR_WR_MEM_PORTS = MEM_WRITE_PORTS + 1 + HAS_DMA, 
+      |                                                          ^
+%Warning-WIDTHEXPAND: rtl/fu/tile_nah.sv:6:49: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                             : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.element.units[4]....kind_nah.fu'
+    6 |   localparam int XBAR_MEM_PORTS = MEM_PORTS + 1 + HAS_DMA, 
+      |                                                 ^
+%Warning-WIDTHEXPAND: rtl/fu/tile_nah.sv:6:58: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                             : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.element.units[4]....kind_nah.fu'
+    6 |   localparam int XBAR_WR_MEM_PORTS = MEM_WRITE_PORTS + 1 + HAS_DMA, 
+      |                                                          ^
+%Warning-WIDTHEXPAND: rtl/mem/register_bank.sv:5:49: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                   : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.register_cluster.reg_bank___05F0'
+    5 |   localparam int XBAR_MEM_PORTS = MEM_PORTS + 1 + HAS_DMA, 
+      |                                                 ^
+%Warning-WIDTHEXPAND: rtl/mem/register_bank.sv:5:58: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                   : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.register_cluster.reg_bank___05F0'
+    5 |   localparam int XBAR_WR_MEM_PORTS = MEM_WRITE_PORTS + 1 + HAS_DMA, 
+      |                                                          ^
+%Warning-WIDTHEXPAND: rtl/fu/tile_adder.sv:6:49: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                               : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.element.units[0].kind_adder.fu'
+    6 |   localparam int XBAR_MEM_PORTS = MEM_PORTS + 1 + HAS_DMA, 
+      |                                                 ^
+%Warning-WIDTHEXPAND: rtl/fu/tile_adder.sv:6:58: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                               : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.element.units[0].kind_adder.fu'
+    6 |   localparam int XBAR_WR_MEM_PORTS = MEM_WRITE_PORTS + 1 + HAS_DMA, 
+      |                                                          ^
+%Warning-WIDTHEXPAND: rtl/fu/tile_multiplier.sv:6:49: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                    : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.element.units[1]..kind_mul.fu'
+    6 |   localparam int XBAR_MEM_PORTS = MEM_PORTS + 1 + HAS_DMA, 
+      |                                                 ^
+%Warning-WIDTHEXPAND: rtl/fu/tile_multiplier.sv:6:58: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'HAS_DMA' generates 1 bits.
+                                                    : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.element.units[1]..kind_mul.fu'
+    6 |   localparam int XBAR_WR_MEM_PORTS = MEM_WRITE_PORTS + 1 + HAS_DMA, 
+      |                                                          ^
+%Warning-WIDTHEXPAND: rtl/fu/scalar/scalar_const.sv:76:26: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                         : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.element.units[2].....kind_const.fu'
+   76 |     for ( int unsigned i = 1'd0; i < 3'( num_inports_at_comb_logic ); i += 1'd1 )
+      |                          ^
+%Warning-WIDTHEXPAND: rtl/fu/scalar/scalar_const.sv:78:26: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                         : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.element.units[2].....kind_const.fu'
+   78 |     for ( int unsigned i = 1'd0; i < 2'( num_outports_at_comb_logic ); i += 1'd1 ) begin
+      |                          ^
+%Warning-WIDTHEXPAND: rtl/fu/scalar/scalar_const.sv:97:30: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                         : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.element.units[2].....kind_const.fu'
+   97 |         for ( int unsigned j = 1'd0; j < 2'( num_outports_at_comb_logic ); j += 1'd1 )
+      |                              ^
+%Warning-WIDTHEXPAND: rtl/tile/tile_static_crossbar.sv:96:80: Operator EQ expects 32 bits on the LHS, but LHS's ARRAYSEL generates 3 bits.
+                                                            : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.routing_crossbar'
+   96 |           if ( ( ( ( recv_opt__rdy & ( in_dir[j] != '0 ) ) & ( in_dir_local[j] == i ) ) & ( CTRL_ADDR_W'(addr) == ctrl_addr_inport ) ) & ( prologue_counter[CTRL_ADDR_W'(addr)][i] < prologue_count_wire[CTRL_ADDR_W'(addr)][i] ) ) begin
+      |                                                                                ^~
+%Warning-WIDTHEXPAND: rtl/tile/tile_static_crossbar.sv:96:80: Operator EQ expects 32 bits on the LHS, but LHS's ARRAYSEL generates 1 bits.
+                                                            : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.fu_crossbar'
+   96 |           if ( ( ( ( recv_opt__rdy & ( in_dir[j] != '0 ) ) & ( in_dir_local[j] == i ) ) & ( CTRL_ADDR_W'(addr) == ctrl_addr_inport ) ) & ( prologue_counter[CTRL_ADDR_W'(addr)][i] < prologue_count_wire[CTRL_ADDR_W'(addr)][i] ) ) begin
+      |                                                                                ^~
+%Warning-WIDTHTRUNC: rtl/mem/ctrl_mem.sv:304:105: Bit extraction of array[7:0] requires 3 bit index, not 4 bits.
+                                                : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.ctrl_mem'
+  304 |         prologue_count_reg_routing_crossbar[recv_pkt_from_controller_queue__send__msg.payload.ctrl_addr][ROUTING_SEL_W'(tmp_update_prologue_reg_temp_routing_crossbar_in - ROUTING_SEL_W'(1))] <= 3'(recv_pkt_from_controller_queue__send__msg.payload.data.payload);
+      |                                                                                                         ^
+%Warning-WIDTHEXPAND: rtl/mem/const_queue.sv:57:38: Operator LT expects 32 bits on the LHS, but LHS's VARREF 'wr_cur' generates 3 bits.
+                                                  : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.const_mem'
+   57 |     tmp_load_const_not_full = wr_cur < CTRL_DEPTH;
+      |                                      ^
+%Warning-WIDTHEXPAND: rtl/mem/const_queue.sv:85:41: Operator LT expects 32 bits on the LHS, but LHS's VARREF 'wr_cur' generates 3 bits.
+                                                  : ... note: In instance 'tb_parameterization.dut.tiles[0].tile.base.core.const_mem'
+   85 |     tmp_update_wr_cur_not_full = wr_cur < CTRL_DEPTH;
+      |                                         ^
+%Warning-WIDTHEXPAND: rtl/mem/cgra_data_memory.sv:183:26: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                        : ... note: In instance 'tb_parameterization.dut.data_mem'
+  183 |     for ( int unsigned i = 1'd0; i < num_xbar_in_rd_ports_at_assemble_xbar_pkt; i += 1'd1 )
+      |                          ^
+%Warning-WIDTHEXPAND: rtl/mem/cgra_data_memory.sv:185:26: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                        : ... note: In instance 'tb_parameterization.dut.data_mem'
+  185 |     for ( int unsigned i = 1'd0; i < num_xbar_in_wr_ports_at_assemble_xbar_pkt; i += 1'd1 )
+      |                          ^
+%Warning-WIDTHEXPAND: rtl/mem/cgra_data_memory.sv:187:26: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                        : ... note: In instance 'tb_parameterization.dut.data_mem'
+  187 |     for ( int unsigned i = 1'd0; i < num_rd_tiles_at_assemble_xbar_pkt; i += 1'd1 ) begin
+      |                          ^
+%Warning-WIDTHEXPAND: rtl/mem/cgra_data_memory.sv:203:26: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                        : ... note: In instance 'tb_parameterization.dut.data_mem'
+  203 |     for ( int unsigned i = 1'd0; i < num_wr_tiles_at_assemble_xbar_pkt; i += 1'd1 ) begin
+      |                          ^
+%Warning-WIDTHEXPAND: rtl/mem/cgra_data_memory.sv:241:26: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                        : ... note: In instance 'tb_parameterization.dut.data_mem'
+  241 |     for ( int unsigned i = 1'd0; i < num_rd_tiles_at_update_all; i += 1'd1 )
+      |                          ^
+%Warning-WIDTHEXPAND: rtl/mem/cgra_data_memory.sv:244:26: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                        : ... note: In instance 'tb_parameterization.dut.data_mem'
+  244 |     for ( int unsigned i = 1'd0; i < num_wr_tiles_at_update_all; i += 1'd1 )
+      |                          ^
+%Warning-WIDTHEXPAND: rtl/mem/cgra_data_memory.sv:247:26: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                        : ... note: In instance 'tb_parameterization.dut.data_mem'
+  247 |     for ( int unsigned i = 1'd0; i < num_rd_tiles_at_update_all; i += 1'd1 ) begin
+      |                          ^
+%Warning-WIDTHEXPAND: rtl/mem/cgra_data_memory.sv:253:26: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                        : ... note: In instance 'tb_parameterization.dut.data_mem'
+  253 |     for ( int unsigned i = 1'd0; i < num_wr_tiles_at_update_all; i += 1'd1 )
+      |                          ^
+%Warning-WIDTHEXPAND: rtl/mem/cgra_data_memory.sv:257:26: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                        : ... note: In instance 'tb_parameterization.dut.data_mem'
+  257 |     for ( int unsigned i = 1'd0; i < num_xbar_in_rd_ports_at_update_all; i += 1'd1 ) begin
+      |                          ^
+%Warning-WIDTHEXPAND: rtl/mem/cgra_data_memory.sv:262:26: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                        : ... note: In instance 'tb_parameterization.dut.data_mem'
+  262 |     for ( int unsigned i = 1'd0; i < num_xbar_in_wr_ports_at_update_all; i += 1'd1 ) begin
+      |                          ^
+%Warning-WIDTHEXPAND: rtl/mem/cgra_data_memory.sv:272:26: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                        : ... note: In instance 'tb_parameterization.dut.data_mem'
+  272 |     for ( int unsigned i = 1'd0; i < num_rd_tiles_at_update_all; i += 1'd1 ) begin
+      |                          ^
+%Warning-WIDTHEXPAND: rtl/mem/cgra_data_memory.sv:286:26: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                        : ... note: In instance 'tb_parameterization.dut.data_mem'
+  286 |     for ( int unsigned i = 1'd0; i < num_wr_tiles_at_update_all; i += 1'd1 ) begin
+      |                          ^
+%Warning-WIDTHEXPAND: rtl/mem/cgra_data_memory.sv:301:26: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                        : ... note: In instance 'tb_parameterization.dut.data_mem'
+  301 |     for ( int unsigned i = 1'd0; i < num_xbar_in_rd_ports_at_update_all; i += 1'd1 )
+      |                          ^
+%Warning-WIDTHEXPAND: rtl/controller/cgra_controller.sv:480:26: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                              : ... note: In instance 'tb_parameterization.dut.controller'
+  480 |     for ( int unsigned i = 1'd0; i < 3'( CONTROLLER_CROSSBAR_INPORTS ); i += 1'd1 ) begin
+      |                          ^
+%Warning-WIDTHTRUNC: /workspace/vectorcgra-v/sv/tests/parameterization/driver.svh:28:46: Logical operator LOGNOT expects 1 bit on the LHS, but LHS's VARREF 'fd' generates 32 bits.
+                                                                                       : ... note: In instance 'tb_parameterization'
+   28 |   fd=$fopen({vectors,"/program.hex"},"r");if(!fd)$fatal(1,"Missing packets");
+      |                                              ^
+                     /workspace/work/parameterization/base_2x2/tb_parameterization.sv:197:1: ... note: In file included from 'tb_parameterization.sv'
+%Warning-WIDTHTRUNC: /workspace/vectorcgra-v/sv/tests/parameterization/driver.svh:34:47: Logical operator LOGNOT expects 1 bit on the LHS, but LHS's VARREF 'fd' generates 32 bits.
+                                                                                       : ... note: In instance 'tb_parameterization'
+   34 |   fd=$fopen({vectors,"/barriers.txt"},"r");if(!fd)$fatal(1,"Missing barriers");
+      |                                               ^
+                     /workspace/work/parameterization/base_2x2/tb_parameterization.sv:197:1: ... note: In file included from 'tb_parameterization.sv'
+%Warning-WIDTHTRUNC: /workspace/vectorcgra-v/sv/tests/parameterization/driver.svh:45:47: Logical operator LOGNOT expects 1 bit on the LHS, but LHS's VARREF 'fd' generates 32 bits.
+                                                                                       : ... note: In instance 'tb_parameterization'
+   45 |   fd=$fopen({vectors,"/boundary.txt"},"r");if(!fd)$fatal(1,"Missing boundary file");
+      |                                               ^
+                     /workspace/work/parameterization/base_2x2/tb_parameterization.sv:197:1: ... note: In file included from 'tb_parameterization.sv'
+%Warning-WIDTHTRUNC: /workspace/vectorcgra-v/sv/tests/parameterization/driver.svh:53:42: Logical operator LOGNOT expects 1 bit on the LHS, but LHS's VARREF 'logfd' generates 32 bits.
+                                                                                       : ... note: In instance 'tb_parameterization'
+   53 |   $fclose(fd);logfd=$fopen(trace,"w");if(!logfd)$fatal(1,"Cannot write trace");
+      |                                          ^
+                     /workspace/work/parameterization/base_2x2/tb_parameterization.sv:197:1: ... note: In file included from 'tb_parameterization.sv'
+- V e r i l a t i o n   R e p o r t: Verilator 5.029 devel rev v5.028-104-ge2041f745
+- Verilator: Built from 86.024 MB sources in 129 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.671 s (elab=0.252, cvt=0.037, bld=0.000); cpu 0.671 s on 1 threads; alloced 80.234 MB

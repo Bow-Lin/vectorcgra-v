@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 172,
+    "group": "components",
+    "file": "noc/test/LinkOrRTL_test.py",
+    "function": "test_simple",
+    "parameters": {},
+    "classes": [
+      "LinkOrRTL"
+    ],
+    "source_sha256": "2ae59c4693edee10f451a1e51fe322082982370e9c3a06af432a512db4bdc893"
+  },
+  "status": "passed",
+  "source_sha256": "2ae59c4693edee10f451a1e51fe322082982370e9c3a06af432a512db4bdc893",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

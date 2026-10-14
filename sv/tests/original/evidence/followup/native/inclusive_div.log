@@ -1,0 +1,6 @@
+ARITHMETIC_BOUNDARIES_NATIVE_PASS kind=1 width=32 latency=4 samples=144 checks=6158
+sv/tests/current/run_arithmetic_boundaries.sh: line 9:  2261 Aborted                 "$@" > "$log" 2>&1
+ARITHMETIC_BOUNDARIES_VALIDATION_PASS mode=rtl profile=inclusive_w32_l4 legacy=0
+ARITHMETIC_BOUNDARIES_REPLAY_PASS samples=360 output_bits=303
+sv/tests/current/run_arithmetic_boundaries.sh: line 9:  2283 Aborted                 "$@" > "$log" 2>&1
+ARITHMETIC_BOUNDARIES_VALIDATION_PASS mode=rtl profile=inclusive_w32_l4 legacy=1

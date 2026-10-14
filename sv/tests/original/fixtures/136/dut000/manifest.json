@@ -1,0 +1,105 @@
+{
+  "python_class": "DataMemWrapperRTL",
+  "arguments": {
+    "DataType": "CgraData_16_1_1_1",
+    "MemReadType": "MemAccessPacket_4_4_32",
+    "MemWriteType": "MemAccessPacket_4_4_32",
+    "MemResponseType": "MemAccessPacket_4_4_32",
+    "global_data_mem_size": 32,
+    "per_bank_data_mem_size": 8,
+    "is_combinational": false
+  },
+  "hierarchy": "s.data_mem_wrapper",
+  "samples": 16,
+  "edges": 16,
+  "module": "cgra_data_bank",
+  "parameters": {
+    "DATA_W": 16,
+    "GLOBAL_ADDR_W": 5,
+    "BANK_DEPTH": 8,
+    "MEM_PORTS": 3,
+    "MEM_WRITE_PORTS": 3,
+    "NUM_BANKS": 3,
+    "MAX_MEM_PORTS": 7,
+    "MULTI_COLS": 4,
+    "MULTI_ROWS": 1,
+    "MAX_COLS": 7,
+    "MAX_ROWS": 1,
+    "MEM_COMBINATIONAL": 0
+  },
+  "mode": "native",
+  "bindings": {},
+  "ports": [
+    {
+      "path": "recv_rd.msg",
+      "name": "recv_rd__msg",
+      "width": 36,
+      "original_width": 36,
+      "direction": "input"
+    },
+    {
+      "path": "recv_rd.rdy",
+      "name": "recv_rd__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_rd.val",
+      "name": "recv_rd__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_wr.msg",
+      "name": "recv_wr__msg",
+      "width": 36,
+      "original_width": 36,
+      "direction": "input"
+    },
+    {
+      "path": "recv_wr.rdy",
+      "name": "recv_wr__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_wr.val",
+      "name": "recv_wr__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send.msg",
+      "name": "send__msg",
+      "width": 36,
+      "original_width": 36,
+      "direction": "output"
+    },
+    {
+      "path": "send.rdy",
+      "name": "send__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send.val",
+      "name": "send__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "939005a39a820078ab7f4b3960a10531654043ca47f74236a1dedd2d86d2a2ad"
+}

@@ -1,0 +1,11 @@
+ORIGINAL_MISMATCH sample=1 port=recv_opt.rdy actual=0 expected=1
+ORIGINAL_MISMATCH sample=2 port=recv_opt.rdy actual=0 expected=1
+ORIGINAL_MISMATCH sample=3 port=recv_opt.rdy actual=0 expected=1
+ORIGINAL_MISMATCH sample=7 port=send_out[0].msg actual=00000 expected=00004
+ORIGINAL_MISMATCH sample=8 port=send_out[0].msg actual=00000 expected=00004
+ORIGINAL_MISMATCH sample=9 port=send_out[0].msg actual=00000 expected=00004
+ORIGINAL_MISMATCH sample=10 port=send_out[0].msg actual=00000 expected=00004
+ORIGINAL_MISMATCH sample=11 port=send_out[0].msg actual=00000 expected=00004
+[120000] %Fatal: tb_original.sv:295: Assertion failed in TOP.tb_original: ORIGINAL_REPLAY_FAILED errors=8 samples=12
+%Error: /workspace/work/original-test-fu/build/94a2f6cd8e8a1f21bfc4/tb_original.sv:295: Verilog $stop
+Aborting...

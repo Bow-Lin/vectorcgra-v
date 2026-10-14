@@ -1,0 +1,2 @@
+# Frozen traces and elaboration evidence must retain their exact compressed bytes.
+*.gz binary

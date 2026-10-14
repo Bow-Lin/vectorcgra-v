@@ -1,0 +1,531 @@
+{
+  "config": {
+    "architectures": [
+      {
+        "boundary_in": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "boundary_out": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cols": 3,
+        "fu_names": [
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "NAH"
+          ]
+        ],
+        "links": [
+          {
+            "dp": 6,
+            "dst": 6,
+            "enabled": 1,
+            "sp": 4,
+            "src": 0
+          },
+          {
+            "dp": 4,
+            "dst": 0,
+            "enabled": 1,
+            "sp": 6,
+            "src": 6
+          },
+          {
+            "dp": 6,
+            "dst": 4,
+            "enabled": 1,
+            "sp": 4,
+            "src": 6
+          },
+          {
+            "dp": 4,
+            "dst": 6,
+            "enabled": 1,
+            "sp": 6,
+            "src": 4
+          },
+          {
+            "dp": 6,
+            "dst": 7,
+            "enabled": 1,
+            "sp": 4,
+            "src": 4
+          },
+          {
+            "dp": 4,
+            "dst": 4,
+            "enabled": 1,
+            "sp": 6,
+            "src": 7
+          },
+          {
+            "dp": 6,
+            "dst": 3,
+            "enabled": 1,
+            "sp": 4,
+            "src": 7
+          },
+          {
+            "dp": 4,
+            "dst": 7,
+            "enabled": 1,
+            "sp": 6,
+            "src": 3
+          },
+          {
+            "dp": 6,
+            "dst": 1,
+            "enabled": 1,
+            "sp": 4,
+            "src": 3
+          },
+          {
+            "dp": 4,
+            "dst": 3,
+            "enabled": 1,
+            "sp": 6,
+            "src": 1
+          },
+          {
+            "dp": 6,
+            "dst": 5,
+            "enabled": 1,
+            "sp": 4,
+            "src": 1
+          },
+          {
+            "dp": 4,
+            "dst": 1,
+            "enabled": 1,
+            "sp": 6,
+            "src": 5
+          },
+          {
+            "dp": 6,
+            "dst": 2,
+            "enabled": 1,
+            "sp": 4,
+            "src": 5
+          },
+          {
+            "dp": 4,
+            "dst": 5,
+            "enabled": 1,
+            "sp": 6,
+            "src": 2
+          },
+          {
+            "dp": 6,
+            "dst": 8,
+            "enabled": 1,
+            "sp": 4,
+            "src": 2
+          },
+          {
+            "dp": 4,
+            "dst": 2,
+            "enabled": 1,
+            "sp": 6,
+            "src": 8
+          },
+          {
+            "dp": 7,
+            "dst": 8,
+            "enabled": 0,
+            "sp": 5,
+            "src": 0
+          }
+        ],
+        "read_ports": [
+          6,
+          0
+        ],
+        "rows": 3,
+        "write_ports": [
+          4,
+          6,
+          0
+        ]
+      }
+    ],
+    "default_fus": [
+      "ADDER",
+      "MUL",
+      "CONST",
+      "MEM",
+      "NAH"
+    ],
+    "parameters": {
+      "BANK_DEPTH": 8,
+      "CTRL_DEPTH": 6,
+      "NUM_BANKS": 4,
+      "NUM_CTRL": 6,
+      "REG_DEPTH": 5,
+      "TILE_PORTS": 8,
+      "TOTAL_STEPS": 6
+    },
+    "schema": 1,
+    "top": "system"
+  },
+  "normalized": {
+    "address_map": [
+      0
+    ],
+    "architectures": [
+      {
+        "boundary_in": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "boundary_out": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "cols": 3,
+        "fu_names": [
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "NAH"
+          ]
+        ],
+        "links": [
+          {
+            "dp": 6,
+            "dst": 6,
+            "enabled": 1,
+            "sp": 4,
+            "src": 0
+          },
+          {
+            "dp": 4,
+            "dst": 0,
+            "enabled": 1,
+            "sp": 6,
+            "src": 6
+          },
+          {
+            "dp": 6,
+            "dst": 4,
+            "enabled": 1,
+            "sp": 4,
+            "src": 6
+          },
+          {
+            "dp": 4,
+            "dst": 6,
+            "enabled": 1,
+            "sp": 6,
+            "src": 4
+          },
+          {
+            "dp": 6,
+            "dst": 7,
+            "enabled": 1,
+            "sp": 4,
+            "src": 4
+          },
+          {
+            "dp": 4,
+            "dst": 4,
+            "enabled": 1,
+            "sp": 6,
+            "src": 7
+          },
+          {
+            "dp": 6,
+            "dst": 3,
+            "enabled": 1,
+            "sp": 4,
+            "src": 7
+          },
+          {
+            "dp": 4,
+            "dst": 7,
+            "enabled": 1,
+            "sp": 6,
+            "src": 3
+          },
+          {
+            "dp": 6,
+            "dst": 1,
+            "enabled": 1,
+            "sp": 4,
+            "src": 3
+          },
+          {
+            "dp": 4,
+            "dst": 3,
+            "enabled": 1,
+            "sp": 6,
+            "src": 1
+          },
+          {
+            "dp": 6,
+            "dst": 5,
+            "enabled": 1,
+            "sp": 4,
+            "src": 1
+          },
+          {
+            "dp": 4,
+            "dst": 1,
+            "enabled": 1,
+            "sp": 6,
+            "src": 5
+          },
+          {
+            "dp": 6,
+            "dst": 2,
+            "enabled": 1,
+            "sp": 4,
+            "src": 5
+          },
+          {
+            "dp": 4,
+            "dst": 5,
+            "enabled": 1,
+            "sp": 6,
+            "src": 2
+          },
+          {
+            "dp": 6,
+            "dst": 8,
+            "enabled": 1,
+            "sp": 4,
+            "src": 2
+          },
+          {
+            "dp": 4,
+            "dst": 2,
+            "enabled": 1,
+            "sp": 6,
+            "src": 8
+          },
+          {
+            "dp": 7,
+            "dst": 8,
+            "enabled": 0,
+            "sp": 5,
+            "src": 0
+          }
+        ],
+        "read_ports": [
+          6,
+          0
+        ],
+        "rows": 3,
+        "write_ports": [
+          4,
+          6,
+          0
+        ]
+      }
+    ],
+    "parameters": {
+      "ARITH_LEGACY_PYTHON": 0,
+      "BANK_DEPTH": 8,
+      "COLS": 3,
+      "CTRL_DEPTH": 6,
+      "DATA_W": 32,
+      "FP_EXP_W": 8,
+      "FP_LEGACY_PYTHON": 0,
+      "FP_SIG_W": 23,
+      "FU_COUNT": 4,
+      "GLOBAL_ADDR_W": 7,
+      "HAS_DMA": 0,
+      "HAS_IM2COL": 0,
+      "MAX_COLS": 3,
+      "MAX_MEM_PORTS": 2,
+      "MAX_ROWS": 3,
+      "MEMORY_LEGACY_PYTHON": 0,
+      "MEM_COMBINATIONAL": 1,
+      "MEM_PORTS": 2,
+      "MEM_WRITE_PORTS": 3,
+      "MULTI_COLS": 1,
+      "MULTI_ROWS": 1,
+      "NOC_LEGACY_PYTHON": 0,
+      "NUM_BANKS": 4,
+      "NUM_CTRL": 6,
+      "REDUCE_LEGACY_PYTHON": 0,
+      "REG_DEPTH": 5,
+      "ROWS": 3,
+      "TILE_PORTS": 8,
+      "TOTAL_STEPS": 6,
+      "VECTOR_FACTOR_POWER": 0,
+      "VECTOR_LANES": 4,
+      "VECTOR_LEGACY_PYTHON": 0
+    },
+    "schema": 1,
+    "top": "system",
+    "topology": "mesh",
+    "variant": "base",
+    "widths": {
+      "BANK_ADDR_W": 3,
+      "BANK_PORT_W": 3,
+      "CGRA_ID_W": 1,
+      "CGRA_X_W": 1,
+      "CGRA_Y_W": 1,
+      "CTRL_ADDR_W": 3,
+      "CTRL_BITS": 135,
+      "DATA_BITS": 35,
+      "HOST_BITS": 209,
+      "HOST_DST_LSB": 201,
+      "MAX_TILES": 9,
+      "MEM_BITS": 54,
+      "MEM_PORT_W": 2,
+      "NOC_BITS": 212,
+      "NUM_CGRAS": 1,
+      "NUM_TILES": 9,
+      "PAYLOAD_BITS": 186,
+      "REG_ADDR_W": 3,
+      "ROUTING_OUTPUTS": 12,
+      "ROUTING_SEL_W": 4,
+      "TILE_ID_W": 4,
+      "WR_MEM_BITS": 54,
+      "XBAR_MEM_PORTS": 3,
+      "XBAR_MEM_PORT_W": 2,
+      "XBAR_WR_MEM_PORTS": 4,
+      "XBAR_WR_MEM_PORT_W": 2
+    }
+  },
+  "paths": [
+    [
+      0,
+      6,
+      4,
+      7,
+      3,
+      1,
+      5,
+      2,
+      8
+    ]
+  ],
+  "python_model": "template"
+}

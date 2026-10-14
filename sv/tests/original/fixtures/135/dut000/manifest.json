@@ -1,0 +1,611 @@
+{
+  "python_class": "DataMemControllerRTL",
+  "arguments": {
+    "NocPktType": "InterCgraPacket_1_1x1_4_8_4_CgraPayload",
+    "data_mem_size_global": 64,
+    "data_mem_size_per_bank": 16,
+    "num_banks_per_cgra": 2,
+    "num_rd_tiles": 4,
+    "num_wr_tiles": 4,
+    "multi_cgra_rows": 1,
+    "multi_cgra_columns": 1,
+    "num_tiles": 4,
+    "mem_access_is_combinational": true,
+    "idTo2d_map": {
+      "0": [
+        0,
+        0
+      ]
+    },
+    "has_dma_ports": false,
+    "DmaCmdType": "DmaCmd_64_32_32_8",
+    "DmaDataType": "DmaData_128_16_32"
+  },
+  "hierarchy": "s.mem_controller",
+  "samples": 16,
+  "edges": 16,
+  "module": "cgra_data_memory",
+  "parameters": {
+    "DATA_W": 32,
+    "CTRL_DEPTH": 8,
+    "GLOBAL_ADDR_W": 6,
+    "REG_DEPTH": 16,
+    "TILE_PORTS": 4,
+    "COLS": 2,
+    "ROWS": 2,
+    "MULTI_COLS": 1,
+    "MULTI_ROWS": 1,
+    "MAX_COLS": 4,
+    "MAX_ROWS": 1,
+    "MAX_MEM_PORTS": 7,
+    "HAS_DMA": 0,
+    "HAS_IM2COL": 0,
+    "CUSTOM_COORD_MAP": 1,
+    "COORD_X_MAP": "1'h0",
+    "COORD_Y_MAP": "1'h0",
+    "BANK_DEPTH": 16,
+    "NUM_BANKS": 2,
+    "MEM_PORTS": 4,
+    "MEM_WRITE_PORTS": 4,
+    "MEM_COMBINATIONAL": 1
+  },
+  "mode": "native",
+  "bindings": {},
+  "normalize_ctrl": true,
+  "ports": [
+    {
+      "path": "address_lower",
+      "name": "address_lower",
+      "width": 6,
+      "original_width": 6,
+      "direction": "input"
+    },
+    {
+      "path": "address_upper",
+      "name": "address_upper",
+      "width": 6,
+      "original_width": 6,
+      "direction": "input"
+    },
+    {
+      "path": "cgra_id",
+      "name": "cgra_id",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_controller_spm_rd_req.msg",
+      "name": "recv_from_controller_spm_rd_req__msg",
+      "width": 32,
+      "original_width": 32,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_controller_spm_rd_req.rdy",
+      "name": "recv_from_controller_spm_rd_req__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_controller_spm_rd_req.val",
+      "name": "recv_from_controller_spm_rd_req__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_controller_spm_wr_req.msg",
+      "name": "recv_from_controller_spm_wr_req__msg",
+      "width": 68,
+      "original_width": 68,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_controller_spm_wr_req.rdy",
+      "name": "recv_from_controller_spm_wr_req__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_controller_spm_wr_req.val",
+      "name": "recv_from_controller_spm_wr_req__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_noc_load_request.msg",
+      "name": "recv_from_noc_load_request__msg",
+      "width": 194,
+      "original_width": 194,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_noc_load_request.rdy",
+      "name": "recv_from_noc_load_request__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_noc_load_request.val",
+      "name": "recv_from_noc_load_request__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_noc_load_response_pkt.msg",
+      "name": "recv_from_noc_load_response_pkt__msg",
+      "width": 194,
+      "original_width": 194,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_noc_load_response_pkt.rdy",
+      "name": "recv_from_noc_load_response_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_noc_load_response_pkt.val",
+      "name": "recv_from_noc_load_response_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_noc_store_request.msg",
+      "name": "recv_from_noc_store_request__msg",
+      "width": 194,
+      "original_width": 194,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_noc_store_request.rdy",
+      "name": "recv_from_noc_store_request__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_noc_store_request.val",
+      "name": "recv_from_noc_store_request__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_raddr[0].msg",
+      "name": "recv_raddr__msg[0]",
+      "width": 6,
+      "original_width": 6,
+      "direction": "input"
+    },
+    {
+      "path": "recv_raddr[0].rdy",
+      "name": "recv_raddr__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_raddr[0].val",
+      "name": "recv_raddr__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_raddr[1].msg",
+      "name": "recv_raddr__msg[1]",
+      "width": 6,
+      "original_width": 6,
+      "direction": "input"
+    },
+    {
+      "path": "recv_raddr[1].rdy",
+      "name": "recv_raddr__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_raddr[1].val",
+      "name": "recv_raddr__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_raddr[2].msg",
+      "name": "recv_raddr__msg[2]",
+      "width": 6,
+      "original_width": 6,
+      "direction": "input"
+    },
+    {
+      "path": "recv_raddr[2].rdy",
+      "name": "recv_raddr__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_raddr[2].val",
+      "name": "recv_raddr__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_raddr[3].msg",
+      "name": "recv_raddr__msg[3]",
+      "width": 6,
+      "original_width": 6,
+      "direction": "input"
+    },
+    {
+      "path": "recv_raddr[3].rdy",
+      "name": "recv_raddr__rdy[3]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_raddr[3].val",
+      "name": "recv_raddr__val[3]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_waddr[0].msg",
+      "name": "recv_waddr__msg[0]",
+      "width": 6,
+      "original_width": 6,
+      "direction": "input"
+    },
+    {
+      "path": "recv_waddr[0].rdy",
+      "name": "recv_waddr__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_waddr[0].val",
+      "name": "recv_waddr__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_waddr[1].msg",
+      "name": "recv_waddr__msg[1]",
+      "width": 6,
+      "original_width": 6,
+      "direction": "input"
+    },
+    {
+      "path": "recv_waddr[1].rdy",
+      "name": "recv_waddr__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_waddr[1].val",
+      "name": "recv_waddr__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_waddr[2].msg",
+      "name": "recv_waddr__msg[2]",
+      "width": 6,
+      "original_width": 6,
+      "direction": "input"
+    },
+    {
+      "path": "recv_waddr[2].rdy",
+      "name": "recv_waddr__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_waddr[2].val",
+      "name": "recv_waddr__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_waddr[3].msg",
+      "name": "recv_waddr__msg[3]",
+      "width": 6,
+      "original_width": 6,
+      "direction": "input"
+    },
+    {
+      "path": "recv_waddr[3].rdy",
+      "name": "recv_waddr__rdy[3]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_waddr[3].val",
+      "name": "recv_waddr__val[3]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_wdata[0].msg",
+      "name": "recv_wdata__msg[0]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_wdata[0].rdy",
+      "name": "recv_wdata__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_wdata[0].val",
+      "name": "recv_wdata__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_wdata[1].msg",
+      "name": "recv_wdata__msg[1]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_wdata[1].rdy",
+      "name": "recv_wdata__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_wdata[1].val",
+      "name": "recv_wdata__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_wdata[2].msg",
+      "name": "recv_wdata__msg[2]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_wdata[2].rdy",
+      "name": "recv_wdata__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_wdata[2].val",
+      "name": "recv_wdata__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_wdata[3].msg",
+      "name": "recv_wdata__msg[3]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_wdata[3].rdy",
+      "name": "recv_wdata__rdy[3]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_wdata[3].val",
+      "name": "recv_wdata__val[3]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_rdata[0].msg",
+      "name": "send_rdata__msg[0]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "output"
+    },
+    {
+      "path": "send_rdata[0].rdy",
+      "name": "send_rdata__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_rdata[0].val",
+      "name": "send_rdata__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_rdata[1].msg",
+      "name": "send_rdata__msg[1]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "output"
+    },
+    {
+      "path": "send_rdata[1].rdy",
+      "name": "send_rdata__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_rdata[1].val",
+      "name": "send_rdata__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_rdata[2].msg",
+      "name": "send_rdata__msg[2]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "output"
+    },
+    {
+      "path": "send_rdata[2].rdy",
+      "name": "send_rdata__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_rdata[2].val",
+      "name": "send_rdata__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_rdata[3].msg",
+      "name": "send_rdata__msg[3]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "output"
+    },
+    {
+      "path": "send_rdata[3].rdy",
+      "name": "send_rdata__rdy[3]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_rdata[3].val",
+      "name": "send_rdata__val[3]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_controller_spm_rd_resp.msg",
+      "name": "send_to_controller_spm_rd_resp__msg",
+      "width": 32,
+      "original_width": 32,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_controller_spm_rd_resp.rdy",
+      "name": "send_to_controller_spm_rd_resp__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_controller_spm_rd_resp.val",
+      "name": "send_to_controller_spm_rd_resp__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_noc_load_request_pkt.msg",
+      "name": "send_to_noc_load_request_pkt__msg",
+      "width": 194,
+      "original_width": 194,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_noc_load_request_pkt.rdy",
+      "name": "send_to_noc_load_request_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_noc_load_request_pkt.val",
+      "name": "send_to_noc_load_request_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_noc_load_response_pkt.msg",
+      "name": "send_to_noc_load_response_pkt__msg",
+      "width": 194,
+      "original_width": 194,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_noc_load_response_pkt.rdy",
+      "name": "send_to_noc_load_response_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_noc_load_response_pkt.val",
+      "name": "send_to_noc_load_response_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_noc_store_pkt.msg",
+      "name": "send_to_noc_store_pkt__msg",
+      "width": 194,
+      "original_width": 194,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_noc_store_pkt.rdy",
+      "name": "send_to_noc_store_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_noc_store_pkt.val",
+      "name": "send_to_noc_store_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "a1f09723ad1315b6e802da11b6f27697afcebf84c1a6674d0c2bced082817688"
+}

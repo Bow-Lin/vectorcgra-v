@@ -1,0 +1,6 @@
+ORIGINAL_MISMATCH sample=0 port=dma_cmd.rdy actual=0 expected=1
+ORIGINAL_MISMATCH sample=1 port=dma_cmd.rdy actual=0 expected=1
+ORIGINAL_MISMATCH sample=2 port=dma_cmd.rdy actual=0 expected=1
+[265000] %Fatal: tb_original.sv:215: Assertion failed in TOP.tb_original: ORIGINAL_REPLAY_FAILED errors=3 samples=35
+%Error: /workspace/work/original-test-components/build/ed21fca290e426d8f457/tb_original.sv:215: Verilog $stop
+Aborting...

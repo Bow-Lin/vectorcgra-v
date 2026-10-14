@@ -1,0 +1,3 @@
+[120186000] %Fatal: tb_native_kernel.sv:130: Assertion failed in TOP.tb_native_kernel.tick: NATIVE_KERNEL_TIMEOUT completed=0 loads=0
+%Error: tests/current/tb_native_kernel.sv:130: Verilog $stop
+Aborting...

@@ -1,0 +1,26 @@
+{
+  "architectures": [
+    {
+      "cols": 2,
+      "rows": 3
+    }
+  ],
+  "default_fus": [
+    "ADDER",
+    "MUL",
+    "CONST",
+    "MEM",
+    "NAH"
+  ],
+  "parameters": {
+    "BANK_DEPTH": 32,
+    "CTRL_DEPTH": 6,
+    "DATA_W": 64,
+    "NUM_BANKS": 2,
+    "NUM_CTRL": 6,
+    "REG_DEPTH": 9,
+    "TOTAL_STEPS": 6
+  },
+  "schema": 1,
+  "top": "system"
+}

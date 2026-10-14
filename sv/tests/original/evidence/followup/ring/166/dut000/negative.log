@@ -1,0 +1,3 @@
+[415000] %Fatal: tb_original.sv:139: Assertion failed in TOP.tb_original: ORIGINAL_TRANSACTION_MISMATCH send_to_cpu_pkt index=0 actual=0200000380000000000000000000000000000000000000000 expected=0200000380000000000000000000000000000000000000001
+%Error: /workspace/work/ring-completion-reference/build/e7090e900950ba441218/tb_original.sv:139: Verilog $stop
+Aborting...

@@ -1,0 +1,1076 @@
+{
+  "python_class": "CtrlMemDynamicRTL",
+  "arguments": {
+    "IntraCgraPktType": "IntraCgraPacket_1_1x1_4_8_2_CgraPayload",
+    "ctrl_mem_size": 16,
+    "num_fu_inports": 2,
+    "num_fu_outports": 2,
+    "num_tile_inports": 4,
+    "num_tile_outports": 4,
+    "num_cgras": 1,
+    "num_tiles": 4,
+    "ctrl_count_per_iter": 2,
+    "total_ctrl_steps": 2
+  },
+  "hierarchy": "s.ctrl_mem",
+  "samples": 20,
+  "edges": 20,
+  "module": "ctrl_mem",
+  "parameters": {
+    "DATA_W": 16,
+    "CTRL_DEPTH": 16,
+    "GLOBAL_ADDR_W": 4,
+    "REG_DEPTH": 16,
+    "TILE_PORTS": 4,
+    "COLS": 2,
+    "ROWS": 2,
+    "MAX_COLS": 7,
+    "MAX_ROWS": 1,
+    "MULTI_COLS": 1,
+    "MULTI_ROWS": 1,
+    "NUM_CTRL": 2,
+    "TOTAL_STEPS": 2
+  },
+  "mode": "native",
+  "bindings": {},
+  "normalize_ctrl": true,
+  "ports": [
+    {
+      "path": "cgra_id",
+      "name": "cgra_id",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "ctrl_addr_outport",
+      "name": "ctrl_addr_outport",
+      "width": 4,
+      "original_width": 4,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu",
+      "name": "prologue_count_outport_fu",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[0][0]",
+      "name": "prologue_count_outport_fu_crossbar[0][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[0][1]",
+      "name": "prologue_count_outport_fu_crossbar[0][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[10][0]",
+      "name": "prologue_count_outport_fu_crossbar[10][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[10][1]",
+      "name": "prologue_count_outport_fu_crossbar[10][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[11][0]",
+      "name": "prologue_count_outport_fu_crossbar[11][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[11][1]",
+      "name": "prologue_count_outport_fu_crossbar[11][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[12][0]",
+      "name": "prologue_count_outport_fu_crossbar[12][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[12][1]",
+      "name": "prologue_count_outport_fu_crossbar[12][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[13][0]",
+      "name": "prologue_count_outport_fu_crossbar[13][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[13][1]",
+      "name": "prologue_count_outport_fu_crossbar[13][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[14][0]",
+      "name": "prologue_count_outport_fu_crossbar[14][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[14][1]",
+      "name": "prologue_count_outport_fu_crossbar[14][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[15][0]",
+      "name": "prologue_count_outport_fu_crossbar[15][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[15][1]",
+      "name": "prologue_count_outport_fu_crossbar[15][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[1][0]",
+      "name": "prologue_count_outport_fu_crossbar[1][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[1][1]",
+      "name": "prologue_count_outport_fu_crossbar[1][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[2][0]",
+      "name": "prologue_count_outport_fu_crossbar[2][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[2][1]",
+      "name": "prologue_count_outport_fu_crossbar[2][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[3][0]",
+      "name": "prologue_count_outport_fu_crossbar[3][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[3][1]",
+      "name": "prologue_count_outport_fu_crossbar[3][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[4][0]",
+      "name": "prologue_count_outport_fu_crossbar[4][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[4][1]",
+      "name": "prologue_count_outport_fu_crossbar[4][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[5][0]",
+      "name": "prologue_count_outport_fu_crossbar[5][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[5][1]",
+      "name": "prologue_count_outport_fu_crossbar[5][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[6][0]",
+      "name": "prologue_count_outport_fu_crossbar[6][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[6][1]",
+      "name": "prologue_count_outport_fu_crossbar[6][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[7][0]",
+      "name": "prologue_count_outport_fu_crossbar[7][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[7][1]",
+      "name": "prologue_count_outport_fu_crossbar[7][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[8][0]",
+      "name": "prologue_count_outport_fu_crossbar[8][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[8][1]",
+      "name": "prologue_count_outport_fu_crossbar[8][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[9][0]",
+      "name": "prologue_count_outport_fu_crossbar[9][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_fu_crossbar[9][1]",
+      "name": "prologue_count_outport_fu_crossbar[9][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[0][0]",
+      "name": "prologue_count_outport_routing_crossbar[0][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[0][1]",
+      "name": "prologue_count_outport_routing_crossbar[0][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[0][2]",
+      "name": "prologue_count_outport_routing_crossbar[0][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[0][3]",
+      "name": "prologue_count_outport_routing_crossbar[0][3]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[0][4]",
+      "name": "prologue_count_outport_routing_crossbar[0][4]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[0][5]",
+      "name": "prologue_count_outport_routing_crossbar[0][5]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[10][0]",
+      "name": "prologue_count_outport_routing_crossbar[10][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[10][1]",
+      "name": "prologue_count_outport_routing_crossbar[10][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[10][2]",
+      "name": "prologue_count_outport_routing_crossbar[10][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[10][3]",
+      "name": "prologue_count_outport_routing_crossbar[10][3]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[10][4]",
+      "name": "prologue_count_outport_routing_crossbar[10][4]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[10][5]",
+      "name": "prologue_count_outport_routing_crossbar[10][5]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[11][0]",
+      "name": "prologue_count_outport_routing_crossbar[11][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[11][1]",
+      "name": "prologue_count_outport_routing_crossbar[11][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[11][2]",
+      "name": "prologue_count_outport_routing_crossbar[11][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[11][3]",
+      "name": "prologue_count_outport_routing_crossbar[11][3]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[11][4]",
+      "name": "prologue_count_outport_routing_crossbar[11][4]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[11][5]",
+      "name": "prologue_count_outport_routing_crossbar[11][5]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[12][0]",
+      "name": "prologue_count_outport_routing_crossbar[12][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[12][1]",
+      "name": "prologue_count_outport_routing_crossbar[12][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[12][2]",
+      "name": "prologue_count_outport_routing_crossbar[12][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[12][3]",
+      "name": "prologue_count_outport_routing_crossbar[12][3]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[12][4]",
+      "name": "prologue_count_outport_routing_crossbar[12][4]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[12][5]",
+      "name": "prologue_count_outport_routing_crossbar[12][5]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[13][0]",
+      "name": "prologue_count_outport_routing_crossbar[13][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[13][1]",
+      "name": "prologue_count_outport_routing_crossbar[13][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[13][2]",
+      "name": "prologue_count_outport_routing_crossbar[13][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[13][3]",
+      "name": "prologue_count_outport_routing_crossbar[13][3]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[13][4]",
+      "name": "prologue_count_outport_routing_crossbar[13][4]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[13][5]",
+      "name": "prologue_count_outport_routing_crossbar[13][5]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[14][0]",
+      "name": "prologue_count_outport_routing_crossbar[14][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[14][1]",
+      "name": "prologue_count_outport_routing_crossbar[14][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[14][2]",
+      "name": "prologue_count_outport_routing_crossbar[14][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[14][3]",
+      "name": "prologue_count_outport_routing_crossbar[14][3]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[14][4]",
+      "name": "prologue_count_outport_routing_crossbar[14][4]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[14][5]",
+      "name": "prologue_count_outport_routing_crossbar[14][5]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[15][0]",
+      "name": "prologue_count_outport_routing_crossbar[15][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[15][1]",
+      "name": "prologue_count_outport_routing_crossbar[15][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[15][2]",
+      "name": "prologue_count_outport_routing_crossbar[15][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[15][3]",
+      "name": "prologue_count_outport_routing_crossbar[15][3]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[15][4]",
+      "name": "prologue_count_outport_routing_crossbar[15][4]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[15][5]",
+      "name": "prologue_count_outport_routing_crossbar[15][5]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[1][0]",
+      "name": "prologue_count_outport_routing_crossbar[1][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[1][1]",
+      "name": "prologue_count_outport_routing_crossbar[1][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[1][2]",
+      "name": "prologue_count_outport_routing_crossbar[1][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[1][3]",
+      "name": "prologue_count_outport_routing_crossbar[1][3]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[1][4]",
+      "name": "prologue_count_outport_routing_crossbar[1][4]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[1][5]",
+      "name": "prologue_count_outport_routing_crossbar[1][5]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[2][0]",
+      "name": "prologue_count_outport_routing_crossbar[2][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[2][1]",
+      "name": "prologue_count_outport_routing_crossbar[2][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[2][2]",
+      "name": "prologue_count_outport_routing_crossbar[2][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[2][3]",
+      "name": "prologue_count_outport_routing_crossbar[2][3]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[2][4]",
+      "name": "prologue_count_outport_routing_crossbar[2][4]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[2][5]",
+      "name": "prologue_count_outport_routing_crossbar[2][5]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[3][0]",
+      "name": "prologue_count_outport_routing_crossbar[3][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[3][1]",
+      "name": "prologue_count_outport_routing_crossbar[3][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[3][2]",
+      "name": "prologue_count_outport_routing_crossbar[3][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[3][3]",
+      "name": "prologue_count_outport_routing_crossbar[3][3]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[3][4]",
+      "name": "prologue_count_outport_routing_crossbar[3][4]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[3][5]",
+      "name": "prologue_count_outport_routing_crossbar[3][5]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[4][0]",
+      "name": "prologue_count_outport_routing_crossbar[4][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[4][1]",
+      "name": "prologue_count_outport_routing_crossbar[4][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[4][2]",
+      "name": "prologue_count_outport_routing_crossbar[4][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[4][3]",
+      "name": "prologue_count_outport_routing_crossbar[4][3]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[4][4]",
+      "name": "prologue_count_outport_routing_crossbar[4][4]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[4][5]",
+      "name": "prologue_count_outport_routing_crossbar[4][5]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[5][0]",
+      "name": "prologue_count_outport_routing_crossbar[5][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[5][1]",
+      "name": "prologue_count_outport_routing_crossbar[5][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[5][2]",
+      "name": "prologue_count_outport_routing_crossbar[5][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[5][3]",
+      "name": "prologue_count_outport_routing_crossbar[5][3]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[5][4]",
+      "name": "prologue_count_outport_routing_crossbar[5][4]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[5][5]",
+      "name": "prologue_count_outport_routing_crossbar[5][5]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[6][0]",
+      "name": "prologue_count_outport_routing_crossbar[6][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[6][1]",
+      "name": "prologue_count_outport_routing_crossbar[6][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[6][2]",
+      "name": "prologue_count_outport_routing_crossbar[6][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[6][3]",
+      "name": "prologue_count_outport_routing_crossbar[6][3]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[6][4]",
+      "name": "prologue_count_outport_routing_crossbar[6][4]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[6][5]",
+      "name": "prologue_count_outport_routing_crossbar[6][5]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[7][0]",
+      "name": "prologue_count_outport_routing_crossbar[7][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[7][1]",
+      "name": "prologue_count_outport_routing_crossbar[7][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[7][2]",
+      "name": "prologue_count_outport_routing_crossbar[7][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[7][3]",
+      "name": "prologue_count_outport_routing_crossbar[7][3]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[7][4]",
+      "name": "prologue_count_outport_routing_crossbar[7][4]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[7][5]",
+      "name": "prologue_count_outport_routing_crossbar[7][5]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[8][0]",
+      "name": "prologue_count_outport_routing_crossbar[8][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[8][1]",
+      "name": "prologue_count_outport_routing_crossbar[8][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[8][2]",
+      "name": "prologue_count_outport_routing_crossbar[8][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[8][3]",
+      "name": "prologue_count_outport_routing_crossbar[8][3]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[8][4]",
+      "name": "prologue_count_outport_routing_crossbar[8][4]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[8][5]",
+      "name": "prologue_count_outport_routing_crossbar[8][5]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[9][0]",
+      "name": "prologue_count_outport_routing_crossbar[9][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[9][1]",
+      "name": "prologue_count_outport_routing_crossbar[9][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[9][2]",
+      "name": "prologue_count_outport_routing_crossbar[9][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[9][3]",
+      "name": "prologue_count_outport_routing_crossbar[9][3]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[9][4]",
+      "name": "prologue_count_outport_routing_crossbar[9][4]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "prologue_count_outport_routing_crossbar[9][5]",
+      "name": "prologue_count_outport_routing_crossbar[9][5]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_element.msg",
+      "name": "recv_from_element__msg",
+      "width": 152,
+      "original_width": 102,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_element.rdy",
+      "name": "recv_from_element__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_element.val",
+      "name": "recv_from_element__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_pkt_from_controller.msg",
+      "name": "recv_pkt_from_controller__msg",
+      "width": 173,
+      "original_width": 123,
+      "direction": "input"
+    },
+    {
+      "path": "recv_pkt_from_controller.rdy",
+      "name": "recv_pkt_from_controller__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_pkt_from_controller.val",
+      "name": "recv_pkt_from_controller__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_ctrl.msg",
+      "name": "send_ctrl__msg",
+      "width": 119,
+      "original_width": 69,
+      "direction": "output"
+    },
+    {
+      "path": "send_ctrl.rdy",
+      "name": "send_ctrl__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_ctrl.val",
+      "name": "send_ctrl__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_pkt_to_controller.msg",
+      "name": "send_pkt_to_controller__msg",
+      "width": 173,
+      "original_width": 123,
+      "direction": "output"
+    },
+    {
+      "path": "send_pkt_to_controller.rdy",
+      "name": "send_pkt_to_controller__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_pkt_to_controller.val",
+      "name": "send_pkt_to_controller__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_element.msg",
+      "name": "send_to_element__msg",
+      "width": 152,
+      "original_width": 102,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_element.rdy",
+      "name": "send_to_element__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_element.val",
+      "name": "send_to_element__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "tile_id",
+      "name": "tile_id",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    }
+  ],
+  "vectors_sha256": "2cc1731f76d51216b3b492005d7e5fa79aaab86bee59cd127267134334a325c3"
+}

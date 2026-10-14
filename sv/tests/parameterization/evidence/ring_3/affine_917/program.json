@@ -1,0 +1,2295 @@
+{
+  "schema": 1,
+  "steps": [
+    {
+      "address": 0,
+      "kind": "preload",
+      "values": [
+        2813918804,
+        2813918817,
+        2813918830,
+        2813918843,
+        2813918856,
+        2813918869,
+        2813918882,
+        2813918895,
+        2813918908,
+        2813918921,
+        2813918934,
+        2813918947,
+        2813918960,
+        2813918973,
+        2813918986,
+        2813918999,
+        2813919012,
+        2813919025,
+        2813919038,
+        2813919051,
+        2813919064,
+        2813919077,
+        2813919090,
+        2813919103,
+        2813919116,
+        2813919129,
+        2813919142,
+        2813919155,
+        2813919168,
+        2813919181,
+        634050620,
+        2813919207
+      ]
+    },
+    {
+      "address": 32,
+      "kind": "preload",
+      "values": [
+        2813918610,
+        2813918623,
+        2813918636,
+        2813918649,
+        2813918662,
+        2813918675,
+        2813918688,
+        2813918701,
+        2813918714,
+        2813918727,
+        2813918740,
+        2813918753,
+        2813918766,
+        2813918779,
+        2813918792,
+        2813918805,
+        2813918818,
+        2813918831,
+        2813918844,
+        2813918857,
+        2813918870,
+        2813918883,
+        2813918896,
+        2813918909,
+        2813918922,
+        2813918935,
+        2813918948,
+        2813918961,
+        2813918974,
+        2813918987,
+        2148799824,
+        2813919013
+      ]
+    },
+    {
+      "address": 64,
+      "kind": "preload",
+      "values": [
+        2813918707,
+        2813918720,
+        2813918733,
+        2813918746,
+        2813918759,
+        2813918772,
+        2813918785,
+        2813918798,
+        2813918811,
+        2813918824,
+        2813918837,
+        2813918850,
+        2813918863,
+        2813918876,
+        2813918889,
+        2813918902,
+        2813918915,
+        2813918928,
+        2813918941,
+        2813918954,
+        2813918967,
+        2813918980,
+        2813918993,
+        2813919006,
+        2813919019,
+        2813919032,
+        2813919045,
+        2813919058,
+        2813919071,
+        2813919084,
+        2812133837,
+        2813919110
+      ]
+    },
+    {
+      "cgra": 0,
+      "kind": "constants",
+      "tile": 0,
+      "values": [
+        94,
+        3,
+        3,
+        4,
+        5,
+        95
+      ]
+    },
+    {
+      "cgra": 0,
+      "kind": "program",
+      "tile": 0,
+      "words": [
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "LD_CONST",
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "MUL_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 0
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "CONST",
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "5": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "1": 2
+          },
+          "write_reg_idx": {
+            "1": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "3": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 0
+          },
+          "read_reg_towards": {
+            "0": 1
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "operation": "STR_CONST",
+          "routing_xbar_outport": {
+            "4": 4
+          }
+        }
+      ]
+    },
+    {
+      "cgra": 0,
+      "kind": "constants",
+      "tile": 1,
+      "values": [
+        7,
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "cgra": 0,
+      "kind": "program",
+      "tile": 1,
+      "words": [
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "INC",
+          "routing_xbar_outport": {
+            "4": 3
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 0
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "CONST",
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "5": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "1": 2
+          },
+          "write_reg_idx": {
+            "1": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "0": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 0
+          },
+          "read_reg_towards": {
+            "0": 1
+          }
+        },
+        {
+          "operation": "NAH",
+          "routing_xbar_outport": {
+            "2": 1
+          }
+        }
+      ]
+    },
+    {
+      "cgra": 0,
+      "kind": "constants",
+      "tile": 3,
+      "values": [
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "cgra": 0,
+      "kind": "program",
+      "tile": 3,
+      "words": [
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "INC",
+          "routing_xbar_outport": {
+            "4": 2
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 0
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "CONST",
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "5": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "1": 2
+          },
+          "write_reg_idx": {
+            "1": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "2": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 0
+          },
+          "read_reg_towards": {
+            "0": 1
+          }
+        },
+        {
+          "operation": "NAH",
+          "routing_xbar_outport": {
+            "1": 3
+          }
+        }
+      ]
+    },
+    {
+      "cgra": 0,
+      "kind": "constants",
+      "tile": 2,
+      "values": [
+        5,
+        6,
+        7,
+        1,
+        4294967274
+      ]
+    },
+    {
+      "cgra": 0,
+      "kind": "program",
+      "tile": 2,
+      "words": [
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "INC",
+          "routing_xbar_outport": {
+            "4": 4
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 0
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "CONST",
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "5": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "1": 2
+          },
+          "write_reg_idx": {
+            "1": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 0
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "3": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          }
+        }
+      ]
+    },
+    {
+      "cgra": 1,
+      "kind": "constants",
+      "tile": 0,
+      "values": [
+        30,
+        3,
+        6,
+        7,
+        1,
+        31
+      ]
+    },
+    {
+      "cgra": 1,
+      "kind": "program",
+      "tile": 0,
+      "words": [
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "LD_CONST",
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "MUL_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 0
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "CONST",
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "5": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "1": 2
+          },
+          "write_reg_idx": {
+            "1": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "3": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 0
+          },
+          "read_reg_towards": {
+            "0": 1
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "operation": "STR_CONST",
+          "routing_xbar_outport": {
+            "4": 4
+          }
+        }
+      ]
+    },
+    {
+      "cgra": 1,
+      "kind": "constants",
+      "tile": 1,
+      "values": [
+        3,
+        4,
+        5,
+        6
+      ]
+    },
+    {
+      "cgra": 1,
+      "kind": "program",
+      "tile": 1,
+      "words": [
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "INC",
+          "routing_xbar_outport": {
+            "4": 3
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 0
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "CONST",
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "5": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "1": 2
+          },
+          "write_reg_idx": {
+            "1": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "0": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 0
+          },
+          "read_reg_towards": {
+            "0": 1
+          }
+        },
+        {
+          "operation": "NAH",
+          "routing_xbar_outport": {
+            "2": 1
+          }
+        }
+      ]
+    },
+    {
+      "cgra": 1,
+      "kind": "constants",
+      "tile": 3,
+      "values": [
+        6,
+        7,
+        1,
+        2
+      ]
+    },
+    {
+      "cgra": 1,
+      "kind": "program",
+      "tile": 3,
+      "words": [
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "INC",
+          "routing_xbar_outport": {
+            "4": 2
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 0
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "CONST",
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "5": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "1": 2
+          },
+          "write_reg_idx": {
+            "1": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "2": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 0
+          },
+          "read_reg_towards": {
+            "0": 1
+          }
+        },
+        {
+          "operation": "NAH",
+          "routing_xbar_outport": {
+            "1": 3
+          }
+        }
+      ]
+    },
+    {
+      "cgra": 1,
+      "kind": "constants",
+      "tile": 2,
+      "values": [
+        1,
+        2,
+        3,
+        4,
+        4294967281
+      ]
+    },
+    {
+      "cgra": 1,
+      "kind": "program",
+      "tile": 2,
+      "words": [
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "INC",
+          "routing_xbar_outport": {
+            "4": 4
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 0
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "CONST",
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "5": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "1": 2
+          },
+          "write_reg_idx": {
+            "1": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 0
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "3": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          }
+        }
+      ]
+    },
+    {
+      "cgra": 2,
+      "kind": "constants",
+      "tile": 0,
+      "values": [
+        62,
+        3,
+        2,
+        3,
+        4,
+        63
+      ]
+    },
+    {
+      "cgra": 2,
+      "kind": "program",
+      "tile": 0,
+      "words": [
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "LD_CONST",
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "MUL_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 0
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "CONST",
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "5": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "1": 2
+          },
+          "write_reg_idx": {
+            "1": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "3": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 0
+          },
+          "read_reg_towards": {
+            "0": 1
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "operation": "STR_CONST",
+          "routing_xbar_outport": {
+            "4": 4
+          }
+        }
+      ]
+    },
+    {
+      "cgra": 2,
+      "kind": "constants",
+      "tile": 1,
+      "values": [
+        6,
+        7,
+        1,
+        2
+      ]
+    },
+    {
+      "cgra": 2,
+      "kind": "program",
+      "tile": 1,
+      "words": [
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "INC",
+          "routing_xbar_outport": {
+            "4": 3
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 0
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "CONST",
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "5": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "1": 2
+          },
+          "write_reg_idx": {
+            "1": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "0": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 0
+          },
+          "read_reg_towards": {
+            "0": 1
+          }
+        },
+        {
+          "operation": "NAH",
+          "routing_xbar_outport": {
+            "2": 1
+          }
+        }
+      ]
+    },
+    {
+      "cgra": 2,
+      "kind": "constants",
+      "tile": 3,
+      "values": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "cgra": 2,
+      "kind": "program",
+      "tile": 3,
+      "words": [
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "INC",
+          "routing_xbar_outport": {
+            "4": 2
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 0
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "CONST",
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "5": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "1": 2
+          },
+          "write_reg_idx": {
+            "1": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "2": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 0
+          },
+          "read_reg_towards": {
+            "0": 1
+          }
+        },
+        {
+          "operation": "NAH",
+          "routing_xbar_outport": {
+            "1": 3
+          }
+        }
+      ]
+    },
+    {
+      "cgra": 2,
+      "kind": "constants",
+      "tile": 2,
+      "values": [
+        4,
+        5,
+        6,
+        7,
+        4294967274
+      ]
+    },
+    {
+      "cgra": 2,
+      "kind": "program",
+      "tile": 2,
+      "words": [
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "INC",
+          "routing_xbar_outport": {
+            "4": 4
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 0
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "CONST",
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "5": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "1": 2
+          },
+          "write_reg_idx": {
+            "1": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "4": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 0
+          },
+          "read_reg_towards": {
+            "0": 1
+          },
+          "write_reg_from": {
+            "0": 2
+          },
+          "write_reg_idx": {
+            "0": 4
+          }
+        },
+        {
+          "fu_in": [
+            1,
+            2,
+            3,
+            4
+          ],
+          "fu_xbar_outport": {
+            "3": 1
+          },
+          "operation": "ADD_CONST",
+          "read_reg_idx": {
+            "0": 4
+          },
+          "read_reg_towards": {
+            "0": 1
+          }
+        }
+      ]
+    },
+    {
+      "cgra": 0,
+      "cmd": "LAUNCH",
+      "kind": "command",
+      "tile": 2
+    },
+    {
+      "cgra": 0,
+      "cmd": "LAUNCH",
+      "kind": "command",
+      "tile": 3
+    },
+    {
+      "cgra": 0,
+      "cmd": "LAUNCH",
+      "kind": "command",
+      "tile": 1
+    },
+    {
+      "cgra": 0,
+      "cmd": "LAUNCH",
+      "kind": "command",
+      "tile": 0
+    },
+    {
+      "cgra": 1,
+      "cmd": "LAUNCH",
+      "kind": "command",
+      "tile": 2
+    },
+    {
+      "cgra": 1,
+      "cmd": "LAUNCH",
+      "kind": "command",
+      "tile": 3
+    },
+    {
+      "cgra": 1,
+      "cmd": "LAUNCH",
+      "kind": "command",
+      "tile": 1
+    },
+    {
+      "cgra": 1,
+      "cmd": "LAUNCH",
+      "kind": "command",
+      "tile": 0
+    },
+    {
+      "cgra": 2,
+      "cmd": "LAUNCH",
+      "kind": "command",
+      "tile": 2
+    },
+    {
+      "cgra": 2,
+      "cmd": "LAUNCH",
+      "kind": "command",
+      "tile": 3
+    },
+    {
+      "cgra": 2,
+      "cmd": "LAUNCH",
+      "kind": "command",
+      "tile": 1
+    },
+    {
+      "cgra": 2,
+      "cmd": "LAUNCH",
+      "kind": "command",
+      "tile": 0
+    },
+    {
+      "completions": 12,
+      "kind": "barrier"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 0,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 1,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 2,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 3,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 4,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 5,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 6,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 7,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 8,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 9,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 10,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 11,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 12,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 13,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 14,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 15,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 16,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 17,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 18,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 19,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 20,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 21,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 22,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 23,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 24,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 25,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 26,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 27,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 28,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 29,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 30,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 31,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 32,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 33,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 34,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 35,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 36,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 37,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 38,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 39,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 40,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 41,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 42,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 43,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 44,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 45,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 46,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 47,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 48,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 49,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 50,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 51,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 52,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 53,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 54,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 55,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 56,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 57,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 58,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 59,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 60,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 61,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 62,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 63,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 64,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 65,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 66,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 67,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 68,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 69,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 70,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 71,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 72,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 73,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 74,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 75,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 76,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 77,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 78,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 79,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 80,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 81,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 82,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 83,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 84,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 85,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 86,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 87,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 88,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 89,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 90,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 91,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 92,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 93,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 94,
+      "kind": "command"
+    },
+    {
+      "cmd": "LOAD_REQUEST",
+      "data_addr": 95,
+      "kind": "command"
+    }
+  ]
+}

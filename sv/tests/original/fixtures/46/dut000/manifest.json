@@ -1,0 +1,59 @@
+{
+  "python_class": "AluGenMacWrapperRTL_noparam",
+  "arguments": {
+    "args": [],
+    "kwargs": {}
+  },
+  "hierarchy": "s",
+  "samples": 5,
+  "edges": 4,
+  "module": "cgra_alu_gen_mac",
+  "parameters": {},
+  "mode": "native",
+  "bindings": {},
+  "ports": [
+    {
+      "path": "lhs_0",
+      "name": "lhs_0",
+      "width": 16,
+      "original_width": 16,
+      "direction": "output"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "rhs_0",
+      "name": "rhs_0",
+      "width": 16,
+      "original_width": 16,
+      "direction": "input"
+    },
+    {
+      "path": "rhs_1",
+      "name": "rhs_1",
+      "width": 16,
+      "original_width": 16,
+      "direction": "input"
+    },
+    {
+      "path": "rhs_1b",
+      "name": "rhs_1b",
+      "width": 16,
+      "original_width": 16,
+      "direction": "input"
+    },
+    {
+      "path": "rhs_2",
+      "name": "rhs_2",
+      "width": 6,
+      "original_width": 6,
+      "direction": "input"
+    }
+  ],
+  "vectors_sha256": "d656d359ef5ded5aeac9d72b90d15c6ac16b81344d2abeb30a792ba7c9120a72"
+}

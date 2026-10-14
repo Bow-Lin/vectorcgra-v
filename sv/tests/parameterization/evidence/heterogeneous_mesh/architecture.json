@@ -1,0 +1,1318 @@
+{
+  "config": {
+    "address_map": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "architectures": [
+      {
+        "cols": 2,
+        "fu_names": [
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ]
+        ],
+        "rows": 2
+      },
+      {
+        "cols": 3,
+        "fu_names": [
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ]
+        ],
+        "rows": 3
+      },
+      {
+        "cols": 3,
+        "fu_names": [
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ]
+        ],
+        "rows": 2
+      },
+      {
+        "cols": 2,
+        "fu_names": [
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ]
+        ],
+        "rows": 3
+      }
+    ],
+    "default_fus": [
+      "ADDER",
+      "MUL",
+      "CONST",
+      "MEM",
+      "NAH"
+    ],
+    "parameters": {
+      "BANK_DEPTH": 8,
+      "CTRL_DEPTH": 6,
+      "MULTI_COLS": 2,
+      "MULTI_ROWS": 2,
+      "NUM_BANKS": 2,
+      "NUM_CTRL": 6,
+      "REG_DEPTH": 5,
+      "TILE_PORTS": 8,
+      "TOTAL_STEPS": 6
+    },
+    "schema": 1,
+    "top": "multi"
+  },
+  "normalized": {
+    "address_map": [
+      2,
+      0,
+      3,
+      1
+    ],
+    "architectures": [
+      {
+        "boundary_in": [
+          6,
+          10,
+          5,
+          9
+        ],
+        "boundary_out": [
+          6,
+          10,
+          5,
+          9
+        ],
+        "cols": 2,
+        "fu_names": [
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ]
+        ],
+        "links": [
+          {
+            "dp": 1,
+            "dst": 2,
+            "enabled": 1,
+            "sp": 0,
+            "src": 0
+          },
+          {
+            "dp": 2,
+            "dst": 1,
+            "enabled": 1,
+            "sp": 3,
+            "src": 0
+          },
+          {
+            "dp": 7,
+            "dst": 3,
+            "enabled": 1,
+            "sp": 5,
+            "src": 0
+          },
+          {
+            "dp": 1,
+            "dst": 3,
+            "enabled": 1,
+            "sp": 0,
+            "src": 1
+          },
+          {
+            "dp": 3,
+            "dst": 0,
+            "enabled": 1,
+            "sp": 2,
+            "src": 1
+          },
+          {
+            "dp": 6,
+            "dst": 2,
+            "enabled": 1,
+            "sp": 4,
+            "src": 1
+          },
+          {
+            "dp": 0,
+            "dst": 0,
+            "enabled": 1,
+            "sp": 1,
+            "src": 2
+          },
+          {
+            "dp": 2,
+            "dst": 3,
+            "enabled": 1,
+            "sp": 3,
+            "src": 2
+          },
+          {
+            "dp": 4,
+            "dst": 1,
+            "enabled": 1,
+            "sp": 6,
+            "src": 2
+          },
+          {
+            "dp": 0,
+            "dst": 1,
+            "enabled": 1,
+            "sp": 1,
+            "src": 3
+          },
+          {
+            "dp": 3,
+            "dst": 2,
+            "enabled": 1,
+            "sp": 2,
+            "src": 3
+          },
+          {
+            "dp": 5,
+            "dst": 0,
+            "enabled": 1,
+            "sp": 7,
+            "src": 3
+          }
+        ],
+        "read_ports": [
+          0,
+          2,
+          1,
+          4294967295,
+          4294967295
+        ],
+        "rows": 2,
+        "write_ports": [
+          0,
+          2,
+          1,
+          4294967295,
+          4294967295
+        ]
+      },
+      {
+        "boundary_in": [
+          6,
+          2,
+          10,
+          4,
+          0,
+          8,
+          5,
+          1,
+          9
+        ],
+        "boundary_out": [
+          6,
+          2,
+          10,
+          4,
+          0,
+          8,
+          5,
+          1,
+          9
+        ],
+        "cols": 3,
+        "fu_names": [
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ]
+        ],
+        "links": [
+          {
+            "dp": 1,
+            "dst": 3,
+            "enabled": 1,
+            "sp": 0,
+            "src": 0
+          },
+          {
+            "dp": 2,
+            "dst": 1,
+            "enabled": 1,
+            "sp": 3,
+            "src": 0
+          },
+          {
+            "dp": 7,
+            "dst": 4,
+            "enabled": 1,
+            "sp": 5,
+            "src": 0
+          },
+          {
+            "dp": 1,
+            "dst": 4,
+            "enabled": 1,
+            "sp": 0,
+            "src": 1
+          },
+          {
+            "dp": 3,
+            "dst": 0,
+            "enabled": 1,
+            "sp": 2,
+            "src": 1
+          },
+          {
+            "dp": 2,
+            "dst": 2,
+            "enabled": 1,
+            "sp": 3,
+            "src": 1
+          },
+          {
+            "dp": 6,
+            "dst": 3,
+            "enabled": 1,
+            "sp": 4,
+            "src": 1
+          },
+          {
+            "dp": 7,
+            "dst": 5,
+            "enabled": 1,
+            "sp": 5,
+            "src": 1
+          },
+          {
+            "dp": 1,
+            "dst": 5,
+            "enabled": 1,
+            "sp": 0,
+            "src": 2
+          },
+          {
+            "dp": 3,
+            "dst": 1,
+            "enabled": 1,
+            "sp": 2,
+            "src": 2
+          },
+          {
+            "dp": 6,
+            "dst": 4,
+            "enabled": 1,
+            "sp": 4,
+            "src": 2
+          },
+          {
+            "dp": 1,
+            "dst": 6,
+            "enabled": 1,
+            "sp": 0,
+            "src": 3
+          },
+          {
+            "dp": 0,
+            "dst": 0,
+            "enabled": 1,
+            "sp": 1,
+            "src": 3
+          },
+          {
+            "dp": 2,
+            "dst": 4,
+            "enabled": 1,
+            "sp": 3,
+            "src": 3
+          },
+          {
+            "dp": 7,
+            "dst": 7,
+            "enabled": 1,
+            "sp": 5,
+            "src": 3
+          },
+          {
+            "dp": 4,
+            "dst": 1,
+            "enabled": 1,
+            "sp": 6,
+            "src": 3
+          },
+          {
+            "dp": 1,
+            "dst": 7,
+            "enabled": 1,
+            "sp": 0,
+            "src": 4
+          },
+          {
+            "dp": 0,
+            "dst": 1,
+            "enabled": 1,
+            "sp": 1,
+            "src": 4
+          },
+          {
+            "dp": 3,
+            "dst": 3,
+            "enabled": 1,
+            "sp": 2,
+            "src": 4
+          },
+          {
+            "dp": 2,
+            "dst": 5,
+            "enabled": 1,
+            "sp": 3,
+            "src": 4
+          },
+          {
+            "dp": 6,
+            "dst": 6,
+            "enabled": 1,
+            "sp": 4,
+            "src": 4
+          },
+          {
+            "dp": 7,
+            "dst": 8,
+            "enabled": 1,
+            "sp": 5,
+            "src": 4
+          },
+          {
+            "dp": 4,
+            "dst": 2,
+            "enabled": 1,
+            "sp": 6,
+            "src": 4
+          },
+          {
+            "dp": 5,
+            "dst": 0,
+            "enabled": 1,
+            "sp": 7,
+            "src": 4
+          },
+          {
+            "dp": 1,
+            "dst": 8,
+            "enabled": 1,
+            "sp": 0,
+            "src": 5
+          },
+          {
+            "dp": 0,
+            "dst": 2,
+            "enabled": 1,
+            "sp": 1,
+            "src": 5
+          },
+          {
+            "dp": 3,
+            "dst": 4,
+            "enabled": 1,
+            "sp": 2,
+            "src": 5
+          },
+          {
+            "dp": 6,
+            "dst": 7,
+            "enabled": 1,
+            "sp": 4,
+            "src": 5
+          },
+          {
+            "dp": 5,
+            "dst": 1,
+            "enabled": 1,
+            "sp": 7,
+            "src": 5
+          },
+          {
+            "dp": 0,
+            "dst": 3,
+            "enabled": 1,
+            "sp": 1,
+            "src": 6
+          },
+          {
+            "dp": 2,
+            "dst": 7,
+            "enabled": 1,
+            "sp": 3,
+            "src": 6
+          },
+          {
+            "dp": 4,
+            "dst": 4,
+            "enabled": 1,
+            "sp": 6,
+            "src": 6
+          },
+          {
+            "dp": 0,
+            "dst": 4,
+            "enabled": 1,
+            "sp": 1,
+            "src": 7
+          },
+          {
+            "dp": 3,
+            "dst": 6,
+            "enabled": 1,
+            "sp": 2,
+            "src": 7
+          },
+          {
+            "dp": 2,
+            "dst": 8,
+            "enabled": 1,
+            "sp": 3,
+            "src": 7
+          },
+          {
+            "dp": 4,
+            "dst": 5,
+            "enabled": 1,
+            "sp": 6,
+            "src": 7
+          },
+          {
+            "dp": 5,
+            "dst": 3,
+            "enabled": 1,
+            "sp": 7,
+            "src": 7
+          },
+          {
+            "dp": 0,
+            "dst": 5,
+            "enabled": 1,
+            "sp": 1,
+            "src": 8
+          },
+          {
+            "dp": 3,
+            "dst": 7,
+            "enabled": 1,
+            "sp": 2,
+            "src": 8
+          },
+          {
+            "dp": 5,
+            "dst": 4,
+            "enabled": 1,
+            "sp": 7,
+            "src": 8
+          }
+        ],
+        "read_ports": [
+          0,
+          3,
+          6,
+          1,
+          2
+        ],
+        "rows": 3,
+        "write_ports": [
+          0,
+          3,
+          6,
+          1,
+          2
+        ]
+      },
+      {
+        "boundary_in": [
+          6,
+          2,
+          10,
+          5,
+          1,
+          9
+        ],
+        "boundary_out": [
+          6,
+          2,
+          10,
+          5,
+          1,
+          9
+        ],
+        "cols": 3,
+        "fu_names": [
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ]
+        ],
+        "links": [
+          {
+            "dp": 1,
+            "dst": 3,
+            "enabled": 1,
+            "sp": 0,
+            "src": 0
+          },
+          {
+            "dp": 2,
+            "dst": 1,
+            "enabled": 1,
+            "sp": 3,
+            "src": 0
+          },
+          {
+            "dp": 7,
+            "dst": 4,
+            "enabled": 1,
+            "sp": 5,
+            "src": 0
+          },
+          {
+            "dp": 1,
+            "dst": 4,
+            "enabled": 1,
+            "sp": 0,
+            "src": 1
+          },
+          {
+            "dp": 3,
+            "dst": 0,
+            "enabled": 1,
+            "sp": 2,
+            "src": 1
+          },
+          {
+            "dp": 2,
+            "dst": 2,
+            "enabled": 1,
+            "sp": 3,
+            "src": 1
+          },
+          {
+            "dp": 6,
+            "dst": 3,
+            "enabled": 1,
+            "sp": 4,
+            "src": 1
+          },
+          {
+            "dp": 7,
+            "dst": 5,
+            "enabled": 1,
+            "sp": 5,
+            "src": 1
+          },
+          {
+            "dp": 1,
+            "dst": 5,
+            "enabled": 1,
+            "sp": 0,
+            "src": 2
+          },
+          {
+            "dp": 3,
+            "dst": 1,
+            "enabled": 1,
+            "sp": 2,
+            "src": 2
+          },
+          {
+            "dp": 6,
+            "dst": 4,
+            "enabled": 1,
+            "sp": 4,
+            "src": 2
+          },
+          {
+            "dp": 0,
+            "dst": 0,
+            "enabled": 1,
+            "sp": 1,
+            "src": 3
+          },
+          {
+            "dp": 2,
+            "dst": 4,
+            "enabled": 1,
+            "sp": 3,
+            "src": 3
+          },
+          {
+            "dp": 4,
+            "dst": 1,
+            "enabled": 1,
+            "sp": 6,
+            "src": 3
+          },
+          {
+            "dp": 0,
+            "dst": 1,
+            "enabled": 1,
+            "sp": 1,
+            "src": 4
+          },
+          {
+            "dp": 3,
+            "dst": 3,
+            "enabled": 1,
+            "sp": 2,
+            "src": 4
+          },
+          {
+            "dp": 2,
+            "dst": 5,
+            "enabled": 1,
+            "sp": 3,
+            "src": 4
+          },
+          {
+            "dp": 4,
+            "dst": 2,
+            "enabled": 1,
+            "sp": 6,
+            "src": 4
+          },
+          {
+            "dp": 5,
+            "dst": 0,
+            "enabled": 1,
+            "sp": 7,
+            "src": 4
+          },
+          {
+            "dp": 0,
+            "dst": 2,
+            "enabled": 1,
+            "sp": 1,
+            "src": 5
+          },
+          {
+            "dp": 3,
+            "dst": 4,
+            "enabled": 1,
+            "sp": 2,
+            "src": 5
+          },
+          {
+            "dp": 5,
+            "dst": 1,
+            "enabled": 1,
+            "sp": 7,
+            "src": 5
+          }
+        ],
+        "read_ports": [
+          0,
+          3,
+          1,
+          2,
+          4294967295
+        ],
+        "rows": 2,
+        "write_ports": [
+          0,
+          3,
+          1,
+          2,
+          4294967295
+        ]
+      },
+      {
+        "boundary_in": [
+          6,
+          10,
+          4,
+          8,
+          5,
+          9
+        ],
+        "boundary_out": [
+          6,
+          10,
+          4,
+          8,
+          5,
+          9
+        ],
+        "cols": 2,
+        "fu_names": [
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MEM",
+            "NAH"
+          ],
+          [
+            "ADDER",
+            "CONST",
+            "MUL",
+            "MEM",
+            "NAH"
+          ]
+        ],
+        "links": [
+          {
+            "dp": 1,
+            "dst": 2,
+            "enabled": 1,
+            "sp": 0,
+            "src": 0
+          },
+          {
+            "dp": 2,
+            "dst": 1,
+            "enabled": 1,
+            "sp": 3,
+            "src": 0
+          },
+          {
+            "dp": 7,
+            "dst": 3,
+            "enabled": 1,
+            "sp": 5,
+            "src": 0
+          },
+          {
+            "dp": 1,
+            "dst": 3,
+            "enabled": 1,
+            "sp": 0,
+            "src": 1
+          },
+          {
+            "dp": 3,
+            "dst": 0,
+            "enabled": 1,
+            "sp": 2,
+            "src": 1
+          },
+          {
+            "dp": 6,
+            "dst": 2,
+            "enabled": 1,
+            "sp": 4,
+            "src": 1
+          },
+          {
+            "dp": 1,
+            "dst": 4,
+            "enabled": 1,
+            "sp": 0,
+            "src": 2
+          },
+          {
+            "dp": 0,
+            "dst": 0,
+            "enabled": 1,
+            "sp": 1,
+            "src": 2
+          },
+          {
+            "dp": 2,
+            "dst": 3,
+            "enabled": 1,
+            "sp": 3,
+            "src": 2
+          },
+          {
+            "dp": 7,
+            "dst": 5,
+            "enabled": 1,
+            "sp": 5,
+            "src": 2
+          },
+          {
+            "dp": 4,
+            "dst": 1,
+            "enabled": 1,
+            "sp": 6,
+            "src": 2
+          },
+          {
+            "dp": 1,
+            "dst": 5,
+            "enabled": 1,
+            "sp": 0,
+            "src": 3
+          },
+          {
+            "dp": 0,
+            "dst": 1,
+            "enabled": 1,
+            "sp": 1,
+            "src": 3
+          },
+          {
+            "dp": 3,
+            "dst": 2,
+            "enabled": 1,
+            "sp": 2,
+            "src": 3
+          },
+          {
+            "dp": 6,
+            "dst": 4,
+            "enabled": 1,
+            "sp": 4,
+            "src": 3
+          },
+          {
+            "dp": 5,
+            "dst": 0,
+            "enabled": 1,
+            "sp": 7,
+            "src": 3
+          },
+          {
+            "dp": 0,
+            "dst": 2,
+            "enabled": 1,
+            "sp": 1,
+            "src": 4
+          },
+          {
+            "dp": 2,
+            "dst": 5,
+            "enabled": 1,
+            "sp": 3,
+            "src": 4
+          },
+          {
+            "dp": 4,
+            "dst": 3,
+            "enabled": 1,
+            "sp": 6,
+            "src": 4
+          },
+          {
+            "dp": 0,
+            "dst": 3,
+            "enabled": 1,
+            "sp": 1,
+            "src": 5
+          },
+          {
+            "dp": 3,
+            "dst": 4,
+            "enabled": 1,
+            "sp": 2,
+            "src": 5
+          },
+          {
+            "dp": 5,
+            "dst": 2,
+            "enabled": 1,
+            "sp": 7,
+            "src": 5
+          }
+        ],
+        "read_ports": [
+          0,
+          2,
+          4,
+          1,
+          4294967295
+        ],
+        "rows": 3,
+        "write_ports": [
+          0,
+          2,
+          4,
+          1,
+          4294967295
+        ]
+      }
+    ],
+    "parameters": {
+      "ARITH_LEGACY_PYTHON": 0,
+      "BANK_DEPTH": 8,
+      "COLS": 3,
+      "CTRL_DEPTH": 6,
+      "DATA_W": 32,
+      "FP_EXP_W": 8,
+      "FP_LEGACY_PYTHON": 0,
+      "FP_SIG_W": 23,
+      "FU_COUNT": 5,
+      "GLOBAL_ADDR_W": 7,
+      "HAS_DMA": 0,
+      "HAS_IM2COL": 0,
+      "MAX_COLS": 3,
+      "MAX_MEM_PORTS": 5,
+      "MAX_ROWS": 3,
+      "MEMORY_LEGACY_PYTHON": 0,
+      "MEM_COMBINATIONAL": 1,
+      "MEM_PORTS": 5,
+      "MEM_WRITE_PORTS": 5,
+      "MULTI_COLS": 2,
+      "MULTI_ROWS": 2,
+      "NOC_LEGACY_PYTHON": 0,
+      "NUM_BANKS": 2,
+      "NUM_CTRL": 6,
+      "REDUCE_LEGACY_PYTHON": 0,
+      "REG_DEPTH": 5,
+      "ROWS": 3,
+      "TILE_PORTS": 8,
+      "TOTAL_STEPS": 6,
+      "VECTOR_FACTOR_POWER": 0,
+      "VECTOR_LANES": 4,
+      "VECTOR_LEGACY_PYTHON": 0
+    },
+    "schema": 1,
+    "top": "multi",
+    "topology": "mesh",
+    "variant": "base",
+    "widths": {
+      "BANK_ADDR_W": 3,
+      "BANK_PORT_W": 2,
+      "CGRA_ID_W": 2,
+      "CGRA_X_W": 1,
+      "CGRA_Y_W": 1,
+      "CTRL_ADDR_W": 3,
+      "CTRL_BITS": 135,
+      "DATA_BITS": 35,
+      "HOST_BITS": 211,
+      "HOST_DST_LSB": 203,
+      "MAX_TILES": 9,
+      "MEM_BITS": 56,
+      "MEM_PORT_W": 3,
+      "NOC_BITS": 215,
+      "NUM_CGRAS": 4,
+      "NUM_TILES": 9,
+      "PAYLOAD_BITS": 186,
+      "REG_ADDR_W": 3,
+      "ROUTING_OUTPUTS": 12,
+      "ROUTING_SEL_W": 4,
+      "TILE_ID_W": 4,
+      "WR_MEM_BITS": 56,
+      "XBAR_MEM_PORTS": 6,
+      "XBAR_MEM_PORT_W": 3,
+      "XBAR_WR_MEM_PORTS": 6,
+      "XBAR_WR_MEM_PORT_W": 3
+    }
+  },
+  "paths": [
+    [
+      0,
+      1,
+      3,
+      2
+    ],
+    [
+      0,
+      1,
+      2,
+      5,
+      4,
+      3,
+      6,
+      7,
+      8
+    ],
+    [
+      0,
+      1,
+      2,
+      5,
+      4,
+      3
+    ],
+    [
+      0,
+      1,
+      3,
+      2,
+      4,
+      5
+    ]
+  ],
+  "python_model": "template"
+}

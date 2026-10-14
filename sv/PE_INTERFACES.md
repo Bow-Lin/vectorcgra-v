@@ -26,6 +26,13 @@
 
 ## 保留的变体语义
 
+`cgra_system` 末尾参数 `HAS_CTRL_RING` 默认值为 1。设为 0 时不实例化控制环，
+各 Tile 的控制输入 valid 和消息、向控制环发送的 ready 均绑零，Controller
+相应端口也断开。这对应原 `CgraRTL(has_ctrl_ring=False)` 的构造行为，不提供
+另一套配置／启动通路。原无控制环测试的 `done()` 无条件返回 True，因此其
+通过只说明构造与短轨迹一致，不能证明在无控制环下完成 FIR。保留控制环的
+FIR 组合／寄存内存及 LoopCounter 完整场景另行回归。
+
 Base 与 Context／Streaming 的控制状态机继续分别维护；Context 和
 Streaming 复用 `tile_variant_core`。各变体的命令接受列表、控制步退役、
 Context 的任务清理和寄存器恢复、Streaming 重放及无寄存器到路由路径

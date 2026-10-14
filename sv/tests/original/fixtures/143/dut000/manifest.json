@@ -1,0 +1,224 @@
+{
+  "python_class": "DmaEngineRTL",
+  "arguments": {
+    "spm_data_nbits": 32,
+    "dram_data_nbits": 256,
+    "dram_addr_nbits": 64,
+    "spm_addr_nbits": 32,
+    "bytes_nbits": 32,
+    "tag_nbits": 8
+  },
+  "hierarchy": "s",
+  "samples": 55,
+  "edges": 28,
+  "module": "cgra_dma_engine",
+  "parameters": {
+    "SPM_DATA_W": 32,
+    "DRAM_DATA_W": 256,
+    "DRAM_ADDR_W": 64,
+    "SPM_ADDR_W": 32,
+    "BYTES_W": 32,
+    "TAG_W": 8
+  },
+  "mode": "native",
+  "bindings": {},
+  "ports": [
+    {
+      "path": "dma_cmd.msg",
+      "name": "dma_cmd__msg",
+      "width": 139,
+      "original_width": 139,
+      "direction": "input"
+    },
+    {
+      "path": "dma_cmd.rdy",
+      "name": "dma_cmd__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "dma_cmd.val",
+      "name": "dma_cmd__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "dma_done.msg",
+      "name": "dma_done__msg",
+      "width": 8,
+      "original_width": 8,
+      "direction": "output"
+    },
+    {
+      "path": "dma_done.rdy",
+      "name": "dma_done__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "dma_done.val",
+      "name": "dma_done__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_dram_rd_resp.msg",
+      "name": "recv_from_dram_rd_resp__msg",
+      "width": 256,
+      "original_width": 256,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_dram_rd_resp.rdy",
+      "name": "recv_from_dram_rd_resp__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_dram_rd_resp.val",
+      "name": "recv_from_dram_rd_resp__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_dram_wr_resp.msg",
+      "name": "recv_from_dram_wr_resp__msg",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_dram_wr_resp.rdy",
+      "name": "recv_from_dram_wr_resp__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_dram_wr_resp.val",
+      "name": "recv_from_dram_wr_resp__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_spm_rd_resp.msg",
+      "name": "recv_from_spm_rd_resp__msg",
+      "width": 32,
+      "original_width": 32,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_spm_rd_resp.rdy",
+      "name": "recv_from_spm_rd_resp__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_spm_rd_resp.val",
+      "name": "recv_from_spm_rd_resp__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_dram_rd_req.msg",
+      "name": "send_to_dram_rd_req__msg",
+      "width": 64,
+      "original_width": 64,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_dram_rd_req.rdy",
+      "name": "send_to_dram_rd_req__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_dram_rd_req.val",
+      "name": "send_to_dram_rd_req__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_dram_wr_req.msg",
+      "name": "send_to_dram_wr_req__msg",
+      "width": 352,
+      "original_width": 352,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_dram_wr_req.rdy",
+      "name": "send_to_dram_wr_req__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_dram_wr_req.val",
+      "name": "send_to_dram_wr_req__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_spm_rd_req.msg",
+      "name": "send_to_spm_rd_req__msg",
+      "width": 32,
+      "original_width": 32,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_spm_rd_req.rdy",
+      "name": "send_to_spm_rd_req__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_spm_rd_req.val",
+      "name": "send_to_spm_rd_req__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_spm_wr_req.msg",
+      "name": "send_to_spm_wr_req__msg",
+      "width": 68,
+      "original_width": 68,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_spm_wr_req.rdy",
+      "name": "send_to_spm_wr_req__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_spm_wr_req.val",
+      "name": "send_to_spm_wr_req__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "dc712698bad38c5f9ca39f5e967b079764e74cf4eaac79390d8a5eb2033f2fae"
+}

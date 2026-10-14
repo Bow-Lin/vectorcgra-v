@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 150,
+    "group": "state_pe",
+    "file": "mem/register_cluster/test/RegisterClusterRTL_test.py",
+    "function": "test_reg_cluster_both_paths_skewed_acceptance",
+    "parameters": {},
+    "classes": [
+      "RegisterClusterRTL"
+    ],
+    "source_sha256": "be2e9bbbb3283419f874195d40b18933aa9e7a9383679d99bc340546436a129a"
+  },
+  "status": "passed",
+  "source_sha256": "be2e9bbbb3283419f874195d40b18933aa9e7a9383679d99bc340546436a129a",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

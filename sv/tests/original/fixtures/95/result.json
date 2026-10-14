@@ -1,0 +1,21 @@
+{
+  "case": {
+    "id": 95,
+    "group": "fu",
+    "file": "fu/single/test/InclusiveDivRTL_test.py",
+    "function": "test_mul",
+    "parameters": {},
+    "classes": [
+      "InclusiveDivRTL"
+    ],
+    "source_sha256": "88e4b4d272f23ae3f96f72075d7a3a04dc4c23a908548754d2d5ed645d48ad56"
+  },
+  "status": "passed",
+  "source_sha256": "88e4b4d272f23ae3f96f72075d7a3a04dc4c23a908548754d2d5ed645d48ad56",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ],
+  "adapter_errors": []
+}

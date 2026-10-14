@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 45,
+    "group": "fu",
+    "file": "fu/fused_alu_fixedp/test/AluGenMacWrapperRTL_test.py",
+    "function": "test_add_ones",
+    "parameters": {},
+    "classes": [
+      "AluGenMacWrapperRTL"
+    ],
+    "source_sha256": "7cb96375971a20d15b00081e8b0cce8dbcff19c2dd6f4a0dbd7a5c26a9eda29d"
+  },
+  "status": "passed",
+  "source_sha256": "7cb96375971a20d15b00081e8b0cce8dbcff19c2dd6f4a0dbd7a5c26a9eda29d",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

@@ -1,0 +1,1488 @@
+{
+  "argument_occurrences": 185,
+  "entry_points": 10,
+  "note": "Expressibility audit; represented/limited does not imply all parameter values were tested",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "rows": [
+    {
+      "argument": "CgraPayloadType",
+      "line": 27,
+      "note": "Payload/control/address widths derived; predicate/bypass/delay fixed to one bit",
+      "source": "cgra/CgraRTL.py",
+      "status": "limited",
+      "sv": "DATA_W and derived cgra_profile ABI"
+    },
+    {
+      "argument": "multi_cgra_rows",
+      "line": 28,
+      "note": "Ring one row; Mesh >=2 rows",
+      "source": "cgra/CgraRTL.py",
+      "status": "limited",
+      "sv": "MULTI_ROWS"
+    },
+    {
+      "argument": "multi_cgra_columns",
+      "line": 29,
+      "note": "Ring >=2 columns; Mesh >=2 columns",
+      "source": "cgra/CgraRTL.py",
+      "status": "limited",
+      "sv": "MULTI_COLS"
+    },
+    {
+      "argument": "width",
+      "line": 30,
+      "note": "Rectangular arrays with columns >= 2",
+      "source": "cgra/CgraRTL.py",
+      "status": "limited",
+      "sv": "COLS / CGRA_COLS"
+    },
+    {
+      "argument": "height",
+      "line": 30,
+      "note": "Rectangular arrays with rows >= 2",
+      "source": "cgra/CgraRTL.py",
+      "status": "limited",
+      "sv": "ROWS / CGRA_ROWS"
+    },
+    {
+      "argument": "ctrl_mem_size",
+      "line": 31,
+      "note": "Depth >=2; common depth at multi top",
+      "source": "cgra/CgraRTL.py",
+      "status": "limited",
+      "sv": "CTRL_DEPTH"
+    },
+    {
+      "argument": "data_mem_size_global",
+      "line": 31,
+      "note": "Address width 1..32; arbitrary non-power-of-two capacity not mapped",
+      "source": "cgra/CgraRTL.py",
+      "status": "limited",
+      "sv": "GLOBAL_ADDR_W"
+    },
+    {
+      "argument": "data_mem_size_per_bank",
+      "line": 32,
+      "note": "Power of two >=2",
+      "source": "cgra/CgraRTL.py",
+      "status": "limited",
+      "sv": "BANK_DEPTH"
+    },
+    {
+      "argument": "num_banks_per_cgra",
+      "line": 32,
+      "note": "Power of two >=1",
+      "source": "cgra/CgraRTL.py",
+      "status": "limited",
+      "sv": "NUM_BANKS"
+    },
+    {
+      "argument": "num_registers_per_reg_bank",
+      "line": 33,
+      "note": "Depth >=2",
+      "source": "cgra/CgraRTL.py",
+      "status": "limited",
+      "sv": "REG_DEPTH"
+    },
+    {
+      "argument": "num_ctrl",
+      "line": 33,
+      "note": "1..CTRL_DEPTH",
+      "source": "cgra/CgraRTL.py",
+      "status": "limited",
+      "sv": "NUM_CTRL / CONFIG_COUNT_PER_ITER"
+    },
+    {
+      "argument": "total_steps",
+      "line": 34,
+      "note": "Eleven-bit counter; command reachability per variant",
+      "source": "cgra/CgraRTL.py",
+      "status": "limited",
+      "sv": "TOTAL_STEPS / CONFIG_TOTAL_CTRL_COUNT"
+    },
+    {
+      "argument": "mem_access_is_combinational",
+      "line": 34,
+      "note": "Both modes in identical 3x2 architecture",
+      "source": "cgra/CgraRTL.py",
+      "status": "represented",
+      "sv": "MEM_COMBINATIONAL"
+    },
+    {
+      "argument": "FunctionUnit",
+      "line": 35,
+      "note": "No arbitrary Python class substitution",
+      "source": "cgra/CgraRTL.py",
+      "status": "fixed_implementation",
+      "sv": "tile_flexible_fu_configurable"
+    },
+    {
+      "argument": "FuList",
+      "line": 35,
+      "note": "Ordered supported catalog; exactly one Nah; at most one memory FU",
+      "source": "cgra/CgraRTL.py",
+      "status": "limited",
+      "sv": "FU_COUNT/FU_KINDS and TILE_FU_*"
+    },
+    {
+      "argument": "cgra_topology",
+      "line": 35,
+      "note": "4/8 ports; Streaming eight",
+      "source": "cgra/CgraRTL.py",
+      "status": "limited",
+      "sv": "TILE_PORTS and LINK_*"
+    },
+    {
+      "argument": "controller2addr_map",
+      "line": 36,
+      "note": "Permutation of equal-sized memory windows",
+      "source": "cgra/CgraRTL.py",
+      "status": "limited",
+      "sv": "CUSTOM_ADDR_MAP/ADDR_MAP"
+    },
+    {
+      "argument": "idTo2d_map",
+      "line": 36,
+      "note": "Native direct parameters; no arbitrary coordinate map in JSON",
+      "source": "cgra/CgraRTL.py",
+      "status": "frontend_gap",
+      "sv": "CUSTOM_COORD_MAP/COORD_*"
+    },
+    {
+      "argument": "is_multi_cgra",
+      "line": 37,
+      "note": "Single local loopback or multi external NoC",
+      "source": "cgra/CgraRTL.py",
+      "status": "represented",
+      "sv": "IS_MULTI / top"
+    },
+    {
+      "argument": "has_ctrl_ring",
+      "line": 38,
+      "note": "cgra_system only; no JSON key and no alternate transport",
+      "source": "cgra/CgraRTL.py",
+      "status": "frontend_gap",
+      "sv": "HAS_CTRL_RING"
+    },
+    {
+      "argument": "has_im2col_engine",
+      "line": 39,
+      "note": "Dedicated peripheral interface; not available at multi top",
+      "source": "cgra/CgraRTL.py",
+      "status": "limited",
+      "sv": "HAS_IM2COL / integrated wrapper"
+    },
+    {
+      "argument": "CgraPayloadType",
+      "line": 72,
+      "note": "Payload/control/address widths derived; predicate/bypass/delay fixed to one bit",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "DATA_W and derived cgra_profile ABI"
+    },
+    {
+      "argument": "multi_cgra_rows",
+      "line": 73,
+      "note": "Ring one row; Mesh >=2 rows",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "MULTI_ROWS"
+    },
+    {
+      "argument": "multi_cgra_columns",
+      "line": 74,
+      "note": "Ring >=2 columns; Mesh >=2 columns",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "MULTI_COLS"
+    },
+    {
+      "argument": "per_cgra_rows",
+      "line": 75,
+      "note": "Rectangular arrays with rows >= 2",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "ROWS / CGRA_ROWS"
+    },
+    {
+      "argument": "per_cgra_columns",
+      "line": 75,
+      "note": "Rectangular arrays with columns >= 2",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "COLS / CGRA_COLS"
+    },
+    {
+      "argument": "ctrl_mem_size",
+      "line": 76,
+      "note": "Depth >=2; common depth at multi top",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "CTRL_DEPTH"
+    },
+    {
+      "argument": "data_mem_size_global",
+      "line": 76,
+      "note": "Address width 1..32; arbitrary non-power-of-two capacity not mapped",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "GLOBAL_ADDR_W"
+    },
+    {
+      "argument": "data_mem_size_per_bank",
+      "line": 77,
+      "note": "Power of two >=2",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "BANK_DEPTH"
+    },
+    {
+      "argument": "num_banks_per_cgra",
+      "line": 77,
+      "note": "Power of two >=1",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "NUM_BANKS"
+    },
+    {
+      "argument": "num_registers_per_reg_bank",
+      "line": 78,
+      "note": "Depth >=2",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "REG_DEPTH"
+    },
+    {
+      "argument": "num_ctrl",
+      "line": 78,
+      "note": "1..CTRL_DEPTH",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "NUM_CTRL / CONFIG_COUNT_PER_ITER"
+    },
+    {
+      "argument": "total_steps",
+      "line": 79,
+      "note": "Eleven-bit counter; command reachability per variant",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "TOTAL_STEPS / CONFIG_TOTAL_CTRL_COUNT"
+    },
+    {
+      "argument": "mem_access_is_combinational",
+      "line": 79,
+      "note": "Both modes in identical 3x2 architecture",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "represented",
+      "sv": "MEM_COMBINATIONAL"
+    },
+    {
+      "argument": "FunctionUnit",
+      "line": 80,
+      "note": "No arbitrary Python class substitution",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "fixed_implementation",
+      "sv": "tile_flexible_fu_configurable"
+    },
+    {
+      "argument": "FuList",
+      "line": 80,
+      "note": "Ordered supported catalog; exactly one Nah; at most one memory FU",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "FU_COUNT/FU_KINDS and TILE_FU_*"
+    },
+    {
+      "argument": "TileList",
+      "line": 80,
+      "note": "No arbitrary sparse tile deletion",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "COLS*ROWS and TILE_FU_*"
+    },
+    {
+      "argument": "LinkList",
+      "line": 80,
+      "note": "One source/destination per physical port",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "CUSTOM_TOPOLOGY/LINK_*"
+    },
+    {
+      "argument": "dataSPM",
+      "line": 81,
+      "note": "At most one read/write attachment per tile",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "MEM_PORTS/MEM_WRITE_PORTS and READ/WRITE_PORT_TILE"
+    },
+    {
+      "argument": "controller2addr_map",
+      "line": 81,
+      "note": "Permutation of equal-sized memory windows",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "CUSTOM_ADDR_MAP/ADDR_MAP"
+    },
+    {
+      "argument": "idTo2d_map",
+      "line": 81,
+      "note": "Native direct parameters; no arbitrary coordinate map in JSON",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "frontend_gap",
+      "sv": "CUSTOM_COORD_MAP/COORD_*"
+    },
+    {
+      "argument": "is_multi_cgra",
+      "line": 82,
+      "note": "Single local loopback or multi external NoC",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "represented",
+      "sv": "IS_MULTI / top"
+    },
+    {
+      "argument": "cgra_id",
+      "line": 82,
+      "note": "Physical node identity distinct from address-map slot",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "represented",
+      "sv": "cgra_id input / multi instance index"
+    },
+    {
+      "argument": "provided_max_per_cgra_rows",
+      "line": 83,
+      "note": "Must contain local geometry",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "represented",
+      "sv": "MAX_ROWS"
+    },
+    {
+      "argument": "provided_max_per_cgra_cols",
+      "line": 84,
+      "note": "Must contain local geometry",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "represented",
+      "sv": "MAX_COLS"
+    },
+    {
+      "argument": "provided_max_num_rd_tiles",
+      "line": 85,
+      "note": "Shared response packet geometry",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "represented",
+      "sv": "MAX_MEM_PORTS"
+    },
+    {
+      "argument": "provided_max_num_wr_tiles",
+      "line": 86,
+      "note": "Common write capacity; no separate MAX_WRITE_PORTS parameter",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "MEM_WRITE_PORTS"
+    },
+    {
+      "argument": "has_dma_ports",
+      "line": 87,
+      "note": "32-bit CGRA words; not available at multi top",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "HAS_DMA / integrated wrapper"
+    },
+    {
+      "argument": "DmaDataType",
+      "line": 88,
+      "note": "Not arbitrary message layouts",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "fixed peripheral ABI"
+    },
+    {
+      "argument": "DmaCmdType",
+      "line": 89,
+      "note": "Not arbitrary message layouts",
+      "source": "cgra/CgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "fixed peripheral ABI"
+    },
+    {
+      "argument": "CgraPayloadType",
+      "line": 25,
+      "note": "Payload/control/address widths derived; predicate/bypass/delay fixed to one bit",
+      "source": "cgra/CgraWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "DATA_W and derived cgra_profile ABI"
+    },
+    {
+      "argument": "multi_cgra_rows",
+      "line": 26,
+      "note": "Ring one row; Mesh >=2 rows",
+      "source": "cgra/CgraWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "MULTI_ROWS"
+    },
+    {
+      "argument": "multi_cgra_columns",
+      "line": 27,
+      "note": "Ring >=2 columns; Mesh >=2 columns",
+      "source": "cgra/CgraWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "MULTI_COLS"
+    },
+    {
+      "argument": "width",
+      "line": 28,
+      "note": "Rectangular arrays with columns >= 2",
+      "source": "cgra/CgraWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "COLS / CGRA_COLS"
+    },
+    {
+      "argument": "height",
+      "line": 28,
+      "note": "Rectangular arrays with rows >= 2",
+      "source": "cgra/CgraWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "ROWS / CGRA_ROWS"
+    },
+    {
+      "argument": "ctrl_mem_size",
+      "line": 29,
+      "note": "Depth >=2; common depth at multi top",
+      "source": "cgra/CgraWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "CTRL_DEPTH"
+    },
+    {
+      "argument": "data_mem_size_global",
+      "line": 29,
+      "note": "Address width 1..32; arbitrary non-power-of-two capacity not mapped",
+      "source": "cgra/CgraWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "GLOBAL_ADDR_W"
+    },
+    {
+      "argument": "data_mem_size_per_bank",
+      "line": 30,
+      "note": "Power of two >=2",
+      "source": "cgra/CgraWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "BANK_DEPTH"
+    },
+    {
+      "argument": "num_banks_per_cgra",
+      "line": 30,
+      "note": "Power of two >=1",
+      "source": "cgra/CgraWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "NUM_BANKS"
+    },
+    {
+      "argument": "num_registers_per_reg_bank",
+      "line": 31,
+      "note": "Depth >=2",
+      "source": "cgra/CgraWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "REG_DEPTH"
+    },
+    {
+      "argument": "num_ctrl",
+      "line": 31,
+      "note": "1..CTRL_DEPTH",
+      "source": "cgra/CgraWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "NUM_CTRL / CONFIG_COUNT_PER_ITER"
+    },
+    {
+      "argument": "total_steps",
+      "line": 32,
+      "note": "Eleven-bit counter; command reachability per variant",
+      "source": "cgra/CgraWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "TOTAL_STEPS / CONFIG_TOTAL_CTRL_COUNT"
+    },
+    {
+      "argument": "mem_access_is_combinational",
+      "line": 32,
+      "note": "Both modes in identical 3x2 architecture",
+      "source": "cgra/CgraWithContextSwitchRTL.py",
+      "status": "represented",
+      "sv": "MEM_COMBINATIONAL"
+    },
+    {
+      "argument": "FunctionUnit",
+      "line": 33,
+      "note": "No arbitrary Python class substitution",
+      "source": "cgra/CgraWithContextSwitchRTL.py",
+      "status": "fixed_implementation",
+      "sv": "tile_flexible_fu_configurable"
+    },
+    {
+      "argument": "FuList",
+      "line": 33,
+      "note": "Ordered supported catalog; exactly one Nah; at most one memory FU",
+      "source": "cgra/CgraWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "FU_COUNT/FU_KINDS and TILE_FU_*"
+    },
+    {
+      "argument": "cgra_topology",
+      "line": 33,
+      "note": "4/8 ports; Streaming eight",
+      "source": "cgra/CgraWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "TILE_PORTS and LINK_*"
+    },
+    {
+      "argument": "controller2addr_map",
+      "line": 34,
+      "note": "Permutation of equal-sized memory windows",
+      "source": "cgra/CgraWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "CUSTOM_ADDR_MAP/ADDR_MAP"
+    },
+    {
+      "argument": "idTo2d_map",
+      "line": 34,
+      "note": "Native direct parameters; no arbitrary coordinate map in JSON",
+      "source": "cgra/CgraWithContextSwitchRTL.py",
+      "status": "frontend_gap",
+      "sv": "CUSTOM_COORD_MAP/COORD_*"
+    },
+    {
+      "argument": "is_multi_cgra",
+      "line": 35,
+      "note": "Single local loopback or multi external NoC",
+      "source": "cgra/CgraWithContextSwitchRTL.py",
+      "status": "represented",
+      "sv": "IS_MULTI / top"
+    },
+    {
+      "argument": "CgraPayloadType",
+      "line": 26,
+      "note": "Payload/control/address widths derived; predicate/bypass/delay fixed to one bit",
+      "source": "cgra/CgraWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "DATA_W and derived cgra_profile ABI"
+    },
+    {
+      "argument": "multi_cgra_rows",
+      "line": 27,
+      "note": "Ring one row; Mesh >=2 rows",
+      "source": "cgra/CgraWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "MULTI_ROWS"
+    },
+    {
+      "argument": "multi_cgra_columns",
+      "line": 28,
+      "note": "Ring >=2 columns; Mesh >=2 columns",
+      "source": "cgra/CgraWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "MULTI_COLS"
+    },
+    {
+      "argument": "width",
+      "line": 29,
+      "note": "Rectangular arrays with columns >= 2",
+      "source": "cgra/CgraWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "COLS / CGRA_COLS"
+    },
+    {
+      "argument": "height",
+      "line": 29,
+      "note": "Rectangular arrays with rows >= 2",
+      "source": "cgra/CgraWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "ROWS / CGRA_ROWS"
+    },
+    {
+      "argument": "ctrl_mem_size",
+      "line": 30,
+      "note": "Depth >=2; common depth at multi top",
+      "source": "cgra/CgraWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "CTRL_DEPTH"
+    },
+    {
+      "argument": "data_mem_size_global",
+      "line": 30,
+      "note": "Address width 1..32; arbitrary non-power-of-two capacity not mapped",
+      "source": "cgra/CgraWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "GLOBAL_ADDR_W"
+    },
+    {
+      "argument": "data_mem_size_per_bank",
+      "line": 31,
+      "note": "Power of two >=2",
+      "source": "cgra/CgraWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "BANK_DEPTH"
+    },
+    {
+      "argument": "num_banks_per_cgra",
+      "line": 31,
+      "note": "Power of two >=1",
+      "source": "cgra/CgraWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "NUM_BANKS"
+    },
+    {
+      "argument": "num_registers_per_reg_bank",
+      "line": 32,
+      "note": "Depth >=2",
+      "source": "cgra/CgraWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "REG_DEPTH"
+    },
+    {
+      "argument": "num_ctrl",
+      "line": 32,
+      "note": "1..CTRL_DEPTH",
+      "source": "cgra/CgraWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "NUM_CTRL / CONFIG_COUNT_PER_ITER"
+    },
+    {
+      "argument": "total_steps",
+      "line": 33,
+      "note": "Eleven-bit counter; command reachability per variant",
+      "source": "cgra/CgraWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "TOTAL_STEPS / CONFIG_TOTAL_CTRL_COUNT"
+    },
+    {
+      "argument": "mem_access_is_combinational",
+      "line": 33,
+      "note": "Both modes in identical 3x2 architecture",
+      "source": "cgra/CgraWithStreamingLoadRTL.py",
+      "status": "represented",
+      "sv": "MEM_COMBINATIONAL"
+    },
+    {
+      "argument": "FunctionUnit",
+      "line": 34,
+      "note": "No arbitrary Python class substitution",
+      "source": "cgra/CgraWithStreamingLoadRTL.py",
+      "status": "fixed_implementation",
+      "sv": "tile_flexible_fu_configurable"
+    },
+    {
+      "argument": "FuList",
+      "line": 34,
+      "note": "Ordered supported catalog; exactly one Nah; at most one memory FU",
+      "source": "cgra/CgraWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "FU_COUNT/FU_KINDS and TILE_FU_*"
+    },
+    {
+      "argument": "cgra_topology",
+      "line": 34,
+      "note": "4/8 ports; Streaming eight",
+      "source": "cgra/CgraWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "TILE_PORTS and LINK_*"
+    },
+    {
+      "argument": "controller2addr_map",
+      "line": 35,
+      "note": "Permutation of equal-sized memory windows",
+      "source": "cgra/CgraWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "CUSTOM_ADDR_MAP/ADDR_MAP"
+    },
+    {
+      "argument": "idTo2d_map",
+      "line": 35,
+      "note": "Native direct parameters; no arbitrary coordinate map in JSON",
+      "source": "cgra/CgraWithStreamingLoadRTL.py",
+      "status": "frontend_gap",
+      "sv": "CUSTOM_COORD_MAP/COORD_*"
+    },
+    {
+      "argument": "is_multi_cgra",
+      "line": 36,
+      "note": "Single local loopback or multi external NoC",
+      "source": "cgra/CgraWithStreamingLoadRTL.py",
+      "status": "represented",
+      "sv": "IS_MULTI / top"
+    },
+    {
+      "argument": "has_ctrl_ring",
+      "line": 37,
+      "note": "cgra_system only; no JSON key and no alternate transport",
+      "source": "cgra/CgraWithStreamingLoadRTL.py",
+      "status": "frontend_gap",
+      "sv": "HAS_CTRL_RING"
+    },
+    {
+      "argument": "CgraPayloadType",
+      "line": 23,
+      "note": "Payload/control/address widths derived; predicate/bypass/delay fixed to one bit",
+      "source": "multi_cgra/MeshMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "DATA_W and derived cgra_profile ABI"
+    },
+    {
+      "argument": "cgra_rows",
+      "line": 23,
+      "note": "Ring one row; Mesh >=2 rows",
+      "source": "multi_cgra/MeshMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "MULTI_ROWS"
+    },
+    {
+      "argument": "cgra_columns",
+      "line": 23,
+      "note": "Ring >=2 columns; Mesh >=2 columns",
+      "source": "multi_cgra/MeshMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "MULTI_COLS"
+    },
+    {
+      "argument": "tile_rows",
+      "line": 24,
+      "note": "Rectangular arrays with rows >= 2",
+      "source": "multi_cgra/MeshMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "ROWS / CGRA_ROWS"
+    },
+    {
+      "argument": "tile_columns",
+      "line": 24,
+      "note": "Rectangular arrays with columns >= 2",
+      "source": "multi_cgra/MeshMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "COLS / CGRA_COLS"
+    },
+    {
+      "argument": "ctrl_mem_size",
+      "line": 25,
+      "note": "Depth >=2; common depth at multi top",
+      "source": "multi_cgra/MeshMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "CTRL_DEPTH"
+    },
+    {
+      "argument": "data_mem_size_global",
+      "line": 25,
+      "note": "Address width 1..32; arbitrary non-power-of-two capacity not mapped",
+      "source": "multi_cgra/MeshMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "GLOBAL_ADDR_W"
+    },
+    {
+      "argument": "data_mem_size_per_bank",
+      "line": 26,
+      "note": "Power of two >=2",
+      "source": "multi_cgra/MeshMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "BANK_DEPTH"
+    },
+    {
+      "argument": "num_banks_per_cgra",
+      "line": 26,
+      "note": "Power of two >=1",
+      "source": "multi_cgra/MeshMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "NUM_BANKS"
+    },
+    {
+      "argument": "num_registers_per_reg_bank",
+      "line": 27,
+      "note": "Depth >=2",
+      "source": "multi_cgra/MeshMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "REG_DEPTH"
+    },
+    {
+      "argument": "num_ctrl",
+      "line": 28,
+      "note": "1..CTRL_DEPTH",
+      "source": "multi_cgra/MeshMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "NUM_CTRL / CONFIG_COUNT_PER_ITER"
+    },
+    {
+      "argument": "total_steps",
+      "line": 28,
+      "note": "Eleven-bit counter; command reachability per variant",
+      "source": "multi_cgra/MeshMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "TOTAL_STEPS / CONFIG_TOTAL_CTRL_COUNT"
+    },
+    {
+      "argument": "mem_access_is_combinational",
+      "line": 29,
+      "note": "Both modes in identical 3x2 architecture",
+      "source": "multi_cgra/MeshMultiCgraRTL.py",
+      "status": "represented",
+      "sv": "MEM_COMBINATIONAL"
+    },
+    {
+      "argument": "FunctionUnit",
+      "line": 30,
+      "note": "No arbitrary Python class substitution",
+      "source": "multi_cgra/MeshMultiCgraRTL.py",
+      "status": "fixed_implementation",
+      "sv": "tile_flexible_fu_configurable"
+    },
+    {
+      "argument": "FuList",
+      "line": 30,
+      "note": "Ordered supported catalog; exactly one Nah; at most one memory FU",
+      "source": "multi_cgra/MeshMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "FU_COUNT/FU_KINDS and TILE_FU_*"
+    },
+    {
+      "argument": "per_cgra_topology",
+      "line": 30,
+      "note": "4/8 ports; Streaming eight",
+      "source": "multi_cgra/MeshMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "TILE_PORTS and LINK_*"
+    },
+    {
+      "argument": "controller2addr_map",
+      "line": 31,
+      "note": "Permutation of equal-sized memory windows",
+      "source": "multi_cgra/MeshMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "CUSTOM_ADDR_MAP/ADDR_MAP"
+    },
+    {
+      "argument": "support_task_switching",
+      "line": 32,
+      "note": "Context-specific commands and state still need dedicated acceptance",
+      "source": "multi_cgra/MeshMultiCgraRTL.py",
+      "status": "represented",
+      "sv": "TILE_VARIANT / variant=context"
+    },
+    {
+      "argument": "CgraPayloadType",
+      "line": 23,
+      "note": "Payload/control/address widths derived; predicate/bypass/delay fixed to one bit",
+      "source": "multi_cgra/RingMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "DATA_W and derived cgra_profile ABI"
+    },
+    {
+      "argument": "cgra_rows",
+      "line": 23,
+      "note": "Ring one row; Mesh >=2 rows",
+      "source": "multi_cgra/RingMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "MULTI_ROWS"
+    },
+    {
+      "argument": "cgra_columns",
+      "line": 23,
+      "note": "Ring >=2 columns; Mesh >=2 columns",
+      "source": "multi_cgra/RingMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "MULTI_COLS"
+    },
+    {
+      "argument": "tile_rows",
+      "line": 23,
+      "note": "Rectangular arrays with rows >= 2",
+      "source": "multi_cgra/RingMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "ROWS / CGRA_ROWS"
+    },
+    {
+      "argument": "tile_columns",
+      "line": 23,
+      "note": "Rectangular arrays with columns >= 2",
+      "source": "multi_cgra/RingMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "COLS / CGRA_COLS"
+    },
+    {
+      "argument": "ctrl_mem_size",
+      "line": 24,
+      "note": "Depth >=2; common depth at multi top",
+      "source": "multi_cgra/RingMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "CTRL_DEPTH"
+    },
+    {
+      "argument": "data_mem_size_global",
+      "line": 24,
+      "note": "Address width 1..32; arbitrary non-power-of-two capacity not mapped",
+      "source": "multi_cgra/RingMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "GLOBAL_ADDR_W"
+    },
+    {
+      "argument": "data_mem_size_per_bank",
+      "line": 24,
+      "note": "Power of two >=2",
+      "source": "multi_cgra/RingMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "BANK_DEPTH"
+    },
+    {
+      "argument": "num_banks_per_cgra",
+      "line": 25,
+      "note": "Power of two >=1",
+      "source": "multi_cgra/RingMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "NUM_BANKS"
+    },
+    {
+      "argument": "num_registers_per_reg_bank",
+      "line": 25,
+      "note": "Depth >=2",
+      "source": "multi_cgra/RingMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "REG_DEPTH"
+    },
+    {
+      "argument": "num_ctrl",
+      "line": 26,
+      "note": "1..CTRL_DEPTH",
+      "source": "multi_cgra/RingMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "NUM_CTRL / CONFIG_COUNT_PER_ITER"
+    },
+    {
+      "argument": "total_steps",
+      "line": 26,
+      "note": "Eleven-bit counter; command reachability per variant",
+      "source": "multi_cgra/RingMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "TOTAL_STEPS / CONFIG_TOTAL_CTRL_COUNT"
+    },
+    {
+      "argument": "mem_access_is_combinational",
+      "line": 27,
+      "note": "Both modes in identical 3x2 architecture",
+      "source": "multi_cgra/RingMultiCgraRTL.py",
+      "status": "represented",
+      "sv": "MEM_COMBINATIONAL"
+    },
+    {
+      "argument": "FunctionUnit",
+      "line": 28,
+      "note": "No arbitrary Python class substitution",
+      "source": "multi_cgra/RingMultiCgraRTL.py",
+      "status": "fixed_implementation",
+      "sv": "tile_flexible_fu_configurable"
+    },
+    {
+      "argument": "FuList",
+      "line": 28,
+      "note": "Ordered supported catalog; exactly one Nah; at most one memory FU",
+      "source": "multi_cgra/RingMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "FU_COUNT/FU_KINDS and TILE_FU_*"
+    },
+    {
+      "argument": "controller2addr_map",
+      "line": 29,
+      "note": "Permutation of equal-sized memory windows",
+      "source": "multi_cgra/RingMultiCgraRTL.py",
+      "status": "limited",
+      "sv": "CUSTOM_ADDR_MAP/ADDR_MAP"
+    },
+    {
+      "argument": "CgraPayloadType",
+      "line": 14,
+      "note": "Payload/control/address widths derived; predicate/bypass/delay fixed to one bit",
+      "source": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "DATA_W and derived cgra_profile ABI"
+    },
+    {
+      "argument": "cgra_rows",
+      "line": 15,
+      "note": "Ring one row; Mesh >=2 rows",
+      "source": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "MULTI_ROWS"
+    },
+    {
+      "argument": "cgra_columns",
+      "line": 15,
+      "note": "Ring >=2 columns; Mesh >=2 columns",
+      "source": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "MULTI_COLS"
+    },
+    {
+      "argument": "ctrl_mem_size",
+      "line": 16,
+      "note": "Depth >=2; common depth at multi top",
+      "source": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "CTRL_DEPTH"
+    },
+    {
+      "argument": "data_mem_size_global",
+      "line": 16,
+      "note": "Address width 1..32; arbitrary non-power-of-two capacity not mapped",
+      "source": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "GLOBAL_ADDR_W"
+    },
+    {
+      "argument": "data_mem_size_per_bank",
+      "line": 17,
+      "note": "Power of two >=2",
+      "source": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "BANK_DEPTH"
+    },
+    {
+      "argument": "num_banks_per_cgra",
+      "line": 17,
+      "note": "Power of two >=1",
+      "source": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "NUM_BANKS"
+    },
+    {
+      "argument": "num_registers_per_reg_bank",
+      "line": 18,
+      "note": "Depth >=2",
+      "source": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "REG_DEPTH"
+    },
+    {
+      "argument": "num_ctrl",
+      "line": 19,
+      "note": "1..CTRL_DEPTH",
+      "source": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "NUM_CTRL / CONFIG_COUNT_PER_ITER"
+    },
+    {
+      "argument": "total_steps",
+      "line": 19,
+      "note": "Eleven-bit counter; command reachability per variant",
+      "source": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "TOTAL_STEPS / CONFIG_TOTAL_CTRL_COUNT"
+    },
+    {
+      "argument": "FunctionUnit",
+      "line": 19,
+      "note": "No arbitrary Python class substitution",
+      "source": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "status": "fixed_implementation",
+      "sv": "tile_flexible_fu_configurable"
+    },
+    {
+      "argument": "FuList",
+      "line": 19,
+      "note": "Ordered supported catalog; exactly one Nah; at most one memory FU",
+      "source": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "FU_COUNT/FU_KINDS and TILE_FU_*"
+    },
+    {
+      "argument": "controller2addr_map",
+      "line": 20,
+      "note": "Permutation of equal-sized memory windows",
+      "source": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "CUSTOM_ADDR_MAP/ADDR_MAP"
+    },
+    {
+      "argument": "id2ctrlMemSize_map",
+      "line": 20,
+      "note": "No per-CGRA control-depth array at maintained multi top",
+      "source": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "status": "frontend_and_top_gap",
+      "sv": "common CTRL_DEPTH"
+    },
+    {
+      "argument": "id2cgraSize_map",
+      "line": 20,
+      "note": "Rectangles >=2x2; shared packet geometry",
+      "source": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "CGRA_ROWS/CGRA_COLS"
+    },
+    {
+      "argument": "id2validTiles",
+      "line": 21,
+      "note": "No arbitrary sparse tile deletion",
+      "source": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "COLS*ROWS and TILE_FU_*"
+    },
+    {
+      "argument": "id2validLinks",
+      "line": 21,
+      "note": "One source/destination per physical port",
+      "source": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "CUSTOM_TOPOLOGY/LINK_*"
+    },
+    {
+      "argument": "id2dataSPM",
+      "line": 21,
+      "note": "At most one read/write attachment per tile",
+      "source": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "status": "limited",
+      "sv": "MEM_PORTS/MEM_WRITE_PORTS and READ/WRITE_PORT_TILE"
+    },
+    {
+      "argument": "mem_access_is_combinational",
+      "line": 22,
+      "note": "Both modes in identical 3x2 architecture",
+      "source": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "status": "represented",
+      "sv": "MEM_COMBINATIONAL"
+    },
+    {
+      "argument": "is_multi_cgra",
+      "line": 23,
+      "note": "Single local loopback or multi external NoC",
+      "source": "multi_cgra/MeshMultiCgraTemplateRTL.py",
+      "status": "represented",
+      "sv": "IS_MULTI / top"
+    },
+    {
+      "argument": "IntraCgraPktType",
+      "line": 40,
+      "note": "Payload/control/address widths derived; predicate/bypass/delay fixed to one bit",
+      "source": "tile/TileRTL.py",
+      "status": "limited",
+      "sv": "DATA_W and derived cgra_profile ABI"
+    },
+    {
+      "argument": "ctrl_mem_size",
+      "line": 41,
+      "note": "Depth >=2; common depth at multi top",
+      "source": "tile/TileRTL.py",
+      "status": "limited",
+      "sv": "CTRL_DEPTH"
+    },
+    {
+      "argument": "data_mem_size",
+      "line": 41,
+      "note": "Address width 1..32; arbitrary non-power-of-two capacity not mapped",
+      "source": "tile/TileRTL.py",
+      "status": "limited",
+      "sv": "GLOBAL_ADDR_W"
+    },
+    {
+      "argument": "num_ctrl",
+      "line": 41,
+      "note": "1..CTRL_DEPTH",
+      "source": "tile/TileRTL.py",
+      "status": "limited",
+      "sv": "NUM_CTRL / CONFIG_COUNT_PER_ITER"
+    },
+    {
+      "argument": "total_steps",
+      "line": 42,
+      "note": "Eleven-bit counter; command reachability per variant",
+      "source": "tile/TileRTL.py",
+      "status": "limited",
+      "sv": "TOTAL_STEPS / CONFIG_TOTAL_CTRL_COUNT"
+    },
+    {
+      "argument": "num_fu_inports",
+      "line": 42,
+      "note": "No configurable operand count at public PE",
+      "source": "tile/TileRTL.py",
+      "status": "fixed",
+      "sv": "four FU operands"
+    },
+    {
+      "argument": "num_fu_outports",
+      "line": 42,
+      "note": "No configurable result count at public PE",
+      "source": "tile/TileRTL.py",
+      "status": "fixed",
+      "sv": "two FU results"
+    },
+    {
+      "argument": "num_tile_inports",
+      "line": 43,
+      "note": "Equal input/output counts, 4/8 ports",
+      "source": "tile/TileRTL.py",
+      "status": "limited",
+      "sv": "TILE_PORTS"
+    },
+    {
+      "argument": "num_tile_outports",
+      "line": 43,
+      "note": "Equal input/output counts, 4/8 ports",
+      "source": "tile/TileRTL.py",
+      "status": "limited",
+      "sv": "TILE_PORTS"
+    },
+    {
+      "argument": "num_cgras",
+      "line": 43,
+      "note": "Packet geometry derived from system dimensions",
+      "source": "tile/TileRTL.py",
+      "status": "derived",
+      "sv": "MULTI_COLS*MULTI_ROWS"
+    },
+    {
+      "argument": "num_tiles",
+      "line": 43,
+      "note": "Local tile count and shared packet geometry are distinct",
+      "source": "tile/TileRTL.py",
+      "status": "derived",
+      "sv": "COLS*ROWS / MAX_TILES"
+    },
+    {
+      "argument": "num_registers_per_reg_bank",
+      "line": 44,
+      "note": "Depth >=2",
+      "source": "tile/TileRTL.py",
+      "status": "limited",
+      "sv": "REG_DEPTH"
+    },
+    {
+      "argument": "Fu",
+      "line": 45,
+      "note": "No arbitrary Python class substitution",
+      "source": "tile/TileRTL.py",
+      "status": "fixed_implementation",
+      "sv": "tile_flexible_fu_configurable"
+    },
+    {
+      "argument": "FuList",
+      "line": 46,
+      "note": "Ordered supported catalog; exactly one Nah; at most one memory FU",
+      "source": "tile/TileRTL.py",
+      "status": "limited",
+      "sv": "FU_COUNT/FU_KINDS and TILE_FU_*"
+    },
+    {
+      "argument": "IntraCgraPktType",
+      "line": 36,
+      "note": "Payload/control/address widths derived; predicate/bypass/delay fixed to one bit",
+      "source": "tile/TileWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "DATA_W and derived cgra_profile ABI"
+    },
+    {
+      "argument": "ctrl_mem_size",
+      "line": 37,
+      "note": "Depth >=2; common depth at multi top",
+      "source": "tile/TileWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "CTRL_DEPTH"
+    },
+    {
+      "argument": "data_mem_size",
+      "line": 37,
+      "note": "Address width 1..32; arbitrary non-power-of-two capacity not mapped",
+      "source": "tile/TileWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "GLOBAL_ADDR_W"
+    },
+    {
+      "argument": "num_ctrl",
+      "line": 37,
+      "note": "1..CTRL_DEPTH",
+      "source": "tile/TileWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "NUM_CTRL / CONFIG_COUNT_PER_ITER"
+    },
+    {
+      "argument": "total_steps",
+      "line": 38,
+      "note": "Eleven-bit counter; command reachability per variant",
+      "source": "tile/TileWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "TOTAL_STEPS / CONFIG_TOTAL_CTRL_COUNT"
+    },
+    {
+      "argument": "num_fu_inports",
+      "line": 38,
+      "note": "No configurable operand count at public PE",
+      "source": "tile/TileWithContextSwitchRTL.py",
+      "status": "fixed",
+      "sv": "four FU operands"
+    },
+    {
+      "argument": "num_fu_outports",
+      "line": 38,
+      "note": "No configurable result count at public PE",
+      "source": "tile/TileWithContextSwitchRTL.py",
+      "status": "fixed",
+      "sv": "two FU results"
+    },
+    {
+      "argument": "num_tile_inports",
+      "line": 38,
+      "note": "Equal input/output counts, 4/8 ports",
+      "source": "tile/TileWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "TILE_PORTS"
+    },
+    {
+      "argument": "num_tile_outports",
+      "line": 39,
+      "note": "Equal input/output counts, 4/8 ports",
+      "source": "tile/TileWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "TILE_PORTS"
+    },
+    {
+      "argument": "num_cgras",
+      "line": 39,
+      "note": "Packet geometry derived from system dimensions",
+      "source": "tile/TileWithContextSwitchRTL.py",
+      "status": "derived",
+      "sv": "MULTI_COLS*MULTI_ROWS"
+    },
+    {
+      "argument": "num_tiles",
+      "line": 39,
+      "note": "Local tile count and shared packet geometry are distinct",
+      "source": "tile/TileWithContextSwitchRTL.py",
+      "status": "derived",
+      "sv": "COLS*ROWS / MAX_TILES"
+    },
+    {
+      "argument": "num_registers_per_reg_bank",
+      "line": 40,
+      "note": "Depth >=2",
+      "source": "tile/TileWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "REG_DEPTH"
+    },
+    {
+      "argument": "Fu",
+      "line": 41,
+      "note": "No arbitrary Python class substitution",
+      "source": "tile/TileWithContextSwitchRTL.py",
+      "status": "fixed_implementation",
+      "sv": "tile_flexible_fu_configurable"
+    },
+    {
+      "argument": "FuList",
+      "line": 42,
+      "note": "Ordered supported catalog; exactly one Nah; at most one memory FU",
+      "source": "tile/TileWithContextSwitchRTL.py",
+      "status": "limited",
+      "sv": "FU_COUNT/FU_KINDS and TILE_FU_*"
+    },
+    {
+      "argument": "IntraCgraPktType",
+      "line": 33,
+      "note": "Payload/control/address widths derived; predicate/bypass/delay fixed to one bit",
+      "source": "tile/TileWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "DATA_W and derived cgra_profile ABI"
+    },
+    {
+      "argument": "ctrl_mem_size",
+      "line": 34,
+      "note": "Depth >=2; common depth at multi top",
+      "source": "tile/TileWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "CTRL_DEPTH"
+    },
+    {
+      "argument": "data_mem_size",
+      "line": 34,
+      "note": "Address width 1..32; arbitrary non-power-of-two capacity not mapped",
+      "source": "tile/TileWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "GLOBAL_ADDR_W"
+    },
+    {
+      "argument": "num_ctrl",
+      "line": 34,
+      "note": "1..CTRL_DEPTH",
+      "source": "tile/TileWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "NUM_CTRL / CONFIG_COUNT_PER_ITER"
+    },
+    {
+      "argument": "total_steps",
+      "line": 35,
+      "note": "Eleven-bit counter; command reachability per variant",
+      "source": "tile/TileWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "TOTAL_STEPS / CONFIG_TOTAL_CTRL_COUNT"
+    },
+    {
+      "argument": "num_fu_inports",
+      "line": 35,
+      "note": "No configurable operand count at public PE",
+      "source": "tile/TileWithStreamingLoadRTL.py",
+      "status": "fixed",
+      "sv": "four FU operands"
+    },
+    {
+      "argument": "num_fu_outports",
+      "line": 35,
+      "note": "No configurable result count at public PE",
+      "source": "tile/TileWithStreamingLoadRTL.py",
+      "status": "fixed",
+      "sv": "two FU results"
+    },
+    {
+      "argument": "num_tile_inports",
+      "line": 36,
+      "note": "Equal input/output counts, 4/8 ports",
+      "source": "tile/TileWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "TILE_PORTS"
+    },
+    {
+      "argument": "num_tile_outports",
+      "line": 36,
+      "note": "Equal input/output counts, 4/8 ports",
+      "source": "tile/TileWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "TILE_PORTS"
+    },
+    {
+      "argument": "num_cgras",
+      "line": 36,
+      "note": "Packet geometry derived from system dimensions",
+      "source": "tile/TileWithStreamingLoadRTL.py",
+      "status": "derived",
+      "sv": "MULTI_COLS*MULTI_ROWS"
+    },
+    {
+      "argument": "num_tiles",
+      "line": 36,
+      "note": "Local tile count and shared packet geometry are distinct",
+      "source": "tile/TileWithStreamingLoadRTL.py",
+      "status": "derived",
+      "sv": "COLS*ROWS / MAX_TILES"
+    },
+    {
+      "argument": "num_registers_per_reg_bank",
+      "line": 37,
+      "note": "Depth >=2",
+      "source": "tile/TileWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "REG_DEPTH"
+    },
+    {
+      "argument": "Fu",
+      "line": 38,
+      "note": "No arbitrary Python class substitution",
+      "source": "tile/TileWithStreamingLoadRTL.py",
+      "status": "fixed_implementation",
+      "sv": "tile_flexible_fu_configurable"
+    },
+    {
+      "argument": "FuList",
+      "line": 39,
+      "note": "Ordered supported catalog; exactly one Nah; at most one memory FU",
+      "source": "tile/TileWithStreamingLoadRTL.py",
+      "status": "limited",
+      "sv": "FU_COUNT/FU_KINDS and TILE_FU_*"
+    }
+  ]
+}

@@ -1,0 +1,377 @@
+{
+  "python_class": "CrossbarRTL",
+  "arguments": {
+    "DataType": "CgraData_16_1_1_1",
+    "CtrlType": "CGRAConfig_7_2_2_3_1_3_3",
+    "num_inports": 3,
+    "num_outports": 3,
+    "num_cgras": 1,
+    "num_tiles": 6,
+    "ctrl_mem_size": 6,
+    "outport_towards_local_base_id": 4
+  },
+  "hierarchy": "s.dut",
+  "samples": 10,
+  "edges": 10,
+  "module": "tile_static_crossbar",
+  "parameters": {
+    "DATA_W": 16,
+    "CTRL_DEPTH": 6,
+    "REG_DEPTH": 16,
+    "TILE_PORTS": 4,
+    "INPUTS": 3,
+    "MULTI_COLS": 1,
+    "MULTI_ROWS": 1,
+    "MAX_COLS": 6,
+    "MAX_ROWS": 1
+  },
+  "mode": "native",
+  "bindings": {},
+  "normalize_ctrl": true,
+  "ports": [
+    {
+      "path": "cgra_id",
+      "name": "cgra_id",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "clear",
+      "name": "clear",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "compute_done",
+      "name": "compute_done",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "crossbar_id",
+      "name": "crossbar_id",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "crossbar_outport[0]",
+      "name": "crossbar_outport[0]",
+      "width": 2,
+      "original_width": 2,
+      "direction": "input"
+    },
+    {
+      "path": "crossbar_outport[1]",
+      "name": "crossbar_outport[1]",
+      "width": 2,
+      "original_width": 2,
+      "direction": "input"
+    },
+    {
+      "path": "crossbar_outport[2]",
+      "name": "crossbar_outport[2]",
+      "width": 2,
+      "original_width": 2,
+      "direction": "input"
+    },
+    {
+      "path": "ctrl_addr_inport",
+      "name": "ctrl_addr_inport",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "prologue_count_inport[0][0]",
+      "name": "prologue_count_inport[0][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "prologue_count_inport[0][1]",
+      "name": "prologue_count_inport[0][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "prologue_count_inport[0][2]",
+      "name": "prologue_count_inport[0][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "prologue_count_inport[1][0]",
+      "name": "prologue_count_inport[1][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "prologue_count_inport[1][1]",
+      "name": "prologue_count_inport[1][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "prologue_count_inport[1][2]",
+      "name": "prologue_count_inport[1][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "prologue_count_inport[2][0]",
+      "name": "prologue_count_inport[2][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "prologue_count_inport[2][1]",
+      "name": "prologue_count_inport[2][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "prologue_count_inport[2][2]",
+      "name": "prologue_count_inport[2][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "prologue_count_inport[3][0]",
+      "name": "prologue_count_inport[3][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "prologue_count_inport[3][1]",
+      "name": "prologue_count_inport[3][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "prologue_count_inport[3][2]",
+      "name": "prologue_count_inport[3][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "prologue_count_inport[4][0]",
+      "name": "prologue_count_inport[4][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "prologue_count_inport[4][1]",
+      "name": "prologue_count_inport[4][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "prologue_count_inport[4][2]",
+      "name": "prologue_count_inport[4][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "prologue_count_inport[5][0]",
+      "name": "prologue_count_inport[5][0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "prologue_count_inport[5][1]",
+      "name": "prologue_count_inport[5][1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "prologue_count_inport[5][2]",
+      "name": "prologue_count_inport[5][2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data[0].msg",
+      "name": "recv_data__msg[0]",
+      "width": 19,
+      "original_width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data[0].rdy",
+      "name": "recv_data__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data[0].val",
+      "name": "recv_data__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data[1].msg",
+      "name": "recv_data__msg[1]",
+      "width": 19,
+      "original_width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data[1].rdy",
+      "name": "recv_data__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data[1].val",
+      "name": "recv_data__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data[2].msg",
+      "name": "recv_data__msg[2]",
+      "width": 19,
+      "original_width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data[2].rdy",
+      "name": "recv_data__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data[2].val",
+      "name": "recv_data__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_opt.msg",
+      "name": "recv_opt__msg",
+      "width": 119,
+      "original_width": 54,
+      "direction": "input"
+    },
+    {
+      "path": "recv_opt.rdy",
+      "name": "recv_opt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_opt.val",
+      "name": "recv_opt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data[0].msg",
+      "name": "send_data__msg[0]",
+      "width": 19,
+      "original_width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "send_data[0].rdy",
+      "name": "send_data__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data[0].val",
+      "name": "send_data__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data[1].msg",
+      "name": "send_data__msg[1]",
+      "width": 19,
+      "original_width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "send_data[1].rdy",
+      "name": "send_data__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data[1].val",
+      "name": "send_data__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data[2].msg",
+      "name": "send_data__msg[2]",
+      "width": 19,
+      "original_width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "send_data[2].rdy",
+      "name": "send_data__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data[2].val",
+      "name": "send_data__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "tile_id",
+      "name": "tile_id",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    }
+  ],
+  "vectors_sha256": "9aa3aa31715fa8305cd9e67ed43af781019b0b4facd29ad087976ea2131d072b"
+}

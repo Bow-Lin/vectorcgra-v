@@ -1,0 +1,21 @@
+{
+  "case": {
+    "id": 164,
+    "group": "systems",
+    "file": "multi_cgra/test/MultiCgraRTL_migration_test.py",
+    "function": "test_multi_CGRA_fir_scalar_fused",
+    "parameters": {},
+    "classes": [
+      "MeshMultiCgraRTL"
+    ],
+    "source_sha256": "87763fae4428c8bafca33ab54bbcff377fb093a4fed4f7b29fe059b49992d572"
+  },
+  "status": "passed",
+  "source_sha256": "87763fae4428c8bafca33ab54bbcff377fb093a4fed4f7b29fe059b49992d572",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ],
+  "adapter_errors": []
+}

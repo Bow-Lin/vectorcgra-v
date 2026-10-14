@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 42,
+    "group": "fu",
+    "file": "fu/float/test/FpAddRTL_test.py",
+    "function": "test_add_basic",
+    "parameters": {},
+    "classes": [
+      "FpAddRTL"
+    ],
+    "source_sha256": "ad40ab898823a7f682e5c6b0579aef36954f204be5e0e7469b4aa9369bed97d0"
+  },
+  "status": "passed",
+  "source_sha256": "ad40ab898823a7f682e5c6b0579aef36954f204be5e0e7469b4aa9369bed97d0",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

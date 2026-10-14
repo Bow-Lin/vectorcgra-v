@@ -1,0 +1,205 @@
+{
+  "python_class": "RingNetworkRTL",
+  "arguments": {
+    "PacketType": "InterCgraPacket_4_4x1_4_8_4_CgraPayload",
+    "PositionType": "Bits2",
+    "num_routers": 4,
+    "chl_lat": 0,
+    "vc": 2,
+    "credit_line": 2
+  },
+  "hierarchy": "s.dut",
+  "samples": 12,
+  "edges": 12,
+  "module": "cgra_inter_ring",
+  "parameters": {
+    "WIDTH": 206,
+    "NODES": 4,
+    "DST_LSB": 202,
+    "DST_WIDTH": 2,
+    "VC_LSB": 178,
+    "VC_WIDTH": 2
+  },
+  "mode": "native",
+  "bindings": {},
+  "single_underscore": true,
+  "transaction_replay": true,
+  "ports": [
+    {
+      "path": "recv[0].msg",
+      "name": "recv__msg[0]",
+      "width": 206,
+      "original_width": 206,
+      "direction": "input"
+    },
+    {
+      "path": "recv[0].rdy",
+      "name": "recv__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv[0].val",
+      "name": "recv__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv[1].msg",
+      "name": "recv__msg[1]",
+      "width": 206,
+      "original_width": 206,
+      "direction": "input"
+    },
+    {
+      "path": "recv[1].rdy",
+      "name": "recv__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv[1].val",
+      "name": "recv__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv[2].msg",
+      "name": "recv__msg[2]",
+      "width": 206,
+      "original_width": 206,
+      "direction": "input"
+    },
+    {
+      "path": "recv[2].rdy",
+      "name": "recv__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv[2].val",
+      "name": "recv__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv[3].msg",
+      "name": "recv__msg[3]",
+      "width": 206,
+      "original_width": 206,
+      "direction": "input"
+    },
+    {
+      "path": "recv[3].rdy",
+      "name": "recv__rdy[3]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv[3].val",
+      "name": "recv__val[3]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send[0].msg",
+      "name": "send__msg[0]",
+      "width": 206,
+      "original_width": 206,
+      "direction": "output"
+    },
+    {
+      "path": "send[0].rdy",
+      "name": "send__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send[0].val",
+      "name": "send__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send[1].msg",
+      "name": "send__msg[1]",
+      "width": 206,
+      "original_width": 206,
+      "direction": "output"
+    },
+    {
+      "path": "send[1].rdy",
+      "name": "send__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send[1].val",
+      "name": "send__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send[2].msg",
+      "name": "send__msg[2]",
+      "width": 206,
+      "original_width": 206,
+      "direction": "output"
+    },
+    {
+      "path": "send[2].rdy",
+      "name": "send__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send[2].val",
+      "name": "send__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send[3].msg",
+      "name": "send__msg[3]",
+      "width": 206,
+      "original_width": 206,
+      "direction": "output"
+    },
+    {
+      "path": "send[3].rdy",
+      "name": "send__rdy[3]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send[3].val",
+      "name": "send__val[3]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "cbd5e542b3ec55e887d48d01d37d64d3b1f61ada73762b66fbc811faa3913c5b"
+}

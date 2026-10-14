@@ -1,0 +1,14 @@
+NOC_SWITCH_PASS inputs=1 accepted=5 stalls=5
+sv/tests/current/run_noc_primitives.sh: line 14:  4125 Aborted                 "$exe" "$@" > "$log" 2>&1
+NOC_SWITCH_PASS inputs=2 accepted=8 stalls=5
+sv/tests/current/run_noc_primitives.sh: line 14:  4188 Aborted                 "$exe" "$@" > "$log" 2>&1
+NOC_SWITCH_PASS inputs=3 accepted=11 stalls=5
+sv/tests/current/run_noc_primitives.sh: line 14:  4304 Aborted                 "$exe" "$@" > "$log" 2>&1
+NOC_SWITCH_PASS inputs=5 accepted=17 stalls=5
+sv/tests/current/run_noc_primitives.sh: line 14:  4388 Aborted                 "$exe" "$@" > "$log" 2>&1
+sv/tests/current/run_noc_primitives.sh: line 14:  4507 Aborted                 "$exe" "$@" > "$log" 2>&1
+NOC_CREDIT_PASS cycles=169 stalls=21 simultaneous=6 invalid_vcs=2
+sv/tests/current/run_noc_primitives.sh: line 14:  4581 Aborted                 "$exe" "$@" > "$log" 2>&1
+sv/tests/current/run_noc_primitives.sh: line 14:  4587 Aborted                 "$exe" "$@" > "$log" 2>&1
+sv/tests/current/run_noc_primitives.sh: line 14:  4696 Aborted                 "$exe" "$@" > "$log" 2>&1
+NOC_PRIMITIVES_PASS

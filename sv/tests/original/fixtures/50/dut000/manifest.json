@@ -1,0 +1,109 @@
+{
+  "python_class": "Im2colEngineRTL",
+  "arguments": {
+    "DataType": "CgraData_32_1_1_1",
+    "IntraCgraPktType": "IntraCgraPacket_4_4x1_9_8_2_CgraPayload",
+    "CgraPayloadType": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr",
+    "scratch_mem_size": 64,
+    "preload_image": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ]
+  },
+  "hierarchy": "s.dut",
+  "samples": 88,
+  "edges": 88,
+  "module": "cgra_im2col_engine",
+  "parameters": {
+    "DATA_W": 32,
+    "CTRL_DEPTH": 8,
+    "GLOBAL_ADDR_W": 7,
+    "REG_DEPTH": 16,
+    "TILE_PORTS": 4,
+    "COLS": 2,
+    "ROWS": 2,
+    "MAX_COLS": 15,
+    "MAX_ROWS": 1,
+    "MULTI_COLS": 4,
+    "MULTI_ROWS": 1,
+    "SCRATCH_DEPTH": 64,
+    "PRELOAD_IMAGE": "512'hf0000000e0000000d0000000c0000000b0000000a00000009000000080000000700000006000000050000000400000003000000020000000100000000"
+  },
+  "mode": "native",
+  "bindings": {},
+  "normalize_ctrl": true,
+  "transaction_replay": true,
+  "ports": [
+    {
+      "path": "done",
+      "name": "done",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_cmd_pkt.msg",
+      "name": "recv_cmd_pkt__msg",
+      "width": 197,
+      "original_width": 197,
+      "direction": "input"
+    },
+    {
+      "path": "recv_cmd_pkt.rdy",
+      "name": "recv_cmd_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_cmd_pkt.val",
+      "name": "recv_cmd_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_pkt.msg",
+      "name": "send_pkt__msg",
+      "width": 197,
+      "original_width": 197,
+      "direction": "output"
+    },
+    {
+      "path": "send_pkt.rdy",
+      "name": "send_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_pkt.val",
+      "name": "send_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "ae7e25e1e96d346a1f6e0fcf2353ec53d0dcba12b278058d9936e9b5cfe2a8f4"
+}

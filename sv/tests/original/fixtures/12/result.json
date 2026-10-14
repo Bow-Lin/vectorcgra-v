@@ -1,0 +1,21 @@
+{
+  "case": {
+    "id": 12,
+    "group": "matrix",
+    "file": "cgra/test/CgraRTL_spmv_test_from_yaml.py",
+    "function": "test_homogeneous_4x4_spmv_combinational_mem_access_return",
+    "parameters": {},
+    "classes": [
+      "CgraRTL"
+    ],
+    "source_sha256": "362e742054974d70021182deb8881019fcd3cca75bc729b0ec1497324530f5c5"
+  },
+  "status": "failed",
+  "source_sha256": "362e742054974d70021182deb8881019fcd3cca75bc729b0ec1497324530f5c5",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "error": "KeyError('ICMP_ULT')",
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/vectorcgra-v/sv/migration_tools/original_test_capture.py\", line 222, in main\n    func(**kwargs)\n  File \"/workspace/vectorcgra-v/cgra/test/CgraRTL_spmv_test_from_yaml.py\", line 368, in test_homogeneous_4x4_spmv_combinational_mem_access_return\n    sim_spmv_return(cmdline_opts, mem_access_is_combinational = True)\n  File \"/workspace/vectorcgra-v/cgra/test/CgraRTL_spmv_test_from_yaml.py\", line 291, in sim_spmv_return\n    src_opt_pkt0_ = script_factory.makeVectorCGRAPkts()\n                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/vectorcgra-v/validation/script_generator.py\", line 976, in makeVectorCGRAPkts\n    tile_signals = tile_signals.makeTileSignals()\n                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/vectorcgra-v/validation/script_generator.py\", line 790, in makeTileSignals\n    const = instruction_signals.buildCtrlPkt()\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/vectorcgra-v/validation/script_generator.py\", line 509, in buildCtrlPkt\n    raise e\n  File \"/workspace/vectorcgra-v/validation/script_generator.py\", line 297, in buildCtrlPkt\n    self.OpCode = yaml_to_VectorCGRA_map_const[self.operations[take_up_fu_operation_idx]['opcode']]\n                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nKeyError: 'ICMP_ULT'\n",
+  "captures": [],
+  "adapter_errors": []
+}

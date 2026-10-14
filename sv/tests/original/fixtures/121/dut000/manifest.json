@@ -1,0 +1,166 @@
+{
+  "python_class": "VectorAdderRTL",
+  "arguments": {
+    "bw": 32,
+    "CtrlPktType": "IntraCgraPacket_1_1x1_1_8_2_CgraPayload",
+    "num_inports": 2,
+    "num_outports": 1
+  },
+  "hierarchy": "s.dut",
+  "samples": 12,
+  "edges": 12,
+  "module": "cgra_vector_adder",
+  "parameters": {
+    "DATA_W": 32,
+    "CTRL_DEPTH": 8,
+    "GLOBAL_ADDR_W": 3,
+    "REG_DEPTH": 16,
+    "TILE_PORTS": 5,
+    "COLS": 2,
+    "ROWS": 2,
+    "MAX_COLS": 1,
+    "MAX_ROWS": 1,
+    "MULTI_COLS": 1,
+    "MULTI_ROWS": 1,
+    "LANE_W": 32
+  },
+  "mode": "native",
+  "bindings": {},
+  "normalize_ctrl": true,
+  "ports": [
+    {
+      "path": "carry_in",
+      "name": "carry_in",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "carry_out",
+      "name": "carry_out",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "combine_adder",
+      "name": "combine_adder",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_const.msg",
+      "name": "recv_const__msg",
+      "width": 33,
+      "original_width": 33,
+      "direction": "input"
+    },
+    {
+      "path": "recv_const.rdy",
+      "name": "recv_const__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_const.val",
+      "name": "recv_const__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_in[0].msg",
+      "name": "recv_in__msg[0]",
+      "width": 33,
+      "original_width": 33,
+      "direction": "input"
+    },
+    {
+      "path": "recv_in[0].rdy",
+      "name": "recv_in__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_in[0].val",
+      "name": "recv_in__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_in[1].msg",
+      "name": "recv_in__msg[1]",
+      "width": 33,
+      "original_width": 33,
+      "direction": "input"
+    },
+    {
+      "path": "recv_in[1].rdy",
+      "name": "recv_in__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_in[1].val",
+      "name": "recv_in__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_opt.msg",
+      "name": "recv_opt__msg",
+      "width": 125,
+      "original_width": 67,
+      "direction": "input"
+    },
+    {
+      "path": "recv_opt.rdy",
+      "name": "recv_opt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_opt.val",
+      "name": "recv_opt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_out[0].msg",
+      "name": "send_out__msg[0]",
+      "width": 33,
+      "original_width": 33,
+      "direction": "output"
+    },
+    {
+      "path": "send_out[0].rdy",
+      "name": "send_out__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_out[0].val",
+      "name": "send_out__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "f80d5dd20fc065ae1d64e8965a2932b998243b56a69c8a89ebc6623ea97d08bf"
+}

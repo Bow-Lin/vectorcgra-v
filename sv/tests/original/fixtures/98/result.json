@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 98,
+    "group": "fu",
+    "file": "fu/single/test/LoopControlRTL_test.py",
+    "function": "test_loop_control_nested",
+    "parameters": {},
+    "classes": [
+      "LoopControlRTL"
+    ],
+    "source_sha256": "dec1d2244a107dc655a92ed2d322d9463ef36e3694fb3a87eea76ecaeaa05fe8"
+  },
+  "status": "passed",
+  "source_sha256": "dec1d2244a107dc655a92ed2d322d9463ef36e3694fb3a87eea76ecaeaa05fe8",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

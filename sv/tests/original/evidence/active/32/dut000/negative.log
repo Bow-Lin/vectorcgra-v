@@ -1,0 +1,4 @@
+ORIGINAL_MISMATCH sample=4 port=dma_cmd.val actual=0 expected=1
+[200000] %Fatal: tb_original.sv:508: Assertion failed in TOP.tb_original: ORIGINAL_REPLAY_FAILED errors=1 samples=20
+%Error: /workspace/work/original-test-active/build/0d93c9e88dea87e392f8/tb_original.sv:508: Verilog $stop
+Aborting...

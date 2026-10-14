@@ -1,0 +1,1238 @@
+{
+  "schema": 1,
+  "diagnostic_only": true,
+  "native_acceptance": false,
+  "cases": [
+    {
+      "id": 32,
+      "file": "controller/test/ControllerRTL_test.py",
+      "function": "test_simple",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_controller",
+          "parameters": {
+            "DATA_W": 32,
+            "CTRL_DEPTH": 16,
+            "GLOBAL_ADDR_W": 4,
+            "REG_DEPTH": 16,
+            "TILE_PORTS": 4,
+            "COLS": 2,
+            "ROWS": 2,
+            "MULTI_COLS": 4,
+            "MULTI_ROWS": 1,
+            "MAX_COLS": 4,
+            "MAX_ROWS": 1,
+            "MAX_MEM_PORTS": 3,
+            "HAS_DMA": 0,
+            "HAS_IM2COL": 0,
+            "CUSTOM_ADDR_MAP": 1,
+            "ADDR_MAP": "8'he4",
+            "CUSTOM_COORD_MAP": 1,
+            "COORD_X_MAP": "8'he4",
+            "COORD_Y_MAP": "4'h0",
+            "NUM_BANKS": 1,
+            "BANK_DEPTH": 4
+          },
+          "mode": "native",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "65380488421b19cb57188cb5aa3ccf974946d50a84b1f7802c8732058330db7d",
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.02,
+            "log": "evidence/active/32/dut000/sv.log",
+            "log_sha256": "d70b178b876a5cb6fa1b71da47eca4bc3eb6cf1b8cf3cf60a936af0bb548e996"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.01,
+            "log": "evidence/active/32/dut000/negative.log",
+            "log_sha256": "788130610e7c1ad3c5e9f8daeb8ecce9c04c128eacf558ad951afc9fc02ac74a"
+          }
+        }
+      ],
+      "diagnostic_kind": "active"
+    },
+    {
+      "id": 39,
+      "file": "fu/flexible/test/FlexibleFuRTL_test.py",
+      "function": "test_flexible_fu_prologue_advances_without_const",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "tile_flexible_fu_configurable",
+          "parameters": {
+            "DATA_W": 16,
+            "CTRL_DEPTH": 2,
+            "GLOBAL_ADDR_W": 1,
+            "REG_DEPTH": 16,
+            "TILE_PORTS": 5,
+            "COLS": 2,
+            "ROWS": 2,
+            "MAX_COLS": 1,
+            "MAX_ROWS": 1,
+            "MULTI_COLS": 1,
+            "MULTI_ROWS": 1,
+            "FU_COUNT": 2,
+            "FU_KINDS": "16'h300"
+          },
+          "mode": "native",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "9623d3b9ed92c7d4cbad9a8ec2140fe5932ac17e5c73fc01403fe9d30fc56017",
+          "build": {
+            "exit_code": 0,
+            "seconds": 3.99,
+            "log": "/workspace/work/original-test-active/build/fd09f65c5a5ad9fbe8a3/compile.log",
+            "log_sha256": "94e2cc5caffa879d723c6034395146ebc5669ff3b05f87ec883743e48b9d0b33"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/active/39/dut000/sv.log",
+            "log_sha256": "350f95a6d522eaf5c8e5ef6b372f63999a329f6d50360139fca19e9e830d2885"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/active/39/dut000/negative.log",
+            "log_sha256": "45f2d01f317ad2592637a69ebcf28d7e22546b12150cf8104818aa9ee2e29b98"
+          }
+        }
+      ],
+      "diagnostic_kind": "active"
+    },
+    {
+      "id": 72,
+      "file": "fu/single/test/ExclusiveDivRTL_test.py",
+      "function": "test_mul",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "scalar_exclusive_div",
+          "parameters": {
+            "DATA_W": 32,
+            "CTRL_DEPTH": 8,
+            "GLOBAL_ADDR_W": 3,
+            "REG_DEPTH": 16,
+            "TILE_PORTS": 5,
+            "COLS": 2,
+            "ROWS": 2,
+            "MAX_COLS": 1,
+            "MAX_ROWS": 1,
+            "MULTI_COLS": 1,
+            "MULTI_ROWS": 1,
+            "VECTOR_FACTOR_POWER": 0,
+            "LATENCY": 4
+          },
+          "mode": "native",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "fee2d9cf52954ee10bab10713ffb6283c189b4936e6dd6102e777df0f48fd9d6",
+          "build": {
+            "exit_code": 0,
+            "seconds": 4.08,
+            "log": "/workspace/work/original-test-active/build/4988c733b4f25d2351bd/compile.log",
+            "log_sha256": "c44cecc2cc86aef80f6319e85a5f26dbf1b8f571c3530586cfa019f417906986"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/active/72/dut000/sv.log",
+            "log_sha256": "a045d677e31c009fcb1a8c4f5c10b4184cad35a078773f9192d36b5fd413ed8e"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/active/72/dut000/negative.log",
+            "log_sha256": "8212e48664990f8904fcc4f6e2abcb4cc330556da4a91a4b67f034f7fe2ea874"
+          }
+        }
+      ],
+      "diagnostic_kind": "active"
+    },
+    {
+      "id": 128,
+      "file": "mem/const/test/ConstQueueRTL_test.py",
+      "function": "test_const_queue",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_static_const_queue",
+          "parameters": {
+            "DATA_BITS": 19,
+            "NUM_CONST": 3,
+            "CONST_WORDS": "57'hf000220004c"
+          },
+          "mode": "native",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "151a6020c360ef2f90e0727bb3b9c19a1777d190541642b596c7c9e17395dc4e",
+          "build": {
+            "exit_code": 0,
+            "seconds": 3.78,
+            "log": "/workspace/work/original-test-active/build/0c7f9a7aaf8847c9a0b4/compile.log",
+            "log_sha256": "52ae56316a35a6b4bb72bd38329667b3e4717f8967730d05523989a789fa5565"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/active/128/dut000/sv.log",
+            "log_sha256": "95a616d4990864fef8e7a7733f65eac2fd8bfcc7b86da87bfa06f4763099292a"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/active/128/dut000/negative.log",
+            "log_sha256": "65c6a004994cb7cdd701b3ea25fd6d66e25407aefda0d7263d3d7f5e1623821c"
+          }
+        }
+      ],
+      "diagnostic_kind": "active"
+    },
+    {
+      "id": 137,
+      "file": "mem/dma/test/DmaEngineRTL_test.py",
+      "function": "test_dma_mvin_one_beat",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_dma_engine",
+          "parameters": {
+            "SPM_DATA_W": 32,
+            "DRAM_DATA_W": 128,
+            "DRAM_ADDR_W": 64,
+            "SPM_ADDR_W": 32,
+            "BYTES_W": 32,
+            "TAG_W": 8
+          },
+          "mode": "native",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "4a22aa6184e116190e8972dcd95a1036821a1c210095c2083f6220a7d1bd7f26",
+          "build": {
+            "exit_code": 0,
+            "seconds": 3.43,
+            "log": "/workspace/work/original-test-active/build/38569ebbe9ec2b580803/compile.log",
+            "log_sha256": "451834d2b09b0f521e16edc449d0f12e0417e76f88be1cdfe9de6289b2346106"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/active/137/dut000/sv.log",
+            "log_sha256": "3fe546faf96b8a01cb19de1c4c2776233c8fda4a649f673c2f676b968c666a3a"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/active/137/dut000/negative.log",
+            "log_sha256": "71ffcdbfdfd4d503609509d4e0a9d8833a47ccd0e4fd5e3a5559ba133dbbfdf4"
+          }
+        }
+      ],
+      "diagnostic_kind": "active"
+    },
+    {
+      "id": 138,
+      "file": "mem/dma/test/DmaEngineRTL_test.py",
+      "function": "test_dma_mvout_partial_beat",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_dma_engine",
+          "parameters": {
+            "SPM_DATA_W": 32,
+            "DRAM_DATA_W": 128,
+            "DRAM_ADDR_W": 64,
+            "SPM_ADDR_W": 32,
+            "BYTES_W": 32,
+            "TAG_W": 8
+          },
+          "mode": "native",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "3acb08e89405929aa3b51a1053d956913e27de876d5878b4a98dbd87cfe3d72d",
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.0,
+            "log": "evidence/active/138/dut000/sv.log",
+            "log_sha256": "029c906ae96c84691874f423faecbe85da7357886bc9018713f20394171b8b94"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/active/138/dut000/negative.log",
+            "log_sha256": "83e186ce607b63ef46ad3dc504f65acbd4aa1c0c56a17edc9cc844a0c6fc697d"
+          }
+        }
+      ],
+      "diagnostic_kind": "active"
+    },
+    {
+      "id": 139,
+      "file": "mem/dma/test/DmaEngineRTL_test.py",
+      "function": "test_dma_mvout_full_beat",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_dma_engine",
+          "parameters": {
+            "SPM_DATA_W": 32,
+            "DRAM_DATA_W": 128,
+            "DRAM_ADDR_W": 64,
+            "SPM_ADDR_W": 32,
+            "BYTES_W": 32,
+            "TAG_W": 8
+          },
+          "mode": "native",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "11538ed7c72cd7a9f7c5349518bcdf7d39525c699ab79bd39b7e362fdb398b1c",
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/active/139/dut000/sv.log",
+            "log_sha256": "5d968c535b2a58e6d16a2d7d3df464b5f29d1e94665f3802335c7b105bf4712a"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.01,
+            "log": "evidence/active/139/dut000/negative.log",
+            "log_sha256": "6115cfef49b8554f9b85875437be8d3277cb929afa027f11db8ed200a81e42a0"
+          }
+        }
+      ],
+      "diagnostic_kind": "active"
+    },
+    {
+      "id": 140,
+      "file": "mem/dma/test/DmaEngineRTL_test.py",
+      "function": "test_dma_mvin_configurable_partial_second_beat",
+      "parameters": {
+        "dram_data_nbits": 96
+      },
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_dma_engine",
+          "parameters": {
+            "SPM_DATA_W": 32,
+            "DRAM_DATA_W": 96,
+            "DRAM_ADDR_W": 64,
+            "SPM_ADDR_W": 32,
+            "BYTES_W": 32,
+            "TAG_W": 8
+          },
+          "mode": "native",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "ee2b32d263735b063fdc4ce3d60d397c0e54299d607c8da2eb5f32bb0d62ed31",
+          "build": {
+            "exit_code": 0,
+            "seconds": 3.38,
+            "log": "/workspace/work/original-test-active/build/ed21fca290e426d8f457/compile.log",
+            "log_sha256": "507661df20e82e47c81ee59c1673d39440d17b464493c6010080ad8df0d6fc83"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/active/140/dut000/sv.log",
+            "log_sha256": "455e2cb3693e9b4f231d76583994c4bbc92a2f1262e0d64c8c86ed11410ce2fb"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/active/140/dut000/negative.log",
+            "log_sha256": "8bad137e6c19107acf55a7d2949501125761c9626ec203b37af5971ee3d85cb0"
+          }
+        }
+      ],
+      "diagnostic_kind": "active"
+    },
+    {
+      "id": 141,
+      "file": "mem/dma/test/DmaEngineRTL_test.py",
+      "function": "test_dma_mvin_configurable_partial_second_beat",
+      "parameters": {
+        "dram_data_nbits": 256
+      },
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_dma_engine",
+          "parameters": {
+            "SPM_DATA_W": 32,
+            "DRAM_DATA_W": 256,
+            "DRAM_ADDR_W": 64,
+            "SPM_ADDR_W": 32,
+            "BYTES_W": 32,
+            "TAG_W": 8
+          },
+          "mode": "native",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "22df8b0ddc70535129a08d23b6b5ccecea47675b1cbfc71c348cd2137cce24b4",
+          "build": {
+            "exit_code": 0,
+            "seconds": 3.87,
+            "log": "/workspace/work/original-test-active/build/958f96a9f196406ebe47/compile.log",
+            "log_sha256": "6930f847f2f6d4cf6ff0a9b4aed96904eb66f5ec07e0f9a2cee7265534364fce"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/active/141/dut000/sv.log",
+            "log_sha256": "85228c7c38e378ad3c8c9c104598c39839f14f68eff69544d47d99fd12e4e114"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.01,
+            "log": "evidence/active/141/dut000/negative.log",
+            "log_sha256": "bdec917ce5313265ac37a84b0893fa1fd8d33caba4f3bf82a6c395dab4389736"
+          }
+        }
+      ],
+      "diagnostic_kind": "active"
+    },
+    {
+      "id": 142,
+      "file": "mem/dma/test/DmaEngineRTL_test.py",
+      "function": "test_dma_mvout_configurable_partial_second_beat",
+      "parameters": {
+        "dram_data_nbits": 96
+      },
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_dma_engine",
+          "parameters": {
+            "SPM_DATA_W": 32,
+            "DRAM_DATA_W": 96,
+            "DRAM_ADDR_W": 64,
+            "SPM_ADDR_W": 32,
+            "BYTES_W": 32,
+            "TAG_W": 8
+          },
+          "mode": "native",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "f04ec9982a3246970d36f12e439a01a05d9b3469baea0faafd59e0298005a69c",
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/active/142/dut000/sv.log",
+            "log_sha256": "1c48431c5f32074219caaa6ebdc77ec8297376e6c3707417522cd528f150b977"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/active/142/dut000/negative.log",
+            "log_sha256": "cbaea9a15fd7751197f8c1b5c674e58e0def62ccbb6d612477669e070c71103e"
+          }
+        }
+      ],
+      "diagnostic_kind": "active"
+    },
+    {
+      "id": 143,
+      "file": "mem/dma/test/DmaEngineRTL_test.py",
+      "function": "test_dma_mvout_configurable_partial_second_beat",
+      "parameters": {
+        "dram_data_nbits": 256
+      },
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_dma_engine",
+          "parameters": {
+            "SPM_DATA_W": 32,
+            "DRAM_DATA_W": 256,
+            "DRAM_ADDR_W": 64,
+            "SPM_ADDR_W": 32,
+            "BYTES_W": 32,
+            "TAG_W": 8
+          },
+          "mode": "native",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "dc712698bad38c5f9ca39f5e967b079764e74cf4eaac79390d8a5eb2033f2fae",
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/active/143/dut000/sv.log",
+            "log_sha256": "b51aa9832b1cde0bfc03da38adca82b7489d44a6018d43ee28a1e3138ae39691"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.01,
+            "log": "evidence/active/143/dut000/negative.log",
+            "log_sha256": "5f4c348139ad25ae398de6d1ee60be0e7f65ef400ff4c40e1fb320d3f72346c7"
+          }
+        }
+      ],
+      "diagnostic_kind": "active"
+    },
+    {
+      "id": 42,
+      "file": "fu/float/test/FpAddRTL_test.py",
+      "function": "test_add_basic",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "tile_fp_add",
+          "parameters": {
+            "DATA_W": 16,
+            "CTRL_DEPTH": 4,
+            "GLOBAL_ADDR_W": 3,
+            "REG_DEPTH": 16,
+            "TILE_PORTS": 5,
+            "COLS": 2,
+            "ROWS": 2,
+            "MAX_COLS": 1,
+            "MAX_ROWS": 1,
+            "MULTI_COLS": 1,
+            "MULTI_ROWS": 1,
+            "FP_EXP_W": 4,
+            "FP_SIG_W": 11,
+            "FP_LEGACY_PYTHON": 1,
+            "MEMORY_LEGACY_PYTHON": 1,
+            "NOC_LEGACY_PYTHON": 1
+          },
+          "mode": "compatibility",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "89a181f661b443779f198c7e4f38c4f8c3abbfd0d1c1e747c8bd149d52dd9c32",
+          "build": {
+            "exit_code": 0,
+            "seconds": 3.93,
+            "log": "/workspace/work/original-test-compat/build/619d2abfbb5b00b73502/compile.log",
+            "log_sha256": "74bcd890e7c7ba00b6a253c9f0447054c0000bbe72c34236f3d6abd6d8062fff"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/compat/42/dut000/sv.log",
+            "log_sha256": "09fd721ab6fd57dacc7b5b8d4801fc522fa608b1fcd443245b6ef902474d5d3d"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/compat/42/dut000/negative.log",
+            "log_sha256": "f89edbb4374764a27ad204545ff2a09df60c2fff1b3ef1f43d1b9e7bfa55a40b"
+          }
+        }
+      ],
+      "diagnostic_kind": "compat"
+    },
+    {
+      "id": 43,
+      "file": "fu/float/test/FpMulRTL_test.py",
+      "function": "test_mul",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "tile_fp_mul",
+          "parameters": {
+            "DATA_W": 16,
+            "CTRL_DEPTH": 4,
+            "GLOBAL_ADDR_W": 3,
+            "REG_DEPTH": 16,
+            "TILE_PORTS": 5,
+            "COLS": 2,
+            "ROWS": 2,
+            "MAX_COLS": 1,
+            "MAX_ROWS": 1,
+            "MULTI_COLS": 1,
+            "MULTI_ROWS": 1,
+            "FP_EXP_W": 4,
+            "FP_SIG_W": 11,
+            "FP_LEGACY_PYTHON": 1,
+            "MEMORY_LEGACY_PYTHON": 1,
+            "NOC_LEGACY_PYTHON": 1
+          },
+          "mode": "compatibility",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "174ae1cc6e8a286f65426884200e0b8e9dff90af9f664e916a011cf6dd317ff4",
+          "build": {
+            "exit_code": 0,
+            "seconds": 3.63,
+            "log": "/workspace/work/original-test-compat/build/9cdc01039201cd909137/compile.log",
+            "log_sha256": "d66ab6799a62830767c26d5edf4b60f3ca86cc2cccc4fbac36ba15a8db34f6f0"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/compat/43/dut000/sv.log",
+            "log_sha256": "bce6f940e80bef2823fb1c371be191af83103333fc0afb74916569567997c285"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/compat/43/dut000/negative.log",
+            "log_sha256": "468186e0be2b6b208d58193c9151c06fe28d7fb9d967649b55566980546e4b18"
+          }
+        }
+      ],
+      "diagnostic_kind": "compat"
+    },
+    {
+      "id": 72,
+      "file": "fu/single/test/ExclusiveDivRTL_test.py",
+      "function": "test_mul",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "scalar_exclusive_div",
+          "parameters": {
+            "DATA_W": 32,
+            "CTRL_DEPTH": 8,
+            "GLOBAL_ADDR_W": 3,
+            "REG_DEPTH": 16,
+            "TILE_PORTS": 5,
+            "COLS": 2,
+            "ROWS": 2,
+            "MAX_COLS": 1,
+            "MAX_ROWS": 1,
+            "MULTI_COLS": 1,
+            "MULTI_ROWS": 1,
+            "VECTOR_FACTOR_POWER": 0,
+            "LATENCY": 4,
+            "LEGACY_PYTHON": 1,
+            "MEMORY_LEGACY_PYTHON": 1,
+            "NOC_LEGACY_PYTHON": 1
+          },
+          "mode": "compatibility",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "fee2d9cf52954ee10bab10713ffb6283c189b4936e6dd6102e777df0f48fd9d6",
+          "build": {
+            "exit_code": 0,
+            "seconds": 4.03,
+            "log": "/workspace/work/original-test-compat/build/0e13b8f364c44ee01e00/compile.log",
+            "log_sha256": "6be08284ce9ed21b36bf433681d40f20e248bcaf2992c30f2109c652280be59e"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/compat/72/dut000/sv.log",
+            "log_sha256": "be045266e012cb5c9e34669c437252ce662189bf9147dc3e4349c0363b1172c6"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/compat/72/dut000/negative.log",
+            "log_sha256": "7456ef2897368bc1b30bd3bd5f9af43191099a0fef7f26c5f022d66a4dc5af41"
+          }
+        }
+      ],
+      "diagnostic_kind": "compat"
+    },
+    {
+      "id": 95,
+      "file": "fu/single/test/InclusiveDivRTL_test.py",
+      "function": "test_mul",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "scalar_inclusive_div",
+          "parameters": {
+            "DATA_W": 32,
+            "CTRL_DEPTH": 8,
+            "GLOBAL_ADDR_W": 3,
+            "REG_DEPTH": 16,
+            "TILE_PORTS": 5,
+            "COLS": 2,
+            "ROWS": 2,
+            "MAX_COLS": 1,
+            "MAX_ROWS": 1,
+            "MULTI_COLS": 1,
+            "MULTI_ROWS": 1,
+            "VECTOR_FACTOR_POWER": 0,
+            "LATENCY": 4,
+            "LEGACY_PYTHON": 1,
+            "MEMORY_LEGACY_PYTHON": 1,
+            "NOC_LEGACY_PYTHON": 1
+          },
+          "mode": "compatibility",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "275e075138255697f761b6a90b409faca171b3336264e2ebd553c7ec8a2478fa",
+          "build": {
+            "exit_code": 0,
+            "seconds": 4.23,
+            "log": "/workspace/work/original-test-compat/build/a97a4aeb33c1280788c0/compile.log",
+            "log_sha256": "26b0ce362eaed8a9393f9bd1a4621edcc19646652d1f30c7391cabbfdf21ca5b"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/compat/95/dut000/sv.log",
+            "log_sha256": "88db1e8df525cb41492656ff58c3a25c49b48bd8c63261770fef74d964b19864"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/compat/95/dut000/negative.log",
+            "log_sha256": "7ba63e6d58b1c7eb92d357e05e3b0fd10abd32de9bb3c8f09f4a014c5a27b671"
+          }
+        }
+      ],
+      "diagnostic_kind": "compat"
+    },
+    {
+      "id": 122,
+      "file": "fu/vector/test/VectorAllReduceRTL_test.py",
+      "function": "test_vector_all_reduce",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "tile_vector_all_reduce",
+          "parameters": {
+            "DATA_W": 16,
+            "CTRL_DEPTH": 8,
+            "GLOBAL_ADDR_W": 3,
+            "REG_DEPTH": 16,
+            "TILE_PORTS": 5,
+            "COLS": 2,
+            "ROWS": 2,
+            "MAX_COLS": 1,
+            "MAX_ROWS": 1,
+            "MULTI_COLS": 1,
+            "MULTI_ROWS": 1,
+            "VECTOR_FACTOR_POWER": 0,
+            "LANES": 4,
+            "LEGACY_PYTHON": 1,
+            "MEMORY_LEGACY_PYTHON": 1,
+            "NOC_LEGACY_PYTHON": 1
+          },
+          "mode": "compatibility",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "fc73e8d7149f1701cef9a94fb917c6c01b2fadd0b4194663b2ff0e42ef81abae",
+          "build": {
+            "exit_code": 0,
+            "seconds": 4.02,
+            "log": "/workspace/work/original-test-compat/build/7e11f9141c46c2f896ef/compile.log",
+            "log_sha256": "060689723f1be4ea71e7f10068957c869cee39622ec1bdb6ee9c940e0b402cdc"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/compat/122/dut000/sv.log",
+            "log_sha256": "3c3788a7e0a6ef04f0f7f1185a458432eb6e33b180d027cc72877f046d5745de"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/compat/122/dut000/negative.log",
+            "log_sha256": "0b8f68d7f918833f45e1d170cab439ef67ad29a3af1c5c1f10f2bc8241888229"
+          }
+        }
+      ],
+      "diagnostic_kind": "compat"
+    },
+    {
+      "id": 123,
+      "file": "fu/vector/test/VectorMulComboRTL_test.py",
+      "function": "test_vector_mul_combo",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "tile_vector_mul_combo",
+          "parameters": {
+            "DATA_W": 64,
+            "CTRL_DEPTH": 8,
+            "GLOBAL_ADDR_W": 3,
+            "REG_DEPTH": 16,
+            "TILE_PORTS": 5,
+            "COLS": 2,
+            "ROWS": 2,
+            "MAX_COLS": 1,
+            "MAX_ROWS": 1,
+            "MULTI_COLS": 1,
+            "MULTI_ROWS": 1,
+            "VECTOR_FACTOR_POWER": 0,
+            "LANES": 4,
+            "LEGACY_PYTHON": 1,
+            "MEMORY_LEGACY_PYTHON": 1,
+            "NOC_LEGACY_PYTHON": 1
+          },
+          "mode": "compatibility",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "a74f4f48231619bc6a8d9121725fe3f0b41d2a8666452f34009ce5193b0dc995",
+          "build": {
+            "exit_code": 0,
+            "seconds": 5.53,
+            "log": "/workspace/work/original-test-compat/build/adee7a9b3c94403031e3/compile.log",
+            "log_sha256": "ba10521680dcb45fa0cfb9e6889ee85113b4c01d51d3ae569bd53673e3cf55d8"
+          },
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/compat/123/dut000/sv.log",
+            "log_sha256": "a48b7ae5fa1bc7d52874be1424cb6e94c826518702b458ead40e990305c668ab"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.0,
+            "log": "evidence/compat/123/dut000/negative.log",
+            "log_sha256": "ef919140e0df01ab783cad939b996118771d4831827487a5e7f82da52daa3c45"
+          }
+        }
+      ],
+      "diagnostic_kind": "compat"
+    },
+    {
+      "id": 134,
+      "file": "mem/data/test/DataMemControllerRTL_dma_test.py",
+      "function": "test_dma_ports_write_then_read",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_data_memory",
+          "parameters": {
+            "DATA_W": 32,
+            "CTRL_DEPTH": 16,
+            "GLOBAL_ADDR_W": 6,
+            "REG_DEPTH": 16,
+            "TILE_PORTS": 4,
+            "COLS": 2,
+            "ROWS": 2,
+            "MULTI_COLS": 1,
+            "MULTI_ROWS": 1,
+            "MAX_COLS": 4,
+            "MAX_ROWS": 1,
+            "MAX_MEM_PORTS": 3,
+            "HAS_DMA": 1,
+            "HAS_IM2COL": 0,
+            "CUSTOM_COORD_MAP": 1,
+            "COORD_X_MAP": "1'h0",
+            "COORD_Y_MAP": "1'h0",
+            "BANK_DEPTH": 16,
+            "NUM_BANKS": 4,
+            "MEM_PORTS": 2,
+            "MEM_WRITE_PORTS": 2,
+            "MEM_COMBINATIONAL": 1,
+            "MEMORY_LEGACY_PYTHON": 1,
+            "NOC_LEGACY_PYTHON": 1
+          },
+          "mode": "compatibility",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "a06dc6aaa4512c6d2b357af4707356f574207f35768043a64b9343daebad37c3",
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/compat/134/dut000/sv.log",
+            "log_sha256": "b586835651a4bb98c08a61aa80c1a1297a7292187ca3a6ee48da46e21be088b6"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.01,
+            "log": "evidence/compat/134/dut000/negative.log",
+            "log_sha256": "787903b47ce3bd47a5440e5daecbf58178ed0944a8c0a403939a2a8625bde90f"
+          }
+        }
+      ],
+      "diagnostic_kind": "compat"
+    },
+    {
+      "id": 135,
+      "file": "mem/data/test/DataMemControllerRTL_test.py",
+      "function": "test_mem_controller",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_data_memory",
+          "parameters": {
+            "DATA_W": 32,
+            "CTRL_DEPTH": 8,
+            "GLOBAL_ADDR_W": 6,
+            "REG_DEPTH": 16,
+            "TILE_PORTS": 4,
+            "COLS": 2,
+            "ROWS": 2,
+            "MULTI_COLS": 1,
+            "MULTI_ROWS": 1,
+            "MAX_COLS": 4,
+            "MAX_ROWS": 1,
+            "MAX_MEM_PORTS": 7,
+            "HAS_DMA": 0,
+            "HAS_IM2COL": 0,
+            "CUSTOM_COORD_MAP": 1,
+            "COORD_X_MAP": "1'h0",
+            "COORD_Y_MAP": "1'h0",
+            "BANK_DEPTH": 16,
+            "NUM_BANKS": 2,
+            "MEM_PORTS": 4,
+            "MEM_WRITE_PORTS": 4,
+            "MEM_COMBINATIONAL": 1,
+            "MEMORY_LEGACY_PYTHON": 1,
+            "NOC_LEGACY_PYTHON": 1
+          },
+          "mode": "compatibility",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "a1f09723ad1315b6e802da11b6f27697afcebf84c1a6674d0c2bced082817688",
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.01,
+            "log": "evidence/compat/135/dut000/sv.log",
+            "log_sha256": "1ec0e489f5fc3636769fab06c4bd782c1552cf3bd0329a4a0b4a79524e04207c"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.02,
+            "log": "evidence/compat/135/dut000/negative.log",
+            "log_sha256": "57b94636b76f20d8dc953dd302584800e8831ac096ae350d77e0fbaa939800ff"
+          }
+        }
+      ],
+      "diagnostic_kind": "compat"
+    },
+    {
+      "id": 175,
+      "file": "noc/test/StaticSwitchUnitRTL_test.py",
+      "function": "test_static_switch_bits",
+      "parameters": {
+        "num_inports": 2
+      },
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_switch",
+          "parameters": {
+            "WIDTH": 32,
+            "INPUTS": 2,
+            "LEGACY_PYTHON": 1
+          },
+          "mode": "compatibility",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "04bbf563f8d50b5d1ceca09134a148d2ea93ed5801cbde9717914ffe1ade67be",
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.03,
+            "log": "evidence/compat/175/dut000/sv.log",
+            "log_sha256": "36a4cb748dda317aaf900519a43da45e8fd28894d82be1d6e65ae4992f67a073"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.06,
+            "log": "evidence/compat/175/dut000/negative.log",
+            "log_sha256": "58fcad4f4d9834cd6ee7e66459273d38aea3a9b3a33ee2ff9c023f1fe2e541c6"
+          }
+        }
+      ],
+      "diagnostic_kind": "compat"
+    },
+    {
+      "id": 176,
+      "file": "noc/test/StaticSwitchUnitRTL_test.py",
+      "function": "test_static_switch_bits",
+      "parameters": {
+        "num_inports": 3
+      },
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_switch",
+          "parameters": {
+            "WIDTH": 32,
+            "INPUTS": 3,
+            "LEGACY_PYTHON": 1
+          },
+          "mode": "compatibility",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "116d0081d3235baafee2d2e1e89605d7e1559084380a717ac12b674fb019530c",
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.07,
+            "log": "evidence/compat/176/dut000/sv.log",
+            "log_sha256": "e30ae416163ff02ccc4ef1e0592ea2d324fb3c86415056475d3e6ef5ff83ec7d"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.03,
+            "log": "evidence/compat/176/dut000/negative.log",
+            "log_sha256": "45c57c1b2a03fac306c8df18134a17efe292a6a13f84fd7fd074e735735d16b8"
+          }
+        }
+      ],
+      "diagnostic_kind": "compat"
+    },
+    {
+      "id": 177,
+      "file": "noc/test/StaticSwitchUnitRTL_test.py",
+      "function": "test_static_switch_bits",
+      "parameters": {
+        "num_inports": 5
+      },
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_switch",
+          "parameters": {
+            "WIDTH": 32,
+            "INPUTS": 5,
+            "LEGACY_PYTHON": 1
+          },
+          "mode": "compatibility",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "130aee32924d4ec80b7a90587f9be29a3faabcbaa793a622ad5460de372ff938",
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.06,
+            "log": "evidence/compat/177/dut000/sv.log",
+            "log_sha256": "ce6f386b8bce7074bce35dff3a80fd86859fb66c603d0b38c0d7772705bfb5ca"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.06,
+            "log": "evidence/compat/177/dut000/negative.log",
+            "log_sha256": "e957137d056d0a8592627f8c2d61e33e7bb102b4450dd8ceef719eb48bfa8b5d"
+          }
+        }
+      ],
+      "diagnostic_kind": "compat"
+    },
+    {
+      "id": 178,
+      "file": "noc/test/StaticSwitchUnitRTL_test.py",
+      "function": "test_static_switch_bits",
+      "parameters": {
+        "num_inports": 6
+      },
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_switch",
+          "parameters": {
+            "WIDTH": 32,
+            "INPUTS": 6,
+            "LEGACY_PYTHON": 1
+          },
+          "mode": "compatibility",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "13cba8990a3843974b2fdeed781d2cf02ba136f754a0cbd21207cd708daf7b23",
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.06,
+            "log": "evidence/compat/178/dut000/sv.log",
+            "log_sha256": "f8c204e530a9016fa64291822de3faac44e5ab0a34c1b8c5e309a81970ff244c"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.06,
+            "log": "evidence/compat/178/dut000/negative.log",
+            "log_sha256": "65da22577a0dce7937eb4597f2e6e4434ed035bc8e947514fb2ced0f7c7f4aa5"
+          }
+        }
+      ],
+      "diagnostic_kind": "compat"
+    },
+    {
+      "id": 179,
+      "file": "noc/test/StaticSwitchUnitRTL_test.py",
+      "function": "test_static_switch_bits",
+      "parameters": {
+        "num_inports": 8
+      },
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_switch",
+          "parameters": {
+            "WIDTH": 32,
+            "INPUTS": 8,
+            "LEGACY_PYTHON": 1
+          },
+          "mode": "compatibility",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "21346b72b9ec1d719e34b73b0857334ee4432d7f262d4ed8cdb0e4b41ab3fb24",
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.12,
+            "log": "evidence/compat/179/dut000/sv.log",
+            "log_sha256": "c969bc4069cff06e9e507c731be9852032895a60f9ac1184a2805e07c23b7d19"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.11,
+            "log": "evidence/compat/179/dut000/negative.log",
+            "log_sha256": "64d8116d8fcd4252c49cb123393d00abd8c79e100db0a42660698b2ad5f9504c"
+          }
+        }
+      ],
+      "diagnostic_kind": "compat"
+    },
+    {
+      "id": 180,
+      "file": "noc/test/StaticSwitchUnitRTL_test.py",
+      "function": "test_static_switch_control_packet",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_switch",
+          "parameters": {
+            "WIDTH": 199,
+            "INPUTS": 6,
+            "LEGACY_PYTHON": 1
+          },
+          "mode": "compatibility",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "b4613215776a2181477d3ebeb1bbe988b800492fca6853073a346ba5fcb4a8c2",
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.21,
+            "log": "evidence/compat/180/dut000/sv.log",
+            "log_sha256": "9950c679387ba4c7c9d6fcdc73214c23e06a5a22629f9284146f5238fb54bdd5"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.21,
+            "log": "evidence/compat/180/dut000/negative.log",
+            "log_sha256": "590dc3740fc7b166f15251e3d61b3ceb3f069830f3fdda5ab9ecc5728db861cd"
+          }
+        }
+      ],
+      "diagnostic_kind": "compat"
+    },
+    {
+      "id": 181,
+      "file": "noc/test/StaticSwitchUnitRTL_test.py",
+      "function": "test_static_switch_import",
+      "parameters": {},
+      "status": "passed",
+      "python_status": "passed",
+      "diagnostic_only": true,
+      "replays": [
+        {
+          "trace": "dut000",
+          "module": "cgra_switch",
+          "parameters": {
+            "WIDTH": 199,
+            "INPUTS": 6,
+            "LEGACY_PYTHON": 1
+          },
+          "mode": "compatibility",
+          "native_source_sha256": "680a80a1670257bdecd024dad52ec506d4491097df4b549a029a786e188a3206",
+          "trace_sha256": "dc8848ddbba23eeb6632808961c723fa5b5b300bbd61b7dbcb47052a60320e9d",
+          "run": {
+            "exit_code": 0,
+            "seconds": 0.03,
+            "log": "evidence/compat/181/dut000/sv.log",
+            "log_sha256": "c26cc7a564744f6eda38feaba9ee190205b204832bdc5ba2666ea06bbcbc5981"
+          },
+          "status": "passed",
+          "negative": {
+            "exit_code": -6,
+            "seconds": 0.03,
+            "log": "evidence/compat/181/dut000/negative.log",
+            "log_sha256": "ae31c1536cefe0bb00508d7eb992cffd8a582dad34497ca1b0443d739a0b0452"
+          }
+        }
+      ],
+      "diagnostic_kind": "compat"
+    }
+  ]
+}

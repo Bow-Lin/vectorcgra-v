@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 169,
+    "group": "components",
+    "file": "noc/test/ChannelWithClearRTL_test.py",
+    "function": "test_normal2_simple",
+    "parameters": {},
+    "classes": [
+      "ChannelWithClearRTL"
+    ],
+    "source_sha256": "2bf75626ac0fb743b9ffbd863a7dd41f5f379f58834087662aac0503d1848620"
+  },
+  "status": "passed",
+  "source_sha256": "2bf75626ac0fb743b9ffbd863a7dd41f5f379f58834087662aac0503d1848620",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

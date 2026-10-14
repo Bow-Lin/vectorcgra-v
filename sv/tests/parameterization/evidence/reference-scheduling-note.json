@@ -1,0 +1,6 @@
+{
+  "interrupted_pid": 16645,
+  "restarted_pid": 17170,
+  "case": "/workspace/work/parameterization/heterogeneous_mesh/add_23",
+  "reason": "Parent execution session closed during scheduler transition; no completed Python result existed; rerun is required"
+}

@@ -1,0 +1,28 @@
+{
+  "original_cycles": 101,
+  "inputs": {
+    "recv_data_on_boundary_east[0]": 0,
+    "recv_data_on_boundary_east[1]": 0,
+    "recv_data_on_boundary_north[0]": 0,
+    "recv_data_on_boundary_north[1]": 0,
+    "recv_data_on_boundary_south[0]": 0,
+    "recv_data_on_boundary_south[1]": 0,
+    "recv_data_on_boundary_west[0]": 0,
+    "recv_data_on_boundary_west[1]": 0,
+    "recv_from_cpu_pkt": 55,
+    "recv_from_inter_cgra_noc": 0
+  },
+  "outputs": {
+    "send_data_on_boundary_east[0]": 0,
+    "send_data_on_boundary_east[1]": 0,
+    "send_data_on_boundary_north[0]": 0,
+    "send_data_on_boundary_north[1]": 0,
+    "send_data_on_boundary_south[0]": 0,
+    "send_data_on_boundary_south[1]": 0,
+    "send_data_on_boundary_west[0]": 0,
+    "send_data_on_boundary_west[1]": 0,
+    "send_to_cpu_pkt": 1,
+    "send_to_inter_cgra_noc": 0
+  },
+  "final_outputs": {}
+}

@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 21,
+    "group": "systems",
+    "file": "cgra/test/CgraVerifAssert_test.py",
+    "function": "test_homogeneous_2x2_fir_combinational_mem_access_return",
+    "parameters": {},
+    "classes": [
+      "CgraRTL"
+    ],
+    "source_sha256": "dda4eebdae99dc3b1ac575316be9d0250e5d107068a0c87a0639943ee7afc4b7"
+  },
+  "status": "passed",
+  "source_sha256": "dda4eebdae99dc3b1ac575316be9d0250e5d107068a0c87a0639943ee7afc4b7",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

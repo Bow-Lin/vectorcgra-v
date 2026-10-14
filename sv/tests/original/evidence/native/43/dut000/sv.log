@@ -1,0 +1,6 @@
+ORIGINAL_MISMATCH sample=4 port=send_out[0].msg actual=27164 expected=25064
+ORIGINAL_MISMATCH sample=5 port=send_out[0].msg actual=29330 expected=272c8
+ORIGINAL_MISMATCH sample=6 port=send_out[0].msg actual=2a154 expected=281e4
+[120000] %Fatal: tb_original.sv:295: Assertion failed in TOP.tb_original: ORIGINAL_REPLAY_FAILED errors=3 samples=12
+%Error: /workspace/work/original-test-fu/build/5d29e6cda0d5abd64312/tb_original.sv:295: Verilog $stop
+Aborting...

@@ -1,0 +1,117 @@
+{
+  "python_class": "StaticSwitchUnitRTL",
+  "arguments": {
+    "PacketType": "Bits32",
+    "num_inports": 2
+  },
+  "hierarchy": "s",
+  "samples": 1435,
+  "edges": 719,
+  "module": "cgra_switch",
+  "parameters": {
+    "WIDTH": 32,
+    "INPUTS": 2
+  },
+  "mode": "native",
+  "bindings": {},
+  "single_underscore": true,
+  "switch_observables": {
+    "encoder__out": "selected",
+    "arbiter__grants": "grants",
+    "arbiter__priority_reg__out": "arbiter.priority_state"
+  },
+  "ports": [
+    {
+      "path": "recv[0].msg",
+      "name": "recv__msg[0]",
+      "width": 32,
+      "original_width": 32,
+      "direction": "input"
+    },
+    {
+      "path": "recv[0].rdy",
+      "name": "recv__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv[0].val",
+      "name": "recv__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv[1].msg",
+      "name": "recv__msg[1]",
+      "width": 32,
+      "original_width": 32,
+      "direction": "input"
+    },
+    {
+      "path": "recv[1].rdy",
+      "name": "recv__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv[1].val",
+      "name": "recv__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send.msg",
+      "name": "send__msg",
+      "width": 32,
+      "original_width": 32,
+      "direction": "output"
+    },
+    {
+      "path": "send.rdy",
+      "name": "send__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send.val",
+      "name": "send__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "encoder.out",
+      "name": "encoder__out",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "arbiter.grants",
+      "name": "arbiter__grants",
+      "width": 2,
+      "original_width": 2,
+      "direction": "output"
+    },
+    {
+      "path": "arbiter.priority_reg.out",
+      "name": "arbiter__priority_reg__out",
+      "width": 2,
+      "original_width": 2,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "04bbf563f8d50b5d1ceca09134a148d2ea93ed5801cbde9717914ffe1ade67be"
+}

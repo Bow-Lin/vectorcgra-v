@@ -1,0 +1,4 @@
+ORIGINAL_MISMATCH sample=4 port=from_mem_rdata.rdy actual=0 expected=1
+[160000] %Fatal: tb_original.sv:337: Assertion failed in TOP.tb_original: ORIGINAL_REPLAY_FAILED errors=1 samples=16
+%Error: /workspace/work/original-test-supplement/build/f9fe780831692d584259/tb_original.sv:337: Verilog $stop
+Aborting...

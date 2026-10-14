@@ -1,0 +1,21 @@
+{
+  "case": {
+    "id": 36,
+    "group": "fu",
+    "file": "fu/double/test/TwoSeqComboRTL_test.py",
+    "function": "test_mul_shifter",
+    "parameters": {},
+    "classes": [
+      "SeqMulAdderRTL",
+      "SeqMulShifterRTL"
+    ],
+    "source_sha256": "74af4995d9a2233e4c2331511e99f9a46d71ca4e2e71f841a5a22ba0abd82faa"
+  },
+  "status": "passed",
+  "source_sha256": "74af4995d9a2233e4c2331511e99f9a46d71ca4e2e71f841a5a22ba0abd82faa",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "case": {
+    "id": 30,
+    "group": "systems",
+    "file": "cgra/test/IntegratedCgraWithDmaRTL_test.py",
+    "function": "test_cgra_dma_mvout_from_local_spm",
+    "parameters": {
+      "dram_data_nbits": 128
+    },
+    "classes": [
+      "IntegratedCgraWithDmaRTL"
+    ],
+    "source_sha256": "685d1754ec64a7ea4166b5e975e78a2ce24f16389cfb311ad9e4a7518efc0c89"
+  },
+  "status": "passed",
+  "source_sha256": "685d1754ec64a7ea4166b5e975e78a2ce24f16389cfb311ad9e4a7518efc0c89",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ],
+  "adapter_errors": []
+}

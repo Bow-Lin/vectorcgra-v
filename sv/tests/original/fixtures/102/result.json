@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 102,
+    "group": "fu",
+    "file": "fu/single/test/LoopCounterRTL_test.py",
+    "function": "test_counter_reset",
+    "parameters": {},
+    "classes": [
+      "LoopCounterRTL"
+    ],
+    "source_sha256": "719aaac23d7d25481380fd8ac8d206dc5b5ed3c176c1d0c9d45cde9130555f04"
+  },
+  "status": "passed",
+  "source_sha256": "719aaac23d7d25481380fd8ac8d206dc5b5ed3c176c1d0c9d45cde9130555f04",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

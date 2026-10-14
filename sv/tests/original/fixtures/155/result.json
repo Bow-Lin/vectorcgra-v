@@ -1,0 +1,21 @@
+{
+  "case": {
+    "id": 155,
+    "group": "systems",
+    "file": "multi_cgra/test/MeshMultiCgraRTL_test.py",
+    "function": "test_multi_CGRA_systolic_2x2_2x2_non_combinational_mem_access",
+    "parameters": {},
+    "classes": [
+      "MeshMultiCgraRTL"
+    ],
+    "source_sha256": "6061698ad5a1e2d47907b2b3e1d1a9a431f06c6f846f5ff08c53ec9ebcc7abcc"
+  },
+  "status": "passed",
+  "source_sha256": "6061698ad5a1e2d47907b2b3e1d1a9a431f06c6f846f5ff08c53ec9ebcc7abcc",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ],
+  "adapter_errors": []
+}

@@ -1,0 +1,78 @@
+{
+  "python_class": "ChannelWithClearRTL",
+  "arguments": {
+    "PacketType": "Bits16",
+    "QueueType": "NormalQueueWithClearRTL",
+    "latency": 2
+  },
+  "hierarchy": "s.dut",
+  "samples": 12,
+  "edges": 12,
+  "module": "cgra_channel",
+  "parameters": {
+    "WIDTH": 16,
+    "LATENCY": 2
+  },
+  "mode": "native",
+  "bindings": {},
+  "single_underscore": true,
+  "ports": [
+    {
+      "path": "clear",
+      "name": "clear",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv.msg",
+      "name": "recv__msg",
+      "width": 16,
+      "original_width": 16,
+      "direction": "input"
+    },
+    {
+      "path": "recv.rdy",
+      "name": "recv__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv.val",
+      "name": "recv__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send.msg",
+      "name": "send__msg",
+      "width": 16,
+      "original_width": 16,
+      "direction": "output"
+    },
+    {
+      "path": "send.rdy",
+      "name": "send__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send.val",
+      "name": "send__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "87d423a29ff845a0b7f0e5e8975026eeaa07295ab2ce3f7fc7238b1efeb367ae"
+}

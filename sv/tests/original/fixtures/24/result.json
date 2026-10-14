@@ -1,0 +1,21 @@
+{
+  "case": {
+    "id": 24,
+    "group": "systems",
+    "file": "cgra/test/CgraWithStreamingLoadRTL_test.py",
+    "function": "test_streaming_ld_combinational_mem_access",
+    "parameters": {},
+    "classes": [
+      "CgraWithStreamingLoadRTL"
+    ],
+    "source_sha256": "156105e10e36b4f9d5bda7336b9c630fe96874a818f7cdad6b019d8731b2b076"
+  },
+  "status": "passed",
+  "source_sha256": "156105e10e36b4f9d5bda7336b9c630fe96874a818f7cdad6b019d8731b2b076",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ],
+  "adapter_errors": []
+}

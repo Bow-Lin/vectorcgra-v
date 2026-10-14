@@ -1,0 +1,216 @@
+{
+  "address_map": [
+    2,
+    0,
+    3,
+    1
+  ],
+  "architectures": [
+    {
+      "cols": 2,
+      "fu_names": [
+        [
+          "ADDER",
+          "CONST",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MUL",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MUL",
+          "MEM",
+          "NAH"
+        ]
+      ],
+      "rows": 2
+    },
+    {
+      "cols": 3,
+      "fu_names": [
+        [
+          "ADDER",
+          "CONST",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MUL",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MUL",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MUL",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MUL",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MEM",
+          "NAH"
+        ]
+      ],
+      "rows": 3
+    },
+    {
+      "cols": 3,
+      "fu_names": [
+        [
+          "ADDER",
+          "CONST",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MUL",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MUL",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MUL",
+          "MEM",
+          "NAH"
+        ]
+      ],
+      "rows": 2
+    },
+    {
+      "cols": 2,
+      "fu_names": [
+        [
+          "ADDER",
+          "CONST",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MUL",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MUL",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MEM",
+          "NAH"
+        ],
+        [
+          "ADDER",
+          "CONST",
+          "MUL",
+          "MEM",
+          "NAH"
+        ]
+      ],
+      "rows": 3
+    }
+  ],
+  "default_fus": [
+    "ADDER",
+    "MUL",
+    "CONST",
+    "MEM",
+    "NAH"
+  ],
+  "parameters": {
+    "BANK_DEPTH": 8,
+    "CTRL_DEPTH": 6,
+    "MULTI_COLS": 2,
+    "MULTI_ROWS": 2,
+    "NUM_BANKS": 2,
+    "NUM_CTRL": 6,
+    "REG_DEPTH": 5,
+    "TILE_PORTS": 8,
+    "TOTAL_STEPS": 6
+  },
+  "schema": 1,
+  "top": "multi"
+}

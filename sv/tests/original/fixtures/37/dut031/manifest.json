@@ -1,0 +1,530 @@
+{
+  "python_class": "FlexibleFuRTL",
+  "arguments": {
+    "CtrlPktType": "IntraCgraPacket_1_1x1_1_8_2_CgraPayload",
+    "num_inports": 2,
+    "num_outports": 2,
+    "num_tiles": 1,
+    "FuList": [
+      "AdderRTL",
+      "MulRTL",
+      "NahRTL"
+    ],
+    "exec_lantency": {}
+  },
+  "hierarchy": "s.dut",
+  "samples": 13,
+  "edges": 13,
+  "module": "tile_flexible_fu_configurable",
+  "parameters": {
+    "DATA_W": 16,
+    "CTRL_DEPTH": 8,
+    "GLOBAL_ADDR_W": 3,
+    "REG_DEPTH": 16,
+    "TILE_PORTS": 5,
+    "COLS": 2,
+    "ROWS": 2,
+    "MAX_COLS": 1,
+    "MAX_ROWS": 1,
+    "MULTI_COLS": 1,
+    "MULTI_ROWS": 1,
+    "FU_COUNT": 3,
+    "FU_KINDS": "24'h30100"
+  },
+  "mode": "native",
+  "bindings": {},
+  "normalize_ctrl": true,
+  "ports": [
+    {
+      "path": "clear[0]",
+      "name": "clear[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "clear[1]",
+      "name": "clear[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "clear[2]",
+      "name": "clear[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "ctrl_addr_inport",
+      "name": "ctrl_addr_inport",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "from_mem_rdata[0].msg",
+      "name": "from_mem_rdata__msg[0]",
+      "width": 19,
+      "original_width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "from_mem_rdata[0].rdy",
+      "name": "from_mem_rdata__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "from_mem_rdata[0].val",
+      "name": "from_mem_rdata__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "from_mem_rdata[1].msg",
+      "name": "from_mem_rdata__msg[1]",
+      "width": 19,
+      "original_width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "from_mem_rdata[1].rdy",
+      "name": "from_mem_rdata__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "from_mem_rdata[1].val",
+      "name": "from_mem_rdata__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "from_mem_rdata[2].msg",
+      "name": "from_mem_rdata__msg[2]",
+      "width": 19,
+      "original_width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "from_mem_rdata[2].rdy",
+      "name": "from_mem_rdata__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "from_mem_rdata[2].val",
+      "name": "from_mem_rdata__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "prologue_count_inport",
+      "name": "prologue_count_inport",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "recv_const.msg",
+      "name": "recv_const__msg",
+      "width": 19,
+      "original_width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "recv_const.rdy",
+      "name": "recv_const__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_const.val",
+      "name": "recv_const__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_ctrl_mem.msg",
+      "name": "recv_from_ctrl_mem__msg",
+      "width": 156,
+      "original_width": 105,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_ctrl_mem.rdy",
+      "name": "recv_from_ctrl_mem__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_ctrl_mem.val",
+      "name": "recv_from_ctrl_mem__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_in[0].msg",
+      "name": "recv_in__msg[0]",
+      "width": 19,
+      "original_width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "recv_in[0].rdy",
+      "name": "recv_in__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_in[0].val",
+      "name": "recv_in__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_in[1].msg",
+      "name": "recv_in__msg[1]",
+      "width": 19,
+      "original_width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "recv_in[1].rdy",
+      "name": "recv_in__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_in[1].val",
+      "name": "recv_in__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_opt.msg",
+      "name": "recv_opt__msg",
+      "width": 125,
+      "original_width": 74,
+      "direction": "input"
+    },
+    {
+      "path": "recv_opt.rdy",
+      "name": "recv_opt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_opt.val",
+      "name": "recv_opt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_pkt_from_controller.msg",
+      "name": "recv_pkt_from_controller__msg",
+      "width": 173,
+      "original_width": 122,
+      "direction": "input"
+    },
+    {
+      "path": "recv_pkt_from_controller.rdy",
+      "name": "recv_pkt_from_controller__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_pkt_from_controller.val",
+      "name": "recv_pkt_from_controller__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_out[0].msg",
+      "name": "send_out__msg[0]",
+      "width": 19,
+      "original_width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "send_out[0].rdy",
+      "name": "send_out__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_out[0].val",
+      "name": "send_out__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_out[1].msg",
+      "name": "send_out__msg[1]",
+      "width": 19,
+      "original_width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "send_out[1].rdy",
+      "name": "send_out__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_out[1].val",
+      "name": "send_out__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_ctrl_mem.msg",
+      "name": "send_to_ctrl_mem__msg",
+      "width": 156,
+      "original_width": 105,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_ctrl_mem.rdy",
+      "name": "send_to_ctrl_mem__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_ctrl_mem.val",
+      "name": "send_to_ctrl_mem__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "tile_id",
+      "name": "tile_id",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "to_mem_raddr[0].msg",
+      "name": "to_mem_raddr__msg[0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_raddr[0].rdy",
+      "name": "to_mem_raddr__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "to_mem_raddr[0].val",
+      "name": "to_mem_raddr__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_raddr[1].msg",
+      "name": "to_mem_raddr__msg[1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_raddr[1].rdy",
+      "name": "to_mem_raddr__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "to_mem_raddr[1].val",
+      "name": "to_mem_raddr__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_raddr[2].msg",
+      "name": "to_mem_raddr__msg[2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_raddr[2].rdy",
+      "name": "to_mem_raddr__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "to_mem_raddr[2].val",
+      "name": "to_mem_raddr__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_waddr[0].msg",
+      "name": "to_mem_waddr__msg[0]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_waddr[0].rdy",
+      "name": "to_mem_waddr__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "to_mem_waddr[0].val",
+      "name": "to_mem_waddr__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_waddr[1].msg",
+      "name": "to_mem_waddr__msg[1]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_waddr[1].rdy",
+      "name": "to_mem_waddr__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "to_mem_waddr[1].val",
+      "name": "to_mem_waddr__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_waddr[2].msg",
+      "name": "to_mem_waddr__msg[2]",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_waddr[2].rdy",
+      "name": "to_mem_waddr__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "to_mem_waddr[2].val",
+      "name": "to_mem_waddr__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_wdata[0].msg",
+      "name": "to_mem_wdata__msg[0]",
+      "width": 19,
+      "original_width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_wdata[0].rdy",
+      "name": "to_mem_wdata__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "to_mem_wdata[0].val",
+      "name": "to_mem_wdata__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_wdata[1].msg",
+      "name": "to_mem_wdata__msg[1]",
+      "width": 19,
+      "original_width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_wdata[1].rdy",
+      "name": "to_mem_wdata__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "to_mem_wdata[1].val",
+      "name": "to_mem_wdata__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_wdata[2].msg",
+      "name": "to_mem_wdata__msg[2]",
+      "width": 19,
+      "original_width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_wdata[2].rdy",
+      "name": "to_mem_wdata__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "to_mem_wdata[2].val",
+      "name": "to_mem_wdata__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "0cfb1a7022f393fad3b51cea6a965890f9d2e8c1ee634ad802fbd0c63b22a42e"
+}

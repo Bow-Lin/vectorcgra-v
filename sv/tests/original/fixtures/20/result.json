@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 20,
+    "group": "systems",
+    "file": "cgra/test/CgraTemplateRTL_test.py",
+    "function": "test_cgra_universal",
+    "parameters": {},
+    "classes": [
+      "CgraTemplateRTL"
+    ],
+    "source_sha256": "f283883b9296405a1aa655250dbe3b117aa66f2d9d97cac6f5fbff924853f17d"
+  },
+  "status": "passed",
+  "source_sha256": "f283883b9296405a1aa655250dbe3b117aa66f2d9d97cac6f5fbff924853f17d",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

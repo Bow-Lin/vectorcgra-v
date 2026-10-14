@@ -1,0 +1,558 @@
+{
+  "python_class": "ControllerRTL",
+  "arguments": {
+    "InterCgraPktType": "InterCgraPacket_4_4x1_4_8_4_CgraPayload",
+    "multi_cgra_rows": 1,
+    "multi_cgra_columns": 4,
+    "num_tiles": 4,
+    "controller2addr_map": {
+      "0": [
+        0,
+        3
+      ],
+      "1": [
+        4,
+        7
+      ],
+      "2": [
+        8,
+        11
+      ],
+      "3": [
+        12,
+        15
+      ]
+    },
+    "idTo2d_map": {
+      "0": [
+        0,
+        0
+      ],
+      "1": [
+        1,
+        0
+      ],
+      "2": [
+        2,
+        0
+      ],
+      "3": [
+        3,
+        0
+      ]
+    },
+    "has_dma_ports": false,
+    "DmaDataType": "DmaData_128_16_32",
+    "DmaCmdType": "DmaCmd_64_32_32_8",
+    "has_im2col_engine": false
+  },
+  "hierarchy": "s.dut",
+  "samples": 20,
+  "edges": 20,
+  "module": "cgra_controller",
+  "parameters": {
+    "DATA_W": 32,
+    "CTRL_DEPTH": 16,
+    "GLOBAL_ADDR_W": 4,
+    "REG_DEPTH": 16,
+    "TILE_PORTS": 4,
+    "COLS": 2,
+    "ROWS": 2,
+    "MULTI_COLS": 4,
+    "MULTI_ROWS": 1,
+    "MAX_COLS": 4,
+    "MAX_ROWS": 1,
+    "MAX_MEM_PORTS": 3,
+    "HAS_DMA": 0,
+    "HAS_IM2COL": 0,
+    "CUSTOM_ADDR_MAP": 1,
+    "ADDR_MAP": "8'he4",
+    "CUSTOM_COORD_MAP": 1,
+    "COORD_X_MAP": "8'he4",
+    "COORD_Y_MAP": "4'h0",
+    "NUM_BANKS": 1,
+    "BANK_DEPTH": 4
+  },
+  "mode": "native",
+  "bindings": {},
+  "normalize_ctrl": true,
+  "ports": [
+    {
+      "path": "cgra_id",
+      "name": "cgra_id",
+      "width": 2,
+      "original_width": 2,
+      "direction": "input"
+    },
+    {
+      "path": "dma_cmd.msg",
+      "name": "dma_cmd__msg",
+      "width": 139,
+      "original_width": 139,
+      "direction": "output"
+    },
+    {
+      "path": "dma_cmd.rdy",
+      "name": "dma_cmd__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "dma_cmd.val",
+      "name": "dma_cmd__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "dma_done.msg",
+      "name": "dma_done__msg",
+      "width": 8,
+      "original_width": 8,
+      "direction": "input"
+    },
+    {
+      "path": "dma_done.rdy",
+      "name": "dma_done__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "dma_done.val",
+      "name": "dma_done__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_cpu_pkt.msg",
+      "name": "recv_from_cpu_pkt__msg",
+      "width": 193,
+      "original_width": 143,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_cpu_pkt.rdy",
+      "name": "recv_from_cpu_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_cpu_pkt.val",
+      "name": "recv_from_cpu_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_ctrl_ring_pkt.msg",
+      "name": "recv_from_ctrl_ring_pkt__msg",
+      "width": 193,
+      "original_width": 143,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_ctrl_ring_pkt.rdy",
+      "name": "recv_from_ctrl_ring_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_ctrl_ring_pkt.val",
+      "name": "recv_from_ctrl_ring_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_dma_spm_rd_req.msg",
+      "name": "recv_from_dma_spm_rd_req__msg",
+      "width": 32,
+      "original_width": 32,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_dma_spm_rd_req.rdy",
+      "name": "recv_from_dma_spm_rd_req__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_dma_spm_rd_req.val",
+      "name": "recv_from_dma_spm_rd_req__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_dma_spm_wr_req.msg",
+      "name": "recv_from_dma_spm_wr_req__msg",
+      "width": 68,
+      "original_width": 68,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_dma_spm_wr_req.rdy",
+      "name": "recv_from_dma_spm_wr_req__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_dma_spm_wr_req.val",
+      "name": "recv_from_dma_spm_wr_req__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_im2col_pkt.msg",
+      "name": "recv_from_im2col_pkt__msg",
+      "width": 193,
+      "original_width": 143,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_im2col_pkt.rdy",
+      "name": "recv_from_im2col_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_im2col_pkt.val",
+      "name": "recv_from_im2col_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_inter_cgra_noc.msg",
+      "name": "recv_from_inter_cgra_noc__msg",
+      "width": 196,
+      "original_width": 146,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_inter_cgra_noc.rdy",
+      "name": "recv_from_inter_cgra_noc__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_inter_cgra_noc.val",
+      "name": "recv_from_inter_cgra_noc__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_sram_load_response.msg",
+      "name": "recv_from_sram_load_response__msg",
+      "width": 32,
+      "original_width": 32,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_sram_load_response.rdy",
+      "name": "recv_from_sram_load_response__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_sram_load_response.val",
+      "name": "recv_from_sram_load_response__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_tile_load_request_pkt.msg",
+      "name": "recv_from_tile_load_request_pkt__msg",
+      "width": 196,
+      "original_width": 146,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_tile_load_request_pkt.rdy",
+      "name": "recv_from_tile_load_request_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_tile_load_request_pkt.val",
+      "name": "recv_from_tile_load_request_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_tile_load_response_pkt.msg",
+      "name": "recv_from_tile_load_response_pkt__msg",
+      "width": 196,
+      "original_width": 146,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_tile_load_response_pkt.rdy",
+      "name": "recv_from_tile_load_response_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_tile_load_response_pkt.val",
+      "name": "recv_from_tile_load_response_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_tile_store_request_pkt.msg",
+      "name": "recv_from_tile_store_request_pkt__msg",
+      "width": 196,
+      "original_width": 146,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_tile_store_request_pkt.rdy",
+      "name": "recv_from_tile_store_request_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_tile_store_request_pkt.val",
+      "name": "recv_from_tile_store_request_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_cpu_pkt.msg",
+      "name": "send_to_cpu_pkt__msg",
+      "width": 193,
+      "original_width": 143,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_cpu_pkt.rdy",
+      "name": "send_to_cpu_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_cpu_pkt.val",
+      "name": "send_to_cpu_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_ctrl_ring_pkt.msg",
+      "name": "send_to_ctrl_ring_pkt__msg",
+      "width": 193,
+      "original_width": 143,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_ctrl_ring_pkt.rdy",
+      "name": "send_to_ctrl_ring_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_ctrl_ring_pkt.val",
+      "name": "send_to_ctrl_ring_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_dma_spm_rd_resp.msg",
+      "name": "send_to_dma_spm_rd_resp__msg",
+      "width": 32,
+      "original_width": 32,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_dma_spm_rd_resp.rdy",
+      "name": "send_to_dma_spm_rd_resp__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_dma_spm_rd_resp.val",
+      "name": "send_to_dma_spm_rd_resp__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_im2col_engine_pkt.msg",
+      "name": "send_to_im2col_engine_pkt__msg",
+      "width": 193,
+      "original_width": 143,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_im2col_engine_pkt.rdy",
+      "name": "send_to_im2col_engine_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_im2col_engine_pkt.val",
+      "name": "send_to_im2col_engine_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_inter_cgra_noc.msg",
+      "name": "send_to_inter_cgra_noc__msg",
+      "width": 196,
+      "original_width": 146,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_inter_cgra_noc.rdy",
+      "name": "send_to_inter_cgra_noc__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_inter_cgra_noc.val",
+      "name": "send_to_inter_cgra_noc__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_sram_load_request_from_dma.msg",
+      "name": "send_to_sram_load_request_from_dma__msg",
+      "width": 32,
+      "original_width": 32,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_sram_load_request_from_dma.rdy",
+      "name": "send_to_sram_load_request_from_dma__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_sram_load_request_from_dma.val",
+      "name": "send_to_sram_load_request_from_dma__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_sram_load_request_from_noc.msg",
+      "name": "send_to_sram_load_request_from_noc__msg",
+      "width": 196,
+      "original_width": 146,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_sram_load_request_from_noc.rdy",
+      "name": "send_to_sram_load_request_from_noc__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_sram_load_request_from_noc.val",
+      "name": "send_to_sram_load_request_from_noc__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_sram_store_request_from_dma.msg",
+      "name": "send_to_sram_store_request_from_dma__msg",
+      "width": 68,
+      "original_width": 68,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_sram_store_request_from_dma.rdy",
+      "name": "send_to_sram_store_request_from_dma__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_sram_store_request_from_dma.val",
+      "name": "send_to_sram_store_request_from_dma__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_sram_store_request_from_noc.msg",
+      "name": "send_to_sram_store_request_from_noc__msg",
+      "width": 196,
+      "original_width": 146,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_sram_store_request_from_noc.rdy",
+      "name": "send_to_sram_store_request_from_noc__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_sram_store_request_from_noc.val",
+      "name": "send_to_sram_store_request_from_noc__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_tile_load_response.msg",
+      "name": "send_to_tile_load_response__msg",
+      "width": 196,
+      "original_width": 146,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_tile_load_response.rdy",
+      "name": "send_to_tile_load_response__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_tile_load_response.val",
+      "name": "send_to_tile_load_response__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "65380488421b19cb57188cb5aa3ccf974946d50a84b1f7802c8732058330db7d"
+}

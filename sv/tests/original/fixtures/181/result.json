@@ -1,0 +1,21 @@
+{
+  "case": {
+    "id": 181,
+    "group": "components",
+    "file": "noc/test/StaticSwitchUnitRTL_test.py",
+    "function": "test_static_switch_import",
+    "parameters": {},
+    "classes": [
+      "StaticSwitchUnitRTL"
+    ],
+    "source_sha256": "0f0705210728f79652891f298a348cd890bed00f10b7bda7482fadb06c5a0ddb"
+  },
+  "status": "passed",
+  "source_sha256": "0f0705210728f79652891f298a348cd890bed00f10b7bda7482fadb06c5a0ddb",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ],
+  "adapter_errors": []
+}

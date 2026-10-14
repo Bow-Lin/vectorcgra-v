@@ -1,0 +1,21 @@
+{
+  "case": {
+    "id": 163,
+    "group": "systems",
+    "file": "multi_cgra/test/MeshMultiCgraTemplateRTL_test.py",
+    "function": "test_mesh_multi_hetero_cgra",
+    "parameters": {},
+    "classes": [
+      "MeshMultiCgraTemplateRTL"
+    ],
+    "source_sha256": "8f93aee69077d1c0519d1aa6a357ec7dae6b4b9291d1ecd76f43946682b3976d"
+  },
+  "status": "passed",
+  "source_sha256": "8f93aee69077d1c0519d1aa6a357ec7dae6b4b9291d1ecd76f43946682b3976d",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ],
+  "adapter_errors": []
+}

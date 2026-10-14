@@ -1,0 +1,102 @@
+{
+  "python_class": "GlobalReduceUnitRTL",
+  "arguments": {
+    "InterCgraPktType": "InterCgraPacket_4_4x1_4_8_4_CgraPayload"
+  },
+  "hierarchy": "s.dut",
+  "samples": 30,
+  "edges": 30,
+  "module": "cgra_global_reduce",
+  "parameters": {
+    "DATA_W": 32,
+    "CTRL_DEPTH": 16,
+    "GLOBAL_ADDR_W": 4,
+    "REG_DEPTH": 16,
+    "TILE_PORTS": 4,
+    "COLS": 2,
+    "ROWS": 2,
+    "MULTI_COLS": 4,
+    "MULTI_ROWS": 1,
+    "MAX_COLS": 7,
+    "MAX_ROWS": 1,
+    "MAX_MEM_PORTS": 3,
+    "HAS_DMA": 0,
+    "HAS_IM2COL": 0
+  },
+  "mode": "native",
+  "bindings": {},
+  "normalize_ctrl": true,
+  "ports": [
+    {
+      "path": "recv_count.msg",
+      "name": "recv_count__msg",
+      "width": 196,
+      "original_width": 146,
+      "direction": "input"
+    },
+    {
+      "path": "recv_count.rdy",
+      "name": "recv_count__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_count.val",
+      "name": "recv_count__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data.msg",
+      "name": "recv_data__msg",
+      "width": 196,
+      "original_width": 146,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data.rdy",
+      "name": "recv_data__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data.val",
+      "name": "recv_data__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send.msg",
+      "name": "send__msg",
+      "width": 197,
+      "original_width": 147,
+      "direction": "output"
+    },
+    {
+      "path": "send.rdy",
+      "name": "send__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send.val",
+      "name": "send__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "baa90776a9f21edbc8aceb05b2351f7e4715370f3c5aa1caf5d8dc5e5367d227"
+}

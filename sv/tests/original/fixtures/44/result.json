@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 44,
+    "group": "fu",
+    "file": "fu/fused_alu_fixedp/test/AluGenMacRTL_test.py",
+    "function": "test_add_basic",
+    "parameters": {},
+    "classes": [
+      "AluGenMacRTL"
+    ],
+    "source_sha256": "0040a21b6e6b73a10bcaa0889e4aa43ec50bb63d1bf07335704cd9542b6dab11"
+  },
+  "status": "passed",
+  "source_sha256": "0040a21b6e6b73a10bcaa0889e4aa43ec50bb63d1bf07335704cd9542b6dab11",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

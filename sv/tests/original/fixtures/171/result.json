@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 171,
+    "group": "components",
+    "file": "noc/test/CrossbarRTL_test.py",
+    "function": "test_multi_cast",
+    "parameters": {},
+    "classes": [
+      "CrossbarRTL"
+    ],
+    "source_sha256": "3783ec60d0f84e9ea6fe254403d09ec10010b99c769163636db91ad8563222cb"
+  },
+  "status": "passed",
+  "source_sha256": "3783ec60d0f84e9ea6fe254403d09ec10010b99c769163636db91ad8563222cb",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 135,
+    "group": "components",
+    "file": "mem/data/test/DataMemControllerRTL_test.py",
+    "function": "test_mem_controller",
+    "parameters": {},
+    "classes": [
+      "DataMemControllerRTL"
+    ],
+    "source_sha256": "385a224be107b325f829db5a2bf8724b8ed5095e381d4027c2c872f337d22a49"
+  },
+  "status": "passed",
+  "source_sha256": "385a224be107b325f829db5a2bf8724b8ed5095e381d4027c2c872f337d22a49",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

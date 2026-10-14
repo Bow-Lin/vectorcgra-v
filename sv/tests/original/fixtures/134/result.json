@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 134,
+    "group": "components",
+    "file": "mem/data/test/DataMemControllerRTL_dma_test.py",
+    "function": "test_dma_ports_write_then_read",
+    "parameters": {},
+    "classes": [
+      "DataMemControllerRTL"
+    ],
+    "source_sha256": "be6ed7f4cb9bab1b323336fce0c5b2fed48ea3f9a2b00a88cee2a395d4a74282"
+  },
+  "status": "passed",
+  "source_sha256": "be6ed7f4cb9bab1b323336fce0c5b2fed48ea3f9a2b00a88cee2a395d4a74282",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

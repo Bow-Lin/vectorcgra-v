@@ -1,0 +1,1443 @@
+{
+  "barriers": [
+    {
+      "before_packet": 152,
+      "completions": 9
+    }
+  ],
+  "constant_count": 39,
+  "control_count": 54,
+  "layouts": {
+    "ctrl": {
+      "fields": [
+        {
+          "field": "operation",
+          "lsb": 128,
+          "msb": 134,
+          "nbits": 7
+        },
+        {
+          "field": "fu_in[0]",
+          "lsb": 116,
+          "msb": 118,
+          "nbits": 3
+        },
+        {
+          "field": "fu_in[1]",
+          "lsb": 119,
+          "msb": 121,
+          "nbits": 3
+        },
+        {
+          "field": "fu_in[2]",
+          "lsb": 122,
+          "msb": 124,
+          "nbits": 3
+        },
+        {
+          "field": "fu_in[3]",
+          "lsb": 125,
+          "msb": 127,
+          "nbits": 3
+        },
+        {
+          "field": "routing_xbar_outport[0]",
+          "lsb": 68,
+          "msb": 71,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[1]",
+          "lsb": 72,
+          "msb": 75,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[2]",
+          "lsb": 76,
+          "msb": 79,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[3]",
+          "lsb": 80,
+          "msb": 83,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[4]",
+          "lsb": 84,
+          "msb": 87,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[5]",
+          "lsb": 88,
+          "msb": 91,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[6]",
+          "lsb": 92,
+          "msb": 95,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[7]",
+          "lsb": 96,
+          "msb": 99,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[8]",
+          "lsb": 100,
+          "msb": 103,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[9]",
+          "lsb": 104,
+          "msb": 107,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[10]",
+          "lsb": 108,
+          "msb": 111,
+          "nbits": 4
+        },
+        {
+          "field": "routing_xbar_outport[11]",
+          "lsb": 112,
+          "msb": 115,
+          "nbits": 4
+        },
+        {
+          "field": "fu_xbar_outport[0]",
+          "lsb": 44,
+          "msb": 45,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[1]",
+          "lsb": 46,
+          "msb": 47,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[2]",
+          "lsb": 48,
+          "msb": 49,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[3]",
+          "lsb": 50,
+          "msb": 51,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[4]",
+          "lsb": 52,
+          "msb": 53,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[5]",
+          "lsb": 54,
+          "msb": 55,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[6]",
+          "lsb": 56,
+          "msb": 57,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[7]",
+          "lsb": 58,
+          "msb": 59,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[8]",
+          "lsb": 60,
+          "msb": 61,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[9]",
+          "lsb": 62,
+          "msb": 63,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[10]",
+          "lsb": 64,
+          "msb": 65,
+          "nbits": 2
+        },
+        {
+          "field": "fu_xbar_outport[11]",
+          "lsb": 66,
+          "msb": 67,
+          "nbits": 2
+        },
+        {
+          "field": "vector_factor_power",
+          "lsb": 41,
+          "msb": 43,
+          "nbits": 3
+        },
+        {
+          "field": "is_last_ctrl",
+          "lsb": 40,
+          "msb": 40,
+          "nbits": 1
+        },
+        {
+          "field": "write_reg_from[0]",
+          "lsb": 32,
+          "msb": 33,
+          "nbits": 2
+        },
+        {
+          "field": "write_reg_from[1]",
+          "lsb": 34,
+          "msb": 35,
+          "nbits": 2
+        },
+        {
+          "field": "write_reg_from[2]",
+          "lsb": 36,
+          "msb": 37,
+          "nbits": 2
+        },
+        {
+          "field": "write_reg_from[3]",
+          "lsb": 38,
+          "msb": 39,
+          "nbits": 2
+        },
+        {
+          "field": "write_reg_idx[0]",
+          "lsb": 20,
+          "msb": 22,
+          "nbits": 3
+        },
+        {
+          "field": "write_reg_idx[1]",
+          "lsb": 23,
+          "msb": 25,
+          "nbits": 3
+        },
+        {
+          "field": "write_reg_idx[2]",
+          "lsb": 26,
+          "msb": 28,
+          "nbits": 3
+        },
+        {
+          "field": "write_reg_idx[3]",
+          "lsb": 29,
+          "msb": 31,
+          "nbits": 3
+        },
+        {
+          "field": "read_reg_towards[0]",
+          "lsb": 12,
+          "msb": 13,
+          "nbits": 2
+        },
+        {
+          "field": "read_reg_towards[1]",
+          "lsb": 14,
+          "msb": 15,
+          "nbits": 2
+        },
+        {
+          "field": "read_reg_towards[2]",
+          "lsb": 16,
+          "msb": 17,
+          "nbits": 2
+        },
+        {
+          "field": "read_reg_towards[3]",
+          "lsb": 18,
+          "msb": 19,
+          "nbits": 2
+        },
+        {
+          "field": "read_reg_idx[0]",
+          "lsb": 0,
+          "msb": 2,
+          "nbits": 3
+        },
+        {
+          "field": "read_reg_idx[1]",
+          "lsb": 3,
+          "msb": 5,
+          "nbits": 3
+        },
+        {
+          "field": "read_reg_idx[2]",
+          "lsb": 6,
+          "msb": 8,
+          "nbits": 3
+        },
+        {
+          "field": "read_reg_idx[3]",
+          "lsb": 9,
+          "msb": 11,
+          "nbits": 3
+        }
+      ],
+      "nbits": 135
+    },
+    "data": {
+      "fields": [
+        {
+          "field": "payload",
+          "lsb": 3,
+          "msb": 34,
+          "nbits": 32
+        },
+        {
+          "field": "predicate",
+          "lsb": 2,
+          "msb": 2,
+          "nbits": 1
+        },
+        {
+          "field": "bypass",
+          "lsb": 1,
+          "msb": 1,
+          "nbits": 1
+        },
+        {
+          "field": "delay",
+          "lsb": 0,
+          "msb": 0,
+          "nbits": 1
+        }
+      ],
+      "nbits": 35
+    },
+    "host": {
+      "fields": [
+        {
+          "field": "src",
+          "lsb": 205,
+          "msb": 208,
+          "nbits": 4
+        },
+        {
+          "field": "dst",
+          "lsb": 201,
+          "msb": 204,
+          "nbits": 4
+        },
+        {
+          "field": "src_cgra_id",
+          "lsb": 200,
+          "msb": 200,
+          "nbits": 1
+        },
+        {
+          "field": "dst_cgra_id",
+          "lsb": 199,
+          "msb": 199,
+          "nbits": 1
+        },
+        {
+          "field": "src_cgra_x",
+          "lsb": 198,
+          "msb": 198,
+          "nbits": 1
+        },
+        {
+          "field": "src_cgra_y",
+          "lsb": 197,
+          "msb": 197,
+          "nbits": 1
+        },
+        {
+          "field": "dst_cgra_x",
+          "lsb": 196,
+          "msb": 196,
+          "nbits": 1
+        },
+        {
+          "field": "dst_cgra_y",
+          "lsb": 195,
+          "msb": 195,
+          "nbits": 1
+        },
+        {
+          "field": "opaque",
+          "lsb": 187,
+          "msb": 194,
+          "nbits": 8
+        },
+        {
+          "field": "vc_id",
+          "lsb": 186,
+          "msb": 186,
+          "nbits": 1
+        },
+        {
+          "field": "payload.cmd",
+          "lsb": 180,
+          "msb": 185,
+          "nbits": 6
+        },
+        {
+          "field": "payload.data.payload",
+          "lsb": 148,
+          "msb": 179,
+          "nbits": 32
+        },
+        {
+          "field": "payload.data.predicate",
+          "lsb": 147,
+          "msb": 147,
+          "nbits": 1
+        },
+        {
+          "field": "payload.data.bypass",
+          "lsb": 146,
+          "msb": 146,
+          "nbits": 1
+        },
+        {
+          "field": "payload.data.delay",
+          "lsb": 145,
+          "msb": 145,
+          "nbits": 1
+        },
+        {
+          "field": "payload.data_addr",
+          "lsb": 138,
+          "msb": 144,
+          "nbits": 7
+        },
+        {
+          "field": "payload.ctrl.operation",
+          "lsb": 131,
+          "msb": 137,
+          "nbits": 7
+        },
+        {
+          "field": "payload.ctrl.fu_in[0]",
+          "lsb": 119,
+          "msb": 121,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.fu_in[1]",
+          "lsb": 122,
+          "msb": 124,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.fu_in[2]",
+          "lsb": 125,
+          "msb": 127,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.fu_in[3]",
+          "lsb": 128,
+          "msb": 130,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[0]",
+          "lsb": 71,
+          "msb": 74,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[1]",
+          "lsb": 75,
+          "msb": 78,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[2]",
+          "lsb": 79,
+          "msb": 82,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[3]",
+          "lsb": 83,
+          "msb": 86,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[4]",
+          "lsb": 87,
+          "msb": 90,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[5]",
+          "lsb": 91,
+          "msb": 94,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[6]",
+          "lsb": 95,
+          "msb": 98,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[7]",
+          "lsb": 99,
+          "msb": 102,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[8]",
+          "lsb": 103,
+          "msb": 106,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[9]",
+          "lsb": 107,
+          "msb": 110,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[10]",
+          "lsb": 111,
+          "msb": 114,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[11]",
+          "lsb": 115,
+          "msb": 118,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[0]",
+          "lsb": 47,
+          "msb": 48,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[1]",
+          "lsb": 49,
+          "msb": 50,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[2]",
+          "lsb": 51,
+          "msb": 52,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[3]",
+          "lsb": 53,
+          "msb": 54,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[4]",
+          "lsb": 55,
+          "msb": 56,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[5]",
+          "lsb": 57,
+          "msb": 58,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[6]",
+          "lsb": 59,
+          "msb": 60,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[7]",
+          "lsb": 61,
+          "msb": 62,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[8]",
+          "lsb": 63,
+          "msb": 64,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[9]",
+          "lsb": 65,
+          "msb": 66,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[10]",
+          "lsb": 67,
+          "msb": 68,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[11]",
+          "lsb": 69,
+          "msb": 70,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.vector_factor_power",
+          "lsb": 44,
+          "msb": 46,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.is_last_ctrl",
+          "lsb": 43,
+          "msb": 43,
+          "nbits": 1
+        },
+        {
+          "field": "payload.ctrl.write_reg_from[0]",
+          "lsb": 35,
+          "msb": 36,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.write_reg_from[1]",
+          "lsb": 37,
+          "msb": 38,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.write_reg_from[2]",
+          "lsb": 39,
+          "msb": 40,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.write_reg_from[3]",
+          "lsb": 41,
+          "msb": 42,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.write_reg_idx[0]",
+          "lsb": 23,
+          "msb": 25,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.write_reg_idx[1]",
+          "lsb": 26,
+          "msb": 28,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.write_reg_idx[2]",
+          "lsb": 29,
+          "msb": 31,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.write_reg_idx[3]",
+          "lsb": 32,
+          "msb": 34,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.read_reg_towards[0]",
+          "lsb": 15,
+          "msb": 16,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.read_reg_towards[1]",
+          "lsb": 17,
+          "msb": 18,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.read_reg_towards[2]",
+          "lsb": 19,
+          "msb": 20,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.read_reg_towards[3]",
+          "lsb": 21,
+          "msb": 22,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.read_reg_idx[0]",
+          "lsb": 3,
+          "msb": 5,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.read_reg_idx[1]",
+          "lsb": 6,
+          "msb": 8,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.read_reg_idx[2]",
+          "lsb": 9,
+          "msb": 11,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.read_reg_idx[3]",
+          "lsb": 12,
+          "msb": 14,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl_addr",
+          "lsb": 0,
+          "msb": 2,
+          "nbits": 3
+        }
+      ],
+      "nbits": 209
+    },
+    "noc": {
+      "fields": [
+        {
+          "field": "src",
+          "lsb": 211,
+          "msb": 211,
+          "nbits": 1
+        },
+        {
+          "field": "dst",
+          "lsb": 210,
+          "msb": 210,
+          "nbits": 1
+        },
+        {
+          "field": "src_x",
+          "lsb": 209,
+          "msb": 209,
+          "nbits": 1
+        },
+        {
+          "field": "src_y",
+          "lsb": 208,
+          "msb": 208,
+          "nbits": 1
+        },
+        {
+          "field": "dst_x",
+          "lsb": 207,
+          "msb": 207,
+          "nbits": 1
+        },
+        {
+          "field": "dst_y",
+          "lsb": 206,
+          "msb": 206,
+          "nbits": 1
+        },
+        {
+          "field": "src_tile_id",
+          "lsb": 202,
+          "msb": 205,
+          "nbits": 4
+        },
+        {
+          "field": "dst_tile_id",
+          "lsb": 198,
+          "msb": 201,
+          "nbits": 4
+        },
+        {
+          "field": "remote_src_port",
+          "lsb": 196,
+          "msb": 197,
+          "nbits": 2
+        },
+        {
+          "field": "opaque",
+          "lsb": 188,
+          "msb": 195,
+          "nbits": 8
+        },
+        {
+          "field": "vc_id",
+          "lsb": 186,
+          "msb": 187,
+          "nbits": 2
+        },
+        {
+          "field": "payload.cmd",
+          "lsb": 180,
+          "msb": 185,
+          "nbits": 6
+        },
+        {
+          "field": "payload.data.payload",
+          "lsb": 148,
+          "msb": 179,
+          "nbits": 32
+        },
+        {
+          "field": "payload.data.predicate",
+          "lsb": 147,
+          "msb": 147,
+          "nbits": 1
+        },
+        {
+          "field": "payload.data.bypass",
+          "lsb": 146,
+          "msb": 146,
+          "nbits": 1
+        },
+        {
+          "field": "payload.data.delay",
+          "lsb": 145,
+          "msb": 145,
+          "nbits": 1
+        },
+        {
+          "field": "payload.data_addr",
+          "lsb": 138,
+          "msb": 144,
+          "nbits": 7
+        },
+        {
+          "field": "payload.ctrl.operation",
+          "lsb": 131,
+          "msb": 137,
+          "nbits": 7
+        },
+        {
+          "field": "payload.ctrl.fu_in[0]",
+          "lsb": 119,
+          "msb": 121,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.fu_in[1]",
+          "lsb": 122,
+          "msb": 124,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.fu_in[2]",
+          "lsb": 125,
+          "msb": 127,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.fu_in[3]",
+          "lsb": 128,
+          "msb": 130,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[0]",
+          "lsb": 71,
+          "msb": 74,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[1]",
+          "lsb": 75,
+          "msb": 78,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[2]",
+          "lsb": 79,
+          "msb": 82,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[3]",
+          "lsb": 83,
+          "msb": 86,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[4]",
+          "lsb": 87,
+          "msb": 90,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[5]",
+          "lsb": 91,
+          "msb": 94,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[6]",
+          "lsb": 95,
+          "msb": 98,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[7]",
+          "lsb": 99,
+          "msb": 102,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[8]",
+          "lsb": 103,
+          "msb": 106,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[9]",
+          "lsb": 107,
+          "msb": 110,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[10]",
+          "lsb": 111,
+          "msb": 114,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.routing_xbar_outport[11]",
+          "lsb": 115,
+          "msb": 118,
+          "nbits": 4
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[0]",
+          "lsb": 47,
+          "msb": 48,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[1]",
+          "lsb": 49,
+          "msb": 50,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[2]",
+          "lsb": 51,
+          "msb": 52,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[3]",
+          "lsb": 53,
+          "msb": 54,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[4]",
+          "lsb": 55,
+          "msb": 56,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[5]",
+          "lsb": 57,
+          "msb": 58,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[6]",
+          "lsb": 59,
+          "msb": 60,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[7]",
+          "lsb": 61,
+          "msb": 62,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[8]",
+          "lsb": 63,
+          "msb": 64,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[9]",
+          "lsb": 65,
+          "msb": 66,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[10]",
+          "lsb": 67,
+          "msb": 68,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.fu_xbar_outport[11]",
+          "lsb": 69,
+          "msb": 70,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.vector_factor_power",
+          "lsb": 44,
+          "msb": 46,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.is_last_ctrl",
+          "lsb": 43,
+          "msb": 43,
+          "nbits": 1
+        },
+        {
+          "field": "payload.ctrl.write_reg_from[0]",
+          "lsb": 35,
+          "msb": 36,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.write_reg_from[1]",
+          "lsb": 37,
+          "msb": 38,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.write_reg_from[2]",
+          "lsb": 39,
+          "msb": 40,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.write_reg_from[3]",
+          "lsb": 41,
+          "msb": 42,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.write_reg_idx[0]",
+          "lsb": 23,
+          "msb": 25,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.write_reg_idx[1]",
+          "lsb": 26,
+          "msb": 28,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.write_reg_idx[2]",
+          "lsb": 29,
+          "msb": 31,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.write_reg_idx[3]",
+          "lsb": 32,
+          "msb": 34,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.read_reg_towards[0]",
+          "lsb": 15,
+          "msb": 16,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.read_reg_towards[1]",
+          "lsb": 17,
+          "msb": 18,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.read_reg_towards[2]",
+          "lsb": 19,
+          "msb": 20,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.read_reg_towards[3]",
+          "lsb": 21,
+          "msb": 22,
+          "nbits": 2
+        },
+        {
+          "field": "payload.ctrl.read_reg_idx[0]",
+          "lsb": 3,
+          "msb": 5,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.read_reg_idx[1]",
+          "lsb": 6,
+          "msb": 8,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.read_reg_idx[2]",
+          "lsb": 9,
+          "msb": 11,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl.read_reg_idx[3]",
+          "lsb": 12,
+          "msb": 14,
+          "nbits": 3
+        },
+        {
+          "field": "payload.ctrl_addr",
+          "lsb": 0,
+          "msb": 2,
+          "nbits": 3
+        }
+      ],
+      "nbits": 212
+    },
+    "payload": {
+      "fields": [
+        {
+          "field": "cmd",
+          "lsb": 180,
+          "msb": 185,
+          "nbits": 6
+        },
+        {
+          "field": "data.payload",
+          "lsb": 148,
+          "msb": 179,
+          "nbits": 32
+        },
+        {
+          "field": "data.predicate",
+          "lsb": 147,
+          "msb": 147,
+          "nbits": 1
+        },
+        {
+          "field": "data.bypass",
+          "lsb": 146,
+          "msb": 146,
+          "nbits": 1
+        },
+        {
+          "field": "data.delay",
+          "lsb": 145,
+          "msb": 145,
+          "nbits": 1
+        },
+        {
+          "field": "data_addr",
+          "lsb": 138,
+          "msb": 144,
+          "nbits": 7
+        },
+        {
+          "field": "ctrl.operation",
+          "lsb": 131,
+          "msb": 137,
+          "nbits": 7
+        },
+        {
+          "field": "ctrl.fu_in[0]",
+          "lsb": 119,
+          "msb": 121,
+          "nbits": 3
+        },
+        {
+          "field": "ctrl.fu_in[1]",
+          "lsb": 122,
+          "msb": 124,
+          "nbits": 3
+        },
+        {
+          "field": "ctrl.fu_in[2]",
+          "lsb": 125,
+          "msb": 127,
+          "nbits": 3
+        },
+        {
+          "field": "ctrl.fu_in[3]",
+          "lsb": 128,
+          "msb": 130,
+          "nbits": 3
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[0]",
+          "lsb": 71,
+          "msb": 74,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[1]",
+          "lsb": 75,
+          "msb": 78,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[2]",
+          "lsb": 79,
+          "msb": 82,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[3]",
+          "lsb": 83,
+          "msb": 86,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[4]",
+          "lsb": 87,
+          "msb": 90,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[5]",
+          "lsb": 91,
+          "msb": 94,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[6]",
+          "lsb": 95,
+          "msb": 98,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[7]",
+          "lsb": 99,
+          "msb": 102,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[8]",
+          "lsb": 103,
+          "msb": 106,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[9]",
+          "lsb": 107,
+          "msb": 110,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[10]",
+          "lsb": 111,
+          "msb": 114,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.routing_xbar_outport[11]",
+          "lsb": 115,
+          "msb": 118,
+          "nbits": 4
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[0]",
+          "lsb": 47,
+          "msb": 48,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[1]",
+          "lsb": 49,
+          "msb": 50,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[2]",
+          "lsb": 51,
+          "msb": 52,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[3]",
+          "lsb": 53,
+          "msb": 54,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[4]",
+          "lsb": 55,
+          "msb": 56,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[5]",
+          "lsb": 57,
+          "msb": 58,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[6]",
+          "lsb": 59,
+          "msb": 60,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[7]",
+          "lsb": 61,
+          "msb": 62,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[8]",
+          "lsb": 63,
+          "msb": 64,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[9]",
+          "lsb": 65,
+          "msb": 66,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[10]",
+          "lsb": 67,
+          "msb": 68,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.fu_xbar_outport[11]",
+          "lsb": 69,
+          "msb": 70,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.vector_factor_power",
+          "lsb": 44,
+          "msb": 46,
+          "nbits": 3
+        },
+        {
+          "field": "ctrl.is_last_ctrl",
+          "lsb": 43,
+          "msb": 43,
+          "nbits": 1
+        },
+        {
+          "field": "ctrl.write_reg_from[0]",
+          "lsb": 35,
+          "msb": 36,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.write_reg_from[1]",
+          "lsb": 37,
+          "msb": 38,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.write_reg_from[2]",
+          "lsb": 39,
+          "msb": 40,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.write_reg_from[3]",
+          "lsb": 41,
+          "msb": 42,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.write_reg_idx[0]",
+          "lsb": 23,
+          "msb": 25,
+          "nbits": 3
+        },
+        {
+          "field": "ctrl.write_reg_idx[1]",
+          "lsb": 26,
+          "msb": 28,
+          "nbits": 3
+        },
+        {
+          "field": "ctrl.write_reg_idx[2]",
+          "lsb": 29,
+          "msb": 31,
+          "nbits": 3
+        },
+        {
+          "field": "ctrl.write_reg_idx[3]",
+          "lsb": 32,
+          "msb": 34,
+          "nbits": 3
+        },
+        {
+          "field": "ctrl.read_reg_towards[0]",
+          "lsb": 15,
+          "msb": 16,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.read_reg_towards[1]",
+          "lsb": 17,
+          "msb": 18,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.read_reg_towards[2]",
+          "lsb": 19,
+          "msb": 20,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.read_reg_towards[3]",
+          "lsb": 21,
+          "msb": 22,
+          "nbits": 2
+        },
+        {
+          "field": "ctrl.read_reg_idx[0]",
+          "lsb": 3,
+          "msb": 5,
+          "nbits": 3
+        },
+        {
+          "field": "ctrl.read_reg_idx[1]",
+          "lsb": 6,
+          "msb": 8,
+          "nbits": 3
+        },
+        {
+          "field": "ctrl.read_reg_idx[2]",
+          "lsb": 9,
+          "msb": 11,
+          "nbits": 3
+        },
+        {
+          "field": "ctrl.read_reg_idx[3]",
+          "lsb": 12,
+          "msb": 14,
+          "nbits": 3
+        },
+        {
+          "field": "ctrl_addr",
+          "lsb": 0,
+          "msb": 2,
+          "nbits": 3
+        }
+      ],
+      "nbits": 186
+    }
+  },
+  "packet_count": 184,
+  "store_count": 32
+}

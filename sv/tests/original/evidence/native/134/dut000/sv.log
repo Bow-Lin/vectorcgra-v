@@ -1,0 +1,15 @@
+ORIGINAL_MISMATCH sample=0 port=recv_from_controller_spm_rd_req.rdy actual=0 expected=1
+ORIGINAL_MISMATCH sample=0 port=recv_from_controller_spm_wr_req.rdy actual=0 expected=1
+ORIGINAL_MISMATCH sample=0 port=recv_from_noc_load_request.rdy actual=0 expected=1
+ORIGINAL_MISMATCH sample=0 port=recv_from_noc_load_response_pkt.rdy actual=0 expected=1
+ORIGINAL_MISMATCH sample=0 port=recv_from_noc_store_request.rdy actual=0 expected=1
+ORIGINAL_MISMATCH sample=0 port=recv_raddr[0].rdy actual=0 expected=1
+ORIGINAL_MISMATCH sample=0 port=recv_raddr[1].rdy actual=0 expected=1
+ORIGINAL_MISMATCH sample=0 port=recv_waddr[0].rdy actual=0 expected=1
+ORIGINAL_MISMATCH sample=0 port=recv_waddr[1].rdy actual=0 expected=1
+ORIGINAL_MISMATCH sample=0 port=recv_wdata[0].rdy actual=0 expected=1
+ORIGINAL_MISMATCH sample=0 port=recv_wdata[1].rdy actual=0 expected=1
+ORIGINAL_MISMATCH sample=0 port=send_to_noc_load_request_pkt.msg actual=0000000000000000000000000000000000000000000000000 expected=0000000a00000000000000000000000000000000000000000
+[50000] %Fatal: tb_original.sv:400: Assertion failed in TOP.tb_original: ORIGINAL_REPLAY_FAILED errors=57 samples=6
+%Error: /workspace/work/original-test-components/build/d58aa92437fabae394b8/tb_original.sv:400: Verilog $stop
+Aborting...

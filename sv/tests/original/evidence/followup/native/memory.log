@@ -1,0 +1,18 @@
+MEMORY_BOUNDARIES_PASS reads=3 writes=1 width=32 combinational=1 dma=0 cycles=1375 checks=1187
+sv/tests/current/run_memory_boundaries.sh: line 12:  2470 Aborted                 "$exe" +EXPECT_FAILURE > "$build/negative.log" 2>&1
+MEMORY_BOUNDARIES_PASS reads=1 writes=3 width=32 combinational=0 dma=0 cycles=904 checks=635
+sv/tests/current/run_memory_boundaries.sh: line 12:  2664 Aborted                 "$exe" +EXPECT_FAILURE > "$build/negative.log" 2>&1
+MEMORY_BOUNDARIES_PASS reads=3 writes=1 width=64 combinational=0 dma=0 cycles=1375 checks=1053
+sv/tests/current/run_memory_boundaries.sh: line 12:  2938 Aborted                 "$exe" +EXPECT_FAILURE > "$build/negative.log" 2>&1
+MEMORY_BOUNDARIES_PASS reads=1 writes=3 width=64 combinational=1 dma=0 cycles=904 checks=713
+sv/tests/current/run_memory_boundaries.sh: line 12:  3378 Aborted                 "$exe" +EXPECT_FAILURE > "$build/negative.log" 2>&1
+MEMORY_BOUNDARIES_PASS reads=2 writes=2 width=32 combinational=1 dma=1 cycles=1161 checks=965
+sv/tests/current/run_memory_boundaries.sh: line 12:  3579 Aborted                 "$exe" +EXPECT_FAILURE > "$build/negative.log" 2>&1
+sv/tests/current/run_memory_boundaries.sh: line 12:  3585 Aborted                 "$exe" +INVALID_MASK > "$build/invalid-mask.log" 2>&1
+MEMORY_BOUNDARIES_PASS reads=2 writes=2 width=32 combinational=0 dma=1 cycles=1161 checks=857
+sv/tests/current/run_memory_boundaries.sh: line 12:  3769 Aborted                 "$exe" +EXPECT_FAILURE > "$build/negative.log" 2>&1
+sv/tests/current/run_memory_boundaries.sh: line 12:  3776 Aborted                 "$exe" +INVALID_MASK > "$build/invalid-mask.log" 2>&1
+MEMORY_BOUNDARIES_PASS reads=2 writes=2 width=64 combinational=0 dma=1 cycles=1161 checks=857
+sv/tests/current/run_memory_boundaries.sh: line 12:  4051 Aborted                 "$exe" +EXPECT_FAILURE > "$build/negative.log" 2>&1
+sv/tests/current/run_memory_boundaries.sh: line 12:  4057 Aborted                 "$exe" +INVALID_MASK > "$build/invalid-mask.log" 2>&1
+MEMORY_BOUNDARIES_VALIDATION_PASS mode=rtl

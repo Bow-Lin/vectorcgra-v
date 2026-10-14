@@ -1,0 +1,697 @@
+{
+  "python_class": "IntegratedIm2ColWithCgraRTL",
+  "arguments": {
+    "CgraPayloadType": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr",
+    "multi_cgra_rows": 1,
+    "multi_cgra_columns": 4,
+    "width": 3,
+    "height": 3,
+    "ctrl_mem_size": 6,
+    "data_mem_size_global": 128,
+    "data_mem_size_per_bank": 16,
+    "num_banks_per_cgra": 2,
+    "num_registers_per_reg_bank": 16,
+    "num_ctrl": 2,
+    "total_steps": 2,
+    "mem_access_is_combinational": true,
+    "FunctionUnit": "FlexibleFuRTL",
+    "FuList": [
+      "AdderRTL",
+      "MulRTL",
+      "LogicRTL",
+      "ShifterRTL",
+      "PhiRTL",
+      "CompRTL",
+      "GrantRTL",
+      "MemUnitRTL",
+      "SelRTL",
+      "FpAddRTL",
+      "FpMulRTL",
+      "SeqMulAdderRTL",
+      "VectorMulComboRTL",
+      "VectorAdderComboRTL",
+      "NahRTL"
+    ],
+    "cgra_topology": "Mesh",
+    "controller2addr_map": {
+      "0": [
+        0,
+        31
+      ],
+      "1": [
+        32,
+        63
+      ],
+      "2": [
+        64,
+        95
+      ],
+      "3": [
+        96,
+        127
+      ]
+    },
+    "idTo2d_map": {
+      "0": [
+        0,
+        0
+      ],
+      "1": [
+        1,
+        0
+      ],
+      "2": [
+        2,
+        0
+      ],
+      "3": [
+        3,
+        0
+      ]
+    },
+    "engine_scratch_mem_size": 64,
+    "engine_preload_image": [
+      1,
+      3,
+      2,
+      4
+    ],
+    "has_ctrl_ring": true
+  },
+  "hierarchy": "s.dut",
+  "samples": 102,
+  "edges": 102,
+  "module": "cgra_integrated_im2col",
+  "parameters": {
+    "DATA_W": 32,
+    "CTRL_DEPTH": 6,
+    "GLOBAL_ADDR_W": 7,
+    "REG_DEPTH": 16,
+    "TILE_PORTS": 4,
+    "COLS": 3,
+    "ROWS": 3,
+    "MULTI_COLS": 4,
+    "MULTI_ROWS": 1,
+    "BANK_DEPTH": 16,
+    "NUM_BANKS": 2,
+    "NUM_CTRL": 2,
+    "TOTAL_STEPS": 2,
+    "MEM_COMBINATIONAL": 1,
+    "FU_COUNT": 15,
+    "FU_KINDS": "120'h31314161d1c08020a050907060100",
+    "CUSTOM_ADDR_MAP": 1,
+    "ADDR_MAP": "8'he4",
+    "CUSTOM_COORD_MAP": 1,
+    "COORD_X_MAP": "8'he4",
+    "COORD_Y_MAP": "4'h0",
+    "IS_MULTI": 0,
+    "TILE_VARIANT": 0,
+    "TILE_FU_COUNTS": "288'hf0000000f0000000f0000000f0000000f0000000f0000000f0000000f0000000f",
+    "TILE_FU_KINDS": "1080'h31314161d1c08020a050907060100031314161d1c08020a050907060100031314161d1c08020a050907060100031314161d1c08020a050907060100031314161d1c08020a050907060100031314161d1c08020a050907060100031314161d1c08020a050907060100031314161d1c08020a050907060100031314161d1c08020a050907060100",
+    "HAS_IM2COL": 1,
+    "SCRATCH_DEPTH": 64,
+    "PRELOAD_IMAGE": "128'h4000000020000000300000001"
+  },
+  "mode": "native",
+  "bindings": {},
+  "normalize_ctrl": true,
+  "original_has_ctrl_ring": true,
+  "transaction_replay": true,
+  "ports": [
+    {
+      "path": "address_lower",
+      "name": "address_lower",
+      "width": 7,
+      "original_width": 7,
+      "direction": "input"
+    },
+    {
+      "path": "address_upper",
+      "name": "address_upper",
+      "width": 7,
+      "original_width": 7,
+      "direction": "input"
+    },
+    {
+      "path": "cgra_id",
+      "name": "cgra_id",
+      "width": 2,
+      "original_width": 2,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_east[0].msg",
+      "name": "recv_data_on_boundary_east__msg[0]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_east[0].rdy",
+      "name": "recv_data_on_boundary_east__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_on_boundary_east[0].val",
+      "name": "recv_data_on_boundary_east__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_east[1].msg",
+      "name": "recv_data_on_boundary_east__msg[1]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_east[1].rdy",
+      "name": "recv_data_on_boundary_east__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_on_boundary_east[1].val",
+      "name": "recv_data_on_boundary_east__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_east[2].msg",
+      "name": "recv_data_on_boundary_east__msg[2]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_east[2].rdy",
+      "name": "recv_data_on_boundary_east__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_on_boundary_east[2].val",
+      "name": "recv_data_on_boundary_east__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_north[0].msg",
+      "name": "recv_data_on_boundary_north__msg[0]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_north[0].rdy",
+      "name": "recv_data_on_boundary_north__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_on_boundary_north[0].val",
+      "name": "recv_data_on_boundary_north__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_north[1].msg",
+      "name": "recv_data_on_boundary_north__msg[1]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_north[1].rdy",
+      "name": "recv_data_on_boundary_north__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_on_boundary_north[1].val",
+      "name": "recv_data_on_boundary_north__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_north[2].msg",
+      "name": "recv_data_on_boundary_north__msg[2]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_north[2].rdy",
+      "name": "recv_data_on_boundary_north__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_on_boundary_north[2].val",
+      "name": "recv_data_on_boundary_north__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_south[0].msg",
+      "name": "recv_data_on_boundary_south__msg[0]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_south[0].rdy",
+      "name": "recv_data_on_boundary_south__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_on_boundary_south[0].val",
+      "name": "recv_data_on_boundary_south__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_south[1].msg",
+      "name": "recv_data_on_boundary_south__msg[1]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_south[1].rdy",
+      "name": "recv_data_on_boundary_south__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_on_boundary_south[1].val",
+      "name": "recv_data_on_boundary_south__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_south[2].msg",
+      "name": "recv_data_on_boundary_south__msg[2]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_south[2].rdy",
+      "name": "recv_data_on_boundary_south__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_on_boundary_south[2].val",
+      "name": "recv_data_on_boundary_south__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_west[0].msg",
+      "name": "recv_data_on_boundary_west__msg[0]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_west[0].rdy",
+      "name": "recv_data_on_boundary_west__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_on_boundary_west[0].val",
+      "name": "recv_data_on_boundary_west__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_west[1].msg",
+      "name": "recv_data_on_boundary_west__msg[1]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_west[1].rdy",
+      "name": "recv_data_on_boundary_west__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_on_boundary_west[1].val",
+      "name": "recv_data_on_boundary_west__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_west[2].msg",
+      "name": "recv_data_on_boundary_west__msg[2]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_data_on_boundary_west[2].rdy",
+      "name": "recv_data_on_boundary_west__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_data_on_boundary_west[2].val",
+      "name": "recv_data_on_boundary_west__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_cpu_pkt.msg",
+      "name": "recv_from_cpu_pkt__msg",
+      "width": 197,
+      "original_width": 197,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_cpu_pkt.rdy",
+      "name": "recv_from_cpu_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_cpu_pkt.val",
+      "name": "recv_from_cpu_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_on_boundary_east[0].msg",
+      "name": "send_data_on_boundary_east__msg[0]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_east[0].rdy",
+      "name": "send_data_on_boundary_east__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_on_boundary_east[0].val",
+      "name": "send_data_on_boundary_east__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_east[1].msg",
+      "name": "send_data_on_boundary_east__msg[1]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_east[1].rdy",
+      "name": "send_data_on_boundary_east__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_on_boundary_east[1].val",
+      "name": "send_data_on_boundary_east__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_east[2].msg",
+      "name": "send_data_on_boundary_east__msg[2]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_east[2].rdy",
+      "name": "send_data_on_boundary_east__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_on_boundary_east[2].val",
+      "name": "send_data_on_boundary_east__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_north[0].msg",
+      "name": "send_data_on_boundary_north__msg[0]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_north[0].rdy",
+      "name": "send_data_on_boundary_north__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_on_boundary_north[0].val",
+      "name": "send_data_on_boundary_north__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_north[1].msg",
+      "name": "send_data_on_boundary_north__msg[1]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_north[1].rdy",
+      "name": "send_data_on_boundary_north__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_on_boundary_north[1].val",
+      "name": "send_data_on_boundary_north__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_north[2].msg",
+      "name": "send_data_on_boundary_north__msg[2]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_north[2].rdy",
+      "name": "send_data_on_boundary_north__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_on_boundary_north[2].val",
+      "name": "send_data_on_boundary_north__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_south[0].msg",
+      "name": "send_data_on_boundary_south__msg[0]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_south[0].rdy",
+      "name": "send_data_on_boundary_south__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_on_boundary_south[0].val",
+      "name": "send_data_on_boundary_south__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_south[1].msg",
+      "name": "send_data_on_boundary_south__msg[1]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_south[1].rdy",
+      "name": "send_data_on_boundary_south__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_on_boundary_south[1].val",
+      "name": "send_data_on_boundary_south__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_south[2].msg",
+      "name": "send_data_on_boundary_south__msg[2]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_south[2].rdy",
+      "name": "send_data_on_boundary_south__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_on_boundary_south[2].val",
+      "name": "send_data_on_boundary_south__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_west[0].msg",
+      "name": "send_data_on_boundary_west__msg[0]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_west[0].rdy",
+      "name": "send_data_on_boundary_west__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_on_boundary_west[0].val",
+      "name": "send_data_on_boundary_west__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_west[1].msg",
+      "name": "send_data_on_boundary_west__msg[1]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_west[1].rdy",
+      "name": "send_data_on_boundary_west__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_on_boundary_west[1].val",
+      "name": "send_data_on_boundary_west__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_west[2].msg",
+      "name": "send_data_on_boundary_west__msg[2]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "output"
+    },
+    {
+      "path": "send_data_on_boundary_west[2].rdy",
+      "name": "send_data_on_boundary_west__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_data_on_boundary_west[2].val",
+      "name": "send_data_on_boundary_west__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_cpu_pkt.msg",
+      "name": "send_to_cpu_pkt__msg",
+      "width": 197,
+      "original_width": 197,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_cpu_pkt.rdy",
+      "name": "send_to_cpu_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_cpu_pkt.val",
+      "name": "send_to_cpu_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "cbd876b57d0af0245aeadc98e6501d19207eed61f7499739ca8493876be00283"
+}

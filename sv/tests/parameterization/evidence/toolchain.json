@@ -1,0 +1,14 @@
+{
+  "cxx": {
+    "command": "c++",
+    "version": "c++ (Debian 14.2.0-19) 14.2.0"
+  },
+  "python": {
+    "command": "/workspace/.vectorcgra-env/venv/bin/python",
+    "version": "Python 3.12.14"
+  },
+  "verilator": {
+    "command": "/workspace/work/regression-toolchain/fresh-tools/oss-cad-suite/bin/verilator",
+    "version": "Verilator 5.029 devel rev v5.028-104-ge2041f745"
+  }
+}

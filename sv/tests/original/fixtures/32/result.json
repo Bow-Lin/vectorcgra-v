@@ -1,0 +1,21 @@
+{
+  "case": {
+    "id": 32,
+    "group": "components",
+    "file": "controller/test/ControllerRTL_test.py",
+    "function": "test_simple",
+    "parameters": {},
+    "classes": [
+      "ControllerRTL"
+    ],
+    "source_sha256": "a26e289d501f3e3eed80ab7cd46ebd260068b9fb00f0cc1b251dae08a7d2690b"
+  },
+  "status": "passed",
+  "source_sha256": "a26e289d501f3e3eed80ab7cd46ebd260068b9fb00f0cc1b251dae08a7d2690b",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ],
+  "adapter_errors": []
+}

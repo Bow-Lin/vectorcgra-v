@@ -1,0 +1,53 @@
+{
+  "python_class": "ConstQueueRTL",
+  "arguments": {
+    "DataType": "CgraData_16_1_1_1",
+    "const_list": [
+      76,
+      68,
+      60
+    ]
+  },
+  "hierarchy": "s.const_queue",
+  "samples": 12,
+  "edges": 12,
+  "module": "cgra_static_const_queue",
+  "parameters": {
+    "DATA_BITS": 19,
+    "NUM_CONST": 3,
+    "CONST_WORDS": "57'hf000220004c"
+  },
+  "mode": "native",
+  "bindings": {},
+  "ports": [
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_const.msg",
+      "name": "send_const__msg",
+      "width": 19,
+      "original_width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "send_const.rdy",
+      "name": "send_const__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_const.val",
+      "name": "send_const__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "151a6020c360ef2f90e0727bb3b9c19a1777d190541642b596c7c9e17395dc4e"
+}

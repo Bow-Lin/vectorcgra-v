@@ -1,0 +1,3 @@
+[125000] %Fatal: tb_original.sv:129: Assertion failed in TOP.tb_original: ORIGINAL_TRANSACTION_MISMATCH send_pkt index=0 actual=00000000c00000001800000000000000000000000000000000 expected=00000000c00000001800000000000000000000000000000001
+%Error: /workspace/work/original-test-components/build/afed62b5be35e668db03/tb_original.sv:129: Verilog $stop
+Aborting...

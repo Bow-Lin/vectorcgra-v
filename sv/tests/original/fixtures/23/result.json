@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 23,
+    "group": "systems",
+    "file": "cgra/test/CgraWithContextSwitchRTL_test.py",
+    "function": "test_sim_fir_multi_cycle_mem_access_return_two_tasks",
+    "parameters": {},
+    "classes": [
+      "CgraWithContextSwitchRTL"
+    ],
+    "source_sha256": "b7ce3b58a237a2bf555894463b35d975a59febdf361b0123b657a35d0a7d30a4"
+  },
+  "status": "passed",
+  "source_sha256": "b7ce3b58a237a2bf555894463b35d975a59febdf361b0123b657a35d0a7d30a4",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

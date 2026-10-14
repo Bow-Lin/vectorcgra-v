@@ -1,0 +1,6 @@
+ORIGINAL_CONTRACT_CHECKS reset=3 valid_payload=13 control=0
+ORIGINAL_REPLAY_PASS samples=20
+- /workspace/work/original-contract/build/978601854261ab5ec244/tb_original.sv:525: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.029 devel
+- Verilator: $finish at 200ns; walltime 0.002 s; speed 112.679 us/s
+- Verilator: cpu 0.002 s on 1 threads; alloced 33 MB

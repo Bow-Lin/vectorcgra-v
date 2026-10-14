@@ -1,0 +1,2 @@
+# These compact logs are maintained verification evidence, not build output.
+!evidence/**/*.log

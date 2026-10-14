@@ -1,0 +1,72 @@
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/gemm cycles=1657 words=16
+- tests/current/tb_native_kernel.sv:236: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.029 devel
+- Verilator: $finish at 17us; walltime 0.701 s; speed 24.209 us/s
+- Verilator: cpu 0.700 s on 1 threads; alloced 37 MB
+sv/tests/current/run_native_kernels.sh: line 7:  6619 Aborted                 "$build/Vtb_native_kernel${EXEEXT}" "+PROGRAM=$ref" "${extra[@]}" +EXPECT_FAILURE > "$build/negative.log" 2>&1
+sv/tests/current/run_native_kernels.sh: line 7:  6650 Aborted                 "$build/Vtb_native_kernel${EXEEXT}" "+PROGRAM=$ref" +STALL_FOREVER +MAX_CYCLES=3000 > "$build/timeout-negative.log" 2>&1
+NATIVE_KERNEL_NEGATIVE_PASS kernel=gemm
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/gemv cycles=405 words=4
+- tests/current/tb_native_kernel.sv:236: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.029 devel
+- Verilator: $finish at 4us; walltime 0.092 s; speed 45.596 us/s
+- Verilator: cpu 0.093 s on 1 threads; alloced 37 MB
+sv/tests/current/run_native_kernels.sh: line 7:  7966 Aborted                 "$build/Vtb_native_kernel${EXEEXT}" "+PROGRAM=$ref" "${extra[@]}" +EXPECT_FAILURE > "$build/negative.log" 2>&1
+sv/tests/current/run_native_kernels.sh: line 7:  7971 Aborted                 "$build/Vtb_native_kernel${EXEEXT}" "+PROGRAM=$ref" +STALL_FOREVER +MAX_CYCLES=3000 > "$build/timeout-negative.log" 2>&1
+NATIVE_KERNEL_NEGATIVE_PASS kernel=gemv
+NATIVE_IDENTITY_STORES_PASS nnz=8 stores=8
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv cycles=964 words=32
+- tests/current/tb_native_kernel.sv:236: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.029 devel
+- Verilator: $finish at 10us; walltime 0.257 s; speed 40.200 us/s
+- Verilator: cpu 0.257 s on 1 threads; alloced 37 MB
+sv/tests/current/run_native_kernels.sh: line 7:  8485 Aborted                 "$build/Vtb_native_kernel${EXEEXT}" "+PROGRAM=$ref" "${extra[@]}" +EXPECT_FAILURE > "$build/negative.log" 2>&1
+sv/tests/current/run_native_kernels.sh: line 7:  8490 Aborted                 "$build/Vtb_native_kernel${EXEEXT}" "+PROGRAM=$ref" +STALL_FOREVER +MAX_CYCLES=3000 > "$build/timeout-negative.log" 2>&1
+NATIVE_KERNEL_NEGATIVE_PASS kernel=spmv
+NATIVE_IDENTITY_STORES_PASS nnz=0 stores=0
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz0 cycles=938 words=32
+NATIVE_IDENTITY_STORES_PASS nnz=0 stores=0
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz0 cycles=3064 words=32
+NATIVE_IDENTITY_STORES_PASS nnz=1 stores=1
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz1 cycles=938 words=32
+NATIVE_IDENTITY_STORES_PASS nnz=1 stores=1
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz1 cycles=3064 words=32
+NATIVE_IDENTITY_STORES_PASS nnz=2 stores=2
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz2 cycles=954 words=32
+NATIVE_IDENTITY_STORES_PASS nnz=2 stores=2
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz2 cycles=3075 words=32
+NATIVE_IDENTITY_STORES_PASS nnz=3 stores=3
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz3 cycles=971 words=32
+NATIVE_IDENTITY_STORES_PASS nnz=3 stores=3
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz3 cycles=3097 words=32
+NATIVE_IDENTITY_STORES_PASS nnz=4 stores=4
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz4 cycles=938 words=32
+NATIVE_IDENTITY_STORES_PASS nnz=4 stores=4
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz4 cycles=3064 words=32
+NATIVE_IDENTITY_STORES_PASS nnz=5 stores=5
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz5 cycles=938 words=32
+NATIVE_IDENTITY_STORES_PASS nnz=5 stores=5
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz5 cycles=3064 words=32
+NATIVE_IDENTITY_STORES_PASS nnz=6 stores=6
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz6 cycles=954 words=32
+NATIVE_IDENTITY_STORES_PASS nnz=6 stores=6
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz6 cycles=3075 words=32
+NATIVE_IDENTITY_STORES_PASS nnz=7 stores=7
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz7 cycles=971 words=32
+NATIVE_IDENTITY_STORES_PASS nnz=7 stores=7
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv/scenarios/nnz7 cycles=3097 words=32
+NATIVE_IDENTITY_STORES_PASS nnz=8 stores=8
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv cycles=964 words=32
+NATIVE_IDENTITY_STORES_PASS nnz=8 stores=8
+NATIVE_KERNEL_MATH_PASS program=reference/native/kernels/spmv cycles=3086 words=32
+sv/tests/current/run_native_kernels.sh: line 45:  8651 Aborted                 "$build/Vtb_native_kernel${EXEEXT}" "+PROGRAM=$scenario" "+IDENTITY_NNZ=$nnz" +MAX_CYCLES=3000 > "$build/$case.log" 2>&1
+NATIVE_SPMV_ABLATION_PASS case=wrong_prologue
+sv/tests/current/run_native_kernels.sh: line 45:  8658 Aborted                 "$build/Vtb_native_kernel${EXEEXT}" "+PROGRAM=$scenario" "+IDENTITY_NNZ=$nnz" +MAX_CYCLES=3000 > "$build/$case.log" 2>&1
+NATIVE_SPMV_ABLATION_PASS case=legacy_start
+sv/tests/current/run_native_kernels.sh: line 45:  8665 Aborted                 "$build/Vtb_native_kernel${EXEEXT}" "+PROGRAM=$scenario" "+IDENTITY_NNZ=$nnz" +MAX_CYCLES=3000 > "$build/$case.log" 2>&1
+NATIVE_SPMV_ABLATION_PASS case=binary_phi
+sv/tests/current/run_native_kernels.sh: line 45:  8672 Aborted                 "$build/Vtb_native_kernel${EXEEXT}" "+PROGRAM=$scenario" "+IDENTITY_NNZ=$nnz" +MAX_CYCLES=3000 > "$build/$case.log" 2>&1
+NATIVE_SPMV_ABLATION_PASS case=missing_loop_exit
+sv/tests/current/run_native_kernels.sh: line 45:  8679 Aborted                 "$build/Vtb_native_kernel${EXEEXT}" "+PROGRAM=$scenario" "+IDENTITY_NNZ=$nnz" +MAX_CYCLES=3000 > "$build/$case.log" 2>&1
+NATIVE_SPMV_ABLATION_PASS case=dropped_store_ack
+NATIVE_SPMV_MATRIX_PASS

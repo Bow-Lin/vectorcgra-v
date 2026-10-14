@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 182,
+    "group": "components",
+    "file": "rf/test/RegFile_test.py",
+    "function": "test_RegFile",
+    "parameters": {},
+    "classes": [
+      "RegFile"
+    ],
+    "source_sha256": "eae263c76dacf7441208334efa5460ff603ec4b34d12a6e23f487418e119d3b8"
+  },
+  "status": "passed",
+  "source_sha256": "eae263c76dacf7441208334efa5460ff603ec4b34d12a6e23f487418e119d3b8",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

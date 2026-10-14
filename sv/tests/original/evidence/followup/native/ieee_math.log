@@ -1,0 +1,66 @@
+NATIVE_SUB_CONST_PASS width=32 cases=3
+- tests/current/tb_sub_const.sv:71: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.029 devel
+- Verilator: $finish at 34ns; walltime 0.000 s; speed 61.694 us/s
+- Verilator: cpu 0.001 s on 1 threads; alloced 33 MB
+NATIVE_SUB_CONST_PASS width=64 cases=3
+- tests/current/tb_sub_const.sv:71: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.029 devel
+- Verilator: $finish at 34ns; walltime 0.000 s; speed 75.838 us/s
+- Verilator: cpu 0.000 s on 1 threads; alloced 33 MB
+NATIVE_PHI_PASS width=32 checks=395
+- tests/current/tb_native_phi.sv:158: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.029 devel
+- Verilator: $finish at 2us; walltime 0.000 s; speed 2.643 ms/s
+- Verilator: cpu 0.001 s on 1 threads; alloced 33 MB
+sv/tests/current/run_native_math.sh: line 5:  2069 Aborted                 "$build/V$top${EXEEXT}" +EXPECT_FAILURE > "$build/negative.log" 2>&1
+NATIVE_PHI_NEGATIVE_PASS profile=phi32
+NATIVE_PHI_PASS width=64 checks=395
+- tests/current/tb_native_phi.sv:158: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.029 devel
+- Verilator: $finish at 2us; walltime 0.001 s; speed 2.214 ms/s
+- Verilator: cpu 0.001 s on 1 threads; alloced 33 MB
+sv/tests/current/run_native_math.sh: line 5:  2097 Aborted                 "$build/V$top${EXEEXT}" +EXPECT_FAILURE > "$build/negative.log" 2>&1
+NATIVE_PHI_NEGATIVE_PASS profile=phi64
+NATIVE_IEEE_FP_PASS width=16 multiply=0 cases=12
+- tests/current/tb_native_fp.sv:99: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.029 devel
+- Verilator: $finish at 102ns; walltime 0.000 s; speed 210.503 us/s
+- Verilator: cpu 0.000 s on 1 threads; alloced 33 MB
+sv/tests/current/run_native_math.sh: line 5:  2120 Aborted                 "$build/V$top${EXEEXT}" +EXPECT_FAILURE > "$build/negative.log" 2>&1
+NATIVE_IEEE_FP_NEGATIVE_PASS profile=fp16_0
+NATIVE_IEEE_FP_PASS width=16 multiply=1 cases=10
+- tests/current/tb_native_fp.sv:99: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.029 devel
+- Verilator: $finish at 88ns; walltime 0.000 s; speed 137.146 us/s
+- Verilator: cpu 0.001 s on 1 threads; alloced 33 MB
+sv/tests/current/run_native_math.sh: line 5:  2143 Aborted                 "$build/V$top${EXEEXT}" +EXPECT_FAILURE > "$build/negative.log" 2>&1
+NATIVE_IEEE_FP_NEGATIVE_PASS profile=fp16_1
+NATIVE_IEEE_FP_PASS width=32 multiply=0 cases=12
+- tests/current/tb_native_fp.sv:99: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.029 devel
+- Verilator: $finish at 102ns; walltime 0.000 s; speed 223.274 us/s
+- Verilator: cpu 0.000 s on 1 threads; alloced 33 MB
+sv/tests/current/run_native_math.sh: line 5:  2166 Aborted                 "$build/V$top${EXEEXT}" +EXPECT_FAILURE > "$build/negative.log" 2>&1
+NATIVE_IEEE_FP_NEGATIVE_PASS profile=fp32_0
+NATIVE_IEEE_FP_PASS width=32 multiply=1 cases=10
+- tests/current/tb_native_fp.sv:99: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.029 devel
+- Verilator: $finish at 88ns; walltime 0.000 s; speed 170.461 us/s
+- Verilator: cpu 0.001 s on 1 threads; alloced 33 MB
+sv/tests/current/run_native_math.sh: line 5:  2189 Aborted                 "$build/V$top${EXEEXT}" +EXPECT_FAILURE > "$build/negative.log" 2>&1
+NATIVE_IEEE_FP_NEGATIVE_PASS profile=fp32_1
+NATIVE_IEEE_FP_PASS width=64 multiply=0 cases=12
+- tests/current/tb_native_fp.sv:99: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.029 devel
+- Verilator: $finish at 102ns; walltime 0.000 s; speed 199.825 us/s
+- Verilator: cpu 0.001 s on 1 threads; alloced 33 MB
+sv/tests/current/run_native_math.sh: line 5:  2212 Aborted                 "$build/V$top${EXEEXT}" +EXPECT_FAILURE > "$build/negative.log" 2>&1
+NATIVE_IEEE_FP_NEGATIVE_PASS profile=fp64_0
+NATIVE_IEEE_FP_PASS width=64 multiply=1 cases=10
+- tests/current/tb_native_fp.sv:99: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.029 devel
+- Verilator: $finish at 88ns; walltime 0.000 s; speed 147.427 us/s
+- Verilator: cpu 0.001 s on 1 threads; alloced 33 MB
+sv/tests/current/run_native_math.sh: line 5:  2235 Aborted                 "$build/V$top${EXEEXT}" +EXPECT_FAILURE > "$build/negative.log" 2>&1
+NATIVE_IEEE_FP_NEGATIVE_PASS profile=fp64_1

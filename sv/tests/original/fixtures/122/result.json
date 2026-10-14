@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 122,
+    "group": "fu",
+    "file": "fu/vector/test/VectorAllReduceRTL_test.py",
+    "function": "test_vector_all_reduce",
+    "parameters": {},
+    "classes": [
+      "VectorAllReduceRTL"
+    ],
+    "source_sha256": "cbe2fc1e375acb8923662bda3f2ca8aa54974bdcec0388a8078c297fb6501334"
+  },
+  "status": "passed",
+  "source_sha256": "cbe2fc1e375acb8923662bda3f2ca8aa54974bdcec0388a8078c297fb6501334",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

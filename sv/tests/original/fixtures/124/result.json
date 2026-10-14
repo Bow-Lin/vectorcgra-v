@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 124,
+    "group": "fu",
+    "file": "fu/vector/test/VectorMulRTL_test.py",
+    "function": "test_vadder",
+    "parameters": {},
+    "classes": [
+      "VectorMulRTL"
+    ],
+    "source_sha256": "3ad842af9eb2956142e88e515bc84af40c4ed061c695a7722d5d81f4a6e525e0"
+  },
+  "status": "passed",
+  "source_sha256": "3ad842af9eb2956142e88e515bc84af40c4ed061c695a7722d5d81f4a6e525e0",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

@@ -1,0 +1,327 @@
+{
+  "python_class": "SelRTL",
+  "arguments": {
+    "CtrlPktType": "IntraCgraPacket_1_1x1_1_8_2_CgraPayload",
+    "num_inports": 4,
+    "num_outports": 1,
+    "vector_factor_power": 0
+  },
+  "hierarchy": "s.dut",
+  "samples": 12,
+  "edges": 12,
+  "module": "scalar_sel",
+  "parameters": {
+    "DATA_W": 32,
+    "CTRL_DEPTH": 8,
+    "GLOBAL_ADDR_W": 3,
+    "REG_DEPTH": 16,
+    "TILE_PORTS": 5,
+    "COLS": 2,
+    "ROWS": 2,
+    "MAX_COLS": 1,
+    "MAX_ROWS": 1,
+    "MULTI_COLS": 1,
+    "MULTI_ROWS": 1,
+    "VECTOR_FACTOR_POWER": 0
+  },
+  "mode": "native",
+  "bindings": {},
+  "normalize_ctrl": true,
+  "ports": [
+    {
+      "path": "clear",
+      "name": "clear",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "ctrl_addr_inport",
+      "name": "ctrl_addr_inport",
+      "width": 3,
+      "original_width": 3,
+      "direction": "input"
+    },
+    {
+      "path": "from_mem_rdata.msg",
+      "name": "from_mem_rdata__msg",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "from_mem_rdata.rdy",
+      "name": "from_mem_rdata__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "from_mem_rdata.val",
+      "name": "from_mem_rdata__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_const.msg",
+      "name": "recv_const__msg",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_const.rdy",
+      "name": "recv_const__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_const.val",
+      "name": "recv_const__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_ctrl_mem.msg",
+      "name": "recv_from_ctrl_mem__msg",
+      "width": 172,
+      "original_width": 163,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_ctrl_mem.rdy",
+      "name": "recv_from_ctrl_mem__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_ctrl_mem.val",
+      "name": "recv_from_ctrl_mem__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_in[0].msg",
+      "name": "recv_in__msg[0]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_in[0].rdy",
+      "name": "recv_in__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_in[0].val",
+      "name": "recv_in__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_in[1].msg",
+      "name": "recv_in__msg[1]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_in[1].rdy",
+      "name": "recv_in__rdy[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_in[1].val",
+      "name": "recv_in__val[1]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_in[2].msg",
+      "name": "recv_in__msg[2]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_in[2].rdy",
+      "name": "recv_in__rdy[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_in[2].val",
+      "name": "recv_in__val[2]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_in[3].msg",
+      "name": "recv_in__msg[3]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "input"
+    },
+    {
+      "path": "recv_in[3].rdy",
+      "name": "recv_in__rdy[3]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_in[3].val",
+      "name": "recv_in__val[3]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_opt.msg",
+      "name": "recv_opt__msg",
+      "width": 125,
+      "original_width": 116,
+      "direction": "input"
+    },
+    {
+      "path": "recv_opt.rdy",
+      "name": "recv_opt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_opt.val",
+      "name": "recv_opt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_out[0].msg",
+      "name": "send_out__msg[0]",
+      "width": 35,
+      "original_width": 35,
+      "direction": "output"
+    },
+    {
+      "path": "send_out[0].rdy",
+      "name": "send_out__rdy[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_out[0].val",
+      "name": "send_out__val[0]",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_ctrl_mem.msg",
+      "name": "send_to_ctrl_mem__msg",
+      "width": 172,
+      "original_width": 163,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_ctrl_mem.rdy",
+      "name": "send_to_ctrl_mem__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_ctrl_mem.val",
+      "name": "send_to_ctrl_mem__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_raddr.msg",
+      "name": "to_mem_raddr__msg",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_raddr.rdy",
+      "name": "to_mem_raddr__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "to_mem_raddr.val",
+      "name": "to_mem_raddr__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_waddr.msg",
+      "name": "to_mem_waddr__msg",
+      "width": 3,
+      "original_width": 3,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_waddr.rdy",
+      "name": "to_mem_waddr__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "to_mem_waddr.val",
+      "name": "to_mem_waddr__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_wdata.msg",
+      "name": "to_mem_wdata__msg",
+      "width": 35,
+      "original_width": 35,
+      "direction": "output"
+    },
+    {
+      "path": "to_mem_wdata.rdy",
+      "name": "to_mem_wdata__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "to_mem_wdata.val",
+      "name": "to_mem_wdata__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "70d85be42ebdb975babfdd7efa11d4da6cd385d632bb2cbe726682bfcdc38d0d"
+}

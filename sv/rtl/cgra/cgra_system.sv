@@ -20,7 +20,10 @@ module cgra_system #(
   parameter logic [LINK_COUNT-1:0][31:0] LINK_DST_TILE='0, LINK_DST_PORT='0,
   parameter logic [MEM_PORTS-1:0][31:0] READ_PORT_TILE='1,
   parameter logic [MEM_WRITE_PORTS-1:0][31:0] WRITE_PORT_TILE='1,
-  parameter logic [NUM_TILES-1:0][TILE_PORTS-1:0] BOUNDARY_IN_ENABLE='0, BOUNDARY_OUT_ENABLE='0
+  parameter logic [NUM_TILES-1:0][TILE_PORTS-1:0] BOUNDARY_IN_ENABLE='0, BOUNDARY_OUT_ENABLE='0,
+  // Match CgraRTL(has_ctrl_ring=False): disconnected tile control ports.
+  // This construction mode has no alternate configuration/launch transport.
+  parameter bit HAS_CTRL_RING=1
 ) (
   input logic [GLOBAL_ADDR_W-1:0] address_lower, address_upper,
   input logic [CGRA_ID_W-1:0] cgra_id,
@@ -153,11 +156,19 @@ module cgra_system #(
       .send_msg(loop_out_msg), .send_val(loop_out_val), .send_rdy(loop_out_rdy), .count()
     );
   end
-  cgra_credit_ring #(.LEGACY_PYTHON(NOC_LEGACY_PYTHON),.WIDTH(HOST_BITS), .NODES(MAX_TILES+1), .DST_LSB(HOST_DST_LSB),
+  if (HAS_CTRL_RING) begin : enabled_ctrl_ring
+    cgra_credit_ring #(.LEGACY_PYTHON(NOC_LEGACY_PYTHON),.WIDTH(HOST_BITS), .NODES(MAX_TILES+1), .DST_LSB(HOST_DST_LSB),
                      .DST_WIDTH(TILE_ID_W), .VC_LSB(PAYLOAD_BITS)) ctrl_ring (
     .clk, .reset, .recv_msg(ring_recv_msg), .recv_val(ring_recv_val), .recv_rdy(ring_recv_rdy),
     .send_msg(ring_send_msg), .send_val(ring_send_val), .send_rdy(ring_send_rdy)
-  );
+    );
+  end else begin : disabled_ctrl_ring
+    for (genvar node=0;node<=MAX_TILES;node++) begin : disconnected
+      assign ring_recv_rdy[node]=1'b0;
+      assign ring_send_msg[node]='0;
+      assign ring_send_val[node]=1'b0;
+    end
+  end
   cgra_controller #(`CGRA_PROFILE_BIND,.REDUCE_LEGACY_PYTHON(REDUCE_LEGACY_PYTHON)) controller (
     .clk, .reset, .cgra_id,
     .recv_from_cpu_pkt__msg, .recv_from_cpu_pkt__val, .recv_from_cpu_pkt__rdy,

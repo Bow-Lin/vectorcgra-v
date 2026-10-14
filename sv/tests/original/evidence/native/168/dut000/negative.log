@@ -1,0 +1,4 @@
+ORIGINAL_MISMATCH sample=4 port=recv.rdy actual=1 expected=0
+[130000] %Fatal: tb_original.sv:79: Assertion failed in TOP.tb_original: ORIGINAL_REPLAY_FAILED errors=1 samples=13
+%Error: /workspace/work/original-test-components/build/6692837246a176aa4c4b/tb_original.sv:79: Verilog $stop
+Aborting...

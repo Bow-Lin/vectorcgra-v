@@ -1,0 +1,7 @@
+ORIGINAL_MISMATCH sample=0 port=dma_cmd.rdy actual=0 expected=1
+ORIGINAL_MISMATCH sample=1 port=dma_cmd.rdy actual=0 expected=1
+ORIGINAL_MISMATCH sample=2 port=dma_cmd.rdy actual=0 expected=1
+ORIGINAL_CONTRACT_CHECKS reset=3 valid_payload=21 control=0
+[235000] %Fatal: tb_original.sv:225: Assertion failed in TOP.tb_original: ORIGINAL_REPLAY_FAILED errors=3 samples=31
+%Error: /workspace/work/original-contract/build/708409141da4dcbb9fbe/tb_original.sv:225: Verilog $stop
+Aborting...

@@ -1,0 +1,5 @@
+ORIGINAL_TRANSACTION_PASS cycles=104
+- /workspace/work/original-test-systems/build/2d795063d6e859486d5f/tb_original.sv:772: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.029 devel
+- Verilator: $finish at 1us; walltime 0.479 s; speed 2.770 us/s
+- Verilator: cpu 0.390 s on 1 threads; alloced 39 MB

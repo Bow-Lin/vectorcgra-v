@@ -1,0 +1,10 @@
+{
+  "original_cycles": 56,
+  "inputs": {
+    "recv_from_cpu_pkt": 11
+  },
+  "outputs": {
+    "send_to_cpu_pkt": 4
+  },
+  "final_outputs": {}
+}

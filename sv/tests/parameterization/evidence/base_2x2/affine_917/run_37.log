@@ -1,0 +1,5 @@
+PARAM_TRANSPORT_PASS cycles=418 sent=119 complete=4 reads=32 boundary=0 stalls=24
+- /workspace/vectorcgra-v/sv/tests/parameterization/driver.svh:115: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.029 devel
+- Verilator: $finish at 4us; walltime 0.320 s; speed 13.182 us/s
+- Verilator: cpu 0.320 s on 1 threads; alloced 35 MB

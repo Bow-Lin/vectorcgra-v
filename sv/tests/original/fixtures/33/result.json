@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 33,
+    "group": "components",
+    "file": "controller/test/GlobalReduceUnitRTL_test.py",
+    "function": "test_simple",
+    "parameters": {},
+    "classes": [
+      "GlobalReduceUnitRTL"
+    ],
+    "source_sha256": "ec2a0cd63dfd26a92948f6018ba063bb38f20bd24c720052cda7e20c4f7defd4"
+  },
+  "status": "passed",
+  "source_sha256": "ec2a0cd63dfd26a92948f6018ba063bb38f20bd24c720052cda7e20c4f7defd4",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

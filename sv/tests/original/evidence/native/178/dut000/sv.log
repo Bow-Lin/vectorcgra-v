@@ -1,0 +1,15 @@
+ORIGINAL_MISMATCH sample=3 port=send.msg actual=00000000 expected=46c1cf40
+ORIGINAL_MISMATCH sample=4 port=send.msg actual=00000000 expected=46c1cf40
+ORIGINAL_MISMATCH sample=5 port=recv[0].rdy actual=0 expected=1
+ORIGINAL_MISMATCH sample=5 port=send.msg actual=00000000 expected=820a0459
+ORIGINAL_MISMATCH sample=6 port=recv[0].rdy actual=0 expected=1
+ORIGINAL_MISMATCH sample=6 port=send.msg actual=00000000 expected=820a0459
+ORIGINAL_MISMATCH sample=9 port=arbiter.priority_reg.out actual=01 expected=02
+ORIGINAL_MISMATCH sample=10 port=arbiter.priority_reg.out actual=01 expected=02
+ORIGINAL_MISMATCH sample=13 port=arbiter.priority_reg.out actual=02 expected=04
+ORIGINAL_MISMATCH sample=14 port=arbiter.priority_reg.out actual=02 expected=04
+ORIGINAL_MISMATCH sample=17 port=recv[0].rdy actual=1 expected=0
+ORIGINAL_MISMATCH sample=17 port=recv[1].rdy actual=0 expected=1
+[12750000] %Fatal: tb_original.sv:163: Assertion failed in TOP.tb_original: ORIGINAL_REPLAY_FAILED errors=5968 samples=1699
+%Error: /workspace/work/original-test-components/build/2248ee4564348926c897/tb_original.sv:163: Verilog $stop
+Aborting...

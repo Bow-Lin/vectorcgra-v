@@ -1,0 +1,42 @@
+VECTOR_REDUCE_NATIVE_PASS operations=193 checks=8340 requests=98 results=193 controls=193
+sv/tests/current/run_vector_reduce.sh: line 8:  2412 Aborted                 "$@" > "$log" 2>&1
+VECTOR_REDUCE_VALIDATION_PASS mode=rtl width=16 lanes=4 legacy=0
+VECTOR_REDUCE_REPLAY_PASS samples=360 output_bits=239
+sv/tests/current/run_vector_reduce.sh: line 8:  2615 Aborted                 "$@" > "$log" 2>&1
+VECTOR_REDUCE_VALIDATION_PASS mode=rtl width=16 lanes=4 legacy=1
+VECTOR_REDUCE_NATIVE_PASS operations=193 checks=8340 requests=98 results=193 controls=193
+sv/tests/current/run_vector_reduce.sh: line 8:  2779 Aborted                 "$@" > "$log" 2>&1
+VECTOR_REDUCE_DEFECT_FIXED mul_request
+VECTOR_REDUCE_DEFECT_FIXED invalid_control
+VECTOR_REDUCE_DEFECT_FIXED duplicate
+VECTOR_REDUCE_DEFECT_FIXED base_ready
+VECTOR_REDUCE_DEFECT_FIXED predicate
+VECTOR_REDUCE_DEFECT_FIXED early_retire
+VECTOR_REDUCE_DEFECT_FIXED response_stall
+VECTOR_REDUCE_DEFECT_FIXED clear
+VECTOR_REDUCE_VALIDATION_PASS mode=rtl width=32 lanes=4 legacy=0
+VECTOR_REDUCE_REPLAY_PASS samples=360 output_bits=303
+sv/tests/current/run_vector_reduce.sh: line 8:  3242 Aborted                 "$@" > "$log" 2>&1
+sv/tests/current/run_vector_reduce.sh: line 8:  3248 Aborted                 "$@" > "$log" 2>&1
+sv/tests/current/run_vector_reduce.sh: line 8:  3254 Aborted                 "$@" > "$log" 2>&1
+sv/tests/current/run_vector_reduce.sh: line 8:  3260 Aborted                 "$@" > "$log" 2>&1
+sv/tests/current/run_vector_reduce.sh: line 8:  3266 Aborted                 "$@" > "$log" 2>&1
+sv/tests/current/run_vector_reduce.sh: line 8:  3272 Aborted                 "$@" > "$log" 2>&1
+sv/tests/current/run_vector_reduce.sh: line 8:  3278 Aborted                 "$@" > "$log" 2>&1
+sv/tests/current/run_vector_reduce.sh: line 8:  3284 Aborted                 "$@" > "$log" 2>&1
+sv/tests/current/run_vector_reduce.sh: line 8:  3290 Aborted                 "$@" > "$log" 2>&1
+VECTOR_REDUCE_VALIDATION_PASS mode=rtl width=32 lanes=4 legacy=1
+VECTOR_REDUCE_NATIVE_PASS operations=193 checks=8340 requests=98 results=193 controls=193
+sv/tests/current/run_vector_reduce.sh: line 8:  3486 Aborted                 "$@" > "$log" 2>&1
+VECTOR_REDUCE_VALIDATION_PASS mode=rtl width=32 lanes=8 legacy=0
+VECTOR_REDUCE_REPLAY_PASS samples=360 output_bits=303
+sv/tests/current/run_vector_reduce.sh: line 8:  3670 Aborted                 "$@" > "$log" 2>&1
+VECTOR_REDUCE_VALIDATION_PASS mode=rtl width=32 lanes=8 legacy=1
+VECTOR_REDUCE_NATIVE_PASS operations=193 checks=8340 requests=98 results=193 controls=193
+sv/tests/current/run_vector_reduce.sh: line 8:  3853 Aborted                 "$@" > "$log" 2>&1
+VECTOR_REDUCE_VALIDATION_PASS mode=rtl width=64 lanes=8 legacy=0
+VECTOR_REDUCE_REPLAY_PASS samples=360 output_bits=431
+sv/tests/current/run_vector_reduce.sh: line 8:  3989 Aborted                 "$@" > "$log" 2>&1
+VECTOR_REDUCE_VALIDATION_PASS mode=rtl width=64 lanes=8 legacy=1
+sv/tests/current/run_vector_reduce.sh: line 8:  4243 Aborted                 "$@" > "$log" 2>&1
+VECTOR_REDUCE_INVALID_PARAMETER_DETECTED

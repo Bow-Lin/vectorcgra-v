@@ -1,0 +1,4 @@
+ORIGINAL_MISMATCH sample=4 port=recv_data_on_boundary_east[0].rdy actual=1 expected=0
+[60000] %Fatal: tb_original.sv:495: Assertion failed in TOP.tb_original: ORIGINAL_REPLAY_FAILED errors=1 samples=6
+%Error: /workspace/work/original-no-control-ring/build/46803e7da8cc410267a7/tb_original.sv:495: Verilog $stop
+Aborting...

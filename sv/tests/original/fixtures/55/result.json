@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 55,
+    "group": "fu",
+    "file": "fu/quadra/test/FourIncCmpNotGrantRTL_test.py",
+    "function": "test_four",
+    "parameters": {},
+    "classes": [
+      "FourIncCmpNotGrantRTL"
+    ],
+    "source_sha256": "6c07ca7fa5ec3f35b99b14e9d470b2a77c86b02defb4a191a7521271c02d7893"
+  },
+  "status": "passed",
+  "source_sha256": "6c07ca7fa5ec3f35b99b14e9d470b2a77c86b02defb4a191a7521271c02d7893",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

@@ -1,0 +1,97 @@
+{
+  "python_class": "ContextSwitchRTL",
+  "arguments": {
+    "data_nbits": 16,
+    "ctrl_addr_nbits": 16
+  },
+  "hierarchy": "s.context_switch",
+  "samples": 15,
+  "edges": 15,
+  "module": "tile_context_switch",
+  "parameters": {
+    "DATA_W": 16,
+    "CTRL_DEPTH": 65536
+  },
+  "mode": "native",
+  "bindings": {},
+  "ports": [
+    {
+      "path": "ctrl_mem_rd_addr",
+      "name": "ctrl_mem_rd_addr",
+      "width": 16,
+      "original_width": 16,
+      "direction": "input"
+    },
+    {
+      "path": "overwrite_fu_outport.msg",
+      "name": "overwrite_fu_outport__msg",
+      "width": 19,
+      "original_width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "overwrite_fu_outport.rdy",
+      "name": "overwrite_fu_outport__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "overwrite_fu_outport.val",
+      "name": "overwrite_fu_outport__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "phi_addr",
+      "name": "phi_addr",
+      "width": 16,
+      "original_width": 16,
+      "direction": "input"
+    },
+    {
+      "path": "progress_in",
+      "name": "progress_in",
+      "width": 19,
+      "original_width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "progress_in_val",
+      "name": "progress_in_val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_cmd",
+      "name": "recv_cmd",
+      "width": 6,
+      "original_width": 6,
+      "direction": "input"
+    },
+    {
+      "path": "recv_cmd_vld",
+      "name": "recv_cmd_vld",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_opt",
+      "name": "recv_opt",
+      "width": 7,
+      "original_width": 7,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    }
+  ],
+  "vectors_sha256": "cad80abda879762bf840de04ee56608a94c8843d6f541437c04d2f4e5d9c3abf"
+}

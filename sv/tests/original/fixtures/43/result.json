@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 43,
+    "group": "fu",
+    "file": "fu/float/test/FpMulRTL_test.py",
+    "function": "test_mul",
+    "parameters": {},
+    "classes": [
+      "FpMulRTL"
+    ],
+    "source_sha256": "f2819adb318a8f9e4254632e6a0f48ca81b829bb3f494be8964ef06c0c5b776e"
+  },
+  "status": "passed",
+  "source_sha256": "f2819adb318a8f9e4254632e6a0f48ca81b829bb3f494be8964ef06c0c5b776e",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

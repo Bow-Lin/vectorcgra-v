@@ -1,0 +1,88 @@
+{
+  "python_class": "LinkOrRTL",
+  "arguments": {
+    "DataType": "CgraData_16_1_1_1"
+  },
+  "hierarchy": "s.dut",
+  "samples": 14,
+  "edges": 14,
+  "module": "tile_link_or",
+  "parameters": {
+    "DATA_W": 16
+  },
+  "mode": "native",
+  "bindings": {},
+  "ports": [
+    {
+      "path": "recv_fu.msg",
+      "name": "recv_fu__msg",
+      "width": 19,
+      "original_width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "recv_fu.rdy",
+      "name": "recv_fu__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_fu.val",
+      "name": "recv_fu__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_xbar.msg",
+      "name": "recv_xbar__msg",
+      "width": 19,
+      "original_width": 19,
+      "direction": "input"
+    },
+    {
+      "path": "recv_xbar.rdy",
+      "name": "recv_xbar__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_xbar.val",
+      "name": "recv_xbar__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send.msg",
+      "name": "send__msg",
+      "width": 19,
+      "original_width": 19,
+      "direction": "output"
+    },
+    {
+      "path": "send.rdy",
+      "name": "send__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send.val",
+      "name": "send__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "cb28a502d2d5d1f889ce40eb20f92648bf737ff3705140b799c464cec6f4bdc7"
+}

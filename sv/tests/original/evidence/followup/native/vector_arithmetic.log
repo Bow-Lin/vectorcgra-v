@@ -1,0 +1,38 @@
+VECTOR_ARITHMETIC_NATIVE_PASS kind=0 samples=1024 checks=9420
+sv/tests/current/run_vector_arithmetic.sh: line 8:  4459 Aborted                 "$@" > "$log" 2>&1
+VECTOR_ARITHMETIC_VALIDATION_PASS mode=rtl kind=add width=32 lanes=1 legacy=0
+VECTOR_ARITHMETIC_REPLAY_PASS samples=320 output_bits=303
+sv/tests/current/run_vector_arithmetic.sh: line 8:  4651 Aborted                 "$@" > "$log" 2>&1
+VECTOR_ARITHMETIC_VALIDATION_PASS mode=rtl kind=add width=32 lanes=1 legacy=1
+VECTOR_ARITHMETIC_NATIVE_PASS kind=0 samples=1024 checks=9420
+sv/tests/current/run_vector_arithmetic.sh: line 8:  4774 Aborted                 "$@" > "$log" 2>&1
+VECTOR_ARITHMETIC_CARRY_FIXED
+VECTOR_ARITHMETIC_VALIDATION_PASS mode=rtl kind=add width=32 lanes=4 legacy=0
+VECTOR_ARITHMETIC_REPLAY_PASS samples=320 output_bits=303
+sv/tests/current/run_vector_arithmetic.sh: line 8:  4873 Aborted                 "$@" > "$log" 2>&1
+sv/tests/current/run_vector_arithmetic.sh: line 8:  4879 Aborted                 "$@" > "$log" 2>&1
+VECTOR_ARITHMETIC_VALIDATION_PASS mode=rtl kind=add width=32 lanes=4 legacy=1
+VECTOR_ARITHMETIC_NATIVE_PASS kind=0 samples=1024 checks=9420
+sv/tests/current/run_vector_arithmetic.sh: line 8:  4972 Aborted                 "$@" > "$log" 2>&1
+VECTOR_ARITHMETIC_VALIDATION_PASS mode=rtl kind=add width=64 lanes=8 legacy=0
+VECTOR_ARITHMETIC_REPLAY_PASS samples=320 output_bits=431
+sv/tests/current/run_vector_arithmetic.sh: line 8:  5065 Aborted                 "$@" > "$log" 2>&1
+VECTOR_ARITHMETIC_VALIDATION_PASS mode=rtl kind=add width=64 lanes=8 legacy=1
+VECTOR_ARITHMETIC_NATIVE_PASS kind=1 samples=256 checks=2358
+sv/tests/current/run_vector_arithmetic.sh: line 8:  5116 Aborted                 "$@" > "$log" 2>&1
+VECTOR_ARITHMETIC_VALIDATION_PASS mode=rtl kind=mul width=32 lanes=4 legacy=0
+VECTOR_ARITHMETIC_REPLAY_PASS samples=320 output_bits=303
+sv/tests/current/run_vector_arithmetic.sh: line 8:  5167 Aborted                 "$@" > "$log" 2>&1
+VECTOR_ARITHMETIC_VALIDATION_PASS mode=rtl kind=mul width=32 lanes=4 legacy=1
+VECTOR_ARITHMETIC_NATIVE_PASS kind=1 samples=256 checks=2358
+sv/tests/current/run_vector_arithmetic.sh: line 8:  5218 Aborted                 "$@" > "$log" 2>&1
+VECTOR_ARITHMETIC_VALIDATION_PASS mode=rtl kind=mul width=64 lanes=4 legacy=0
+VECTOR_ARITHMETIC_REPLAY_PASS samples=320 output_bits=431
+sv/tests/current/run_vector_arithmetic.sh: line 8:  5269 Aborted                 "$@" > "$log" 2>&1
+VECTOR_ARITHMETIC_VALIDATION_PASS mode=rtl kind=mul width=64 lanes=4 legacy=1
+VECTOR_ARITHMETIC_REPLAY_PASS samples=320 output_bits=431
+sv/tests/current/run_vector_arithmetic.sh: line 8:  5325 Aborted                 "$@" > "$log" 2>&1
+sv/tests/current/run_vector_arithmetic.sh: line 8:  5331 Aborted                 "$@" > "$log" 2>&1
+VECTOR_ARITHMETIC_VALIDATION_PASS mode=rtl kind=mul width=64 lanes=8 legacy=1
+sv/tests/current/run_vector_arithmetic.sh: line 8:  5376 Aborted                 "$@" > "$log" 2>&1
+VECTOR_ARITHMETIC_PARAMETER_REJECT_PASS mode=rtl

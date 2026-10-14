@@ -1,0 +1,129 @@
+{
+  "python_class": "RingMultiCgraRTL",
+  "arguments": {
+    "CgraPayloadType": "MultiCgraPayload_Cmd_Data_DataAddr_Ctrl_CtrlAddr",
+    "cgra_rows": 1,
+    "cgra_columns": 4,
+    "tile_rows": 2,
+    "tile_columns": 2,
+    "ctrl_mem_size": 6,
+    "data_mem_size_global": 32,
+    "data_mem_size_per_bank": 4,
+    "num_banks_per_cgra": 2,
+    "num_registers_per_reg_bank": 16,
+    "num_ctrl": 6,
+    "total_steps": 6,
+    "mem_access_is_combinational": true,
+    "FunctionUnit": "FlexibleFuRTL",
+    "FuList": [
+      "MemUnitRTL",
+      "AdderRTL",
+      "NahRTL"
+    ],
+    "controller2addr_map": {
+      "0": [
+        0,
+        7
+      ],
+      "1": [
+        8,
+        15
+      ],
+      "2": [
+        16,
+        23
+      ],
+      "3": [
+        24,
+        31
+      ]
+    }
+  },
+  "hierarchy": "s.dut",
+  "samples": 535,
+  "edges": 535,
+  "module": "cgra_multi",
+  "parameters": {
+    "DATA_W": 32,
+    "CTRL_DEPTH": 6,
+    "GLOBAL_ADDR_W": 5,
+    "REG_DEPTH": 16,
+    "TILE_PORTS": 4,
+    "COLS": 2,
+    "ROWS": 2,
+    "MULTI_COLS": 4,
+    "MULTI_ROWS": 1,
+    "BANK_DEPTH": 4,
+    "NUM_BANKS": 2,
+    "NUM_CTRL": 6,
+    "TOTAL_STEPS": 6,
+    "MEM_COMBINATIONAL": 1,
+    "FU_COUNT": 3,
+    "FU_KINDS": "24'h30002",
+    "CUSTOM_ADDR_MAP": 1,
+    "ADDR_MAP": "8'he4",
+    "TOPOLOGY": 1,
+    "TILE_VARIANT": 0
+  },
+  "mode": "native",
+  "bindings": {},
+  "normalize_ctrl": true,
+  "transaction_replay": true,
+  "ports": [
+    {
+      "path": "recv_from_cpu_pkt.msg",
+      "name": "recv_from_cpu_pkt__msg",
+      "width": 193,
+      "original_width": 193,
+      "direction": "input"
+    },
+    {
+      "path": "recv_from_cpu_pkt.rdy",
+      "name": "recv_from_cpu_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_from_cpu_pkt.val",
+      "name": "recv_from_cpu_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_cpu_pkt.msg",
+      "name": "send_to_cpu_pkt__msg",
+      "width": 193,
+      "original_width": 193,
+      "direction": "output"
+    },
+    {
+      "path": "send_to_cpu_pkt.rdy",
+      "name": "send_to_cpu_pkt__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_to_cpu_pkt.val",
+      "name": "send_to_cpu_pkt__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    }
+  ],
+  "required_output_words": {
+    "send_to_cpu_pkt": [
+      784637798767426786010037097307308934124643531290226720768
+    ]
+  },
+  "vectors_sha256": "defc7617041c143957e65f4410fcbfba9e397570110b352172b4e7d8b10c5a56"
+}

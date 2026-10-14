@@ -1,0 +1,241 @@
+{
+  "address_map": [
+    0
+  ],
+  "algorithm": "add",
+  "boundary_inputs": [],
+  "capacity": 32,
+  "expected_completions": [
+    [
+      0,
+      0
+    ],
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      5
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      0,
+      3
+    ]
+  ],
+  "initial": {
+    "0": [
+      1757867400,
+      1757867413,
+      1757867426,
+      1757867439,
+      1757867452,
+      1757867465,
+      1757867478,
+      1757867491,
+      1757867504,
+      1757867517,
+      1757867530,
+      1757867543,
+      1757867556,
+      1757867569,
+      1757867582,
+      1757867595,
+      1757867608,
+      1757867621,
+      1757867634,
+      1757867647,
+      1757867660,
+      1757867673,
+      1757867686,
+      1757867699,
+      1757867712,
+      1757867725,
+      1757867738,
+      1757867751,
+      1757867764,
+      1757867777,
+      2937486329,
+      1757867803
+    ]
+  },
+  "mathematical_function": "x+17",
+  "rounds": 6,
+  "seed": 23,
+  "stages": [
+    {
+      "cgra": 0,
+      "output_address": 31,
+      "path": [
+        0,
+        1,
+        2,
+        5,
+        4,
+        3
+      ],
+      "source_address": 30,
+      "source_owner": 0,
+      "tiles": [
+        {
+          "initial_increment": 0,
+          "last_control": 5,
+          "operations": [
+            {
+              "kind": "add",
+              "value": 4
+            },
+            {
+              "kind": "add",
+              "value": 5
+            },
+            {
+              "kind": "add",
+              "value": 6
+            },
+            {
+              "kind": "add",
+              "value": 7
+            }
+          ],
+          "register": 4,
+          "tile": 0
+        },
+        {
+          "initial_increment": 1,
+          "last_control": 5,
+          "operations": [
+            {
+              "kind": "add",
+              "value": 2
+            },
+            {
+              "kind": "add",
+              "value": 3
+            },
+            {
+              "kind": "add",
+              "value": 4
+            },
+            {
+              "kind": "add",
+              "value": 5
+            }
+          ],
+          "register": 4,
+          "tile": 1
+        },
+        {
+          "initial_increment": 1,
+          "last_control": 5,
+          "operations": [
+            {
+              "kind": "add",
+              "value": 7
+            },
+            {
+              "kind": "add",
+              "value": 1
+            },
+            {
+              "kind": "add",
+              "value": 2
+            },
+            {
+              "kind": "add",
+              "value": 3
+            }
+          ],
+          "register": 4,
+          "tile": 2
+        },
+        {
+          "initial_increment": 1,
+          "last_control": 5,
+          "operations": [
+            {
+              "kind": "add",
+              "value": 1
+            },
+            {
+              "kind": "add",
+              "value": 2
+            },
+            {
+              "kind": "add",
+              "value": 3
+            },
+            {
+              "kind": "add",
+              "value": 4
+            }
+          ],
+          "register": 4,
+          "tile": 5
+        },
+        {
+          "initial_increment": 1,
+          "last_control": 5,
+          "operations": [
+            {
+              "kind": "add",
+              "value": 3
+            },
+            {
+              "kind": "add",
+              "value": 4
+            },
+            {
+              "kind": "add",
+              "value": 5
+            },
+            {
+              "kind": "add",
+              "value": 6
+            }
+          ],
+          "register": 4,
+          "tile": 4
+        },
+        {
+          "initial_increment": 1,
+          "last_control": 5,
+          "operations": [
+            {
+              "kind": "add",
+              "value": 5
+            },
+            {
+              "kind": "add",
+              "value": 6
+            },
+            {
+              "kind": "add",
+              "value": 7
+            },
+            {
+              "kind": "add",
+              "value": 1
+            },
+            {
+              "kind": "add",
+              "value": 4294967260
+            }
+          ],
+          "register": 4,
+          "tile": 3
+        }
+      ]
+    }
+  ],
+  "streaming": false,
+  "width": 32
+}

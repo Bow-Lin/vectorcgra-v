@@ -1,0 +1,7 @@
+ORIGINAL_MISMATCH sample=0 port=send_const.val actual=0 expected=1
+ORIGINAL_MISMATCH sample=1 port=send_const.val actual=0 expected=1
+ORIGINAL_MISMATCH sample=2 port=send_const.val actual=0 expected=1
+ORIGINAL_CONTRACT_CHECKS reset=3 valid_payload=9 control=0
+[120000] %Fatal: tb_original.sv:62: Assertion failed in TOP.tb_original: ORIGINAL_REPLAY_FAILED errors=3 samples=12
+%Error: /workspace/work/original-contract/build/c0b5b45be651296246b6/tb_original.sv:62: Verilog $stop
+Aborting...

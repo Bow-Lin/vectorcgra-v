@@ -1,0 +1,23 @@
+{
+  "case": {
+    "id": 60,
+    "group": "fu",
+    "file": "fu/single/test/AluRTL_test.py",
+    "function": "test_mul",
+    "parameters": {},
+    "classes": [
+      "AdderRTL",
+      "LogicRTL",
+      "ShifterRTL",
+      "MulRTL"
+    ],
+    "source_sha256": "940f1864e4e3f50b88615a83c8f4d5b3483338cc67d14395d8c6ac73564fd556"
+  },
+  "status": "passed",
+  "source_sha256": "940f1864e4e3f50b88615a83c8f4d5b3483338cc67d14395d8c6ac73564fd556",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

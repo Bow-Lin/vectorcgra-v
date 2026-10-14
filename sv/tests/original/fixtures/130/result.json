@@ -1,0 +1,20 @@
+{
+  "case": {
+    "id": 130,
+    "group": "state_pe",
+    "file": "mem/ctrl/test/ContextSwitchRTL_test.py",
+    "function": "test_preserve_resume_accumulation",
+    "parameters": {},
+    "classes": [
+      "ContextSwitchRTL"
+    ],
+    "source_sha256": "ea4bdbd5293ff0a1e3bed78cf0b8c043cef04dfbecdd57e1fabff3f108533a6d"
+  },
+  "status": "passed",
+  "source_sha256": "ea4bdbd5293ff0a1e3bed78cf0b8c043cef04dfbecdd57e1fabff3f108533a6d",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

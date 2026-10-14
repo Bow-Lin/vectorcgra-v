@@ -1,0 +1,3 @@
+[355000] %Fatal: tb_original.sv:436: Assertion failed in TOP.tb_original: ORIGINAL_TRANSACTION_MISMATCH send_data_on_boundary_south[0] index=0 actual=000000064 expected=000000065
+%Error: /workspace/work/original-test-systems/build/aaea27349fa01834fd93/tb_original.sv:436: Verilog $stop
+Aborting...

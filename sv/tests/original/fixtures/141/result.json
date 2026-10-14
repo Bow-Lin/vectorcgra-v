@@ -1,0 +1,22 @@
+{
+  "case": {
+    "id": 141,
+    "group": "components",
+    "file": "mem/dma/test/DmaEngineRTL_test.py",
+    "function": "test_dma_mvin_configurable_partial_second_beat",
+    "parameters": {
+      "dram_data_nbits": 256
+    },
+    "classes": [
+      "DmaEngineRTL"
+    ],
+    "source_sha256": "adab75016d09a56ab14932dc4733fb27da94551d59992039b23997d0882c038c"
+  },
+  "status": "passed",
+  "source_sha256": "adab75016d09a56ab14932dc4733fb27da94551d59992039b23997d0882c038c",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ]
+}

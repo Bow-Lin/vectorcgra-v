@@ -1,0 +1,5 @@
+ORIGINAL_REPLAY_PASS samples=15
+- /workspace/work/original-test-supplement/build/6e70a634fff3946b7d4a/tb_original.sv:134: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.029 devel
+- Verilator: $finish at 150ns; walltime 0.000 s; speed 368.286 us/s
+- Verilator: cpu 0.000 s on 1 threads; alloced 33 MB

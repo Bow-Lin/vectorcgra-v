@@ -1,0 +1,83 @@
+{
+  "python_class": "ConstQueueDynamicRTL",
+  "arguments": {
+    "DataType": "CgraData_4_1_1_1",
+    "const_mem_size": 8
+  },
+  "hierarchy": "s.const_queue",
+  "samples": 17,
+  "edges": 17,
+  "module": "const_queue",
+  "parameters": {
+    "DATA_W": 4,
+    "CTRL_DEPTH": 8
+  },
+  "mode": "native",
+  "bindings": {},
+  "ports": [
+    {
+      "path": "clear",
+      "name": "clear",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "ctrl_proceed",
+      "name": "ctrl_proceed",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "recv_const.msg",
+      "name": "recv_const__msg",
+      "width": 7,
+      "original_width": 7,
+      "direction": "input"
+    },
+    {
+      "path": "recv_const.rdy",
+      "name": "recv_const__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    },
+    {
+      "path": "recv_const.val",
+      "name": "recv_const__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "reset",
+      "name": "reset",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_const.msg",
+      "name": "send_const__msg",
+      "width": 7,
+      "original_width": 7,
+      "direction": "output"
+    },
+    {
+      "path": "send_const.rdy",
+      "name": "send_const__rdy",
+      "width": 1,
+      "original_width": 1,
+      "direction": "input"
+    },
+    {
+      "path": "send_const.val",
+      "name": "send_const__val",
+      "width": 1,
+      "original_width": 1,
+      "direction": "output"
+    }
+  ],
+  "vectors_sha256": "47c0e49f937f5b18a38aee49e22379f89ce98752043b5b5ddafff032e53065fa"
+}

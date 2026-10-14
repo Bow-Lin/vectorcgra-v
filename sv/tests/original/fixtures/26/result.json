@@ -1,0 +1,21 @@
+{
+  "case": {
+    "id": 26,
+    "group": "systems",
+    "file": "cgra/test/Im2colCgraE2E_test.py",
+    "function": "test_im2col_to_systolic_3x3",
+    "parameters": {},
+    "classes": [
+      "IntegratedIm2ColWithCgraRTL"
+    ],
+    "source_sha256": "09ad3c438a4e059a0190a346e96a815579c76c33edd25666b6c1f059bdc97fdc"
+  },
+  "status": "passed",
+  "source_sha256": "09ad3c438a4e059a0190a346e96a815579c76c33edd25666b6c1f059bdc97fdc",
+  "python_target": "cd7aad878915e389cecf8cc01ff6987d156bd019",
+  "source_files_checked": 274,
+  "captures": [
+    "dut000"
+  ],
+  "adapter_errors": []
+}
