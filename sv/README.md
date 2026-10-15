@@ -10,6 +10,16 @@ SystemVerilog 参数和 generate 展开；普通仿真、综合和程序加载�
 收尾任务状态见 [MIGRATION_TASKS.md](MIGRATION_TASKS.md)，结果入口见
 [最终验收索引](FINAL_ACCEPTANCE.md)。
 
+## 迁移工程导览
+
+从目录和模块组成开始，再通过同一 ReLU YAML 对照 Python 与 SV 的参数绑定、
+硬件展开、程序装载和结果验收：
+
+- [GitHub 文字阅读版](docs/migration-guide.md)
+- [HTML 阅读版](docs/migration-guide.html)：下载后用浏览器打开，支持完整文件索引搜索和控制字交互。
+
+文件清单为文档整理时的工作树快照，具体版本和未提交内容的边界见文档开头。
+
 ## 开始使用
 
 Linux x86_64 需要 C++20 编译器、make、Perl、Python 3、curl、tar 和 unzip。
