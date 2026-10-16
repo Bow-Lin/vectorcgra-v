@@ -1,6 +1,6 @@
 """Migration-only: namespace a frozen reference without changing RTL behavior.
 
-The checked-in .sv result is compiled directly by normal builds. This script
+The checked-in .sv result is test-only golden RTL. This script
 is not a build dependency. Every transformation is reversible and recorded.
 """
 
@@ -12,7 +12,7 @@ import re
 
 SV = Path(__file__).resolve().parents[1]
 SOURCE = SV / "reference/VectorCGRA2x2Reference.v"
-TARGET = SV / "rtl/fixed/cgra_2x2_core.sv"
+TARGET = SV / "reference/legacy/cgra_2x2_core.sv"
 HEADER = (
   "// Fixed 2x2 core frozen from ac96a7; see reference/core_provenance.json.\n"
   "// Only module/type identifiers were renamed. No RTL behavior was edited.\n"

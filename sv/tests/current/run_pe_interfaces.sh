@@ -7,7 +7,7 @@ root=build/current/pe-interfaces
 mkdir -p "$root"
 if [[ $mode == synth ]];then
   mapfile -t files < <(grep -vE '^\+|^$' filelists/native.f)
-  "$SV2V" -Irtl/common -Irtl/vendor/hardfloat -Irtl/fu/combo/vendor "${files[@]}" \
+  "$SV2V" -Irtl/common -Irtl/vendor/hardfloat "${files[@]}" \
     --top=cgra_pe --write="$root/pe.v" >"$root/sv2v.log" 2>&1
 elif [[ $mode != rtl ]];then echo 'Usage: run_pe_interfaces.sh rtl|synth';exit 2;fi
 profiles=(base base64 base8 context context8 streaming stream-load)

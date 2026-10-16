@@ -8,7 +8,7 @@ from pathlib import Path
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = (ROOT / 'rtl/fixed/cgra_2x2_core.sv').read_text()
+SOURCE = (ROOT / 'reference/legacy/cgra_2x2_core.sv').read_text()
 TYPE_NAMES = re.findall(r'^} (Fixed2x2_\w+);', SOURCE, re.M)
 LOCAL_NAMES = ['data_t', 'ctrl_t', 'payload_t', 'noc_packet_t', 'host_packet_t',
                'dma_cmd_t', 'dma_done_t', 'dma_read_req_t', 'dma_write_req_t',

@@ -2,7 +2,7 @@
 from pathlib import Path
 import re
 ROOT=Path(__file__).resolve().parents[1]
-text=(ROOT/'rtl/tile/tile_core.sv').read_text()
+text=(ROOT/'tests/legacy/rtl/tile/tile_core.sv').read_text()
 text=text.replace('module tile_core #(', 'module tile_programmable #(')
 text=text.replace('`include "cgra_profile_defs.svh"', '`include "cgra_profile_defs.svh"\n`include "cgra_fu_catalog.svh"')
 text=text.replace('`CGRA_PROFILE_PARAMETERS', '`CGRA_PROFILE_PARAMETERS,\n  `CGRA_FU_PARAMETERS',1)

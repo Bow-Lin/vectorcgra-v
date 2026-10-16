@@ -7196,7 +7196,7 @@
       "status": "abi_or_metadata",
       "targets": [
         "sv/tools/abi.json",
-        "sv/rtl/common/cgra_types_pkg.sv"
+        "sv/tests/legacy/rtl/common/cgra_types_pkg.sv"
       ],
       "family": "abi",
       "notes": "Encoding/field semantics mapped; Python factory and attribute dictionary API not exported. Opcode/command definitions do not imply dispatch support.",
@@ -7211,7 +7211,7 @@
       "status": "abi_or_metadata",
       "targets": [
         "sv/rtl/common/cgra_profile.svh",
-        "sv/rtl/common/cgra_types_pkg.sv",
+        "sv/tests/legacy/rtl/common/cgra_types_pkg.sv",
         "sv/tools/cgra_program.py"
       ],
       "family": "abi",
@@ -13242,8 +13242,6 @@
         "mem/register_cluster/RegisterClusterRTL.py"
       ],
       "sv_dispatch_or_control_references": [
-        "sv/rtl/common/cgra_types_pkg.sv",
-        "sv/rtl/fu/tile_flexible_fu.sv",
         "sv/rtl/fu/tile_nah.sv",
         "sv/rtl/mem/ctrl_mem.sv",
         "sv/rtl/mem/register_cluster.sv",
@@ -13271,7 +13269,6 @@
         "fu/vector/VectorAdderRTL.py"
       ],
       "sv_dispatch_or_control_references": [
-        "sv/rtl/common/cgra_types_pkg.sv",
         "sv/rtl/fu/combo/tile_alu_gen_mac.sv",
         "sv/rtl/fu/combo/tile_prl_mul_adder.sv",
         "sv/rtl/fu/combo/tile_seq_mul_adder.sv",
@@ -13296,7 +13293,6 @@
         "fu/vector/VectorAdderRTL.py"
       ],
       "sv_dispatch_or_control_references": [
-        "sv/rtl/common/cgra_types_pkg.sv",
         "sv/rtl/fu/combo/tile_four_inc_cmp_not_grant.sv",
         "sv/rtl/fu/tile_adder.sv",
         "sv/rtl/fu/vector/cgra_vector_adder.sv"
@@ -13322,7 +13318,6 @@
         "fu/vector/VectorAdderRTL.py"
       ],
       "sv_dispatch_or_control_references": [
-        "sv/rtl/common/cgra_types_pkg.sv",
         "sv/rtl/fu/combo/tile_alu_gen_mac.sv",
         "sv/rtl/fu/combo/tile_prl_mul_adder.sv",
         "sv/rtl/fu/combo/tile_seq_mul_adder.sv",
@@ -13392,7 +13387,6 @@
         "fu/vector/VectorMulRTL.py"
       ],
       "sv_dispatch_or_control_references": [
-        "sv/rtl/common/cgra_types_pkg.sv",
         "sv/rtl/fu/combo/tile_alu_gen_mac.sv",
         "sv/rtl/fu/combo/tile_prl_mul_adder.sv",
         "sv/rtl/fu/combo/tile_seq_mul_adder.sv",
@@ -13482,7 +13476,6 @@
         "fu/single/MemUnitRTL.py"
       ],
       "sv_dispatch_or_control_references": [
-        "sv/rtl/common/cgra_types_pkg.sv",
         "sv/rtl/fu/tile_memory_fu.sv"
       ],
       "related_evidence": [
@@ -13498,7 +13491,6 @@
         "fu/single/MemUnitRTL.py"
       ],
       "sv_dispatch_or_control_references": [
-        "sv/rtl/common/cgra_types_pkg.sv",
         "sv/rtl/fu/tile_memory_fu.sv"
       ],
       "related_evidence": [
@@ -13693,7 +13685,6 @@
         "fu/vector/VectorAdderRTL.py"
       ],
       "sv_dispatch_or_control_references": [
-        "sv/rtl/common/cgra_types_pkg.sv",
         "sv/rtl/fu/tile_adder.sv",
         "sv/rtl/fu/vector/cgra_vector_adder.sv"
       ],
@@ -13746,7 +13737,6 @@
         "fu/single/MemUnitRTL.py"
       ],
       "sv_dispatch_or_control_references": [
-        "sv/rtl/common/cgra_types_pkg.sv",
         "sv/rtl/fu/tile_memory_fu.sv"
       ],
       "related_evidence": [
@@ -13763,7 +13753,6 @@
         "fu/single/MulRTL.py"
       ],
       "sv_dispatch_or_control_references": [
-        "sv/rtl/common/cgra_types_pkg.sv",
         "sv/rtl/fu/combo/tile_seq_mul_adder.sv",
         "sv/rtl/fu/tile_multiplier.sv"
       ],
@@ -13798,7 +13787,6 @@
         "fu/vector/VectorAdderRTL.py"
       ],
       "sv_dispatch_or_control_references": [
-        "sv/rtl/common/cgra_types_pkg.sv",
         "sv/rtl/fu/combo/tile_seq_mul_adder.sv",
         "sv/rtl/fu/tile_adder.sv",
         "sv/rtl/fu/vector/cgra_vector_adder.sv"
@@ -13886,7 +13874,6 @@
         "fu/vector/VectorAdderRTL.py"
       ],
       "sv_dispatch_or_control_references": [
-        "sv/rtl/common/cgra_types_pkg.sv",
         "sv/rtl/fu/tile_adder.sv",
         "sv/rtl/fu/vector/cgra_vector_adder.sv"
       ],
@@ -14228,7 +14215,6 @@
         "fu/single/MemUnitRTL.py"
       ],
       "sv_dispatch_or_control_references": [
-        "sv/rtl/common/cgra_types_pkg.sv",
         "sv/rtl/fu/tile_memory_fu.sv"
       ],
       "related_evidence": [
@@ -14550,7 +14536,6 @@
         "fu/single/MemUnitRTL.py"
       ],
       "sv_dispatch_or_control_references": [
-        "sv/rtl/common/cgra_types_pkg.sv",
         "sv/rtl/fu/tile_memory_fu.sv"
       ],
       "related_evidence": [

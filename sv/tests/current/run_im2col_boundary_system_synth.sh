@@ -9,7 +9,7 @@ build=build/current/memory-boundaries/im2col-system-synth;mkdir -p "$build"
 [[ -f "$YOSYS_SIMCELLS" ]] || { echo 'Set YOSYS_SIMCELLS to the installed Yosys simcells.v';exit 1; }
 cp "$YOSYS_SIMCELLS" "$build/simcells.v"
 mapfile -t files < <(grep -vE '^\+|^$' filelists/native.f)
-"$SV2V" -DSYNTHESIS -Irtl/common -Irtl/vendor/hardfloat -Irtl/fu/combo/vendor "${files[@]}" \
+"$SV2V" -DSYNTHESIS -Irtl/common -Irtl/vendor/hardfloat "${files[@]}" \
   --top=cgra_integrated_im2col --write="$build/converted.v" >"$build/sv2v.log" 2>&1
 # Match the complete public-IO configuration in tb_im2col_boundary_system.
 cat >"$build/synthesis.ys" <<EOF

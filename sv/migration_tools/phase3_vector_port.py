@@ -96,7 +96,9 @@ module cgra_alu_gen_mac (
 endmodule
 ''')
   for source in ['svsrc/ALUgenMAC.sv','dp_fpfma/DW02_multp.v']:
-    save(Path('combo/vendor')/source,(ROOT/'fu/fused_alu_fixedp'/source).read_text())
+    target = ROOT/'sv/reference/vendor/alu_gen_mac'/source
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_text((ROOT/'fu/fused_alu_fixedp'/source).read_text(), newline='\n')
 
 
 if __name__=='__main__':

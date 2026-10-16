@@ -160,8 +160,8 @@
 | `lib/basic/val_rdy/__init__.py` | package_marker |  | Python package initialization; no RTL API. |
 | `lib/basic/val_rdy/ifcs.py` | framework | `sv/rtl/common/cgra_pe_ports.svh` | RTL signal fields are flattened; Python FL/CL adaptors/string rendering are not SV APIs. |
 | `lib/basic/val_rdy/queues.py` | rtl | `sv/rtl/common/cgra_queue.sv`<br>`sv/rtl/common/cgra_pipe_queue.sv` | Normal/Bypass/clear variants plus standalone PipeQueue; shared datapath/controller classes are inlined. |
-| `lib/cmd_type.py` | abi_or_metadata | `sv/tools/abi.json`<br>`sv/rtl/common/cgra_types_pkg.sv` | Encoding/field semantics mapped; Python factory and attribute dictionary API not exported. Opcode/command definitions do not imply dispatch support. |
-| `lib/messages.py` | abi_or_metadata | `sv/rtl/common/cgra_profile.svh`<br>`sv/rtl/common/cgra_types_pkg.sv`<br>`sv/tools/cgra_program.py` | Encoding/field semantics mapped; Python factory and attribute dictionary API not exported. Opcode/command definitions do not imply dispatch support. |
+| `lib/cmd_type.py` | abi_or_metadata | `sv/tools/abi.json`<br>`sv/tests/legacy/rtl/common/cgra_types_pkg.sv` | Encoding/field semantics mapped; Python factory and attribute dictionary API not exported. Opcode/command definitions do not imply dispatch support. |
+| `lib/messages.py` | abi_or_metadata | `sv/rtl/common/cgra_profile.svh`<br>`sv/tests/legacy/rtl/common/cgra_types_pkg.sv`<br>`sv/tools/cgra_program.py` | Encoding/field semantics mapped; Python factory and attribute dictionary API not exported. Opcode/command definitions do not imply dispatch support. |
 | `lib/opt_type.py` | abi_or_metadata | `sv/rtl/common/cgra_opcodes.svh`<br>`sv/tools/abi.json` | Encoding/field semantics mapped; Python factory and attribute dictionary API not exported. Opcode/command definitions do not imply dispatch support. |
 | `lib/status_type.py` | abi_or_metadata | `sv/rtl/tile/variants/tile_context_switch.sv` | Encoding/field semantics mapped; Python factory and attribute dictionary API not exported. Opcode/command definitions do not imply dispatch support. |
 | `lib/trace_logger.py` | software_not_ported | `sv/tests/current/tb_native_kernel.sv` | Native testbench logs replace selected diagnostics, not the original trace-logger API. |
@@ -289,19 +289,19 @@
 | Opcode | 编码 | 状态 | SV 位置 |
 |---|---:|---|---|
 | START | 0 | control_sentinel | `sv/rtl/fu/combo/tile_alu_gen_mac.sv`<br>`sv/rtl/fu/combo/tile_four_inc_cmp_not_grant.sv`<br>`sv/rtl/fu/combo/tile_prl_mul_adder.sv`<br>`sv/rtl/fu/combo/tile_seq_mul_adder.sv`<br>`sv/rtl/fu/combo/tile_seq_mul_shifter.sv`<br>`sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv`<br>`sv/rtl/fu/scalar/scalar_comp.sv`<br>`sv/rtl/fu/scalar/scalar_const.sv`<br>`sv/rtl/fu/scalar/scalar_div.sv`<br>`sv/rtl/fu/scalar/scalar_exclusive_div.sv`<br>`sv/rtl/fu/scalar/scalar_extract_predicate.sv`<br>`sv/rtl/fu/scalar/scalar_gep.sv`<br>`sv/rtl/fu/scalar/scalar_grant.sv`<br>`sv/rtl/fu/scalar/scalar_inclusive_div.sv`<br>`sv/rtl/fu/scalar/scalar_logic.sv`<br>`sv/rtl/fu/scalar/scalar_loop_control.sv`<br>`sv/rtl/fu/scalar/scalar_loop_counter.sv`<br>`sv/rtl/fu/scalar/scalar_phi.sv`<br>`sv/rtl/fu/scalar/scalar_ret.sv`<br>`sv/rtl/fu/scalar/scalar_shifter.sv`<br>`sv/rtl/fu/tile_adder.sv`<br>`sv/rtl/fu/tile_multiplier.sv`<br>`sv/rtl/fu/tile_nah.sv`<br>`sv/rtl/mem/ctrl_mem.sv`<br>`sv/rtl/tile/tile_static_crossbar.sv`<br>`sv/rtl/tile/variants/tile_variant_crossbar.sv`<br>`sv/rtl/tile/variants/tile_variant_ctrl_mem.sv` |
-| NAH | 1 | implemented_in_selected_fu | `sv/rtl/common/cgra_types_pkg.sv`<br>`sv/rtl/fu/tile_flexible_fu.sv`<br>`sv/rtl/fu/tile_nah.sv`<br>`sv/rtl/mem/ctrl_mem.sv`<br>`sv/rtl/mem/register_cluster.sv`<br>`sv/rtl/tile/variants/tile_variant_ctrl_mem.sv` |
-| ADD | 2 | implemented_in_selected_fu | `sv/rtl/common/cgra_types_pkg.sv`<br>`sv/rtl/fu/combo/tile_alu_gen_mac.sv`<br>`sv/rtl/fu/combo/tile_prl_mul_adder.sv`<br>`sv/rtl/fu/combo/tile_seq_mul_adder.sv`<br>`sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv`<br>`sv/rtl/fu/tile_adder.sv`<br>`sv/rtl/fu/vector/cgra_vector_adder.sv` |
-| INC | 3 | implemented_in_selected_fu | `sv/rtl/common/cgra_types_pkg.sv`<br>`sv/rtl/fu/combo/tile_four_inc_cmp_not_grant.sv`<br>`sv/rtl/fu/tile_adder.sv`<br>`sv/rtl/fu/vector/cgra_vector_adder.sv` |
-| SUB | 4 | implemented_in_selected_fu | `sv/rtl/common/cgra_types_pkg.sv`<br>`sv/rtl/fu/combo/tile_alu_gen_mac.sv`<br>`sv/rtl/fu/combo/tile_prl_mul_adder.sv`<br>`sv/rtl/fu/combo/tile_seq_mul_adder.sv`<br>`sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv`<br>`sv/rtl/fu/tile_adder.sv`<br>`sv/rtl/fu/vector/cgra_vector_adder.sv` |
+| NAH | 1 | implemented_in_selected_fu | `sv/rtl/fu/tile_nah.sv`<br>`sv/rtl/mem/ctrl_mem.sv`<br>`sv/rtl/mem/register_cluster.sv`<br>`sv/rtl/tile/variants/tile_variant_ctrl_mem.sv` |
+| ADD | 2 | implemented_in_selected_fu | `sv/rtl/fu/combo/tile_alu_gen_mac.sv`<br>`sv/rtl/fu/combo/tile_prl_mul_adder.sv`<br>`sv/rtl/fu/combo/tile_seq_mul_adder.sv`<br>`sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv`<br>`sv/rtl/fu/tile_adder.sv`<br>`sv/rtl/fu/vector/cgra_vector_adder.sv` |
+| INC | 3 | implemented_in_selected_fu | `sv/rtl/fu/combo/tile_four_inc_cmp_not_grant.sv`<br>`sv/rtl/fu/tile_adder.sv`<br>`sv/rtl/fu/vector/cgra_vector_adder.sv` |
+| SUB | 4 | implemented_in_selected_fu | `sv/rtl/fu/combo/tile_alu_gen_mac.sv`<br>`sv/rtl/fu/combo/tile_prl_mul_adder.sv`<br>`sv/rtl/fu/combo/tile_seq_mul_adder.sv`<br>`sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv`<br>`sv/rtl/fu/tile_adder.sv`<br>`sv/rtl/fu/vector/cgra_vector_adder.sv` |
 | LLS | 5 | implemented_in_selected_fu | `sv/rtl/fu/combo/tile_seq_mul_shifter.sv`<br>`sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv`<br>`sv/rtl/fu/scalar/scalar_shifter.sv` |
 | LRS | 6 | implemented_in_selected_fu | `sv/rtl/fu/combo/tile_seq_mul_shifter.sv`<br>`sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv`<br>`sv/rtl/fu/scalar/scalar_shifter.sv` |
-| MUL | 7 | implemented_in_selected_fu | `sv/rtl/common/cgra_types_pkg.sv`<br>`sv/rtl/fu/combo/tile_alu_gen_mac.sv`<br>`sv/rtl/fu/combo/tile_prl_mul_adder.sv`<br>`sv/rtl/fu/combo/tile_seq_mul_adder.sv`<br>`sv/rtl/fu/combo/tile_seq_mul_shifter.sv`<br>`sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv`<br>`sv/rtl/fu/tile_multiplier.sv`<br>`sv/rtl/fu/vector/cgra_vector_mul.sv` |
+| MUL | 7 | implemented_in_selected_fu | `sv/rtl/fu/combo/tile_alu_gen_mac.sv`<br>`sv/rtl/fu/combo/tile_prl_mul_adder.sv`<br>`sv/rtl/fu/combo/tile_seq_mul_adder.sv`<br>`sv/rtl/fu/combo/tile_seq_mul_shifter.sv`<br>`sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv`<br>`sv/rtl/fu/tile_multiplier.sv`<br>`sv/rtl/fu/vector/cgra_vector_mul.sv` |
 | OR | 8 | implemented_in_selected_fu | `sv/rtl/fu/scalar/scalar_logic.sv` |
 | XOR | 9 | implemented_in_selected_fu | `sv/rtl/fu/scalar/scalar_logic.sv` |
 | AND | 10 | implemented_in_selected_fu | `sv/rtl/fu/scalar/scalar_logic.sv` |
 | NOT | 11 | implemented_in_selected_fu | `sv/rtl/fu/combo/tile_four_inc_cmp_not_grant.sv`<br>`sv/rtl/fu/scalar/scalar_logic.sv` |
-| LD | 12 | implemented_in_selected_fu | `sv/rtl/common/cgra_types_pkg.sv`<br>`sv/rtl/fu/tile_memory_fu.sv` |
-| STR | 13 | implemented_in_selected_fu | `sv/rtl/common/cgra_types_pkg.sv`<br>`sv/rtl/fu/tile_memory_fu.sv` |
+| LD | 12 | implemented_in_selected_fu | `sv/rtl/fu/tile_memory_fu.sv` |
+| STR | 13 | implemented_in_selected_fu | `sv/rtl/fu/tile_memory_fu.sv` |
 | EQ | 14 | implemented_in_selected_fu | `sv/rtl/fu/scalar/scalar_comp.sv` |
 | REM_INCLUSIVE_END | 15 | implemented_in_selected_fu | `sv/rtl/fu/scalar/scalar_inclusive_div.sv` |
 | GRT_PRED | 16 | implemented_in_selected_fu | `sv/rtl/fu/combo/tile_four_inc_cmp_not_grant.sv`<br>`sv/rtl/fu/scalar/scalar_grant.sv` |
@@ -313,18 +313,18 @@
 | MUL_ADD_LLS | 22 | implemented_in_selected_fu | `sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv` |
 | MUL_SUB_LLS | 23 | implemented_in_selected_fu | `sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv` |
 | MUL_SUB_LRS | 24 | implemented_in_selected_fu | `sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv` |
-| ADD_CONST | 25 | implemented_in_selected_fu | `sv/rtl/common/cgra_types_pkg.sv`<br>`sv/rtl/fu/tile_adder.sv`<br>`sv/rtl/fu/vector/cgra_vector_adder.sv` |
+| ADD_CONST | 25 | implemented_in_selected_fu | `sv/rtl/fu/tile_adder.sv`<br>`sv/rtl/fu/vector/cgra_vector_adder.sv` |
 | DIV | 26 | implemented_in_selected_fu | `sv/rtl/fu/scalar/scalar_div.sv`<br>`sv/rtl/fu/scalar/scalar_exclusive_div.sv` |
 | SEL | 27 | implemented_in_selected_fu | `sv/rtl/fu/scalar/scalar_sel.sv` |
-| LD_CONST | 28 | implemented_in_selected_fu | `sv/rtl/common/cgra_types_pkg.sv`<br>`sv/rtl/fu/tile_memory_fu.sv` |
-| MUL_CONST | 29 | implemented_in_selected_fu | `sv/rtl/common/cgra_types_pkg.sv`<br>`sv/rtl/fu/combo/tile_seq_mul_adder.sv`<br>`sv/rtl/fu/tile_multiplier.sv` |
+| LD_CONST | 28 | implemented_in_selected_fu | `sv/rtl/fu/tile_memory_fu.sv` |
+| MUL_CONST | 29 | implemented_in_selected_fu | `sv/rtl/fu/combo/tile_seq_mul_adder.sv`<br>`sv/rtl/fu/tile_multiplier.sv` |
 | MUL_CONST_ADD | 30 | implemented_in_selected_fu | `sv/rtl/fu/combo/tile_seq_mul_adder.sv` |
-| PAS | 31 | implemented_in_selected_fu | `sv/rtl/common/cgra_types_pkg.sv`<br>`sv/rtl/fu/combo/tile_seq_mul_adder.sv`<br>`sv/rtl/fu/tile_adder.sv`<br>`sv/rtl/fu/vector/cgra_vector_adder.sv` |
+| PAS | 31 | implemented_in_selected_fu | `sv/rtl/fu/combo/tile_seq_mul_adder.sv`<br>`sv/rtl/fu/tile_adder.sv`<br>`sv/rtl/fu/vector/cgra_vector_adder.sv` |
 | PHI_CONST | 32 | implemented_in_selected_fu | `sv/rtl/fu/scalar/scalar_phi.sv` |
 | EQ_CONST | 33 | implemented_in_selected_fu | `sv/rtl/fu/scalar/scalar_comp.sv` |
 | GRT_ALWAYS | 34 | implemented_in_selected_fu | `sv/rtl/fu/scalar/scalar_grant.sv` |
 | RET | 35 | implemented_in_selected_fu | `sv/rtl/fu/scalar/scalar_ret.sv` |
-| SUB_CONST | 36 | implemented_in_selected_fu | `sv/rtl/common/cgra_types_pkg.sv`<br>`sv/rtl/fu/tile_adder.sv`<br>`sv/rtl/fu/vector/cgra_vector_adder.sv` |
+| SUB_CONST | 36 | implemented_in_selected_fu | `sv/rtl/fu/tile_adder.sv`<br>`sv/rtl/fu/vector/cgra_vector_adder.sv` |
 | FADD | 37 | implemented_in_selected_fu | `sv/rtl/fu/float/tile_fp_fu.sv` |
 | FSUB | 38 | implemented_in_selected_fu | `sv/rtl/fu/float/tile_fp_fu.sv` |
 | FADD_CONST | 39 | implemented_in_selected_fu | `sv/rtl/fu/float/tile_fp_fu.sv` |
@@ -346,7 +346,7 @@
 | VEC_MUL | 55 | implemented_in_selected_fu | `sv/rtl/fu/vector/cgra_vector_mul.sv`<br>`sv/rtl/fu/vector/tile_vector_mul_combo.sv` |
 | VEC_REDUCE_ADD | 56 | implemented_in_selected_fu | `sv/rtl/fu/vector/tile_vector_all_reduce.sv` |
 | VEC_REDUCE_MUL | 57 | implemented_in_selected_fu | `sv/rtl/fu/vector/tile_vector_all_reduce.sv` |
-| STR_CONST | 58 | implemented_in_selected_fu | `sv/rtl/common/cgra_types_pkg.sv`<br>`sv/rtl/fu/tile_memory_fu.sv` |
+| STR_CONST | 58 | implemented_in_selected_fu | `sv/rtl/fu/tile_memory_fu.sv` |
 | REM_INCLUSIVE_START | 59 | implemented_in_selected_fu | `sv/rtl/fu/scalar/scalar_inclusive_div.sv` |
 | LT | 60 | implemented_in_selected_fu | `sv/rtl/fu/combo/tile_alu_gen_mac.sv`<br>`sv/rtl/fu/scalar/scalar_comp.sv` |
 | GTE | 61 | implemented_in_selected_fu | `sv/rtl/fu/combo/tile_alu_gen_mac.sv` |
@@ -367,7 +367,7 @@
 | VEC_REDUCE_ADD_BASE_GLOBAL | 78 | implemented_in_selected_fu | `sv/rtl/fu/vector/tile_vector_all_reduce.sv` |
 | VEC_REDUCE_MUL_BASE_GLOBAL | 79 | implemented_in_selected_fu | `sv/rtl/fu/vector/tile_vector_all_reduce.sv` |
 | CONST | 80 | implemented_in_selected_fu | `sv/rtl/fu/scalar/scalar_const.sv` |
-| ADD_CONST_LD | 81 | implemented_in_selected_fu | `sv/rtl/common/cgra_types_pkg.sv`<br>`sv/rtl/fu/tile_memory_fu.sv` |
+| ADD_CONST_LD | 81 | implemented_in_selected_fu | `sv/rtl/fu/tile_memory_fu.sv` |
 | INC_NE_CONST_NOT_GRT | 82 | implemented_in_selected_fu | `sv/rtl/fu/combo/tile_four_inc_cmp_not_grant.sv` |
 | LOOP_CONTROL | 83 | implemented_in_selected_fu | `sv/rtl/fu/scalar/scalar_loop_control.sv`<br>`sv/rtl/fu/scalar/scalar_loop_control_native.sv` |
 | PHI_START | 84 | implemented_in_selected_fu | `sv/rtl/fu/scalar/scalar_phi.sv` |

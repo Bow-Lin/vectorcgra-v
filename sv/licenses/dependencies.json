@@ -52,16 +52,16 @@
       "name": "ALUgenMAC and native rendition",
       "terms": "Original Genesis2 non-commercial notice remains applicable; no relicensing claimed",
       "files_sha256": {
-        "rtl/fu/combo/vendor/svsrc/ALUgenMAC.sv": "a279b80f648394ed7b15c955360a8d803ec9a597105f0a5bd17dc32b982565a6",
+        "reference/vendor/alu_gen_mac/svsrc/ALUgenMAC.sv": "a279b80f648394ed7b15c955360a8d803ec9a597105f0a5bd17dc32b982565a6",
         "rtl/fu/combo/cgra_alu_gen_mac_core.sv": "fcd99e36be14e96e51af9006afd03c1d5d8d0b0b6d5d1048f520e0ec1232afbc",
-        "rtl/fu/combo/vendor/README.md": "3b6e2224d5614cf1dd3856bec4563ec7da6ef25a0cf53b8bf66b055f76c3e16c"
+        "reference/vendor/alu_gen_mac/README.md": "3b6e2224d5614cf1dd3856bec4563ec7da6ef25a0cf53b8bf66b055f76c3e16c"
       }
     },
     {
       "name": "DW02_multp and native rendition",
       "terms": "Original Synopsys proprietary license notice remains applicable; no relicensing claimed",
       "files_sha256": {
-        "rtl/fu/combo/vendor/dp_fpfma/DW02_multp.v": "a9d9bb4b4b5fa032e5626e3dd32d069cf39d45765c398530bb41bb3a541b4515",
+        "reference/vendor/alu_gen_mac/dp_fpfma/DW02_multp.v": "a9d9bb4b4b5fa032e5626e3dd32d069cf39d45765c398530bb41bb3a541b4515",
         "rtl/fu/combo/cgra_multp.sv": "855e5c180f10e01be38d012d4c539fa8ef9e497e91a7be846d78f548a9be588b"
       }
     }

@@ -53,12 +53,49 @@ def restore(destination, data):
   return record
 
 
+def stage_relocated_sources(destination, record, layout):
+  """Give updated runners new paths to the original, verified baseline bytes.
+
+  Original archive paths remain untouched for its Makefile and filelists. Never
+  copy current RTL into this snapshot: its semantics may differ from the baseline.
+  """
+  staged = {}
+  for entry in layout['files']:
+    paths = [PurePosixPath(entry[key]) for key in ['old', 'new']]
+    if any(p.is_absolute() or '..' in p.parts or not p.parts for p in paths):
+      raise ValueError('Unsafe relocation path')
+    old, new = ['sv/' + p.as_posix() for p in paths]
+    source, target = destination/old, destination/new
+    if old not in record['source_sha256']:
+      raise ValueError('Relocation source absent from baseline: ' + old)
+    for path in [source, target]:
+      if any(parent.is_symlink() for parent in [path, *path.parents]):
+        raise ValueError('Baseline relocation contains a symlink')
+    data = source.read_bytes()
+    digest = hashlib.sha256(data).hexdigest()
+    if digest != record['source_sha256'][old]:
+      raise ValueError('Baseline relocation source changed: ' + old)
+    if new in record['source_sha256'] and new != old:
+      raise ValueError('Relocation would overwrite a baseline source: ' + new)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes(data)
+    target.chmod(source.stat().st_mode & 0o777)
+    staged[new] = dict(source=old, sha256=digest)
+  (destination/'baseline-relocations.json').write_text(json.dumps(staged, indent=2)+'\n')
+  print(f'BASELINE_RELOCATIONS_VERIFIED files={len(staged)}')
+  return staged
+
+
 def main():
   parser = argparse.ArgumentParser(description=__doc__)
   parser.add_argument('--destination', type=Path, required=True)
+  parser.add_argument('--layout', type=Path, help='Give updated runners relocated baseline source paths')
   args = parser.parse_args()
   args.destination.mkdir(parents=True, exist_ok=True)
-  restore(args.destination.resolve(), source_archive())
+  destination = args.destination.resolve()
+  record = restore(destination, source_archive())
+  if args.layout:
+    stage_relocated_sources(destination, record, json.loads(args.layout.read_text()))
 
 
 if __name__ == '__main__':

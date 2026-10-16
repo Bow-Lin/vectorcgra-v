@@ -6,7 +6,7 @@ ap=argparse.ArgumentParser();ap.add_argument('--kind',choices=['context','stream
 ap.add_argument('--label',default='cgra-pyreplay');a=ap.parse_args();stream=a.kind=='streaming'
 folder=f'{a.kind}-{a.label}'
 m=json.loads((ROOT/'sv/reference/phase3/tile_variants'/folder/'manifest.json').read_text())
-header=(ROOT/'sv/rtl/cgra/cgra_programmable.sv').read_text().split(') (',1)[1].split('\n);',1)[0]
+header=(ROOT/'sv/tests/legacy/rtl/cgra/cgra_programmable.sv').read_text().split(') (',1)[1].split('\n);',1)[0]
 s=['`timescale 1ns/1ps',f'module tb_cgra_{a.kind};',
 f'  localparam COLS=2, ROWS=2, DATA_W=32, DATA_BITS=35, TILE_PORTS={8 if stream else 4}, GLOBAL_ADDR_W=7, CTRL_ADDR_W=3, REG_ADDR_W=4, TILE_ID_W=3;',
 f'  localparam ROUTING_OUTPUTS={12 if stream else 8}, ROUTING_SEL_W=4, CTRL_BITS={143 if stream else 119}, PAYLOAD_BITS={194 if stream else 170}, HOST_BITS={215 if stream else 191}, NOC_BITS={218 if stream else 194}, MEM_PORT_W=2, BANK_PORT_W=2;',

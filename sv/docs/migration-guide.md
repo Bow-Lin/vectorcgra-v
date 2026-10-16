@@ -26,13 +26,15 @@ vectorcgra-v/
     │   ├── noc/                   控制环、仲裁和跨 CGRA 网络
     │   ├── peripheral/            DMA、im2col 与集成包装
     │   ├── common/                参数、消息类型和公共原语
-    │   ├── vendor/                HardFloat 来源与实现
-    │   └── fixed/                 早期固定 2×2 参考内核
+    │   └── vendor/                实际使用的 HardFloat HDL 与来源
     ├── tools/                     架构、程序与 YAML 前端
     ├── examples/                  架构 JSON、程序 JSON、YAML
     ├── filelists/                 明确编译哪些 HDL
     ├── tests/                     原生测试及对照测试
+    │   └── legacy/rtl/            旧顶层、旧标量链和固定类型包
     ├── reference/                 冻结的 Python HDL、轨迹与来源
+    │   ├── legacy/                冻结的早期 2×2 golden 内核
+    │   └── vendor/alu_gen_mac/     原始 MAC golden 源码与许可
     ├── vectors/                   早期冻结输入与期望向量
     ├── migration_tools/           迁移期导出、捕获、审计工具
     ├── scripts/                   构建、回归、打包与证据管理
@@ -49,24 +51,24 @@ vectorcgra-v/
 
 ### 各目录的职责
 
-文件数取自 2026 年 10 月 15 日整理时的工作树快照：包含已跟踪且仍存在的文件，以及未忽略的新文件；不计 `build/`、`artifacts/`、缓存和已删除文件。`rtl/` 的 129 个文件也包括头文件、许可和来源记录，并非 129 个独立硬件模块。
+以下目录结构已按 2026 年 10 月 16 日的整理更新：核心 `rtl/` 保留当前功能实现和独立硬件 API，旧实现移入测试区，冻结参考移入参考区。完整路径对应见 [RTL_LAYOUT.md](../RTL_LAYOUT.md)。逐文件索引保留最初盘点范围，并为迁出的条目显示新路径。
 
-| 目录或入口 | 文件数 | 作用及阅读方式 |
-|---|---:|---|
-| `rtl/` | 129 | 实际硬件描述。先读 `cgra_system.sv`、`cgra_pe.sv`，再沿实例深入。 |
-| `tools/` | 4 | 架构参数验证、程序打包和 YAML 翻译；不承担布局布线或重新调度。 |
-| `examples/` | 8 | 可读输入示例。本文只讲 `yaml/relu_neura_pass.yaml`。 |
-| `filelists/` | 9 | 编译单元清单。当前原生入口是 `native.f`。 |
-| `tests/` | 2,599 | 测试台、驱动、独立检查及保存证据；多数文件是验证数据。 |
-| `reference/` | 818 | 固定 Python 版本导出的 HDL、激励、轨迹及 provenance，作为对照。 |
-| `vectors/` | 66 | 早期重放使用的输入包、期望输出和字段布局。 |
-| `migration_tools/` | 97 | 迁移期参考生成与审计；部分工具需要原 PyMTL 环境。 |
-| `scripts/` | 19 | 工具链、回归、综合、独立打包和证据恢复。 |
-| `results/` | 34 | 已保存的验收摘要与散列索引；阅读记录不等同于重新执行测试。 |
-| `diagrams/` | 8 | 图的布局、生成脚本与图片，不参与硬件构建。 |
-| `licenses/` | 3 | 依赖许可与来源清单；其他第三方许可还随源码存放。 |
-| `sv/` 根目录文件 | 38 | `Makefile`、项目许可、Git 规则及接口和验收文档。 |
-| `build/`、`artifacts/` | 不计入 | 编译对象、运行输出和可选详细归档，按需生成或恢复。 |
+| 目录或入口 | 作用及阅读方式 |
+|---|---|
+| `rtl/` | 实际硬件描述。先读 `cgra_system.sv`、`cgra_pe.sv`，再沿实例深入。 |
+| `tools/` | 架构参数验证、程序打包和 YAML 翻译；不承担布局布线或重新调度。 |
+| `examples/` | 可读输入示例。本文只讲 `yaml/relu_neura_pass.yaml`。 |
+| `filelists/` | 编译单元清单。当前原生入口是 `native.f`。 |
+| `tests/` | 测试台、驱动、独立检查及保存证据；多数文件是验证数据。 |
+| `reference/` | 固定 Python 版本导出的 HDL、激励、轨迹及 provenance，作为对照。 |
+| `vectors/` | 早期重放使用的输入包、期望输出和字段布局。 |
+| `migration_tools/` | 迁移期参考生成与审计；部分工具需要原 PyMTL 环境。 |
+| `scripts/` | 工具链、回归、综合、独立打包和证据恢复。 |
+| `results/` | 已保存的验收摘要与散列索引；阅读记录不等同于重新执行测试。 |
+| `diagrams/` | 图的布局、生成脚本与图片，不参与硬件构建。 |
+| `licenses/` | 依赖许可与来源清单；其他第三方许可还随源码存放。 |
+| `sv/` 根目录文件 | `Makefile`、项目许可、Git 规则及接口和验收文档。 |
+| `build/`、`artifacts/` | 编译对象、运行输出和可选详细归档，按需生成或恢复。 |
 
 下一级目录用于区分模块职责和验证层次：
 
@@ -80,7 +82,7 @@ vectorcgra-v/
 | `rtl/fu/vector/` | 向量加乘及向量归约。 |
 | `rtl/fu/float/` | 浮点 FU 包装和 HardFloat 绑定。 |
 | `rtl/fu/combo/` | 乘加、乘移位等组合 FU 及维护的 MAC 内核。 |
-| `rtl/fu/combo/vendor/` | 原始组合 FU 第三方源码与来源说明，含 `dp_fpfma/`、`svsrc/`。 |
+| `reference/vendor/alu_gen_mac/` | 原始 MAC 与乘法器参考及许可，含 `dp_fpfma/`、`svsrc/`；不参与当前 DUT 构建。 |
 | `rtl/fu/streaming/` | 连续访存 FU。 |
 | `rtl/mem/` | 共享数据存储、bank、控制字、常量与 token 寄存器。 |
 | `rtl/controller/` | 主机和网络包的控制分发、归约及独立 LoopController。 |
@@ -89,7 +91,8 @@ vectorcgra-v/
 | `rtl/peripheral/` | DMA、im2col 引擎及与 CGRA 的集成包装。 |
 | `rtl/common/` | 参数宏、packed 消息类型、队列和寄存器文件原语。 |
 | `rtl/vendor/hardfloat/` | HardFloat HDL、许可和来源；`RISCV/` 为平台特化定义。 |
-| `rtl/fixed/` | 早期固定内核保留区，未进入当前 ReLU 的 `native.f`。 |
+| `tests/legacy/rtl/` | 旧标量实现链、旧 programmable 顶层和固定类型包；不在 `native.f` 中。 |
+| `reference/legacy/` | 早期冻结的 2×2 golden 内核，供历史差分测试使用。 |
 | `examples/config/`、`examples/program/`、`examples/yaml/` | 分别展示架构描述、显式程序和已映射 YAML。 |
 | `tests/config/` | 检查参数验证、位打包、前端拒绝规则和 YAML 翻译。 |
 | `tests/current/` | 当前原生 RTL 的接口、算术、内存、系统和 YAML 验证入口。 |
@@ -133,14 +136,14 @@ cgra_system                       单阵列系统顶层
 
 | 内容 | 在工程中的角色 | 与本例的关系 |
 |---|---|---|
-| `rtl/` 加 `filelists/native.f` | 当前维护的硬件与依赖 | ReLU 测试实际编译的来源；列入清单不等于每个模块都会被实例化。 |
+| `rtl/` 加 `filelists/native.f` | 当前维护的功能硬件与实际依赖 | ReLU 测试实际编译的来源；列入清单不等于每个模块都会被实例化。 |
 | `tools/` | 输入验证和程序打包 | 从 YAML 生成 `config.json`、编译参数和程序包。 |
 | `tests/current/` | 驱动与独立验收 | 装载程序，施加背压，检查返回、STORE 与 32 个结果。 |
 | `reference/` | Python 的冻结比较基准 | 用来核对配置字段、周期或事务；不是当前 ReLU DUT 的固定实现。 |
 | `migration_tools/` | 迁移与参考产生过程的工具 | 记录如何得到参考；日常运行本例无需重新导出 Python RTL。 |
 | `licenses/` 与各 `vendor/` | 第三方来源和许可 | 保留真实来源。不能把全部工程简单称为“全部手写”或“所有文件都是项目 BSD”。 |
 
-早期 `phase*_port*.py`、`freeze_core.py` 等文件也保留了导出、改名和迁移辅助过程。它们不代表当前构建会重新生成 `sv/rtl/`。当前源码的维护入口与历史产物应结合 `native.f`、各文件注释及来源清单阅读。
+早期 `phase*_port*.py`、`freeze_core.py` 等文件也保留了导出、改名和迁移辅助过程。它们不代表当前构建会重新生成 `sv/rtl/`。当前源码的维护入口与历史产物应结合 `native.f`、各文件注释及来源清单阅读。九份 HDL 与原始 MAC 说明已按字节迁出核心目录，完整对应关系见 [目录边界](../RTL_LAYOUT.md)。
 
 ### 从目录进入 ReLU 的最短阅读路径
 
@@ -157,6 +160,8 @@ cgra_system                       单阵列系统顶层
 
 
 ## 逐文件用途索引
+
+> 目录已于 2026-10-16 整理：6 个历史入口／实现文件移至 `tests/legacy/rtl/`，3 份冻结参考及说明移至 `reference/`。下方清单沿用最初盘点范围，迁出条目显示现位置；旧提交链接用于查看移动前的相同源码。详见 [目录边界](../RTL_LAYOUT.md)。
 
 HTML 版包含整理时工作树快照的 **3,832 个文件** 的独立条目，可按路径、文件名和用途搜索，也可导出 CSV。下面列出全部硬件、软件入口、迁移工具、编译清单、示例、许可及根目录文档；测试数据和冻结证据的逐文件条目在 HTML 清单中。当前工作树含 24 个新文件和 16 个已修改文件，GitHub 链接对应 `d68d334` 的提交版本。
 
@@ -354,11 +359,8 @@ HTML 版包含整理时工作树快照的 **3,832 个文件** 的独立条目，
 
 | 文件 | 用途 |
 |---|---|
-| [cgra_2x2.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/cgra/cgra_2x2.sv) | 固定 2×2 旧接口包装，内部接原生参数化标量阵列；不是当前唯一顶层。 |
 | [cgra_multi.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/cgra/cgra_multi.sv) | 将多个同构 CGRA 连接成 Mesh 或 Ring，并接入主机和跨阵列通信。 |
 | [cgra_multi_template.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/cgra/cgra_multi_template.sv) | 根据静态表展开异构多 CGRA，分别绑定阵列参数与物理连接。 |
-| [cgra_programmable.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/cgra/cgra_programmable.sv) | 带有序 FU 列表和 Tile 变体选择的单 CGRA 阵列实现。 |
-| [cgra_scalar.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/cgra/cgra_scalar.sv) | 早期参数化标量阵列，展开 Tile、存储 bank 和控制环。 |
 | [cgra_system.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/cgra/cgra_system.sv) | 当前单阵列系统顶层，集成 PE、控制环、存储和可选外设接口；本例 ReLU 的 DUT。 |
 
 ### sv/rtl/common/
@@ -380,7 +382,6 @@ HTML 版包含整理时工作树快照的 **3,832 个文件** 的独立条目，
 | [cgra_ring_ctrl_defs.svh](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/common/cgra_ring_ctrl_defs.svh) | 独立 RingMultiCtrlMem 的参数和位宽宏。 |
 | [cgra_ring_ctrl_types.svh](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/common/cgra_ring_ctrl_types.svh) | 独立控制环存储使用的 packed 消息类型。 |
 | [cgra_round_robin.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/common/cgra_round_robin.sv) | 多请求轮询仲裁原语。 |
-| [cgra_types_pkg.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/common/cgra_types_pkg.sv) | 早期固定 profile 的公共消息类型包；当前参数化类型见 cgra_profile.svh。 |
 
 ### sv/rtl/controller/
 
@@ -391,12 +392,6 @@ HTML 版包含整理时工作树快照的 **3,832 个文件** 的独立条目，
 | [cgra_loop_controller.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/controller/cgra_loop_controller.sv) | 独立 LoopController 的公开包装，选择原生或兼容实现。 |
 | [cgra_loop_controller_legacy.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/controller/cgra_loop_controller_legacy.sv) | 复现旧 Python LoopController 可见行为的兼容实现。 |
 | [cgra_loop_controller_native.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/controller/cgra_loop_controller_native.sv) | 修正握手与状态管理后的原生 LoopController。 |
-
-### sv/rtl/fixed/
-
-| 文件 | 用途 |
-|---|---|
-| [cgra_2x2_core.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fixed/cgra_2x2_core.sv) | 早期冻结的 2×2 参考内核，保留迁移历史；不在当前 native.f 中。 |
 
 ### sv/rtl/fu/
 
@@ -411,9 +406,6 @@ HTML 版包含整理时工作树快照的 **3,832 个文件** 的独立条目，
 | [tile_seq_mul_adder.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fu/combo/tile_seq_mul_adder.sv) | 先乘后加的组合 FU。 |
 | [tile_seq_mul_shifter.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fu/combo/tile_seq_mul_shifter.sv) | 先乘后移位的组合 FU。 |
 | [tile_three_mul_adder_shifter.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fu/combo/tile_three_mul_adder_shifter.sv) | 组合乘法、加法和移位运算的 FU。 |
-| [README.md](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fu/combo/vendor/README.md) | 组合 FU 第三方源码的来源、修改边界和许可说明。 |
-| [DW02_multp.v](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fu/combo/vendor/dp_fpfma/DW02_multp.v) | 保留的原始第三方部分积乘法源码，带自身许可；不在 native.f 中。 |
-| [ALUgenMAC.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fu/combo/vendor/svsrc/ALUgenMAC.sv) | 保留的原始第三方 ALUgenMAC 源码；维护实现另在上层目录。 |
 | [cgra_hardfloat_fn.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fu/float/cgra_hardfloat_fn.sv) | HardFloat 格式转换及运算适配。 |
 | [tile_fp_add.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fu/float/tile_fp_add.sv) | 浮点加法 Tile 接口包装。 |
 | [tile_fp_fu.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fu/float/tile_fp_fu.sv) | 浮点 FU 公共接口和 HardFloat 实例参数绑定。 |
@@ -438,7 +430,6 @@ HTML 版包含整理时工作树快照的 **3,832 个文件** 的独立条目，
 | [scalar_shifter.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fu/scalar/scalar_shifter.sv) | 逻辑或算术移位指令。 |
 | [tile_streaming_memory_fu.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fu/streaming/tile_streaming_memory_fu.sv) | Streaming Tile 的连续访存单元。 |
 | [tile_adder.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fu/tile_adder.sv) | 标量加减等加法类指令的 FU 实现。 |
-| [tile_flexible_fu.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fu/tile_flexible_fu.sv) | 早期标量 FU 集群的选择与接口连接。 |
 | [tile_flexible_fu_configurable.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fu/tile_flexible_fu_configurable.sv) | 根据 FU_COUNT 和有序 FU_KINDS 展开 FU，并分发控制和操作数。 |
 | [tile_memory_fu.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fu/tile_memory_fu.sv) | PE 的 LOAD/STORE 运算单元，连接地址、数据和存储握手。 |
 | [tile_multiplier.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fu/tile_multiplier.sv) | 标量乘法运算单元。 |
@@ -499,7 +490,6 @@ HTML 版包含整理时工作树快照的 **3,832 个文件** 的独立条目，
 | 文件 | 用途 |
 |---|---|
 | [cgra_pe.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/tile/cgra_pe.sv) | 参数化单 PE 入口；VARIANT 选择 Base、Context 或 Streaming 实现。 |
-| [tile_core.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/tile/tile_core.sv) | 早期标量 Tile 核心，将固定 FU 集群、寄存器、路由和控制相连。 |
 | [tile_link_or.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/tile/tile_link_or.sv) | Tile 内路由路径的 LinkOr 消息合并。 |
 | [tile_programmable.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/tile/tile_programmable.sv) | 当前 Base PE 核心，集成可配置 FU、两个 crossbar、控制存储和寄存器簇。 |
 | [tile_static_crossbar.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/tile/tile_static_crossbar.sv) | 由控制字选择连接的 Tile 内 crossbar，并跟踪该控制步的传输完成。 |
@@ -561,6 +551,21 @@ HTML 版包含整理时工作树快照的 **3,832 个文件** 的独立条目，
 | [cgra_config.py](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/tools/cgra_config.py) | 验证架构 JSON，计算位宽并输出 SV 参数、静态连接表和编译参数。 |
 | [cgra_program.py](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/tools/cgra_program.py) | 将显式控制字、常量、预加载、命令序列打包为主机包。 |
 | [cgra_yaml.py](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/tools/cgra_yaml.py) | 将已映射和调度的有限标量 YAML 翻译为架构参数与程序包；不重新映射或调度。 |
+
+### 迁出的历史实现与冻结参考
+
+| 当前位置 | 用途与移动前源码 |
+|---|---|
+| `sv/tests/legacy/rtl/cgra/cgra_2x2.sv` | 固定 2×2 旧接口包装，内部接原生参数化标量阵列；不是当前唯一顶层。 [cgra_2x2.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/cgra/cgra_2x2.sv) 为移动前提交版本。 |
+| `sv/tests/legacy/rtl/cgra/cgra_scalar.sv` | 早期参数化标量阵列，展开 Tile、存储 bank 和控制环。 [cgra_scalar.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/cgra/cgra_scalar.sv) 为移动前提交版本。 |
+| `sv/tests/legacy/rtl/cgra/cgra_programmable.sv` | 带有序 FU 列表和 Tile 变体选择的单 CGRA 阵列实现。 [cgra_programmable.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/cgra/cgra_programmable.sv) 为移动前提交版本。 |
+| `sv/tests/legacy/rtl/tile/tile_core.sv` | 早期标量 Tile 核心，将固定 FU 集群、寄存器、路由和控制相连。 [tile_core.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/tile/tile_core.sv) 为移动前提交版本。 |
+| `sv/tests/legacy/rtl/fu/tile_flexible_fu.sv` | 早期标量 FU 集群的选择与接口连接。 [tile_flexible_fu.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fu/tile_flexible_fu.sv) 为移动前提交版本。 |
+| `sv/tests/legacy/rtl/common/cgra_types_pkg.sv` | 早期固定 profile 的公共消息类型包；当前参数化类型见 cgra_profile.svh。 [cgra_types_pkg.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/common/cgra_types_pkg.sv) 为移动前提交版本。 |
+| `sv/reference/legacy/cgra_2x2_core.sv` | 早期冻结的 2×2 参考内核，保留迁移历史；不在当前 native.f 中。 [cgra_2x2_core.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fixed/cgra_2x2_core.sv) 为移动前提交版本。 |
+| `sv/reference/vendor/alu_gen_mac/svsrc/ALUgenMAC.sv` | 保留的原始第三方 ALUgenMAC 源码；维护实现另在上层目录。 [ALUgenMAC.sv](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fu/combo/vendor/svsrc/ALUgenMAC.sv) 为移动前提交版本。 |
+| `sv/reference/vendor/alu_gen_mac/dp_fpfma/DW02_multp.v` | 保留的原始第三方部分积乘法源码，带自身许可；不在 native.f 中。 [DW02_multp.v](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fu/combo/vendor/dp_fpfma/DW02_multp.v) 为移动前提交版本。 |
+| `sv/reference/vendor/alu_gen_mac/README.md` | 组合 FU 第三方源码的来源、修改边界和许可说明。 [README.md](https://github.com/Bow-Lin/vectorcgra-v/blob/d68d334d804bf1ed0b20fc9559a338cb632b9dc7/sv/rtl/fu/combo/vendor/README.md) 为移动前提交版本。 |
 
 ## 用 ReLU 串起迁移后的工程
 

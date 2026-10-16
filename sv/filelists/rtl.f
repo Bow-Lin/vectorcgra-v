@@ -1,5 +1,5 @@
 +incdir+rtl/common
-rtl/common/cgra_types_pkg.sv
+tests/legacy/rtl/common/cgra_types_pkg.sv
 rtl/common/cgra_register_file.sv
 rtl/common/cgra_queue.sv
 rtl/common/cgra_channel.sv
@@ -16,7 +16,7 @@ rtl/fu/tile_adder.sv
 rtl/fu/tile_multiplier.sv
 rtl/fu/tile_memory_fu.sv
 rtl/fu/tile_nah.sv
-rtl/fu/tile_flexible_fu.sv
+tests/legacy/rtl/fu/tile_flexible_fu.sv
 rtl/mem/const_queue.sv
 rtl/mem/ctrl_mem.sv
 rtl/mem/register_bank.sv
@@ -25,8 +25,8 @@ rtl/mem/cgra_data_bank.sv
 rtl/mem/cgra_data_memory.sv
 rtl/tile/tile_static_crossbar.sv
 rtl/tile/tile_link_or.sv
-rtl/tile/tile_core.sv
+tests/legacy/rtl/tile/tile_core.sv
 rtl/controller/cgra_global_reduce.sv
 rtl/controller/cgra_controller.sv
-rtl/cgra/cgra_scalar.sv
-rtl/cgra/cgra_2x2.sv
+tests/legacy/rtl/cgra/cgra_scalar.sv
+tests/legacy/rtl/cgra/cgra_2x2.sv

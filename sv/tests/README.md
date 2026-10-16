@@ -1,7 +1,7 @@
 # Native SystemVerilog tests
 
 The complete current test catalog is maintained in
-[REGRESSION.md](../REGRESSION.md): 14 groups and 48 targets. Use `make -C sv current`
+[REGRESSION.md](../REGRESSION.md): 14 groups and 49 targets. Use `make -C sv current`
 for the current component/PE/DMA entry, or `python3 sv/scripts/regression.py --all`
 for the full catalog. Exact evidence and remaining scope are indexed in
 [FINAL_ACCEPTANCE.md](../FINAL_ACCEPTANCE.md).
@@ -21,6 +21,10 @@ vector/composite, floating-point, Tile variants and six complete single-CGRA
 profiles. These are historical contracts; select their fixed source through
 `sv/scripts/run_baseline.sh`, as described in the regression guide. Stage 2
 parameterized array tests remain documented in [phase2_README.md](phase2_README.md).
+
+Historical DUT sources are under [`legacy/rtl/`](legacy/README.md); golden HDL
+is under `../reference/legacy/` and `../reference/vendor/`. These are excluded
+from the native filelist. See [RTL_LAYOUT.md](../RTL_LAYOUT.md).
 
 ## Historical fixed 2x2 acceptance test
 

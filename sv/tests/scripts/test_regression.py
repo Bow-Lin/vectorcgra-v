@@ -77,6 +77,23 @@ class RegressionTests(unittest.TestCase):
         (root/'filelists/native.f').write_text('changed order')
         self.assertNotEqual(before, B.stamp([], ['MEM_COMBINATIONAL=1']))
 
+  def test_unused_reference_changes_do_not_rebuild_native_dut(self):
+    with tempfile.TemporaryDirectory() as folder:
+      root = Path(folder)
+      for name in ['rtl/dut.sv', 'reference/gold.sv', 'tests/legacy/rtl/old.sv',
+                   'filelists/native.f', 'scripts/toolchain.sh', 'scripts/build_stamp.py']:
+        path = root/name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text('original')
+      version = type('Version', (), {'stdout': 'tool 1.0\n', 'stderr': ''})()
+      with patch.object(B, 'SV', root), patch.object(B, '__file__', str(root/'scripts/build_stamp.py')), patch.object(B.subprocess, 'run', return_value=version):
+        native = B.stamp([], [])
+        differential = B.stamp(['reference/gold.sv'], [])
+        (root/'reference/gold.sv').write_text('changed reference')
+        (root/'tests/legacy/rtl/old.sv').write_text('changed historical DUT')
+        self.assertEqual(native, B.stamp([], []))
+        self.assertNotEqual(differential, B.stamp(['reference/gold.sv'], []))
+
 
 if __name__ == '__main__':
   unittest.main()

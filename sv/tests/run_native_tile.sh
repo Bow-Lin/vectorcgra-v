@@ -8,8 +8,8 @@ files=(rtl/common/cgra_register_file.sv rtl/common/cgra_queue.sv
   rtl/common/cgra_channel.sv rtl/mem/const_queue.sv rtl/mem/ctrl_mem.sv
   rtl/mem/register_bank.sv rtl/mem/register_cluster.sv
   rtl/fu/tile_adder.sv rtl/fu/tile_multiplier.sv rtl/fu/tile_memory_fu.sv
-  rtl/fu/tile_nah.sv rtl/fu/tile_flexible_fu.sv
-  rtl/tile/tile_static_crossbar.sv rtl/tile/tile_link_or.sv rtl/tile/tile_core.sv)
+  rtl/fu/tile_nah.sv tests/legacy/rtl/fu/tile_flexible_fu.sv
+  rtl/tile/tile_static_crossbar.sv rtl/tile/tile_link_or.sv tests/legacy/rtl/tile/tile_core.sv)
 mkdir -p build/native_tile
 for kind in tile units; do
   if [[ "$kind" == tile ]]; then
@@ -26,7 +26,7 @@ for kind in tile units; do
   "$VERILATOR" --cc --main --exe --timing --compiler "$COMPILER" \
     --top-module "$top" --Mdir "$out" -o native_test -CFLAGS -std=c++20 \
     -Wno-fatal -Wno-TIMESCALEMOD -Irtl/common "${files[@]}" \
-    rtl/fixed/cgra_2x2_core.sv "$bench" > "$out/verilate.log" 2>&1
+    reference/legacy/cgra_2x2_core.sv "$bench" > "$out/verilate.log" 2>&1
   make -C "$out" -f "V${top}.mk" -j "$JOBS" "CXX=$CXX" \
     "LINK=env -u LINK $CXX" LDLIBS=-pthread > "$out/compile.log" 2>&1
   "$out/native_test${EXEEXT}" "+verilator+seed+$seed" > "$out/run.log" 2>&1
@@ -34,6 +34,6 @@ for kind in tile units; do
   cat "$out/run.log"
 done
 sha256sum "${files[@]}" rtl/common/cgra_profile_defs.svh rtl/common/cgra_profile.svh \
-  rtl/fixed/cgra_2x2_core.sv tests/tb_native_tile.sv tests/tb_native_tile_units.sv \
+  reference/legacy/cgra_2x2_core.sv tests/tb_native_tile.sv tests/tb_native_tile_units.sv \
   tests/run_native_tile.sh build/native_tile/{tile,units}/{verilate,compile,run}.log \
   > build/native_tile/SHA256SUMS

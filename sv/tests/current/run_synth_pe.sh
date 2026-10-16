@@ -6,7 +6,7 @@ source scripts/toolchain.sh
 root=build/current/post-synth
 mkdir -p "$root"
 mapfile -t files < <(grep -vE '^\+|^$' filelists/native.f)
-"$SV2V" -Irtl/common -Irtl/vendor/hardfloat -Irtl/fu/combo/vendor \
+"$SV2V" -Irtl/common -Irtl/vendor/hardfloat \
   "${files[@]}" --top=cgra_pe --write="$root/pe.v" >"$root/sv2v.log" 2>&1
 for profile in "${@:-base}"; do
   variant=0; ports=4; width=32; ctrl=8; regs=16

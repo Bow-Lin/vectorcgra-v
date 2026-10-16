@@ -11,8 +11,9 @@ SV = Path(__file__).resolve().parents[1]
 
 
 def stamp(sources, arguments):
-  # Include headers and vendor sources as well as the filelist itself. A newly
-  # added RTL file must invalidate an old binary even if old files are unchanged.
+  # rtl/ contains maintained hardware and its headers/vendor dependencies only.
+  # Test-only historical RTL and frozen references are outside this tree; a
+  # caller that actually compiles them must name them in sources explicitly.
   paths = {path for path in (SV/'rtl').rglob('*') if path.is_file()}
   paths.update(SV/path for path in sources)
   paths.update([SV/'filelists/native.f', SV/'scripts/toolchain.sh', Path(__file__)])

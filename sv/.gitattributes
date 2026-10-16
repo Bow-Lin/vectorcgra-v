@@ -22,14 +22,14 @@ rtl/fu/tile_adder.sv -text
 rtl/fu/tile_multiplier.sv -text
 rtl/fu/tile_memory_fu.sv -text
 rtl/fu/tile_nah.sv -text
-rtl/fu/tile_flexible_fu.sv -text
+tests/legacy/rtl/fu/tile_flexible_fu.sv -text
 rtl/mem/const_queue.sv -text
 rtl/mem/ctrl_mem.sv -text
 rtl/mem/register_bank.sv -text
 rtl/mem/register_cluster.sv -text
 rtl/tile/tile_static_crossbar.sv -text
 rtl/tile/tile_link_or.sv -text
-rtl/tile/tile_core.sv -text
+tests/legacy/rtl/tile/tile_core.sv -text
 tests/phase2_tb_cgra_scalar.sv -text
 tests/tb_native_tile.sv -text
 tests/tb_native_tile_units.sv -text

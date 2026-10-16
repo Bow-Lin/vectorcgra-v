@@ -5,7 +5,7 @@ project Python. Logs, executables, and source/log hashes go to
 `sv/build/native_tile/`.
 
 Both tests compare against the frozen phase-one modules in
-`rtl/fixed/cgra_2x2_core.sv`, derived from ac96. This file is compiled only as
+`reference/legacy/cgra_2x2_core.sv`, derived from ac96. This file is compiled only as
 the test reference, not as a dependency of the parameterized native Tile.
 The native profile is COLS=2, ROWS=2, DATA_W=32, CTRL_DEPTH=8, REG_DEPTH=16,
 BANK_DEPTH=16, NUM_BANKS=2, GLOBAL_ADDR_W=7, NUM_CTRL=8, TOTAL_STEPS=8.

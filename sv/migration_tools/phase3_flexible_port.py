@@ -2,7 +2,7 @@
 from pathlib import Path
 import re
 ROOT=Path(__file__).resolve().parents[1]
-source=(ROOT/'rtl/fu/tile_flexible_fu.sv').read_text()
+source=(ROOT/'tests/legacy/rtl/fu/tile_flexible_fu.sv').read_text()
 header=source[source.index('`include'):source.index('\n);')+4]
 header=header.replace('`include "cgra_profile_defs.svh"','`include "cgra_profile_defs.svh"\n`include "cgra_fu_catalog.svh"')
 header=header.replace('module tile_flexible_fu #(', 'module tile_flexible_fu_configurable #(')

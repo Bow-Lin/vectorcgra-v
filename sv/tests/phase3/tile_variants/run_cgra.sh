@@ -8,7 +8,7 @@ files=(rtl/common/cgra_register_file.sv rtl/common/cgra_queue.sv rtl/common/cgra
   rtl/controller/cgra_global_reduce.sv rtl/controller/cgra_controller.sv rtl/tile/tile_link_or.sv
   rtl/fu/tile_adder.sv rtl/fu/tile_multiplier.sv rtl/fu/tile_memory_fu.sv rtl/fu/tile_nah.sv
   rtl/fu/scalar/scalar_phi.sv rtl/fu/streaming/tile_streaming_memory_fu.sv
-  rtl/fu/tile_flexible_fu_configurable.sv rtl/tile/variants/*.sv rtl/cgra/cgra_programmable.sv)
+  rtl/fu/tile_flexible_fu_configurable.sv rtl/tile/variants/*.sv tests/legacy/rtl/cgra/cgra_programmable.sv)
 for kind in "${@:-context streaming}"; do
   for selected in $kind; do
     top="tb_cgra_$selected"; out="build/phase3/tile_variants/cgra_$selected"

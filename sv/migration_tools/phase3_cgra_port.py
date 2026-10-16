@@ -2,7 +2,7 @@
 from pathlib import Path
 import re
 ROOT=Path(__file__).resolve().parents[1]
-text=(ROOT/'rtl/cgra/cgra_scalar.sv').read_text()
+text=(ROOT/'tests/legacy/rtl/cgra/cgra_scalar.sv').read_text()
 text=text.replace('`include "cgra_profile_defs.svh"','`include "cgra_profile_defs.svh"\n`include "cgra_fu_catalog.svh"')
 text=text.replace('module cgra_scalar #(`CGRA_PROFILE_PARAMETERS)',
     'module cgra_programmable #(\n  `CGRA_PROFILE_PARAMETERS,\n  `CGRA_FU_PARAMETERS,\n  parameter int TILE_VARIANT=0\n)')
@@ -45,5 +45,5 @@ diagonals=r'''    if(TILE_PORTS==8) begin : king_mesh
 text=text[:index]+diagonals+text[index:]
 text=text.replace('// Single-CGRA scalar mesh. All Tile, bank and control-ring instances are',
     '// Single-CGRA mesh/KingMesh with an ordered FU list and original Tile variants.\n// All Tile, bank and control-ring instances are')
-(ROOT/'rtl/cgra/cgra_programmable.sv').write_text(text,newline='\n')
+(ROOT/'tests/legacy/rtl/cgra/cgra_programmable.sv').write_text(text,newline='\n')
 print('PROGRAMMABLE_CGRA_SCAFFOLD_PASS')

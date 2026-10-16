@@ -511,7 +511,7 @@
     "status": "abi_or_metadata",
     "targets": [
       "sv/tools/abi.json",
-      "sv/rtl/common/cgra_types_pkg.sv"
+      "sv/tests/legacy/rtl/common/cgra_types_pkg.sv"
     ],
     "family": "abi",
     "notes": "Encoding/field semantics mapped; Python factory and attribute dictionary API not exported. Opcode/command definitions do not imply dispatch support."
@@ -520,7 +520,7 @@
     "status": "abi_or_metadata",
     "targets": [
       "sv/rtl/common/cgra_profile.svh",
-      "sv/rtl/common/cgra_types_pkg.sv",
+      "sv/tests/legacy/rtl/common/cgra_types_pkg.sv",
       "sv/tools/cgra_program.py"
     ],
     "family": "abi",

@@ -5,7 +5,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 source scripts/toolchain.sh
 snapshot="$PWD/build/baseline-cd7aad878915"
-python3 scripts/prepare_baseline.py --destination "$snapshot"
+python3 scripts/prepare_baseline.py --destination "$snapshot" --layout tests/legacy/relocations.json
 # Port only the runners, preserving baseline DUT, stimulus and oracle bytes.
 cp scripts/toolchain.sh "$snapshot/sv/scripts/toolchain.sh"
 while IFS= read -r runner; do

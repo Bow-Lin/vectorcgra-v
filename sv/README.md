@@ -45,6 +45,13 @@ bash sv/tests/current/run_relu_yaml.sh sv/examples/yaml/relu_neura_pass.yaml
 
 输入、32 个结果的回读、前端支持范围和内存时序限制见 [YAML_RELU.md](YAML_RELU.md)。
 
+## 核心代码与历史验证代码
+
+`rtl/` 只保留当前功能实现、独立硬件 API 及实际依赖。旧 2×2 包装、旧标量链、
+旧 programmable 顶层和固定类型包已移至 `tests/legacy/rtl/`；冻结 golden HDL
+位于 `reference/legacy/` 和 `reference/vendor/`。当前 `native.f` 不再编译这些历史模块。
+完整路径对应和历史回归方式见 [RTL_LAYOUT.md](RTL_LAYOUT.md)。
+
 ## 可配置硬件入口
 
 | 入口 | 用途 |
@@ -53,7 +60,6 @@ bash sv/tests/current/run_relu_yaml.sh sv/examples/yaml/relu_neura_pass.yaml
 | `rtl/cgra/cgra_system.sv` | 参数化单 CGRA、边界连接、Controller、SPM 及可选外设 |
 | `rtl/cgra/cgra_multi.sv` | 同构多 CGRA Mesh／Ring |
 | `rtl/cgra/cgra_multi_template.sv` | 静态异构阵列形状、逐 Tile FU 配置与定向边界连接 |
-| `rtl/cgra/cgra_2x2.sv` | 历史兼容入口；不是当前工程唯一顶层 |
 
 `cgra_pe` 中 COLS／ROWS 等参数描述所属系统的地址和包格式，不会额外生成 2×2 PE。
 Base／Context 支持 4 或 8 个物理端口，Streaming 为 8 个。详细公共接口、FU 接线和

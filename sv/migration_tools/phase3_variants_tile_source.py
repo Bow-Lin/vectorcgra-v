@@ -4,7 +4,7 @@ import re
 ROOT=Path(__file__).resolve().parents[2]
 RTL=ROOT/'sv/rtl'
 OUT=RTL/'tile/variants'
-src=(RTL/'tile/tile_core.sv').read_text()
+src=(ROOT/'sv/tests/legacy/rtl/tile/tile_core.sv').read_text()
 header=src[src.index(') (')+3:src.index('\n);')].replace('[0:3]','[0:TILE_PORTS-1]')
 ports=re.findall(r'(?:input|output)\s+logic\s*\[[^]]+\]\s*(\w+)',header)
 s=['// Native ac96 TileWithContextSwitchRTL / TileWithStreamingLoadRTL wiring.',

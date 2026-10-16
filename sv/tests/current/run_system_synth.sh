@@ -9,7 +9,7 @@ mkdir -p "$root"
 : "${YOSYS_SIMCELLS:=$(dirname "$(command -v "$YOSYS")")/../share/yosys/simcells.v}"
 [[ -f "$YOSYS_SIMCELLS" ]] || { echo 'Set YOSYS_SIMCELLS to the installed Yosys simcells.v';exit 1; }
 mapfile -t files < <(grep -vE '^\+|^$' filelists/native.f)
-"$SV2V" -DSYNTHESIS -Irtl/common -Irtl/vendor/hardfloat -Irtl/fu/combo/vendor "${files[@]}" \
+"$SV2V" -DSYNTHESIS -Irtl/common -Irtl/vendor/hardfloat "${files[@]}" \
   --top=cgra_multi --write="$root/converted.v" >"$root/sv2v.log" 2>&1
 negative() {
   local marker=$1 log=$2; shift 2

@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "source_commit": "fb75121de7bdd94417235f00f8adeaab73d8efef",
+  "meaning": "Byte-preserving source relocation; historical evidence retains its original paths and hashes.",
+  "files": [
+    {
+      "old": "rtl/cgra/cgra_2x2.sv",
+      "new": "tests/legacy/rtl/cgra/cgra_2x2.sv",
+      "sha256": "594608753066235c2f563460323109b82f685aabe763da40e005b7cb40975f9a"
+    },
+    {
+      "old": "rtl/cgra/cgra_scalar.sv",
+      "new": "tests/legacy/rtl/cgra/cgra_scalar.sv",
+      "sha256": "227ea3f81cca38acb6f90d4889a4639b5200fcffd68764c52df40cb984a5c684"
+    },
+    {
+      "old": "rtl/cgra/cgra_programmable.sv",
+      "new": "tests/legacy/rtl/cgra/cgra_programmable.sv",
+      "sha256": "d2965f2573b7efeef4beba8dad875763f1cd9e02393b5972de15299dbb87baa0"
+    },
+    {
+      "old": "rtl/tile/tile_core.sv",
+      "new": "tests/legacy/rtl/tile/tile_core.sv",
+      "sha256": "48c50c2a50a19493bb81133bd1ca25868094ee8f42a7c523f1c3ae545425a4a7"
+    },
+    {
+      "old": "rtl/fu/tile_flexible_fu.sv",
+      "new": "tests/legacy/rtl/fu/tile_flexible_fu.sv",
+      "sha256": "914d1c7978325abd19d524680db6c7f4183fd559b026c000b01a14f66bce51ed"
+    },
+    {
+      "old": "rtl/common/cgra_types_pkg.sv",
+      "new": "tests/legacy/rtl/common/cgra_types_pkg.sv",
+      "sha256": "b156167206aef4146c68e95693ac57926310d9f5a7ed60076b71b8d5480c9c16"
+    },
+    {
+      "old": "rtl/fixed/cgra_2x2_core.sv",
+      "new": "reference/legacy/cgra_2x2_core.sv",
+      "sha256": "6be4c3471c14ea66bf14dea87c15c11fe7d5c327bcb741a4ca949e23ab1bf780"
+    },
+    {
+      "old": "rtl/fu/combo/vendor/svsrc/ALUgenMAC.sv",
+      "new": "reference/vendor/alu_gen_mac/svsrc/ALUgenMAC.sv",
+      "sha256": "a279b80f648394ed7b15c955360a8d803ec9a597105f0a5bd17dc32b982565a6"
+    },
+    {
+      "old": "rtl/fu/combo/vendor/dp_fpfma/DW02_multp.v",
+      "new": "reference/vendor/alu_gen_mac/dp_fpfma/DW02_multp.v",
+      "sha256": "a9d9bb4b4b5fa032e5626e3dd32d069cf39d45765c398530bb41bb3a541b4515"
+    },
+    {
+      "old": "rtl/fu/combo/vendor/README.md",
+      "new": "reference/vendor/alu_gen_mac/README.md",
+      "sha256": "3b6e2224d5614cf1dd3856bec4563ec7da6ef25a0cf53b8bf66b055f76c3e16c"
+    }
+  ]
+}

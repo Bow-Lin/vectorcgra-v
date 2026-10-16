@@ -57,6 +57,28 @@ class StandaloneTests(unittest.TestCase):
       with self.assertRaisesRegex(ValueError, 'Unsafe baseline archive path'):
         B.restore(root, E.pack({'../outside': (b'invalid', 0o644)}))
 
+  def test_relocated_baseline_uses_original_bytes_and_preserves_old_paths(self):
+    with tempfile.TemporaryDirectory() as folder:
+      root = Path(folder)
+      record = B.restore(root, E.pack({'sv/rtl/old.sv': (b'baseline bytes', 0o644)}))
+      layout = {'files': [{'old': 'rtl/old.sv', 'new': 'tests/legacy/rtl/old.sv',
+                           'sha256': 'current implementation has a different hash'}]}
+      B.stage_relocated_sources(root, record, layout)
+      self.assertEqual((root/'sv/rtl/old.sv').read_bytes(), b'baseline bytes')
+      self.assertEqual((root/'sv/tests/legacy/rtl/old.sv').read_bytes(), b'baseline bytes')
+      (root/'sv/rtl/old.sv').write_bytes(b'wrong current implementation')
+      with self.assertRaisesRegex(ValueError, 'source changed'):
+        B.stage_relocated_sources(root, record, layout)
+
+  def test_baseline_relocation_rejects_unsafe_destination(self):
+    with tempfile.TemporaryDirectory() as folder:
+      root = Path(folder)
+      record = B.restore(root, E.pack({'sv/rtl/old.sv': (b'original', 0o644)}))
+      for destination in ['../outside', '/tmp/outside']:
+        with self.assertRaisesRegex(ValueError, 'Unsafe relocation path'):
+          B.stage_relocated_sources(root, record, {'files': [
+            {'old': 'rtl/old.sv', 'new': destination}]})
+
 
 if __name__ == '__main__':
   unittest.main()
