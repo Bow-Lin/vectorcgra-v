@@ -186,6 +186,12 @@ current-noc-handshakes-synth:
 	bash tests/current/run_noc_networks_synth.sh
 
 .PHONY: phase2 phase2-negative $(addprefix phase2-,$(PHASE2_GEOMETRIES))
+.PHONY: current-control-network current-control-network-synth
+current-control-network:
+	bash tests/current/run_control_network.sh rtl
+current-control-network-synth:
+	bash tests/current/run_control_network.sh synth
+
 phase2: $(addprefix phase2-,$(PHASE2_GEOMETRIES)) phase2-negative
 
 # Phase 3 runners consume maintained HDL and frozen text assets only.

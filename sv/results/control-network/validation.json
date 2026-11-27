@@ -1,0 +1,20 @@
+{
+  "baseline": "03db4c735dc9573ee19d5080eb123cc106333ba3",
+  "all_passed": true,
+  "exact_baseline_host_packet_comparisons": 96,
+  "transport_profiles": 27,
+  "transport_positive_runs": 54,
+  "transport_negative_checks": 107,
+  "system_runs": 136,
+  "reduction_and_repeated_runs": 26,
+  "profile_rejections": 8,
+  "synthesis_profiles": 15,
+  "physical_evidence": {
+    "part": null,
+    "XDC": null,
+    "place_route": false,
+    "setup": null,
+    "hold": null,
+    "board": false
+  }
+}

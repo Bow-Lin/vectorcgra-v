@@ -1,4 +1,5 @@
 `include "cgra_profile_defs.svh"
+`include "cgra_ctrl_commands.svh"
 // Native parameterized cgra_controller; control flow derived from ac96 cgra_controller.
 // Disabled DMA/im2col declarations and undriven inputs retain baseline semantics.
 module cgra_controller #(
@@ -467,6 +468,12 @@ module cgra_controller #(
     end
   end
 
+`ifndef SYNTHESIS
+  always @(posedge clk) if(!reset && recv_from_inter_cgra_noc__val &&
+    (p_recv_from_inter_cgra_noc__msg.payload.cmd==`CGRA_CMD_CTRL_MASK_WORD ||
+     p_recv_from_inter_cgra_noc__msg.payload.cmd==`CGRA_CMD_CONFIG_MULTICAST) &&
+    (CTRL_NETWORK==0 || !CTRL_MULTICAST)) $fatal(1,"CTRL_MULTICAST_DISABLED");
+`endif
   always_comb begin : update_received_msg
     send_to_cpu_pkt_queue__recv__val = 1'd0;
     send_to_cpu_pkt_queue__recv__msg = '0;
@@ -583,6 +590,17 @@ module cgra_controller #(
         recv_from_inter_cgra_noc__rdy = global_reduce_unit__recv_count__rdy;
         global_reduce_unit__recv_count__val = 1'd1;
         global_reduce_unit__recv_count__msg = p_recv_from_inter_cgra_noc__msg;
+      end
+      else if (CTRL_NETWORK!=0 && CTRL_MULTICAST &&
+          ((p_recv_from_inter_cgra_noc__msg.payload.cmd==`CGRA_CMD_CTRL_MASK_WORD) ||
+           (p_recv_from_inter_cgra_noc__msg.payload.cmd==`CGRA_CMD_CONFIG_MULTICAST))) begin
+        recv_from_inter_cgra_noc__rdy=send_to_ctrl_ring_pkt__rdy;
+        send_to_ctrl_ring_pkt__val=recv_from_inter_cgra_noc__val;
+        p_send_to_ctrl_ring_pkt__msg={p_recv_from_inter_cgra_noc__msg.src_tile_id,
+          p_recv_from_inter_cgra_noc__msg.dst_tile_id,p_recv_from_inter_cgra_noc__msg.src,
+          p_recv_from_inter_cgra_noc__msg.dst,p_recv_from_inter_cgra_noc__msg.src_x,
+          p_recv_from_inter_cgra_noc__msg.src_y,p_recv_from_inter_cgra_noc__msg.dst_x,
+          p_recv_from_inter_cgra_noc__msg.dst_y,8'd0,1'd0,p_recv_from_inter_cgra_noc__msg.payload};
       end
       else if ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_CONFIG ) ) | ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_CONFIG_PROLOGUE_FU ) ) ) | ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_CONFIG_PROLOGUE_FU_CROSSBAR ) ) ) | ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_CONFIG_PROLOGUE_ROUTING_CROSSBAR ) ) ) | ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_CONFIG_TOTAL_CTRL_COUNT ) ) ) | ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_CONFIG_COUNT_PER_ITER ) ) ) | ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_CONFIG_CTRL_LOWER_BOUND ) ) ) | ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_CONST ) ) ) | ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_GLOBAL_REDUCE_ADD_RESPONSE ) ) ) | ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_GLOBAL_REDUCE_MUL_RESPONSE ) ) ) | ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_CONFIG_STREAMING_LD_START_ADDR ) ) ) | ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_CONFIG_STREAMING_LD_STRIDE ) ) ) | ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_CONFIG_STREAMING_LD_END_ADDR ) ) ) | ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_PAUSE ) ) ) | ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_PRESERVE ) ) ) | ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_RESUME ) ) ) | ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_RECORD_PHI_ADDR ) ) ) | ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_TERMINATE ) ) ) | ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_LAUNCH ) ) ) | ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_CONFIG_LOOP_LOWER ) ) ) | ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_CONFIG_LOOP_UPPER ) ) ) | ( ( p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'( CMD_CONFIG_LOOP_STEP ) ) | (p_recv_from_inter_cgra_noc__msg.payload.cmd == 6'd43) ) ) begin
         recv_from_inter_cgra_noc__rdy = send_to_ctrl_ring_pkt__rdy;

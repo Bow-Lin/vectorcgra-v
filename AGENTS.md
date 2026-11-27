@@ -140,7 +140,7 @@ reference data; explicit compatibility tests are distinct from native math tests
 
 Use `make -C sv current` for the current component/PE/DMA checks, and
 `python3 sv/scripts/regression.py --shard <name>` for a catalog group. Full native
-regression is `make -C sv regression`; its 14 groups cover 49 required targets.
+regression is `make -C sv regression`; its 15 groups cover 51 required targets.
 `sv/scripts/install_toolchain.py` installs SHA-pinned native tools (Verilator
 5.029, Yosys 0.45+139, sv2v 0.0.13). These are separate from the original PyMTL
 translation/import workflow above, which uses Verilator 4.036. Native config and

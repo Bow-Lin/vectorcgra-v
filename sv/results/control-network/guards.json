@@ -1,0 +1,160 @@
+{
+  "baseline": "03db4c735dc9573ee19d5080eb123cc106333ba3",
+  "evidence": "RTL initial profile guards",
+  "cases": [
+    {
+      "name": "disconnected",
+      "parameters": {
+        "CTRL_NETWORK": 1,
+        "HAS_CTRL_RING": 0
+      },
+      "passed": true,
+      "binary_sha256": "b8a2fe7b72a5dd281f66bd2b7377a2a065ff0e2e29ff17a0deabf91d0667d8ed",
+      "run": {
+        "argv": [
+          "$BUILD/guards/disconnected/obj/Vtb_control_profile"
+        ],
+        "exit_code": -6,
+        "seconds": 0.009,
+        "log": "$BUILD/guards/disconnected/run.log",
+        "log_sha256": "533c2f0ac970f40548b819c1b6e4cbd2ec1efa7f3345b5ea6305d64ac14b48b3"
+      },
+      "build_identity_sha256": "63d9feafd9abd0b895f8f0b4065839d4c12fdd3ac4b61dd215d5b0dfcacee99a"
+    },
+    {
+      "name": "context",
+      "parameters": {
+        "CTRL_NETWORK": 1,
+        "TILE_VARIANT": 1
+      },
+      "passed": true,
+      "binary_sha256": "bcf06e1cec7b87b6ec2fb0136a586ebf2a174514eab9b8b88292a9f82cd871ba",
+      "run": {
+        "argv": [
+          "$BUILD/guards/context/obj/Vtb_control_profile"
+        ],
+        "exit_code": -6,
+        "seconds": 0.004,
+        "log": "$BUILD/guards/context/run.log",
+        "log_sha256": "533c2f0ac970f40548b819c1b6e4cbd2ec1efa7f3345b5ea6305d64ac14b48b3"
+      },
+      "build_identity_sha256": "6cd8b3b72715726077aade71ca04db0d4b092f64bfff34ac50b5081e5d33cfa9"
+    },
+    {
+      "name": "streaming",
+      "parameters": {
+        "CTRL_NETWORK": 1,
+        "TILE_VARIANT": 2,
+        "TILE_PORTS": 8
+      },
+      "passed": true,
+      "binary_sha256": "a1be735fbabcc620c9f900f7077fc386a94a5539352c92163e62bbaa4a6d7447",
+      "run": {
+        "argv": [
+          "$BUILD/guards/streaming/obj/Vtb_control_profile"
+        ],
+        "exit_code": -6,
+        "seconds": 0.004,
+        "log": "$BUILD/guards/streaming/run.log",
+        "log_sha256": "533c2f0ac970f40548b819c1b6e4cbd2ec1efa7f3345b5ea6305d64ac14b48b3"
+      },
+      "build_identity_sha256": "df43b33431bffc8c824a42f9a72c24d46f89cb6d5687258d5c9b6b2c7c9f1e7f"
+    },
+    {
+      "name": "legacy",
+      "parameters": {
+        "CTRL_NETWORK": 1,
+        "NOC_LEGACY_PYTHON": 1
+      },
+      "passed": true,
+      "binary_sha256": "81d34af7e5df3496fd35f560f7f313ddf351f9e06d811f05906f546ad45d073e",
+      "run": {
+        "argv": [
+          "$BUILD/guards/legacy/obj/Vtb_control_profile"
+        ],
+        "exit_code": -6,
+        "seconds": 0.005,
+        "log": "$BUILD/guards/legacy/run.log",
+        "log_sha256": "533c2f0ac970f40548b819c1b6e4cbd2ec1efa7f3345b5ea6305d64ac14b48b3"
+      },
+      "build_identity_sha256": "e224208d6d538ac004d30dfd3d84b381c5a9de0c4050fbf89aea344f403ec3f6"
+    },
+    {
+      "name": "multi",
+      "parameters": {
+        "CTRL_NETWORK": 1,
+        "IS_MULTI": 1
+      },
+      "passed": true,
+      "binary_sha256": "4fccbd9a28fb68d4aac54de54861c345e52cca6ad96e204b24d28401be743401",
+      "run": {
+        "argv": [
+          "$BUILD/guards/multi/obj/Vtb_control_profile"
+        ],
+        "exit_code": -6,
+        "seconds": 0.004,
+        "log": "$BUILD/guards/multi/run.log",
+        "log_sha256": "533c2f0ac970f40548b819c1b6e4cbd2ec1efa7f3345b5ea6305d64ac14b48b3"
+      },
+      "build_identity_sha256": "538cbb923ea28324644a9347f26d95e6bc94e7974e26385e1155b7acab83c4c6"
+    },
+    {
+      "name": "dma",
+      "parameters": {
+        "CTRL_NETWORK": 1,
+        "HAS_DMA": 1
+      },
+      "passed": true,
+      "binary_sha256": "7e53e24ab841339069c358733ebb9b34ba4fa0c360910737f408f9860401e8b4",
+      "run": {
+        "argv": [
+          "$BUILD/guards/dma/obj/Vtb_control_profile"
+        ],
+        "exit_code": -6,
+        "seconds": 0.004,
+        "log": "$BUILD/guards/dma/run.log",
+        "log_sha256": "533c2f0ac970f40548b819c1b6e4cbd2ec1efa7f3345b5ea6305d64ac14b48b3"
+      },
+      "build_identity_sha256": "1c915eee37b2b5287b5261a7663ab0c25a09c685230d6ec41328fe1dab223802"
+    },
+    {
+      "name": "im2col",
+      "parameters": {
+        "CTRL_NETWORK": 1,
+        "HAS_IM2COL": 1
+      },
+      "passed": true,
+      "binary_sha256": "4d33032d0682bea5ab110665cf128364813c9fb3b10c12118068b7393525e8c6",
+      "run": {
+        "argv": [
+          "$BUILD/guards/im2col/obj/Vtb_control_profile"
+        ],
+        "exit_code": -6,
+        "seconds": 0.008,
+        "log": "$BUILD/guards/im2col/run.log",
+        "log_sha256": "533c2f0ac970f40548b819c1b6e4cbd2ec1efa7f3345b5ea6305d64ac14b48b3"
+      },
+      "build_identity_sha256": "6e39b20bf62dc44f7508cadb8e347852e7ad6c2a94bd56644bcd65b7144b4ca4"
+    },
+    {
+      "name": "ring_multicast",
+      "parameters": {
+        "CTRL_NETWORK": 0,
+        "CTRL_MULTICAST": 1
+      },
+      "passed": true,
+      "binary_sha256": "8737a43f34ed434ff5c8b8f862ad72b01bf339c9a806470f488afc3b43f4e52a",
+      "run": {
+        "argv": [
+          "$BUILD/guards/ring_multicast/obj/Vtb_control_profile"
+        ],
+        "exit_code": -6,
+        "seconds": 0.004,
+        "log": "$BUILD/guards/ring_multicast/run.log",
+        "log_sha256": "d88d4fdca3d5aa76a8aadf15a9f6784743b0be4bb917e9af1a6cac9e18cd447e"
+      },
+      "build_identity_sha256": "cdde56ce97526fb01b008bb813183a0798272cf5992ee0d825d2331a2e891b55"
+    }
+  ],
+  "all_passed": true
+}

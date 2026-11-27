@@ -35,6 +35,7 @@
 | `mem_access_is_combinational` | `MEM_COMBINATIONAL` | 同名参数 | 同一 3×2 架构、程序分别运行两种模式；不预设两种模式周期相同 |
 | Base/Context/Streaming 类 | `TILE_VARIANT` | `variant` | 本轮三种构造均执行程序；Context 任务迁移、STREAM_LD 专有功能仍由既有专项验证负责 |
 | `has_ctrl_ring` | `cgra_system.HAS_CTRL_RING` | **尚无** | 目前仅 SV 直接参数；关闭后没有其他配置通路，只能声明断开构造能力 |
+| SV 原生控制传输选择 | `CTRL_NETWORK=0/1/2`、`CTRL_MULTICAST=0/1` | 同名 JSON 参数 | 默认原环；新树限单 CGRA/Base/native NoC/无外设，CONFIG 可组播；关闭 HAS_CTRL_RING 仍断开，见 [控制网络](CONTROL_NETWORK.md) |
 | `is_multi_cgra` | `IS_MULTI`／外层顶层 | `top` | 本轮单 CGRA、本地回环及多 CGRA 远程访问 |
 | `cgra_rows/columns` | `MULTI_ROWS/COLS` | 同名参数 | Mesh 至少 2×2，Ring 单行至少两节点；本轮 3 节点 Ring、2×2 Mesh |
 | `id2cgraSize_map` | `CGRA_ROWS/COLS` | 多个 architecture | 本轮 4/9/6/6 PE 混合，共 25 PE；不是任意异构参数均可逐节点改变 |

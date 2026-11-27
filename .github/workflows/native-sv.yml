@@ -61,6 +61,10 @@ jobs:
             sv/build/current/**/*.log
             sv/build/current/**/compiled_sources.sha256
             sv/build/current/**/build-stamp.json
+            sv/build/current/control-network/**/*.json
+            sv/build/current/control-network/**/program.hex
+            sv/build/current/control-network/**/outputs-*.txt
+            sv/build/current/control-network/**/control-*.txt
             sv/build/native/**/*.log
             sv/build/baseline-*/sv/build/**/*.log
           retention-days: 14

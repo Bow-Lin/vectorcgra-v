@@ -1,0 +1,92 @@
+[
+  {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests/config",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "seconds": 1.068,
+    "log": "$BUILD/acceptance/config-program-yaml.log",
+    "log_sha256": "139dc851dd98c0037b144e8f16cbdce9ab4d8a481f289b0af8a02e5412299342",
+    "name": "config-program-yaml"
+  },
+  {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests/control_network",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "seconds": 0.115,
+    "log": "$BUILD/acceptance/control-tools.log",
+    "log_sha256": "3a8cb17af9bd40970aa7b3a8f782672001422a98f7e86a79bbd101908d07d1f2",
+    "name": "control-tools"
+  },
+  {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-m",
+      "unittest",
+      "discover",
+      "-s",
+      "tests/scripts",
+      "-p",
+      "test_*.py",
+      "-v"
+    ],
+    "exit_code": 0,
+    "seconds": 0.164,
+    "log": "$BUILD/acceptance/regression-scripts.log",
+    "log_sha256": "0cdf9be6d3759dee82b8490afd77a934004f8a90040b349677b344b31c778d62",
+    "name": "regression-scripts"
+  },
+  {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "scripts/regression.py",
+      "--check-catalog"
+    ],
+    "exit_code": 0,
+    "seconds": 0.065,
+    "log": "$BUILD/acceptance/catalog.log",
+    "log_sha256": "30daa2cb49a6283a9471a08fedbcd6a6f9d1e0e18c56e7dd7d6a735d47c0324b",
+    "name": "catalog"
+  },
+  {
+    "argv": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "migration_tools/inventory.py",
+      "--check"
+    ],
+    "exit_code": 0,
+    "seconds": 0.97,
+    "log": "$BUILD/acceptance/python-source-inventory.log",
+    "log_sha256": "d512cfcf12e207dbc55b0a0bbc871fdbfa784629a52626b4b0d5eb0b985661ba",
+    "name": "python-source-inventory"
+  },
+  {
+    "argv": [
+      "git",
+      "diff",
+      "--check"
+    ],
+    "exit_code": 0,
+    "seconds": 0.032,
+    "log": "$BUILD/acceptance/diff-check.log",
+    "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "name": "diff-check"
+  }
+]

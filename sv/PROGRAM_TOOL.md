@@ -46,6 +46,8 @@ python3 -I -S sv/tools/cgra_program.py \
 | `preload` | 从 `address` 开始按全局**字地址**递增，发送 `STORE_REQUEST` |
 | `constants` | 向指定 Tile 按原顺序发送 `CONST` |
 | `program` | 配置迭代长度、总步数，然后依次发送 `CONFIG` 控制字 |
+| `config_multicast` | `tiles` 目标列表、`address`、`ctrl`，装载目标掩码并发送一个 CONFIG_MULTICAST |
+| `config_batch` | 显式配置阶段；`writes` 为 tile/address/ctrl 列表，可设 `multicast:true` 合并匹配的每 PE 队头 |
 | `command` | 发送一个具名命令，可指定 `data`、`data_addr`、`ctrl`、`ctrl_addr` |
 | `packet` | `packet` 字段直接提供完整 host 结构体字段 |
 | `barrier` | 在当前位置等待累计 `completions` 个完成事件；不产生硬件命令 |
@@ -78,7 +80,7 @@ CTRL_DEPTH+10。Context 的 TERMINATE 会重置这项计数；外部全局复位
 | 文件 | 格式／用途 |
 |---|---|
 | `program.hex` | 每行一个完整 host packet，按实际发送顺序排列 |
-| `control.hex` | 所有 CONFIG 控制字，按包序排列 |
+| `control.hex` | 展开组播后的全部逻辑 CONFIG 控制字，按每包展开顺序排列 |
 | `constants.hex` | 所有 CONST 的完整 `data_t`，按包序排列 |
 | `preload.hex` | 所有 host STORE_REQUEST 的字地址 `@hex` 与完整 `data_t`；包含重复写入 |
 | `index.json` | 控制字／常量／store 对应的包下标、目标和控制地址 |
@@ -99,8 +101,16 @@ barrier 指定下标的包之前满足其累计完成数，最后一个包后的
 FU 或系统路由实现了它。指令步骤会检查 opcode 已定义及选择器范围，
 不会宣称整个程序的调度、FU 能力和活性已被静态证明。
 
-`abi.json` 分别记录目标 Python 的 59 个 command、99 个 opcode，
-以及 SV 原生新增的 ULT／ULT_CONST／PHI_N／PHI_START_PRED。新增
+`abi.json` 分别记录目标 Python 的 59 个 command、99 个 opcode。
+
+原生新增的 `CTRL_MASK_WORD=59` 和 `CONFIG_MULTICAST=60` 单独列在 `native_commands`，
+未改动原命令号和包字段。只对显式启用的专用控制 profile 开放；
+`config_batch` 不跨常量、启动、命令或 barrier 合并，展开后的每 PE 序列保持相同。
+索引中的多个逻辑控制写入可指向同一组播包，manifest 另列掩码包和组播包数量。
+专用 profile 还检查 Controller 与 Base 的命令交集、实际目的 PE 和控制地址。
+能力与完整例子见 [CONTROL_NETWORK.md](CONTROL_NETWORK.md)。
+
+`abi.json` 另记录 SV 原生新增的 ULT／ULT_CONST／PHI_N／PHI_START_PRED。新增
 opcode 不冒充原 Python 等价功能。各变体的命令和 FU 执行范围以相应
 模块和功能覆盖清单为准；LoopController 的系统路由不因本工具而增加。
 

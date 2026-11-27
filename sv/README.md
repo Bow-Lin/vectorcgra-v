@@ -58,6 +58,7 @@
 | 运行已有 ReLU YAML | `tests/current/run_relu_yaml.sh` |
 | 查数据／控制／主机包字段 | `rtl/common/cgra_profile.svh`、`tools/abi.json` |
 | 查 FU 名称与静态编号 | `rtl/common/cgra_fu_catalog.svh` |
+| 选择控制传输、使用 CONFIG 组播 | [控制网络与能力边界](CONTROL_NETWORK.md) |
 | 查看逐文件用途与迁移过程 | [文字导览](docs/migration-guide.md)、[HTML 导览](docs/migration-guide.html) |
 
 `tests/legacy/` 和 `reference/legacy/` 中的旧 2×2 包装等不属于当前核心硬件。
@@ -388,7 +389,7 @@ python3 sv/scripts/regression.py --check-catalog
 python3 sv/scripts/regression.py --list
 python3 sv/scripts/regression.py --shard core
 
-# 完整回归：14 组、49 个目标，包含综合与综合网表验证
+# 完整回归：15 组、51 个目标，包含综合与综合网表验证
 make -C sv regression
 ```
 

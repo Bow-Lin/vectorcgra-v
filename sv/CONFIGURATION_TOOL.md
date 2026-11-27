@@ -63,6 +63,11 @@ endmodule
 `MAX_COLS/MAX_ROWS` 可显式增加共享消息几何范围；未指定的端口容量及
 FU 表容量按实际表计算。完整默认值见工具的 `DEFAULTS`。
 
+控制传输可选 `parameters.CTRL_NETWORK=0/1/2`（默认原环、平衡树、按行树）和
+`CTRL_MULTICAST=0/1`。新树仅支持单 `system`、Base、native NoC、无 DMA/im2col；
+组播要求新树。非法组合由工具及 RTL 明确拒绝，原环 profile 不变。
+完整能力、掩码 ABI 和对照实验见 [CONTROL_NETWORK.md](CONTROL_NETWORK.md)。
+
 每个 `architectures` 条目包含：
 
 | 字段 | 含义 |

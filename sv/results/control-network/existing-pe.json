@@ -1,0 +1,37 @@
+[
+  {
+    "profile": "base",
+    "log": "build/current/pe-interfaces/rtl/base/run.log",
+    "log_sha256": "36c848910b31fadc02693a8c493c35870fcae68ce7c13b595291361f7eb14d95"
+  },
+  {
+    "profile": "base64",
+    "log": "build/current/pe-interfaces/rtl/base64/run.log",
+    "log_sha256": "6c72f54e98daaa276c070df0db68f405a5fde8afbbb70ea929418f8fd64d39c5"
+  },
+  {
+    "profile": "base8",
+    "log": "build/current/pe-interfaces/rtl/base8/run.log",
+    "log_sha256": "9fe3d0bd2245d2843619d7d656ca9870a0081d79711549f62845710532290ed6"
+  },
+  {
+    "profile": "context",
+    "log": "build/current/pe-interfaces/rtl/context/run.log",
+    "log_sha256": "637afa0fd2e9ca2ec529a44d36175074e8d6b29bc2ff9a2ecc268ce19045c5b1"
+  },
+  {
+    "profile": "context8",
+    "log": "build/current/pe-interfaces/rtl/context8/run.log",
+    "log_sha256": "3eb949e07f04a040d95b947144d8f57d53317968b3c5d52c49f05d899dbef68e"
+  },
+  {
+    "profile": "stream-load",
+    "log": "build/current/pe-interfaces/rtl/stream-load/run.log",
+    "log_sha256": "7fec5ed2e790406be12ea982285dd5a094197a01e741d5ffed373ece3f9b5695"
+  },
+  {
+    "profile": "streaming",
+    "log": "build/current/pe-interfaces/rtl/streaming/run.log",
+    "log_sha256": "4f61880a22f87b892ebaf2480b0c3e6ef0177b3f685f586e2f24ae2aee13f0c2"
+  }
+]

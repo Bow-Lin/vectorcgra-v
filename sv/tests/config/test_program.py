@@ -52,8 +52,12 @@ class ProgramTests(unittest.TestCase):
       header = (SV / 'rtl/common' / name).read_text()
       values = {n:int(v) for n,v in re.findall(r"`define CGRA_OPT_(\w+) 7'd(\d+)", header)}
       self.assertEqual(program.ABI[key], values)
-    self.assertEqual(len(program.COMMANDS), 59)
-    self.assertEqual(set(program.COMMANDS.values()), set(range(59)))
+    self.assertEqual(len(program.ABI['commands']), 59)
+    self.assertEqual(set(program.ABI['commands'].values()), set(range(59)))
+    self.assertEqual(set(program.COMMANDS.values()), set(range(61)))
+    header=(SV/'rtl/common/cgra_ctrl_commands.svh').read_text()
+    native={n:int(v) for n,v in re.findall(r"`define CGRA_CMD_(\w+) 6'd(\d+)",header)}
+    self.assertEqual(program.ABI['native_commands'],native)
     self.assertEqual(program.OPCODES['GEP'], 92)
     self.assertEqual(program.OPCODES['PHI_N'], 104)
     self.assertNotIn('PHI_N', program.ABI['opcodes'])

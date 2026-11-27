@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Pack explicit control words and ordered host programs using only the standard library."""
 import argparse
+import copy
 import hashlib
 import importlib.util
 import json
@@ -18,7 +19,7 @@ require = configuration.require
 keys = configuration.keys
 integer = configuration.integer
 ABI = configuration.load_json(HERE / 'abi.json')
-COMMANDS = ABI['commands']
+COMMANDS = dict(ABI['commands'], **ABI.get('native_commands', {}))
 OPCODES = dict(ABI['opcodes'], **ABI['native_opcodes'])
 
 
@@ -166,6 +167,87 @@ def program_control(config, schema, word):
   return decoded
 
 
+def multicast_packets(config, tiles, pc, control):
+  """Explicit CONFIG-only multicast; mask data is sent over the host ABI."""
+  p=config['parameters'];n=config['widths']['NUM_TILES']
+  require(p.get('CTRL_NETWORK',0)!=0 and p.get('CTRL_MULTICAST',0)==1,
+      'CONFIG multicast requires dedicated CTRL_NETWORK and CTRL_MULTICAST=1')
+  require(isinstance(tiles,list) and tiles, 'multicast tiles: nonempty list required')
+  for tile in tiles:target(config,0,tile)
+  require(len(set(tiles))==len(tiles), 'multicast tiles must be unique')
+  integer(pc,'multicast control address',0,p['CTRL_DEPTH']-1)
+  mask=sum(1<<tile for tile in tiles);bits=p['DATA_W']
+  packets=[host_command(config,'CTRL_MASK_WORD',data=data_value((mask>>(i*bits))&((1<<bits)-1),0),address=i)
+      for i in range((n+bits-1)//bits)]
+  packets.append(host_command(config,'CONFIG_MULTICAST',control=control,pc=pc))
+  return packets
+
+
+def config_batch(config,writes,defaults,multicast):
+  """Merge only this explicit phase; select matching heads of per-PE FIFOs.
+
+  No constant, launch, barrier, or other ordered command can occur inside it.
+  Every emitted group removes at most one head per PE, including overwrites.
+  """
+  require(isinstance(writes,list) and writes, 'config_batch.writes: nonempty list required')
+  require(type(multicast) is bool, 'config_batch.multicast: expected boolean')
+  types=layouts(config);queues={};original=[]
+  for i,w in enumerate(writes):
+    keys(w,{'tile','address','ctrl'},'config_batch write')
+    _,tile=target(config,0,w.get('tile'))
+    pc=integer(w.get('address'),'config_batch address',0,config['parameters']['CTRL_DEPTH']-1)
+    keys(w.get('ctrl'),set(types['ctrl']),'config_batch ctrl')
+    ctrl=program_control(config,types['ctrl'],dict(defaults,**w['ctrl']))
+    packet=host_command(config,'CONFIG',tile=tile,control=ctrl,pc=pc)
+    original.append(packet);queues.setdefault(tile,[]).append((i,packet))
+  if not multicast:return original
+  require(config['parameters'].get('CTRL_MULTICAST',0)==1,
+      'config_batch multicast requires CTRL_MULTICAST=1')
+  result=[]
+  while any(queues.values()):
+    groups={}
+    for tile,q in queues.items():
+      if q:
+        index,packet=q[0]
+        key=pack(types['payload'],packet['payload'],'payload')
+        groups.setdefault(key,[]).append((tile,index,packet))
+    group=min(groups.values(),key=lambda g:(-len(g),min(x[1] for x in g)))
+    tiles=[x[0] for x in group];packet=group[0][2]
+    if len(tiles)>1:result+=multicast_packets(config,tiles,packet['payload']['ctrl_addr'],packet['payload']['ctrl'])
+    else:result.append(packet)
+    for tile in tiles:queues[tile].pop(0)
+  return result
+
+
+def expand_packets(config,encoded,indices=False):
+  """Validate native wire commands and return their logical unicast meaning."""
+  p=config['parameters'];types=layouts(config);n=config['widths']['NUM_TILES'];bits=p['DATA_W']
+  words=(n+bits-1)//bits;mask=0;valid=False;next_word=0;result=[]
+  for index,value in enumerate(encoded):
+    packet=unpack(types['host'],value);payload=packet['payload'];cmd=payload['cmd']
+    if cmd in ABI.get('native_commands',{}).values():
+      require(p.get('CTRL_NETWORK',0)!=0 and p.get('CTRL_MULTICAST',0)==1,
+          'native multicast command is unsupported by this architecture')
+      require(packet['dst_cgra_id']==0,'multicast is local to a single CGRA')
+      if cmd==COMMANDS['CTRL_MASK_WORD']:
+        i=payload['data_addr'];chunk=payload['data']['payload']
+        require(i<words and (i==0 or i==next_word),'mask words must be consecutive starting at zero')
+        require((chunk<<(i*bits))>>n==0,'mask contains absent or padding target bits')
+        if i==0:mask=0;valid=False
+        mask=(mask&~(((1<<bits)-1)<<(i*bits)))|(chunk<<(i*bits))
+        valid=i==words-1;next_word=0 if valid else i+1
+        continue
+      require(valid and mask!=0,'multicast requires a complete nonempty target mask')
+      integer(payload['ctrl_addr'],'multicast control address',0,p['CTRL_DEPTH']-1)
+      program_control(config,types['ctrl'],payload['ctrl'])
+      for tile in range(n):
+        if mask&(1<<tile):
+          item=copy.deepcopy(packet);item['dst']=tile;item['payload']['cmd']=COMMANDS['CONFIG']
+          result.append((index,item) if indices else item)
+    else:result.append((index,packet) if indices else packet)
+  return result
+
+
 def compile_program(config, document):
   keys(document, {'schema', 'steps', 'packets', 'control_defaults'}, 'program')
   require(type(document.get('schema')) is int and document['schema'] == 1, 'program schema: expected version 1')
@@ -219,6 +301,14 @@ def compile_program(config, document):
         keys(step, {'kind', 'cmd', 'cgra', 'tile', 'data', 'data_addr', 'ctrl', 'ctrl_addr'}, 'command')
         packets.append(host_command(config, step.get('cmd'), step.get('cgra', 0), step.get('tile', 0),
                        data_value(step.get('data', {}), 0), step.get('data_addr', 0), step.get('ctrl'), step.get('ctrl_addr', 0)))
+      elif kind == 'config_multicast':
+        keys(step,{'kind','tiles','address','ctrl'},'config_multicast')
+        keys(step.get('ctrl'),set(types['ctrl']),'config_multicast ctrl')
+        ctrl=program_control(config,types['ctrl'],dict(defaults,**step['ctrl']))
+        packets+=multicast_packets(config,step.get('tiles'),step.get('address'),ctrl)
+      elif kind == 'config_batch':
+        keys(step,{'kind','writes','multicast'},'config_batch')
+        packets+=config_batch(config,step.get('writes'),defaults,step.get('multicast',False))
       elif kind == 'packet':
         keys(step, {'kind', 'packet'}, 'packet step')
         packets.append(step.get('packet'))
@@ -236,9 +326,20 @@ def compile_program(config, document):
   # which is outside this single-epoch packet stream.
   loaded = {}
   depth = config['parameters']['CTRL_DEPTH'] + (10 if config['variant'] == 'context' else 0)
-  for word in encoded:
-    packet = unpack(types['host'], word)
+  for packet in expand_packets(config,encoded):
     cmd = packet['payload']['cmd'];pair = (packet['dst_cgra_id'], packet['dst'])
+    if config['parameters'].get('CTRL_NETWORK',0):
+      capabilities=ABI['control_network']
+      allowed=capabilities['controller_forward_commands']+capabilities['controller_local_commands']
+      require(cmd in {COMMANDS[x] for x in allowed},
+          'command has no enabled Controller path in the dedicated profile')
+      if cmd in {COMMANDS[x] for x in capabilities['controller_forward_commands']}:
+        require(cmd in {COMMANDS[x] for x in capabilities['base_ingress_commands']},
+            'command is not supported by the dedicated Base profile')
+        target(config,*pair)
+        if cmd==COMMANDS['CONFIG']:
+          integer(packet['payload']['ctrl_addr'],'control address',0,config['parameters']['CTRL_DEPTH']-1)
+          program_control(config,types['ctrl'],packet['payload']['ctrl'])
     if cmd == COMMANDS['CONST']:
       target(config, *pair)
       loaded[pair] = loaded.get(pair, 0) + 1
@@ -255,7 +356,7 @@ def encode_outputs(config, document):
     return format(value, f'0{(bits + 3) // 4}x')
   decoded = [unpack(types['host'], word) for word in packets]
   controls = []; constants = []; preloads = []; index = []
-  for i, packet in enumerate(decoded):
+  for i, packet in expand_packets(config,packets,indices=True):
     payload = packet['payload'];cmd = payload['cmd']
     entry = dict(packet_index=i, cgra=packet['dst_cgra_id'], tile=packet['dst'])
     if cmd == COMMANDS['CONFIG']:
@@ -274,6 +375,9 @@ def encode_outputs(config, document):
              'barriers.txt': '\n'.join(f'{b["before_packet"]} {b["completions"]}' for b in barriers) + ('\n' if barriers else ''),
              'index.json': json.dumps(index, indent=2) + '\n'}
   metadata = dict(packet_count=len(packets), control_count=len(controls), constant_count=len(constants),
+                  multicast_packets=sum(p['payload']['cmd']==COMMANDS['CONFIG_MULTICAST'] for p in decoded),
+                  mask_packets=sum(p['payload']['cmd']==COMMANDS['CTRL_MASK_WORD'] for p in decoded),
+                  wire_control_packets=sum(p['payload']['cmd'] in {COMMANDS['CONFIG'],COMMANDS['CONFIG_MULTICAST']} for p in decoded),
                   store_count=len(preloads)//2, barriers=barriers,
                   layouts={name: dict(nbits=width(node), fields=layout_fields(node)) for name, node in types.items()})
   return outputs, metadata

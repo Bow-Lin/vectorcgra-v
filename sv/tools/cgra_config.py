@@ -34,13 +34,13 @@ DEFAULTS = dict(DATA_W=32, TILE_PORTS=4, CTRL_DEPTH=8, REG_DEPTH=16,
         BANK_DEPTH=16, NUM_BANKS=2, GLOBAL_ADDR_W=7, NUM_CTRL=8,
         TOTAL_STEPS=8, MULTI_COLS=1, MULTI_ROWS=1, HAS_DMA=0,
         HAS_IM2COL=0, MEM_COMBINATIONAL=1, MEMORY_LEGACY_PYTHON=0,
-        NOC_LEGACY_PYTHON=0, VECTOR_LANES=4, VECTOR_FACTOR_POWER=0,
+        NOC_LEGACY_PYTHON=0, CTRL_NETWORK=0, CTRL_MULTICAST=0, VECTOR_LANES=4, VECTOR_FACTOR_POWER=0,
         FP_EXP_W=8, FP_SIG_W=23, FP_LEGACY_PYTHON=0,
         REDUCE_LEGACY_PYTHON=0, VECTOR_LEGACY_PYTHON=0,
         ARITH_LEGACY_PYTHON=0)
 GEOMETRY = {'COLS', 'ROWS', 'MAX_COLS', 'MAX_ROWS', 'MEM_PORTS',
       'MEM_WRITE_PORTS', 'MAX_MEM_PORTS', 'FU_COUNT'}
-BITS = {'HAS_DMA', 'HAS_IM2COL', 'MEM_COMBINATIONAL'} | {
+BITS = {'HAS_DMA', 'HAS_IM2COL', 'MEM_COMBINATIONAL', 'CTRL_MULTICAST'} | {
   k for k in DEFAULTS if k.endswith('_LEGACY_PYTHON')}
 
 
@@ -170,6 +170,12 @@ def normalize(document):
     integer(value, f'parameters.{key}', 0, 1 if key in BITS else 0x7fffffff)
   require(p['MULTI_COLS'] >= 1 and p['MULTI_ROWS'] >= 1, 'multi dimensions must be positive')
   count = p['MULTI_COLS'] * p['MULTI_ROWS']
+  require(p['CTRL_NETWORK'] in {0, 1, 2}, 'CTRL_NETWORK must be 0 (ring), 1 (balanced), or 2 (rows)')
+  require(not p['CTRL_MULTICAST'] or p['CTRL_NETWORK']!=0, 'CTRL_MULTICAST requires dedicated control transport')
+  if p['CTRL_NETWORK']:
+    require(top == 'system' and count == 1 and variant == 'base' and
+        not p['NOC_LEGACY_PYTHON'] and not p['HAS_DMA'] and not p['HAS_IM2COL'],
+        'dedicated control network requires single system, Base, native NoC, no peripherals')
   architectures = document.get('architectures')
   require(isinstance(architectures, list) and len(architectures) == count,
       'architectures count must equal MULTI_COLS * MULTI_ROWS')
@@ -266,6 +272,9 @@ def normalize(document):
   for entry in mapping:
     integer(entry, 'address_map', 0, count - 1)
   require(sorted(mapping) == list(range(count)), 'address_map must be a permutation of all CGRA IDs')
+  if p['CTRL_MULTICAST']:
+    require((p['COLS']*p['ROWS']+p['DATA_W']-1)//p['DATA_W'] <= 1<<p['GLOBAL_ADDR_W'],
+        'multicast mask word indices exceed data_addr width')
   return dict(schema=SCHEMA, top=top, topology=topology, variant=variant,
         parameters=p, widths=profile_widths(p), architectures=result, address_map=mapping)
 

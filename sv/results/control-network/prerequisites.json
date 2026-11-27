@@ -1,0 +1,45 @@
+{
+  "baseline": "03db4c735dc9573ee19d5080eb123cc106333ba3",
+  "evidence": "candidate default ring unchanged components; RTL simulation",
+  "cases": [
+    {
+      "argv": [
+        "bash",
+        "tests/current/run_noc_primitives.sh"
+      ],
+      "exit_code": 0,
+      "seconds": 53.567,
+      "log": "$BUILD/prerequisites/primitives.log",
+      "log_sha256": "ce345519aa9273a32c05030c5b2dc71416d232fc25a12c3f94134f4865bbc276",
+      "name": "primitives",
+      "passed": true
+    },
+    {
+      "argv": [
+        "bash",
+        "tests/current/run_noc_router_credit.sh"
+      ],
+      "exit_code": 0,
+      "seconds": 8.392,
+      "log": "$BUILD/prerequisites/router-credit.log",
+      "log_sha256": "ec65e77a3bb314e06ecd529db8bddb41caf8e9bac7f78206c3d19e612515c2ed",
+      "name": "router-credit",
+      "passed": true
+    },
+    {
+      "argv": [
+        "env",
+        "NOC_PROFILE_FILTER=ring_3_l1_w32",
+        "bash",
+        "tests/current/run_noc_networks.sh"
+      ],
+      "exit_code": 0,
+      "seconds": 57.726,
+      "log": "$BUILD/prerequisites/ring3-native-legacy.log",
+      "log_sha256": "afd23cc865d1d9a192568f05249f58a25f1b7a4427471245f74be18eeac2ef3a",
+      "name": "ring3-native-legacy",
+      "passed": true
+    }
+  ],
+  "all_passed": true
+}

@@ -1,0 +1,1789 @@
+{
+  "schema": 1,
+  "baseline": "03db4c735dc9573ee19d5080eb123cc106333ba3",
+  "evidence": "RTL simulation only",
+  "verilator": "Verilator 5.029 devel rev v5.028-104-ge2041f745",
+  "original_primitive_sha256": {
+    "sv/rtl/common/cgra_queue.sv": "87e03f556141d8c2c0abe26168ef567ce4b5e456a9f090f9f797aed51a4c4761",
+    "sv/rtl/common/cgra_round_robin.sv": "294d46b6394c205ea67577ef8f4f51b6cc220072051c6a42b3280c5b7ef4b93d",
+    "sv/rtl/noc/cgra_switch.sv": "b240bd16d346ebe037705caff67bb0d6c4c536f69c9e505e8503add1bf6005a4",
+    "sv/rtl/noc/cgra_credit_send.sv": "03171c6c933efe24717ed7d0df5b484f20312019421cba45e56de7e8fa712512",
+    "sv/rtl/noc/cgra_credit_input.sv": "c70a6188a78373c7b1b817b4cc6ea2b44fa06ca4b489b73dde61481aeb8a1f5d",
+    "sv/rtl/noc/cgra_credit_recv.sv": "181ac5ed8e66869375eec7668ceb58e6b1f3ae422045d3736c7472f58a550f07",
+    "sv/rtl/noc/cgra_ring_route.sv": "30ddabd82453381cc3ae7e686bbb5e0497c7b9d3b41dd27c83d9496464840cbf",
+    "sv/rtl/noc/cgra_ring_router.sv": "6e5b799e25ca4820e6ff2b927e430d9243cf6658bd1459a94bc064aa857617ff",
+    "sv/rtl/noc/cgra_credit_ring.sv": "1261785a4eeb013f1047c5855b5350f1195d0ccfa67226336c27b6affb2634e0"
+  },
+  "cases": [
+    {
+      "parameters": {
+        "COLS": 2,
+        "ROWS": 2,
+        "MAX_COLS": 2,
+        "MAX_ROWS": 2,
+        "BACKEND": 1,
+        "CTRL_MULTICAST": 1
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/b5b482dc3ac9377b/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/2x2-backend1/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.021,
+          "log": "$BUILD/multicast-final/2x2-backend1/normal.log",
+          "log_sha256": "ffc61d96435e6adc9e3155b4769da1d7af1bc8805058e887d65769efbe333560",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 1,
+            "cols": 2,
+            "rows": 2,
+            "max_tiles": 4,
+            "pressure": 0,
+            "first_accept": 870,
+            "last_delivery": 1072,
+            "last_return": 1032,
+            "host_packets": 200,
+            "target_deliveries": 215,
+            "up_packets": 160
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/b5b482dc3ac9377b/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/2x2-backend1/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.016,
+          "log": "$BUILD/multicast-final/2x2-backend1/backpressure.log",
+          "log_sha256": "b0932eb0131173fb049ae6d01c0eb414b3a86d4a3dd6d050845a28eb83484eb0",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 1,
+            "cols": 2,
+            "rows": 2,
+            "max_tiles": 4,
+            "pressure": 1,
+            "first_accept": 958,
+            "last_delivery": 1213,
+            "last_return": 1248,
+            "host_packets": 200,
+            "target_deliveries": 215,
+            "up_packets": 160
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/b5b482dc3ac9377b/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/multicast-final/2x2-backend1/negative-BAD_EXPECTED.log",
+          "log_sha256": "6078d28e80220f09d9d095747d956bd30fdf22dd2aed8bc297532583c1995fac",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/b5b482dc3ac9377b/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/multicast-final/2x2-backend1/negative-INVALID_TARGET.log",
+          "log_sha256": "13c5d5b256f46ae5eb7f879e3bca26129ee580097d9366b44baf1d952c646494",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/b5b482dc3ac9377b/Vtb_control_network",
+            "+ZERO_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/multicast-final/2x2-backend1/negative-ZERO_MASK.log",
+          "log_sha256": "009766f29feafd2a5cb1452bcdf673511766c83dbb9c60571658266b63808f10",
+          "flag": "ZERO_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/b5b482dc3ac9377b/Vtb_control_network",
+            "+UNLOADED_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/multicast-final/2x2-backend1/negative-UNLOADED_MASK.log",
+          "log_sha256": "be4f6508c37e5b35e657b98f29fe5d510c0f6dbb702774a287dfb07f7bfac765",
+          "flag": "UNLOADED_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/b5b482dc3ac9377b/Vtb_control_network",
+            "+INVALID_MASK_WORD"
+          ],
+          "exit_code": -6,
+          "seconds": 0.009,
+          "log": "$BUILD/multicast-final/2x2-backend1/negative-INVALID_MASK_WORD.log",
+          "log_sha256": "4240d5ae4af79600ab2714c6f69b0466a3aa4d98df377a826e4c1440d3809d43",
+          "flag": "INVALID_MASK_WORD",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/b5b482dc3ac9377b/Vtb_control_network",
+            "+BAD_MASK_PADDING"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/multicast-final/2x2-backend1/negative-BAD_MASK_PADDING.log",
+          "log_sha256": "4240d5ae4af79600ab2714c6f69b0466a3aa4d98df377a826e4c1440d3809d43",
+          "flag": "BAD_MASK_PADDING",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "66eb675f1acf0469cb4ba4cac4d82347d017f409e27a0c603ec1b4c529858033"
+    },
+    {
+      "parameters": {
+        "COLS": 2,
+        "ROWS": 2,
+        "MAX_COLS": 2,
+        "MAX_ROWS": 2,
+        "BACKEND": 2,
+        "CTRL_MULTICAST": 1
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/395a996048cf4f03/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/2x2-backend2/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.018,
+          "log": "$BUILD/multicast-final/2x2-backend2/normal.log",
+          "log_sha256": "1a9aba82eac4f251633be26564dbfe672fab0bf9f4b60a10278858a0a4655f35",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 1,
+            "cols": 2,
+            "rows": 2,
+            "max_tiles": 4,
+            "pressure": 0,
+            "first_accept": 870,
+            "last_delivery": 1072,
+            "last_return": 1032,
+            "host_packets": 200,
+            "target_deliveries": 215,
+            "up_packets": 160
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/395a996048cf4f03/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/2x2-backend2/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.016,
+          "log": "$BUILD/multicast-final/2x2-backend2/backpressure.log",
+          "log_sha256": "06d28b4f84d388b5fcc6112d3ab41b6d0fb398d6008399aad52d17ffbdbedf01",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 1,
+            "cols": 2,
+            "rows": 2,
+            "max_tiles": 4,
+            "pressure": 1,
+            "first_accept": 958,
+            "last_delivery": 1213,
+            "last_return": 1248,
+            "host_packets": 200,
+            "target_deliveries": 215,
+            "up_packets": 160
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/395a996048cf4f03/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.009,
+          "log": "$BUILD/multicast-final/2x2-backend2/negative-BAD_EXPECTED.log",
+          "log_sha256": "42b18f394fe60fb64800bb1b394c6153bc72d97e238058d2db1e112dcb79a2a1",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/395a996048cf4f03/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/multicast-final/2x2-backend2/negative-INVALID_TARGET.log",
+          "log_sha256": "5ae3efdb89779329f5e2f901f2a75e34e4757a44b269823ee2cde0b21015db12",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/395a996048cf4f03/Vtb_control_network",
+            "+ZERO_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/multicast-final/2x2-backend2/negative-ZERO_MASK.log",
+          "log_sha256": "dae60d9059871312efeaed76c9a9d2917b49d359214d82e5ae625990bfe83881",
+          "flag": "ZERO_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/395a996048cf4f03/Vtb_control_network",
+            "+UNLOADED_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/multicast-final/2x2-backend2/negative-UNLOADED_MASK.log",
+          "log_sha256": "8d39239afb67d0ea2ef93a196bc2d7cdd9cf0420113b78438fd676fdf45c2ebf",
+          "flag": "UNLOADED_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/395a996048cf4f03/Vtb_control_network",
+            "+INVALID_MASK_WORD"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/multicast-final/2x2-backend2/negative-INVALID_MASK_WORD.log",
+          "log_sha256": "c87ff1f54595bb532b1d5e60d56f0d2a14cdefc475e6a95b30dcee550dc284bd",
+          "flag": "INVALID_MASK_WORD",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/395a996048cf4f03/Vtb_control_network",
+            "+BAD_MASK_PADDING"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/multicast-final/2x2-backend2/negative-BAD_MASK_PADDING.log",
+          "log_sha256": "c87ff1f54595bb532b1d5e60d56f0d2a14cdefc475e6a95b30dcee550dc284bd",
+          "flag": "BAD_MASK_PADDING",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "4648b9ebad24d0442e633c168f5b4d2b802bdc5a145d1ccfcad9937f53d087ba"
+    },
+    {
+      "parameters": {
+        "COLS": 3,
+        "ROWS": 3,
+        "MAX_COLS": 3,
+        "MAX_ROWS": 3,
+        "BACKEND": 1,
+        "CTRL_MULTICAST": 1
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/c513d759c9038ca4/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/3x3-backend1/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.032,
+          "log": "$BUILD/multicast-final/3x3-backend1/normal.log",
+          "log_sha256": "68fde7930be40a7e3dca1dc5139d1a0ac8202d17ad2301ac76945f148d84a73d",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 1,
+            "cols": 3,
+            "rows": 3,
+            "max_tiles": 9,
+            "pressure": 0,
+            "first_accept": 1031,
+            "last_delivery": 1235,
+            "last_return": 1394,
+            "host_packets": 200,
+            "target_deliveries": 324,
+            "up_packets": 360
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/c513d759c9038ca4/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/3x3-backend1/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.065,
+          "log": "$BUILD/multicast-final/3x3-backend1/backpressure.log",
+          "log_sha256": "2ea15f1237c74be655d2d29f668e0095061beeadda0319d0bb297e41e1116839",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 1,
+            "cols": 3,
+            "rows": 3,
+            "max_tiles": 9,
+            "pressure": 1,
+            "first_accept": 1323,
+            "last_delivery": 1578,
+            "last_return": 1978,
+            "host_packets": 200,
+            "target_deliveries": 324,
+            "up_packets": 360
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/c513d759c9038ca4/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/multicast-final/3x3-backend1/negative-BAD_EXPECTED.log",
+          "log_sha256": "3830e354bc49f553d55eb5ffc82795ea0a9e28e2a9ab976fff472980553e8c91",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/c513d759c9038ca4/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.018,
+          "log": "$BUILD/multicast-final/3x3-backend1/negative-INVALID_TARGET.log",
+          "log_sha256": "b4bc1739b32b1904a434009c647b3bc9f1033725dd5adb5694c33117d5a9153d",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/c513d759c9038ca4/Vtb_control_network",
+            "+ZERO_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/multicast-final/3x3-backend1/negative-ZERO_MASK.log",
+          "log_sha256": "cca58917a4c7e19af69923ec688939ac813075cc3b30906f422ac7b16fbd94ec",
+          "flag": "ZERO_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/c513d759c9038ca4/Vtb_control_network",
+            "+UNLOADED_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/multicast-final/3x3-backend1/negative-UNLOADED_MASK.log",
+          "log_sha256": "50dd1466276445f79052a54115dcfc2f56e644df89033873af6ddbd62c391adc",
+          "flag": "UNLOADED_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/c513d759c9038ca4/Vtb_control_network",
+            "+INVALID_MASK_WORD"
+          ],
+          "exit_code": -6,
+          "seconds": 0.021,
+          "log": "$BUILD/multicast-final/3x3-backend1/negative-INVALID_MASK_WORD.log",
+          "log_sha256": "59d9d22e01fed692c35bc806b7452c34a60413a8592c580dcd40c0a795f33315",
+          "flag": "INVALID_MASK_WORD",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/c513d759c9038ca4/Vtb_control_network",
+            "+BAD_MASK_PADDING"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/multicast-final/3x3-backend1/negative-BAD_MASK_PADDING.log",
+          "log_sha256": "59d9d22e01fed692c35bc806b7452c34a60413a8592c580dcd40c0a795f33315",
+          "flag": "BAD_MASK_PADDING",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "5488368b606f0b9115c47ed7e72f1b6805ce6e2b3894bae884d31485729700cd"
+    },
+    {
+      "parameters": {
+        "COLS": 3,
+        "ROWS": 3,
+        "MAX_COLS": 3,
+        "MAX_ROWS": 3,
+        "BACKEND": 2,
+        "CTRL_MULTICAST": 1
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/e650c9a4f29e4bd5/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/3x3-backend2/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.064,
+          "log": "$BUILD/multicast-final/3x3-backend2/normal.log",
+          "log_sha256": "24d33ac008f18090368f00b75c34e94c6b668059126673695c6db85f6f0e63d7",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 1,
+            "cols": 3,
+            "rows": 3,
+            "max_tiles": 9,
+            "pressure": 0,
+            "first_accept": 1030,
+            "last_delivery": 1234,
+            "last_return": 1392,
+            "host_packets": 200,
+            "target_deliveries": 324,
+            "up_packets": 360
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/e650c9a4f29e4bd5/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/3x3-backend2/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.065,
+          "log": "$BUILD/multicast-final/3x3-backend2/backpressure.log",
+          "log_sha256": "c848d1f1fde6a6d4216b21d06351059a4f88ce337dce62c47fc8b7da50328a68",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 1,
+            "cols": 3,
+            "rows": 3,
+            "max_tiles": 9,
+            "pressure": 1,
+            "first_accept": 1323,
+            "last_delivery": 1579,
+            "last_return": 1978,
+            "host_packets": 200,
+            "target_deliveries": 324,
+            "up_packets": 360
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/e650c9a4f29e4bd5/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/multicast-final/3x3-backend2/negative-BAD_EXPECTED.log",
+          "log_sha256": "3b9761aed4577b3afe13215cd9c69710637b0ee4769dc641ce7c6d729e9e4850",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/e650c9a4f29e4bd5/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.033,
+          "log": "$BUILD/multicast-final/3x3-backend2/negative-INVALID_TARGET.log",
+          "log_sha256": "991b5d07dab4c96e1c5d0d0b93e65854bfb7827cd3a06515446883dc71bd3e00",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/e650c9a4f29e4bd5/Vtb_control_network",
+            "+ZERO_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/multicast-final/3x3-backend2/negative-ZERO_MASK.log",
+          "log_sha256": "a167bff37f6498615edc6a2ea3e86a0958f2d169d78cc102d1256972f80d173a",
+          "flag": "ZERO_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/e650c9a4f29e4bd5/Vtb_control_network",
+            "+UNLOADED_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/multicast-final/3x3-backend2/negative-UNLOADED_MASK.log",
+          "log_sha256": "44ffebf5b43613df135deb957fb77037a35bfd979cf6524e8eefa749f0d9abc4",
+          "flag": "UNLOADED_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/e650c9a4f29e4bd5/Vtb_control_network",
+            "+INVALID_MASK_WORD"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/multicast-final/3x3-backend2/negative-INVALID_MASK_WORD.log",
+          "log_sha256": "7e01a5c5207e61f8efb5f743699f0fd707ec5191a6f5017e2091e01975361cb8",
+          "flag": "INVALID_MASK_WORD",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/e650c9a4f29e4bd5/Vtb_control_network",
+            "+BAD_MASK_PADDING"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/multicast-final/3x3-backend2/negative-BAD_MASK_PADDING.log",
+          "log_sha256": "7e01a5c5207e61f8efb5f743699f0fd707ec5191a6f5017e2091e01975361cb8",
+          "flag": "BAD_MASK_PADDING",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "6094a309d0b85c6f70ad2565195060ff0ba43c1bc877ec22d48f489f70eb875e"
+    },
+    {
+      "parameters": {
+        "COLS": 4,
+        "ROWS": 4,
+        "MAX_COLS": 4,
+        "MAX_ROWS": 4,
+        "BACKEND": 1,
+        "CTRL_MULTICAST": 1
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/f46e27f39ee351d5/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/4x4-backend1/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.114,
+          "log": "$BUILD/multicast-final/4x4-backend1/normal.log",
+          "log_sha256": "d1e628f6580ce75543761d991db3ca6d84a1685378bb0729f7bcac99964c9166",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 1,
+            "cols": 4,
+            "rows": 4,
+            "max_tiles": 16,
+            "pressure": 0,
+            "first_accept": 1312,
+            "last_delivery": 1516,
+            "last_return": 1956,
+            "host_packets": 200,
+            "target_deliveries": 461,
+            "up_packets": 640
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/f46e27f39ee351d5/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/4x4-backend1/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.164,
+          "log": "$BUILD/multicast-final/4x4-backend1/backpressure.log",
+          "log_sha256": "610993a3084ceb43d4588e34a024d3759ae4de96cf263f4eeb1f452b24e30f83",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 1,
+            "cols": 4,
+            "rows": 4,
+            "max_tiles": 16,
+            "pressure": 1,
+            "first_accept": 1824,
+            "last_delivery": 2079,
+            "last_return": 2983,
+            "host_packets": 200,
+            "target_deliveries": 461,
+            "up_packets": 640
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/f46e27f39ee351d5/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.064,
+          "log": "$BUILD/multicast-final/4x4-backend1/negative-BAD_EXPECTED.log",
+          "log_sha256": "6aafe3ad37a9483a1948be691f485e6ebeac1b1ee1505e6f474777425c1ac28f",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/f46e27f39ee351d5/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/multicast-final/4x4-backend1/negative-INVALID_TARGET.log",
+          "log_sha256": "cfa9a2e6c9cb09ca2b4e988a18c0272e457775ccf2a4e4fbfcf4faaa82198a31",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/f46e27f39ee351d5/Vtb_control_network",
+            "+ZERO_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.064,
+          "log": "$BUILD/multicast-final/4x4-backend1/negative-ZERO_MASK.log",
+          "log_sha256": "210a357612d0cbdbc42aabf017d8c461b5b8a519d4d292c1667a3e2aed900249",
+          "flag": "ZERO_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/f46e27f39ee351d5/Vtb_control_network",
+            "+UNLOADED_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.064,
+          "log": "$BUILD/multicast-final/4x4-backend1/negative-UNLOADED_MASK.log",
+          "log_sha256": "a139a6745fbc8d74e86cddb9d10ac093945c157adad4404c873444f867ceac55",
+          "flag": "UNLOADED_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/f46e27f39ee351d5/Vtb_control_network",
+            "+INVALID_MASK_WORD"
+          ],
+          "exit_code": -6,
+          "seconds": 0.064,
+          "log": "$BUILD/multicast-final/4x4-backend1/negative-INVALID_MASK_WORD.log",
+          "log_sha256": "332641c23e093806188e6e68c55bd68cf5be7ca07be546a90572c44fb9245ac1",
+          "flag": "INVALID_MASK_WORD",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/f46e27f39ee351d5/Vtb_control_network",
+            "+BAD_MASK_PADDING"
+          ],
+          "exit_code": -6,
+          "seconds": 0.064,
+          "log": "$BUILD/multicast-final/4x4-backend1/negative-BAD_MASK_PADDING.log",
+          "log_sha256": "332641c23e093806188e6e68c55bd68cf5be7ca07be546a90572c44fb9245ac1",
+          "flag": "BAD_MASK_PADDING",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "04ebc3ce8d21af8b785850f9cc204c96bb2cc4467e0159c69f636d3bd5a88ec4"
+    },
+    {
+      "parameters": {
+        "COLS": 4,
+        "ROWS": 4,
+        "MAX_COLS": 4,
+        "MAX_ROWS": 4,
+        "BACKEND": 2,
+        "CTRL_MULTICAST": 1
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/2f35da55d7019a89/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/4x4-backend2/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.114,
+          "log": "$BUILD/multicast-final/4x4-backend2/normal.log",
+          "log_sha256": "124dd34c33e19a858702f2626a84f32bc5502ba1e7ccd367a2f25dec4d82163e",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 1,
+            "cols": 4,
+            "rows": 4,
+            "max_tiles": 16,
+            "pressure": 0,
+            "first_accept": 1312,
+            "last_delivery": 1516,
+            "last_return": 1956,
+            "host_packets": 200,
+            "target_deliveries": 461,
+            "up_packets": 640
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/2f35da55d7019a89/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/4x4-backend2/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.165,
+          "log": "$BUILD/multicast-final/4x4-backend2/backpressure.log",
+          "log_sha256": "27684679b161e0aeefe5364ea0a52f6dde85f65d346c1affea7526c43e44d2a1",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 1,
+            "cols": 4,
+            "rows": 4,
+            "max_tiles": 16,
+            "pressure": 1,
+            "first_accept": 1824,
+            "last_delivery": 2079,
+            "last_return": 2983,
+            "host_packets": 200,
+            "target_deliveries": 461,
+            "up_packets": 640
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/2f35da55d7019a89/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.064,
+          "log": "$BUILD/multicast-final/4x4-backend2/negative-BAD_EXPECTED.log",
+          "log_sha256": "0ab3b2227438de2999ca4710ef0d7b8458b25f70f8861b7ff73e45be9acd2930",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/2f35da55d7019a89/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.064,
+          "log": "$BUILD/multicast-final/4x4-backend2/negative-INVALID_TARGET.log",
+          "log_sha256": "0d2f0bf305628c73366bd0535e4e54e27ba7000e196e8f8f1ae172aa015db183",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/2f35da55d7019a89/Vtb_control_network",
+            "+ZERO_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.065,
+          "log": "$BUILD/multicast-final/4x4-backend2/negative-ZERO_MASK.log",
+          "log_sha256": "0528f55b358a31438309e5e6071bc86ee2b470d9c0dbffdc636e3bd1cbb0e7b7",
+          "flag": "ZERO_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/2f35da55d7019a89/Vtb_control_network",
+            "+UNLOADED_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.064,
+          "log": "$BUILD/multicast-final/4x4-backend2/negative-UNLOADED_MASK.log",
+          "log_sha256": "888e092db9e67f23c5521139939d75169e212db879aafb7fee99c63fda441550",
+          "flag": "UNLOADED_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/2f35da55d7019a89/Vtb_control_network",
+            "+INVALID_MASK_WORD"
+          ],
+          "exit_code": -6,
+          "seconds": 0.064,
+          "log": "$BUILD/multicast-final/4x4-backend2/negative-INVALID_MASK_WORD.log",
+          "log_sha256": "87cf5510cab510c79235489f7124d9427470b79e6a5d2918ed61d7a67c44d02b",
+          "flag": "INVALID_MASK_WORD",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/2f35da55d7019a89/Vtb_control_network",
+            "+BAD_MASK_PADDING"
+          ],
+          "exit_code": -6,
+          "seconds": 0.064,
+          "log": "$BUILD/multicast-final/4x4-backend2/negative-BAD_MASK_PADDING.log",
+          "log_sha256": "87cf5510cab510c79235489f7124d9427470b79e6a5d2918ed61d7a67c44d02b",
+          "flag": "BAD_MASK_PADDING",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "8251f25a91a84a9b4760b18f231ffd3f9bd678cef48f103d8eff51a6911b383d"
+    },
+    {
+      "parameters": {
+        "COLS": 2,
+        "ROWS": 3,
+        "MAX_COLS": 3,
+        "MAX_ROWS": 3,
+        "BACKEND": 1,
+        "CTRL_MULTICAST": 1
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/397d3f25379676e8/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/2x3-backend1/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.065,
+          "log": "$BUILD/multicast-final/2x3-backend1/normal.log",
+          "log_sha256": "a868aff802758cdc43c976a080557d9108bda7a61b7bfa738e1c427a72182084",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 1,
+            "cols": 2,
+            "rows": 3,
+            "max_tiles": 9,
+            "pressure": 0,
+            "first_accept": 910,
+            "last_delivery": 1113,
+            "last_return": 1152,
+            "host_packets": 200,
+            "target_deliveries": 256,
+            "up_packets": 240
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/397d3f25379676e8/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/2x3-backend1/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.032,
+          "log": "$BUILD/multicast-final/2x3-backend1/backpressure.log",
+          "log_sha256": "84e5f7eea8611c9e78cf2c0ab6425e4c654e00c3d5dcd820676ed37c3c332dcf",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 1,
+            "cols": 2,
+            "rows": 3,
+            "max_tiles": 9,
+            "pressure": 1,
+            "first_accept": 1106,
+            "last_delivery": 1360,
+            "last_return": 1541,
+            "host_packets": 200,
+            "target_deliveries": 256,
+            "up_packets": 240
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/397d3f25379676e8/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/multicast-final/2x3-backend1/negative-BAD_EXPECTED.log",
+          "log_sha256": "ef237925ec2887412ec0db5ef9815db26b610d97f9865e43569979b3c82f14c0",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/397d3f25379676e8/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.017,
+          "log": "$BUILD/multicast-final/2x3-backend1/negative-INVALID_TARGET.log",
+          "log_sha256": "e1b2377f4160b74b27abdf745a0199f17aac59ea6b1dc3d6d924d5e01766bbe7",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/397d3f25379676e8/Vtb_control_network",
+            "+ZERO_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/multicast-final/2x3-backend1/negative-ZERO_MASK.log",
+          "log_sha256": "d23427148cc6545d46fbfdb6dbd973527e58949dc9e7d31e65225ece866d0233",
+          "flag": "ZERO_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/397d3f25379676e8/Vtb_control_network",
+            "+UNLOADED_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/multicast-final/2x3-backend1/negative-UNLOADED_MASK.log",
+          "log_sha256": "b6b4441603453dcf316d73fdbd801e66641de3a8c115d91bd053844618e36f7d",
+          "flag": "UNLOADED_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/397d3f25379676e8/Vtb_control_network",
+            "+INVALID_MASK_WORD"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/multicast-final/2x3-backend1/negative-INVALID_MASK_WORD.log",
+          "log_sha256": "fcc57bc8a15a6c2c4505ab5d191cd0396ab98f7da86a71e42df6b14aca8821f9",
+          "flag": "INVALID_MASK_WORD",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/397d3f25379676e8/Vtb_control_network",
+            "+BAD_MASK_PADDING"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/multicast-final/2x3-backend1/negative-BAD_MASK_PADDING.log",
+          "log_sha256": "fcc57bc8a15a6c2c4505ab5d191cd0396ab98f7da86a71e42df6b14aca8821f9",
+          "flag": "BAD_MASK_PADDING",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "8886b2132fcbfbf41f8fae7e3c909dc15f9170493e797abe0a7a2671739e3a9f"
+    },
+    {
+      "parameters": {
+        "COLS": 2,
+        "ROWS": 3,
+        "MAX_COLS": 3,
+        "MAX_ROWS": 3,
+        "BACKEND": 2,
+        "CTRL_MULTICAST": 1
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/7f42fc088713a880/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/2x3-backend2/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.037,
+          "log": "$BUILD/multicast-final/2x3-backend2/normal.log",
+          "log_sha256": "9e0b4bff60505065ecbdd68834fafa58b90ceb136602a2d1e4c9ba972ca8335a",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 1,
+            "cols": 2,
+            "rows": 3,
+            "max_tiles": 9,
+            "pressure": 0,
+            "first_accept": 910,
+            "last_delivery": 1113,
+            "last_return": 1152,
+            "host_packets": 200,
+            "target_deliveries": 256,
+            "up_packets": 240
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/7f42fc088713a880/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/2x3-backend2/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.042,
+          "log": "$BUILD/multicast-final/2x3-backend2/backpressure.log",
+          "log_sha256": "2104720104433de681a7a96bc0e08215acea67099f372d7c8e73a6b30dcec158",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 1,
+            "cols": 2,
+            "rows": 3,
+            "max_tiles": 9,
+            "pressure": 1,
+            "first_accept": 1106,
+            "last_delivery": 1360,
+            "last_return": 1541,
+            "host_packets": 200,
+            "target_deliveries": 256,
+            "up_packets": 240
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/7f42fc088713a880/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/multicast-final/2x3-backend2/negative-BAD_EXPECTED.log",
+          "log_sha256": "de232199fb443ecbdae26868fb8dde6310d6773d68204dbc22f9488e7eaa3b91",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/7f42fc088713a880/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.043,
+          "log": "$BUILD/multicast-final/2x3-backend2/negative-INVALID_TARGET.log",
+          "log_sha256": "0eea819945330d170478f9dc33e3571f7e22f814f15ea44ceb946623d38abba3",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/7f42fc088713a880/Vtb_control_network",
+            "+ZERO_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.021,
+          "log": "$BUILD/multicast-final/2x3-backend2/negative-ZERO_MASK.log",
+          "log_sha256": "c5661b01feb50d2c638ed98c98527a6f1a7d674ae183b72667cfe373168bf1e8",
+          "flag": "ZERO_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/7f42fc088713a880/Vtb_control_network",
+            "+UNLOADED_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/multicast-final/2x3-backend2/negative-UNLOADED_MASK.log",
+          "log_sha256": "dacf7b46fdd4825540e69cb2d3f497638fd160ba3b971f45c6658d961db87f24",
+          "flag": "UNLOADED_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/7f42fc088713a880/Vtb_control_network",
+            "+INVALID_MASK_WORD"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/multicast-final/2x3-backend2/negative-INVALID_MASK_WORD.log",
+          "log_sha256": "246a2700ef48407ada9274462c3bb7e574b6ec5888480b8968a167b274d3ab94",
+          "flag": "INVALID_MASK_WORD",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/7f42fc088713a880/Vtb_control_network",
+            "+BAD_MASK_PADDING"
+          ],
+          "exit_code": -6,
+          "seconds": 0.046,
+          "log": "$BUILD/multicast-final/2x3-backend2/negative-BAD_MASK_PADDING.log",
+          "log_sha256": "246a2700ef48407ada9274462c3bb7e574b6ec5888480b8968a167b274d3ab94",
+          "flag": "BAD_MASK_PADDING",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "c8c23498657c854d6536e0a85c9c49c4897da2b9866338fd1ad299d4a0bc1152",
+      "build_identity_sha256": "d60b8b39547b17c0ac6bfb0dd7854f9254b73f9bc7e4b2849dec45d497c86a2a"
+    },
+    {
+      "parameters": {
+        "COLS": 3,
+        "ROWS": 2,
+        "MAX_COLS": 4,
+        "MAX_ROWS": 2,
+        "BACKEND": 1,
+        "CTRL_MULTICAST": 1
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/db0a64e6169a69b6/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/3x2-backend1/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.045,
+          "log": "$BUILD/multicast-final/3x2-backend1/normal.log",
+          "log_sha256": "8b37baed1f7e735ef76b1614043765a0d629e6e11cc70905897db71df093ea23",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 1,
+            "cols": 3,
+            "rows": 2,
+            "max_tiles": 8,
+            "pressure": 0,
+            "first_accept": 910,
+            "last_delivery": 1113,
+            "last_return": 1152,
+            "host_packets": 200,
+            "target_deliveries": 256,
+            "up_packets": 240
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/db0a64e6169a69b6/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/3x2-backend1/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.035,
+          "log": "$BUILD/multicast-final/3x2-backend1/backpressure.log",
+          "log_sha256": "e5e49c8b76105115298d8e797795303d06fe7a332c84f64ae5f8a3634baaf9ef",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 1,
+            "cols": 3,
+            "rows": 2,
+            "max_tiles": 8,
+            "pressure": 1,
+            "first_accept": 1106,
+            "last_delivery": 1360,
+            "last_return": 1541,
+            "host_packets": 200,
+            "target_deliveries": 256,
+            "up_packets": 240
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/db0a64e6169a69b6/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.045,
+          "log": "$BUILD/multicast-final/3x2-backend1/negative-BAD_EXPECTED.log",
+          "log_sha256": "ef237925ec2887412ec0db5ef9815db26b610d97f9865e43569979b3c82f14c0",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/db0a64e6169a69b6/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/multicast-final/3x2-backend1/negative-INVALID_TARGET.log",
+          "log_sha256": "e1b2377f4160b74b27abdf745a0199f17aac59ea6b1dc3d6d924d5e01766bbe7",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/db0a64e6169a69b6/Vtb_control_network",
+            "+ZERO_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.018,
+          "log": "$BUILD/multicast-final/3x2-backend1/negative-ZERO_MASK.log",
+          "log_sha256": "d23427148cc6545d46fbfdb6dbd973527e58949dc9e7d31e65225ece866d0233",
+          "flag": "ZERO_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/db0a64e6169a69b6/Vtb_control_network",
+            "+UNLOADED_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.05,
+          "log": "$BUILD/multicast-final/3x2-backend1/negative-UNLOADED_MASK.log",
+          "log_sha256": "b6b4441603453dcf316d73fdbd801e66641de3a8c115d91bd053844618e36f7d",
+          "flag": "UNLOADED_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/db0a64e6169a69b6/Vtb_control_network",
+            "+INVALID_MASK_WORD"
+          ],
+          "exit_code": -6,
+          "seconds": 0.018,
+          "log": "$BUILD/multicast-final/3x2-backend1/negative-INVALID_MASK_WORD.log",
+          "log_sha256": "fcc57bc8a15a6c2c4505ab5d191cd0396ab98f7da86a71e42df6b14aca8821f9",
+          "flag": "INVALID_MASK_WORD",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/db0a64e6169a69b6/Vtb_control_network",
+            "+BAD_MASK_PADDING"
+          ],
+          "exit_code": -6,
+          "seconds": 0.02,
+          "log": "$BUILD/multicast-final/3x2-backend1/negative-BAD_MASK_PADDING.log",
+          "log_sha256": "fcc57bc8a15a6c2c4505ab5d191cd0396ab98f7da86a71e42df6b14aca8821f9",
+          "flag": "BAD_MASK_PADDING",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "ef9a0897be724443c5586eb0030cb32ee6dfe4309605c86fecbef7366f56aabd",
+      "build_identity_sha256": "22ee4ff42e2212e28d86bd1d708545870a676b6241de0c592dc69546e6b9f769"
+    },
+    {
+      "parameters": {
+        "COLS": 3,
+        "ROWS": 2,
+        "MAX_COLS": 4,
+        "MAX_ROWS": 2,
+        "BACKEND": 2,
+        "CTRL_MULTICAST": 1
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/1032b04dd2b49c82/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/3x2-backend2/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.064,
+          "log": "$BUILD/multicast-final/3x2-backend2/normal.log",
+          "log_sha256": "0e6aa87de4ce37cbe873b1db2858769df01c7ab348f753c34054e15cd87e8145",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 1,
+            "cols": 3,
+            "rows": 2,
+            "max_tiles": 8,
+            "pressure": 0,
+            "first_accept": 910,
+            "last_delivery": 1113,
+            "last_return": 1152,
+            "host_packets": 200,
+            "target_deliveries": 256,
+            "up_packets": 240
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/1032b04dd2b49c82/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/3x2-backend2/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.033,
+          "log": "$BUILD/multicast-final/3x2-backend2/backpressure.log",
+          "log_sha256": "9d9553f6c15df10dea88af48c291c482757858ff27e09b9a6c3f90a6e6a8d22a",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 1,
+            "cols": 3,
+            "rows": 2,
+            "max_tiles": 8,
+            "pressure": 1,
+            "first_accept": 1106,
+            "last_delivery": 1360,
+            "last_return": 1541,
+            "host_packets": 200,
+            "target_deliveries": 256,
+            "up_packets": 240
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/1032b04dd2b49c82/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.038,
+          "log": "$BUILD/multicast-final/3x2-backend2/negative-BAD_EXPECTED.log",
+          "log_sha256": "de232199fb443ecbdae26868fb8dde6310d6773d68204dbc22f9488e7eaa3b91",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/1032b04dd2b49c82/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.017,
+          "log": "$BUILD/multicast-final/3x2-backend2/negative-INVALID_TARGET.log",
+          "log_sha256": "0eea819945330d170478f9dc33e3571f7e22f814f15ea44ceb946623d38abba3",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/1032b04dd2b49c82/Vtb_control_network",
+            "+ZERO_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/multicast-final/3x2-backend2/negative-ZERO_MASK.log",
+          "log_sha256": "c5661b01feb50d2c638ed98c98527a6f1a7d674ae183b72667cfe373168bf1e8",
+          "flag": "ZERO_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/1032b04dd2b49c82/Vtb_control_network",
+            "+UNLOADED_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.045,
+          "log": "$BUILD/multicast-final/3x2-backend2/negative-UNLOADED_MASK.log",
+          "log_sha256": "dacf7b46fdd4825540e69cb2d3f497638fd160ba3b971f45c6658d961db87f24",
+          "flag": "UNLOADED_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/1032b04dd2b49c82/Vtb_control_network",
+            "+INVALID_MASK_WORD"
+          ],
+          "exit_code": -6,
+          "seconds": 0.018,
+          "log": "$BUILD/multicast-final/3x2-backend2/negative-INVALID_MASK_WORD.log",
+          "log_sha256": "246a2700ef48407ada9274462c3bb7e574b6ec5888480b8968a167b274d3ab94",
+          "flag": "INVALID_MASK_WORD",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/1032b04dd2b49c82/Vtb_control_network",
+            "+BAD_MASK_PADDING"
+          ],
+          "exit_code": -6,
+          "seconds": 0.02,
+          "log": "$BUILD/multicast-final/3x2-backend2/negative-BAD_MASK_PADDING.log",
+          "log_sha256": "246a2700ef48407ada9274462c3bb7e574b6ec5888480b8968a167b274d3ab94",
+          "flag": "BAD_MASK_PADDING",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "1ce9c91b84d3eeee87689a01c10f6edfd1b461fdd2c502308d3c9c3f189b7245",
+      "build_identity_sha256": "f2d27bdb6aeb95ba3345ae68c0fe4e225882acc4f90d0db49d136f34470e20c3"
+    },
+    {
+      "parameters": {
+        "COLS": 2,
+        "ROWS": 17,
+        "MAX_COLS": 2,
+        "MAX_ROWS": 17,
+        "BACKEND": 1,
+        "CTRL_MULTICAST": 1
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/66bd2f5f741609bd/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/2x17-backend1/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.437,
+          "log": "$BUILD/multicast-final/2x17-backend1/normal.log",
+          "log_sha256": "87d3ba012625699a8c80d85e8472353a7c1738d4bcac2e87ca99f2e4b050d0bc",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 1,
+            "cols": 2,
+            "rows": 17,
+            "max_tiles": 34,
+            "pressure": 0,
+            "first_accept": 2033,
+            "last_delivery": 2278,
+            "last_return": 3398,
+            "host_packets": 240,
+            "target_deliveries": 830,
+            "up_packets": 1360
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/66bd2f5f741609bd/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/2x17-backend1/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.724,
+          "log": "$BUILD/multicast-final/2x17-backend1/backpressure.log",
+          "log_sha256": "021272d223f5f5e85a91c8d60ae28cf57a662e33f6a8c4bf52c35e02dda3eef1",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 1,
+            "cols": 2,
+            "rows": 17,
+            "max_tiles": 34,
+            "pressure": 1,
+            "first_accept": 3126,
+            "last_delivery": 3432,
+            "last_return": 5584,
+            "host_packets": 240,
+            "target_deliveries": 830,
+            "up_packets": 1360
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/66bd2f5f741609bd/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.132,
+          "log": "$BUILD/multicast-final/2x17-backend1/negative-BAD_EXPECTED.log",
+          "log_sha256": "907cb30aeb34a20abba90fc7ddae4586c6699213cf5783f5c8c0589a3369a729",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/66bd2f5f741609bd/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.071,
+          "log": "$BUILD/multicast-final/2x17-backend1/negative-INVALID_TARGET.log",
+          "log_sha256": "3bd0ac4bf47fcc9d3f16fa702840440e9ced4ee3f3d1095337a9f57ff83cade2",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/66bd2f5f741609bd/Vtb_control_network",
+            "+ZERO_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.115,
+          "log": "$BUILD/multicast-final/2x17-backend1/negative-ZERO_MASK.log",
+          "log_sha256": "3d5dc85c2478720f365451ba5ee0d5a06616d9066baae6ad0b1a9e6c2363cd0e",
+          "flag": "ZERO_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/66bd2f5f741609bd/Vtb_control_network",
+            "+UNLOADED_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.115,
+          "log": "$BUILD/multicast-final/2x17-backend1/negative-UNLOADED_MASK.log",
+          "log_sha256": "ca4010b9938b0c3977f9bf27b061d12a82116a016c2e9c61c02b56b8eb11de1b",
+          "flag": "UNLOADED_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/66bd2f5f741609bd/Vtb_control_network",
+            "+INVALID_MASK_WORD"
+          ],
+          "exit_code": -6,
+          "seconds": 0.114,
+          "log": "$BUILD/multicast-final/2x17-backend1/negative-INVALID_MASK_WORD.log",
+          "log_sha256": "0e8811b97ca3c7dc6ce137f0ed247e77673f6f1ebe9be286cd6af5a7c0612d59",
+          "flag": "INVALID_MASK_WORD",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/66bd2f5f741609bd/Vtb_control_network",
+            "+BAD_MASK_PADDING"
+          ],
+          "exit_code": -6,
+          "seconds": 0.068,
+          "log": "$BUILD/multicast-final/2x17-backend1/negative-BAD_MASK_PADDING.log",
+          "log_sha256": "6190f6937b29c962b9aa144383e70a34078def8b790a969ebf039ad2f0f2dd25",
+          "flag": "BAD_MASK_PADDING",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "4061fccccb3a8bd5b9eb42b9c962f871e26672bdb2a165a4adf3fa8b00a22cdf",
+      "build_identity_sha256": "c65069618af48c597132ef7fc8f87ac0f7f6fc875c57478d415cd9e0c7e631ae"
+    },
+    {
+      "parameters": {
+        "COLS": 2,
+        "ROWS": 17,
+        "MAX_COLS": 2,
+        "MAX_ROWS": 17,
+        "BACKEND": 2,
+        "CTRL_MULTICAST": 1
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/ef9b0ee3d83c391a/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/2x17-backend2/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.365,
+          "log": "$BUILD/multicast-final/2x17-backend2/normal.log",
+          "log_sha256": "7ffced7210e88bca129b6ea6f154563ed80461ccb4b0cec5157ede1fbd4bfe19",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 1,
+            "cols": 2,
+            "rows": 17,
+            "max_tiles": 34,
+            "pressure": 0,
+            "first_accept": 2033,
+            "last_delivery": 2278,
+            "last_return": 3398,
+            "host_packets": 240,
+            "target_deliveries": 830,
+            "up_packets": 1360
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/ef9b0ee3d83c391a/Vtb_control_network",
+            "+RESULT=$BUILD/multicast-final/2x17-backend2/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.616,
+          "log": "$BUILD/multicast-final/2x17-backend2/backpressure.log",
+          "log_sha256": "ad62eb3b90aaec2bfeb54e569f5a74fa6d86b77f391db41e8571fa800491ba39",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 1,
+            "cols": 2,
+            "rows": 17,
+            "max_tiles": 34,
+            "pressure": 1,
+            "first_accept": 3126,
+            "last_delivery": 3432,
+            "last_return": 5584,
+            "host_packets": 240,
+            "target_deliveries": 830,
+            "up_packets": 1360
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/ef9b0ee3d83c391a/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.115,
+          "log": "$BUILD/multicast-final/2x17-backend2/negative-BAD_EXPECTED.log",
+          "log_sha256": "88ed2943926c5ad24285b5121af47895d3aebb131030a739f9f4ff76652a9c4c",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/ef9b0ee3d83c391a/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.115,
+          "log": "$BUILD/multicast-final/2x17-backend2/negative-INVALID_TARGET.log",
+          "log_sha256": "b7b1e035d9bbe851f0cb6f070dabc64eefab9288193a412e28d265579bdc1888",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/ef9b0ee3d83c391a/Vtb_control_network",
+            "+ZERO_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.115,
+          "log": "$BUILD/multicast-final/2x17-backend2/negative-ZERO_MASK.log",
+          "log_sha256": "bb72dd949e9b3a47c961fa46d775de33734febbc781a8a5797f0f7cbe39d0b88",
+          "flag": "ZERO_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/ef9b0ee3d83c391a/Vtb_control_network",
+            "+UNLOADED_MASK"
+          ],
+          "exit_code": -6,
+          "seconds": 0.065,
+          "log": "$BUILD/multicast-final/2x17-backend2/negative-UNLOADED_MASK.log",
+          "log_sha256": "e13b374ef571169d2af3818b4c72ce20e692a16ee1551486dbd1f5b701544332",
+          "flag": "UNLOADED_MASK",
+          "expected_marker": "CTRL_MULTICAST_TARGETS",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/ef9b0ee3d83c391a/Vtb_control_network",
+            "+INVALID_MASK_WORD"
+          ],
+          "exit_code": -6,
+          "seconds": 0.065,
+          "log": "$BUILD/multicast-final/2x17-backend2/negative-INVALID_MASK_WORD.log",
+          "log_sha256": "b87162063b0d830313bc33a0fb74e3b89894ee0465c3b5dc8202aaded83477db",
+          "flag": "INVALID_MASK_WORD",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/multicast-final/build/ef9b0ee3d83c391a/Vtb_control_network",
+            "+BAD_MASK_PADDING"
+          ],
+          "exit_code": -6,
+          "seconds": 0.115,
+          "log": "$BUILD/multicast-final/2x17-backend2/negative-BAD_MASK_PADDING.log",
+          "log_sha256": "6c070c958b47073ca29476016a6eb4af77ddf377f6a08d1fd6babb94f4357502",
+          "flag": "BAD_MASK_PADDING",
+          "expected_marker": "CTRL_MULTICAST_MASK_WORD",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "4f95e4b5a9778ec357efb7fe7dc55852ed8cf9e73b0fa4a63f019adc51960d6c",
+      "build_identity_sha256": "caf48466dca65a9757acac662118b989949af1abbec7781db4191b650246563d"
+    }
+  ],
+  "all_passed": true
+}

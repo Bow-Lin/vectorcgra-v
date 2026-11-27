@@ -1,6 +1,6 @@
 # 原生回归与工具链
 
-`scripts/regression.json` 是本地与 CI 共用的清单，14 个分组覆盖 49 个当前验收目标。
+`scripts/regression.json` 是本地与 CI 共用的清单，15 个分组覆盖 51 个当前验收目标。
 清单检查拒绝漏列或重复目标；原 Python 源码分类审计 `migration-inventory` 单独运行。
 历史 `phase2/3/4` 入口不属于当前 RTL 契约；`baseline` 在固定 `cd7aad` 源码上运行
 原 `all`（类型、2×2 仿真、负例及综合），不声称重跑了全部历史阶段。
@@ -26,6 +26,9 @@ C++20 编译器、make 和 Perl（Verilator 启动脚本使用）。锁定 OSS C
 统一驱动逐项记录退出码、耗时、日志 SHA、工具版本及输入源码 SHA；失败即停止该分组，
 标出未执行目标。前后输入变化也视为失败。结果位于 `sv/build/regression/<shard>/`。
 CI 使用同一清单，分组独立执行，保存失败日志，不以日志里的单个 PASS 字样代替退出状态。
+新增 `control-network` 分组运行单播/组播、整机数学、归约、能力边界及独立网络综合；
+它的原实现固定为 `03db4c735dc9573ee19d5080eb123cc106333ba3`，不改变历史迁移基线。
+实验范围与物理验证缺项见 [CONTROL_NETWORK.md](CONTROL_NETWORK.md)。
 旧 CI 使用 apt Verilator 5.020，在 Shifter 原始周期重放中失败；该失败不计入通过记录。
 
 完整 Mesh 网表解析实测需要约 11.4 GiB，建议独占 16 GiB 内存。CI 对 systems／pe

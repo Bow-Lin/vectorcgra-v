@@ -62,6 +62,86 @@
     "IM2COL_LOG2_STRIDE": 57,
     "IM2COL_DST_SRAM_BASE": 58
   },
+  "native_commands": {
+    "CTRL_MASK_WORD": 59,
+    "CONFIG_MULTICAST": 60
+  },
+  "control_network": {
+    "baseline": "03db4c735dc9573ee19d5080eb123cc106333ba3",
+    "backends": {
+      "ring": 0,
+      "balanced": 1,
+      "rows": 2
+    },
+    "dedicated_requires": {
+      "top": "system",
+      "variant": "base",
+      "NUM_CGRAS": 1,
+      "NOC_LEGACY_PYTHON": 0,
+      "HAS_DMA": 0,
+      "HAS_IM2COL": 0,
+      "HAS_CTRL_RING": 1
+    },
+    "multicast_commands": [
+      "CONFIG"
+    ],
+    "mask_word_bits": "DATA_W",
+    "mask_word_count": "ceil(NUM_TILES/DATA_W)",
+    "mask_word_order": "0 starts/restarts assembly; subsequent words must be consecutive; all words required before use",
+    "mask_padding": "bits at or above NUM_TILES must be zero; empty target masks are rejected",
+    "scope": "One configuration source and one local CGRA; existing ring remains default for unsupported profiles",
+    "controller_forward_commands": [
+      "LAUNCH",
+      "PAUSE",
+      "TERMINATE",
+      "CONFIG",
+      "CONFIG_PROLOGUE_FU",
+      "CONFIG_PROLOGUE_FU_CROSSBAR",
+      "CONFIG_PROLOGUE_ROUTING_CROSSBAR",
+      "CONFIG_TOTAL_CTRL_COUNT",
+      "CONFIG_COUNT_PER_ITER",
+      "CONFIG_CTRL_LOWER_BOUND",
+      "CONST",
+      "RESUME",
+      "RECORD_PHI_ADDR",
+      "GLOBAL_REDUCE_ADD_RESPONSE",
+      "GLOBAL_REDUCE_MUL_RESPONSE",
+      "PRESERVE",
+      "CONFIG_STREAMING_LD_START_ADDR",
+      "CONFIG_STREAMING_LD_STRIDE",
+      "CONFIG_STREAMING_LD_END_ADDR",
+      "CONFIG_LOOP_LOWER",
+      "CONFIG_LOOP_UPPER",
+      "CONFIG_LOOP_STEP",
+      "CONFIG_GEP_STRIDE"
+    ],
+    "base_ingress_commands": [
+      "LAUNCH",
+      "CONFIG",
+      "CONFIG_PROLOGUE_FU",
+      "CONFIG_PROLOGUE_FU_CROSSBAR",
+      "CONFIG_PROLOGUE_ROUTING_CROSSBAR",
+      "CONFIG_TOTAL_CTRL_COUNT",
+      "CONFIG_COUNT_PER_ITER",
+      "CONST",
+      "GLOBAL_REDUCE_ADD_RESPONSE",
+      "GLOBAL_REDUCE_MUL_RESPONSE",
+      "CONFIG_LOOP_LOWER",
+      "CONFIG_LOOP_UPPER",
+      "CONFIG_LOOP_STEP",
+      "CONFIG_GEP_STRIDE"
+    ],
+    "controller_local_commands": [
+      "LOAD_REQUEST",
+      "LOAD_RESPONSE",
+      "STORE_REQUEST",
+      "COMPLETE",
+      "GLOBAL_REDUCE_COUNT",
+      "GLOBAL_REDUCE_ADD",
+      "GLOBAL_REDUCE_MUL",
+      "LEAF_COUNTER_COMPLETE"
+    ]
+  },
   "opcodes": {
     "START": 0,
     "NAH": 1,
@@ -172,6 +252,7 @@
   "source_sha256": {
     "lib/cmd_type.py": "994de9ad9dc3b852bfdb52847474d0ab238f84a77063c58f1b7fabd1c788df90",
     "sv/rtl/common/cgra_opcodes.svh": "aaf5c876081d1fb066af8cdc01e7cae2a35afebaedfeb6e5a8889e3d0375bede",
-    "sv/rtl/common/cgra_native_extensions.svh": "a632d6eba711393e681bd5b2473b586ab66f99fb5bc796bb930ba017dd3ae080"
+    "sv/rtl/common/cgra_native_extensions.svh": "a632d6eba711393e681bd5b2473b586ab66f99fb5bc796bb930ba017dd3ae080",
+    "sv/rtl/common/cgra_ctrl_commands.svh": "afd9bc9af3941085ec9eca0a26443f67d495a64c1b83de2d3c6086d921782586"
   }
 }

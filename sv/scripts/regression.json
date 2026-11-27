@@ -52,6 +52,10 @@
       "current-noc-handshakes",
       "current-noc-handshakes-synth"
     ],
+    "control-network": [
+      "current-control-network",
+      "current-control-network-synth"
+    ],
     "tools": [
       "config-tools",
       "program-tools"

@@ -12,6 +12,9 @@ rtl/noc/cgra_credit_recv.sv
 rtl/noc/cgra_ring_route.sv
 rtl/noc/cgra_ring_router.sv
 rtl/noc/cgra_credit_ring.sv
+rtl/noc/cgra_ctrl_fanout.sv
+rtl/noc/cgra_ctrl_gather.sv
+rtl/noc/cgra_ctrl_network.sv
 rtl/fu/tile_adder.sv
 rtl/fu/tile_multiplier.sv
 rtl/fu/tile_memory_fu.sv

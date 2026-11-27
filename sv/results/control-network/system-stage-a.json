@@ -1,0 +1,4072 @@
+{
+  "baseline": "03db4c735dc9573ee19d5080eb123cc106333ba3",
+  "evidence": "RTL simulation; normal host configuration and all-memory readback",
+  "cases": [
+    {
+      "parameters": {
+        "DATA_W": 32,
+        "TILE_PORTS": 4,
+        "CTRL_DEPTH": 6,
+        "REG_DEPTH": 5,
+        "BANK_DEPTH": 8,
+        "NUM_BANKS": 4,
+        "GLOBAL_ADDR_W": 7,
+        "NUM_CTRL": 6,
+        "TOTAL_STEPS": 6,
+        "MULTI_COLS": 1,
+        "MULTI_ROWS": 1,
+        "HAS_DMA": 0,
+        "HAS_IM2COL": 0,
+        "MEM_COMBINATIONAL": 1,
+        "MEMORY_LEGACY_PYTHON": 0,
+        "NOC_LEGACY_PYTHON": 0,
+        "CTRL_NETWORK": 0,
+        "CTRL_MULTICAST": 0,
+        "VECTOR_LANES": 4,
+        "VECTOR_FACTOR_POWER": 0,
+        "FP_EXP_W": 8,
+        "FP_SIG_W": 23,
+        "FP_LEGACY_PYTHON": 0,
+        "REDUCE_LEGACY_PYTHON": 0,
+        "VECTOR_LEGACY_PYTHON": 0,
+        "ARITH_LEGACY_PYTHON": 0,
+        "COLS": 2,
+        "ROWS": 2,
+        "MAX_COLS": 2,
+        "MAX_ROWS": 2,
+        "MEM_PORTS": 3,
+        "MEM_WRITE_PORTS": 3,
+        "MAX_MEM_PORTS": 3,
+        "FU_COUNT": 5
+      },
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b0-mc0/build/c34a22c2628315f6/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b0-mc0/add-0-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b0-mc0/add-0-unicast/outputs-0.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b0-mc0/add-0-unicast/control-0.txt",
+            "+SCHEDULE=0",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.415,
+          "log": "$BUILD/system-stage-a/2x2-b0-mc0/add-0-unicast/run-0.log",
+          "log_sha256": "59138a35413cda690f27a45427da5f4ce0fd7b00bedb82fe88ec518b78b3dc14",
+          "algorithm": "add",
+          "seed": 0,
+          "stream": "unicast",
+          "schedule": 0,
+          "status": "passed",
+          "binary_sha256": "9758bf08c20237bdb5c083f88b9fecea4d79c68fb570ad5cbb7d97d1ce77937b",
+          "program_sha256": "a6f7aa4736bd94598fa58fa575875ff373dfab3bbbd0262f13c51cb2dbd0c348",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 59,
+                "last": 82,
+                "span": 24
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 63,
+                "last": 87,
+                "span": 25
+              },
+              "host_launch": {
+                "first": 83,
+                "last": 86,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 88,
+                "last": 90,
+                "span": 3
+              },
+              "host_complete": {
+                "first": 118,
+                "last": 121,
+                "span": 4
+              },
+              "host_read": {
+                "first": 122,
+                "last": 339,
+                "span": 218
+              },
+              "read_result": {
+                "first": 128,
+                "last": 345,
+                "span": 218
+              }
+            },
+            "prepare_to_first_retirement": 93,
+            "host_launch_to_first_retirement": 10,
+            "task_to_all_completions": 122,
+            "readback_span": 224,
+            "config_host_to_last_write": 30,
+            "return_drain": 9,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 36,
+              "last": 90,
+              "span": 55
+            },
+            "control_writes": {
+              "first": 64,
+              "last": 88,
+              "span": 25
+            },
+            "control_execution": {
+              "first": 92,
+              "last": 115,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 115,
+              "last": 115,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 113,
+              "last": 116,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 118,
+              "last": 345,
+              "span": 228
+            },
+            "network_ingress": {
+              "first": 34,
+              "last": 88,
+              "span": 55
+            },
+            "per_PE_last_config": {
+              "0": 69,
+              "1": 76,
+              "3": 81,
+              "2": 88
+            },
+            "per_PE_first_step": {
+              "0": 92,
+              "1": 97,
+              "3": 102,
+              "2": 107
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "fe4aa6bd5cf81358b2a1f8579a5851972e9f58ede40d9538e269a90c0d71defd",
+          "driver_elapsed_cycles": 378,
+          "driver_final_cycle_index": 377,
+          "trace_sha256": {
+            "outputs-0.txt": "9e0adff58f5f351200c79082776f1e70fc5cca7775438802302c5643d9a88390",
+            "control-0.txt": "8e5ef1bf2b6986f23ff19f2de29781240bca63a46e51b5c650b6c714bd6c0684"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b0-mc0/build/c34a22c2628315f6/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b0-mc0/add-0-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b0-mc0/add-0-unicast/outputs-37.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b0-mc0/add-0-unicast/control-37.txt",
+            "+SCHEDULE=37",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.474,
+          "log": "$BUILD/system-stage-a/2x2-b0-mc0/add-0-unicast/run-37.log",
+          "log_sha256": "fc589bcfd4f3e1ae0d5574465b94afbf4cd3d33d3c05a2451c5192bd9c320b2c",
+          "algorithm": "add",
+          "seed": 0,
+          "stream": "unicast",
+          "schedule": 37,
+          "status": "passed",
+          "binary_sha256": "9758bf08c20237bdb5c083f88b9fecea4d79c68fb570ad5cbb7d97d1ce77937b",
+          "program_sha256": "a6f7aa4736bd94598fa58fa575875ff373dfab3bbbd0262f13c51cb2dbd0c348",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 70,
+                "last": 95,
+                "span": 26
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 74,
+                "last": 100,
+                "span": 27
+              },
+              "host_launch": {
+                "first": 97,
+                "last": 100,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 102,
+                "last": 104,
+                "span": 3
+              },
+              "host_complete": {
+                "first": 142,
+                "last": 145,
+                "span": 4
+              },
+              "host_read": {
+                "first": 146,
+                "last": 379,
+                "span": 234
+              },
+              "read_result": {
+                "first": 152,
+                "last": 386,
+                "span": 235
+              }
+            },
+            "prepare_to_first_retirement": 107,
+            "host_launch_to_first_retirement": 10,
+            "task_to_all_completions": 146,
+            "readback_span": 241,
+            "config_host_to_last_write": 32,
+            "return_drain": 19,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 42,
+              "last": 104,
+              "span": 63
+            },
+            "control_writes": {
+              "first": 75,
+              "last": 101,
+              "span": 27
+            },
+            "control_execution": {
+              "first": 106,
+              "last": 129,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 129,
+              "last": 129,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 127,
+              "last": 130,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 142,
+              "last": 386,
+              "span": 245
+            },
+            "network_ingress": {
+              "first": 40,
+              "last": 102,
+              "span": 63
+            },
+            "per_PE_last_config": {
+              "0": 80,
+              "1": 88,
+              "3": 93,
+              "2": 101
+            },
+            "per_PE_first_step": {
+              "0": 106,
+              "1": 111,
+              "3": 116,
+              "2": 121
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "fe4aa6bd5cf81358b2a1f8579a5851972e9f58ede40d9538e269a90c0d71defd",
+          "driver_elapsed_cycles": 419,
+          "driver_final_cycle_index": 418,
+          "trace_sha256": {
+            "outputs-37.txt": "5e48e928d84582c212a1941766ea8b43f2763cdadcaf409d43c00d0c913bd2ea",
+            "control-37.txt": "c8feb077fb6490a819b9a3faffec63b55c7b16fb62676417899064a7048082d4"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b0-mc0/build/c34a22c2628315f6/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b0-mc0/add-23-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b0-mc0/add-23-unicast/outputs-0.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b0-mc0/add-23-unicast/control-0.txt",
+            "+SCHEDULE=0",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.469,
+          "log": "$BUILD/system-stage-a/2x2-b0-mc0/add-23-unicast/run-0.log",
+          "log_sha256": "a93fd93595dd7e2dfac71b4e88b20b64d50a1815b690d39403999f1483d572ed",
+          "algorithm": "add",
+          "seed": 23,
+          "stream": "unicast",
+          "schedule": 0,
+          "status": "passed",
+          "binary_sha256": "9758bf08c20237bdb5c083f88b9fecea4d79c68fb570ad5cbb7d97d1ce77937b",
+          "program_sha256": "f73aac2d62f6d1ae24e39fd9228907c79f1be9fc3a6c2317ef8953ca81adee76",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 59,
+                "last": 82,
+                "span": 24
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 63,
+                "last": 87,
+                "span": 25
+              },
+              "host_launch": {
+                "first": 83,
+                "last": 86,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 88,
+                "last": 90,
+                "span": 3
+              },
+              "host_complete": {
+                "first": 118,
+                "last": 121,
+                "span": 4
+              },
+              "host_read": {
+                "first": 122,
+                "last": 339,
+                "span": 218
+              },
+              "read_result": {
+                "first": 128,
+                "last": 345,
+                "span": 218
+              }
+            },
+            "prepare_to_first_retirement": 93,
+            "host_launch_to_first_retirement": 10,
+            "task_to_all_completions": 122,
+            "readback_span": 224,
+            "config_host_to_last_write": 30,
+            "return_drain": 9,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 36,
+              "last": 90,
+              "span": 55
+            },
+            "control_writes": {
+              "first": 64,
+              "last": 88,
+              "span": 25
+            },
+            "control_execution": {
+              "first": 92,
+              "last": 115,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 115,
+              "last": 115,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 113,
+              "last": 116,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 118,
+              "last": 345,
+              "span": 228
+            },
+            "network_ingress": {
+              "first": 34,
+              "last": 88,
+              "span": 55
+            },
+            "per_PE_last_config": {
+              "0": 69,
+              "1": 76,
+              "3": 81,
+              "2": 88
+            },
+            "per_PE_first_step": {
+              "0": 92,
+              "1": 97,
+              "3": 102,
+              "2": 107
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "ad9ec5003a34b9413d7fae838b9de0a7deaacfdd1a39de243108267a14e81f81",
+          "driver_elapsed_cycles": 378,
+          "driver_final_cycle_index": 377,
+          "trace_sha256": {
+            "outputs-0.txt": "199ed5ab12aae94f4e741c92a2997d7df04b7fa56c6fafdf40844fcad797ba64",
+            "control-0.txt": "0ed54c7296ee00c5745c4b1401fb889d872c214061b8943d3ad25ac417351a9c"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b0-mc0/build/c34a22c2628315f6/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b0-mc0/add-23-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b0-mc0/add-23-unicast/outputs-37.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b0-mc0/add-23-unicast/control-37.txt",
+            "+SCHEDULE=37",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.391,
+          "log": "$BUILD/system-stage-a/2x2-b0-mc0/add-23-unicast/run-37.log",
+          "log_sha256": "2df4efeb08068a8b42780b32db312a927449fcebdf42f41f7dfd156ab753209f",
+          "algorithm": "add",
+          "seed": 23,
+          "stream": "unicast",
+          "schedule": 37,
+          "status": "passed",
+          "binary_sha256": "9758bf08c20237bdb5c083f88b9fecea4d79c68fb570ad5cbb7d97d1ce77937b",
+          "program_sha256": "f73aac2d62f6d1ae24e39fd9228907c79f1be9fc3a6c2317ef8953ca81adee76",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 70,
+                "last": 95,
+                "span": 26
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 74,
+                "last": 100,
+                "span": 27
+              },
+              "host_launch": {
+                "first": 97,
+                "last": 100,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 102,
+                "last": 104,
+                "span": 3
+              },
+              "host_complete": {
+                "first": 142,
+                "last": 145,
+                "span": 4
+              },
+              "host_read": {
+                "first": 146,
+                "last": 379,
+                "span": 234
+              },
+              "read_result": {
+                "first": 152,
+                "last": 386,
+                "span": 235
+              }
+            },
+            "prepare_to_first_retirement": 107,
+            "host_launch_to_first_retirement": 10,
+            "task_to_all_completions": 146,
+            "readback_span": 241,
+            "config_host_to_last_write": 32,
+            "return_drain": 19,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 42,
+              "last": 104,
+              "span": 63
+            },
+            "control_writes": {
+              "first": 75,
+              "last": 101,
+              "span": 27
+            },
+            "control_execution": {
+              "first": 106,
+              "last": 129,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 129,
+              "last": 129,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 127,
+              "last": 130,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 142,
+              "last": 386,
+              "span": 245
+            },
+            "network_ingress": {
+              "first": 40,
+              "last": 102,
+              "span": 63
+            },
+            "per_PE_last_config": {
+              "0": 80,
+              "1": 88,
+              "3": 93,
+              "2": 101
+            },
+            "per_PE_first_step": {
+              "0": 106,
+              "1": 111,
+              "3": 116,
+              "2": 121
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "ad9ec5003a34b9413d7fae838b9de0a7deaacfdd1a39de243108267a14e81f81",
+          "driver_elapsed_cycles": 419,
+          "driver_final_cycle_index": 418,
+          "trace_sha256": {
+            "outputs-37.txt": "3ec673eb83f17c7bb566923cf5a5d44eae06ffef0dd6fd19b2ad991280c5a609",
+            "control-37.txt": "4b6ee7a1cc17548529cda08ad775af51597dd550546ec838bbeac932cfc0af76"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b0-mc0/build/c34a22c2628315f6/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b0-mc0/affine-0-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b0-mc0/affine-0-unicast/outputs-0.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b0-mc0/affine-0-unicast/control-0.txt",
+            "+SCHEDULE=0",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.296,
+          "log": "$BUILD/system-stage-a/2x2-b0-mc0/affine-0-unicast/run-0.log",
+          "log_sha256": "f65663f92d7f18c382945afa44790dc8eee72031d0e9d5e84f2f1bb38ee475de",
+          "algorithm": "affine",
+          "seed": 0,
+          "stream": "unicast",
+          "schedule": 0,
+          "status": "passed",
+          "binary_sha256": "9758bf08c20237bdb5c083f88b9fecea4d79c68fb570ad5cbb7d97d1ce77937b",
+          "program_sha256": "eda6f5eac50ffcda82ef158c9e8cc086e21685ddfdb94d6d5338216eab387f64",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 59,
+                "last": 82,
+                "span": 24
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 63,
+                "last": 87,
+                "span": 25
+              },
+              "host_launch": {
+                "first": 83,
+                "last": 86,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 88,
+                "last": 90,
+                "span": 3
+              },
+              "host_complete": {
+                "first": 118,
+                "last": 121,
+                "span": 4
+              },
+              "host_read": {
+                "first": 122,
+                "last": 339,
+                "span": 218
+              },
+              "read_result": {
+                "first": 128,
+                "last": 345,
+                "span": 218
+              }
+            },
+            "prepare_to_first_retirement": 93,
+            "host_launch_to_first_retirement": 10,
+            "task_to_all_completions": 122,
+            "readback_span": 224,
+            "config_host_to_last_write": 30,
+            "return_drain": 9,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 36,
+              "last": 90,
+              "span": 55
+            },
+            "control_writes": {
+              "first": 64,
+              "last": 88,
+              "span": 25
+            },
+            "control_execution": {
+              "first": 92,
+              "last": 115,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 115,
+              "last": 115,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 113,
+              "last": 116,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 118,
+              "last": 345,
+              "span": 228
+            },
+            "network_ingress": {
+              "first": 34,
+              "last": 88,
+              "span": 55
+            },
+            "per_PE_last_config": {
+              "0": 69,
+              "2": 76,
+              "3": 81,
+              "1": 88
+            },
+            "per_PE_first_step": {
+              "0": 92,
+              "2": 97,
+              "3": 102,
+              "1": 107
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "5e77de02fb794886bbf2f15d88cea19f35eab6c15027381be7356efa21504582",
+          "driver_elapsed_cycles": 378,
+          "driver_final_cycle_index": 377,
+          "trace_sha256": {
+            "outputs-0.txt": "6329bd1f202a3ef0cb653168016cb3c2af49a957a88e87d5334a4ee545b8f6b6",
+            "control-0.txt": "64a4ab6d519a650e2c8feb9af3fb5a833ca0060af2b10b351e9869cbe4805aee"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b0-mc0/build/c34a22c2628315f6/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b0-mc0/affine-0-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b0-mc0/affine-0-unicast/outputs-37.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b0-mc0/affine-0-unicast/control-37.txt",
+            "+SCHEDULE=37",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.385,
+          "log": "$BUILD/system-stage-a/2x2-b0-mc0/affine-0-unicast/run-37.log",
+          "log_sha256": "84013391f7aaa383195b2b0eff94633bb3f41b5c6a4ccd131ad113fc43af7a8e",
+          "algorithm": "affine",
+          "seed": 0,
+          "stream": "unicast",
+          "schedule": 37,
+          "status": "passed",
+          "binary_sha256": "9758bf08c20237bdb5c083f88b9fecea4d79c68fb570ad5cbb7d97d1ce77937b",
+          "program_sha256": "eda6f5eac50ffcda82ef158c9e8cc086e21685ddfdb94d6d5338216eab387f64",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 70,
+                "last": 95,
+                "span": 26
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 74,
+                "last": 100,
+                "span": 27
+              },
+              "host_launch": {
+                "first": 97,
+                "last": 100,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 102,
+                "last": 104,
+                "span": 3
+              },
+              "host_complete": {
+                "first": 142,
+                "last": 145,
+                "span": 4
+              },
+              "host_read": {
+                "first": 146,
+                "last": 379,
+                "span": 234
+              },
+              "read_result": {
+                "first": 152,
+                "last": 386,
+                "span": 235
+              }
+            },
+            "prepare_to_first_retirement": 107,
+            "host_launch_to_first_retirement": 10,
+            "task_to_all_completions": 146,
+            "readback_span": 241,
+            "config_host_to_last_write": 32,
+            "return_drain": 19,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 42,
+              "last": 104,
+              "span": 63
+            },
+            "control_writes": {
+              "first": 75,
+              "last": 101,
+              "span": 27
+            },
+            "control_execution": {
+              "first": 106,
+              "last": 129,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 129,
+              "last": 129,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 127,
+              "last": 130,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 142,
+              "last": 386,
+              "span": 245
+            },
+            "network_ingress": {
+              "first": 40,
+              "last": 102,
+              "span": 63
+            },
+            "per_PE_last_config": {
+              "0": 80,
+              "2": 88,
+              "3": 93,
+              "1": 101
+            },
+            "per_PE_first_step": {
+              "0": 106,
+              "2": 111,
+              "3": 116,
+              "1": 121
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "5e77de02fb794886bbf2f15d88cea19f35eab6c15027381be7356efa21504582",
+          "driver_elapsed_cycles": 419,
+          "driver_final_cycle_index": 418,
+          "trace_sha256": {
+            "outputs-37.txt": "1b63eca374d704a7028060ed174a73f228f3ad9e6d065fc89ce281d3c1170934",
+            "control-37.txt": "c72b57d5cefac9ad7f0190fed015a2229c15aaa37b006125fe7d00cf746814a0"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b0-mc0/build/c34a22c2628315f6/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b0-mc0/affine-23-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b0-mc0/affine-23-unicast/outputs-0.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b0-mc0/affine-23-unicast/control-0.txt",
+            "+SCHEDULE=0",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.352,
+          "log": "$BUILD/system-stage-a/2x2-b0-mc0/affine-23-unicast/run-0.log",
+          "log_sha256": "2e2fc2292b639324a9101dc48c120788de9f9c1b940abae5848636b75d307769",
+          "algorithm": "affine",
+          "seed": 23,
+          "stream": "unicast",
+          "schedule": 0,
+          "status": "passed",
+          "binary_sha256": "9758bf08c20237bdb5c083f88b9fecea4d79c68fb570ad5cbb7d97d1ce77937b",
+          "program_sha256": "728460eaf8b08785a24a666275e63d11733c73ef56da7c283acd23dd5df07542",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 59,
+                "last": 82,
+                "span": 24
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 63,
+                "last": 87,
+                "span": 25
+              },
+              "host_launch": {
+                "first": 83,
+                "last": 86,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 88,
+                "last": 90,
+                "span": 3
+              },
+              "host_complete": {
+                "first": 118,
+                "last": 121,
+                "span": 4
+              },
+              "host_read": {
+                "first": 122,
+                "last": 339,
+                "span": 218
+              },
+              "read_result": {
+                "first": 128,
+                "last": 345,
+                "span": 218
+              }
+            },
+            "prepare_to_first_retirement": 93,
+            "host_launch_to_first_retirement": 10,
+            "task_to_all_completions": 122,
+            "readback_span": 224,
+            "config_host_to_last_write": 30,
+            "return_drain": 9,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 36,
+              "last": 90,
+              "span": 55
+            },
+            "control_writes": {
+              "first": 64,
+              "last": 88,
+              "span": 25
+            },
+            "control_execution": {
+              "first": 92,
+              "last": 115,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 115,
+              "last": 115,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 113,
+              "last": 116,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 118,
+              "last": 345,
+              "span": 228
+            },
+            "network_ingress": {
+              "first": 34,
+              "last": 88,
+              "span": 55
+            },
+            "per_PE_last_config": {
+              "0": 69,
+              "2": 76,
+              "3": 81,
+              "1": 88
+            },
+            "per_PE_first_step": {
+              "0": 92,
+              "2": 97,
+              "3": 102,
+              "1": 107
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "605b9ccf53475720ef8cc1592590d5b3c7a130d29412d361f2cfc484b6ecf63f",
+          "driver_elapsed_cycles": 378,
+          "driver_final_cycle_index": 377,
+          "trace_sha256": {
+            "outputs-0.txt": "32a575189eb75f8a232d2038bf676a77cba35252450ce6b345dc7f4cfb15821c",
+            "control-0.txt": "3bf2f0e6c60e1256754e9531a5b342ac86d88749c6dc72db7a5fb8c1f9b820f1"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b0-mc0/build/c34a22c2628315f6/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b0-mc0/affine-23-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b0-mc0/affine-23-unicast/outputs-37.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b0-mc0/affine-23-unicast/control-37.txt",
+            "+SCHEDULE=37",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.375,
+          "log": "$BUILD/system-stage-a/2x2-b0-mc0/affine-23-unicast/run-37.log",
+          "log_sha256": "849c2b11a378f8266003ba3d446080489b66f8610e219a22edf10fb435b782a2",
+          "algorithm": "affine",
+          "seed": 23,
+          "stream": "unicast",
+          "schedule": 37,
+          "status": "passed",
+          "binary_sha256": "9758bf08c20237bdb5c083f88b9fecea4d79c68fb570ad5cbb7d97d1ce77937b",
+          "program_sha256": "728460eaf8b08785a24a666275e63d11733c73ef56da7c283acd23dd5df07542",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 70,
+                "last": 95,
+                "span": 26
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 74,
+                "last": 100,
+                "span": 27
+              },
+              "host_launch": {
+                "first": 97,
+                "last": 100,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 102,
+                "last": 104,
+                "span": 3
+              },
+              "host_complete": {
+                "first": 142,
+                "last": 145,
+                "span": 4
+              },
+              "host_read": {
+                "first": 146,
+                "last": 379,
+                "span": 234
+              },
+              "read_result": {
+                "first": 152,
+                "last": 386,
+                "span": 235
+              }
+            },
+            "prepare_to_first_retirement": 107,
+            "host_launch_to_first_retirement": 10,
+            "task_to_all_completions": 146,
+            "readback_span": 241,
+            "config_host_to_last_write": 32,
+            "return_drain": 19,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 42,
+              "last": 104,
+              "span": 63
+            },
+            "control_writes": {
+              "first": 75,
+              "last": 101,
+              "span": 27
+            },
+            "control_execution": {
+              "first": 106,
+              "last": 129,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 129,
+              "last": 129,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 127,
+              "last": 130,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 142,
+              "last": 386,
+              "span": 245
+            },
+            "network_ingress": {
+              "first": 40,
+              "last": 102,
+              "span": 63
+            },
+            "per_PE_last_config": {
+              "0": 80,
+              "2": 88,
+              "3": 93,
+              "1": 101
+            },
+            "per_PE_first_step": {
+              "0": 106,
+              "2": 111,
+              "3": 116,
+              "1": 121
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "605b9ccf53475720ef8cc1592590d5b3c7a130d29412d361f2cfc484b6ecf63f",
+          "driver_elapsed_cycles": 419,
+          "driver_final_cycle_index": 418,
+          "trace_sha256": {
+            "outputs-37.txt": "cb522af33d20293237ff65b1467f1111df10c4b30144f1ffb417504587a99435",
+            "control-37.txt": "f803d0b4be83df5dc14972c0e45f9a710787ee9a4735ba7d421579f691bc810e"
+          }
+        }
+      ],
+      "status": "passed",
+      "build_identity_sha256": "c34a22c2628315f631829abb940f4927e126d7576a420da9eda5ff7ead458ce3",
+      "binary_sha256": "9758bf08c20237bdb5c083f88b9fecea4d79c68fb570ad5cbb7d97d1ce77937b"
+    },
+    {
+      "parameters": {
+        "DATA_W": 32,
+        "TILE_PORTS": 4,
+        "CTRL_DEPTH": 6,
+        "REG_DEPTH": 5,
+        "BANK_DEPTH": 8,
+        "NUM_BANKS": 4,
+        "GLOBAL_ADDR_W": 7,
+        "NUM_CTRL": 6,
+        "TOTAL_STEPS": 6,
+        "MULTI_COLS": 1,
+        "MULTI_ROWS": 1,
+        "HAS_DMA": 0,
+        "HAS_IM2COL": 0,
+        "MEM_COMBINATIONAL": 1,
+        "MEMORY_LEGACY_PYTHON": 0,
+        "NOC_LEGACY_PYTHON": 0,
+        "CTRL_NETWORK": 1,
+        "CTRL_MULTICAST": 0,
+        "VECTOR_LANES": 4,
+        "VECTOR_FACTOR_POWER": 0,
+        "FP_EXP_W": 8,
+        "FP_SIG_W": 23,
+        "FP_LEGACY_PYTHON": 0,
+        "REDUCE_LEGACY_PYTHON": 0,
+        "VECTOR_LEGACY_PYTHON": 0,
+        "ARITH_LEGACY_PYTHON": 0,
+        "COLS": 2,
+        "ROWS": 2,
+        "MAX_COLS": 2,
+        "MAX_ROWS": 2,
+        "MEM_PORTS": 3,
+        "MEM_WRITE_PORTS": 3,
+        "MAX_MEM_PORTS": 3,
+        "FU_COUNT": 5
+      },
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b1-mc0/build/76572a037c9fca75/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b1-mc0/add-0-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b1-mc0/add-0-unicast/outputs-0.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b1-mc0/add-0-unicast/control-0.txt",
+            "+SCHEDULE=0",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.32,
+          "log": "$BUILD/system-stage-a/2x2-b1-mc0/add-0-unicast/run-0.log",
+          "log_sha256": "f9c9279b91326fede50c86df67817fda33e37ae4759b0aefa58fbb69490bdea0",
+          "algorithm": "add",
+          "seed": 0,
+          "stream": "unicast",
+          "schedule": 0,
+          "status": "passed",
+          "binary_sha256": "48a712ca4a052a6f9e333da95c18473a5e4eb0c34bec6004ce0a513353b2600f",
+          "program_sha256": "a6f7aa4736bd94598fa58fa575875ff373dfab3bbbd0262f13c51cb2dbd0c348",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 59,
+                "last": 82,
+                "span": 24
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 64,
+                "last": 87,
+                "span": 24
+              },
+              "host_launch": {
+                "first": 83,
+                "last": 86,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 88,
+                "last": 91,
+                "span": 4
+              },
+              "host_complete": {
+                "first": 119,
+                "last": 122,
+                "span": 4
+              },
+              "host_read": {
+                "first": 123,
+                "last": 340,
+                "span": 218
+              },
+              "read_result": {
+                "first": 129,
+                "last": 346,
+                "span": 218
+              }
+            },
+            "prepare_to_first_retirement": 94,
+            "host_launch_to_first_retirement": 11,
+            "task_to_all_completions": 123,
+            "readback_span": 224,
+            "config_host_to_last_write": 30,
+            "return_drain": 9,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 37,
+              "last": 91,
+              "span": 55
+            },
+            "control_writes": {
+              "first": 65,
+              "last": 88,
+              "span": 24
+            },
+            "control_execution": {
+              "first": 93,
+              "last": 116,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 116,
+              "last": 116,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 114,
+              "last": 117,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 119,
+              "last": 346,
+              "span": 228
+            },
+            "network_ingress": {
+              "first": 34,
+              "last": 88,
+              "span": 55
+            },
+            "per_PE_last_config": {
+              "0": 70,
+              "1": 76,
+              "3": 82,
+              "2": 88
+            },
+            "per_PE_first_step": {
+              "0": 93,
+              "1": 98,
+              "3": 103,
+              "2": 108
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "fe4aa6bd5cf81358b2a1f8579a5851972e9f58ede40d9538e269a90c0d71defd",
+          "driver_elapsed_cycles": 379,
+          "driver_final_cycle_index": 378,
+          "trace_sha256": {
+            "outputs-0.txt": "2130a536d14bcf35aa5157500fcc239bf292195c63d4e44a534a003483ed0dae",
+            "control-0.txt": "c86b55188847ddc5e8662647e322bedac91673de9bbe938ea96279d65a8b9a07"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b1-mc0/build/76572a037c9fca75/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b1-mc0/add-0-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b1-mc0/add-0-unicast/outputs-37.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b1-mc0/add-0-unicast/control-37.txt",
+            "+SCHEDULE=37",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.264,
+          "log": "$BUILD/system-stage-a/2x2-b1-mc0/add-0-unicast/run-37.log",
+          "log_sha256": "cda2a87ef507ebef6f1c7a803550e83b09096115d165a7afa25aa4eee4888d59",
+          "algorithm": "add",
+          "seed": 0,
+          "stream": "unicast",
+          "schedule": 37,
+          "status": "passed",
+          "binary_sha256": "48a712ca4a052a6f9e333da95c18473a5e4eb0c34bec6004ce0a513353b2600f",
+          "program_sha256": "a6f7aa4736bd94598fa58fa575875ff373dfab3bbbd0262f13c51cb2dbd0c348",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 70,
+                "last": 95,
+                "span": 26
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 75,
+                "last": 100,
+                "span": 26
+              },
+              "host_launch": {
+                "first": 97,
+                "last": 100,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 102,
+                "last": 105,
+                "span": 4
+              },
+              "host_complete": {
+                "first": 142,
+                "last": 145,
+                "span": 4
+              },
+              "host_read": {
+                "first": 146,
+                "last": 379,
+                "span": 234
+              },
+              "read_result": {
+                "first": 152,
+                "last": 386,
+                "span": 235
+              }
+            },
+            "prepare_to_first_retirement": 108,
+            "host_launch_to_first_retirement": 11,
+            "task_to_all_completions": 146,
+            "readback_span": 241,
+            "config_host_to_last_write": 32,
+            "return_drain": 18,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 43,
+              "last": 105,
+              "span": 63
+            },
+            "control_writes": {
+              "first": 76,
+              "last": 101,
+              "span": 26
+            },
+            "control_execution": {
+              "first": 107,
+              "last": 130,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 130,
+              "last": 130,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 128,
+              "last": 131,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 142,
+              "last": 386,
+              "span": 245
+            },
+            "network_ingress": {
+              "first": 40,
+              "last": 102,
+              "span": 63
+            },
+            "per_PE_last_config": {
+              "0": 81,
+              "1": 88,
+              "3": 94,
+              "2": 101
+            },
+            "per_PE_first_step": {
+              "0": 107,
+              "1": 112,
+              "3": 117,
+              "2": 122
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "fe4aa6bd5cf81358b2a1f8579a5851972e9f58ede40d9538e269a90c0d71defd",
+          "driver_elapsed_cycles": 419,
+          "driver_final_cycle_index": 418,
+          "trace_sha256": {
+            "outputs-37.txt": "5e48e928d84582c212a1941766ea8b43f2763cdadcaf409d43c00d0c913bd2ea",
+            "control-37.txt": "bda63c974aced81f63f6a1a7f0aaaaf738b122d81b4b642113fe267e09bf076d"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b1-mc0/build/76572a037c9fca75/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b1-mc0/add-23-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b1-mc0/add-23-unicast/outputs-0.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b1-mc0/add-23-unicast/control-0.txt",
+            "+SCHEDULE=0",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.233,
+          "log": "$BUILD/system-stage-a/2x2-b1-mc0/add-23-unicast/run-0.log",
+          "log_sha256": "aa31846861e5b548c6e21764e03bd5bcdb990cb2a41dbb7d7363e67d611af71c",
+          "algorithm": "add",
+          "seed": 23,
+          "stream": "unicast",
+          "schedule": 0,
+          "status": "passed",
+          "binary_sha256": "48a712ca4a052a6f9e333da95c18473a5e4eb0c34bec6004ce0a513353b2600f",
+          "program_sha256": "f73aac2d62f6d1ae24e39fd9228907c79f1be9fc3a6c2317ef8953ca81adee76",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 59,
+                "last": 82,
+                "span": 24
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 64,
+                "last": 87,
+                "span": 24
+              },
+              "host_launch": {
+                "first": 83,
+                "last": 86,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 88,
+                "last": 91,
+                "span": 4
+              },
+              "host_complete": {
+                "first": 119,
+                "last": 122,
+                "span": 4
+              },
+              "host_read": {
+                "first": 123,
+                "last": 340,
+                "span": 218
+              },
+              "read_result": {
+                "first": 129,
+                "last": 346,
+                "span": 218
+              }
+            },
+            "prepare_to_first_retirement": 94,
+            "host_launch_to_first_retirement": 11,
+            "task_to_all_completions": 123,
+            "readback_span": 224,
+            "config_host_to_last_write": 30,
+            "return_drain": 9,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 37,
+              "last": 91,
+              "span": 55
+            },
+            "control_writes": {
+              "first": 65,
+              "last": 88,
+              "span": 24
+            },
+            "control_execution": {
+              "first": 93,
+              "last": 116,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 116,
+              "last": 116,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 114,
+              "last": 117,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 119,
+              "last": 346,
+              "span": 228
+            },
+            "network_ingress": {
+              "first": 34,
+              "last": 88,
+              "span": 55
+            },
+            "per_PE_last_config": {
+              "0": 70,
+              "1": 76,
+              "3": 82,
+              "2": 88
+            },
+            "per_PE_first_step": {
+              "0": 93,
+              "1": 98,
+              "3": 103,
+              "2": 108
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "ad9ec5003a34b9413d7fae838b9de0a7deaacfdd1a39de243108267a14e81f81",
+          "driver_elapsed_cycles": 379,
+          "driver_final_cycle_index": 378,
+          "trace_sha256": {
+            "outputs-0.txt": "36165f277158ceed2586a7adc201a620e588a080f1c2db84197ccee6ffd384b0",
+            "control-0.txt": "0ff4035fd04dbe8bc3f5a9645093a4c193200def00d5522550288427745b44d8"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b1-mc0/build/76572a037c9fca75/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b1-mc0/add-23-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b1-mc0/add-23-unicast/outputs-37.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b1-mc0/add-23-unicast/control-37.txt",
+            "+SCHEDULE=37",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.267,
+          "log": "$BUILD/system-stage-a/2x2-b1-mc0/add-23-unicast/run-37.log",
+          "log_sha256": "62c8f5edc895612274bb1a327fbb9808a01cadd1adf3a090ee74e9cb18fa01d6",
+          "algorithm": "add",
+          "seed": 23,
+          "stream": "unicast",
+          "schedule": 37,
+          "status": "passed",
+          "binary_sha256": "48a712ca4a052a6f9e333da95c18473a5e4eb0c34bec6004ce0a513353b2600f",
+          "program_sha256": "f73aac2d62f6d1ae24e39fd9228907c79f1be9fc3a6c2317ef8953ca81adee76",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 70,
+                "last": 95,
+                "span": 26
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 75,
+                "last": 100,
+                "span": 26
+              },
+              "host_launch": {
+                "first": 97,
+                "last": 100,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 102,
+                "last": 105,
+                "span": 4
+              },
+              "host_complete": {
+                "first": 142,
+                "last": 145,
+                "span": 4
+              },
+              "host_read": {
+                "first": 146,
+                "last": 379,
+                "span": 234
+              },
+              "read_result": {
+                "first": 152,
+                "last": 386,
+                "span": 235
+              }
+            },
+            "prepare_to_first_retirement": 108,
+            "host_launch_to_first_retirement": 11,
+            "task_to_all_completions": 146,
+            "readback_span": 241,
+            "config_host_to_last_write": 32,
+            "return_drain": 18,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 43,
+              "last": 105,
+              "span": 63
+            },
+            "control_writes": {
+              "first": 76,
+              "last": 101,
+              "span": 26
+            },
+            "control_execution": {
+              "first": 107,
+              "last": 130,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 130,
+              "last": 130,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 128,
+              "last": 131,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 142,
+              "last": 386,
+              "span": 245
+            },
+            "network_ingress": {
+              "first": 40,
+              "last": 102,
+              "span": 63
+            },
+            "per_PE_last_config": {
+              "0": 81,
+              "1": 88,
+              "3": 94,
+              "2": 101
+            },
+            "per_PE_first_step": {
+              "0": 107,
+              "1": 112,
+              "3": 117,
+              "2": 122
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "ad9ec5003a34b9413d7fae838b9de0a7deaacfdd1a39de243108267a14e81f81",
+          "driver_elapsed_cycles": 419,
+          "driver_final_cycle_index": 418,
+          "trace_sha256": {
+            "outputs-37.txt": "3ec673eb83f17c7bb566923cf5a5d44eae06ffef0dd6fd19b2ad991280c5a609",
+            "control-37.txt": "6ed3f529e1553432682c2dea01b3a9f752a40b4f85e3d60a8dd627277f574d24"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b1-mc0/build/76572a037c9fca75/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b1-mc0/affine-0-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b1-mc0/affine-0-unicast/outputs-0.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b1-mc0/affine-0-unicast/control-0.txt",
+            "+SCHEDULE=0",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.271,
+          "log": "$BUILD/system-stage-a/2x2-b1-mc0/affine-0-unicast/run-0.log",
+          "log_sha256": "03c3ecd39660dfec429c2634ee61cc5f42d6787d571d204fb74c378be6dd4309",
+          "algorithm": "affine",
+          "seed": 0,
+          "stream": "unicast",
+          "schedule": 0,
+          "status": "passed",
+          "binary_sha256": "48a712ca4a052a6f9e333da95c18473a5e4eb0c34bec6004ce0a513353b2600f",
+          "program_sha256": "eda6f5eac50ffcda82ef158c9e8cc086e21685ddfdb94d6d5338216eab387f64",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 59,
+                "last": 82,
+                "span": 24
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 64,
+                "last": 87,
+                "span": 24
+              },
+              "host_launch": {
+                "first": 83,
+                "last": 86,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 88,
+                "last": 91,
+                "span": 4
+              },
+              "host_complete": {
+                "first": 119,
+                "last": 122,
+                "span": 4
+              },
+              "host_read": {
+                "first": 123,
+                "last": 340,
+                "span": 218
+              },
+              "read_result": {
+                "first": 129,
+                "last": 346,
+                "span": 218
+              }
+            },
+            "prepare_to_first_retirement": 94,
+            "host_launch_to_first_retirement": 11,
+            "task_to_all_completions": 123,
+            "readback_span": 224,
+            "config_host_to_last_write": 30,
+            "return_drain": 9,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 37,
+              "last": 91,
+              "span": 55
+            },
+            "control_writes": {
+              "first": 65,
+              "last": 88,
+              "span": 24
+            },
+            "control_execution": {
+              "first": 93,
+              "last": 116,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 116,
+              "last": 116,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 114,
+              "last": 117,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 119,
+              "last": 346,
+              "span": 228
+            },
+            "network_ingress": {
+              "first": 34,
+              "last": 88,
+              "span": 55
+            },
+            "per_PE_last_config": {
+              "0": 70,
+              "2": 76,
+              "3": 82,
+              "1": 88
+            },
+            "per_PE_first_step": {
+              "0": 93,
+              "2": 98,
+              "3": 103,
+              "1": 108
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "5e77de02fb794886bbf2f15d88cea19f35eab6c15027381be7356efa21504582",
+          "driver_elapsed_cycles": 379,
+          "driver_final_cycle_index": 378,
+          "trace_sha256": {
+            "outputs-0.txt": "dc35d02c226580f3087cbd6debd0b3ae6be8d9bbc0cb4815a417f9c7f6415cad",
+            "control-0.txt": "114344a134892eb8436d6130407a60681ab665efefa3f54797f8cc72fb1e3edc"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b1-mc0/build/76572a037c9fca75/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b1-mc0/affine-0-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b1-mc0/affine-0-unicast/outputs-37.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b1-mc0/affine-0-unicast/control-37.txt",
+            "+SCHEDULE=37",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.315,
+          "log": "$BUILD/system-stage-a/2x2-b1-mc0/affine-0-unicast/run-37.log",
+          "log_sha256": "02b8ba11fc5a5b90efca0a6ef7cf5ab3e117c2fdb9292f2d5caad5c2b1285605",
+          "algorithm": "affine",
+          "seed": 0,
+          "stream": "unicast",
+          "schedule": 37,
+          "status": "passed",
+          "binary_sha256": "48a712ca4a052a6f9e333da95c18473a5e4eb0c34bec6004ce0a513353b2600f",
+          "program_sha256": "eda6f5eac50ffcda82ef158c9e8cc086e21685ddfdb94d6d5338216eab387f64",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 70,
+                "last": 95,
+                "span": 26
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 75,
+                "last": 100,
+                "span": 26
+              },
+              "host_launch": {
+                "first": 97,
+                "last": 100,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 102,
+                "last": 105,
+                "span": 4
+              },
+              "host_complete": {
+                "first": 142,
+                "last": 145,
+                "span": 4
+              },
+              "host_read": {
+                "first": 146,
+                "last": 379,
+                "span": 234
+              },
+              "read_result": {
+                "first": 152,
+                "last": 386,
+                "span": 235
+              }
+            },
+            "prepare_to_first_retirement": 108,
+            "host_launch_to_first_retirement": 11,
+            "task_to_all_completions": 146,
+            "readback_span": 241,
+            "config_host_to_last_write": 32,
+            "return_drain": 18,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 43,
+              "last": 105,
+              "span": 63
+            },
+            "control_writes": {
+              "first": 76,
+              "last": 101,
+              "span": 26
+            },
+            "control_execution": {
+              "first": 107,
+              "last": 130,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 130,
+              "last": 130,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 128,
+              "last": 131,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 142,
+              "last": 386,
+              "span": 245
+            },
+            "network_ingress": {
+              "first": 40,
+              "last": 102,
+              "span": 63
+            },
+            "per_PE_last_config": {
+              "0": 81,
+              "2": 88,
+              "3": 94,
+              "1": 101
+            },
+            "per_PE_first_step": {
+              "0": 107,
+              "2": 112,
+              "3": 117,
+              "1": 122
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "5e77de02fb794886bbf2f15d88cea19f35eab6c15027381be7356efa21504582",
+          "driver_elapsed_cycles": 419,
+          "driver_final_cycle_index": 418,
+          "trace_sha256": {
+            "outputs-37.txt": "515599f7456e11d578c21c107d5911054ee17541cbef81ffd870e7a373f3b333",
+            "control-37.txt": "d95fc2f0e86a2fa0b7de0d2d303b4a658b0e879ac02052d580d9052116485aed"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b1-mc0/build/76572a037c9fca75/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b1-mc0/affine-23-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b1-mc0/affine-23-unicast/outputs-0.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b1-mc0/affine-23-unicast/control-0.txt",
+            "+SCHEDULE=0",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.315,
+          "log": "$BUILD/system-stage-a/2x2-b1-mc0/affine-23-unicast/run-0.log",
+          "log_sha256": "33100f92f44b2084a69077131b4ab20a5d113acc54e6da93bb87a925c467b994",
+          "algorithm": "affine",
+          "seed": 23,
+          "stream": "unicast",
+          "schedule": 0,
+          "status": "passed",
+          "binary_sha256": "48a712ca4a052a6f9e333da95c18473a5e4eb0c34bec6004ce0a513353b2600f",
+          "program_sha256": "728460eaf8b08785a24a666275e63d11733c73ef56da7c283acd23dd5df07542",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 59,
+                "last": 82,
+                "span": 24
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 64,
+                "last": 87,
+                "span": 24
+              },
+              "host_launch": {
+                "first": 83,
+                "last": 86,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 88,
+                "last": 91,
+                "span": 4
+              },
+              "host_complete": {
+                "first": 119,
+                "last": 122,
+                "span": 4
+              },
+              "host_read": {
+                "first": 123,
+                "last": 340,
+                "span": 218
+              },
+              "read_result": {
+                "first": 129,
+                "last": 346,
+                "span": 218
+              }
+            },
+            "prepare_to_first_retirement": 94,
+            "host_launch_to_first_retirement": 11,
+            "task_to_all_completions": 123,
+            "readback_span": 224,
+            "config_host_to_last_write": 30,
+            "return_drain": 9,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 37,
+              "last": 91,
+              "span": 55
+            },
+            "control_writes": {
+              "first": 65,
+              "last": 88,
+              "span": 24
+            },
+            "control_execution": {
+              "first": 93,
+              "last": 116,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 116,
+              "last": 116,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 114,
+              "last": 117,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 119,
+              "last": 346,
+              "span": 228
+            },
+            "network_ingress": {
+              "first": 34,
+              "last": 88,
+              "span": 55
+            },
+            "per_PE_last_config": {
+              "0": 70,
+              "2": 76,
+              "3": 82,
+              "1": 88
+            },
+            "per_PE_first_step": {
+              "0": 93,
+              "2": 98,
+              "3": 103,
+              "1": 108
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "605b9ccf53475720ef8cc1592590d5b3c7a130d29412d361f2cfc484b6ecf63f",
+          "driver_elapsed_cycles": 379,
+          "driver_final_cycle_index": 378,
+          "trace_sha256": {
+            "outputs-0.txt": "369be2d00c11d7ad9b926b51bb7568d66c9ae32171ea8a9f5204c637fc5eaefc",
+            "control-0.txt": "a39a0396df96fc376772dedc5f5bcdd1acfe4539cd6bf9c905ff2516f1c260df"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b1-mc0/build/76572a037c9fca75/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b1-mc0/affine-23-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b1-mc0/affine-23-unicast/outputs-37.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b1-mc0/affine-23-unicast/control-37.txt",
+            "+SCHEDULE=37",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.316,
+          "log": "$BUILD/system-stage-a/2x2-b1-mc0/affine-23-unicast/run-37.log",
+          "log_sha256": "bb1d0f1f1d2a0a45228f82e66b3456cfbd9df2405ff57b2ed1371f7a1988ff74",
+          "algorithm": "affine",
+          "seed": 23,
+          "stream": "unicast",
+          "schedule": 37,
+          "status": "passed",
+          "binary_sha256": "48a712ca4a052a6f9e333da95c18473a5e4eb0c34bec6004ce0a513353b2600f",
+          "program_sha256": "728460eaf8b08785a24a666275e63d11733c73ef56da7c283acd23dd5df07542",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 70,
+                "last": 95,
+                "span": 26
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 75,
+                "last": 100,
+                "span": 26
+              },
+              "host_launch": {
+                "first": 97,
+                "last": 100,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 102,
+                "last": 105,
+                "span": 4
+              },
+              "host_complete": {
+                "first": 142,
+                "last": 145,
+                "span": 4
+              },
+              "host_read": {
+                "first": 146,
+                "last": 379,
+                "span": 234
+              },
+              "read_result": {
+                "first": 152,
+                "last": 386,
+                "span": 235
+              }
+            },
+            "prepare_to_first_retirement": 108,
+            "host_launch_to_first_retirement": 11,
+            "task_to_all_completions": 146,
+            "readback_span": 241,
+            "config_host_to_last_write": 32,
+            "return_drain": 18,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 43,
+              "last": 105,
+              "span": 63
+            },
+            "control_writes": {
+              "first": 76,
+              "last": 101,
+              "span": 26
+            },
+            "control_execution": {
+              "first": 107,
+              "last": 130,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 130,
+              "last": 130,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 128,
+              "last": 131,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 142,
+              "last": 386,
+              "span": 245
+            },
+            "network_ingress": {
+              "first": 40,
+              "last": 102,
+              "span": 63
+            },
+            "per_PE_last_config": {
+              "0": 81,
+              "2": 88,
+              "3": 94,
+              "1": 101
+            },
+            "per_PE_first_step": {
+              "0": 107,
+              "2": 112,
+              "3": 117,
+              "1": 122
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "605b9ccf53475720ef8cc1592590d5b3c7a130d29412d361f2cfc484b6ecf63f",
+          "driver_elapsed_cycles": 419,
+          "driver_final_cycle_index": 418,
+          "trace_sha256": {
+            "outputs-37.txt": "a619cdad9dfbc147ff786c99987cd29ade12329de17195cd08afa41a0032d255",
+            "control-37.txt": "e079f4c153e03fe9db9d069c1ed0a1995fdbc94149b4f80fdd513f6d191416e4"
+          }
+        }
+      ],
+      "status": "passed",
+      "build_identity_sha256": "76572a037c9fca7590abfc5da6df7cf55daba4e39d2da675f74b58926d330693",
+      "binary_sha256": "48a712ca4a052a6f9e333da95c18473a5e4eb0c34bec6004ce0a513353b2600f"
+    },
+    {
+      "parameters": {
+        "DATA_W": 32,
+        "TILE_PORTS": 4,
+        "CTRL_DEPTH": 6,
+        "REG_DEPTH": 5,
+        "BANK_DEPTH": 8,
+        "NUM_BANKS": 4,
+        "GLOBAL_ADDR_W": 7,
+        "NUM_CTRL": 6,
+        "TOTAL_STEPS": 6,
+        "MULTI_COLS": 1,
+        "MULTI_ROWS": 1,
+        "HAS_DMA": 0,
+        "HAS_IM2COL": 0,
+        "MEM_COMBINATIONAL": 1,
+        "MEMORY_LEGACY_PYTHON": 0,
+        "NOC_LEGACY_PYTHON": 0,
+        "CTRL_NETWORK": 2,
+        "CTRL_MULTICAST": 0,
+        "VECTOR_LANES": 4,
+        "VECTOR_FACTOR_POWER": 0,
+        "FP_EXP_W": 8,
+        "FP_SIG_W": 23,
+        "FP_LEGACY_PYTHON": 0,
+        "REDUCE_LEGACY_PYTHON": 0,
+        "VECTOR_LEGACY_PYTHON": 0,
+        "ARITH_LEGACY_PYTHON": 0,
+        "COLS": 2,
+        "ROWS": 2,
+        "MAX_COLS": 2,
+        "MAX_ROWS": 2,
+        "MEM_PORTS": 3,
+        "MEM_WRITE_PORTS": 3,
+        "MAX_MEM_PORTS": 3,
+        "FU_COUNT": 5
+      },
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b2-mc0/build/770488a9d20a077b/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b2-mc0/add-0-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b2-mc0/add-0-unicast/outputs-0.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b2-mc0/add-0-unicast/control-0.txt",
+            "+SCHEDULE=0",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.27,
+          "log": "$BUILD/system-stage-a/2x2-b2-mc0/add-0-unicast/run-0.log",
+          "log_sha256": "159f4fa15b71347595335f240456fde3ef5d43264a2ee308d87075ad3ea5d298",
+          "algorithm": "add",
+          "seed": 0,
+          "stream": "unicast",
+          "schedule": 0,
+          "status": "passed",
+          "binary_sha256": "6318e6c88be0e76efb2b3d398a63a303952a2269ddf1234ed46b9d85ccfb2f9b",
+          "program_sha256": "a6f7aa4736bd94598fa58fa575875ff373dfab3bbbd0262f13c51cb2dbd0c348",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 59,
+                "last": 82,
+                "span": 24
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 64,
+                "last": 87,
+                "span": 24
+              },
+              "host_launch": {
+                "first": 83,
+                "last": 86,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 88,
+                "last": 91,
+                "span": 4
+              },
+              "host_complete": {
+                "first": 119,
+                "last": 122,
+                "span": 4
+              },
+              "host_read": {
+                "first": 123,
+                "last": 340,
+                "span": 218
+              },
+              "read_result": {
+                "first": 129,
+                "last": 346,
+                "span": 218
+              }
+            },
+            "prepare_to_first_retirement": 94,
+            "host_launch_to_first_retirement": 11,
+            "task_to_all_completions": 123,
+            "readback_span": 224,
+            "config_host_to_last_write": 30,
+            "return_drain": 9,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 37,
+              "last": 91,
+              "span": 55
+            },
+            "control_writes": {
+              "first": 65,
+              "last": 88,
+              "span": 24
+            },
+            "control_execution": {
+              "first": 93,
+              "last": 116,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 116,
+              "last": 116,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 114,
+              "last": 117,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 119,
+              "last": 346,
+              "span": 228
+            },
+            "network_ingress": {
+              "first": 34,
+              "last": 88,
+              "span": 55
+            },
+            "per_PE_last_config": {
+              "0": 70,
+              "1": 76,
+              "3": 82,
+              "2": 88
+            },
+            "per_PE_first_step": {
+              "0": 93,
+              "1": 98,
+              "3": 103,
+              "2": 108
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "fe4aa6bd5cf81358b2a1f8579a5851972e9f58ede40d9538e269a90c0d71defd",
+          "driver_elapsed_cycles": 379,
+          "driver_final_cycle_index": 378,
+          "trace_sha256": {
+            "outputs-0.txt": "2130a536d14bcf35aa5157500fcc239bf292195c63d4e44a534a003483ed0dae",
+            "control-0.txt": "c86b55188847ddc5e8662647e322bedac91673de9bbe938ea96279d65a8b9a07"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b2-mc0/build/770488a9d20a077b/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b2-mc0/add-0-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b2-mc0/add-0-unicast/outputs-37.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b2-mc0/add-0-unicast/control-37.txt",
+            "+SCHEDULE=37",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.315,
+          "log": "$BUILD/system-stage-a/2x2-b2-mc0/add-0-unicast/run-37.log",
+          "log_sha256": "15d70f32555a766393b5521c5c339d836c69077e777af05da9ad3941c961a465",
+          "algorithm": "add",
+          "seed": 0,
+          "stream": "unicast",
+          "schedule": 37,
+          "status": "passed",
+          "binary_sha256": "6318e6c88be0e76efb2b3d398a63a303952a2269ddf1234ed46b9d85ccfb2f9b",
+          "program_sha256": "a6f7aa4736bd94598fa58fa575875ff373dfab3bbbd0262f13c51cb2dbd0c348",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 70,
+                "last": 95,
+                "span": 26
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 75,
+                "last": 100,
+                "span": 26
+              },
+              "host_launch": {
+                "first": 97,
+                "last": 100,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 102,
+                "last": 105,
+                "span": 4
+              },
+              "host_complete": {
+                "first": 142,
+                "last": 145,
+                "span": 4
+              },
+              "host_read": {
+                "first": 146,
+                "last": 379,
+                "span": 234
+              },
+              "read_result": {
+                "first": 152,
+                "last": 386,
+                "span": 235
+              }
+            },
+            "prepare_to_first_retirement": 108,
+            "host_launch_to_first_retirement": 11,
+            "task_to_all_completions": 146,
+            "readback_span": 241,
+            "config_host_to_last_write": 32,
+            "return_drain": 18,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 43,
+              "last": 105,
+              "span": 63
+            },
+            "control_writes": {
+              "first": 76,
+              "last": 101,
+              "span": 26
+            },
+            "control_execution": {
+              "first": 107,
+              "last": 130,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 130,
+              "last": 130,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 128,
+              "last": 131,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 142,
+              "last": 386,
+              "span": 245
+            },
+            "network_ingress": {
+              "first": 40,
+              "last": 102,
+              "span": 63
+            },
+            "per_PE_last_config": {
+              "0": 81,
+              "1": 88,
+              "3": 94,
+              "2": 101
+            },
+            "per_PE_first_step": {
+              "0": 107,
+              "1": 112,
+              "3": 117,
+              "2": 122
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "fe4aa6bd5cf81358b2a1f8579a5851972e9f58ede40d9538e269a90c0d71defd",
+          "driver_elapsed_cycles": 419,
+          "driver_final_cycle_index": 418,
+          "trace_sha256": {
+            "outputs-37.txt": "5e48e928d84582c212a1941766ea8b43f2763cdadcaf409d43c00d0c913bd2ea",
+            "control-37.txt": "bda63c974aced81f63f6a1a7f0aaaaf738b122d81b4b642113fe267e09bf076d"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b2-mc0/build/770488a9d20a077b/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b2-mc0/add-23-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b2-mc0/add-23-unicast/outputs-0.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b2-mc0/add-23-unicast/control-0.txt",
+            "+SCHEDULE=0",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.315,
+          "log": "$BUILD/system-stage-a/2x2-b2-mc0/add-23-unicast/run-0.log",
+          "log_sha256": "7a6024eb4e242a79e811879532bcf0a726b9f0a26e30abea1c4868cba98b874c",
+          "algorithm": "add",
+          "seed": 23,
+          "stream": "unicast",
+          "schedule": 0,
+          "status": "passed",
+          "binary_sha256": "6318e6c88be0e76efb2b3d398a63a303952a2269ddf1234ed46b9d85ccfb2f9b",
+          "program_sha256": "f73aac2d62f6d1ae24e39fd9228907c79f1be9fc3a6c2317ef8953ca81adee76",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 59,
+                "last": 82,
+                "span": 24
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 64,
+                "last": 87,
+                "span": 24
+              },
+              "host_launch": {
+                "first": 83,
+                "last": 86,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 88,
+                "last": 91,
+                "span": 4
+              },
+              "host_complete": {
+                "first": 119,
+                "last": 122,
+                "span": 4
+              },
+              "host_read": {
+                "first": 123,
+                "last": 340,
+                "span": 218
+              },
+              "read_result": {
+                "first": 129,
+                "last": 346,
+                "span": 218
+              }
+            },
+            "prepare_to_first_retirement": 94,
+            "host_launch_to_first_retirement": 11,
+            "task_to_all_completions": 123,
+            "readback_span": 224,
+            "config_host_to_last_write": 30,
+            "return_drain": 9,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 37,
+              "last": 91,
+              "span": 55
+            },
+            "control_writes": {
+              "first": 65,
+              "last": 88,
+              "span": 24
+            },
+            "control_execution": {
+              "first": 93,
+              "last": 116,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 116,
+              "last": 116,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 114,
+              "last": 117,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 119,
+              "last": 346,
+              "span": 228
+            },
+            "network_ingress": {
+              "first": 34,
+              "last": 88,
+              "span": 55
+            },
+            "per_PE_last_config": {
+              "0": 70,
+              "1": 76,
+              "3": 82,
+              "2": 88
+            },
+            "per_PE_first_step": {
+              "0": 93,
+              "1": 98,
+              "3": 103,
+              "2": 108
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "ad9ec5003a34b9413d7fae838b9de0a7deaacfdd1a39de243108267a14e81f81",
+          "driver_elapsed_cycles": 379,
+          "driver_final_cycle_index": 378,
+          "trace_sha256": {
+            "outputs-0.txt": "36165f277158ceed2586a7adc201a620e588a080f1c2db84197ccee6ffd384b0",
+            "control-0.txt": "0ff4035fd04dbe8bc3f5a9645093a4c193200def00d5522550288427745b44d8"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b2-mc0/build/770488a9d20a077b/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b2-mc0/add-23-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b2-mc0/add-23-unicast/outputs-37.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b2-mc0/add-23-unicast/control-37.txt",
+            "+SCHEDULE=37",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.315,
+          "log": "$BUILD/system-stage-a/2x2-b2-mc0/add-23-unicast/run-37.log",
+          "log_sha256": "61afc4a32b272b325a1546c494a005b42ded382386ed1ddb0f6d8dc7e7889a6f",
+          "algorithm": "add",
+          "seed": 23,
+          "stream": "unicast",
+          "schedule": 37,
+          "status": "passed",
+          "binary_sha256": "6318e6c88be0e76efb2b3d398a63a303952a2269ddf1234ed46b9d85ccfb2f9b",
+          "program_sha256": "f73aac2d62f6d1ae24e39fd9228907c79f1be9fc3a6c2317ef8953ca81adee76",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 70,
+                "last": 95,
+                "span": 26
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 75,
+                "last": 100,
+                "span": 26
+              },
+              "host_launch": {
+                "first": 97,
+                "last": 100,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 102,
+                "last": 105,
+                "span": 4
+              },
+              "host_complete": {
+                "first": 142,
+                "last": 145,
+                "span": 4
+              },
+              "host_read": {
+                "first": 146,
+                "last": 379,
+                "span": 234
+              },
+              "read_result": {
+                "first": 152,
+                "last": 386,
+                "span": 235
+              }
+            },
+            "prepare_to_first_retirement": 108,
+            "host_launch_to_first_retirement": 11,
+            "task_to_all_completions": 146,
+            "readback_span": 241,
+            "config_host_to_last_write": 32,
+            "return_drain": 18,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 43,
+              "last": 105,
+              "span": 63
+            },
+            "control_writes": {
+              "first": 76,
+              "last": 101,
+              "span": 26
+            },
+            "control_execution": {
+              "first": 107,
+              "last": 130,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 130,
+              "last": 130,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 128,
+              "last": 131,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 142,
+              "last": 386,
+              "span": 245
+            },
+            "network_ingress": {
+              "first": 40,
+              "last": 102,
+              "span": 63
+            },
+            "per_PE_last_config": {
+              "0": 81,
+              "1": 88,
+              "3": 94,
+              "2": 101
+            },
+            "per_PE_first_step": {
+              "0": 107,
+              "1": 112,
+              "3": 117,
+              "2": 122
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "ad9ec5003a34b9413d7fae838b9de0a7deaacfdd1a39de243108267a14e81f81",
+          "driver_elapsed_cycles": 419,
+          "driver_final_cycle_index": 418,
+          "trace_sha256": {
+            "outputs-37.txt": "3ec673eb83f17c7bb566923cf5a5d44eae06ffef0dd6fd19b2ad991280c5a609",
+            "control-37.txt": "6ed3f529e1553432682c2dea01b3a9f752a40b4f85e3d60a8dd627277f574d24"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b2-mc0/build/770488a9d20a077b/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b2-mc0/affine-0-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b2-mc0/affine-0-unicast/outputs-0.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b2-mc0/affine-0-unicast/control-0.txt",
+            "+SCHEDULE=0",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.194,
+          "log": "$BUILD/system-stage-a/2x2-b2-mc0/affine-0-unicast/run-0.log",
+          "log_sha256": "0bd82b29851f1e0e7cade66529cc2f62ca2b7942a07d83a182b213465026062c",
+          "algorithm": "affine",
+          "seed": 0,
+          "stream": "unicast",
+          "schedule": 0,
+          "status": "passed",
+          "binary_sha256": "6318e6c88be0e76efb2b3d398a63a303952a2269ddf1234ed46b9d85ccfb2f9b",
+          "program_sha256": "eda6f5eac50ffcda82ef158c9e8cc086e21685ddfdb94d6d5338216eab387f64",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 59,
+                "last": 82,
+                "span": 24
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 64,
+                "last": 87,
+                "span": 24
+              },
+              "host_launch": {
+                "first": 83,
+                "last": 86,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 88,
+                "last": 91,
+                "span": 4
+              },
+              "host_complete": {
+                "first": 119,
+                "last": 122,
+                "span": 4
+              },
+              "host_read": {
+                "first": 123,
+                "last": 340,
+                "span": 218
+              },
+              "read_result": {
+                "first": 129,
+                "last": 346,
+                "span": 218
+              }
+            },
+            "prepare_to_first_retirement": 94,
+            "host_launch_to_first_retirement": 11,
+            "task_to_all_completions": 123,
+            "readback_span": 224,
+            "config_host_to_last_write": 30,
+            "return_drain": 9,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 37,
+              "last": 91,
+              "span": 55
+            },
+            "control_writes": {
+              "first": 65,
+              "last": 88,
+              "span": 24
+            },
+            "control_execution": {
+              "first": 93,
+              "last": 116,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 116,
+              "last": 116,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 114,
+              "last": 117,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 119,
+              "last": 346,
+              "span": 228
+            },
+            "network_ingress": {
+              "first": 34,
+              "last": 88,
+              "span": 55
+            },
+            "per_PE_last_config": {
+              "0": 70,
+              "2": 76,
+              "3": 82,
+              "1": 88
+            },
+            "per_PE_first_step": {
+              "0": 93,
+              "2": 98,
+              "3": 103,
+              "1": 108
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "5e77de02fb794886bbf2f15d88cea19f35eab6c15027381be7356efa21504582",
+          "driver_elapsed_cycles": 379,
+          "driver_final_cycle_index": 378,
+          "trace_sha256": {
+            "outputs-0.txt": "dc35d02c226580f3087cbd6debd0b3ae6be8d9bbc0cb4815a417f9c7f6415cad",
+            "control-0.txt": "114344a134892eb8436d6130407a60681ab665efefa3f54797f8cc72fb1e3edc"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b2-mc0/build/770488a9d20a077b/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b2-mc0/affine-0-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b2-mc0/affine-0-unicast/outputs-37.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b2-mc0/affine-0-unicast/control-37.txt",
+            "+SCHEDULE=37",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.167,
+          "log": "$BUILD/system-stage-a/2x2-b2-mc0/affine-0-unicast/run-37.log",
+          "log_sha256": "f169555e25a99a1c404bdd41c4000abb0b28bc696c00b76fb329443f8008e803",
+          "algorithm": "affine",
+          "seed": 0,
+          "stream": "unicast",
+          "schedule": 37,
+          "status": "passed",
+          "binary_sha256": "6318e6c88be0e76efb2b3d398a63a303952a2269ddf1234ed46b9d85ccfb2f9b",
+          "program_sha256": "eda6f5eac50ffcda82ef158c9e8cc086e21685ddfdb94d6d5338216eab387f64",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 70,
+                "last": 95,
+                "span": 26
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 75,
+                "last": 100,
+                "span": 26
+              },
+              "host_launch": {
+                "first": 97,
+                "last": 100,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 102,
+                "last": 105,
+                "span": 4
+              },
+              "host_complete": {
+                "first": 142,
+                "last": 145,
+                "span": 4
+              },
+              "host_read": {
+                "first": 146,
+                "last": 379,
+                "span": 234
+              },
+              "read_result": {
+                "first": 152,
+                "last": 386,
+                "span": 235
+              }
+            },
+            "prepare_to_first_retirement": 108,
+            "host_launch_to_first_retirement": 11,
+            "task_to_all_completions": 146,
+            "readback_span": 241,
+            "config_host_to_last_write": 32,
+            "return_drain": 18,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 43,
+              "last": 105,
+              "span": 63
+            },
+            "control_writes": {
+              "first": 76,
+              "last": 101,
+              "span": 26
+            },
+            "control_execution": {
+              "first": 107,
+              "last": 130,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 130,
+              "last": 130,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 128,
+              "last": 131,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 142,
+              "last": 386,
+              "span": 245
+            },
+            "network_ingress": {
+              "first": 40,
+              "last": 102,
+              "span": 63
+            },
+            "per_PE_last_config": {
+              "0": 81,
+              "2": 88,
+              "3": 94,
+              "1": 101
+            },
+            "per_PE_first_step": {
+              "0": 107,
+              "2": 112,
+              "3": 117,
+              "1": 122
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "5e77de02fb794886bbf2f15d88cea19f35eab6c15027381be7356efa21504582",
+          "driver_elapsed_cycles": 419,
+          "driver_final_cycle_index": 418,
+          "trace_sha256": {
+            "outputs-37.txt": "515599f7456e11d578c21c107d5911054ee17541cbef81ffd870e7a373f3b333",
+            "control-37.txt": "d95fc2f0e86a2fa0b7de0d2d303b4a658b0e879ac02052d580d9052116485aed"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b2-mc0/build/770488a9d20a077b/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b2-mc0/affine-23-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b2-mc0/affine-23-unicast/outputs-0.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b2-mc0/affine-23-unicast/control-0.txt",
+            "+SCHEDULE=0",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.192,
+          "log": "$BUILD/system-stage-a/2x2-b2-mc0/affine-23-unicast/run-0.log",
+          "log_sha256": "be64b42469cf6629142a8b6f375af438304f86e9038a19d92ad59d5b19cf9f63",
+          "algorithm": "affine",
+          "seed": 23,
+          "stream": "unicast",
+          "schedule": 0,
+          "status": "passed",
+          "binary_sha256": "6318e6c88be0e76efb2b3d398a63a303952a2269ddf1234ed46b9d85ccfb2f9b",
+          "program_sha256": "728460eaf8b08785a24a666275e63d11733c73ef56da7c283acd23dd5df07542",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 59,
+                "last": 82,
+                "span": 24
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 64,
+                "last": 87,
+                "span": 24
+              },
+              "host_launch": {
+                "first": 83,
+                "last": 86,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 88,
+                "last": 91,
+                "span": 4
+              },
+              "host_complete": {
+                "first": 119,
+                "last": 122,
+                "span": 4
+              },
+              "host_read": {
+                "first": 123,
+                "last": 340,
+                "span": 218
+              },
+              "read_result": {
+                "first": 129,
+                "last": 346,
+                "span": 218
+              }
+            },
+            "prepare_to_first_retirement": 94,
+            "host_launch_to_first_retirement": 11,
+            "task_to_all_completions": 123,
+            "readback_span": 224,
+            "config_host_to_last_write": 30,
+            "return_drain": 9,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 37,
+              "last": 91,
+              "span": 55
+            },
+            "control_writes": {
+              "first": 65,
+              "last": 88,
+              "span": 24
+            },
+            "control_execution": {
+              "first": 93,
+              "last": 116,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 116,
+              "last": 116,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 114,
+              "last": 117,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 119,
+              "last": 346,
+              "span": 228
+            },
+            "network_ingress": {
+              "first": 34,
+              "last": 88,
+              "span": 55
+            },
+            "per_PE_last_config": {
+              "0": 70,
+              "2": 76,
+              "3": 82,
+              "1": 88
+            },
+            "per_PE_first_step": {
+              "0": 93,
+              "2": 98,
+              "3": 103,
+              "1": 108
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "605b9ccf53475720ef8cc1592590d5b3c7a130d29412d361f2cfc484b6ecf63f",
+          "driver_elapsed_cycles": 379,
+          "driver_final_cycle_index": 378,
+          "trace_sha256": {
+            "outputs-0.txt": "369be2d00c11d7ad9b926b51bb7568d66c9ae32171ea8a9f5204c637fc5eaefc",
+            "control-0.txt": "a39a0396df96fc376772dedc5f5bcdd1acfe4539cd6bf9c905ff2516f1c260df"
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/system-stage-a/2x2-b2-mc0/build/770488a9d20a077b/Vtb_parameterization",
+            "+VECTORS=$BUILD/system-stage-a/2x2-b2-mc0/affine-23-unicast",
+            "+TRACE=$BUILD/system-stage-a/2x2-b2-mc0/affine-23-unicast/outputs-37.txt",
+            "+CONTROL_TRACE=$BUILD/system-stage-a/2x2-b2-mc0/affine-23-unicast/control-37.txt",
+            "+SCHEDULE=37",
+            "+COMPLETIONS=4",
+            "+READS=32",
+            "+BOUNDARY_OUTPUTS=0"
+          ],
+          "exit_code": 0,
+          "seconds": 0.173,
+          "log": "$BUILD/system-stage-a/2x2-b2-mc0/affine-23-unicast/run-37.log",
+          "log_sha256": "2a1471aa8dd77eef0f143181ecc39a6e00cbaa016893b30ebd94c80e1bde0c39",
+          "algorithm": "affine",
+          "seed": 23,
+          "stream": "unicast",
+          "schedule": 37,
+          "status": "passed",
+          "binary_sha256": "6318e6c88be0e76efb2b3d398a63a303952a2269ddf1234ed46b9d85ccfb2f9b",
+          "program_sha256": "728460eaf8b08785a24a666275e63d11733c73ef56da7c283acd23dd5df07542",
+          "packet_count": 119,
+          "math": {
+            "checked_words": 32,
+            "active_tiles": 4
+          },
+          "control": {
+            "host_packets": 119,
+            "commands_by_boundary": {
+              "H": {
+                "12": 32,
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4,
+                "10": 32
+              },
+              "I": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "D": {
+                "13": 19,
+                "8": 4,
+                "7": 4,
+                "3": 24,
+                "0": 4
+              },
+              "U": {
+                "14": 4
+              },
+              "O": {
+                "14": 4,
+                "11": 32
+              }
+            },
+            "phase_spans": {
+              "host_config": {
+                "first": 70,
+                "last": 95,
+                "span": 26
+              },
+              "mask_setup": null,
+              "target_config": {
+                "first": 75,
+                "last": 100,
+                "span": 26
+              },
+              "host_launch": {
+                "first": 97,
+                "last": 100,
+                "span": 4
+              },
+              "target_launch": {
+                "first": 102,
+                "last": 105,
+                "span": 4
+              },
+              "host_complete": {
+                "first": 142,
+                "last": 145,
+                "span": 4
+              },
+              "host_read": {
+                "first": 146,
+                "last": 379,
+                "span": 234
+              },
+              "read_result": {
+                "first": 152,
+                "last": 386,
+                "span": 235
+              }
+            },
+            "prepare_to_first_retirement": 108,
+            "host_launch_to_first_retirement": 11,
+            "task_to_all_completions": 146,
+            "readback_span": 241,
+            "config_host_to_last_write": 32,
+            "return_drain": 18,
+            "configuration_writes": 24,
+            "target_receive": {
+              "first": 43,
+              "last": 105,
+              "span": 63
+            },
+            "control_writes": {
+              "first": 76,
+              "last": 101,
+              "span": 26
+            },
+            "control_execution": {
+              "first": 107,
+              "last": 130,
+              "span": 24
+            },
+            "kernel_store_acceptance": {
+              "first": 130,
+              "last": 130,
+              "span": 1
+            },
+            "PE_return_acceptance": {
+              "first": 128,
+              "last": 131,
+              "span": 4
+            },
+            "host_responses": {
+              "first": 142,
+              "last": 386,
+              "span": 245
+            },
+            "network_ingress": {
+              "first": 40,
+              "last": 102,
+              "span": 63
+            },
+            "per_PE_last_config": {
+              "0": 81,
+              "2": 88,
+              "3": 94,
+              "1": 101
+            },
+            "per_PE_first_step": {
+              "0": 107,
+              "2": 112,
+              "3": 117,
+              "1": 122
+            },
+            "note": "Intervals may overlap. Total driver cycles include data preload, public result reads and 32 post-result observation cycles. E spans control-step retirements; S is PE write acceptance, not an external-memory commit."
+          },
+          "wrong_expected_rejected": true,
+          "full_host_packets_sha256": "605b9ccf53475720ef8cc1592590d5b3c7a130d29412d361f2cfc484b6ecf63f",
+          "driver_elapsed_cycles": 419,
+          "driver_final_cycle_index": 418,
+          "trace_sha256": {
+            "outputs-37.txt": "a619cdad9dfbc147ff786c99987cd29ade12329de17195cd08afa41a0032d255",
+            "control-37.txt": "e079f4c153e03fe9db9d069c1ed0a1995fdbc94149b4f80fdd513f6d191416e4"
+          }
+        }
+      ],
+      "status": "passed",
+      "build_identity_sha256": "770488a9d20a077ba21b0576c17dbbfb8aeba8eec55d70faec5e6d4403734382",
+      "binary_sha256": "6318e6c88be0e76efb2b3d398a63a303952a2269ddf1234ed46b9d85ccfb2f9b"
+    }
+  ],
+  "all_passed": true
+}

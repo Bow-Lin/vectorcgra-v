@@ -1,0 +1,1519 @@
+{
+  "schema": 1,
+  "baseline": "03db4c735dc9573ee19d5080eb123cc106333ba3",
+  "evidence": "RTL simulation only",
+  "verilator": "Verilator 5.029 devel rev v5.028-104-ge2041f745",
+  "original_primitive_sha256": {
+    "sv/rtl/common/cgra_queue.sv": "87e03f556141d8c2c0abe26168ef567ce4b5e456a9f090f9f797aed51a4c4761",
+    "sv/rtl/common/cgra_round_robin.sv": "294d46b6394c205ea67577ef8f4f51b6cc220072051c6a42b3280c5b7ef4b93d",
+    "sv/rtl/noc/cgra_switch.sv": "b240bd16d346ebe037705caff67bb0d6c4c536f69c9e505e8503add1bf6005a4",
+    "sv/rtl/noc/cgra_credit_send.sv": "03171c6c933efe24717ed7d0df5b484f20312019421cba45e56de7e8fa712512",
+    "sv/rtl/noc/cgra_credit_input.sv": "c70a6188a78373c7b1b817b4cc6ea2b44fa06ca4b489b73dde61481aeb8a1f5d",
+    "sv/rtl/noc/cgra_credit_recv.sv": "181ac5ed8e66869375eec7668ceb58e6b1f3ae422045d3736c7472f58a550f07",
+    "sv/rtl/noc/cgra_ring_route.sv": "30ddabd82453381cc3ae7e686bbb5e0497c7b9d3b41dd27c83d9496464840cbf",
+    "sv/rtl/noc/cgra_ring_router.sv": "6e5b799e25ca4820e6ff2b927e430d9243cf6658bd1459a94bc064aa857617ff",
+    "sv/rtl/noc/cgra_credit_ring.sv": "1261785a4eeb013f1047c5855b5350f1195d0ccfa67226336c27b6affb2634e0"
+  },
+  "cases": [
+    {
+      "parameters": {
+        "COLS": 2,
+        "ROWS": 2,
+        "MAX_COLS": 2,
+        "MAX_ROWS": 2,
+        "BACKEND": 0,
+        "CTRL_MULTICAST": 0
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/b64436b25ccfbf69/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/2x2-backend0/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.032,
+          "log": "$BUILD/network-final/2x2-backend0/normal.log",
+          "log_sha256": "ef4d95c197596e8878de8e1c9c13b5d487f97fa72aaadceb51dbaa08af24ba1a",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 0,
+            "multicast": 0,
+            "cols": 2,
+            "rows": 2,
+            "max_tiles": 4,
+            "pressure": 0,
+            "first_accept": 829,
+            "last_delivery": 990,
+            "last_return": 990,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 160
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/b64436b25ccfbf69/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/2x2-backend0/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.035,
+          "log": "$BUILD/network-final/2x2-backend0/backpressure.log",
+          "log_sha256": "2ea63f745fb083f9cab798d66a281c462e427d3fe16ae879fa1e7082d7baaee2",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 0,
+            "multicast": 0,
+            "cols": 2,
+            "rows": 2,
+            "max_tiles": 4,
+            "pressure": 1,
+            "first_accept": 958,
+            "last_delivery": 1161,
+            "last_return": 1247,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 160
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/b64436b25ccfbf69/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/network-final/2x2-backend0/negative-BAD_EXPECTED.log",
+          "log_sha256": "722d83f86854434eae972685b6b6909ddc30599770c96b5bcfe7dc6a87e850b0",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "1063117488def7c0a98a894d4a5c2cf14fa1e4559a4c68125d43e6e2cd449a16"
+    },
+    {
+      "parameters": {
+        "COLS": 2,
+        "ROWS": 2,
+        "MAX_COLS": 2,
+        "MAX_ROWS": 2,
+        "BACKEND": 1,
+        "CTRL_MULTICAST": 0
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/48a2743b62bd5ea4/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/2x2-backend1/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.033,
+          "log": "$BUILD/network-final/2x2-backend1/normal.log",
+          "log_sha256": "6818d44ddba32f3a8e603367b08cfd94b8c1d9a8689647f921cbb2d2e984d200",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 0,
+            "cols": 2,
+            "rows": 2,
+            "max_tiles": 4,
+            "pressure": 0,
+            "first_accept": 830,
+            "last_delivery": 992,
+            "last_return": 992,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 160
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/48a2743b62bd5ea4/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/2x2-backend1/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.033,
+          "log": "$BUILD/network-final/2x2-backend1/backpressure.log",
+          "log_sha256": "9ee780bcc201e47957b3911305c1d86051e5e258541992db1fa624d67702a0b7",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 0,
+            "cols": 2,
+            "rows": 2,
+            "max_tiles": 4,
+            "pressure": 1,
+            "first_accept": 958,
+            "last_delivery": 1161,
+            "last_return": 1248,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 160
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/48a2743b62bd5ea4/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/network-final/2x2-backend1/negative-BAD_EXPECTED.log",
+          "log_sha256": "b9040ab7497474f1b7ba0333aafae85f0ecb27a9116a04340f0441f1d74c8571",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/48a2743b62bd5ea4/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.012,
+          "log": "$BUILD/network-final/2x2-backend1/negative-INVALID_TARGET.log",
+          "log_sha256": "13c5d5b256f46ae5eb7f879e3bca26129ee580097d9366b44baf1d952c646494",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/48a2743b62bd5ea4/Vtb_control_network",
+            "+DISABLED_MULTICAST"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/network-final/2x2-backend1/negative-DISABLED_MULTICAST.log",
+          "log_sha256": "e483e5216868f67b09536558832d1b295f6fae20dbe7b95e26cf5df1a2f35283",
+          "flag": "DISABLED_MULTICAST",
+          "expected_marker": "CTRL_MULTICAST_DISABLED",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "75a379d869016b360c166d8693a838b45572bbb319ab5d10a85038abe552f4c3"
+    },
+    {
+      "parameters": {
+        "COLS": 2,
+        "ROWS": 2,
+        "MAX_COLS": 2,
+        "MAX_ROWS": 2,
+        "BACKEND": 2,
+        "CTRL_MULTICAST": 0
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/5aa783883f3db956/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/2x2-backend2/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.032,
+          "log": "$BUILD/network-final/2x2-backend2/normal.log",
+          "log_sha256": "314a16aca40ea2d5fcb510f7a7c04edc4f8a470ff09e577d2dd5be7061ed311e",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 0,
+            "cols": 2,
+            "rows": 2,
+            "max_tiles": 4,
+            "pressure": 0,
+            "first_accept": 830,
+            "last_delivery": 992,
+            "last_return": 992,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 160
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/5aa783883f3db956/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/2x2-backend2/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.017,
+          "log": "$BUILD/network-final/2x2-backend2/backpressure.log",
+          "log_sha256": "aa9af755bf33e4bcfe8d41273c088902368e72bcd0b0082f9d47b2b1d548d0fe",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 0,
+            "cols": 2,
+            "rows": 2,
+            "max_tiles": 4,
+            "pressure": 1,
+            "first_accept": 958,
+            "last_delivery": 1161,
+            "last_return": 1248,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 160
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/5aa783883f3db956/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.019,
+          "log": "$BUILD/network-final/2x2-backend2/negative-BAD_EXPECTED.log",
+          "log_sha256": "4c28e9b8dc5f1f9b93684614187ff18e1c5cb5746964b6da4c271dd64f6c798f",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/5aa783883f3db956/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/network-final/2x2-backend2/negative-INVALID_TARGET.log",
+          "log_sha256": "5ae3efdb89779329f5e2f901f2a75e34e4757a44b269823ee2cde0b21015db12",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/5aa783883f3db956/Vtb_control_network",
+            "+DISABLED_MULTICAST"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/network-final/2x2-backend2/negative-DISABLED_MULTICAST.log",
+          "log_sha256": "c0b86106a2c33a6a2fd8d1f291fe8d94e4e7fc9412fc6ef73dfa285e8c50ed2b",
+          "flag": "DISABLED_MULTICAST",
+          "expected_marker": "CTRL_MULTICAST_DISABLED",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "366f5b238f98a1004819c9ee625ae61ace222b120c330724d2af16bba9ee2532"
+    },
+    {
+      "parameters": {
+        "COLS": 3,
+        "ROWS": 3,
+        "MAX_COLS": 3,
+        "MAX_ROWS": 3,
+        "BACKEND": 0,
+        "CTRL_MULTICAST": 0
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/149903b9d593a0ce/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/3x3-backend0/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.114,
+          "log": "$BUILD/network-final/3x3-backend0/normal.log",
+          "log_sha256": "8a1ec3871ae30ebbe1661a68e0ca71893f30fba590667adc98db8382241459dc",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 0,
+            "multicast": 0,
+            "cols": 3,
+            "rows": 3,
+            "max_tiles": 9,
+            "pressure": 0,
+            "first_accept": 1029,
+            "last_delivery": 1192,
+            "last_return": 1390,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 360
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/149903b9d593a0ce/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/3x3-backend0/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.164,
+          "log": "$BUILD/network-final/3x3-backend0/backpressure.log",
+          "log_sha256": "9dcb066c1ed59883d78e2104b4bea8781840d758ddca2c8bf7312e91ade9e835",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 0,
+            "multicast": 0,
+            "cols": 3,
+            "rows": 3,
+            "max_tiles": 9,
+            "pressure": 1,
+            "first_accept": 1323,
+            "last_delivery": 1526,
+            "last_return": 1971,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 360
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/149903b9d593a0ce/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.064,
+          "log": "$BUILD/network-final/3x3-backend0/negative-BAD_EXPECTED.log",
+          "log_sha256": "336725f7cb06ea7523c94ba34f62d3c756b25c480ab270a987a64b3c039d8206",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "8cdd1965bc3fbbefb25a47c83873731e43a3cb3be545bafb0117e189be193d6e"
+    },
+    {
+      "parameters": {
+        "COLS": 3,
+        "ROWS": 3,
+        "MAX_COLS": 3,
+        "MAX_ROWS": 3,
+        "BACKEND": 1,
+        "CTRL_MULTICAST": 0
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/6dd6492a4f2f9006/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/3x3-backend1/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.066,
+          "log": "$BUILD/network-final/3x3-backend1/normal.log",
+          "log_sha256": "d2b40d9361931af1b2bda1ec2047aeeda2842396cb941cd73578d945d0f1b37d",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 0,
+            "cols": 3,
+            "rows": 3,
+            "max_tiles": 9,
+            "pressure": 0,
+            "first_accept": 1031,
+            "last_delivery": 1195,
+            "last_return": 1394,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 360
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/6dd6492a4f2f9006/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/3x3-backend1/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.064,
+          "log": "$BUILD/network-final/3x3-backend1/backpressure.log",
+          "log_sha256": "6047f926a5d21587f9eabd1ae3d95eb944c07361aaf84128da5a1761bfe899bc",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 0,
+            "cols": 3,
+            "rows": 3,
+            "max_tiles": 9,
+            "pressure": 1,
+            "first_accept": 1323,
+            "last_delivery": 1527,
+            "last_return": 1978,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 360
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/6dd6492a4f2f9006/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.033,
+          "log": "$BUILD/network-final/3x3-backend1/negative-BAD_EXPECTED.log",
+          "log_sha256": "733c46792b272b5338954eec718e14847d4ec9d81dcfcea4c867af8d58c8044d",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/6dd6492a4f2f9006/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/network-final/3x3-backend1/negative-INVALID_TARGET.log",
+          "log_sha256": "b4bc1739b32b1904a434009c647b3bc9f1033725dd5adb5694c33117d5a9153d",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/6dd6492a4f2f9006/Vtb_control_network",
+            "+DISABLED_MULTICAST"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/network-final/3x3-backend1/negative-DISABLED_MULTICAST.log",
+          "log_sha256": "71a87ec6d1d0410852af8f225a06af79fe240183b8d8501af8c8d09f535724cc",
+          "flag": "DISABLED_MULTICAST",
+          "expected_marker": "CTRL_MULTICAST_DISABLED",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "a42d5a3d77f12d985f8ffe5eb843af1f887f2259a5cd50f7b63e7dc0131eaf53"
+    },
+    {
+      "parameters": {
+        "COLS": 3,
+        "ROWS": 3,
+        "MAX_COLS": 3,
+        "MAX_ROWS": 3,
+        "BACKEND": 2,
+        "CTRL_MULTICAST": 0
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/81989674ab583d11/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/3x3-backend2/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.064,
+          "log": "$BUILD/network-final/3x3-backend2/normal.log",
+          "log_sha256": "575c051b37d2459827344883c5d282c6f0ff994e53171695c7696a676a9f02cd",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 0,
+            "cols": 3,
+            "rows": 3,
+            "max_tiles": 9,
+            "pressure": 0,
+            "first_accept": 1030,
+            "last_delivery": 1194,
+            "last_return": 1392,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 360
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/81989674ab583d11/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/3x3-backend2/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.064,
+          "log": "$BUILD/network-final/3x3-backend2/backpressure.log",
+          "log_sha256": "d9fa40cf1692892ce70b5dd2a1a2854f4f4f606780f2b55238031e3ad73b6116",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 0,
+            "cols": 3,
+            "rows": 3,
+            "max_tiles": 9,
+            "pressure": 1,
+            "first_accept": 1323,
+            "last_delivery": 1527,
+            "last_return": 1978,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 360
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/81989674ab583d11/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/network-final/3x3-backend2/negative-BAD_EXPECTED.log",
+          "log_sha256": "28cef932325f9e44fa8e560302b0e620eea9ff59fc4110498c350c8feccb203d",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/81989674ab583d11/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/network-final/3x3-backend2/negative-INVALID_TARGET.log",
+          "log_sha256": "991b5d07dab4c96e1c5d0d0b93e65854bfb7827cd3a06515446883dc71bd3e00",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/81989674ab583d11/Vtb_control_network",
+            "+DISABLED_MULTICAST"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/network-final/3x3-backend2/negative-DISABLED_MULTICAST.log",
+          "log_sha256": "71ddbb1cf33257c912fed1df513ba1a39d58e58eb2da39747af5e9089ba5ea7e",
+          "flag": "DISABLED_MULTICAST",
+          "expected_marker": "CTRL_MULTICAST_DISABLED",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "93e24d5008e9155ba849a8d6669a2423c4984395f81545f703ed2832333eef82"
+    },
+    {
+      "parameters": {
+        "COLS": 4,
+        "ROWS": 4,
+        "MAX_COLS": 4,
+        "MAX_ROWS": 4,
+        "BACKEND": 0,
+        "CTRL_MULTICAST": 0
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/1fc5bc8fafe486c3/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/4x4-backend0/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.332,
+          "log": "$BUILD/network-final/4x4-backend0/normal.log",
+          "log_sha256": "bd3969a664abc28f31f55089eb71eaf9994f8e4f7423d15067196d8b60497187",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 0,
+            "multicast": 0,
+            "cols": 4,
+            "rows": 4,
+            "max_tiles": 16,
+            "pressure": 0,
+            "first_accept": 1309,
+            "last_delivery": 1474,
+            "last_return": 1950,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 640
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/1fc5bc8fafe486c3/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/4x4-backend0/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.465,
+          "log": "$BUILD/network-final/4x4-backend0/backpressure.log",
+          "log_sha256": "a93ed4ab5d0774525ec2c236ee068db2a4ebf3479e984ceec32439984b9549e8",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 0,
+            "multicast": 0,
+            "cols": 4,
+            "rows": 4,
+            "max_tiles": 16,
+            "pressure": 1,
+            "first_accept": 1824,
+            "last_delivery": 2030,
+            "last_return": 2974,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 640
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/1fc5bc8fafe486c3/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.128,
+          "log": "$BUILD/network-final/4x4-backend0/negative-BAD_EXPECTED.log",
+          "log_sha256": "35c201a926e79aeab1f98e59ecd34b3a5e75ff89215128e2775584aee976985a",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "a8faa895f514fcddc7c8b4a377ba4844910641ec84d380cc666ce6c28b4fdf27",
+      "build_identity_sha256": "0054485d88ea0d4e5f04de95d6ac8576d74afcb1119dec30ecb2f5f841818afc"
+    },
+    {
+      "parameters": {
+        "COLS": 4,
+        "ROWS": 4,
+        "MAX_COLS": 4,
+        "MAX_ROWS": 4,
+        "BACKEND": 1,
+        "CTRL_MULTICAST": 0
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/3f79a33fcf190978/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/4x4-backend1/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.117,
+          "log": "$BUILD/network-final/4x4-backend1/normal.log",
+          "log_sha256": "e599c5b80ceec79dc33da4742b75539ce83bdbfafeca8ca064a8fd19dfa0dec0",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 0,
+            "cols": 4,
+            "rows": 4,
+            "max_tiles": 16,
+            "pressure": 0,
+            "first_accept": 1312,
+            "last_delivery": 1476,
+            "last_return": 1956,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 640
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/3f79a33fcf190978/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/4x4-backend1/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.222,
+          "log": "$BUILD/network-final/4x4-backend1/backpressure.log",
+          "log_sha256": "8ac2f6df0b49bccceb97e53ea6726d5842bd0a14d8ea64ee5d56fdb9320e81f4",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 0,
+            "cols": 4,
+            "rows": 4,
+            "max_tiles": 16,
+            "pressure": 1,
+            "first_accept": 1824,
+            "last_delivery": 2030,
+            "last_return": 2983,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 640
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/3f79a33fcf190978/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.068,
+          "log": "$BUILD/network-final/4x4-backend1/negative-BAD_EXPECTED.log",
+          "log_sha256": "9fbd625176465161d04331bbf5da04e90d4cab4820436eb7788d2e8b7496a358",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/3f79a33fcf190978/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.035,
+          "log": "$BUILD/network-final/4x4-backend1/negative-INVALID_TARGET.log",
+          "log_sha256": "cfa9a2e6c9cb09ca2b4e988a18c0272e457775ccf2a4e4fbfcf4faaa82198a31",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/3f79a33fcf190978/Vtb_control_network",
+            "+DISABLED_MULTICAST"
+          ],
+          "exit_code": -6,
+          "seconds": 0.076,
+          "log": "$BUILD/network-final/4x4-backend1/negative-DISABLED_MULTICAST.log",
+          "log_sha256": "820547d594d05cc860d38ac97ad3a85fed95c780e62b246b8939f24aa7f660da",
+          "flag": "DISABLED_MULTICAST",
+          "expected_marker": "CTRL_MULTICAST_DISABLED",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "fadf148475c1f97fa450adfb1e93faeaba75cd92d73dfe46c1d4a95807352c01",
+      "build_identity_sha256": "ea6b5871edd07b55dd6df7fb63986fcdea5070507bb771297fb3a817a86a7fe3"
+    },
+    {
+      "parameters": {
+        "COLS": 4,
+        "ROWS": 4,
+        "MAX_COLS": 4,
+        "MAX_ROWS": 4,
+        "BACKEND": 2,
+        "CTRL_MULTICAST": 0
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/a97f0d8e85b29efa/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/4x4-backend2/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.114,
+          "log": "$BUILD/network-final/4x4-backend2/normal.log",
+          "log_sha256": "719a1d95da23ee52da922e20354a5657e520b1f52eacf23db9ed03d689479327",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 0,
+            "cols": 4,
+            "rows": 4,
+            "max_tiles": 16,
+            "pressure": 0,
+            "first_accept": 1312,
+            "last_delivery": 1476,
+            "last_return": 1956,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 640
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/a97f0d8e85b29efa/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/4x4-backend2/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.167,
+          "log": "$BUILD/network-final/4x4-backend2/backpressure.log",
+          "log_sha256": "794e0a805da91febadf92309c26377a3454643d7dde791d2733be817dcf6688b",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 0,
+            "cols": 4,
+            "rows": 4,
+            "max_tiles": 16,
+            "pressure": 1,
+            "first_accept": 1824,
+            "last_delivery": 2030,
+            "last_return": 2983,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 640
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/a97f0d8e85b29efa/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/network-final/4x4-backend2/negative-BAD_EXPECTED.log",
+          "log_sha256": "8bf2d18beece84bbb4a9daff2f4466de69edb86731961eea4246715f554dadfb",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/a97f0d8e85b29efa/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.033,
+          "log": "$BUILD/network-final/4x4-backend2/negative-INVALID_TARGET.log",
+          "log_sha256": "0d2f0bf305628c73366bd0535e4e54e27ba7000e196e8f8f1ae172aa015db183",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/a97f0d8e85b29efa/Vtb_control_network",
+            "+DISABLED_MULTICAST"
+          ],
+          "exit_code": -6,
+          "seconds": 0.033,
+          "log": "$BUILD/network-final/4x4-backend2/negative-DISABLED_MULTICAST.log",
+          "log_sha256": "b8d6a8390bf91c97038a63b3ff921a40fefd9dec8206a259485bfd75e3a78ca9",
+          "flag": "DISABLED_MULTICAST",
+          "expected_marker": "CTRL_MULTICAST_DISABLED",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "604803cbd137505a9bc40a2613ac3f97cf36c123e4db39edeff7fa540df0b034",
+      "build_identity_sha256": "dd6501fa240d5afd934f628c0cb1117795d0440fd2a823fab3e4979aa5620452"
+    },
+    {
+      "parameters": {
+        "COLS": 2,
+        "ROWS": 3,
+        "MAX_COLS": 3,
+        "MAX_ROWS": 3,
+        "BACKEND": 0,
+        "CTRL_MULTICAST": 0
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/5dd38ba81b98fc9d/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/2x3-backend0/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.064,
+          "log": "$BUILD/network-final/2x3-backend0/normal.log",
+          "log_sha256": "7234bb00fdead676a95ca49c6d7cded40ad3c208c1ef13d78c3a50f7a8a8e7da",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 0,
+            "multicast": 0,
+            "cols": 2,
+            "rows": 3,
+            "max_tiles": 9,
+            "pressure": 0,
+            "first_accept": 909,
+            "last_delivery": 1073,
+            "last_return": 1150,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 240
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/5dd38ba81b98fc9d/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/2x3-backend0/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.064,
+          "log": "$BUILD/network-final/2x3-backend0/backpressure.log",
+          "log_sha256": "8d068284643b2e4174d107da923d2efa8652e9ccf432f54ad260b791841cb899",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 0,
+            "multicast": 0,
+            "cols": 2,
+            "rows": 3,
+            "max_tiles": 9,
+            "pressure": 1,
+            "first_accept": 1106,
+            "last_delivery": 1310,
+            "last_return": 1541,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 240
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/5dd38ba81b98fc9d/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/network-final/2x3-backend0/negative-BAD_EXPECTED.log",
+          "log_sha256": "162e5599b6ab6a283c5a1741ff8401bdcdc5287dfee9923697ed41e05b163acb",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "a32d2857f05d1c6da6b85e0176f60345e2cdfd7f8305d0afed2eeeebf33c070f",
+      "build_identity_sha256": "6ed756d6deb414dcd59f1fe4febdfcfed3b82beaac414eaaf798da6ec7957cb9"
+    },
+    {
+      "parameters": {
+        "COLS": 2,
+        "ROWS": 3,
+        "MAX_COLS": 3,
+        "MAX_ROWS": 3,
+        "BACKEND": 1,
+        "CTRL_MULTICAST": 0
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/17c8cf9943fb79c7/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/2x3-backend1/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.032,
+          "log": "$BUILD/network-final/2x3-backend1/normal.log",
+          "log_sha256": "cbd401e460701b76492cedb223543c3900a377dd80426273fc49795a928d5e89",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 0,
+            "cols": 2,
+            "rows": 3,
+            "max_tiles": 9,
+            "pressure": 0,
+            "first_accept": 910,
+            "last_delivery": 1073,
+            "last_return": 1152,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 240
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/17c8cf9943fb79c7/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/2x3-backend1/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.032,
+          "log": "$BUILD/network-final/2x3-backend1/backpressure.log",
+          "log_sha256": "1f49c310c0d9089fa3725d2004c1b469a6e0386f173c1f241b11e8cb63a2dc5e",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 0,
+            "cols": 2,
+            "rows": 3,
+            "max_tiles": 9,
+            "pressure": 1,
+            "first_accept": 1106,
+            "last_delivery": 1308,
+            "last_return": 1541,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 240
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/17c8cf9943fb79c7/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/network-final/2x3-backend1/negative-BAD_EXPECTED.log",
+          "log_sha256": "42aac6ebe66a77ba5cfd785e2d4838d1651d81959bdff7abe80fbee96509b9aa",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/17c8cf9943fb79c7/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/network-final/2x3-backend1/negative-INVALID_TARGET.log",
+          "log_sha256": "e1b2377f4160b74b27abdf745a0199f17aac59ea6b1dc3d6d924d5e01766bbe7",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/17c8cf9943fb79c7/Vtb_control_network",
+            "+DISABLED_MULTICAST"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/network-final/2x3-backend1/negative-DISABLED_MULTICAST.log",
+          "log_sha256": "a591eef0aa3abbf8b19f0eff22a3bf5871b47845161c7e8ae69898906203a911",
+          "flag": "DISABLED_MULTICAST",
+          "expected_marker": "CTRL_MULTICAST_DISABLED",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "1cd1fb1905161fb782e5a9e5b7ddb2b7259a05573f79732339ca27ed28687329",
+      "build_identity_sha256": "b1fcdf48cfe5c50e8bacd61868dd837abbd7dba7163d03081b1a43dc506e3dd8"
+    },
+    {
+      "parameters": {
+        "COLS": 2,
+        "ROWS": 3,
+        "MAX_COLS": 3,
+        "MAX_ROWS": 3,
+        "BACKEND": 2,
+        "CTRL_MULTICAST": 0
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/4a9e74bb6cd4d419/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/2x3-backend2/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.032,
+          "log": "$BUILD/network-final/2x3-backend2/normal.log",
+          "log_sha256": "5be591cdc2d1ada6584c7b713bc8eae802f3969aad0ba9939043027183b50dd9",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 0,
+            "cols": 2,
+            "rows": 3,
+            "max_tiles": 9,
+            "pressure": 0,
+            "first_accept": 910,
+            "last_delivery": 1073,
+            "last_return": 1152,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 240
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/4a9e74bb6cd4d419/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/2x3-backend2/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.064,
+          "log": "$BUILD/network-final/2x3-backend2/backpressure.log",
+          "log_sha256": "57d3dc18e411eef9f3ac2cd89d6ec96d4e3062af73a41e7f14e42e56c08b861f",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 0,
+            "cols": 2,
+            "rows": 3,
+            "max_tiles": 9,
+            "pressure": 1,
+            "first_accept": 1106,
+            "last_delivery": 1308,
+            "last_return": 1541,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 240
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/4a9e74bb6cd4d419/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/network-final/2x3-backend2/negative-BAD_EXPECTED.log",
+          "log_sha256": "a47310e9c68d8b8658ac1816129e15e173e4af0a33fc47d20cbd805c0cc897ae",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/4a9e74bb6cd4d419/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/network-final/2x3-backend2/negative-INVALID_TARGET.log",
+          "log_sha256": "0eea819945330d170478f9dc33e3571f7e22f814f15ea44ceb946623d38abba3",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/4a9e74bb6cd4d419/Vtb_control_network",
+            "+DISABLED_MULTICAST"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/network-final/2x3-backend2/negative-DISABLED_MULTICAST.log",
+          "log_sha256": "224d77e684c0701c35a12628cec3114927e64bdaadedfa3d6aad46523482e576",
+          "flag": "DISABLED_MULTICAST",
+          "expected_marker": "CTRL_MULTICAST_DISABLED",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "38005c666c4c6c6f193b00301d0aa2c7bd0854514df99b95415d3190c895717e",
+      "build_identity_sha256": "3c11c8938f5a174787c5e97efc3bfbc306c44ffe98bcc8c116844ab26cc23d44"
+    },
+    {
+      "parameters": {
+        "COLS": 3,
+        "ROWS": 2,
+        "MAX_COLS": 4,
+        "MAX_ROWS": 2,
+        "BACKEND": 0,
+        "CTRL_MULTICAST": 0
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/afbbfd22a52f6c7b/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/3x2-backend0/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.114,
+          "log": "$BUILD/network-final/3x2-backend0/normal.log",
+          "log_sha256": "1a5e2b49fead6cb85b63dab6696140cf62ddb7fafab79743988d3524a317653e",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 0,
+            "multicast": 0,
+            "cols": 3,
+            "rows": 2,
+            "max_tiles": 8,
+            "pressure": 0,
+            "first_accept": 909,
+            "last_delivery": 1072,
+            "last_return": 1150,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 240
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/afbbfd22a52f6c7b/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/3x2-backend0/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.114,
+          "log": "$BUILD/network-final/3x2-backend0/backpressure.log",
+          "log_sha256": "9cd3cc4db823ae47f7e3f7b5665e206ecece9e9a1b8199190b56883e15ff6589",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 0,
+            "multicast": 0,
+            "cols": 3,
+            "rows": 2,
+            "max_tiles": 8,
+            "pressure": 1,
+            "first_accept": 1106,
+            "last_delivery": 1308,
+            "last_return": 1541,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 240
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/afbbfd22a52f6c7b/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/network-final/3x2-backend0/negative-BAD_EXPECTED.log",
+          "log_sha256": "162e5599b6ab6a283c5a1741ff8401bdcdc5287dfee9923697ed41e05b163acb",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "6860287f9118e073fd27083e2c935b044f97fa841561a4b5262a92b0b0d7de13",
+      "build_identity_sha256": "d51b42651318d131c1e785695d08f7410c13d888e5eb3bf88799311bb2d1f526"
+    },
+    {
+      "parameters": {
+        "COLS": 3,
+        "ROWS": 2,
+        "MAX_COLS": 4,
+        "MAX_ROWS": 2,
+        "BACKEND": 1,
+        "CTRL_MULTICAST": 0
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/7dbfb737fcb1da9e/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/3x2-backend1/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.032,
+          "log": "$BUILD/network-final/3x2-backend1/normal.log",
+          "log_sha256": "2ed54b0613414a17bc25b5c73c193cba5f465ae11c183ce83181e40c67dec144",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 0,
+            "cols": 3,
+            "rows": 2,
+            "max_tiles": 8,
+            "pressure": 0,
+            "first_accept": 910,
+            "last_delivery": 1073,
+            "last_return": 1152,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 240
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/7dbfb737fcb1da9e/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/3x2-backend1/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.064,
+          "log": "$BUILD/network-final/3x2-backend1/backpressure.log",
+          "log_sha256": "54faa9fcaa68f1844b30d757cb99cb1261b34af9bbd09d7d859d89465945c6f7",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 1,
+            "multicast": 0,
+            "cols": 3,
+            "rows": 2,
+            "max_tiles": 8,
+            "pressure": 1,
+            "first_accept": 1106,
+            "last_delivery": 1308,
+            "last_return": 1541,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 240
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/7dbfb737fcb1da9e/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/network-final/3x2-backend1/negative-BAD_EXPECTED.log",
+          "log_sha256": "42aac6ebe66a77ba5cfd785e2d4838d1651d81959bdff7abe80fbee96509b9aa",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/7dbfb737fcb1da9e/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/network-final/3x2-backend1/negative-INVALID_TARGET.log",
+          "log_sha256": "e1b2377f4160b74b27abdf745a0199f17aac59ea6b1dc3d6d924d5e01766bbe7",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/7dbfb737fcb1da9e/Vtb_control_network",
+            "+DISABLED_MULTICAST"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/network-final/3x2-backend1/negative-DISABLED_MULTICAST.log",
+          "log_sha256": "a591eef0aa3abbf8b19f0eff22a3bf5871b47845161c7e8ae69898906203a911",
+          "flag": "DISABLED_MULTICAST",
+          "expected_marker": "CTRL_MULTICAST_DISABLED",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "d20c19b9100a06351251fdb3c4f3025c48187d662f6305731510454f952a5dd1",
+      "build_identity_sha256": "82a1dd964c89e92f04b5dd47afb7ddb6c039fe994d334af4c8a7559539b67b6e"
+    },
+    {
+      "parameters": {
+        "COLS": 3,
+        "ROWS": 2,
+        "MAX_COLS": 4,
+        "MAX_ROWS": 2,
+        "BACKEND": 2,
+        "CTRL_MULTICAST": 0
+      },
+      "status": "passed",
+      "runs": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/78ad6c0b8caf2aa4/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/3x2-backend2/normal.json"
+          ],
+          "exit_code": 0,
+          "seconds": 0.032,
+          "log": "$BUILD/network-final/3x2-backend2/normal.log",
+          "log_sha256": "f211434be9dde5fdec2e1e76a924e46366a718e9e599254ce4a064ad09be6177",
+          "mode": "normal",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 0,
+            "cols": 3,
+            "rows": 2,
+            "max_tiles": 8,
+            "pressure": 0,
+            "first_accept": 910,
+            "last_delivery": 1073,
+            "last_return": 1152,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 240
+          }
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/78ad6c0b8caf2aa4/Vtb_control_network",
+            "+RESULT=$BUILD/network-final/3x2-backend2/backpressure.json",
+            "+BACKPRESSURE"
+          ],
+          "exit_code": 0,
+          "seconds": 0.064,
+          "log": "$BUILD/network-final/3x2-backend2/backpressure.log",
+          "log_sha256": "4d2ac859c3918bd710a37ebfa3cff11d5dc8b29a99f54419eeb1f76052453768",
+          "mode": "backpressure",
+          "passed": true,
+          "metrics": {
+            "backend": 2,
+            "multicast": 0,
+            "cols": 3,
+            "rows": 2,
+            "max_tiles": 8,
+            "pressure": 1,
+            "first_accept": 1106,
+            "last_delivery": 1308,
+            "last_return": 1541,
+            "host_packets": 160,
+            "target_deliveries": 160,
+            "up_packets": 240
+          }
+        }
+      ],
+      "negatives": [
+        {
+          "argv": [
+            "$BUILD/network-final/build/78ad6c0b8caf2aa4/Vtb_control_network",
+            "+BAD_EXPECTED"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/network-final/3x2-backend2/negative-BAD_EXPECTED.log",
+          "log_sha256": "a47310e9c68d8b8658ac1816129e15e173e4af0a33fc47d20cbd805c0cc897ae",
+          "flag": "BAD_EXPECTED",
+          "expected_marker": "CTRL_NETWORK_DOWN_MISMATCH",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/78ad6c0b8caf2aa4/Vtb_control_network",
+            "+INVALID_TARGET"
+          ],
+          "exit_code": -6,
+          "seconds": 0.016,
+          "log": "$BUILD/network-final/3x2-backend2/negative-INVALID_TARGET.log",
+          "log_sha256": "0eea819945330d170478f9dc33e3571f7e22f814f15ea44ceb946623d38abba3",
+          "flag": "INVALID_TARGET",
+          "expected_marker": "CTRL_NETWORK_INVALID_TARGET",
+          "passed": true
+        },
+        {
+          "argv": [
+            "$BUILD/network-final/build/78ad6c0b8caf2aa4/Vtb_control_network",
+            "+DISABLED_MULTICAST"
+          ],
+          "exit_code": -6,
+          "seconds": 0.032,
+          "log": "$BUILD/network-final/3x2-backend2/negative-DISABLED_MULTICAST.log",
+          "log_sha256": "224d77e684c0701c35a12628cec3114927e64bdaadedfa3d6aad46523482e576",
+          "flag": "DISABLED_MULTICAST",
+          "expected_marker": "CTRL_MULTICAST_DISABLED",
+          "passed": true
+        }
+      ],
+      "binary_sha256": "a945c74725d1e56123cbaa087acc2ba8f82d8b7c47febd37a1383bb000bffa52",
+      "build_identity_sha256": "f53a882f53c211432b275a5cf885a4f87b23cd899b0193c2605c1376729848f0"
+    }
+  ],
+  "all_passed": true
+}

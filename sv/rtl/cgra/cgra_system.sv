@@ -116,6 +116,12 @@ module cgra_system #(
   logic [67:0] mem_dma_wr_msg;
 
   initial begin
+    if(CTRL_MULTICAST && CTRL_NETWORK==0)
+      $fatal(1,"CTRL_MULTICAST_PROFILE: multicast requires dedicated control transport");
+    if(CTRL_NETWORK<0 || CTRL_NETWORK>2 || (CTRL_NETWORK!=0 &&
+       (!HAS_CTRL_RING || IS_MULTI || NUM_CGRAS!=1 || TILE_VARIANT!=0 ||
+        NOC_LEGACY_PYTHON || HAS_DMA || HAS_IM2COL)))
+      $fatal(1,"CTRL_NETWORK_PROFILE: dedicated requires enabled transport, single CGRA, Base, native NoC, no peripherals");
     if(MAX_COLS<COLS || MAX_ROWS<ROWS || MAX_MEM_PORTS<MEM_PORTS || MEM_PORTS<1 || MEM_WRITE_PORTS<1)
       $fatal(1,"Shared packet geometry must contain the local CGRA");
     if(!CUSTOM_TOPOLOGY && (MEM_PORTS!=COLS+ROWS-1 || MEM_WRITE_PORTS!=COLS+ROWS-1))
@@ -156,12 +162,21 @@ module cgra_system #(
       .send_msg(loop_out_msg), .send_val(loop_out_val), .send_rdy(loop_out_rdy), .count()
     );
   end
-  if (HAS_CTRL_RING) begin : enabled_ctrl_ring
+  if (HAS_CTRL_RING && CTRL_NETWORK==0) begin : enabled_ctrl_ring
     cgra_credit_ring #(.LEGACY_PYTHON(NOC_LEGACY_PYTHON),.WIDTH(HOST_BITS), .NODES(MAX_TILES+1), .DST_LSB(HOST_DST_LSB),
                      .DST_WIDTH(TILE_ID_W), .VC_LSB(PAYLOAD_BITS)) ctrl_ring (
     .clk, .reset, .recv_msg(ring_recv_msg), .recv_val(ring_recv_val), .recv_rdy(ring_recv_rdy),
     .send_msg(ring_send_msg), .send_val(ring_send_val), .send_rdy(ring_send_rdy)
     );
+  end else if(HAS_CTRL_RING) begin : dedicated_ctrl_network
+    cgra_ctrl_network #(.WIDTH(HOST_BITS),.TILES(NUM_TILES),.MAX_TILES(MAX_TILES),
+      .COLS(COLS),.LAYOUT(CTRL_NETWORK),.DST_LSB(HOST_DST_LSB),
+      .DST_WIDTH(TILE_ID_W),.VC_LSB(PAYLOAD_BITS),.MULTICAST(CTRL_MULTICAST),
+      .CMD_LSB(PAYLOAD_BITS-6),.DATA_LSB(CTRL_ADDR_W+CTRL_BITS+GLOBAL_ADDR_W+3),
+      .DATA_WIDTH(DATA_W),.MASK_ADDR_LSB(CTRL_ADDR_W+CTRL_BITS),.MASK_ADDR_WIDTH(GLOBAL_ADDR_W),
+      .CTRL_ADDR_WIDTH(CTRL_ADDR_W),.CTRL_DEPTH(CTRL_DEPTH)) network (
+      .clk,.reset,.recv_msg(ring_recv_msg),.recv_val(ring_recv_val),.recv_rdy(ring_recv_rdy),
+      .send_msg(ring_send_msg),.send_val(ring_send_val),.send_rdy(ring_send_rdy));
   end else begin : disabled_ctrl_ring
     for (genvar node=0;node<=MAX_TILES;node++) begin : disconnected
       assign ring_recv_rdy[node]=1'b0;
